@@ -164,11 +164,11 @@ function renderRows(papers) {
     const key = CAT_KEY[p.category] ?? 'systems';
     const arxivLink = `<a class="link-pill link-arxiv" href="https://arxiv.org/abs/${esc(p.id)}" target="_blank" rel="noopener noreferrer">arXiv</a>`;
     let githubLink = '';
-    if (p.githubRepo) {
+    if (p.projectPage) {
       try {
-        const u = new URL(p.githubRepo);
-        if (u.protocol === 'https:' && u.hostname === 'github.com') {
-          githubLink = `<a class="link-pill link-github" href="${esc(p.githubRepo)}" target="_blank" rel="noopener noreferrer">GitHub</a>`;
+        const u = new URL(p.projectPage);
+        if (u.protocol === 'https:') {
+          githubLink = `<a class="link-pill link-github" href="${esc(p.projectPage)}" target="_blank" rel="noopener noreferrer">Project</a>`;
         }
       } catch (_) {}
     }

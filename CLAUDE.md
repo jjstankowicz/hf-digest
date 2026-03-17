@@ -58,7 +58,8 @@ Use plain branch names only (e.g., `add-automation`), not slash-prefixed forms.
 Do NOT create PRs without explicit user approval. Push the branch and let the user
 decide when to PR.
 We use Copilot to review PRs.
-When done with a branch (as told by the user), create a PR and initiate a Copilot review.
+When done with a branch (as told by the user), create a PR. Copilot review starts
+automatically -- do NOT attempt to request it manually.
 Share the link to the PR with the user so they can easily access by clicking.
 After creating the PR, poll GitHub in the background for Copilot review completion
 (do not wait for the user to report that comments are up).
@@ -69,7 +70,7 @@ versions of the branch.
 
 ### Copilot Review Polling
 
-After creating a PR and requesting Copilot review, start a background poll loop:
+After creating a PR, start a background poll loop (Copilot review starts automatically):
 
 ```bash
 # Poll every 30s until Copilot review appears

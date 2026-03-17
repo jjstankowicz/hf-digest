@@ -1,0 +1,10 @@
+[project]
+name = "hf-digest"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "anthropic>=0.50.0",
+]
+
+[tool.uv]
+dev-dependencies = []

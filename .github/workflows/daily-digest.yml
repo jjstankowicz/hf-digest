@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: '0 8 * * *'   # 08:00 UTC daily
   workflow_dispatch:        # allow manual trigger from default branch only
+    inputs:
+      date:
+        description: 'Target date (YYYY-MM-DD). Defaults to yesterday UTC.'
+        required: false
+        default: ''
 
 concurrency:
   group: daily-digest
@@ -27,7 +32,12 @@ jobs:
       - name: Fetch and process papers
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: uv run python scripts/fetch_papers.py
+        run: |
+          if [ -n "${{ inputs.date }}" ]; then
+            uv run python scripts/fetch_papers.py --date "${{ inputs.date }}"
+          else
+            uv run python scripts/fetch_papers.py
+          fi
 
       - name: Commit and push if data changed
         run: |

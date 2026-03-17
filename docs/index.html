@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Papers Digest</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f7fa; color: #222; padding: 24px; }
+  .header { text-align: center; margin-bottom: 24px; }
+  .header h1 { color: #2f5496; font-size: 28px; margin-bottom: 12px; }
+  .date-nav { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 6px; }
+  .date-nav button {
+    background: #2f5496; color: #fff; border: none; border-radius: 50%;
+    width: 28px; height: 28px; font-size: 16px; cursor: pointer; line-height: 1;
+    display: flex; align-items: center; justify-content: center;
+    transition: opacity 0.15s;
+  }
+  .date-nav button:disabled { opacity: 0.3; cursor: default; }
+  .date-nav button:not(:disabled):hover { opacity: 0.8; }
+  .date-nav #date-display { font-size: 18px; font-weight: 600; color: #2f5496; min-width: 180px; text-align: center; }
+  .subtitle { color: #666; font-size: 14px; }
+  .filters { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 20px; }
+  .filters button {
+    border: none; border-radius: 20px; padding: 6px 16px; font-size: 13px; cursor: pointer;
+    font-weight: 500; transition: all 0.15s ease; opacity: 0.7;
+  }
+  .filters button.active { opacity: 1; box-shadow: 0 2px 6px rgba(0,0,0,0.15); transform: translateY(-1px); }
+  .filters button:hover { opacity: 1; }
+  .btn-all { background: #2f5496; color: #fff; }
+  .btn-medical { background: #e8f5e9; color: #2e7d32; }
+  .btn-molecular { background: #fff8e1; color: #f57f17; }
+  .btn-generative { background: #f3e5f5; color: #7b1fa2; }
+  .btn-llm { background: #e3f2fd; color: #1565c0; }
+  .btn-agents { background: #fff3e0; color: #e65100; }
+  .btn-vision { background: #fce4ec; color: #c62828; }
+  .btn-benchmark { background: #e0f2f1; color: #00695c; }
+  .btn-systems { background: #eceff1; color: #37474f; }
+  .table-wrap { overflow-x: auto; border-radius: 8px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+  table { width: 100%; border-collapse: collapse; background: #fff; font-size: 13px; }
+  thead th {
+    background: #2f5496; color: #fff; padding: 10px 12px; text-align: left;
+    position: sticky; top: 0; z-index: 10; font-weight: 600; font-size: 12px; white-space: nowrap;
+  }
+  tbody tr { border-bottom: 1px solid #eee; transition: background 0.1s; }
+  tbody tr:nth-child(even) { background: #fafbfc; }
+  tbody tr:hover { background: #eef3fb; }
+  tbody td { padding: 8px 12px; vertical-align: top; line-height: 1.45; }
+  td.title-cell { font-weight: 600; min-width: 220px; }
+  .cat-badge {
+    display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; white-space: nowrap;
+  }
+  .cat-medical .cat-badge { background: #e8f5e9; color: #2e7d32; }
+  .cat-molecular .cat-badge { background: #fff8e1; color: #f57f17; }
+  .cat-generative .cat-badge { background: #f3e5f5; color: #7b1fa2; }
+  .cat-llm .cat-badge { background: #e3f2fd; color: #1565c0; }
+  .cat-agents .cat-badge { background: #fff3e0; color: #e65100; }
+  .cat-vision .cat-badge { background: #fce4ec; color: #c62828; }
+  .cat-benchmark .cat-badge { background: #e0f2f1; color: #00695c; }
+  .cat-systems .cat-badge { background: #eceff1; color: #37474f; }
+  .link-pill {
+    display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px;
+    text-decoration: none; margin-right: 4px; font-weight: 500;
+  }
+  .link-arxiv { background: #e3f2fd; color: #1565c0; }
+  .link-arxiv:hover { background: #bbdefb; }
+  .link-github { background: #f3e5f5; color: #7b1fa2; }
+  .link-github:hover { background: #e1bee7; }
+  .comment { color: #888; font-style: italic; font-size: 12px; }
+  td.date-cell { white-space: nowrap; font-size: 12px; color: #555; }
+  .count-badge { background: #2f5496; color: #fff; border-radius: 10px; padding: 1px 8px; font-size: 11px; margin-left: 6px; }
+  .empty-state { text-align: center; padding: 60px 20px; color: #999; font-size: 15px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Daily Papers Digest</h1>
+  <div class="date-nav">
+    <button id="prev-btn" aria-label="Previous day">&#8249;</button>
+    <span id="date-display">Loading...</span>
+    <button id="next-btn" aria-label="Next day">&#8250;</button>
+  </div>
+  <div class="subtitle" id="paper-count"></div>
+</div>
+
+<div class="filters" id="filters"></div>
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Published</th>
+        <th>Category</th>
+        <th>Title</th>
+        <th>Task</th>
+        <th>Model / Method</th>
+        <th>Inputs</th>
+        <th>Outputs</th>
+        <th>Key Results</th>
+        <th>Comments</th>
+        <th>Links</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+</div>
+
+<script>
+const CATEGORIES = ['Medical','Molecular','Generative','LLM/Reasoning','Agents/RL','Vision','Benchmark','Systems'];
+
+const CAT_KEY = {
+  'Medical': 'medical', 'Molecular': 'molecular', 'Generative': 'generative',
+  'LLM/Reasoning': 'llm', 'Agents/RL': 'agents', 'Vision': 'vision',
+  'Benchmark': 'benchmark', 'Systems': 'systems'
+};
+
+let dates = [];
+let currentIdx = 0;
+let currentPapers = [];
+let activeFilter = 'all';
+
+function esc(s) {
+  return String(s ?? '')
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function formatDate(isoStr) {
+  const d = new Date(isoStr);
+  return d.toLocaleDateString('en-US', {month:'short', day:'numeric', timeZone:'UTC'});
+}
+
+function formatDisplayDate(dateStr) {
+  const d = new Date(dateStr + 'T00:00:00Z');
+  return d.toLocaleDateString('en-US', {month:'long', day:'numeric', year:'numeric', timeZone:'UTC'});
+}
+
+function renderFilters(papers) {
+  const counts = {};
+  papers.forEach(p => { counts[p.category] = (counts[p.category] ?? 0) + 1; });
+
+  const el = document.getElementById('filters');
+  const activeCls = activeFilter === 'all' ? ' active' : '';
+  let html = `<button class="btn-all${activeCls}" onclick="filterCat('all')">All<span class="count-badge">${papers.length}</span></button>`;
+
+  CATEGORIES.forEach(cat => {
+    if (!counts[cat]) return;
+    const key = CAT_KEY[cat];
+    const cls = activeFilter === key ? ' active' : '';
+    html += `<button class="btn-${key}${cls}" onclick="filterCat('${key}')">${esc(cat)}<span class="count-badge">${counts[cat]}</span></button>`;
+  });
+
+  el.innerHTML = html;
+}
+
+function renderRows(papers) {
+  const tbody = document.getElementById('tbody');
+  if (!papers.length) {
+    tbody.innerHTML = `<tr><td colspan="10" class="empty-state">No papers found for this date.</td></tr>`;
+    return;
+  }
+
+  tbody.innerHTML = papers.map(p => {
+    const key = CAT_KEY[p.category] ?? 'systems';
+    const arxivLink = `<a class="link-pill link-arxiv" href="https://arxiv.org/abs/${esc(p.id)}" target="_blank" rel="noopener noreferrer">arXiv</a>`;
+    let githubLink = '';
+    if (p.githubRepo) {
+      try {
+        const u = new URL(p.githubRepo);
+        if (u.protocol === 'https:' && u.hostname === 'github.com') {
+          githubLink = `<a class="link-pill link-github" href="${esc(p.githubRepo)}" target="_blank" rel="noopener noreferrer">GitHub</a>`;
+        }
+      } catch (_) {}
+    }
+    return `<tr class="cat-${key}" data-cat="${key}">
+      <td class="date-cell">${formatDate(p.publishedAt)}</td>
+      <td><span class="cat-badge">${esc(p.category)}</span></td>
+      <td class="title-cell">${esc(p.title)}</td>
+      <td>${esc(p.task)}</td>
+      <td>${esc(p.model)}</td>
+      <td>${esc(p.inputs)}</td>
+      <td>${esc(p.outputs)}</td>
+      <td>${esc(p.key_results)}</td>
+      <td class="comment">${esc(p.comments)}</td>
+      <td>${arxivLink}${githubLink}</td>
+    </tr>`;
+  }).join('');
+}
+
+function filterCat(cat) {
+  activeFilter = cat;
+  renderFilters(currentPapers);
+  const rows = document.querySelectorAll('#tbody tr[data-cat]');
+  rows.forEach(r => { r.style.display = (cat === 'all' || r.dataset.cat === cat) ? '' : 'none'; });
+}
+
+function updateNav() {
+  document.getElementById('prev-btn').disabled = currentIdx <= 0;
+  document.getElementById('next-btn').disabled = currentIdx >= dates.length - 1;
+  document.getElementById('date-display').textContent = formatDisplayDate(dates[currentIdx]);
+}
+
+async function loadDate(date) {
+  document.getElementById('paper-count').textContent = 'Loading...';
+  document.getElementById('tbody').innerHTML = '';
+  document.getElementById('filters').innerHTML = '';
+
+  const resp = await fetch(`data/${date}.json`);
+  if (!resp.ok) {
+    document.getElementById('paper-count').textContent = 'Failed to load papers.';
+    document.getElementById('tbody').innerHTML =
+      `<tr><td colspan="10" class="empty-state">Could not load data for this date.</td></tr>`;
+    return;
+  }
+  currentPapers = await resp.json();
+  activeFilter = 'all';
+
+  document.getElementById('paper-count').textContent =
+    `${currentPapers.length} paper${currentPapers.length !== 1 ? 's' : ''} \u2014 Source: HuggingFace Daily Papers`;
+
+  renderFilters(currentPapers);
+  renderRows(currentPapers);
+}
+
+document.getElementById('prev-btn').addEventListener('click', async () => {
+  if (currentIdx > 0) { currentIdx--; updateNav(); await loadDate(dates[currentIdx]); }
+});
+document.getElementById('next-btn').addEventListener('click', async () => {
+  if (currentIdx < dates.length - 1) { currentIdx++; updateNav(); await loadDate(dates[currentIdx]); }
+});
+
+(async () => {
+  const resp = await fetch('data/index.json');
+  if (!resp.ok) {
+    document.getElementById('date-display').textContent = 'Unavailable';
+    document.getElementById('paper-count').textContent = 'Could not load index.';
+    return;
+  }
+  const idx = await resp.json();
+  dates = Array.isArray(idx.dates) && idx.dates.length ? idx.dates : [];
+  if (!dates.length) {
+    document.getElementById('date-display').textContent = 'No data yet';
+    document.getElementById('paper-count').textContent = '';
+    return;
+  }
+  currentIdx = dates.length - 1;
+  updateNav();
+  await loadDate(dates[currentIdx]);
+})();
+</script>
+
+</body>
+</html>

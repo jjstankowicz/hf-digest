@@ -23,10 +23,11 @@ docs/
 
 **Python script** (`scripts/fetch_papers.py`): fetches HF API, filters papers
 by `paper.submittedOnDailyAt == yesterday` (community curation date, not arxiv
-publication date), sorts by `paper.publishedAt` descending, calls Anthropic API
-for field extraction from `summary` (raw abstract -- no `ai_summary`/`ai_keywords`
-fields exist in the API), writes `docs/data/YYYY-MM-DD.json`, updates
-`docs/data/index.json`, prunes entries older than 30 days.
+publication date), sorts by `paper.upvotes` descending (mirrors HF daily site
+ordering), calls Anthropic API for field extraction from `summary` (raw abstract
+-- no `ai_summary`/`ai_keywords` fields exist in the API), writes
+`docs/data/YYYY-MM-DD.json`, updates `docs/data/index.json`, prunes entries
+older than 30 days.
 
 **Site** (`docs/index.html`): on load, fetches `data/index.json`, populates a
 date selector, fetches the selected day's JSON, and renders the table client-side.
@@ -39,7 +40,8 @@ Uses the same CSS and filter logic as the original template.
   "title": "...",
   "publishedAt": "2026-03-16T17:52:04.000Z",
   "submittedOnDailyAt": "2026-03-17T02:51:00.207Z",
-  "githubRepo": "https://github.com/...",
+  "upvotes": 42,
+  "projectPage": "https://...",
   "category": "LLM/Reasoning",
   "task": "...",
   "model": "(transformer) ModelName",
@@ -81,7 +83,7 @@ Uses the same CSS and filter logic as the original template.
 - `write-fetch-script` -- Implement `scripts/fetch_papers.py`:
   - Fetch `https://huggingface.co/api/daily_papers`
   - Filter to papers where `paper.submittedOnDailyAt` date == yesterday (or
-    `--date`); sort by `paper.publishedAt` descending
+    `--date`); sort by `paper.upvotes` descending (HF alignment)
   - No `ai_summary`/`ai_keywords` in the API -- pass `summary` (abstract) to
     Claude for field extraction; single batch call for all papers
   - Write `docs/data/YYYY-MM-DD.json` (keyed by `submittedOnDailyAt` date)

@@ -5,114 +5,265 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Daily Papers Digest</title>
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f7fa; color: #222; padding: 24px; }
-  .header { text-align: center; margin-bottom: 24px; }
-  .header h1 { color: #2f5496; font-size: 28px; margin-bottom: 12px; }
-  .date-nav { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 6px; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #f5f6f8;
+    --surface: #ffffff;
+    --border: #e5e7eb;
+    --text-primary: #111827;
+    --text-secondary: #374151;
+    --text-muted: #6b7280;
+    --accent: #2563eb;
+    --amber: #f59e0b;
+    --amber-bg: #fffbeb;
+    --radius-card: 0.75rem;
+    --radius-chip: 0.375rem;
+    --shadow-card: 0 1px 3px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.04);
+
+    /* Per-category: stripe color, badge bg, badge text */
+    --c-medical:    #4ade80; --cb-medical:    #dcfce7; --ct-medical:    #166534;
+    --c-molecular:  #fb923c; --cb-molecular:  #ffedd5; --ct-molecular:  #9a3412;
+    --c-generative: #c084fc; --cb-generative: #f3e8ff; --ct-generative: #6b21a8;
+    --c-llm:        #60a5fa; --cb-llm:        #dbeafe; --ct-llm:        #1e40af;
+    --c-agents:     #f97316; --cb-agents:     #fff7ed; --ct-agents:     #9a3412;
+    --c-vision:     #f87171; --cb-vision:     #fce7f3; --ct-vision:     #9d174d;
+    --c-benchmark:  #2dd4bf; --cb-benchmark:  #ccfbf1; --ct-benchmark:  #134e4a;
+    --c-systems:    #94a3b8; --cb-systems:    #f1f5f9; --ct-systems:    #334155;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    min-height: 100vh;
+  }
+
+  /* ---- Header ---- */
+  .site-header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .site-title { font-size: 20px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.02em; }
+  .site-title span { color: var(--accent); }
+
+  .date-nav { display: flex; align-items: center; gap: 8px; }
   .date-nav button {
-    background: #2f5496; color: #fff; border: none; border-radius: 50%;
-    width: 28px; height: 28px; font-size: 16px; cursor: pointer; line-height: 1;
-    display: flex; align-items: center; justify-content: center;
-    transition: opacity 0.15s;
+    background: var(--bg); border: 1px solid var(--border); border-radius: 6px;
+    width: 30px; height: 30px; font-size: 15px; cursor: pointer; color: var(--text-muted);
+    display: flex; align-items: center; justify-content: center; transition: all 0.15s;
   }
-  .date-nav button:disabled { opacity: 0.3; cursor: default; }
-  .date-nav button:not(:disabled):hover { opacity: 0.8; }
-  .date-nav #date-display { font-size: 18px; font-weight: 600; color: #2f5496; min-width: 180px; text-align: center; }
-  .subtitle { color: #666; font-size: 14px; }
-  .filters { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 20px; }
-  .filters button {
-    border: none; border-radius: 20px; padding: 6px 16px; font-size: 13px; cursor: pointer;
-    font-weight: 500; transition: all 0.15s ease; opacity: 0.7;
+  .date-nav button:hover:not(:disabled) { background: var(--border); color: var(--text-primary); }
+  .date-nav button:disabled { opacity: 0.35; cursor: default; }
+  #date-display { font-size: 15px; font-weight: 600; color: var(--text-primary); min-width: 160px; text-align: center; }
+
+  /* ---- Filters ---- */
+  .filters-bar {
+    padding: 12px 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
   }
-  .filters button.active { opacity: 1; box-shadow: 0 2px 6px rgba(0,0,0,0.15); transform: translateY(-1px); }
-  .filters button:hover { opacity: 1; }
-  .btn-all { background: #2f5496; color: #fff; }
-  .btn-medical { background: #e8f5e9; color: #2e7d32; }
-  .btn-molecular { background: #fff8e1; color: #f57f17; }
-  .btn-generative { background: #f3e5f5; color: #7b1fa2; }
-  .btn-llm { background: #e3f2fd; color: #1565c0; }
-  .btn-agents { background: #fff3e0; color: #e65100; }
-  .btn-vision { background: #fce4ec; color: #c62828; }
-  .btn-benchmark { background: #e0f2f1; color: #00695c; }
-  .btn-systems { background: #eceff1; color: #37474f; }
-  .table-wrap { overflow-x: auto; border-radius: 8px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
-  table { width: 100%; border-collapse: collapse; background: #fff; font-size: 13px; }
-  thead th {
-    background: #2f5496; color: #fff; padding: 10px 12px; text-align: left;
-    position: sticky; top: 0; z-index: 10; font-weight: 600; font-size: 12px; white-space: nowrap;
+  /* All filter chip base */
+  .filter-chip {
+    border: 1.5px solid var(--border); border-radius: 20px; padding: 4px 12px;
+    font-size: 12px; font-weight: 600; cursor: pointer; background: var(--surface);
+    color: var(--text-muted); transition: all 0.15s; white-space: nowrap;
   }
-  tbody tr { border-bottom: 1px solid #eee; transition: background 0.1s; }
-  tbody tr:nth-child(even) { background: #fafbfc; }
-  tbody tr:hover { background: #eef3fb; }
-  tbody td { padding: 8px 12px; vertical-align: top; line-height: 1.45; }
-  td.title-cell { font-weight: 600; min-width: 220px; }
+  .chip-count {
+    display: inline-block; margin-left: 4px; font-weight: 500;
+    opacity: 0.7;
+  }
+  /* "All" chip */
+  .filter-chip.fc-all { color: var(--text-secondary); }
+  .filter-chip.fc-all.active { background: var(--text-primary); border-color: var(--text-primary); color: #fff; }
+  .filter-chip.fc-all:hover:not(.active) { border-color: #9ca3af; color: var(--text-primary); }
+
+  /* Per-category chips: colored border + text in rest state, filled when active */
+  .filter-chip.fc-medical    { border-color: var(--c-medical);    color: var(--ct-medical); }
+  .filter-chip.fc-molecular  { border-color: var(--c-molecular);  color: var(--ct-molecular); }
+  .filter-chip.fc-generative { border-color: var(--c-generative); color: var(--ct-generative); }
+  .filter-chip.fc-llm        { border-color: var(--c-llm);        color: var(--ct-llm); }
+  .filter-chip.fc-agents     { border-color: var(--c-agents);     color: var(--ct-agents); }
+  .filter-chip.fc-vision     { border-color: var(--c-vision);     color: var(--ct-vision); }
+  .filter-chip.fc-benchmark  { border-color: var(--c-benchmark);  color: var(--ct-benchmark); }
+  .filter-chip.fc-systems    { border-color: var(--c-systems);    color: var(--ct-systems); }
+
+  .filter-chip.fc-medical.active    { background: var(--c-medical);    border-color: var(--c-medical);    color: #fff; }
+  .filter-chip.fc-molecular.active  { background: var(--c-molecular);  border-color: var(--c-molecular);  color: #fff; }
+  .filter-chip.fc-generative.active { background: var(--c-generative); border-color: var(--c-generative); color: #fff; }
+  .filter-chip.fc-llm.active        { background: var(--c-llm);        border-color: var(--c-llm);        color: #fff; }
+  .filter-chip.fc-agents.active     { background: var(--c-agents);     border-color: var(--c-agents);     color: #fff; }
+  .filter-chip.fc-vision.active     { background: var(--c-vision);     border-color: var(--c-vision);     color: #fff; }
+  .filter-chip.fc-benchmark.active  { background: var(--c-benchmark);  border-color: var(--c-benchmark);  color: #fff; }
+  .filter-chip.fc-systems.active    { background: var(--c-systems);    border-color: var(--c-systems);    color: #fff; }
+
+  #paper-count { font-size: 12px; color: var(--text-muted); margin-left: auto; white-space: nowrap; }
+
+  /* ---- Card Grid ---- */
+  .grid-wrap { padding: 24px; max-width: 1400px; margin: 0 auto; }
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+    gap: 16px;
+  }
+
+  /* ---- Card ---- */
+  .paper-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: box-shadow 0.15s, transform 0.15s;
+  }
+  .paper-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transform: translateY(-1px);
+  }
+
+  /* Top stripe matches category color */
+  .card-stripe { height: 4px; flex-shrink: 0; }
+  .cat-medical .card-stripe    { background: var(--c-medical); }
+  .cat-molecular .card-stripe  { background: var(--c-molecular); }
+  .cat-generative .card-stripe { background: var(--c-generative); }
+  .cat-llm .card-stripe        { background: var(--c-llm); }
+  .cat-agents .card-stripe     { background: var(--c-agents); }
+  .cat-vision .card-stripe     { background: var(--c-vision); }
+  .cat-benchmark .card-stripe  { background: var(--c-benchmark); }
+  .cat-systems .card-stripe    { background: var(--c-systems); }
+
+  /* Card header: meta row */
+  .card-header {
+    padding: 14px 16px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
   .cat-badge {
-    display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; white-space: nowrap;
+    border-radius: var(--radius-chip); padding: 3px 10px;
+    font-size: 11px; font-weight: 700; white-space: nowrap;
   }
-  .cat-medical .cat-badge { background: #e8f5e9; color: #2e7d32; }
-  .cat-molecular .cat-badge { background: #fff8e1; color: #f57f17; }
-  .cat-generative .cat-badge { background: #f3e5f5; color: #7b1fa2; }
-  .cat-llm .cat-badge { background: #e3f2fd; color: #1565c0; }
-  .cat-agents .cat-badge { background: #fff3e0; color: #e65100; }
-  .cat-vision .cat-badge { background: #fce4ec; color: #c62828; }
-  .cat-benchmark .cat-badge { background: #e0f2f1; color: #00695c; }
-  .cat-systems .cat-badge { background: #eceff1; color: #37474f; }
+  .cat-medical .cat-badge    { background: var(--cb-medical);    color: var(--ct-medical); }
+  .cat-molecular .cat-badge  { background: var(--cb-molecular);  color: var(--ct-molecular); }
+  .cat-generative .cat-badge { background: var(--cb-generative); color: var(--ct-generative); }
+  .cat-llm .cat-badge        { background: var(--cb-llm);        color: var(--ct-llm); }
+  .cat-agents .cat-badge     { background: var(--cb-agents);     color: var(--ct-agents); }
+  .cat-vision .cat-badge     { background: var(--cb-vision);     color: var(--ct-vision); }
+  .cat-benchmark .cat-badge  { background: var(--cb-benchmark);  color: var(--ct-benchmark); }
+  .cat-systems .cat-badge    { background: var(--cb-systems);    color: var(--ct-systems); }
+
+  .upvote-badge {
+    display: flex; align-items: center; gap: 4px;
+    background: var(--amber-bg); border-radius: var(--radius-chip);
+    padding: 3px 8px; font-size: 12px; font-weight: 700; color: #92400e;
+    margin-left: auto;
+  }
+  .upvote-badge svg { width: 11px; height: 11px; fill: var(--amber); }
+
+  /* Title */
+  .card-title {
+    padding: 10px 16px 0;
+    font-size: 15px; font-weight: 700; line-height: 1.4;
+    color: var(--text-primary); letter-spacing: -0.01em;
+  }
+
+  /* Field rows — all identical format */
+  .card-fields {
+    padding: 12px 16px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid var(--border);
+    margin-top: 12px;
+  }
+  .field-row {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 0 10px;
+    padding: 7px 0;
+    border-bottom: 1px solid #f3f4f6;
+    font-size: 13px;
+    line-height: 1.45;
+  }
+  .field-row:last-child { border-bottom: none; }
+  .field-label {
+    font-size: 11px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.05em; color: var(--text-muted);
+    padding-top: 1px;
+  }
+  .field-value { color: var(--text-secondary); }
+
+  /* Footer */
+  .card-footer {
+    padding: 10px 16px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #fafafa;
+    margin-top: 12px;
+  }
+  .date-chip { font-size: 11px; color: var(--text-muted); margin-right: auto; }
   .link-pill {
-    display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px;
-    text-decoration: none; margin-right: 4px; font-weight: 500;
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 3px 10px; border-radius: 10px; font-size: 11px; font-weight: 500;
+    text-decoration: none; transition: opacity 0.15s;
   }
-  .link-arxiv { background: #e3f2fd; color: #1565c0; }
-  .link-arxiv:hover { background: #bbdefb; }
-  .link-github { background: #f3e5f5; color: #7b1fa2; }
-  .link-github:hover { background: #e1bee7; }
-  .comment { color: #888; font-style: italic; font-size: 12px; }
-  td.date-cell { white-space: nowrap; font-size: 12px; color: #555; }
-  .count-badge { background: #2f5496; color: #fff; border-radius: 10px; padding: 1px 8px; font-size: 11px; margin-left: 6px; }
-  .empty-state { text-align: center; padding: 60px 20px; color: #999; font-size: 15px; }
+  .link-pill:hover { opacity: 0.75; }
+  .link-arxiv   { background: #dbeafe; color: #1e40af; }
+  .link-project { background: #f3e8ff; color: #6b21a8; }
+
+  /* Empty / loading */
+  .empty-state { text-align: center; padding: 80px 20px; color: var(--text-muted); font-size: 15px; }
+
+  @media (max-width: 600px) {
+    .card-grid { grid-template-columns: 1fr; }
+    .site-header { flex-wrap: wrap; }
+    #paper-count { display: none; }
+  }
 </style>
 </head>
 <body>
 
-<div class="header">
-  <h1>Daily Papers Digest</h1>
+<header class="site-header">
+  <div class="site-title">Daily Papers <span>Digest</span></div>
   <div class="date-nav">
     <button id="prev-btn" aria-label="Previous day">&#8249;</button>
     <span id="date-display">Loading...</span>
     <button id="next-btn" aria-label="Next day">&#8250;</button>
   </div>
-  <div class="subtitle" id="paper-count"></div>
+</header>
+
+<div class="filters-bar">
+  <div id="filters" style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;"></div>
+  <div id="paper-count"></div>
 </div>
 
-<div class="filters" id="filters"></div>
-
-<div class="table-wrap">
-  <table>
-    <thead>
-      <tr>
-        <th>Published</th>
-        <th>Category</th>
-        <th>Title</th>
-        <th>Task</th>
-        <th>Model / Method</th>
-        <th>Inputs</th>
-        <th>Outputs</th>
-        <th>Key Results</th>
-        <th>Comments</th>
-        <th>Links</th>
-      </tr>
-    </thead>
-    <tbody id="tbody"></tbody>
-  </table>
+<div class="grid-wrap">
+  <div class="card-grid" id="card-grid"></div>
 </div>
 
 <script>
 const CATEGORIES = ['Medical','Molecular','Generative','LLM/Reasoning','Agents/RL','Vision','Benchmark','Systems'];
 
 const CAT_KEY = {
-  'Medical': 'medical', 'Molecular': 'molecular', 'Generative': 'generative',
-  'LLM/Reasoning': 'llm', 'Agents/RL': 'agents', 'Vision': 'vision',
-  'Benchmark': 'benchmark', 'Systems': 'systems'
+  'Medical':'medical','Molecular':'molecular','Generative':'generative',
+  'LLM/Reasoning':'llm','Agents/RL':'agents','Vision':'vision',
+  'Benchmark':'benchmark','Systems':'systems'
 };
 
 let dates = [];
@@ -127,7 +278,7 @@ function esc(s) {
 
 function formatDate(isoStr) {
   const d = new Date(isoStr);
-  return d.toLocaleDateString('en-US', {month:'short', day:'numeric', timeZone:'UTC'});
+  return d.toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric', timeZone:'UTC'});
 }
 
 function formatDisplayDate(dateStr) {
@@ -138,29 +289,25 @@ function formatDisplayDate(dateStr) {
 function renderFilters(papers) {
   const counts = {};
   papers.forEach(p => { counts[p.category] = (counts[p.category] ?? 0) + 1; });
-
   const el = document.getElementById('filters');
-  const activeCls = activeFilter === 'all' ? ' active' : '';
-  let html = `<button class="btn-all${activeCls}" onclick="filterCat('all')">All<span class="count-badge">${papers.length}</span></button>`;
-
+  const allActive = activeFilter === 'all' ? ' active' : '';
+  let html = `<button class="filter-chip fc-all${allActive}" onclick="filterCat('all')">All<span class="chip-count">${papers.length}</span></button>`;
   CATEGORIES.forEach(cat => {
     if (!counts[cat]) return;
     const key = CAT_KEY[cat];
     const cls = activeFilter === key ? ' active' : '';
-    html += `<button class="btn-${key}${cls}" onclick="filterCat('${key}')">${esc(cat)}<span class="count-badge">${counts[cat]}</span></button>`;
+    html += `<button class="filter-chip fc-${key}${cls}" onclick="filterCat('${key}')">${esc(cat)}<span class="chip-count">${counts[cat]}</span></button>`;
   });
-
   el.innerHTML = html;
 }
 
-function renderRows(papers) {
-  const tbody = document.getElementById('tbody');
+function renderCards(papers) {
+  const grid = document.getElementById('card-grid');
   if (!papers.length) {
-    tbody.innerHTML = `<tr><td colspan="10" class="empty-state">No papers found for this date.</td></tr>`;
+    grid.innerHTML = `<div class="empty-state">No papers found for this date.</div>`;
     return;
   }
-
-  tbody.innerHTML = papers.map(p => {
+  grid.innerHTML = papers.map(p => {
     const key = CAT_KEY[p.category] ?? 'systems';
     const arxivLink = `<a class="link-pill link-arxiv" href="https://arxiv.org/abs/${esc(p.id)}" target="_blank" rel="noopener noreferrer">arXiv</a>`;
     let projectLink = '';
@@ -168,30 +315,50 @@ function renderRows(papers) {
       try {
         const u = new URL(p.projectPage);
         if (u.protocol === 'https:' || u.protocol === 'http:') {
-          projectLink = `<a class="link-pill link-github" href="${esc(p.projectPage)}" target="_blank" rel="noopener noreferrer">Project</a>`;
+          projectLink = `<a class="link-pill link-project" href="${esc(p.projectPage)}" target="_blank" rel="noopener noreferrer">Project</a>`;
         }
       } catch (_) {}
     }
-    return `<tr class="cat-${key}" data-cat="${key}">
-      <td class="date-cell">${formatDate(p.publishedAt)}</td>
-      <td><span class="cat-badge">${esc(p.category)}</span></td>
-      <td class="title-cell">${esc(p.title)}</td>
-      <td>${esc(p.task)}</td>
-      <td>${esc(p.model)}</td>
-      <td>${esc(p.inputs)}</td>
-      <td>${esc(p.outputs)}</td>
-      <td>${esc(p.key_results)}</td>
-      <td class="comment">${esc(p.comments)}</td>
-      <td>${arxivLink}${projectLink}</td>
-    </tr>`;
+    const fields = [
+      ['Task',        p.task],
+      ['Model',       p.model],
+      ['Inputs',      p.inputs],
+      ['Outputs',     p.outputs],
+      ['Key Results', p.key_results],
+      ['Notes',       p.comments],
+    ];
+    const fieldRows = fields.map(([label, val]) =>
+      `<div class="field-row">
+        <span class="field-label">${label}</span>
+        <span class="field-value">${esc(val)}</span>
+      </div>`
+    ).join('');
+
+    return `<div class="paper-card cat-${key}" data-cat="${key}">
+      <div class="card-stripe"></div>
+      <div class="card-header">
+        <span class="cat-badge">${esc(p.category)}</span>
+        <span class="upvote-badge">
+          <svg viewBox="0 0 10 10"><path d="M5 1l4 8H1z"/></svg>
+          ${p.upvotes ?? 0}
+        </span>
+      </div>
+      <div class="card-title">${esc(p.title)}</div>
+      <div class="card-fields">${fieldRows}</div>
+      <div class="card-footer">
+        <span class="date-chip">${formatDate(p.publishedAt)}</span>
+        ${arxivLink}${projectLink}
+      </div>
+    </div>`;
   }).join('');
 }
 
 function filterCat(cat) {
   activeFilter = cat;
   renderFilters(currentPapers);
-  const rows = document.querySelectorAll('#tbody tr[data-cat]');
-  rows.forEach(r => { r.style.display = (cat === 'all' || r.dataset.cat === cat) ? '' : 'none'; });
+  document.querySelectorAll('.paper-card').forEach(c => {
+    c.style.display = (cat === 'all' || c.dataset.cat === cat) ? '' : 'none';
+  });
 }
 
 function updateNav() {
@@ -202,24 +369,22 @@ function updateNav() {
 
 async function loadDate(date) {
   document.getElementById('paper-count').textContent = 'Loading...';
-  document.getElementById('tbody').innerHTML = '';
+  document.getElementById('card-grid').innerHTML = '';
   document.getElementById('filters').innerHTML = '';
 
   const resp = await fetch(`data/${date}.json`);
   if (!resp.ok) {
-    document.getElementById('paper-count').textContent = 'Failed to load papers.';
-    document.getElementById('tbody').innerHTML =
-      `<tr><td colspan="10" class="empty-state">Could not load data for this date.</td></tr>`;
+    document.getElementById('paper-count').textContent = 'Failed to load.';
+    document.getElementById('card-grid').innerHTML =
+      `<div class="empty-state">Could not load data for this date.</div>`;
     return;
   }
   currentPapers = await resp.json();
   activeFilter = 'all';
-
   document.getElementById('paper-count').textContent =
-    `${currentPapers.length} paper${currentPapers.length !== 1 ? 's' : ''} \u2014 Source: HuggingFace Daily Papers`;
-
+    `${currentPapers.length} paper${currentPapers.length !== 1 ? 's' : ''} from HuggingFace Daily Papers`;
   renderFilters(currentPapers);
-  renderRows(currentPapers);
+  renderCards(currentPapers);
 }
 
 document.getElementById('prev-btn').addEventListener('click', async () => {
@@ -240,7 +405,6 @@ document.getElementById('next-btn').addEventListener('click', async () => {
   dates = Array.isArray(idx.dates) && idx.dates.length ? idx.dates : [];
   if (!dates.length) {
     document.getElementById('date-display').textContent = 'No data yet';
-    document.getElementById('paper-count').textContent = '';
     return;
   }
   currentIdx = dates.length - 1;

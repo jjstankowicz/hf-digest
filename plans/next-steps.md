@@ -22,9 +22,11 @@ docs/
 ```
 
 **Python script** (`scripts/fetch_papers.py`): fetches HF API, filters papers
-by `publishedAt` == today, calls Anthropic API for field extraction, writes
-`docs/data/YYYY-MM-DD.json`, updates `docs/data/index.json`, prunes entries
-older than 30 days.
+by `paper.submittedOnDailyAt == yesterday` (community curation date, not arxiv
+publication date), sorts by `paper.publishedAt` descending, calls Anthropic API
+for field extraction from `summary` (raw abstract -- no `ai_summary`/`ai_keywords`
+fields exist in the API), writes `docs/data/YYYY-MM-DD.json`, updates
+`docs/data/index.json`, prunes entries older than 30 days.
 
 **Site** (`docs/index.html`): on load, fetches `data/index.json`, populates a
 date selector, fetches the selected day's JSON, and renders the table client-side.
@@ -35,7 +37,8 @@ Uses the same CSS and filter logic as the original template.
 {
   "id": "2603.12345",
   "title": "...",
-  "publishedAt": "2026-03-17T00:00:00Z",
+  "publishedAt": "2026-03-16T17:52:04.000Z",
+  "submittedOnDailyAt": "2026-03-17T02:51:00.207Z",
   "githubRepo": "https://github.com/...",
   "category": "LLM/Reasoning",
   "task": "...",
@@ -77,12 +80,14 @@ Uses the same CSS and filter logic as the original template.
 
 - `write-fetch-script` -- Implement `scripts/fetch_papers.py`:
   - Fetch `https://huggingface.co/api/daily_papers`
-  - Filter to papers whose `publishedAt` date matches today (or `--date`)
-  - Call Anthropic API to extract structured fields from `ai_summary` and
-    `ai_keywords` (single batch call for all papers)
-  - Write `docs/data/YYYY-MM-DD.json`
+  - Filter to papers where `paper.submittedOnDailyAt` date == yesterday (or
+    `--date`); sort by `paper.publishedAt` descending
+  - No `ai_summary`/`ai_keywords` in the API -- pass `summary` (abstract) to
+    Claude for field extraction; single batch call for all papers
+  - Write `docs/data/YYYY-MM-DD.json` (keyed by `submittedOnDailyAt` date)
   - Update `docs/data/index.json` (sorted list of available dates)
   - Delete JSON files and index entries older than 30 days
+  - Exit cleanly with no output if 0 papers found (weekend/holiday)
   - CLI: `uv run python scripts/fetch_papers.py [--date YYYY-MM-DD]`
 
 - `github-actions-workflow` -- Create `.github/workflows/daily-digest.yml`:

@@ -1,0 +1,17 @@
+[
+  {
+    "id": "2603.08258",
+    "title": "WaDi: Weight Direction-aware Distillation for One-step Image Synthesis",
+    "publishedAt": "2026-03-09T11:27:28.000Z",
+    "submittedOnDailyAt": "2026-03-13T22:34:25.757Z",
+    "upvotes": 2,
+    "projectPage": null,
+    "category": "Generative",
+    "task": "One-step image synthesis via efficient diffusion distillation",
+    "model": "(U-Net/DiT-based) Stable Diffusion student",
+    "inputs": "Multi-step diffusion teacher model weights and image-text pairs",
+    "outputs": "One-step image generator with distilled weights",
+    "key_results": "State-of-the-art FID on COCO 2014/2017 using ~10% of teacher parameters; strong generalization to controllable generation and high-resolution synthesis",
+    "comments": "Weight direction analysis provides interpretable insight into distillation, though computational cost of the direction-aware training itself is not thoroughly discussed."
+  }
+]

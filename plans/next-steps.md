@@ -41,7 +41,7 @@ Uses the same CSS and filter logic as the original template.
   "publishedAt": "2026-03-16T17:52:04.000Z",
   "submittedOnDailyAt": "2026-03-17T02:51:00.207Z",
   "upvotes": 42,
-  "githubRepo": "https://github.com/...",
+  "projectPage": "https://...",
   "category": "LLM/Reasoning",
   "task": "...",
   "model": "(transformer) ModelName",

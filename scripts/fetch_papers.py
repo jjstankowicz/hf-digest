@@ -9,7 +9,6 @@ no papers are found for the target date (weekend/holiday).
 
 import argparse
 import json
-import os
 import sys
 import urllib.request
 from datetime import date, datetime, timedelta, timezone
@@ -84,9 +83,10 @@ def extract_fields(papers: list[dict], client: anthropic.Anthropic) -> list[dict
         system=EXTRACTION_SYSTEM,
         messages=[{"role": "user", "content": numbered}],
     )
-    text = next(b.text for b in message.content if b.type == "text")
-    # Strip accidental markdown fences
-    text = text.strip()
+    text_blocks = [b.text for b in message.content if b.type == "text"]
+    if not text_blocks:
+        raise RuntimeError("Claude returned no text content in extraction response")
+    text = text_blocks[0].strip()
     if text.startswith("```"):
         text = text.split("\n", 1)[1].rsplit("```", 1)[0]
     return json.loads(text)
@@ -94,6 +94,11 @@ def extract_fields(papers: list[dict], client: anthropic.Anthropic) -> list[dict
 
 def build_records(papers: list[dict], extracted: list[dict]) -> list[dict]:
     """Merge HF metadata with Claude-extracted fields into the output schema."""
+    if not isinstance(extracted, list) or len(extracted) != len(papers):
+        raise RuntimeError(
+            f"Extraction mismatch: expected {len(papers)} records, got "
+            f"{len(extracted) if isinstance(extracted, list) else type(extracted).__name__}"
+        )
     records = []
     for paper, fields in zip(papers, extracted):
         p = paper.get("paper", {})
@@ -129,7 +134,7 @@ def update_index(target_date: str) -> None:
         dates.append(target_date)
     dates.sort()
 
-    cutoff = (date.today() - timedelta(days=ROLLING_DAYS)).isoformat()
+    cutoff = (datetime.now(timezone.utc).date() - timedelta(days=ROLLING_DAYS)).isoformat()
     dates = [d for d in dates if d >= cutoff]
 
     index_path.write_text(json.dumps({"dates": dates}))

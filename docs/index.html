@@ -109,6 +109,7 @@
   .filter-chip.fc-benchmark.active  { background: var(--c-benchmark);  border-color: var(--c-benchmark);  color: #fff; }
   .filter-chip.fc-systems.active    { background: var(--c-systems);    border-color: var(--c-systems);    color: #fff; }
 
+  #filters { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
   #paper-count { font-size: 12px; color: var(--text-muted); margin-left: auto; white-space: nowrap; }
 
   /* ---- Card Grid ---- */
@@ -249,7 +250,7 @@
 </header>
 
 <div class="filters-bar">
-  <div id="filters" style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;"></div>
+  <div id="filters"></div>
   <div id="paper-count"></div>
 </div>
 
@@ -339,7 +340,7 @@ function renderCards(papers) {
       <div class="card-header">
         <span class="cat-badge">${esc(p.category)}</span>
         <span class="upvote-badge">
-          <svg viewBox="0 0 10 10"><path d="M5 1l4 8H1z"/></svg>
+          <svg viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M5 1l4 8H1z"/></svg>
           ${p.upvotes ?? 0}
         </span>
       </div>

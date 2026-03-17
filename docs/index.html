@@ -77,9 +77,9 @@
 <div class="header">
   <h1>Daily Papers Digest</h1>
   <div class="date-nav">
-    <button id="prev-btn" title="Previous day">&#8249;</button>
+    <button id="prev-btn" aria-label="Previous day">&#8249;</button>
     <span id="date-display">Loading...</span>
-    <button id="next-btn" title="Next day">&#8250;</button>
+    <button id="next-btn" aria-label="Next day">&#8250;</button>
   </div>
   <div class="subtitle" id="paper-count"></div>
 </div>
@@ -162,10 +162,16 @@ function renderRows(papers) {
 
   tbody.innerHTML = papers.map(p => {
     const key = CAT_KEY[p.category] ?? 'systems';
-    const arxivLink = `<a class="link-pill link-arxiv" href="https://arxiv.org/abs/${esc(p.id)}" target="_blank">arXiv</a>`;
-    const githubLink = p.githubRepo
-      ? `<a class="link-pill link-github" href="${esc(p.githubRepo)}" target="_blank">GitHub</a>`
-      : '';
+    const arxivLink = `<a class="link-pill link-arxiv" href="https://arxiv.org/abs/${esc(p.id)}" target="_blank" rel="noopener noreferrer">arXiv</a>`;
+    let githubLink = '';
+    if (p.githubRepo) {
+      try {
+        const u = new URL(p.githubRepo);
+        if (u.protocol === 'https:' && u.hostname === 'github.com') {
+          githubLink = `<a class="link-pill link-github" href="${esc(p.githubRepo)}" target="_blank" rel="noopener noreferrer">GitHub</a>`;
+        }
+      } catch (_) {}
+    }
     return `<tr class="cat-${key}" data-cat="${key}">
       <td class="date-cell">${formatDate(p.publishedAt)}</td>
       <td><span class="cat-badge">${esc(p.category)}</span></td>
@@ -200,6 +206,12 @@ async function loadDate(date) {
   document.getElementById('filters').innerHTML = '';
 
   const resp = await fetch(`data/${date}.json`);
+  if (!resp.ok) {
+    document.getElementById('paper-count').textContent = 'Failed to load papers.';
+    document.getElementById('tbody').innerHTML =
+      `<tr><td colspan="10" class="empty-state">Could not load data for this date.</td></tr>`;
+    return;
+  }
   currentPapers = await resp.json();
   activeFilter = 'all';
 
@@ -219,8 +231,18 @@ document.getElementById('next-btn').addEventListener('click', async () => {
 
 (async () => {
   const resp = await fetch('data/index.json');
+  if (!resp.ok) {
+    document.getElementById('date-display').textContent = 'Unavailable';
+    document.getElementById('paper-count').textContent = 'Could not load index.';
+    return;
+  }
   const idx = await resp.json();
-  dates = idx.dates;
+  dates = Array.isArray(idx.dates) && idx.dates.length ? idx.dates : [];
+  if (!dates.length) {
+    document.getElementById('date-display').textContent = 'No data yet';
+    document.getElementById('paper-count').textContent = '';
+    return;
+  }
   currentIdx = dates.length - 1;
   updateNav();
   await loadDate(dates[currentIdx]);

@@ -1,5 +1,7 @@
 [
   {
+    "uid": "hf:2603.08258",
+    "source": "hf",
     "id": "2603.08258",
     "title": "WaDi: Weight Direction-aware Distillation for One-step Image Synthesis",
     "publishedAt": "2026-03-09T11:27:28.000Z",

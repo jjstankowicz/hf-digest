@@ -1,5 +1,7 @@
 [
   {
+    "uid": "hf:2603.08436",
+    "source": "hf",
     "id": "2603.08436",
     "title": "Can Vision-Language Models Solve the Shell Game?",
     "publishedAt": "2026-03-09T14:33:25.000Z",
@@ -15,6 +17,8 @@
     "comments": "Identifies fundamental expressivity limitation in fixed-depth transformers for indistinguishable object tracking without intermediate supervision."
   },
   {
+    "uid": "hf:2603.12793",
+    "source": "hf",
     "id": "2603.12793",
     "title": "Cheers: Decoupling Patch Details from Semantic Representations Enables Unified Multimodal Comprehension and Generation",
     "publishedAt": "2026-03-13T08:55:27.000Z",
@@ -30,6 +34,8 @@
     "comments": "Decouples patch-level details from semantics to enable stable joint understanding and high-fidelity generation."
   },
   {
+    "uid": "hf:2603.11647",
+    "source": "hf",
     "id": "2603.11647",
     "title": "OmniForcing: Unleashing Real-time Joint Audio-Visual Generation",
     "publishedAt": "2026-03-12T08:17:36.000Z",
@@ -45,6 +51,8 @@
     "comments": "First framework to distill bidirectional diffusion into streaming causal model; addresses multi-modal synchronization drift via asymmetric block-causal alignment."
   },
   {
+    "uid": "hf:2603.13224",
+    "source": "hf",
     "id": "2603.13224",
     "title": "Visual-ERM: Reward Modeling for Visual Equivalence",
     "publishedAt": "2026-03-13T17:58:14.000Z",
@@ -60,6 +68,8 @@
     "comments": "Proposes task-agnostic visual reward model that operates directly in visual space, avoiding reward hacking vulnerabilities of text/embedding-based approaches."
   },
   {
+    "uid": "hf:2603.12262",
+    "source": "hf",
     "id": "2603.12262",
     "title": "Video Streaming Thinking: VideoLLMs Can Watch and Think Simultaneously",
     "publishedAt": "2026-03-12T17:59:51.000Z",
@@ -75,6 +85,8 @@
     "comments": "Amortizes LLM reasoning latency over video playback; generates streaming QA pairs via knowledge graphs with entity-relation grounding."
   },
   {
+    "uid": "hf:2603.13032",
+    "source": "hf",
     "id": "2603.13032",
     "title": "Multimodal OCR: Parse Anything from Documents",
     "publishedAt": "2026-03-13T14:42:21.000Z",
@@ -90,6 +102,8 @@
     "comments": "Treats graphics as first-class parsing targets; enables multimodal supervision from existing documents."
   },
   {
+    "uid": "hf:2603.12266",
+    "source": "hf",
     "id": "2603.12266",
     "title": "MM-CondChain: A Programmatically Verified Benchmark for Visually Grounded Deep Compositional Reasoning",
     "publishedAt": "2026-03-12T17:59:56.000Z",
@@ -105,6 +119,8 @@
     "comments": "MM-CondChain benchmark uses programmatically verified intermediate representation (VPIR) to ensure mechanical verifiability of conditions."
   },
   {
+    "uid": "hf:2603.13089",
+    "source": "hf",
     "id": "2603.13089",
     "title": "V-Bridge: Bridging Video Generative Priors to Versatile Few-shot Image Restoration",
     "publishedAt": "2026-03-13T15:39:44.000Z",
@@ -120,6 +136,8 @@
     "comments": "Reinterprets restoration as progressive generative process; shows video models implicitly learn transferable restoration priors."
   },
   {
+    "uid": "hf:2603.07815",
+    "source": "hf",
     "id": "2603.07815",
     "title": "HybridStitch: Pixel and Timestep Level Model Stitching for Diffusion Acceleration",
     "publishedAt": "2026-03-08T21:34:50.000Z",
@@ -135,6 +153,8 @@
     "comments": "Separates image into easy regions (early small model transition) and complex regions (large model refinement); treats generation as editing problem."
   },
   {
+    "uid": "hf:2603.11975",
+    "source": "hf",
     "id": "2603.11975",
     "title": "HomeSafe-Bench: Evaluating Vision-Language Models on Unsafe Action Detection for Embodied Agents in Household Scenarios",
     "publishedAt": "2026-03-12T14:25:44.000Z",
@@ -150,6 +170,8 @@
     "comments": "HomeSafe-Bench uses hybrid simulation+video generation pipeline; identifies perception latency and common-sense knowledge as critical bottlenecks."
   },
   {
+    "uid": "hf:2603.08127",
+    "source": "hf",
     "id": "2603.08127",
     "title": "EvoScientist: Towards Multi-Agent Evolving AI Scientists for End-to-End Scientific Discovery",
     "publishedAt": "2026-03-09T09:07:19.000Z",
@@ -165,6 +187,8 @@
     "comments": "Three-agent system (Researcher/Engineer/Evolution Manager) with dual persistent memory (ideation + experimentation) for continuous strategy improvement."
   },
   {
+    "uid": "hf:2603.11896",
+    "source": "hf",
     "id": "2603.11896",
     "title": "Think While Watching: Online Streaming Segment-Level Memory for Multi-Turn Video Reasoning in Multimodal Large Language Models",
     "publishedAt": "2026-03-12T13:13:50.000Z",
@@ -180,6 +204,8 @@
     "comments": "Preserves continuous segment-level memory; overlaps watching and thinking phases to enable concurrent perception/generation."
   },
   {
+    "uid": "hf:2603.10899",
+    "source": "hf",
     "id": "2603.10899",
     "title": "LookaheadKV: Fast and Accurate KV Cache Eviction by Glimpsing into the Future without Generation",
     "publishedAt": "2026-03-11T15:44:32.000Z",
@@ -195,6 +221,8 @@
     "comments": "Uses parameter-efficient modules to predict importance without explicit draft generation; achieves accuracy of costly approximations with heuristic efficiency."
   },
   {
+    "uid": "hf:2603.10781",
+    "source": "hf",
     "id": "2603.10781",
     "title": "Taking Shortcuts for Categorical VQA Using Super Neurons",
     "publishedAt": "2026-03-11T13:54:45.000Z",
@@ -210,6 +238,8 @@
     "comments": "Identifies scalar activations ('super neurons') in shallow LLM layers sufficient for accurate classifiers; avoids attention vector search complexity."
   },
   {
+    "uid": "hf:2603.11863",
+    "source": "hf",
     "id": "2603.11863",
     "title": "CreativeBench: Benchmarking and Enhancing Machine Creativity via Self-Evolving Challenges",
     "publishedAt": "2026-03-12T12:36:56.000Z",
@@ -225,6 +255,8 @@
     "comments": "CreativeBench defines creativity as product of quality and novelty; proposes EvoRePE inference-time steering to enhance divergence."
   },
   {
+    "uid": "hf:2603.13131",
+    "source": "hf",
     "id": "2603.13131",
     "title": "Steve-Evolving: Open-World Embodied Self-Evolution via Fine-Grained Diagnosis and Dual-Track Knowledge Distillation",
     "publishedAt": "2026-03-13T16:23:34.000Z",
@@ -240,6 +272,8 @@
     "comments": "Couples fine-grained execution diagnosis with dual-track distillation (reusable skills + executable guardrails) in closed-loop without parameter updates."
   },
   {
+    "uid": "hf:2603.12824",
+    "source": "hf",
     "id": "2603.12824",
     "title": "NanoVDR: Distilling a 2B Vision-Language Retriever into a 70M Text-Only Encoder for Visual Document Retrieval",
     "publishedAt": "2026-03-13T09:24:23.000Z",
@@ -255,6 +289,8 @@
     "comments": "Exploits query-document asymmetry via decoupled encoding; pointwise cosine alignment on query text outperforms ranking-based alternatives."
   },
   {
+    "uid": "hf:2603.11749",
+    "source": "hf",
     "id": "2603.11749",
     "title": "Compression Favors Consistency, Not Truth: When and Why Language Models Prefer Correct Information",
     "publishedAt": "2026-03-12T09:52:38.000Z",
@@ -270,6 +306,8 @@
     "comments": "Compression-Consistency Principle: truth preference is side effect of compression and consistency, not intrinsic truth bias."
   },
   {
+    "uid": "hf:2603.12935",
+    "source": "hf",
     "id": "2603.12935",
     "title": "Can Fairness Be Prompted? Prompt-Based Debiasing Strategies in High-Stakes Recommendations",
     "publishedAt": "2026-03-13T12:30:42.000Z",
@@ -285,6 +323,8 @@
     "comments": "First study on prompt-based debiasing for group fairness in LLMRecs; lightweight and user-accessible without weight access."
   },
   {
+    "uid": "hf:2603.12916",
+    "source": "hf",
     "id": "2603.12916",
     "title": "Surprised by Attention: Predictable Query Dynamics for Time Series Anomaly Detection",
     "publishedAt": "2026-03-13T11:40:51.000Z",
@@ -300,6 +340,8 @@
     "comments": "Treats query evolution as predictable process; dual scoring (reconstruction + query mismatch) captures structural dependency shifts."
   },
   {
+    "uid": "hf:2603.02133",
+    "source": "hf",
     "id": "2603.02133",
     "title": "SimRecon: SimReady Compositional Scene Reconstruction from Real Videos",
     "publishedAt": "2026-03-02T17:51:45.000Z",
@@ -315,6 +357,8 @@
     "comments": "Bridges perception-generation (Active Viewpoint Optimization) and generation-simulation (Scene Graph Synthesizer) to achieve physical plausibility."
   },
   {
+    "uid": "hf:2603.12588",
+    "source": "hf",
     "id": "2603.12588",
     "title": "SDF-Net: Structure-Aware Disentangled Feature Learning for Opticall-SAR Ship Re-identification",
     "publishedAt": "2026-03-13T02:41:43.000Z",
@@ -330,6 +374,8 @@
     "comments": "Exploits rigid ship geometry as stable prior; disentangles modality-invariant identity features from modality-specific texture."
   },
   {
+    "uid": "hf:2603.10926",
+    "source": "hf",
     "id": "2603.10926",
     "title": "ECoLAD: Deployment-Oriented Evaluation for Automotive Time-Series Anomaly Detection",
     "publishedAt": "2026-03-11T16:08:56.000Z",
@@ -345,6 +391,8 @@
     "comments": "ECoLAD introduces compute-reduction ladder with mechanical scaling rules to measure behavior under deployment-relevant CPU parallelism limits."
   },
   {
+    "uid": "hf:2603.12533",
+    "source": "hf",
     "id": "2603.12533",
     "title": "Do You See What I Am Pointing At? Gesture-Based Egocentric Video Question Answering",
     "publishedAt": "2026-03-13T00:23:38.000Z",
@@ -360,6 +408,8 @@
     "comments": "Hand Intent Tokens encode 3D keypoints to provide explicit spatial/temporal context for interpreting pointing intent."
   },
   {
+    "uid": "hf:2603.09930",
+    "source": "hf",
     "id": "2603.09930",
     "title": "Fine-grained Motion Retrieval via Joint-Angle Motion Images and Token-Patch Late Interaction",
     "publishedAt": "2026-03-10T17:26:42.000Z",
@@ -375,6 +425,8 @@
     "comments": "Maps joint-level features into pseudo-images for ViT compatibility; masked language modeling regularization fosters robust alignment."
   },
   {
+    "uid": "hf:2603.11382",
+    "source": "hf",
     "id": "2603.11382",
     "title": "Detecting Intrinsic and Instrumental Self-Preservation in Autonomous Agents: The Unified Continuation-Interest Protocol",
     "publishedAt": "2026-03-11T23:52:33.000Z",

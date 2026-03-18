@@ -1,10 +1,7 @@
 """Fetch Nature RSS feed papers, scrape abstracts, extract fields via Claude.
 
-Usage (standalone):
-    uv run python scripts/fetch_nature.py [--date YYYY-MM-DD]
-
 Returns a list of paper records conforming to the unified schema.
-Intended to be called by fetch_papers.py, not run directly in production.
+Intended to be called by fetch_papers.py as a library module.
 """
 
 import re
@@ -137,13 +134,11 @@ def extract_fields(papers: list[dict], client: anthropic.Anthropic) -> list[dict
     return json.loads(text)
 
 
-def fetch_nature_papers(target: date, client: anthropic.Anthropic) -> list[dict]:
+def fetch_nature_papers(target: date, client: anthropic.Anthropic | None = None) -> list[dict]:
     """Fetch Nature physics papers for target date, scrape abstracts, extract fields.
 
     Returns records conforming to the unified paper schema.
     """
-    import json
-
     items = fetch_feed(PHYSICS_FEED)
     day_items = filter_items(items, target)
     if not day_items:
@@ -154,7 +149,8 @@ def fetch_nature_papers(target: date, client: anthropic.Anthropic) -> list[dict]
     for item in day_items:
         link = item.findtext("link", "").rstrip("/")
         slug = link.split("/")[-1]
-        title = item.findtext("title", "").strip()
+        raw_title = item.findtext("title", "")
+        title = re.sub(r"[\u200b\u200c\u200d\ufeff]", "", raw_title).strip()
         abstract = scrape_abstract(link)
         if not abstract:
             continue
@@ -174,6 +170,8 @@ def fetch_nature_papers(target: date, client: anthropic.Anthropic) -> list[dict]
     if not papers_with_abstracts:
         return []
 
+    if client is None:
+        client = anthropic.Anthropic()
     extracted = extract_fields(papers_with_abstracts, client)
     if not isinstance(extracted, list) or len(extracted) != len(papers_with_abstracts):
         raise RuntimeError(
@@ -191,6 +189,7 @@ def fetch_nature_papers(target: date, client: anthropic.Anthropic) -> list[dict]
                 "source": source,
                 "id": paper["doi"],
                 "title": paper["title"],
+                "projectPage": paper["link"],
                 "journal": paper["journal"],
                 "publishedAt": paper["publishedAt"],
                 "category": fields.get("category", "Other"),

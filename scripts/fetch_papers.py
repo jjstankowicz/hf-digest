@@ -185,18 +185,18 @@ def main() -> None:
 
     papers = fetch_hf_papers(target)
 
-    if not papers:
-        sys.exit(0)
-
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     cache = load_cache()
-    client = anthropic.Anthropic()
 
     uncached = [
         p for p in papers
         if p.get("paper", {}).get("id", "") and f"hf:{p['paper']['id']}" not in cache
     ]
+
+    client: anthropic.Anthropic | None = None
+
     if uncached:
+        client = anthropic.Anthropic()
         extracted = extract_fields(uncached, client)
         if not isinstance(extracted, list) or len(extracted) != len(uncached):
             raise RuntimeError(
@@ -213,7 +213,7 @@ def main() -> None:
     hf_records = build_records(papers, cache)
 
     nature_records = fetch_nature_papers(target, client)
-    # Cache Nature records (skip hypotheses/results — too variable to cache usefully)
+    # Cache Nature records (skip hypotheses/results -- too variable to cache usefully)
     for r in nature_records:
         if r["uid"] not in cache:
             cache[r["uid"]] = {k: r.get(k, "") for k in EXTRACTED_FIELDS}
@@ -222,6 +222,9 @@ def main() -> None:
         save_cache(cache)
 
     records = hf_records + nature_records
+
+    if not records:
+        sys.exit(0)
 
     out_path = DATA_DIR / f"{target_str}.json"
     out_path.write_text(json.dumps(records, indent=2))

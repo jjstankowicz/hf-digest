@@ -6,7 +6,7 @@
     "title": "AI Can Learn Scientific Taste",
     "publishedAt": "2026-03-15T16:31:51.000Z",
     "submittedOnDailyAt": "2026-03-17T01:14:04.187Z",
-    "upvotes": 220,
+    "upvotes": 223,
     "projectPage": "https://tongjingqi.github.io/AI-Can-Learn-Scientific-Taste/",
     "category": "LLM/Reasoning",
     "task": "Learning scientific taste for high-impact research idea evaluation",
@@ -26,7 +26,7 @@
     "title": "OpenSeeker: Democratizing Frontier Search Agents by Fully Open-Sourcing Training Data",
     "publishedAt": "2026-03-16T17:52:04.000Z",
     "submittedOnDailyAt": "2026-03-17T02:51:00.207Z",
-    "upvotes": 129,
+    "upvotes": 130,
     "projectPage": null,
     "category": "Agents/RL",
     "task": "Open-source frontier-level web search agent training",
@@ -46,7 +46,7 @@
     "title": "EnterpriseOps-Gym: Environments and Evaluations for Stateful Agentic Planning and Tool Use in Enterprise Settings",
     "publishedAt": "2026-03-13T21:09:39.000Z",
     "submittedOnDailyAt": "2026-03-17T08:04:03.249Z",
-    "upvotes": 127,
+    "upvotes": 129,
     "projectPage": "https://enterpriseops-gym.github.io/",
     "category": "Agents/RL",
     "task": "Evaluating agentic planning in realistic enterprise workflows",
@@ -66,7 +66,7 @@
     "title": "Grounding World Simulation Models in a Real-World Metropolis",
     "publishedAt": "2026-03-16T17:46:04.000Z",
     "submittedOnDailyAt": "2026-03-17T02:23:54.611Z",
-    "upvotes": 107,
+    "upvotes": 111,
     "projectPage": "https://seoul-world-model.github.io/",
     "category": "Generative",
     "task": "City-scale world model grounded in real Seoul street-view imagery",
@@ -106,7 +106,7 @@
     "title": "Attention Residuals",
     "publishedAt": "2026-03-16T09:32:21.000Z",
     "submittedOnDailyAt": "2026-03-17T02:50:26.660Z",
-    "upvotes": 66,
+    "upvotes": 73,
     "projectPage": null,
     "category": "Systems",
     "task": "Efficient residual connection aggregation via learned depth-wise attention",
@@ -126,7 +126,7 @@
     "title": "Mixture-of-Depths Attention",
     "publishedAt": "2026-03-16T17:59:55.000Z",
     "submittedOnDailyAt": "2026-03-17T05:41:06.756Z",
-    "upvotes": 51,
+    "upvotes": 55,
     "projectPage": "https://github.com/hustvl/MoDA",
     "category": "Systems",
     "task": "Depth scaling via mixture-of-depths attention mechanism",
@@ -226,7 +226,7 @@
     "title": "Safe and Scalable Web Agent Learning via Recreated Websites",
     "publishedAt": "2026-03-11T07:58:53.000Z",
     "submittedOnDailyAt": "2026-03-17T00:51:18.089Z",
-    "upvotes": 19,
+    "upvotes": 20,
     "projectPage": "https://huggingface.co/spaces/hyungjoochae/verienv-project-page",
     "category": "Agents/RL",
     "task": "Safe web agent training via cloned, verifiable synthetic websites",
@@ -246,7 +246,7 @@
     "title": "Make it SING: Analyzing Semantic Invariants in Classifiers",
     "publishedAt": "2026-03-15T21:13:14.000Z",
     "submittedOnDailyAt": "2026-03-17T09:23:54.807Z",
-    "upvotes": 15,
+    "upvotes": 16,
     "projectPage": "https://harel314.github.io/SING-analyzing-semantic-invariants-classifiers/",
     "category": "Vision",
     "task": "Interpreting classifier invariants via semantic null-space geometry",
@@ -266,7 +266,7 @@
     "title": "TERMINATOR: Learning Optimal Exit Points for Early Stopping in Chain-of-Thought Reasoning",
     "publishedAt": "2026-03-13T00:07:18.000Z",
     "submittedOnDailyAt": "2026-03-17T03:57:42.590Z",
-    "upvotes": 15,
+    "upvotes": 16,
     "projectPage": "https://terminator-llm.github.io/",
     "category": "LLM/Reasoning",
     "task": "Learning optimal early-exit points for chain-of-thought reasoning",
@@ -286,7 +286,7 @@
     "title": "WebVR: Benchmarking Multimodal LLMs for WebPage Recreation from Videos via Human-Aligned Visual Rubrics",
     "publishedAt": "2026-03-11T07:48:23.000Z",
     "submittedOnDailyAt": "2026-03-17T02:40:36.142Z",
-    "upvotes": 14,
+    "upvotes": 15,
     "projectPage": "https://webvr-benchmark.github.io/",
     "category": "Vision",
     "task": "Benchmarking multimodal LLMs for webpage recreation from demonstration videos",
@@ -506,7 +506,7 @@
     "title": "RS-WorldModel: a Unified Model for Remote Sensing Understanding and Future Sense Forecasting",
     "publishedAt": "2026-03-16T07:45:15.000Z",
     "submittedOnDailyAt": "2026-03-17T08:28:57.580Z",
-    "upvotes": 6,
+    "upvotes": 7,
     "projectPage": null,
     "category": "Benchmark",
     "task": "Remote sensing spatiotemporal understanding and future forecasting",
@@ -515,6 +515,26 @@
     "outputs": "Spatiotemporal change QA answers; text-guided future scenes",
     "key_results": "2B params outperform 120x larger open-source; FID 43.13 on forecasting; surpasses Gemini-2.5-Flash Nano",
     "comments": "Joint task learning and VRO refinement effective; dataset contribution (RSWBench-1.1M) valuable for remote sensing.",
+    "journal": null,
+    "hypotheses": [],
+    "results": []
+  },
+  {
+    "uid": "hf:2603.14347",
+    "source": "hf",
+    "id": "2603.14347",
+    "title": "Motivation in Large Language Models",
+    "publishedAt": "2026-03-15T12:30:36.000Z",
+    "submittedOnDailyAt": "2026-03-17T06:55:59.489Z",
+    "upvotes": 7,
+    "projectPage": null,
+    "category": "LLM/Reasoning",
+    "task": "Measuring motivation in large language models",
+    "model": "(transformer) LLM with self-reported motivation analysis",
+    "inputs": "Task descriptions; external manipulations (e.g., framing)",
+    "outputs": "Motivation reports and behavioral signatures",
+    "key_results": "Structured patterns echo human psychology; motivation aligns with behavior, varies by task, modulates with context",
+    "comments": "Motivation as organizing construct for model behavior is insightful; anthropomorphization concerns merit caution.",
     "journal": null,
     "hypotheses": [],
     "results": []
@@ -695,26 +715,6 @@
     "outputs": "Language tokens and action sequences with shared prefill cache",
     "key_results": "3.7x speedup; 200 tokens/s language + 70 Hz action frequency simultaneously",
     "comments": "KV cache as first-class resource is elegant; on-device multi-task deployment practical; real robot validation pending.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
-  },
-  {
-    "uid": "hf:2603.14347",
-    "source": "hf",
-    "id": "2603.14347",
-    "title": "Motivation in Large Language Models",
-    "publishedAt": "2026-03-15T12:30:36.000Z",
-    "submittedOnDailyAt": "2026-03-17T06:55:59.489Z",
-    "upvotes": 3,
-    "projectPage": null,
-    "category": "LLM/Reasoning",
-    "task": "Measuring motivation in large language models",
-    "model": "(transformer) LLM with self-reported motivation analysis",
-    "inputs": "Task descriptions; external manipulations (e.g., framing)",
-    "outputs": "Motivation reports and behavioral signatures",
-    "key_results": "Structured patterns echo human psychology; motivation aligns with behavior, varies by task, modulates with context",
-    "comments": "Motivation as organizing construct for model behavior is insightful; anthropomorphization concerns merit caution.",
     "journal": null,
     "hypotheses": [],
     "results": []
@@ -928,21 +928,21 @@
     "journal": "Nature Communications",
     "publishedAt": "2026-03-17",
     "category": "Condensed Matter",
-    "task": "Characterizing spin relaxation and coherence in topological defects of dimerized spin chains",
-    "model": "(theory) dimerized spin chains with edge states",
-    "inputs": "Topological defect (edge state) properties, temperature, phonon interactions",
-    "outputs": "Electron spin resonance relaxation times, coherence times, homogeneous broadening",
-    "key_results": "Phonon-bottlenecked relaxation at low T, chain dimerization gap governs high-T relaxation; inter edge-state dipolar field reduced by exchange coupling",
-    "comments": "Bridges fundamental spin dynamics with practical quantum device design, though experimental validation on real materials would strengthen claims.",
+    "task": "Understanding spin relaxation and decoherence in topological defects of dimerized spin chains",
+    "model": "(theoretical) dimerized spin chain with edge states",
+    "inputs": "Topological defects (edge states) in dimerized chains",
+    "outputs": "Relaxation rates, coherence times, homogeneous broadening mechanisms",
+    "key_results": "Phonon-bottlenecked relaxation at low T, chain dimerization gap dominates at high T; inter-edge dipolar coupling reduced by intrachain exchange, yielding longer coherence than isolated ions",
+    "comments": "Provides practical design principles for quantum devices but focuses on idealized chain geometry.",
     "hypotheses": [
-      "Relaxation is governed by phonon-bottleneck at low T and dimerization gap at high T",
-      "Intrachain exchange reduces inter edge-state dipolar field",
-      "Intrachain dipolar field dominates homogeneous broadening"
+      "Phonon-bottlenecked processes govern low-temperature relaxation",
+      "Dimerization gap controls high-temperature relaxation",
+      "Intrachain coupling enhances coherence relative to isolated spins"
     ],
     "results": [
-      "Confirmed: phonon-bottleneck and dimerization-gap regimes identified",
-      "Confirmed: longer coherence time than isolated ions at equivalent concentration",
-      "Confirmed: homogeneous broadening from intrachain dipolar field"
+      "Confirmed phonon bottleneck at lowest T",
+      "Confirmed dimerization-gap dominance at high T",
+      "Confirmed enhanced coherence from intrachain coupling"
     ]
   },
   {
@@ -954,21 +954,21 @@
     "journal": "Communications Physics",
     "publishedAt": "2026-03-17",
     "category": "High Energy/Particle",
-    "task": "Simulating real-time jet energy loss in high-energy nuclear scattering",
-    "model": "(tensor network) 1+1-d massive QED",
-    "inputs": "Propagating probe state, dense target medium density",
-    "outputs": "Probe energy loss rate, entanglement entropy, probe-medium mixing",
-    "key_results": "Linear energy loss scaling with path length; three regimes: ballistic, intermediate excitation, black-disk limit; evidence of probe-medium quantum mixing",
-    "comments": "Important for understanding quark-gluon plasma, but 1+1-d model is simplified; scalability to quantum simulators discussed but not demonstrated.",
+    "task": "Real-time simulation of energy loss and entropy production in high-energy nuclear scattering",
+    "model": "(simulation) 1+1d massive QED with tensor networks",
+    "inputs": "Propagating probe state and dense target configuration",
+    "outputs": "Energy loss rate, entanglement entropy evolution, probe-medium mixing",
+    "key_results": "Linear scaling of energy loss with path length in medium; three distinct regimes identified (ballistic, intermediate, black-disk limit); entanglement entropy reveals mixing between probe and medium",
+    "comments": "Tensor network approach promising for future quantum simulators but limited to 1+1d; scalability to realistic collision kinematics unclear.",
     "hypotheses": [
       "Energy loss scales linearly with path length",
-      "Three distinct scattering regimes exist based on medium density",
-      "Entanglement entropy reveals probe-medium mixing"
+      "Three qualitative regimes characterize probe evolution",
+      "Entanglement entropy quantifies probe-medium mixing"
     ],
     "results": [
-      "Confirmed: linear energy loss scaling observed",
-      "Confirmed: ballistic, intermediate, and black-disk regimes identified",
-      "Confirmed: entanglement entropy increases with mixing"
+      "Confirmed linear energy loss scaling",
+      "Confirmed three regimes",
+      "Confirmed entanglement entropy signature of mixing"
     ]
   },
   {
@@ -979,22 +979,22 @@
     "projectPage": "https://www.nature.com/articles/s41567-026-03213-7",
     "journal": "Nature Physics",
     "publishedAt": "2026-03-17",
-    "category": "Condensed Matter",
-    "task": "Emulating Bose-Hubbard model with long-range hopping using exciton arrays",
-    "model": "(experiment) dipolar excitons in nanoscopic lattice",
-    "inputs": "Exciton array configuration, lattice geometry",
-    "outputs": "Many-body sub-radiance, radiative dissipation rate, coherence, Mott phase properties",
-    "key_results": "Algebraic slowdown of radiative dissipation signals long-range hopping; threshold increase in temporal coherence for Mott-like phases; exciton condensation in single sub-radiant state",
-    "comments": "Elegant platform combining condensed matter and quantum optics; sub-radiance observation is novel but interpretation of effective Bose-Hubbard parameters could be more explicit.",
+    "category": "Quantum",
+    "task": "Quantum simulation of Bose-Hubbard model with long-range hopping via excitons",
+    "model": "(experiment) dipolar excitons in nanoscopic lattice; Bose-Hubbard with long-range hopping",
+    "inputs": "Exciton array initial state and optical excitation",
+    "outputs": "Sub-radiance buildup, coherence development, many-body phases",
+    "key_results": "Algebraic slowdown of radiative dissipation signals long-range hopping; threshold coherence increase in Mott-like dipolar quantum solids; excitons condense in single sub-radiant state",
+    "comments": "Novel platform combining condensed-matter and quantum-optics phenomena, but scaling to larger systems and tunable interaction regimes remains experimentally challenging.",
     "hypotheses": [
-      "Dipolar exciton arrays emulate Bose-Hubbard model with long-range hopping",
-      "Sub-radiance indicates many-body correlations",
-      "Mott-like phases exhibit enhanced temporal coherence"
+      "Long-range hopping manifests as sub-radiance growth",
+      "Dipolar repulsion enables condensation in sub-radiant state",
+      "Spatial order and extended coherence coexist in single degree of freedom"
     ],
     "results": [
-      "Confirmed: spontaneous sub-radiance buildup observed",
-      "Confirmed: threshold coherence increase in dipolar quantum solids",
-      "Confirmed: single sub-radiant state condensation in Mott phases"
+      "Confirmed sub-radiance onset",
+      "Confirmed condensation in Mott-like phases",
+      "Confirmed spatial-coherence coupling"
     ]
   },
   {
@@ -1006,21 +1006,21 @@
     "journal": "Nature Physics",
     "publishedAt": "2026-03-17",
     "category": "Condensed Matter",
-    "task": "Identifying mechanisms of strange metallicity in kagome metal",
-    "model": "(experiment) scanning tunneling spectroscopy of Ni\u2083In",
-    "inputs": "Magnetic field, temperature, kagome lattice geometry",
-    "outputs": "Spectral features (zero-bias peak-dip), quasiparticle collapse, orbital-driven localization signature",
-    "key_results": "Zero-bias peak from compact molecular orbitals via destructive quantum interference; emergent f-shell-like moments in d-electron kagome metal; quasiparticle collapse across Brillouin zone",
-    "comments": "Provides microscopic insight into universal strange metallicity through orbital localization mechanism, though direct causality between orbital features and strange metal behavior requires stronger evidence.",
+    "task": "Identifying origin of strange metallicity in kagome metal via orbital-driven localization",
+    "model": "(experiment) kagome metal Ni\u2083In; scanning tunneling spectroscopy",
+    "inputs": "Kagome structure with flat band near Fermi energy; varying T and B fields",
+    "outputs": "Zero-bias peak-dip structure, spectral features, quasiparticle evolution",
+    "key_results": "Zero-bias peak from compact molecular orbitals via destructive interference; emergent f-shell-like localized moments in d-electron kagome system; spectral features track strange-metal state evolution",
+    "comments": "Insightful spectroscopic identification of orbital-driven localization, but mechanism universality across diverse platforms remains to be established.",
     "hypotheses": [
-      "Zero-bias peak arises from destructive quantum interference on kagome sites",
-      "Orbital-driven localization creates emergent f-shell moments",
-      "Quasiparticle collapse is universal across disparate quantum materials"
+      "Compact molecular orbitals generate zero-bias peak",
+      "Orbital-driven localization produces emergent f-shell-like moments",
+      "Zero-bias peak evolution tracks strange-metal behavior"
     ],
     "results": [
-      "Confirmed: zero-bias peak identified and traced to compact molecular orbitals",
-      "Confirmed: f-shell-like localized moments observed in d-orbital system",
-      "Confirmed: quasiparticle collapse across Brillouin zone documented"
+      "Confirmed compact orbital formation via destructive interference",
+      "Confirmed emergent localized moments",
+      "Confirmed spectral tracking of strange-metal state"
     ]
   },
   {
@@ -1032,19 +1032,19 @@
     "journal": "Nature Communications",
     "publishedAt": "2026-03-17",
     "category": "Optics/Photonics",
-    "task": "Enhancing organic phosphorescence via spin-orbit and transition dipole cooperation",
-    "model": "(molecular design) vertical substituents perpendicular to conjugated plane",
-    "inputs": "Main-group element substituent through-space position, conjugated molecular structure",
-    "outputs": "Phosphorescence quantum yield, emission efficiency across visible wavelengths",
-    "key_results": "Vertical substitution enables cooperative spin-orbit and transition dipole effects; phosphorescence efficiency reaches fluorescence levels across visible spectrum",
-    "comments": "Novel design principle distinct from horizontal substitution used for fluorescence; mechanism is plausible but lacks quantitative efficiency values and comparison to state-of-art phosphorescent materials.",
+    "task": "Enhancing organic phosphorescence efficiency via vertical substituent design",
+    "model": "(experimental) organic conjugated molecules with perpendicular main-group element substitution",
+    "inputs": "Conjugated core structure with through-space vertical substituents",
+    "outputs": "Phosphorescence quantum yield and emission intensity across visible spectrum",
+    "key_results": "Cooperative effect of spin-orbit coupling and transition dipoles increases visible-range phosphorescence efficiency to fluorescence-equivalent levels",
+    "comments": "Practical molecular design strategy, but mechanism details and generalization to other chromophore classes need further investigation.",
     "hypotheses": [
-      "Vertical substituents enable cooperation between spin-orbit coupling and transition dipoles",
-      "Phosphorescence efficiency can match fluorescence through this design"
+      "Perpendicular substitution cooperatively enhances spin-orbit and dipole effects",
+      "Visible phosphorescence efficiency can match fluorescence efficiency via vertical design"
     ],
     "results": [
-      "Confirmed: cooperative effect of spin-orbit and transition dipoles established",
-      "Confirmed: organic phosphorescence efficiency increased to fluorescence levels"
+      "Confirmed cooperative enhancement from vertical substitution",
+      "Achieved phosphorescence efficiency parity with fluorescence"
     ]
   },
   {
@@ -1056,21 +1056,21 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-17",
     "category": "Applied Physics",
-    "task": "Improving free-surface detection in 3D moving particle semi-implicit (MPS) method",
-    "model": "(numerical method) Moving Particle Semi-Implicit with particle density criteria",
-    "inputs": "Particle positions, relative position divergence (RPD), surface normal vectors",
-    "outputs": "Surface particle classification, pressure field, surface-boundary identification",
-    "key_results": "RPD + NV method reduces false negatives/positives; smoother pressure fields without computational overhead; accurate detection on convex, concave, and cavity boundaries",
-    "comments": "Well-executed incremental improvement with clear validation; practical for MPS applications but represents engineering optimization rather than fundamental advance.",
+    "task": "Improved free-surface identification in 3D Moving Particle Semi-Implicit method",
+    "model": "(numerical) MPS method with relative position divergence (RPD) and surface normal vector estimation",
+    "inputs": "Particle distribution with interior cavities and complex boundaries",
+    "outputs": "Surface particle classification, pressure field accuracy",
+    "key_results": "RPD + NV method reduces false positives/negatives in surface identification; improves pressure oscillations without computational overhead; validated on hydrostatic, dam-break, and oscillation cases",
+    "comments": "Practical improvement for 3D MPS simulations with clear validation, though applicability limited to specific numerical method.",
     "hypotheses": [
       "Improved RPD formulation achieves better consistency with theory",
-      "RPD + NV coupling improves surface detection accuracy",
-      "Enhanced surface detection reduces pressure oscillations"
+      "Combined RPD + NV detects surface particles on convex and concave boundaries",
+      "RPD + NV reduces pressure oscillations without increasing cost"
     ],
     "results": [
-      "Confirmed: improved RPD consistency and reduced oscillations",
-      "Confirmed: RPD + NV significantly decreases false negatives/positives",
-      "Confirmed: no significant computational cost increase"
+      "Confirmed improved RPD consistency",
+      "Confirmed robust surface detection",
+      "Confirmed smoother pressure fields"
     ]
   },
   {
@@ -1082,21 +1082,21 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-17",
     "category": "Applied Physics",
-    "task": "Predicting heat transfer in Maxwell hybrid nanofluids using neural networks",
-    "model": "(hybrid) numerical PDE solver + artificial neural network (Levenberg-Marquardt)",
-    "inputs": "Magnetic field strength, Biot number, velocity slip, thermal radiation, nanofluid parameters",
-    "outputs": "Velocity and temperature distributions, heat transfer rates, neural network predictions",
-    "key_results": "MSE as low as 6.92\u00d710\u207b\u00b9\u00b2 for velocity gradients, 1.47\u00d710\u207b\u00b9\u00b9 for temperature; R\u22481 across all subsets; thermal radiation and Biot number enhance heat transfer",
-    "comments": "Strong ANN performance but limited novelty; framework is standard multilayer perceptron applied to standard boundary-layer problem; hybrid nanofluid benefits are modest.",
+    "task": "Predicting heat transfer in Maxwell hybrid nanofluids using deep learning",
+    "model": "(simulation + ML) Maxwell hybrid nanofluid flow; artificial neural network surrogate model",
+    "inputs": "Nanofluid parameters (magnetic field, Biot number, velocity slip, radiation)",
+    "outputs": "Velocity and temperature distributions; heat transfer rates",
+    "key_results": "ANN achieves MSE ~ 6.9\u00d710\u207b\u00b9\u00b2 for velocity, 1.47\u00d710\u207b\u00b9\u00b9 for temperature; R \u2248 1.0 across all subsets; magnetic and radiation effects quantified; hybrid nanofluid outperforms single-nanofluid baseline",
+    "comments": "Strong predictive performance but lacks physical interpretability; generalization to unseen parameter ranges uncertain.",
     "hypotheses": [
-      "ANN can accurately predict boundary-layer solutions",
-      "Thermal radiation enhances heat transfer in hybrid nanofluids",
-      "Hybrid nanofluid outperforms single nanofluid"
+      "ANN can accurately reproduce nonlinear boundary-layer solutions",
+      "Thermal radiation and Biot number enhance heat transfer",
+      "Magnetic effects suppress velocity field"
     ],
     "results": [
-      "Confirmed: ANN achieves near-perfect predictions (R\u22481)",
-      "Confirmed: thermal radiation and Biot number enhance heat transfer",
-      "Confirmed: consistent thermal performance improvement with hybrid nanofluid"
+      "Confirmed high-fidelity ANN surrogate",
+      "Confirmed radiation and Biot enhancements",
+      "Confirmed magnetic suppression of velocity"
     ]
   },
   {
@@ -1108,21 +1108,21 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-17",
     "category": "Applied Physics",
-    "task": "Analyzing refrigeration performance of foam box insulation in aircraft cargo",
-    "model": "(finite element) energy balance and temperature field simulation",
-    "inputs": "Aircraft cabin pressure, convective heat transfer coefficient, initial ice mass",
-    "outputs": "Temperature field inside foam box, refrigeration effectiveness, time to maintain target temperature",
-    "key_results": "Low-pressure environment degrades cooling effectiveness compared to ground; ice amount can be adjusted to compensate; refrigeration performance inversely proportional to convective coefficient",
-    "comments": "Practical engineering analysis addressing real operational concern, but findings are unsurprising and optimization strategy is ad-hoc rather than systematic.",
+    "task": "Analyzing temperature control performance of foam-ice cooling boxes in aircraft cargo holds",
+    "model": "(simulation) finite element model of foam box with phase-change ice packing",
+    "inputs": "Cargo hold low-pressure and convective environment; varying ice amount",
+    "outputs": "Interior temperature distribution, cooling effectiveness, ice consumption",
+    "key_results": "Refrigeration effect degrades in aircraft cargo hold vs. ground pressure; degradation increases with convective coefficient; ice amount can be moderated in air transport",
+    "comments": "Practical application to aircraft logistics, but analysis limited to RT42 wax and hemispherical geometry.",
     "hypotheses": [
-      "Aircraft low-pressure environment reduces foam box refrigeration effectiveness",
-      "Convective heat transfer coefficient drives performance degradation",
-      "Ice mass adjustment can compensate for cabin environment effects"
+      "Low-pressure environment reduces cooling effectiveness",
+      "Higher convection accelerates degradation",
+      "Ice quantity can be optimized for air transport"
     ],
     "results": [
-      "Confirmed: refrigeration effect changes in low-pressure cargo hold",
-      "Confirmed: performance worsens with increased convective coefficient",
-      "Confirmed: ice mass can be moderately adjusted to counteract effects"
+      "Confirmed degradation in low-pressure environment",
+      "Confirmed convection-dependent degradation",
+      "Established ice-adjustment guidelines"
     ]
   },
   {
@@ -1134,21 +1134,21 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-17",
     "category": "Astrophysics/Cosmology",
-    "task": "Detecting precursor patterns before ice shock fracture events",
-    "model": "(statistical analysis) ice deformation measurements with topological pattern analysis",
-    "inputs": "Continuous ice deformation measurements, statistical functional derivatives",
-    "outputs": "Temporal evolution of statistical patterns, precursor signatures, time-to-failure prediction",
-    "key_results": "Transition from stochastic to deterministic behavior; earliest precursors ~1 hour before event; distinct precursor groups at tens of minutes and final minutes; progressive synchronization of deformation",
-    "comments": "Novel application of statistical/topological methods to fracture prediction; results suggest real predictive potential but sample size and statistical significance unclear.",
+    "task": "Identifying statistical precursors to ice-fracture shocks via deformation analysis",
+    "model": "(experimental/statistical) ice deformation measurements with statistical and topological analysis",
+    "inputs": "Temporal ice deformation data preceding spring thermal expansion events",
+    "outputs": "Precursor signatures, deterministic pattern emergence, topological similarity evolution",
+    "key_results": "Earliest precursors ~1 hour pre-shock; secondary group ~tens of minutes; tertiary group within final minutes; progressive synchronization of deformation indicates transition to deterministic dynamics",
+    "comments": "Novel application of statistical methods to complex fracture processes; methodology potentially transferable to other nonlinear natural systems.",
     "hypotheses": [
-      "Ordered linear features precede ice shocks",
+      "Ordered linear features emerge in deformation statistics pre-shock",
       "Multiple distinct precursor groups exist at different timescales",
-      "Topological pattern similarity increases before failure"
+      "Progressive topological synchronization indicates approaching failure"
     ],
     "results": [
-      "Confirmed: transition to deterministic patterns observed",
-      "Confirmed: three groups of precursors identified (1 hour, tens of minutes, minutes)",
-      "Confirmed: increasing topological similarity indicates synchronization"
+      "Confirmed deterministic pattern emergence",
+      "Identified three precursor groups at distinct timescales",
+      "Confirmed increasing topological similarity pre-fracture"
     ]
   },
   {
@@ -1160,21 +1160,21 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-17",
     "category": "Optics/Photonics",
-    "task": "Establishing field enhancement bounds in transformation optics via \u00e9tendue conservation",
-    "model": "(theoretical) transformation optics with phase-space formulation",
-    "inputs": "Coordinate transformation, geometric area-compression ratio, optical impedance",
-    "outputs": "Maximum average intensity, radiance, \u00e9tendue conservation constraints",
-    "key_results": "Maximum intensity limited solely by geometric area-compression ratio independent of material; Liouville theorem enforces phase-space volume preservation; applies to zero-index, null, and illusion devices",
-    "comments": "Elegant theoretical framework with fundamental implications; metric-based explanation is satisfying but practical utility for design remains to be demonstrated.",
+    "task": "Establishing fundamental bounds on field enhancement in transformation optics via phase-space conservation",
+    "model": "(theoretical) transformation optics with phase-space (\u00e9tendue-radiance) formulation",
+    "inputs": "Smooth, passive, impedance-matched coordinate transformations",
+    "outputs": "Field enhancement limits, intensity redistribution constraints",
+    "key_results": "Maximum average intensity limited solely by geometric area-compression ratio; Liouville's theorem enforces phase-space volume preservation; constraints apply universally to zero-index, null-media, and illusion devices",
+    "comments": "Elegant connection between classical invariants and TO, establishing universal limits independent of material realization; purely theoretical but rigorous.",
     "hypotheses": [
-      "Passive TO performs as symplectic mapping on optical phase space",
-      "Liouville theorem applies to transformation-optical media",
-      "Field enhancement limited only by geometric compression ratio"
+      "Passive TO mappings preserve phase-space volume (Liouville)",
+      "\u00c9tendue and radiance conservation impose field-enhancement limits",
+      "Intensity enhancement bounded by area-compression ratio alone"
     ],
     "results": [
-      "Confirmed: phase-space volume preservation enforced",
-      "Confirmed: strict analytical bounds derived from \u00e9tendue conservation",
-      "Confirmed: universal limit independent of material implementation"
+      "Confirmed phase-space preservation in TO media",
+      "Derived analytical enhancement bounds",
+      "Validated universality across device types"
     ]
   },
   {
@@ -1186,21 +1186,21 @@
     "journal": "npj Computational Materials",
     "publishedAt": "2026-03-17",
     "category": "Condensed Matter",
-    "task": "Developing system-specific machine learning interatomic potentials efficiently",
-    "model": "(machine learning) MACE fine-tuning + NEP distillation workflow",
-    "inputs": "Few hundred additional DFT calculations, pretrained MACE model, target system",
-    "outputs": "Fine-tuned MACE model, distilled NEP model, large-scale MD trajectories",
-    "key_results": "Single-shot workflow significantly accelerates MLIP development; fine-tuned MACE inherits pretrained stability; NEP distilled from fine-tuned MACE achieves competitive accuracy with minimal DFT data",
-    "comments": "Practical contribution to ML workflow efficiency; demonstrates effective transfer learning strategy but scope limited to SSE applications.",
+    "task": "Accelerating machine learning interatomic potential development via transfer learning and distillation",
+    "model": "(ML) MACE pretrained model fine-tuned then distilled to NEP; active learning on DFT data",
+    "inputs": "Pretrained MACE model and few hundred DFT calculations for target system",
+    "outputs": "System-specific NEP model with high accuracy for large-scale MD",
+    "key_results": "Single-shot workflow avoids multiple active-learning loops; fine-tuned MACE inherits stability of pretrained model; final NEP achieves competitive accuracy for large-scale MD with minimal additional DFT data",
+    "comments": "Practical acceleration of MLIP development; applicability demonstrated for solid-state electrolytes but generalization to arbitrary systems needs validation.",
     "hypotheses": [
-      "Fine-tuned MACE is more DFT-efficient than training NEP from scratch",
-      "MACE-driven sampling without active learning achieves convergence",
-      "Distilled NEP maintains accuracy of fine-tuned MACE"
+      "Fine-tuning pretrained model is more DFT-efficient than training from scratch",
+      "Distilled model inherits accuracy from fine-tuned MACE",
+      "Single-shot workflow reduces iteration count vs. conventional active learning"
     ],
     "results": [
-      "Confirmed: fine-tuning much more DFT data efficient than training from scratch",
-      "Confirmed: few hundred DFT calculations sufficient for convergence",
-      "Confirmed: distilled NEP achieves competitive accuracy for large-scale MD"
+      "Confirmed DFT-efficiency of fine-tuning",
+      "Confirmed successful distillation to NEP",
+      "Demonstrated rapid MLIP development pathway"
     ]
   },
   {
@@ -1212,21 +1212,21 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-17",
     "category": "Applied Physics",
-    "task": "Evaluating C60 fullerene nanofluid for transformer cooling and insulation",
-    "model": "(experiment + simulation) transformer oil with C60 nanoparticles; natural convection model",
-    "inputs": "C60 concentration (0.004% w/V), temperature, transformer loading",
-    "outputs": "Thermal conductivity, dielectric breakdown, flash point, temperature rise, heat circulation",
-    "key_results": "AC breakdown voltage increased 65% with negligible viscosity/density/conductivity changes; flash point decreased; slight temperature decrease in transformer; nanofluid met EN 60076-2:2011 standard",
-    "comments": "Comprehensive experimental and industrial validation; practical benefits modest and trade-offs (lower flash point) acknowledged; unconventional nano-functionalization method is interesting.",
+    "task": "Evaluating thermal and dielectric performance of transformer oil nanofluid with C\u2086\u2080",
+    "model": "(experiment + simulation) C\u2086\u2080-doped transformer oil in 250 kVA distribution transformer; natural convection model",
+    "inputs": "C\u2086\u2080 nanoparticles (0.004% w/V) in mineral oil; temperature and voltage stresses",
+    "outputs": "Thermal conductivity, AC breakdown voltage, dissipation factor, temperature rise, flow velocity",
+    "key_results": "C\u2086\u2080 increases AC breakdown voltage by 65%; minimal impact on viscosity/density/conductivity; slight temperature decrease in transformer; meets EN 60076-2:2011 standard; small C\u2086\u2080 concentration enhances coupling between windings and cooling",
+    "comments": "Comprehensive lab-to-industry validation; practical benefits modest but significant dielectric gains warrant further investigation.",
     "hypotheses": [
-      "C60 nanoparticles increase AC breakdown voltage",
-      "C60 concentration minimally affects viscosity/density",
-      "Enhanced oil circulation slightly reduces transformer temperature"
+      "C\u2086\u2080 nanoparticles improve AC breakdown strength",
+      "Nanofluid viscosity/density changes are negligible at low concentration",
+      "Enhanced oil circulation improves transformer cooling"
     ],
     "results": [
-      "Confirmed: 65% AC breakdown voltage increase observed",
-      "Confirmed: minimal impact on viscosity, density, thermal conductivity",
-      "Confirmed: slight temperature reduction from enhanced circulation"
+      "Confirmed 65% AC breakdown enhancement",
+      "Confirmed minimal viscosity/density change",
+      "Confirmed slight cooling improvement"
     ]
   },
   {
@@ -1238,21 +1238,21 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-17",
     "category": "Applied Physics",
-    "task": "Optimizing copper rod insertion for enhancing PCM melting in hemispherical geometry",
-    "model": "(finite element) ANSYS Fluent enthalpy-porosity method for paraffin wax (RT42)",
-    "inputs": "Copper rod length (0-30 mm), hemispherical cell geometry, initial temperature",
-    "outputs": "Melting time, temperature distribution, convective currents, melting rate",
-    "key_results": "Melting time reduced from 300 min (no rod) to 90 min (30 mm rod, 70% reduction); melting rate increased 233%; more homogeneous temperature distributions; stronger convection",
-    "comments": "Clear quantitative improvements and systematic parametric study; however, analysis is limited to single PCM and geometry; scalability to other materials/shapes unclear.",
+    "task": "Optimizing paraffin wax melting in hemispherical latent-heat storage via copper rod insertion",
+    "model": "(simulation) ANSYS Fluent with enthalpy-porosity method; RT42 paraffin in hemispherical cell",
+    "inputs": "Vertical copper rod of varying length (0\u201330 mm); constant heat input",
+    "outputs": "Melting time, melting rate, temperature distribution, convective flow",
+    "key_results": "Melting time reduced from 300 min (no rod) to 90 min (30 mm rod, 70% reduction); melting rate increased 233%; homogeneous temperature distribution and stronger convection with rod",
+    "comments": "Clear quantitative design guidance for PCM enhancement; hemispherical geometry somewhat idealized; scalability to practical storage units needs verification.",
     "hypotheses": [
-      "Copper rod enhances thermal exchange",
-      "Increased rod length monotonically reduces melting time",
-      "Rod improves temperature homogeneity and convection"
+      "Copper rod length monotonically improves melting performance",
+      "Rod enhances thermal exchange and induces stronger convection",
+      "Longest rod yields maximum thermal efficiency"
     ],
     "results": [
-      "Confirmed: melting time reduced significantly with rod insertion",
-      "Confirmed: 70% reduction achieved at 30 mm length",
-      "Confirmed: stronger convective currents and more homogeneous temperatures"
+      "Confirmed monotonic melting-time reduction",
+      "Confirmed convection enhancement",
+      "Achieved 70% melting-time reduction with optimal rod length"
     ]
   },
   {
@@ -1264,21 +1264,19 @@
     "journal": "Nature Communications",
     "publishedAt": "2026-03-17",
     "category": "Optics/Photonics",
-    "task": "Enhancing surface-enhanced Raman spectroscopy activity at high temperature via hot-hole transfer",
-    "model": "(experiment) Au-TiO2 nanoarrays SERS substrates with 785 nm excitation",
-    "inputs": "Temperature (22-180\u00b0C), 785 nm photon-induced hot-hole transfer conditions",
-    "outputs": "Raman signal intensity, SERS activity, molecular detection sensitivity",
-    "key_results": "11.41\u00d7 signal enhancement at 180\u00b0C vs 22\u00b0C; mechanism: heat-assisted hot-hole transfer from Au to TiO2; enables high-temperature chemical analysis",
-    "comments": "Unexpected anomalous temperature enhancement is intriguing; heat-assisted hot-hole mechanism is plausible but mechanism requires deeper theoretical characterization.",
+    "task": "Enhancing surface-enhanced Raman spectroscopy activity at high temperature via heat-assisted hot-hole transfer",
+    "model": "(experiment) Au-TiO\u2082 nanoarrays; SERS substrate at elevated temperature",
+    "inputs": "785 nm photons; temperature increase to 180\u00b0C",
+    "outputs": "Raman signal intensity, SERS enhancement factor",
+    "key_results": "Anomalous Raman enhancement with temperature: 11.41\u00d7 signal increase at 180\u00b0C vs. 22\u00b0C; mechanism: heat-assisted hot-hole transfer from Au to TiO\u2082",
+    "comments": "Novel mechanism enabling high-temperature SERS, expanding applications to thermal environments; mechanism confirmation via spectroscopic verification would strengthen claims.",
     "hypotheses": [
-      "Heat assists 785 nm photon-induced hot-hole transfer",
-      "High-temperature enhancement maintains SERS sensitivity",
-      "Mechanism enables high-temperature molecular diagnostics"
+      "Heat-assisted hot-hole transfer from Au to TiO\u2082 enhances Raman activity",
+      "Signal enhancement scales with temperature increase"
     ],
     "results": [
-      "Confirmed: anomalous Raman signal enhancement with temperature",
-      "Confirmed: 11.41\u00d7 increase at 180\u00b0C",
-      "Confirmed: heat-assisted hot-hole transfer mechanism identified"
+      "Confirmed anomalous temperature-dependent enhancement",
+      "Attributed to heat-assisted hot-hole mechanism"
     ]
   },
   {
@@ -1290,21 +1288,21 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-17",
     "category": "Condensed Matter",
-    "task": "Characterizing phonon frequency comb formation near Einstein mode in InSiTe\u2083",
-    "model": "(experiment) polarization-resolved Raman spectroscopy on layered Van der Waals compound",
-    "inputs": "Temperature (room temp to below 200 K), laser excitation at mode frequencies",
-    "outputs": "Phonon frequency comb structure, anharmonic coupling strength, higher-order excitations",
-    "key_results": "Self-organized frequency-domain structure (coherent-like state) near 500 cm\u207b\u00b9 A\u2081g mode; strong phonon-phonon coupling; anomalous temperature dependence around 200 K; higher-order excitations in phonon DOS gap",
-    "comments": "Rare observation of phonon frequency comb; intrinsic material properties enable emergence; exceptional anharmonicity requires explanation of microscopic origin.",
+    "task": "Investigating phonon frequency comb formation near isolated Einstein mode in InSiTe\u2083",
+    "model": "(experiment) polarization-resolved Raman spectroscopy; layered Van der Waals compound InSiTe\u2083",
+    "inputs": "Temperature sweep (50\u2013300 K); polarization-resolved Raman probing",
+    "outputs": "Phonon spectral structure, self-organized frequency patterns, anharmonic effects, temperature dependence",
+    "key_results": "Pronounced anharmonicity in A\u2081g mode (~500 cm\u207b\u00b9); coherent-like frequency comb structure; anomalous T-dependence around 200 K; strong phonon-phonon coupling manifested as higher-order excitations in phonon density of states gap",
+    "comments": "Rare observation of phonon frequency combs; low-dimensional structure enables strong anharmonic coupling, but physical origin and control mechanisms deserve deeper theoretical exploration.",
     "hypotheses": [
-      "Strong phonon-phonon coupling generates frequency comb structure",
-      "Anomalous temperature dependence signals phase transition or structural change",
-      "Layered structure facilitates long-lived collective lattice excitations"
+      "Strong anharmonicity in isolated Einstein mode generates frequency comb",
+      "Temperature anomaly reflects phonon-phonon coupling threshold",
+      "Low-dimensional geometry enhances vibrational correlations"
     ],
     "results": [
-      "Confirmed: phonon frequency comb observed near A\u2081g mode",
-      "Confirmed: strong anharmonicity in symmetry-predicted modes",
-      "Confirmed: anomalous temperature dependence and higher-order excitations"
+      "Confirmed pronounced anharmonicity and frequency-comb formation",
+      "Confirmed T-dependent anomaly signature",
+      "Identified InSiTe\u2083 as platform for emergent phonon phenomena"
     ]
   },
   {
@@ -1316,21 +1314,21 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-17",
     "category": "Mathematical Physics",
-    "task": "Establishing structural duality between Schr\u00f6dinger and Carroll-Schr\u00f6dinger equations",
-    "model": "(theory) Carrollian limit (c\u21920) quantum mechanics in 1+1 dimensions",
-    "inputs": "Potential functions, initial wavefunctions, coordinate/time parameters",
-    "outputs": "Shared solutions, coordinate transformations, probability densities and currents",
-    "key_results": "Carroll-Schr\u00f6dinger structural mirror of Schr\u00f6dinger (1st order space, 2nd order time); any Carrollian problem maps to equivalent Schr\u00f6dinger via explicit transformation; probability conservation in spatial evolution",
-    "comments": "Elegant mathematical result establishing deep symmetry; extreme relativistic limits often produce unintuitive physics\u2014practical applications to quantum systems remain speculative.",
+    "task": "Establishing structural dualities between Schr\u00f6dinger and Carroll-Schr\u00f6dinger equations via coordinate transformation",
+    "model": "(theoretical) 1D Schr\u00f6dinger equation and its Carrollian (ultra-slow-light) counterpart",
+    "inputs": "External potentials satisfying duality conditions; initial wave functions",
+    "outputs": "Shared solutions, equivalent dynamics, probability currents",
+    "key_results": "Explicit coordinate transformation maps Carrollian problems to Schr\u00f6dinger problems; probability densities and currents related by potential removal and space-time swap; spatial-coordinate evolution preserves probability; extreme relativistic boost plus classical approximation yields Carrollian dispersion",
+    "comments": "Elegant mathematical connection between extreme kinematic limits and ordinary quantum mechanics; pedagogical value high but physical relevance for realistic systems unclear.",
     "hypotheses": [
-      "Carroll-Schr\u00f6dinger and Schr\u00f6dinger equations share structural duality",
-      "Coordinate transformation relates solutions and conserved quantities",
-      "Extreme boost + classical limit yields Carrollian dispersion relation"
+      "Carrollian and Schr\u00f6dinger equations share solutions under coordinate transformation",
+      "Probability is preserved in spatial-coordinate evolution",
+      "Extreme relativistic limits connect to Carrollian dynamics"
     ],
     "results": [
-      "Confirmed: explicit mapping between equations established",
-      "Confirmed: probability density/current relations derived",
-      "Confirmed: classical trajectories coincide under transformation"
+      "Confirmed solution-sharing via explicit transformation",
+      "Proved spatial-evolution probability conservation",
+      "Connected relativistic boost to Carrollian dispersion"
     ]
   },
   {
@@ -1342,21 +1340,21 @@
     "journal": "Nature Communications",
     "publishedAt": "2026-03-17",
     "category": "Condensed Matter",
-    "task": "Developing foundation model for crystal property prediction via symmetry-informed representation",
-    "model": "(machine learning) CLOUD transformer with Symmetry-Consistent Ordered Parameter Encoding (SCOPE)",
-    "inputs": "Crystal structure (symmetry, Wyckoff positions, composition), target properties",
-    "outputs": "Property predictions, temperature-dependent properties (with Debye model integration)",
-    "key_results": "Competitive performance on diverse material properties; strong scaling with data/model size; physics-informed approach enables thermodynamically consistent predictions; phonon-related properties predicted without additional data",
-    "comments": "Well-motivated framework integrating symmetry and physics; pre-training on 6M crystals demonstrates scalability; Debye model integration is elegant but limited to phonon properties.",
+    "task": "Physics-informed foundation model for crystal property prediction via symmetry-consistent representation",
+    "model": "(ML) Transformer (CLOUD) pretrained on SCOPE (Symmetry-Consistent Ordered Parameter Encoding); Debye model integration",
+    "inputs": "Crystal structure (6M+ training crystals); composition, Wyckoff positions, symmetry",
+    "outputs": "Material property predictions (phonon, thermal, electronic); temperature-dependent properties",
+    "key_results": "Competitive performance across diverse properties with strong scaling; Debye-model integration enforces thermodynamic consistency; temperature-dependent prediction without additional data; coordinate-free string representation encodes symmetry efficiently",
+    "comments": "Promising foundation-model approach balancing physics integration with data-driven learning; scalability to discovery-relevant properties (e.g., stability, transport) remains to be demonstrated.",
     "hypotheses": [
-      "Symmetry-consistent representation improves generalizability",
-      "Physics-informed learning enforces thermodynamic consistency",
-      "Foundation model scales effectively with data and model size"
+      "SCOPE representation effectively encodes crystal symmetry and structure",
+      "Physics-informed Debye integration improves generalization",
+      "Foundation model scales with data and model size"
     ],
     "results": [
-      "Confirmed: competitive performance on diverse downstream tasks",
-      "Confirmed: strong scaling demonstrated",
-      "Confirmed: temperature-dependent properties predicted with Debye model"
+      "Confirmed competitive downstream task performance",
+      "Validated thermodynamic consistency via Debye coupling",
+      "Demonstrated strong scaling behavior"
     ]
   },
   {
@@ -1368,21 +1366,21 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-17",
     "category": "Optics/Photonics",
-    "task": "Designing multifunctional metasurface with simultaneous polarization conversion and bandpass filtering",
-    "model": "(metamaterial) bi-anisotropic omega metasurface combining polarization-converter + frequency-selective surface",
-    "inputs": "Incident wave direction (\u00b1Z), polarization state, frequency",
-    "outputs": "Reflected/transmitted polarization, bandpass transmission, insertion loss, cross-polarization conversion",
-    "key_results": "Two reflective circularly polarized bands separated by narrow bandpass (<-1 dB insertion loss); symmetric transmission \u00b1Z; partial reflector behavior outside bandpass; validated by ECM and fabricated prototype",
-    "comments": "Clever design combining multiple functions; experimental validation with 17\u00d729 prototype is thorough; concept potentially useful for rasorbers and communications but represents incremental engineering.",
+    "task": "Multifunctional metasurface design with simultaneous polarization conversion and bandpass filtering",
+    "model": "(simulation + experiment) bi-anisotropic omega metasurface (MS) combining patterned polarizer with cross-dipole bandpass FSS",
+    "inputs": "EM wave from \u00b1Z directions with variable incident polarization",
+    "outputs": "Reflected/transmitted polarization state, bandpass insertion loss, frequency selectivity",
+    "key_results": "Symmetric transmission \u00b1Z with bandpass IL < \u22121 dB; bidirectional polarization conversion in reflection and partial transmission; confirmed via ECM and fabricated prototype (17\u00d729 unit cells)",
+    "comments": "Novel combination of multiple functionalities experimentally validated; practical applications to antennas and communication systems promising, but bandwidth narrowness may limit some uses.",
     "hypotheses": [
-      "BP-FSS provides reflection-transmission frequency response",
-      "Structure maintains symmetric transmission for \u00b1Z excitation",
-      "Multiple functionalities achievable via cascaded design"
+      "BP-FSS inside metal ground enables reflection-transmission frequency response",
+      "Patterned polarizer and BP-FSS cascade produces symmetric bidirectional behavior",
+      "Multi-functionality improves over single-purpose alternatives"
     ],
     "results": [
-      "Confirmed: two reflective CP bands with narrow bandpass window",
-      "Confirmed: symmetric transmission response for \u00b1Z",
-      "Confirmed: experimental validation matches simulations"
+      "Confirmed symmetric transmission response",
+      "Achieved narrow bandpass with low insertion loss",
+      "Demonstrated bidirectional polarization conversion"
     ]
   },
   {
@@ -1395,20 +1393,20 @@
     "publishedAt": "2026-03-17",
     "category": "High Energy/Particle",
     "task": "Generating zeptosecond electron pulse trains via multiphoton inelastic Cherenkov diffraction",
-    "model": "(relativistic quantum kinetics) Dirac equation with inelastic scattering on laser phase-lattice",
-    "inputs": "Relativistic electron beam, slowed laser pulse (dielectric/gas medium), multiphoton absorption",
-    "outputs": "Electron pulse compression, attosecond-zeptosecond pulse train, matter-wave sub-packets",
-    "key_results": "Multiphoton absorption (up to 10\u2074 photons) compresses electron wave packet; attosecond-zeptosecond pulse trains formed after free propagation; compression robust to laser duration but sensitive to momentum spread",
-    "comments": "Ambitious proposal for tabletop zeptosecond sources; relativistic quantum kinetics approach is sophisticated but lacks experimental validation; scaling to practical microtron energies undemonstrated.",
+    "model": "(theoretical) relativistic quantum kinetics of electron-laser phase-lattice interaction",
+    "inputs": "Relativistic electrons in dielectric/gaseous medium; slowed laser pulse phase-lattice; 785 nm photons",
+    "outputs": "Electron pulse train temporal structure, compression factor, matter-wave packet duration",
+    "key_results": "Multiphoton absorption up to 10\u2074 photons induces strong temporal compression; attosecond-zeptosecond pulse trains form after free-space propagation; compression robust to laser pulse duration, sensitive to beam momentum spread",
+    "comments": "Theoretically ambitious pathway to tabletop zeptosecond sources with practical relevance for ultrafast spectroscopy and microscopy; experimental demonstration still pending.",
     "hypotheses": [
-      "Multiphoton absorption enables strong temporal compression",
-      "Inelastic Cherenkov diffraction generates structured pulse trains",
-      "Compression robust to laser pulse duration variations"
+      "Multiphoton inelastic Cherenkov diffraction compresses electron wave packets",
+      "Zeptosecond pulse trains emerge from sub-packet free-space propagation",
+      "Compression is robust to pulse duration variations"
     ],
     "results": [
-      "Confirmed: multiphoton absorption up to 10\u2074 photons demonstrated theoretically",
-      "Confirmed: strong temporal compression achieved",
-      "Confirmed: robustness to laser duration identified"
+      "Established multiphoton-driven compression mechanism",
+      "Derived attosecond-zeptosecond pulse-train structure",
+      "Identified robustness and sensitivity conditions"
     ]
   },
   {
@@ -1420,21 +1418,21 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-17",
     "category": "Astrophysics/Cosmology",
-    "task": "Quantifying glacier volume change and projecting survival timelines using satellite data",
-    "model": "(satellite remote sensing + projection) nine North American benchmark glaciers",
-    "inputs": "1957 baseline surveys, satellite data 1957-present, future temperature projections",
-    "outputs": "Cumulative volume loss, areal shrinkage, glacier survival projections to 2100",
-    "key_results": "1.4 Gt freshwater lost since 1957; average 33% areal shrinkage; only 3 of 9 glaciers survive by 2100; methodology applicable globally at cost-effective scale",
-    "comments": "Clear documentation of dramatic glacier decline; projections based on temperature-volume integration but do not account for nonlinear threshold effects or potential stabilization.",
+    "task": "Documenting 60-year glacier mass loss and projecting future survivability of nine North American benchmarks",
+    "model": "(observational + predictive) satellite-based volume and area tracking; temperature-driven extrapolation",
+    "inputs": "1957 initial survey data; satellite observations through 2024; future temperature scenarios to 2100",
+    "outputs": "Mass loss (Gt), areal shrinkage (%), remaining glaciers at 2100",
+    "key_results": "Total freshwater loss: 1.4 Gt since 1957; average shrinkage: 33%; only 3 of 9 glaciers survive to 2100; cumulatively integrated temperature-driven volume changes predict lifespan",
+    "comments": "Clear documentation of climate impact on iconic glaciers; methodology scalable globally for cost-effective regional assessments, though future projections depend heavily on temperature scenario assumptions.",
     "hypotheses": [
-      "Glaciers have declined substantially since 1957",
-      "Future temperature projections enable survival forecasting",
-      "Methodology is scalable to global glacier assessment"
+      "Glaciers have declined significantly since 1957",
+      "Temperature-driven volume loss predicts future survivability",
+      "Only minority of glaciers persist to 2100"
     ],
     "results": [
-      "Confirmed: 1.4 Gt volume loss and 33% areal shrinkage documented",
-      "Confirmed: only 3 of 9 glaciers projected to survive 2100",
-      "Confirmed: satellite-based methodology provides cost-effective global assessment"
+      "Confirmed 33% average shrinkage and 1.4 Gt mass loss",
+      "Projected survival of 3 of 9 glaciers",
+      "Established methodology for future projections"
     ]
   },
   {
@@ -1446,21 +1444,21 @@
     "journal": "Nature Reviews Physics",
     "publishedAt": "2026-03-17",
     "category": "Applied Physics",
-    "task": "Designing LPBF-printed high entropy alloy for acoustic insulation via Anderson localization",
-    "model": "(experiment + simulation) CrMnFeCoNi HEA with intrinsic manufacturing voids",
-    "inputs": "LPBF process parameters, void fraction (up to 25%), sample thickness (10 mm)",
-    "outputs": "Sound transmission reduction, hardness, acoustic wave localization, mechanical integrity",
-    "key_results": "\u221265 dB average sound transmission reduction over 10 mm in water; Anderson localization from void-induced backscattering; 10% hardness advantage vs stainless steel 316 despite >25% defects",
-    "comments": "Innovative approach exploiting manufacturing defects as acoustic features; experimental validation is strong but acoustic performance primarily reflects void fraction rather than HEA material properties.",
+    "task": "Acoustic insulation via Anderson localization in LPBF-printed high-entropy alloy with intrinsic voids",
+    "model": "(simulation + experiment) laser powder bed fusion (LPBF) CrMnFeCoNi HEA with random internal defects",
+    "inputs": "Acoustic wave propagation through LPBF-HEA with defect fraction >25%",
+    "outputs": "Sound transmission reduction, wave localization, material hardness retention",
+    "key_results": "Average sound transmission reduction: \u221265 dB over 10 mm thickness in water; pronounced wave localization via random backscattering; hardness retention ~10% higher than stainless steel 316 despite high defect fraction",
+    "comments": "Creative exploitation of manufacturing defects for acoustic function without sacrificing mechanical properties; scalability to larger structures and optimization of defect size/distribution merit further study.",
     "hypotheses": [
-      "Random voids induce Anderson localization of sound waves",
-      "Exponential decay of sound propagation via wave localization",
-      "Mechanical integrity preserved with high defect fractions"
+      "Intrinsic LPBF voids enable Anderson localization of sound",
+      "Random void distribution induces exponential sound decay",
+      "High defect fraction compatible with superior hardness"
     ],
     "results": [
-      "Confirmed: pronounced wave localization via random backscattering",
-      "Confirmed: \u221265 dB sound transmission reduction achieved",
-      "Confirmed: hardness maintained despite >25% void fraction"
+      "Confirmed \u221265 dB sound reduction via Anderson localization",
+      "Demonstrated exponential sound-propagation decay",
+      "Verified hardness retention with >25% defect fraction"
     ]
   },
   {
@@ -1472,21 +1470,21 @@
     "journal": "Nature Energy",
     "publishedAt": "2026-03-17",
     "category": "Condensed Matter",
-    "task": "Exploiting VO2 insulator-metal transition for enhanced photocatalytic methane conversion",
-    "model": "(experiment) VO2 thin film at phase transition temperature with photocatalytic testing",
-    "inputs": "Temperature (near transition), magnetic field, laser illumination, methane feed",
-    "outputs": "Methane conversion rate, propane selectivity, C-C coupling, photo-generated charge carriers",
-    "key_results": "Peak photocatalytic activity at critical transition temperature; coexisting insulating/metallic domains with non-integer fractal boundaries; 100% propane selectivity via C-C coupling; field-assisted phase triggering boosts conversion",
-    "comments": "Elegant exploitation of phase transition dynamics for catalysis; mechanism of enhanced charge separation at transition temperature is well-motivated but microscopic origin of selectivity switching deserves deeper characterization.",
+    "task": "Exploiting VO\u2082 insulator-metal transition for enhanced photocatalytic methane conversion",
+    "model": "(experiment) VO\u2082 thin films; phase-transition-enabled junction engineering; photocatalytic methane oxidation",
+    "inputs": "Illumination + temperature control near critical transition; methane feedstock",
+    "outputs": "Methane conversion rate, propane selectivity, charge-separation efficiency",
+    "key_results": "Photocatalytic activity peaks at critical temperature (coexistence of insulating-metallic domains); 100% propane selectivity achieved via C-C coupling; electric triggering below T_c further boosts conversion via field-assisted carrier activation",
+    "comments": "Clever use of phase transition to create nanoscale junctions spontaneously; practical integration challenges (temperature/field control in reactors) and scalability to industrial scales remain open.",
     "hypotheses": [
-      "Coexisting domains with small sizes enhance charge separation",
-      "Transition temperature is optimal for photocatalytic activity",
-      "Electrical triggering enables field-assisted carrier activation"
+      "Metal-insulator coexistence creates favorable charge-separation interfaces",
+      "Domain size below minority-carrier diffusion length optimizes efficiency",
+      "Electric triggering enhances conversion below critical temperature"
     ],
     "results": [
-      "Confirmed: peak activity at critical transition temperature",
-      "Confirmed: 100% propane selectivity achieved",
-      "Confirmed: electrical triggering further boosts methane conversion"
+      "Confirmed activity peak at critical temperature",
+      "Achieved 100% C-C coupling selectivity",
+      "Demonstrated electric triggering enhancement"
     ]
   },
   {
@@ -1498,21 +1496,21 @@
     "journal": "Nature Photonics",
     "publishedAt": "2026-03-17",
     "category": "Quantum",
-    "task": "Demonstrating photonic quantum reservoir computing with controllable memory via continuous variables",
-    "model": "(experiment + simulation) multimode squeezed-state QRC with spectral/temporal multiplexing",
-    "inputs": "Encoded data via pump phase shaping, programmable feedback modulation, homodyne detection",
-    "outputs": "Nonlinear temporal task outputs (parity check, chaotic forecasting), memory capacity, expressivity",
-    "key_results": "Real-time memory implemented via electro-optic feedback; nonlinear temporal tasks enabled (parity at variable delays, chaotic signal forecasting); high-fidelity Digital Twin validation; entangled multimode structure enhances expressivity",
-    "comments": "Solid proof-of-concept for practical photonic QRC with memory; Digital Twin validation strengthens credibility; scaling to larger temporal windows and more complex tasks remains to be demonstrated.",
+    "task": "Implementing memory control in continuous-variable optical quantum reservoir computing",
+    "model": "(experiment) photonic QRC with multimode squeezed states; continuous-variable setting; electro-optic modulation feedback",
+    "inputs": "Temporal data encoded via programmable pump phase shaping; squeezed-state resource",
+    "outputs": "Temporal task predictions (parity check at various delays, chaotic signal forecasting)",
+    "key_results": "Real-time memory via electro-optic feedback; controllable fading-memory implementation; nonlinear temporal tasks demonstrated; Digital Twin validates high-fidelity operation; entangled multimode structure boosts expressivity and memory capacity",
+    "comments": "Promising photonic platform for quantum-enhanced machine learning with native temporal structure; scalability to larger systems and practical advantage over classical approaches in specific tasks remains to be established.",
     "hypotheses": [
-      "Controllable feedback enables tunable memory in QRC",
-      "Spectral multiplexing enhances expressivity and capacity",
-      "Squeezed-state entanglement improves learning from temporal data"
+      "Multimode squeezed states enable enhanced temporal expressivity",
+      "Electro-optic feedback implements controllable memory",
+      "Entanglement increases memory capacity"
     ],
     "results": [
-      "Confirmed: real-time memory implemented via feedback",
-      "Confirmed: nonlinear temporal tasks solved (parity check, forecasting)",
-      "Confirmed: entangled structure enhances expressivity"
+      "Demonstrated memory-controlled QRC operation",
+      "Validated temporal task performance",
+      "Confirmed expressivity boost from entanglement"
     ]
   },
   {
@@ -1524,21 +1522,21 @@
     "journal": "Nature Reviews Materials",
     "publishedAt": "2026-03-17",
     "category": "Applied Physics",
-    "task": "Enabling vision-only flight control via event camera and neural networks without IMU",
-    "model": "(neural network + experiment) recurrent convolutional network on event-camera data",
-    "inputs": "Event stream from downward-facing event camera, quadrotor dynamics",
-    "outputs": "Attitude estimation, rotation rate, flight control signals (replaces IMU)",
-    "key_results": "Successful real-world flight without inertial sensors; small recurrent CNN trained via supervised learning replaces IMU; network with memory + horizon cues achieves best performance; narrow field-of-view variants show better relative generalization",
-    "comments": "Practical contribution to insect-scale robotics; vision-only approach is compelling but generalization across diverse environments and rapid maneuvers remains limited; event camera temporal resolution is key advantage.",
+    "task": "Vision-only flight control for quadrotor drones via event-camera and neural-network attitude estimation",
+    "model": "(experiment + ML) recurrent convolutional neural network (RCNN) processing event-camera stream; attitude and rotation-rate inference",
+    "inputs": "Downward-facing event-camera stream; no inertial sensors",
+    "outputs": "Attitude angles, rotation rates, flight control commands",
+    "key_results": "RCNN successfully replaces IMU in control loop; networks with memory and horizon cues achieve best performance; narrow field-of-view variants show better relative generalization; flight tests validate real-world viability",
+    "comments": "First vision-only approach to quadrotor flight without IMU; impressive real-world validation but limited to downward-facing configuration; generalization to acrobatic maneuvers and variable lighting conditions untested.",
     "hypotheses": [
-      "Event-camera vision alone can estimate attitude and rotation rate",
-      "Network with memory outperforms feedforward architecture",
-      "Narrow field-of-view improves environment generalization"
+      "Event-camera stream alone suffices for attitude estimation",
+      "Memory-augmented networks improve temporal prediction",
+      "Narrow field-of-view generalizes better across environments"
     ],
     "results": [
-      "Confirmed: vision-only flight control replaces traditional IMU",
-      "Confirmed: memory in network improves performance",
-      "Confirmed: narrower FOV achieves better relative generalization"
+      "Confirmed IMU replacement via vision-only control",
+      "Validated memory enhancement",
+      "Identified generalization advantage of narrow FOV"
     ]
   }
 ]

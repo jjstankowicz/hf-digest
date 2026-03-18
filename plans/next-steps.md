@@ -71,11 +71,11 @@ Nature schema TBD.
 - `write-fetch-script`
 - `github-actions-workflow`
 - `test-end-to-end`
+- `rename-repo`
+- `paper-id-namespace`
 
 # Priority (Sorted)
 
-- `rename-repo`
-- `paper-id-namespace`
 - `hf-api-date-param`
 - `nature-schema`
 - `nature-rss-feed`
@@ -88,14 +88,6 @@ Nature schema TBD.
 - `email-summary`
 
 # Backlog (Unsorted)
-
-- `rename-repo` -- Rename GitHub repo from `hf-digest` to `paper-digest`.
-  Update git remote locally. Update CLAUDE.md. Verify site loads at
-  `https://jjstankowicz.github.io/paper-digest/`. Package name: `padi`.
-
-- `paper-id-namespace` -- Add `uid` field (`source:id`) to all existing paper
-  records. Update fetch script to write `uid` and `source` fields. Update
-  `cache.json` to key on `uid`.
 
 - `hf-api-date-param` -- Switch `fetch_hf.py` to use
   `?date=YYYY-MM-DD` API param instead of filtering a rolling response.

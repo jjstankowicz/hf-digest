@@ -102,9 +102,12 @@ def build_records(papers: list[dict], extracted: list[dict]) -> list[dict]:
     records = []
     for paper, fields in zip(papers, extracted):
         p = paper.get("paper", {})
+        paper_id = p.get("id", "")
         records.append(
             {
-                "id": p.get("id", ""),
+                "uid": f"hf:{paper_id}",
+                "source": "hf",
+                "id": paper_id,
                 "title": p.get("title", ""),
                 "publishedAt": p.get("publishedAt", ""),
                 "submittedOnDailyAt": p.get("submittedOnDailyAt", ""),

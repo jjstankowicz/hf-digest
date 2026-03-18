@@ -6,13 +6,17 @@ Intended to be called by fetch_papers.py as a library module.
 
 import json
 import re
+import sys
 import time
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import date
 from email.utils import parsedate_to_datetime
+from threading import Lock, Semaphore
 from xml.etree import ElementTree as ET
 
 import anthropic
+from tqdm import tqdm
 
 # All Nature RSS feeds with their per-feed category lists.
 FEEDS: dict[str, dict] = {
@@ -277,47 +281,136 @@ def extract_fields(
     return json.loads(text)
 
 
-def fetch_feed_papers(feed_name: str, feed_cfg: dict, target: date) -> list[dict]:
-    """Scrape abstracts for one feed on target date; return raw paper dicts (no extraction yet)."""
-    items = fetch_feed(feed_cfg["url"])
-    day_items = filter_items(items, target)
+def _scrape_feed(
+    feed_name: str,
+    feed_cfg: dict,
+    items: list[ET.Element],
+    target: date,
+    pbar: tqdm,
+    sem: Semaphore,
+) -> list[dict]:
+    """Scrape abstracts for one feed's filtered items; update shared progress bar.
+
+    Uses a shared semaphore to cap aggregate concurrent requests to nature.com.
+    """
     papers = []
-    for item in day_items:
+    for item in items:
         link = item.findtext("link", "").rstrip("/")
         slug = link.split("/")[-1]
         raw_title = item.findtext("title", "")
         title = re.sub(r"[\u200b\u200c\u200d\ufeff]", "", raw_title).strip()
-        abstract = scrape_abstract(link)
-        if not abstract:
-            continue
-        papers.append(
+        with sem:
+            abstract = scrape_abstract(link)
+            time.sleep(0.3)
+        if abstract:
+            papers.append(
+                {
+                    "feed": feed_name,
+                    "categories": feed_cfg["categories"],
+                    "title": title,
+                    "link": link,
+                    "slug": slug,
+                    "doi": slug_to_doi(slug),
+                    "journal": slug_to_journal(slug),
+                    "publishedAt": target.isoformat(),
+                    "abstract": abstract,
+                }
+            )
+        pbar.update(1)
+    return papers
+
+
+def _extract_feed(
+    feed_name: str,
+    papers: list[dict],
+    client: anthropic.Anthropic,
+) -> list[dict]:
+    """Extract fields and build records for one feed."""
+    categories = FEEDS[feed_name]["categories"]
+    extracted = extract_fields(papers, categories, client)
+    if not isinstance(extracted, list) or len(extracted) != len(papers):
+        raise RuntimeError(
+            f"Extraction mismatch for feed {feed_name}: expected {len(papers)} records, got "
+            f"{len(extracted) if isinstance(extracted, list) else type(extracted).__name__}"
+        )
+    records = []
+    for paper, fields in zip(papers, extracted):
+        uid = f"nature:{paper['doi']}"
+        records.append(
             {
-                "feed": feed_name,
-                "categories": feed_cfg["categories"],
-                "title": title,
-                "link": link,
-                "slug": slug,
-                "doi": slug_to_doi(slug),
-                "journal": slug_to_journal(slug),
-                "publishedAt": target.isoformat(),
-                "abstract": abstract,
+                "uid": uid,
+                "source": feed_name,
+                "id": paper["doi"],
+                "title": paper["title"],
+                "projectPage": paper["link"],
+                "journal": paper["journal"],
+                "publishedAt": paper["publishedAt"],
+                "category": fields.get("category", "Other"),
+                "task": fields.get("task", ""),
+                "model": fields.get("model", ""),
+                "inputs": fields.get("inputs", ""),
+                "outputs": fields.get("outputs", ""),
+                "key_results": fields.get("key_results", ""),
+                "comments": fields.get("comments", ""),
+                "hypotheses": fields.get("hypotheses") or [],
+                "results": fields.get("results") or [],
             }
         )
-        time.sleep(0.3)  # polite crawl rate
-    return papers
+    return records
 
 
 def fetch_nature_papers(target: date, client: anthropic.Anthropic | None = None) -> list[dict]:
     """Fetch all Nature RSS feed papers for target date, extract fields via Claude.
 
-    Returns records conforming to the unified paper schema.
+    Returns records conforming to the unified paper schema. Feeds are processed
+    in parallel; scraping within each feed uses a polite 0.3s delay.
     """
-    # Collect papers from all feeds, grouped by feed for per-feed extraction.
+    # Phase 1: Fetch all RSS feeds in parallel.
+    items_by_feed: dict[str, list[ET.Element]] = {}
+    with tqdm(total=len(FEEDS), desc="Fetching RSS feeds", unit="feed") as pbar:
+        with ThreadPoolExecutor(max_workers=len(FEEDS)) as pool:
+            futures = {
+                pool.submit(fetch_feed, cfg["url"]): name
+                for name, cfg in FEEDS.items()
+            }
+            for fut in as_completed(futures):
+                feed_name = futures[fut]
+                try:
+                    items_by_feed[feed_name] = filter_items(fut.result(), target)
+                except Exception as exc:
+                    print(
+                        f"WARNING: {feed_name} RSS fetch failed: {exc}",
+                        file=sys.stderr,
+                    )
+                    items_by_feed[feed_name] = []
+                pbar.update(1)
+
+    total_articles = sum(len(v) for v in items_by_feed.values())
+    if total_articles == 0:
+        return []
+
+    # Phase 2: Scrape abstracts in parallel across feeds.
+    # Semaphore caps concurrent requests to nature.com across all feed threads.
+    scrape_sem = Semaphore(4)
     papers_by_feed: dict[str, list[dict]] = {}
-    for feed_name, feed_cfg in FEEDS.items():
-        papers = fetch_feed_papers(feed_name, feed_cfg, target)
-        if papers:
-            papers_by_feed[feed_name] = papers
+    with tqdm(total=total_articles, desc="Scraping abstracts", unit="article") as pbar:
+        with ThreadPoolExecutor(max_workers=len(FEEDS)) as pool:
+            futures = {
+                pool.submit(_scrape_feed, name, FEEDS[name], items, target, pbar, scrape_sem): name
+                for name, items in items_by_feed.items()
+                if items
+            }
+            for fut in as_completed(futures):
+                feed_name = futures[fut]
+                try:
+                    papers = fut.result()
+                    if papers:
+                        papers_by_feed[feed_name] = papers
+                except Exception as exc:
+                    print(
+                        f"WARNING: {feed_name} scraping failed: {exc}",
+                        file=sys.stderr,
+                    )
 
     if not papers_by_feed:
         return []
@@ -325,36 +418,27 @@ def fetch_nature_papers(target: date, client: anthropic.Anthropic | None = None)
     if client is None:
         client = anthropic.Anthropic()
 
-    records = []
-    for feed_name, papers in papers_by_feed.items():
-        categories = FEEDS[feed_name]["categories"]
-        extracted = extract_fields(papers, categories, client)
-        if not isinstance(extracted, list) or len(extracted) != len(papers):
-            raise RuntimeError(
-                f"Extraction mismatch for feed {feed_name}: expected {len(papers)} records, got "
-                f"{len(extracted) if isinstance(extracted, list) else type(extracted).__name__}"
-            )
-        for paper, fields in zip(papers, extracted):
-            source = "nature"
-            uid = f"{source}:{paper['doi']}"
-            records.append(
-                {
-                    "uid": uid,
-                    "source": source,
-                    "id": paper["doi"],
-                    "title": paper["title"],
-                    "projectPage": paper["link"],
-                    "journal": paper["journal"],
-                    "publishedAt": paper["publishedAt"],
-                    "category": fields.get("category", "Other"),
-                    "task": fields.get("task", ""),
-                    "model": fields.get("model", ""),
-                    "inputs": fields.get("inputs", ""),
-                    "outputs": fields.get("outputs", ""),
-                    "key_results": fields.get("key_results", ""),
-                    "comments": fields.get("comments", ""),
-                    "hypotheses": fields.get("hypotheses") or [],
-                    "results": fields.get("results") or [],
-                }
-            )
+    # Phase 3: Extract fields via Claude in parallel across feeds.
+    records: list[dict] = []
+    lock = Lock()
+    with tqdm(total=len(papers_by_feed), desc="Extracting fields", unit="feed") as pbar:
+        with ThreadPoolExecutor(max_workers=len(papers_by_feed)) as pool:
+            futures = {
+                pool.submit(_extract_feed, name, papers, client): name
+                for name, papers in papers_by_feed.items()
+            }
+            for fut in as_completed(futures):
+                feed_name = futures[fut]
+                try:
+                    feed_records = fut.result()
+                    with lock:
+                        records.extend(feed_records)
+                except Exception as exc:
+                    print(
+                        f"WARNING: extraction failed for {feed_name}: {exc}",
+                        file=sys.stderr,
+                    )
+                pbar.update(1)
+
+    records.sort(key=lambda r: (r["source"], r["publishedAt"], r["uid"]))
     return records

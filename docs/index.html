@@ -405,7 +405,6 @@ function updatePaperCount() {
 }
 
 function renderCards() {
-  const src = activeSource();
   const grid = document.getElementById('card-grid');
   const papers = visiblePapers();
   if (!papers.length) {
@@ -530,11 +529,12 @@ async function loadDate(date) {
   currentPapers = await resp.json();
   activeFilter = 'all';
 
-  // Rebuild source list from loaded papers
+  // Rebuild source list from loaded papers, preserving selection if possible
+  const prevSource = activeSource();
   const srcSet = new Set(currentPapers.map(p => p.source).filter(Boolean));
   sources = ['all', ...Array.from(srcSet).sort()];
-  // Preserve selected source if still present, else reset to 'all'
-  if (!sources.includes(activeSource())) sourceIdx = 0;
+  const newIdx = sources.indexOf(prevSource);
+  sourceIdx = newIdx >= 0 ? newIdx : 0;
   updateSourceNav();
 
   renderFilters();

@@ -6,7 +6,7 @@
     "title": "InCoder-32B: Code Foundation Model for Industrial Scenarios",
     "publishedAt": "2026-03-17T17:01:35.000Z",
     "submittedOnDailyAt": "2026-03-18T03:33:17.568Z",
-    "upvotes": 65,
+    "upvotes": 66,
     "projectPage": "https://huggingface.co/Multilingual-Multimodal-NLP/IndustrialCoder",
     "category": "LLM/Reasoning",
     "task": "Code generation for industrial domains",
@@ -26,7 +26,7 @@
     "title": "MiroThinker-1.7 & H1: Towards Heavy-Duty Research Agents via Verification",
     "publishedAt": "2026-03-16T17:55:42.000Z",
     "submittedOnDailyAt": "2026-03-18T00:30:46.407Z",
-    "upvotes": 46,
+    "upvotes": 47,
     "projectPage": "https://www.miromind.ai/blog/mirothinker-1.7-h1-towards-heavy-duty-research-agents-via-verification",
     "category": "Agents/RL",
     "task": "Complex long-horizon reasoning for research tasks",
@@ -206,7 +206,7 @@
     "title": "SegviGen: Repurposing 3D Generative Model for Part Segmentation",
     "publishedAt": "2026-03-17T17:59:51.000Z",
     "submittedOnDailyAt": "2026-03-18T01:00:42.940Z",
-    "upvotes": 8,
+    "upvotes": 9,
     "projectPage": "https://fenghora.github.io/SegviGen-Page/",
     "category": "Generative",
     "task": "3D part segmentation via repurposing 3D generative models",
@@ -286,7 +286,7 @@
     "title": "Semi-Autonomous Formalization of the Vlasov-Maxwell-Landau Equilibrium",
     "publishedAt": "2026-03-16T21:21:53.000Z",
     "submittedOnDailyAt": "2026-03-18T03:35:02.905Z",
-    "upvotes": 4,
+    "upvotes": 5,
     "projectPage": "https://github.com/Vilin97/Clawristotle",
     "category": "Benchmark",
     "task": "Formal verification of plasma physics equilibrium in Vlasov-Maxwell-Landau system",
@@ -400,6 +400,26 @@
     "results": []
   },
   {
+    "uid": "hf:2603.16777",
+    "source": "hf",
+    "id": "2603.16777",
+    "title": "Anticipatory Planning for Multimodal AI Agents",
+    "publishedAt": "2026-03-17T16:55:11.000Z",
+    "submittedOnDailyAt": "2026-03-18T04:41:38.127Z",
+    "upvotes": 1,
+    "projectPage": null,
+    "category": "Agents/RL",
+    "task": "Multi-step task planning for multimodal agents",
+    "model": "(reinforcement learning) TraceR1",
+    "inputs": "Computer-use and tool-use task instructions",
+    "outputs": "Action sequences with anticipated future states",
+    "key_results": "Substantial improvements in planning stability and execution robustness across seven benchmarks; improved generalization over reactive baselines",
+    "comments": "Two-stage RL approach (trajectory-level + grounded fine-tuning) is well-motivated, though absolute performance metrics are not quantified in the abstract.",
+    "journal": null,
+    "hypotheses": [],
+    "results": []
+  },
+  {
     "uid": "hf:2603.16343",
     "source": "hf",
     "id": "2603.16343",
@@ -435,6 +455,26 @@
     "outputs": "transcribed text with implicit language identification from audio",
     "key_results": "Polyglot-Lion-1.7B achieves 14.85 average error rate competitive with 6x larger MERaLiON-2-10B (14.32); 20x faster inference; $81 training cost vs $18,862",
     "comments": "Impressive efficiency gains through balanced fine-tuning strategy; elimination of language tags forces implicit learning, improving cross-lingual generalization.",
+    "journal": null,
+    "hypotheses": [],
+    "results": []
+  },
+  {
+    "uid": "hf:2603.16063",
+    "source": "hf",
+    "id": "2603.16063",
+    "title": "ViT-AdaLA: Adapting Vision Transformers with Linear Attention",
+    "publishedAt": "2026-03-17T02:15:48.000Z",
+    "submittedOnDailyAt": "2026-03-18T04:40:47.236Z",
+    "upvotes": 1,
+    "projectPage": null,
+    "category": "Vision",
+    "task": "Efficient adaptation of Vision Transformers with linear attention",
+    "model": "(Vision Transformer) ViT-AdaLA",
+    "inputs": "Vision foundation models and downstream vision tasks",
+    "outputs": "Linearized ViT parameters for classification and segmentation",
+    "key_results": "Effective knowledge transfer from softmax ViTs to linear attention variants; demonstrated on classification and segmentation tasks",
+    "comments": "Three-stage alignment strategy (attention, feature, fine-tuning) addresses layer-wise error accumulation, but specific performance gains versus baselines are not reported in abstract.",
     "journal": null,
     "hypotheses": [],
     "results": []
@@ -520,6 +560,26 @@
     "results": []
   },
   {
+    "uid": "hf:2603.12396",
+    "source": "hf",
+    "id": "2603.12396",
+    "title": "Test-Time Strategies for More Efficient and Accurate Agentic RAG",
+    "publishedAt": "2026-03-12T19:18:59.000Z",
+    "submittedOnDailyAt": "2026-03-18T04:42:05.664Z",
+    "upvotes": 0,
+    "projectPage": null,
+    "category": "LLM/Reasoning",
+    "task": "Improving efficiency and accuracy of iterative RAG systems",
+    "model": "(LLM agent) Search-R1 with modifications",
+    "inputs": "Complex multi-hop questions",
+    "outputs": "Retrieved documents and generated answers with reasoning",
+    "key_results": "5.6% increase in EM score and 10.5% reduction in retrieval turns compared to Search-R1 baseline on HotpotQA and Natural Questions",
+    "comments": "Test-time modifications are practical and yield concrete improvements, but the approach is incremental optimization rather than fundamental architectural innovation.",
+    "journal": null,
+    "hypotheses": [],
+    "results": []
+  },
+  {
     "uid": "nature:10.1038/s41598-026-44097-0",
     "source": "nature",
     "id": "10.1038/s41598-026-44097-0",
@@ -528,20 +588,21 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-18",
     "category": "Optics/Photonics",
-    "task": "Analytical investigation of soliton dynamics in nonlinear optical media",
-    "model": "(analytical) Fokas\u2013Lenells equation with quadratic-cubic self-phase modulation and nonlinear dispersion",
-    "inputs": "Perturbed quiescent optical solitons; generalized self-phase modulation and nonlinear chromatic dispersion parameters",
-    "outputs": "Soliton solutions (dark, periodic, singular, dark-singular, singular-periodic structures); spectral and temporal profiles",
-    "key_results": "Extended simple equation method provides straightforward effective solutions; modified extended tanh method yields richest spectrum of solutions; multiple analytical solution families obtained via three expansion techniques",
-    "comments": "Practical relevance to fiber-optic communications and supercontinuum generation is claimed but physical validation against experiments is not demonstrated.",
+    "task": "Analytical solution of soliton dynamics in nonlinear optical media",
+    "model": "(analytical) Fokas\u2013Lenells equation with generalized self-phase modulation and nonlinear dispersion",
+    "inputs": "Quadratic-cubic self-phase modulation and chromatic dispersion parameters",
+    "outputs": "Family of soliton solutions (dark, periodic, singular, dark-singular, singular-periodic)",
+    "key_results": "Extended simple equation method provides streamlined solutions; modified extended tanh method generates richer spectrum; optimized approach enables soliton regulation for fiber-optic and ultrafast laser applications",
+    "comments": "Three independent analytical methods confirm robustness of solution families, though practical experimental validation against these predictions is not discussed.",
     "hypotheses": [
-      "Generalized quadratic-cubic self-phase modulation combined with nonlinear dispersion produces diverse soliton structures",
-      "Different analytical methods yield distinct solution families with varying richness and compactness",
-      "Oxygen stoichiometry engineering enables improved ferroelectric memory performance"
+      "Generalized quadratic-cubic SPM and nonlinear dispersion interaction produces diverse soliton structures",
+      "Modified extended tanh method yields more compact solutions than alternative approaches",
+      "Analytical solutions enable control of pulse compression and spectrum broadening in photonic devices"
     ],
     "results": [
-      "Multiple soliton solution families obtained; extended simple equation method most straightforward; modified extended tanh method most comprehensive",
-      "N/A"
+      "Rich family of soliton solutions confirmed across three methods",
+      "Extended simple equation method provides straightforward implementation",
+      "Modified extended tanh generates non-redundant compact forms"
     ]
   },
   {
@@ -553,19 +614,491 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-18",
     "category": "Applied Physics",
-    "task": "Enhancement of memory window in ferroelectric field-effect transistors via oxygen control",
-    "model": "(experiment) IGZO/HfZrO2 ferroelectric field-effect transistor with hafnium-oxide ferroelectric",
-    "inputs": "Oxygen partial pressure (PO2) during IGZO channel deposition (0\u201320%); device fabrication parameters",
-    "outputs": "Memory window width; interfacial defect density; carrier density; polarization switching speed",
-    "key_results": "Optimized 5% PO2 yields maximum memory window of 1.85 V; reduced interfacial defect states while maintaining carrier density; accelerated polarization switching compared to non-optimal conditions",
-    "comments": "Well-controlled systematic study linking oxygen stoichiometry to device performance, though endurance and retention data mentioned but not quantified in abstract.",
+    "task": "Enhancement of ferroelectric FET memory window via oxygen stoichiometry control",
+    "model": "(experiment) IGZO/HfZrO2 ferroelectric field-effect transistor with oxygen-controlled deposition",
+    "inputs": "Oxygen partial pressure (PO2) during IGZO channel deposition (0\u201320%)",
+    "outputs": "Memory window width, oxygen vacancy concentration, interfacial defect density, switching speed",
+    "key_results": "Optimized 5% PO2 achieves 1.85 V maximum memory window; minimizes interfacial defect states while maintaining carrier density; accelerates polarization switching compared to non-optimal conditions",
+    "comments": "Systematic PO2 tuning effectively decouples oxygen stoichiometry from performance, though scaling to commercial endurance specs (write cycles) is not quantified.",
     "hypotheses": [
-      "Oxygen partial pressure during IGZO deposition controls oxygen vacancy concentration and interfacial defects",
-      "Optimized oxygen stoichiometry balances defect minimization with carrier density maintenance"
+      "Oxygen partial pressure modulation controls oxygen vacancy concentration in IGZO channel",
+      "Optimized interfacial defect states at IGZO/HfZrO2 maximize memory window",
+      "Precise oxygen stoichiometry enables faster nucleation-limited polarization switching"
     ],
     "results": [
-      "5% PO2 minimized interfacial defects while preserving carrier density and enabled faster switching",
-      "XPS confirmed PO2 tunes oxygen vacancy concentration and IGZO/HfZrO2 interface defect density"
+      "5% PO2 yields maximum 1.85 V memory window",
+      "XPS confirms PO2-dependent oxygen vacancy and interfacial defect modulation",
+      "Nucleation-limited switching analysis shows accelerated dynamics at optimized condition"
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41467-026-70837-x",
+    "source": "nature",
+    "id": "10.1038/s41467-026-70837-x",
+    "title": "Proton channels govern vesicular carbonate chemistry in mineralizing cells of a marine calcifier",
+    "projectPage": "https://www.nature.com/articles/s41467-026-70837-x",
+    "journal": "Nature Communications",
+    "publishedAt": "2026-03-18",
+    "category": "Membrane Biophysics",
+    "task": "Elucidate proton channel control of carbonate chemistry in calcifying vesicles",
+    "model": "(experiment) sea urchin embryo live-cell imaging with electrophysiology",
+    "inputs": "Sea urchin calcifying cells, membrane potential, Ca\u00b2\u207a and Mg\u00b2\u207a ions, pH gradients",
+    "outputs": "Intra-vesicular pH and Ca\u00b2\u207a concentrations, proton conductance, vesicle exocytosis dynamics",
+    "key_results": "Otop2l channel activation by alkaline pH, Ca\u00b2\u207a, and Mg\u00b2\u207a creates highly alkaline (>pH 8) conditions in ACC-forming vesicles; high proton permeability drives pH control at mineralization front",
+    "comments": "The identification of Otop2l as a master pH regulator provides mechanistic insight into biomineralization robustness and suggests vulnerability to ocean acidification through impaired channel function.",
+    "hypotheses": [
+      "Proton channels regulate intra-vesicular alkalinity during ACC formation",
+      "Otop2l is the primary proton conductor in calcifying cells",
+      "Alkaline pH and divalent cation concentration are coupled through Otop2l activation",
+      "Vesicular pH control is essential for preventing unwanted mineralization"
+    ],
+    "results": [
+      "Demonstrated high proton permeability in calcifying cells and ACC vesicles",
+      "Confirmed Otop2l as master regulator of membrane proton conductance",
+      "Showed Otop2l activation by alkaline conditions, Ca\u00b2\u207a, and Mg\u00b2\u207a",
+      "Observed correlation between membrane potential-driven proton conductance and carbonate chemistry control"
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-44463-y",
+    "source": "nature",
+    "id": "10.1038/s41598-026-44463-y",
+    "title": "5-HMF inhibits glucocorticoid-induced osteoporosis through the VEGFR2/PI3K/AKT pathway",
+    "projectPage": "https://www.nature.com/articles/s41598-026-44463-y",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-18",
+    "category": "Cell Signaling",
+    "task": "Prevent glucocorticoid-induced osteoporosis via osteoblast protection",
+    "model": "(experiment) MC3T3-E1 pre-osteoblasts, BMSCs, dexamethasone-induced mouse model",
+    "inputs": "5-HMF compound; dexamethasone treatment",
+    "outputs": "Osteogenic differentiation markers, bone density, bone architecture, VEGFR2/PI3K/AKT pathway activation",
+    "key_results": "5-HMF enhanced VEGFR2 phosphorylation, restored angiogenesis, activated PI3K/AKT signaling; MK2206 (AKT inhibitor) abrogated protective effects",
+    "comments": "Network pharmacology prediction complements functional validation, though the in vivo quantitative bone density improvements are not explicitly stated numerically.",
+    "hypotheses": [
+      "5-HMF activates VEGFR2/PI3K/AKT pathway in osteoblasts",
+      "AKT is essential for 5-HMF-mediated osteoprotection",
+      "5-HMF inhibits glucocorticoid-induced apoptosis via Bax/Bcl-2 regulation"
+    ],
+    "results": [
+      "VEGFR2 phosphorylation enhanced and angiogenesis restored in vitro and in vivo",
+      "AKT inhibition eliminated protective effects",
+      "Bax/Bcl-2 expression modulation confirmed apoptosis inhibition"
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-44176-2",
+    "source": "nature",
+    "id": "10.1038/s41598-026-44176-2",
+    "title": "Impact of the CYFIP2 R87C variant in a human neuronal model in vitro",
+    "projectPage": "https://www.nature.com/articles/s41598-026-44176-2",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-18",
+    "category": "Development",
+    "task": "Characterize CYFIP2 R87C variant effects on neuronal development",
+    "model": "(experiment) CRISPR/Cas9-edited hPSC-derived neurons and cortical organoids",
+    "inputs": "R87C variant in CYFIP2; differentiation protocol into NPCs and cortical neurons",
+    "outputs": "Neural morphology, motility, electrophysiology, protein expression, progenitor pool status",
+    "key_results": "Mutant NPCs showed reduced motility and altered lamellipodia; R87C/R87C organoids displayed premature progenitor depletion (absent SOX2+ cells by day 30) and increased size, while 2D cultures showed minimal phenotype",
+    "comments": "The stark divergence between 2D monolayer and 3D organoid phenotypes underscores the importance of physiological context; the mechanistic link to epileptic encephalopathy remains speculative.",
+    "hypotheses": [
+      "R87C variant impairs NPC cytoskeletal dynamics",
+      "R87C variant affects cortical progenitor pool maintenance in 3D systems",
+      "Altered lamellipodia formation compromises cell motility"
+    ],
+    "results": [
+      "Reduced NPC motility and altered cell morphology in 2D",
+      "Premature SOX2+ progenitor depletion and organoid enlargement in 3D",
+      "Decreased CYFIP2 protein in R87C organoids"
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41467-026-70522-z",
+    "source": "nature",
+    "id": "10.1038/s41467-026-70522-z",
+    "title": "Intellectual disability-causing mutations in KIF11 impair microtubule dynamics and dendritic arborization",
+    "projectPage": "https://www.nature.com/articles/s41467-026-70522-z",
+    "journal": "Nature Communications",
+    "publishedAt": "2026-03-18",
+    "category": "Cytoskeleton",
+    "task": "Elucidate KIF11 function in microtubule dynamics and dendritic development",
+    "model": "(experiment) live-imaging in postmitotic neurons; photo-controllable KIF11 optogenetic tool",
+    "inputs": "KIF11 depletion or MCLID mutations (Y82F, \u0394Cterm); neuronal cultures",
+    "outputs": "MT dynamics (minus-end-out), dendritic arborization, mEPSC frequency, MT crosslinking, sliding velocity, ATP affinity",
+    "key_results": "KIF11 depletion increased MT dynamics; MCLID mutants reduced MT dynamics and dendritic growth; \u0394Cterm disrupted tetramer formation and MT crosslinking; Y82F reduced sliding velocity and ATP affinity",
+    "comments": "The identification of KIF11 as a 'MT dynamics rheostat' is elegant, though the direct causal relationship between MT dynamics changes and dendritic arborization deficits could be further mechanistically dissected.",
+    "hypotheses": [
+      "KIF11 suppresses minus-end-out MT dynamics in mature neurons",
+      "MCLID mutations reduce KIF11-mediated MT regulation",
+      "MT dynamics control dendritic arborization and synaptic function"
+    ],
+    "results": [
+      "KIF11 depletion increased MT dynamics; MCLID mutants decreased dynamics",
+      "\u0394Cterm impaired tetramer/crosslinking; Y82F reduced sliding/ATP affinity",
+      "Reduced MT dynamics correlated with impaired dendritic growth and mEPSC frequency"
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41467-026-70677-9",
+    "source": "nature",
+    "id": "10.1038/s41467-026-70677-9",
+    "title": "Loss of polarity by Cdc42 depletion and oncogenic Kras activation in the mouse intestinal epithelia leads to a necrotizing enterocolitis (NEC)-like disease",
+    "projectPage": "https://www.nature.com/articles/s41467-026-70677-9",
+    "journal": "Nature Communications",
+    "publishedAt": "2026-03-18",
+    "category": "Cell Division/Cycle",
+    "task": "Determine NEC pathogenesis via polarity loss and Kras activation in intestinal epithelium",
+    "model": "(experiment) Cdc42-knockout + oncogenic Kras mouse intestinal epithelial model",
+    "inputs": "Cdc42 loss; oncogenic Kras activation; initiation from stem cells or differentiated epithelium",
+    "outputs": "Intestinal architecture, stem cell population, YAP/Hippo signaling, inflammatory cytokines, necroptotic cell death, transcriptomic signatures",
+    "key_results": "Combined Cdc42 loss + Kras activation caused intestinal failure, stem cell loss, elevated IL-1/TNF\u03b1, necroptotic activation; suppression of YAP, IL-1, TNF\u03b1, or necroptosis rescued pathology",
+    "comments": "Single-cell transcriptomics reveals coordinated dysregulation, and therapeutic rescue experiments provide strong mechanistic support, though the relative contribution of each pathway to lethality remains quantitatively unspecified.",
+    "hypotheses": [
+      "Cdc42 loss + Kras activation disrupt polarity-dependent epithelial homeostasis",
+      "YAP hyperactivation drives pathology downstream of polarity loss",
+      "IL-1/TNF\u03b1-mediated inflammation and necroptosis are key executors of epithelial damage"
+    ],
+    "results": [
+      "Combined Cdc42/Kras mutation caused polarity loss, stem cell depletion, and NEC-like phenotype",
+      "YAP, IL-1, TNF\u03b1 inhibition and necroptosis blockade all rescued pathology",
+      "Single-cell transcriptomics confirmed dysregulation of polarity, inflammatory, and necroptotic programs"
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41746-026-02510-y",
+    "source": "nature",
+    "id": "10.1038/s41746-026-02510-y",
+    "title": "From blink to care: smartphone video\u2013based functional analysis and personalized management in pediatric blepharoptosis",
+    "projectPage": "https://www.nature.com/articles/s41746-026-02510-y",
+    "journal": "Nature Portfolio",
+    "publishedAt": "2026-03-18",
+    "category": "Other",
+    "task": "Smartphone-based detection and management of pediatric blepharoptosis",
+    "model": "N/A",
+    "inputs": "Smartphone blink video clips and facial images (3164 clips, 1229 images)",
+    "outputs": "Morphological measurements, levator dysfunction classification, ptosis management recommendations",
+    "key_results": "Morphological ICC >0.90 vs manual; functional AUC 0.993; stratification accuracy 0.91 internal/0.89 real-world; patient satisfaction 4.93/5",
+    "comments": "Clinical translation is strong but generalizability across diverse smartphone hardware and lighting conditions remains underexplored.",
+    "hypotheses": [
+      "Smartphone video can accurately measure ptosis morphology comparable to manual clinical assessment",
+      "Machine learning can reliably identify levator dysfunction from blink dynamics",
+      "AI dialogue models improve patient education and decision-making in oculoplastic care"
+    ],
+    "results": [
+      "ICC >0.90 confirms morphological accuracy",
+      "AUC 0.993 demonstrates high functional classification performance",
+      "Patient satisfaction 4.93/5 indicates practical utility"
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-44009-2",
+    "source": "nature",
+    "id": "10.1038/s41598-026-44009-2",
+    "title": "Stabilizing updates in differentially private stochastic gradient descent with buffered rejection",
+    "projectPage": "https://www.nature.com/articles/s41598-026-44009-2",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-18",
+    "category": "Statistical Methods",
+    "task": "Improve convergence and accuracy in differentially private stochastic gradient descent",
+    "model": "FLDP training (fractional-order learning with differential privacy)",
+    "inputs": "Sensitive training data with strict privacy budget constraints",
+    "outputs": "Model parameters, test accuracy, privacy guarantee (membership inference ROC)",
+    "key_results": "Test accuracy improvement 0.5\u20132 percentage points over baseline DPSGD; membership inference AUC ~0.5; faster convergence at same privacy level",
+    "comments": "Buffered rejection is intuitive but the phased decay strategy introduces additional hyperparameters that may complicate tuning in practice.",
+    "hypotheses": [
+      "Buffered comparison of candidate updates reduces noise-induced instability in selective updates",
+      "Phased parameter decay tracks training dynamics and improves convergence under tight privacy budgets",
+      "Privacy budget is not weakened by accuracy gains (privacy-utility tradeoff)"
+    ],
+    "results": [
+      "Consistent 0.5\u20132 pp accuracy improvement on MNIST, Fashion-MNIST, CIFAR-10, IMDb",
+      "Faster convergence at identical privacy budget",
+      "Membership inference AUC near 0.5 confirms privacy preservation"
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-40717-x",
+    "source": "nature",
+    "id": "10.1038/s41598-026-40717-x",
+    "title": "Canine gait analysis using inertial sensors and deep learning for orthopedic and neurological disorders",
+    "projectPage": "https://www.nature.com/articles/s41598-026-40717-x",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-18",
+    "category": "Other",
+    "task": "Distinguish neurological from orthopedic gait disorders in dogs using inertial sensors",
+    "model": "Deep learning on inertial measurement unit (IMU) data",
+    "inputs": "Wearable inertial sensor readings during gait (29 dogs)",
+    "outputs": "Multi-class classification (healthy/orthopedic/neurological) and binary (healthy/non-healthy)",
+    "key_results": "Multiclass accuracy 0.96; binary accuracy 0.85 on unseen dogs; robust generalization demonstrated",
+    "comments": "Small sample size (29 dogs) and lack of cross-breed or cross-gait-speed validation limits immediate clinical deployment.",
+    "hypotheses": [
+      "Inertial sensor patterns distinguish neurological from orthopedic gait impairments",
+      "Deep learning models trained on canine gait can generalize to unseen individuals"
+    ],
+    "results": [
+      "0.96 multiclass accuracy achieved",
+      "0.85 generalization accuracy on unseen dogs"
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-44370-2",
+    "source": "nature",
+    "id": "10.1038/s41598-026-44370-2",
+    "title": "Gene expression links consistent immune and inflammatory pathways to bovine respiratory disease in high-risk stocker cattle",
+    "projectPage": "https://www.nature.com/articles/s41598-026-44370-2",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-18",
+    "category": "Genomics",
+    "task": "Identify immune and inflammatory pathways associated with bovine respiratory disease using transcriptomics",
+    "model": "RNA-Seq differential expression analysis with functional enrichment",
+    "inputs": "Whole-blood RNA from 60 high-risk stocker heifers across multiple timepoints; metaphylaxis treatment (tulathromycin or control)",
+    "outputs": "Differentially expressed genes (DEGs), pathway enrichment, candidate biomarkers for BRD",
+    "key_results": ">2000 DEGs at disease onset (FDR \u22640.05); five consistent biomarkers (IL1R2, HP, S100A9, TLR4, ALOX15); minimal transcriptomic differences between metaphylaxis groups",
+    "comments": "Low morbidity rate in cohort prevented prediction of disease development; heat shock proteins emerged as potential severity markers but require validation.",
+    "hypotheses": [
+      "BRD-affected cattle show distinct immune and inflammatory transcriptomic signatures at clinical onset",
+      "Metaphylaxis reduces BRD incidence but does not fundamentally alter disease-associated gene expression patterns",
+      "Consistent biomarkers exist across treatment groups for BRD detection"
+    ],
+    "results": [
+      ">2000 DEGs enriched in cytokine signaling, lymphocyte activation, inflammatory response",
+      "Five genes consistently dysregulated regardless of treatment",
+      "Minimal predictive power at study entry due to low morbidity"
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-41657-2",
+    "source": "nature",
+    "id": "10.1038/s41598-026-41657-2",
+    "title": "Modified Smith predictor-based fuzzy self-tuning FOPID controller for mean arterial pressure regulation",
+    "projectPage": "https://www.nature.com/articles/s41598-026-41657-2",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-18",
+    "category": "Statistical Methods",
+    "task": "Regulate mean arterial pressure and cardiac output with adaptive control under time-varying delays",
+    "model": "Modified Smith predictor (MSP) with fuzzy self-tuning fractional-order PID (FLOPID) controller",
+    "inputs": "Patient hemodynamic state; drug infusions (sodium nitroprusside, dopamine); bounded variable delays (\u226460 s)",
+    "outputs": "Optimal drug infusion rates for MAP and CO regulation; closed-loop control signals",
+    "key_results": "Faster rise/settling times, reduced overshoot, lower integral error vs conventional PID and FOPID; clinically acceptable performance under parameter uncertainty and disturbances",
+    "comments": "Simulation-based validation only; clinical trial data and comparison to predictive/MPC strategies remain absent.",
+    "hypotheses": [
+      "Fractional-order PID with fuzzy self-tuning improves transient and steady-state control of hemodynamics",
+      "Modified Smith predictor compensates for time-varying drug\u2013response delays and maintains stability",
+      "Integrated FLST\u2013FOPID\u2013MSP architecture achieves clinically safe automated drug infusion"
+    ],
+    "results": [
+      "Faster rise and settling times vs baseline",
+      "Reduced overshoot and integral error metrics",
+      "Robust performance under inter-patient variability and measurement noise"
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-44009-2",
+    "source": "nature",
+    "id": "10.1038/s41598-026-44009-2",
+    "title": "Stabilizing updates in differentially private stochastic gradient descent with buffered rejection",
+    "projectPage": "https://www.nature.com/articles/s41598-026-44009-2",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-18",
+    "category": "ML Theory",
+    "task": "differentially private training with improved convergence",
+    "model": "buffered rejection mechanism + phased parameter decay",
+    "inputs": "sensitive data, privacy budget",
+    "outputs": "trained model weights, test accuracy",
+    "key_results": "0.5\u20132 percentage point accuracy improvement over standard DP-SGD at identical privacy budgets; faster convergence; AUC \u2248 0.5 on membership inference attacks",
+    "comments": "The buffering strategy is clever for reducing variance in rejection decisions, though the phased decay introduces additional hyperparameters that may require tuning.",
+    "hypotheses": [
+      "Buffered comparison reduces instability of selective updates",
+      "Phased decay matches training stages and improves accuracy",
+      "Empirical privacy is maintained despite accuracy gains"
+    ],
+    "results": [
+      "Confirmed by consistent improvements on MNIST, Fashion-MNIST, CIFAR-10, IMDb",
+      "Confirmed by tracking validation accuracy with adjusted noise/learning rate",
+      "Confirmed by membership inference AUC close to 0.5"
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-43674-7",
+    "source": "nature",
+    "id": "10.1038/s41598-026-43674-7",
+    "title": "CNN-LSTM model optimized by improved sparrow search algorithm for oil well production prediction",
+    "projectPage": "https://www.nature.com/articles/s41598-026-43674-7",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-18",
+    "category": "Algorithms",
+    "task": "oil well production forecasting with hyperparameter optimization",
+    "model": "ISSA-optimized CNN-LSTM",
+    "inputs": "production data, operational parameters",
+    "outputs": "daily oil production predictions",
+    "key_results": "All performance metrics outperform ISSA-LSTM and GWO-LSTM baselines; accuracy satisfies practical oilfield requirements",
+    "comments": "The improved sparrow search algorithm (cyclic chaotic mapping, producer-predator updates) is standard metaheuristic engineering; validation on only two wells limits generalization claims.",
+    "hypotheses": [
+      "ISSA improves global search and convergence vs. standard optimization",
+      "CNN-LSTM combines feature extraction and temporal modeling effectively",
+      "Pearson-selected parameters are sufficient for accurate prediction"
+    ],
+    "results": [
+      "Confirmed by superior performance metrics vs. baselines",
+      "Confirmed by outperformance on production data",
+      "Inferred from model selection but not directly validated"
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-44097-0",
+    "source": "nature",
+    "id": "10.1038/s41598-026-44097-0",
+    "title": "Analytical investigation of soliton dynamics in the Fokas\u2013Lenells equation with generalized self-phase modulation and nonlinear dispersion",
+    "projectPage": "https://www.nature.com/articles/s41598-026-44097-0",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-18",
+    "category": "Analysis",
+    "task": "analytical soliton solutions for nonlinear optical equations",
+    "model": "Fokas\u2013Lenells equation with generalized self-phase modulation and nonlinear dispersion",
+    "inputs": "nonlinear optical media parameters",
+    "outputs": "soliton solutions (dark, periodic, singular varieties)",
+    "key_results": "Multiple solution families obtained via three analytical methods; extended simple equation approach is most effective; physical behavior visualized in 2D/3D plots",
+    "comments": "The paper is primarily analytical; no numerical validation or experimental comparison of solution stability under perturbations is provided.",
+    "hypotheses": [
+      "Modified extended tanh method yields diverse compact solutions",
+      "Extended simple equation method provides efficient solution construction",
+      "Generalized SPM and nonlinear dispersion enable soliton compression and frequency shifting"
+    ],
+    "results": [
+      "Confirmed by richer solution spectrum in compact form",
+      "Confirmed by straightforward applicability",
+      "Confirmed by visualization of soliton dynamics"
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-41630-z",
+    "source": "nature",
+    "id": "10.1038/s41598-026-41630-z",
+    "title": "A new good point set stepwise shrinkage optimization in machine learning model for fog node performance prediction",
+    "projectPage": "https://www.nature.com/articles/s41598-026-41630-z",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-18",
+    "category": "Algorithms",
+    "task": "hyperparameter optimization for fog computing performance prediction",
+    "model": "Good Point Set Stepwise Shrinkage optimization",
+    "inputs": "fog computing node performance data from IoT devices",
+    "outputs": "optimized hyperparameters, node performance predictions",
+    "key_results": "SVM MSE 4.061, BP MSE 4.114, CNN MSE 3.963 \u00b1 0.0323; simpler than Sequential Uniform Designs; reduces cross-validation uncertainty",
+    "comments": "The proposed method is essentially a structured design-of-experiments approach; the modest MSE values lack context without baseline comparisons or normalization by data scale.",
+    "hypotheses": [
+      "Good Point Set Stepwise Shrinkage reduces cross-validation uncertainty",
+      "Structured search space improves model generalization",
+      "Lower computational cost achieved without sacrificing accuracy"
+    ],
+    "results": [
+      "Confirmed by improved generalization vs. random search",
+      "Supported by MSE results",
+      "Supported by comparison to Sequential Uniform Designs"
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-44613-2",
+    "source": "nature",
+    "id": "10.1038/s41598-026-44613-2",
+    "title": "Prediction model of lost circulation based on drilling parameters with PSO-BP neural network",
+    "projectPage": "https://www.nature.com/articles/s41598-026-44613-2",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-18",
+    "category": "Algorithms",
+    "task": "early lost circulation prediction in drilling",
+    "model": "PSO-optimized backpropagation neural network (PSO-BP)",
+    "inputs": "mud logging data (pit volume, standpipe pressure, flow difference, top drive load)",
+    "outputs": "lost circulation event predictions",
+    "key_results": "PSO-BP outperforms standard BP, BAS-BP, and GA-BP models; validated under actual drilling conditions",
+    "comments": "Domain-guided feature selection is valuable, but no quantitative accuracy metrics are reported; comparison baselines suggest only marginal improvements.",
+    "hypotheses": [
+      "Expert-identified parameters effectively indicate lost circulation",
+      "PSO initialization improves BP convergence and stability",
+      "Hybrid PSO-BP is superior to other metaheuristic-BP variants for this application"
+    ],
+    "results": [
+      "Confirmed by field-based parameter selection process",
+      "Confirmed by superior convergence vs. baseline BP",
+      "Confirmed by practical validation in actual drilling"
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-42388-0",
+    "source": "nature",
+    "id": "10.1038/s41598-026-42388-0",
+    "title": "Spatiotemporal prediction of chlorophyll-a in semi-enclosed gulfs using a hybrid graph neural network-transformer framework with satellite data and causal analysis",
+    "projectPage": "https://www.nature.com/articles/s41598-026-42388-0",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-18",
+    "category": "ML Theory",
+    "task": "spatiotemporal chlorophyll-a prediction with causal discovery",
+    "model": "Graph Neural Network Transformer (GNN-T) with convergent cross-mapping",
+    "inputs": "MODIS/Aqua and ERA5 satellite data, 300,000 observations",
+    "outputs": "spatiotemporal Chl-a concentration predictions, causal relationships, bloom risk levels",
+    "key_results": "Test R\u00b2 = 0.906 (Gulf of Mexico); outperforms CNN-LSTM, BiLSTM, Temporal-Relational GNN, AGTCNSD; causality-driven feature selection achieves R\u00b2 = 0.882 with 25% reduced computational cost; identifies SST, fluorescence height, POC as key drivers",
+    "comments": "The integration of causal inference (CCM, Sobol) with model ablation is methodologically sound; generalization across gulfs strengthens claims, and uncertainty quantification via Monte Carlo dropout is rigorous.",
+    "hypotheses": [
+      "GNN-T captures spatiotemporal dependencies better than standard RNNs",
+      "Causal discovery methods identify true mechanistic drivers vs. correlations",
+      "Causality-driven ablation preserves predictive accuracy with fewer variables",
+      "Probabilistic risk thresholds support operational decision-making"
+    ],
+    "results": [
+      "Confirmed by R\u00b2 = 0.906 and superior metrics vs. baselines",
+      "Confirmed by CCM elucidating nonlinear causal relationships",
+      "Confirmed by R\u00b2 = 0.882 with 25% cost reduction",
+      "Inferred from quartile-based bloom thresholds and confidence intervals"
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-44187-z",
+    "source": "nature",
+    "id": "10.1038/s41598-026-44187-z",
+    "title": "YOLO-Starfish: fish object detection learning complex underwater features",
+    "projectPage": "https://www.nature.com/articles/s41598-026-44187-z",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-18",
+    "category": "Algorithms",
+    "task": "underwater fish object detection with complex environmental conditions",
+    "model": "YOLO-Starfish (YOLOv8 + C2Star module + Attention-driven Enhancement Module)",
+    "inputs": "underwater images with poor quality, randomness, occlusion",
+    "outputs": "fish species and bounding box detections",
+    "key_results": "Strong performance on RUOD and new Underwater Freshwater Fish Dataset (UFFD: 16,904 images, 19 species); excellent results on COCO2017; C2Star and ADEM improve robustness",
+    "comments": "The C2Star module's element-wise multiplication approach to mimic optical degradation is intuitive; however, no quantitative metrics (mAP, precision/recall) are provided in the abstract.",
+    "hypotheses": [
+      "C2Star captures physical degradation characteristics of underwater optics",
+      "ADEM mitigates channel imbalance and improves feature robustness",
+      "YOLOv8 backbone with these modules generalizes across underwater datasets and COCO"
+    ],
+    "results": [
+      "Inferred from model design and underwater optical physics",
+      "Inferred from adaptive enhancement strategy",
+      "Confirmed by strong performance on multiple benchmarks (RUOD, UFFD, COCO2017)"
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41467-026-70721-8",
+    "source": "nature",
+    "id": "10.1038/s41467-026-70721-8",
+    "title": "Large-scale multi-omics profiling reveals environmental and evolutionary drivers of fungal phylogeographic and metabolic diversity",
+    "projectPage": "https://www.nature.com/articles/s41467-026-70721-8",
+    "journal": "Nature Communications",
+    "publishedAt": "2026-03-18",
+    "category": "Metabolic Networks",
+    "task": "identify environmental and evolutionary drivers of fungal metabolic diversity",
+    "model": "comparative genomics and metabolomics across phylogeographic populations",
+    "inputs": "1052 Aspergillus flavus strains from four continents with genomic and metabolomic data",
+    "outputs": "phylogeographic metabolic patterns, biosynthetic gene clusters, specialized metabolite profiles",
+    "key_results": "low-mycotoxin clades produce distinct uncharacterized metabolites; regulatory and primary metabolic changes, not just biosynthetic gene variation, explain 70%+ of metabolite profile differentiation",
+    "comments": "Multi-omics integration is thorough, but causal mechanisms underlying regulatory changes remain incompletely specified.",
+    "hypotheses": [
+      "environmental ecological niches drive fungal metabolic differentiation through selection",
+      "biosynthetic gene cluster variation is the primary driver of specialized metabolite diversity",
+      "regulatory and primary metabolic changes account for metabolic differentiation independent of biosynthetic pathway genes"
+    ],
+    "results": [
+      "strong phylogeographic metabolic patterns associated with specific ecological niches confirmed",
+      "biosynthetic gene variation only partially explains metabolic differences; regulatory variation is primary driver",
+      "low-mycotoxin clades produce alternative specialized metabolites via distinct biosynthetic pathways"
     ]
   }
 ]

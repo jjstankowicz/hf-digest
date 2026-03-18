@@ -32,15 +32,8 @@
     --c-benchmark:    #2dd4bf; --cb-benchmark:    #ccfbf1; --ct-benchmark:    #134e4a;
     --c-systems:      #94a3b8; --cb-systems:      #f1f5f9; --ct-systems:      #334155;
 
-    /* Nature physics categories */
-    --c-condensed:    #0891b2; --cb-condensed:    #cffafe; --ct-condensed:    #164e63;
-    --c-quantum:      #7c3aed; --cb-quantum:      #ede9fe; --ct-quantum:      #4c1d95;
-    --c-highenergy:   #e11d48; --cb-highenergy:   #ffe4e6; --ct-highenergy:   #881337;
-    --c-astrophysics: #9333ea; --cb-astrophysics: #f5f3ff; --ct-astrophysics: #581c87;
-    --c-optics:       #65a30d; --cb-optics:       #ecfccb; --ct-optics:       #365314;
-    --c-mathphys:     #475569; --cb-mathphys:     #f1f5f9; --ct-mathphys:     #1e293b;
-    --c-appliedphys:  #d97706; --cb-appliedphys:  #fef3c7; --ct-appliedphys:  #92400e;
-    --c-other:        #6b7280; --cb-other:        #f9fafb; --ct-other:        #374151;
+    /* Nature physics categories (retained for legacy; new categories use JS color lookup) */
+    --c-other: #6b7280; --cb-other: #f9fafb; --ct-other: #374151;
   }
 
   body {
@@ -123,23 +116,9 @@
   .filter-chip.fc-benchmark.active  { background: var(--c-benchmark);  border-color: var(--c-benchmark);  color: #fff; }
   .filter-chip.fc-systems.active    { background: var(--c-systems);    border-color: var(--c-systems);    color: #fff; }
 
-  /* Nature category chips */
-  .filter-chip.fc-condensed    { border-color: var(--c-condensed);    color: var(--ct-condensed); }
-  .filter-chip.fc-quantum      { border-color: var(--c-quantum);      color: var(--ct-quantum); }
-  .filter-chip.fc-highenergy   { border-color: var(--c-highenergy);   color: var(--ct-highenergy); }
-  .filter-chip.fc-astrophysics { border-color: var(--c-astrophysics); color: var(--ct-astrophysics); }
-  .filter-chip.fc-optics       { border-color: var(--c-optics);       color: var(--ct-optics); }
-  .filter-chip.fc-mathphys     { border-color: var(--c-mathphys);     color: var(--ct-mathphys); }
-  .filter-chip.fc-appliedphys  { border-color: var(--c-appliedphys);  color: var(--ct-appliedphys); }
-  .filter-chip.fc-other        { border-color: var(--c-other);        color: var(--ct-other); }
-  .filter-chip.fc-condensed.active    { background: var(--c-condensed);    border-color: var(--c-condensed);    color: #fff; }
-  .filter-chip.fc-quantum.active      { background: var(--c-quantum);      border-color: var(--c-quantum);      color: #fff; }
-  .filter-chip.fc-highenergy.active   { background: var(--c-highenergy);   border-color: var(--c-highenergy);   color: #fff; }
-  .filter-chip.fc-astrophysics.active { background: var(--c-astrophysics); border-color: var(--c-astrophysics); color: #fff; }
-  .filter-chip.fc-optics.active       { background: var(--c-optics);       border-color: var(--c-optics);       color: #fff; }
-  .filter-chip.fc-mathphys.active     { background: var(--c-mathphys);     border-color: var(--c-mathphys);     color: #fff; }
-  .filter-chip.fc-appliedphys.active  { background: var(--c-appliedphys);  border-color: var(--c-appliedphys);  color: #fff; }
-  .filter-chip.fc-other.active        { background: var(--c-other);        border-color: var(--c-other);        color: #fff; }
+  /* Dynamic category filter chips use inline styles set by JS */
+  .filter-chip.fc-dynamic { border-width: 1.5px; border-style: solid; }
+  .filter-chip.fc-dynamic.active { color: #fff; }
 
   #filters { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
   #paper-count { font-size: 12px; color: var(--text-muted); margin-left: auto; white-space: nowrap; }
@@ -180,15 +159,7 @@
   .cat-benchmark .card-stripe  { background: var(--c-benchmark); }
   .cat-systems .card-stripe    { background: var(--c-systems); }
 
-  /* Nature category stripes */
-  .cat-condensed .card-stripe    { background: var(--c-condensed); }
-  .cat-quantum .card-stripe      { background: var(--c-quantum); }
-  .cat-highenergy .card-stripe   { background: var(--c-highenergy); }
-  .cat-astrophysics .card-stripe { background: var(--c-astrophysics); }
-  .cat-optics .card-stripe       { background: var(--c-optics); }
-  .cat-mathphys .card-stripe     { background: var(--c-mathphys); }
-  .cat-appliedphys .card-stripe  { background: var(--c-appliedphys); }
-  .cat-other .card-stripe        { background: var(--c-other); }
+  /* Dynamic category stripes and badges use inline styles set by JS */
 
   .card-header {
     padding: 14px 16px 0;
@@ -211,15 +182,6 @@
   .cat-benchmark .cat-badge  { background: var(--cb-benchmark);  color: var(--ct-benchmark); }
   .cat-systems .cat-badge    { background: var(--cb-systems);    color: var(--ct-systems); }
 
-  /* Nature cat badge colors */
-  .cat-condensed .cat-badge    { background: var(--cb-condensed);    color: var(--ct-condensed); }
-  .cat-quantum .cat-badge      { background: var(--cb-quantum);      color: var(--ct-quantum); }
-  .cat-highenergy .cat-badge   { background: var(--cb-highenergy);   color: var(--ct-highenergy); }
-  .cat-astrophysics .cat-badge { background: var(--cb-astrophysics); color: var(--ct-astrophysics); }
-  .cat-optics .cat-badge       { background: var(--cb-optics);       color: var(--ct-optics); }
-  .cat-mathphys .cat-badge     { background: var(--cb-mathphys);     color: var(--ct-mathphys); }
-  .cat-appliedphys .cat-badge  { background: var(--cb-appliedphys);  color: var(--ct-appliedphys); }
-  .cat-other .cat-badge        { background: var(--cb-other);        color: var(--ct-other); }
 
   .upvote-badge {
     display: flex; align-items: center; gap: 4px;
@@ -333,17 +295,97 @@
 </div>
 
 <script>
-const CAT_KEY = {
+// Color palette for all known categories: [stripe, badgeBg, badgeText]
+const CAT_COLORS = {
   // HF
+  'Medical':                    ['#4ade80','#dcfce7','#166534'],
+  'Molecular':                  ['#fb923c','#ffedd5','#9a3412'],
+  'Generative':                 ['#c084fc','#f3e8ff','#6b21a8'],
+  'LLM/Reasoning':              ['#60a5fa','#dbeafe','#1e40af'],
+  'Agents/RL':                  ['#f97316','#fff7ed','#9a3412'],
+  'Vision':                     ['#f87171','#fce7f3','#9d174d'],
+  'Benchmark':                  ['#2dd4bf','#ccfbf1','#134e4a'],
+  'Systems':                    ['#94a3b8','#f1f5f9','#334155'],
+  // Nature physics
+  'Condensed Matter':           ['#0891b2','#cffafe','#164e63'],
+  'Quantum':                    ['#7c3aed','#ede9fe','#4c1d95'],
+  'High Energy/Particle':       ['#e11d48','#ffe4e6','#881337'],
+  'Astrophysics/Cosmology':     ['#9333ea','#f5f3ff','#581c87'],
+  'Optics/Photonics':           ['#65a30d','#ecfccb','#365314'],
+  'Mathematical Physics':       ['#475569','#f1f5f9','#1e293b'],
+  'Applied Physics':            ['#d97706','#fef3c7','#92400e'],
+  // Nature biophysics
+  'Structural Biology':         ['#0d9488','#ccfbf1','#134e4a'],
+  'Membrane Biophysics':        ['#06b6d4','#e0f2fe','#0c4a6e'],
+  'Single Molecule':            ['#8b5cf6','#ede9fe','#4c1d95'],
+  'Mechanobiology':             ['#f59e0b','#fef3c7','#78350f'],
+  'Protein Dynamics':           ['#10b981','#d1fae5','#064e3b'],
+  'Computational Biophysics':   ['#6366f1','#e0e7ff','#312e81'],
+  'Neural Biophysics':          ['#ec4899','#fce7f3','#831843'],
+  // Nature biotechnology
+  'Synthetic Biology':          ['#84cc16','#ecfccb','#365314'],
+  'Gene Editing':               ['#ef4444','#fee2e2','#7f1d1d'],
+  'Protein Engineering':        ['#14b8a6','#ccfbf1','#134e4a'],
+  'Cell/Gene Therapy':          ['#f43f5e','#ffe4e6','#881337'],
+  'Diagnostics':                ['#3b82f6','#dbeafe','#1e3a8a'],
+  'Bioprocessing':              ['#a78bfa','#ede9fe','#4c1d95'],
+  'Agricultural Biotech':       ['#4ade80','#dcfce7','#14532d'],
+  // Nature cell biology
+  'Cell Signaling':             ['#f97316','#ffedd5','#7c2d12'],
+  'Cell Division/Cycle':        ['#e879f9','#fae8ff','#701a75'],
+  'Organelles':                 ['#34d399','#d1fae5','#065f46'],
+  'Apoptosis/Cell Death':       ['#dc2626','#fee2e2','#7f1d1d'],
+  'Development':                ['#fb923c','#fff7ed','#7c2d12'],
+  'Cytoskeleton':               ['#a3e635','#ecfccb','#3f6212'],
+  'Epigenetics':                ['#818cf8','#e0e7ff','#312e81'],
+  // Nature computational biology
+  'Genomics':                   ['#2563eb','#dbeafe','#1e3a8a'],
+  'Proteomics':                 ['#7c3aed','#f5f3ff','#4c1d95'],
+  'Structural Prediction':      ['#0891b2','#e0f2fe','#0c4a6e'],
+  'Network Biology':            ['#d97706','#fef9c3','#78350f'],
+  'Single Cell':                ['#db2777','#fce7f3','#831843'],
+  'Evolutionary Biology':       ['#16a34a','#dcfce7','#14532d'],
+  'Statistical Methods':        ['#64748b','#f1f5f9','#1e293b'],
+  // Nature math and computing
+  'Combinatorics/Graph Theory': ['#7e22ce','#f3e8ff','#4a044e'],
+  'Number Theory':              ['#b45309','#fef3c7','#78350f'],
+  'Analysis':                   ['#0369a1','#e0f2fe','#0c4a6e'],
+  'Topology/Geometry':          ['#4f46e5','#e0e7ff','#1e1b4b'],
+  'Algorithms':                 ['#0f766e','#ccfbf1','#134e4a'],
+  'ML Theory':                  ['#9333ea','#faf5ff','#581c87'],
+  'Statistics/Probability':     ['#ca8a04','#fefce8','#713f12'],
+  // Nature neuroscience
+  'Synaptic Plasticity':        ['#c026d3','#fae8ff','#701a75'],
+  'Neural Circuits':            ['#7c3aed','#ede9fe','#3b0764'],
+  'Cognition/Behavior':         ['#0284c7','#e0f2fe','#0c4a6e'],
+  'Sensory Systems':            ['#15803d','#dcfce7','#14532d'],
+  'Neurodegeneration':          ['#b91c1c','#fee2e2','#7f1d1d'],
+  'Computational Neuroscience': ['#6d28d9','#ede9fe','#2e1065'],
+  // Nature systems biology
+  'Metabolic Networks':         ['#059669','#d1fae5','#064e3b'],
+  'Gene Regulation':            ['#d946ef','#fae8ff','#701a75'],
+  'Signaling Pathways':         ['#ea580c','#ffedd5','#7c2d12'],
+  'Evolutionary Dynamics':      ['#16a34a','#f0fdf4','#14532d'],
+  'Multi-scale Modeling':       ['#0e7490','#cffafe','#164e63'],
+  'Synthetic Circuits':         ['#7c3aed','#f5f3ff','#581c87'],
+  // Fallback
+  'Other':                      ['#6b7280','#f9fafb','#374151'],
+};
+
+const CAT_KEY = {
+  // HF (CSS class-based)
   'Medical':'medical','Molecular':'molecular','Generative':'generative',
   'LLM/Reasoning':'llm','Agents/RL':'agents','Vision':'vision',
   'Benchmark':'benchmark','Systems':'systems',
-  // Nature physics
-  'Condensed Matter':'condensed','Quantum':'quantum',
-  'High Energy/Particle':'highenergy','Astrophysics/Cosmology':'astrophysics',
-  'Optics/Photonics':'optics','Mathematical Physics':'mathphys',
-  'Applied Physics':'appliedphys','Other':'other',
 };
+
+function catColors(cat) {
+  return CAT_COLORS[cat] ?? CAT_COLORS['Other'];
+}
+
+function catKey(cat) {
+  return CAT_KEY[cat] ?? null;
+}
 
 const SOURCE_LABELS = { all: 'All Sources', hf: 'HuggingFace', nature: 'Nature' };
 
@@ -384,12 +426,29 @@ function renderFilters() {
   const allActive = activeFilter === 'all' ? ' active' : '';
   let html = `<button class="filter-chip fc-all${allActive}" onclick="filterCat('all')">All<span class="chip-count">${papers.length}</span></button>`;
   Object.entries(counts).sort((a,b) => b[1]-a[1]).forEach(([cat, n]) => {
-    const key = CAT_KEY[cat] ?? 'other';
-    const cls = activeFilter === key ? ' active' : '';
-    html += `<button class="filter-chip fc-${key}${cls}" onclick="filterCat('${key}')">${esc(cat)}<span class="chip-count">${n}</span></button>`;
+    const key = catKey(cat);
+    const isActive = activeFilter === (key ?? cat);
+    if (key) {
+      // HF: CSS class-based
+      const cls = isActive ? ' active' : '';
+      html += `<button class="filter-chip fc-${key}${cls}" onclick="filterCat('${key}')">${esc(cat)}<span class="chip-count">${n}</span></button>`;
+    } else {
+      // Nature/dynamic: inline styles
+      const [stripe, bg, text] = catColors(cat);
+      const style = isActive
+        ? `border-color:${stripe};background:${stripe};color:#fff`
+        : `border-color:${stripe};color:${text}`;
+      html += `<button class="filter-chip fc-dynamic" style="${style}" onclick="filterCat(${JSON.stringify(cat)})">${esc(cat)}<span class="chip-count">${n}</span></button>`;
+    }
   });
   el.innerHTML = html;
   updatePaperCount();
+}
+
+function matchesFilter(p) {
+  if (activeFilter === 'all') return true;
+  const key = catKey(p.category);
+  return key ? key === activeFilter : p.category === activeFilter;
 }
 
 function updatePaperCount() {
@@ -397,7 +456,7 @@ function updatePaperCount() {
   const papers = visiblePapers();
   const visible = activeFilter === 'all'
     ? papers.length
-    : papers.filter(p => (CAT_KEY[p.category] ?? 'other') === activeFilter).length;
+    : papers.filter(matchesFilter).length;
   const srcLabel = SOURCE_LABELS[src] ?? src;
   const suffix = src === 'all' ? '' : ` from ${srcLabel}`;
   document.getElementById('paper-count').textContent =
@@ -412,7 +471,8 @@ function renderCards() {
     return;
   }
   grid.innerHTML = papers.map(p => {
-    const key = CAT_KEY[p.category] ?? 'other';
+    const key = catKey(p.category) ?? 'dynamic';
+    const [stripe, badgeBg, badgeText] = catColors(p.category);
     const isHF = p.source === 'hf';
 
     // Primary link
@@ -478,11 +538,11 @@ function renderCards() {
       </div>`;
     }
 
-    const show = (activeFilter === 'all' || key === activeFilter) ? '' : 'display:none;';
-    return `<div class="paper-card cat-${key}" data-cat="${key}" style="${show}">
-      <div class="card-stripe"></div>
+    const show = matchesFilter(p) ? '' : 'display:none;';
+    return `<div class="paper-card cat-${key}" data-cat="${esc(p.category)}" style="${show}">
+      <div class="card-stripe" style="background:${stripe}"></div>
       <div class="card-header">
-        <span class="cat-badge">${esc(p.category)}</span>
+        <span class="cat-badge" style="background:${badgeBg};color:${badgeText}">${esc(p.category)}</span>
         ${headerBadge}
       </div>
       <div class="card-title">${esc(p.title)}</div>

@@ -2608,5 +2608,41 @@
     "outputs": "Corrected computation results with provable error tolerance",
     "key_results": "59.65\u00d7 BER reduction, 1.562\u00d7 power efficiency gain, 8-symbol error correction; 40nm prototype validated; unified error correction for memory and computation",
     "comments": "GF-based approach elegantly handles non-ideal analog devices; eliminates dataflow interruption; enables robust neuromorphic hardware."
+  },
+  "nature:10.1038/s41467-026-70399-y": {
+    "category": "Multi-scale Modeling",
+    "task": "Characterize mtDNA mutational landscapes and heteroplasmy at single-cell resolution",
+    "model": "(experiment) single-cell ATAC-seq with mtDNA-hypermutated POLGD274A knock-in HEK293 cells",
+    "inputs": "Individual cells from healthy donors and mitochondriopathy patients; POLGD274A mutant cell lines",
+    "outputs": "scmtMPM (mutations per million base pairs) and scwMSS (heteroplasmy-weighted constraint scores) per cell",
+    "key_results": "POLGD274A cells show complex mutational landscapes with pathogenic variants at subthreshold levels; constrained mutations in complex I identified in patient samples, revealing previously unrecognized single-cell mtDNA heterogeneity",
+    "comments": "Novel single-cell metrics enable detection of selection pressure on mtDNA variants, though functional validation of constraint mechanisms remains outstanding."
+  },
+  "nature:10.1038/s41467-026-70429-9": {
+    "category": "Structural Biology",
+    "task": "Determine mechanism of lipid-linked galactan export across mycobacterial membrane",
+    "model": "(experiment) cryo-EM of Wzm-Wzt ABC transporter conformations",
+    "inputs": "Wzm-Wzt complex in different conformational states; LLG substrate",
+    "outputs": "High-resolution structures; identification of translocation pathway and gate helix function",
+    "key_results": "Hydrophobic polyprenyl-moiety translocates first, followed by galactan chain through ATP-dependent channel opening; gate helix plays key functional role in polysaccharide transport",
+    "comments": "Provides actionable structural insights for TB drug development targeting cell wall biosynthesis, though in vivo validation of proposed mechanism remains necessary."
+  },
+  "nature:10.1038/s41598-026-43910-0": {
+    "category": "Structural Biology",
+    "task": "Elucidate molecular mechanism of TMAO-induced fibrin clot enhancement",
+    "model": "(experiment) biophysical assays, in-silico docking, molecular dynamics simulation",
+    "inputs": "TMAO and N-oxide analogs; fibrinogen; structural and dynamic measurements",
+    "outputs": "Fibrinogen binding sites; clot formation kinetics; proteolytic resistance; conformational states",
+    "key_results": "TMAO binds specifically to \u03b21 calcium-binding site of fibrinogen; shifts \u03b2-nodule equilibrium toward high-affinity state; generated clots show enhanced resistance to degradation",
+    "comments": "Identifies actionable therapeutic target but causality between TMAO-fibrinogen binding and in vivo thrombotic risk requires prospective validation."
+  },
+  "nature:10.1038/s41589-026-02156-7": {
+    "category": "Mechanobiology",
+    "task": "Determine activation mechanism and regulation of dynein-dynactin-NuMA complex in mitosis",
+    "model": "(experiment) in vitro reconstitution, cryo-EM, live-cell imaging",
+    "inputs": "NuMA constructs (N-terminus, C-terminus, full-length, phosphorylated variants); dynein; dynactin; microtubules",
+    "outputs": "DDN complex structure; NuMA autoinhibition state; dynein activation status; microtubule focusing",
+    "key_results": "Mitotic phosphorylation of full-length NuMA activates dynein motility; NuMA C-terminus binds and stabilizes microtubule minus-ends; activated NuMA focuses minus-ends into aster-like structures",
+    "comments": "Elegant integration of structural and cellular data, though temporal coordination with other spindle assembly factors during mitotic progression requires further investigation."
   }
 }

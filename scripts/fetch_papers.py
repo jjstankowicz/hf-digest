@@ -47,27 +47,13 @@ the input order. Use exactly these fields:
 Be terse. Do not add fields or wrap in markdown."""
 
 
-def fetch_hf_papers() -> list[dict]:
-    """Return raw paper objects from the HF daily papers API."""
-    with urllib.request.urlopen(HF_API_URL, timeout=30) as resp:
-        return json.loads(resp.read())
-
-
-def filter_papers(raw: list[dict], target: date) -> list[dict]:
-    """Return papers submitted to HF daily feed on target date, sorted by upvotes desc."""
-    out = []
-    for item in raw:
-        submitted = item.get("paper", {}).get("submittedOnDailyAt", "")
-        if not submitted:
-            continue
-        try:
-            d = datetime.fromisoformat(submitted.replace("Z", "+00:00")).date()
-        except ValueError:
-            continue
-        if d == target:
-            out.append(item)
-    out.sort(key=lambda x: x.get("paper", {}).get("upvotes", 0), reverse=True)
-    return out
+def fetch_hf_papers(target: date) -> list[dict]:
+    """Return papers from the HF daily papers API for target date, sorted by upvotes desc."""
+    url = f"{HF_API_URL}?date={target.isoformat()}"
+    with urllib.request.urlopen(url, timeout=30) as resp:
+        papers = json.loads(resp.read())
+    papers.sort(key=lambda x: x.get("paper", {}).get("upvotes", 0), reverse=True)
+    return papers
 
 
 def extract_fields(papers: list[dict], client: anthropic.Anthropic) -> list[dict]:
@@ -173,8 +159,7 @@ def main() -> None:
 
     target_str = target.isoformat()
 
-    raw = fetch_hf_papers()
-    papers = filter_papers(raw, target)
+    papers = fetch_hf_papers(target)
 
     if not papers:
         sys.exit(0)

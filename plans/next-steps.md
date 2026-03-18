@@ -73,25 +73,21 @@ Nature schema TBD.
 - `test-end-to-end`
 - `rename-repo`
 - `paper-id-namespace`
+- `hf-api-date-param`
 
 # Priority (Sorted)
 
-- `hf-api-date-param`
+- `paper-id-cache`
 - `nature-schema`
 - `nature-rss-feed`
 - `nature-remaining-feeds`
 - `read-unread-markers`
-- `paper-id-cache`
 - `skill-path-update`
 - `rss-feed`
 - `digest-search`
 - `email-summary`
 
 # Backlog (Unsorted)
-
-- `hf-api-date-param` -- Switch `fetch_hf.py` to use
-  `?date=YYYY-MM-DD` API param instead of filtering a rolling response.
-  Enables accurate backfill of any historical date.
 
 - `paper-id-cache` -- Introduce `docs/data/cache.json` mapping `uid` ->
   extracted fields. Before LLM extraction, check cache; skip if already

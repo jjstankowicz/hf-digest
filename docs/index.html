@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HF Papers Digest</title>
+<title>Papers Digest</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='2' y='1' width='10' height='13' rx='1' fill='%232563eb'/%3E%3Crect x='4' y='4' width='6' height='1.2' rx='0.6' fill='white'/%3E%3Crect x='4' y='6.4' width='6' height='1.2' rx='0.6' fill='white'/%3E%3Crect x='4' y='8.8' width='4' height='1.2' rx='0.6' fill='white'/%3E%3C/svg%3E">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -22,15 +22,25 @@
     --radius-chip: 0.375rem;
     --shadow-card: 0 1px 3px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.04);
 
-    /* Per-category: stripe color, badge bg, badge text */
-    --c-medical:    #4ade80; --cb-medical:    #dcfce7; --ct-medical:    #166534;
-    --c-molecular:  #fb923c; --cb-molecular:  #ffedd5; --ct-molecular:  #9a3412;
-    --c-generative: #c084fc; --cb-generative: #f3e8ff; --ct-generative: #6b21a8;
-    --c-llm:        #60a5fa; --cb-llm:        #dbeafe; --ct-llm:        #1e40af;
-    --c-agents:     #f97316; --cb-agents:     #fff7ed; --ct-agents:     #9a3412;
-    --c-vision:     #f87171; --cb-vision:     #fce7f3; --ct-vision:     #9d174d;
-    --c-benchmark:  #2dd4bf; --cb-benchmark:  #ccfbf1; --ct-benchmark:  #134e4a;
-    --c-systems:    #94a3b8; --cb-systems:    #f1f5f9; --ct-systems:    #334155;
+    /* HF categories: stripe color, badge bg, badge text */
+    --c-medical:      #4ade80; --cb-medical:      #dcfce7; --ct-medical:      #166534;
+    --c-molecular:    #fb923c; --cb-molecular:    #ffedd5; --ct-molecular:    #9a3412;
+    --c-generative:   #c084fc; --cb-generative:   #f3e8ff; --ct-generative:   #6b21a8;
+    --c-llm:          #60a5fa; --cb-llm:          #dbeafe; --ct-llm:          #1e40af;
+    --c-agents:       #f97316; --cb-agents:       #fff7ed; --ct-agents:       #9a3412;
+    --c-vision:       #f87171; --cb-vision:       #fce7f3; --ct-vision:       #9d174d;
+    --c-benchmark:    #2dd4bf; --cb-benchmark:    #ccfbf1; --ct-benchmark:    #134e4a;
+    --c-systems:      #94a3b8; --cb-systems:      #f1f5f9; --ct-systems:      #334155;
+
+    /* Nature physics categories */
+    --c-condensed:    #0891b2; --cb-condensed:    #cffafe; --ct-condensed:    #164e63;
+    --c-quantum:      #7c3aed; --cb-quantum:      #ede9fe; --ct-quantum:      #4c1d95;
+    --c-highenergy:   #e11d48; --cb-highenergy:   #ffe4e6; --ct-highenergy:   #881337;
+    --c-astrophysics: #9333ea; --cb-astrophysics: #f5f3ff; --ct-astrophysics: #581c87;
+    --c-optics:       #65a30d; --cb-optics:       #ecfccb; --ct-optics:       #365314;
+    --c-mathphys:     #475569; --cb-mathphys:     #f1f5f9; --ct-mathphys:     #1e293b;
+    --c-appliedphys:  #d97706; --cb-appliedphys:  #fef3c7; --ct-appliedphys:  #92400e;
+    --c-other:        #6b7280; --cb-other:        #f9fafb; --ct-other:        #374151;
   }
 
   body {
@@ -56,15 +66,22 @@
   .site-title { font-size: 20px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.02em; }
   .site-title span { color: var(--accent); }
 
-  .date-nav { display: flex; align-items: center; gap: 8px; }
-  .date-nav button {
+  .nav-group { display: flex; align-items: center; gap: 16px; }
+
+  .date-nav, .source-nav { display: flex; align-items: center; gap: 8px; }
+  .date-nav button, .source-nav button {
     background: var(--bg); border: 1px solid var(--border); border-radius: 6px;
     width: 30px; height: 30px; font-size: 15px; cursor: pointer; color: var(--text-muted);
     display: flex; align-items: center; justify-content: center; transition: all 0.15s;
   }
-  .date-nav button:hover:not(:disabled) { background: var(--border); color: var(--text-primary); }
-  .date-nav button:disabled { opacity: 0.35; cursor: default; }
+  .date-nav button:hover:not(:disabled),
+  .source-nav button:hover:not(:disabled) { background: var(--border); color: var(--text-primary); }
+  .date-nav button:disabled,
+  .source-nav button:disabled { opacity: 0.35; cursor: default; }
   #date-display { font-size: 15px; font-weight: 600; color: var(--text-primary); min-width: 160px; text-align: center; }
+  #source-display { font-size: 13px; font-weight: 600; color: var(--text-secondary); min-width: 110px; text-align: center; }
+
+  .nav-divider { width: 1px; height: 24px; background: var(--border); }
 
   /* ---- Filters ---- */
   .filters-bar {
@@ -76,31 +93,27 @@
     border-bottom: 1px solid var(--border);
     background: var(--surface);
   }
-  /* All filter chip base */
   .filter-chip {
     border: 1.5px solid var(--border); border-radius: 20px; padding: 4px 12px;
     font-size: 12px; font-weight: 600; cursor: pointer; background: var(--surface);
     color: var(--text-muted); transition: all 0.15s; white-space: nowrap;
   }
   .chip-count {
-    display: inline-block; margin-left: 4px; font-weight: 500;
-    opacity: 0.7;
+    display: inline-block; margin-left: 4px; font-weight: 500; opacity: 0.7;
   }
-  /* "All" chip */
   .filter-chip.fc-all { color: var(--text-secondary); }
   .filter-chip.fc-all.active { background: var(--text-primary); border-color: var(--text-primary); color: #fff; }
   .filter-chip.fc-all:hover:not(.active) { border-color: #9ca3af; color: var(--text-primary); }
 
-  /* Per-category chips: colored border + text in rest state, filled when active */
-  .filter-chip.fc-medical    { border-color: var(--c-medical);    color: var(--ct-medical); }
-  .filter-chip.fc-molecular  { border-color: var(--c-molecular);  color: var(--ct-molecular); }
-  .filter-chip.fc-generative { border-color: var(--c-generative); color: var(--ct-generative); }
-  .filter-chip.fc-llm        { border-color: var(--c-llm);        color: var(--ct-llm); }
-  .filter-chip.fc-agents     { border-color: var(--c-agents);     color: var(--ct-agents); }
-  .filter-chip.fc-vision     { border-color: var(--c-vision);     color: var(--ct-vision); }
-  .filter-chip.fc-benchmark  { border-color: var(--c-benchmark);  color: var(--ct-benchmark); }
-  .filter-chip.fc-systems    { border-color: var(--c-systems);    color: var(--ct-systems); }
-
+  /* HF category chips */
+  .filter-chip.fc-medical    { border-color: var(--c-medical);      color: var(--ct-medical); }
+  .filter-chip.fc-molecular  { border-color: var(--c-molecular);    color: var(--ct-molecular); }
+  .filter-chip.fc-generative { border-color: var(--c-generative);   color: var(--ct-generative); }
+  .filter-chip.fc-llm        { border-color: var(--c-llm);          color: var(--ct-llm); }
+  .filter-chip.fc-agents     { border-color: var(--c-agents);       color: var(--ct-agents); }
+  .filter-chip.fc-vision     { border-color: var(--c-vision);       color: var(--ct-vision); }
+  .filter-chip.fc-benchmark  { border-color: var(--c-benchmark);    color: var(--ct-benchmark); }
+  .filter-chip.fc-systems    { border-color: var(--c-systems);      color: var(--ct-systems); }
   .filter-chip.fc-medical.active    { background: var(--c-medical);    border-color: var(--c-medical);    color: #fff; }
   .filter-chip.fc-molecular.active  { background: var(--c-molecular);  border-color: var(--c-molecular);  color: #fff; }
   .filter-chip.fc-generative.active { background: var(--c-generative); border-color: var(--c-generative); color: #fff; }
@@ -109,6 +122,24 @@
   .filter-chip.fc-vision.active     { background: var(--c-vision);     border-color: var(--c-vision);     color: #fff; }
   .filter-chip.fc-benchmark.active  { background: var(--c-benchmark);  border-color: var(--c-benchmark);  color: #fff; }
   .filter-chip.fc-systems.active    { background: var(--c-systems);    border-color: var(--c-systems);    color: #fff; }
+
+  /* Nature category chips */
+  .filter-chip.fc-condensed    { border-color: var(--c-condensed);    color: var(--ct-condensed); }
+  .filter-chip.fc-quantum      { border-color: var(--c-quantum);      color: var(--ct-quantum); }
+  .filter-chip.fc-highenergy   { border-color: var(--c-highenergy);   color: var(--ct-highenergy); }
+  .filter-chip.fc-astrophysics { border-color: var(--c-astrophysics); color: var(--ct-astrophysics); }
+  .filter-chip.fc-optics       { border-color: var(--c-optics);       color: var(--ct-optics); }
+  .filter-chip.fc-mathphys     { border-color: var(--c-mathphys);     color: var(--ct-mathphys); }
+  .filter-chip.fc-appliedphys  { border-color: var(--c-appliedphys);  color: var(--ct-appliedphys); }
+  .filter-chip.fc-other        { border-color: var(--c-other);        color: var(--ct-other); }
+  .filter-chip.fc-condensed.active    { background: var(--c-condensed);    border-color: var(--c-condensed);    color: #fff; }
+  .filter-chip.fc-quantum.active      { background: var(--c-quantum);      border-color: var(--c-quantum);      color: #fff; }
+  .filter-chip.fc-highenergy.active   { background: var(--c-highenergy);   border-color: var(--c-highenergy);   color: #fff; }
+  .filter-chip.fc-astrophysics.active { background: var(--c-astrophysics); border-color: var(--c-astrophysics); color: #fff; }
+  .filter-chip.fc-optics.active       { background: var(--c-optics);       border-color: var(--c-optics);       color: #fff; }
+  .filter-chip.fc-mathphys.active     { background: var(--c-mathphys);     border-color: var(--c-mathphys);     color: #fff; }
+  .filter-chip.fc-appliedphys.active  { background: var(--c-appliedphys);  border-color: var(--c-appliedphys);  color: #fff; }
+  .filter-chip.fc-other.active        { background: var(--c-other);        border-color: var(--c-other);        color: #fff; }
 
   #filters { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
   #paper-count { font-size: 12px; color: var(--text-muted); margin-left: auto; white-space: nowrap; }
@@ -137,8 +168,9 @@
     transform: translateY(-1px);
   }
 
-  /* Top stripe matches category color */
   .card-stripe { height: 4px; flex-shrink: 0; }
+
+  /* HF category stripes */
   .cat-medical .card-stripe    { background: var(--c-medical); }
   .cat-molecular .card-stripe  { background: var(--c-molecular); }
   .cat-generative .card-stripe { background: var(--c-generative); }
@@ -148,7 +180,16 @@
   .cat-benchmark .card-stripe  { background: var(--c-benchmark); }
   .cat-systems .card-stripe    { background: var(--c-systems); }
 
-  /* Card header: meta row */
+  /* Nature category stripes */
+  .cat-condensed .card-stripe    { background: var(--c-condensed); }
+  .cat-quantum .card-stripe      { background: var(--c-quantum); }
+  .cat-highenergy .card-stripe   { background: var(--c-highenergy); }
+  .cat-astrophysics .card-stripe { background: var(--c-astrophysics); }
+  .cat-optics .card-stripe       { background: var(--c-optics); }
+  .cat-mathphys .card-stripe     { background: var(--c-mathphys); }
+  .cat-appliedphys .card-stripe  { background: var(--c-appliedphys); }
+  .cat-other .card-stripe        { background: var(--c-other); }
+
   .card-header {
     padding: 14px 16px 0;
     display: flex;
@@ -159,6 +200,8 @@
     border-radius: var(--radius-chip); padding: 3px 10px;
     font-size: 11px; font-weight: 700; white-space: nowrap;
   }
+
+  /* HF cat badge colors */
   .cat-medical .cat-badge    { background: var(--cb-medical);    color: var(--ct-medical); }
   .cat-molecular .cat-badge  { background: var(--cb-molecular);  color: var(--ct-molecular); }
   .cat-generative .cat-badge { background: var(--cb-generative); color: var(--ct-generative); }
@@ -168,6 +211,16 @@
   .cat-benchmark .cat-badge  { background: var(--cb-benchmark);  color: var(--ct-benchmark); }
   .cat-systems .cat-badge    { background: var(--cb-systems);    color: var(--ct-systems); }
 
+  /* Nature cat badge colors */
+  .cat-condensed .cat-badge    { background: var(--cb-condensed);    color: var(--ct-condensed); }
+  .cat-quantum .cat-badge      { background: var(--cb-quantum);      color: var(--ct-quantum); }
+  .cat-highenergy .cat-badge   { background: var(--cb-highenergy);   color: var(--ct-highenergy); }
+  .cat-astrophysics .cat-badge { background: var(--cb-astrophysics); color: var(--ct-astrophysics); }
+  .cat-optics .cat-badge       { background: var(--cb-optics);       color: var(--ct-optics); }
+  .cat-mathphys .cat-badge     { background: var(--cb-mathphys);     color: var(--ct-mathphys); }
+  .cat-appliedphys .cat-badge  { background: var(--cb-appliedphys);  color: var(--ct-appliedphys); }
+  .cat-other .cat-badge        { background: var(--cb-other);        color: var(--ct-other); }
+
   .upvote-badge {
     display: flex; align-items: center; gap: 4px;
     background: var(--amber-bg); border-radius: var(--radius-chip);
@@ -176,14 +229,19 @@
   }
   .upvote-badge svg { width: 11px; height: 11px; fill: var(--amber); }
 
-  /* Title */
+  .journal-badge {
+    margin-left: auto;
+    background: #f1f5f9; border-radius: var(--radius-chip);
+    padding: 3px 8px; font-size: 11px; font-weight: 600; color: #475569;
+    white-space: nowrap; max-width: 180px; overflow: hidden; text-overflow: ellipsis;
+  }
+
   .card-title {
     padding: 10px 16px 0;
     font-size: 15px; font-weight: 700; line-height: 1.4;
     color: var(--text-primary); letter-spacing: -0.01em;
   }
 
-  /* Field rows — all identical format */
   .card-fields {
     padding: 12px 16px 0;
     display: flex;
@@ -209,7 +267,14 @@
   }
   .field-value { color: var(--text-secondary); }
 
-  /* Footer */
+  /* Hypotheses/results: numbered list layout */
+  .field-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+  .field-list li { display: flex; gap: 6px; }
+  .field-list li::before {
+    content: attr(data-n); font-size: 10px; font-weight: 700;
+    color: var(--text-muted); min-width: 14px; padding-top: 2px;
+  }
+
   .card-footer {
     padding: 10px 16px;
     border-top: 1px solid var(--border);
@@ -228,8 +293,8 @@
   .link-pill:hover { opacity: 0.75; }
   .link-arxiv   { background: #dbeafe; color: #1e40af; }
   .link-project { background: #f3e8ff; color: #6b21a8; }
+  .link-article { background: #e0f2fe; color: #075985; }
 
-  /* Empty / loading */
   .empty-state { text-align: center; padding: 80px 20px; color: var(--text-muted); font-size: 15px; }
 
   @media (max-width: 600px) {
@@ -242,11 +307,19 @@
 <body>
 
 <header class="site-header">
-  <div class="site-title">HF Papers <span>Digest</span></div>
-  <div class="date-nav">
-    <button id="prev-btn" aria-label="Previous day">&#8249;</button>
-    <span id="date-display">Loading...</span>
-    <button id="next-btn" aria-label="Next day">&#8250;</button>
+  <div class="site-title">Papers <span>Digest</span></div>
+  <div class="nav-group">
+    <div class="source-nav">
+      <button id="prev-src-btn" aria-label="Previous source">&#8249;</button>
+      <span id="source-display">All Sources</span>
+      <button id="next-src-btn" aria-label="Next source">&#8250;</button>
+    </div>
+    <div class="nav-divider"></div>
+    <div class="date-nav">
+      <button id="prev-btn" aria-label="Previous day">&#8249;</button>
+      <span id="date-display">Loading...</span>
+      <button id="next-btn" aria-label="Next day">&#8250;</button>
+    </div>
   </div>
 </header>
 
@@ -260,18 +333,28 @@
 </div>
 
 <script>
-const CATEGORIES = ['Medical','Molecular','Generative','LLM/Reasoning','Agents/RL','Vision','Benchmark','Systems'];
-
 const CAT_KEY = {
+  // HF
   'Medical':'medical','Molecular':'molecular','Generative':'generative',
   'LLM/Reasoning':'llm','Agents/RL':'agents','Vision':'vision',
-  'Benchmark':'benchmark','Systems':'systems'
+  'Benchmark':'benchmark','Systems':'systems',
+  // Nature physics
+  'Condensed Matter':'condensed','Quantum':'quantum',
+  'High Energy/Particle':'highenergy','Astrophysics/Cosmology':'astrophysics',
+  'Optics/Photonics':'optics','Mathematical Physics':'mathphys',
+  'Applied Physics':'appliedphys','Other':'other',
 };
+
+const SOURCE_LABELS = { all: 'All Sources', hf: 'HuggingFace', nature: 'Nature' };
 
 let dates = [];
 let currentIdx = 0;
 let currentPapers = [];
 let activeFilter = 'all';
+let sources = ['all'];
+let sourceIdx = 0;
+
+function activeSource() { return sources[sourceIdx]; }
 
 function esc(s) {
   return String(s ?? '')
@@ -288,32 +371,67 @@ function formatDisplayDate(dateStr) {
   return d.toLocaleDateString('en-US', {month:'long', day:'numeric', year:'numeric', timeZone:'UTC'});
 }
 
-function renderFilters(papers) {
+function visiblePapers() {
+  const src = activeSource();
+  return currentPapers.filter(p => src === 'all' || p.source === src);
+}
+
+function renderFilters() {
+  const papers = visiblePapers();
   const counts = {};
   papers.forEach(p => { counts[p.category] = (counts[p.category] ?? 0) + 1; });
   const el = document.getElementById('filters');
   const allActive = activeFilter === 'all' ? ' active' : '';
   let html = `<button class="filter-chip fc-all${allActive}" onclick="filterCat('all')">All<span class="chip-count">${papers.length}</span></button>`;
-  CATEGORIES.forEach(cat => {
-    if (!counts[cat]) return;
-    const key = CAT_KEY[cat];
+  Object.entries(counts).sort((a,b) => b[1]-a[1]).forEach(([cat, n]) => {
+    const key = CAT_KEY[cat] ?? 'other';
     const cls = activeFilter === key ? ' active' : '';
-    html += `<button class="filter-chip fc-${key}${cls}" onclick="filterCat('${key}')">${esc(cat)}<span class="chip-count">${counts[cat]}</span></button>`;
+    html += `<button class="filter-chip fc-${key}${cls}" onclick="filterCat('${key}')">${esc(cat)}<span class="chip-count">${n}</span></button>`;
   });
   el.innerHTML = html;
+  updatePaperCount();
 }
 
-function renderCards(papers) {
+function updatePaperCount() {
+  const src = activeSource();
+  const papers = visiblePapers();
+  const visible = activeFilter === 'all'
+    ? papers.length
+    : papers.filter(p => (CAT_KEY[p.category] ?? 'other') === activeFilter).length;
+  const srcLabel = SOURCE_LABELS[src] ?? src;
+  const suffix = src === 'all' ? '' : ` from ${srcLabel}`;
+  document.getElementById('paper-count').textContent =
+    `${visible} paper${visible !== 1 ? 's' : ''}${suffix}`;
+}
+
+function renderCards() {
+  const src = activeSource();
   const grid = document.getElementById('card-grid');
+  const papers = visiblePapers();
   if (!papers.length) {
     grid.innerHTML = `<div class="empty-state">No papers found for this date.</div>`;
     return;
   }
   grid.innerHTML = papers.map(p => {
-    const key = CAT_KEY[p.category] ?? 'systems';
-    const arxivLink = `<a class="link-pill link-arxiv" href="https://arxiv.org/abs/${esc(p.id)}" target="_blank" rel="noopener noreferrer">arXiv</a>`;
+    const key = CAT_KEY[p.category] ?? 'other';
+    const isHF = p.source === 'hf';
+
+    // Primary link
+    let primaryLink = '';
+    if (isHF) {
+      primaryLink = `<a class="link-pill link-arxiv" href="https://arxiv.org/abs/${esc(p.id)}" target="_blank" rel="noopener noreferrer">arXiv</a>`;
+    } else if (p.projectPage) {
+      try {
+        const u = new URL(p.projectPage);
+        if (u.protocol === 'https:' || u.protocol === 'http:') {
+          primaryLink = `<a class="link-pill link-article" href="${esc(p.projectPage)}" target="_blank" rel="noopener noreferrer">Article</a>`;
+        }
+      } catch (_) {}
+    }
+
+    // Project link (HF only)
     let projectLink = '';
-    if (p.projectPage) {
+    if (isHF && p.projectPage) {
       try {
         const u = new URL(p.projectPage);
         if (u.protocol === 'https:' || u.protocol === 'http:') {
@@ -321,6 +439,13 @@ function renderCards(papers) {
         }
       } catch (_) {}
     }
+
+    // Header badge: upvotes for HF, journal for Nature
+    const headerBadge = isHF
+      ? `<span class="upvote-badge"><svg viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M5 1l4 8H1z"/></svg>${p.upvotes ?? 0}</span>`
+      : (p.journal ? `<span class="journal-badge">${esc(p.journal)}</span>` : '');
+
+    // Core fields
     const fields = [
       ['Task',        p.task],
       ['Model',       p.model],
@@ -329,27 +454,43 @@ function renderCards(papers) {
       ['Key Results', p.key_results],
       ['Notes',       p.comments],
     ];
-    const fieldRows = fields.map(([label, val]) =>
+    let fieldRows = fields.map(([label, val]) =>
       `<div class="field-row">
         <span class="field-label">${label}</span>
         <span class="field-value">${esc(val)}</span>
       </div>`
     ).join('');
 
-    return `<div class="paper-card cat-${key}" data-cat="${key}">
+    // Hypotheses / Results (only when non-empty)
+    if (Array.isArray(p.hypotheses) && p.hypotheses.length) {
+      const items = p.hypotheses.map((h, i) =>
+        `<li data-n="${i+1}">${esc(h)}</li>`).join('');
+      fieldRows += `<div class="field-row">
+        <span class="field-label">Hypotheses</span>
+        <ul class="field-list field-value">${items}</ul>
+      </div>`;
+    }
+    if (Array.isArray(p.results) && p.results.length) {
+      const items = p.results.map((r, i) =>
+        `<li data-n="${i+1}">${esc(r)}</li>`).join('');
+      fieldRows += `<div class="field-row">
+        <span class="field-label">Results</span>
+        <ul class="field-list field-value">${items}</ul>
+      </div>`;
+    }
+
+    const show = (activeFilter === 'all' || key === activeFilter) ? '' : 'display:none;';
+    return `<div class="paper-card cat-${key}" data-cat="${key}" style="${show}">
       <div class="card-stripe"></div>
       <div class="card-header">
         <span class="cat-badge">${esc(p.category)}</span>
-        <span class="upvote-badge">
-          <svg viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M5 1l4 8H1z"/></svg>
-          ${p.upvotes ?? 0}
-        </span>
+        ${headerBadge}
       </div>
       <div class="card-title">${esc(p.title)}</div>
       <div class="card-fields">${fieldRows}</div>
       <div class="card-footer">
         <span class="date-chip">${formatDate(p.publishedAt)}</span>
-        ${arxivLink}${projectLink}
+        ${primaryLink}${projectLink}
       </div>
     </div>`;
   }).join('');
@@ -357,10 +498,15 @@ function renderCards(papers) {
 
 function filterCat(cat) {
   activeFilter = cat;
-  renderFilters(currentPapers);
-  document.querySelectorAll('.paper-card').forEach(c => {
-    c.style.display = (cat === 'all' || c.dataset.cat === cat) ? '' : 'none';
-  });
+  renderFilters();
+  renderCards();
+}
+
+function updateSourceNav() {
+  document.getElementById('prev-src-btn').disabled = sourceIdx <= 0;
+  document.getElementById('next-src-btn').disabled = sourceIdx >= sources.length - 1;
+  const src = activeSource();
+  document.getElementById('source-display').textContent = SOURCE_LABELS[src] ?? src;
 }
 
 function updateNav() {
@@ -383,10 +529,16 @@ async function loadDate(date) {
   }
   currentPapers = await resp.json();
   activeFilter = 'all';
-  document.getElementById('paper-count').textContent =
-    `${currentPapers.length} paper${currentPapers.length !== 1 ? 's' : ''} from HuggingFace Daily Papers`;
-  renderFilters(currentPapers);
-  renderCards(currentPapers);
+
+  // Rebuild source list from loaded papers
+  const srcSet = new Set(currentPapers.map(p => p.source).filter(Boolean));
+  sources = ['all', ...Array.from(srcSet).sort()];
+  // Preserve selected source if still present, else reset to 'all'
+  if (!sources.includes(activeSource())) sourceIdx = 0;
+  updateSourceNav();
+
+  renderFilters();
+  renderCards();
 }
 
 document.getElementById('prev-btn').addEventListener('click', async () => {
@@ -394,6 +546,13 @@ document.getElementById('prev-btn').addEventListener('click', async () => {
 });
 document.getElementById('next-btn').addEventListener('click', async () => {
   if (currentIdx < dates.length - 1) { currentIdx++; updateNav(); await loadDate(dates[currentIdx]); }
+});
+
+document.getElementById('prev-src-btn').addEventListener('click', () => {
+  if (sourceIdx > 0) { sourceIdx--; activeFilter = 'all'; updateSourceNav(); renderFilters(); renderCards(); }
+});
+document.getElementById('next-src-btn').addEventListener('click', () => {
+  if (sourceIdx < sources.length - 1) { sourceIdx++; activeFilter = 'all'; updateSourceNav(); renderFilters(); renderCards(); }
 });
 
 (async () => {

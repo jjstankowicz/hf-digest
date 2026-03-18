@@ -12,7 +12,7 @@ import urllib.request
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import date
 from email.utils import parsedate_to_datetime
-from threading import Lock
+from threading import Lock, Semaphore
 from xml.etree import ElementTree as ET
 
 import anthropic
@@ -287,15 +287,21 @@ def _scrape_feed(
     items: list[ET.Element],
     target: date,
     pbar: tqdm,
+    sem: Semaphore,
 ) -> list[dict]:
-    """Scrape abstracts for one feed's filtered items; update shared progress bar."""
+    """Scrape abstracts for one feed's filtered items; update shared progress bar.
+
+    Uses a shared semaphore to cap aggregate concurrent requests to nature.com.
+    """
     papers = []
     for item in items:
         link = item.findtext("link", "").rstrip("/")
         slug = link.split("/")[-1]
         raw_title = item.findtext("title", "")
         title = re.sub(r"[\u200b\u200c\u200d\ufeff]", "", raw_title).strip()
-        abstract = scrape_abstract(link)
+        with sem:
+            abstract = scrape_abstract(link)
+            time.sleep(0.3)
         if abstract:
             papers.append(
                 {
@@ -311,7 +317,6 @@ def _scrape_feed(
                 }
             )
         pbar.update(1)
-        time.sleep(0.3)
     return papers
 
 
@@ -385,19 +390,27 @@ def fetch_nature_papers(target: date, client: anthropic.Anthropic | None = None)
         return []
 
     # Phase 2: Scrape abstracts in parallel across feeds.
+    # Semaphore caps concurrent requests to nature.com across all feed threads.
+    scrape_sem = Semaphore(4)
     papers_by_feed: dict[str, list[dict]] = {}
     with tqdm(total=total_articles, desc="Scraping abstracts", unit="article") as pbar:
         with ThreadPoolExecutor(max_workers=len(FEEDS)) as pool:
             futures = {
-                pool.submit(_scrape_feed, name, FEEDS[name], items, target, pbar): name
+                pool.submit(_scrape_feed, name, FEEDS[name], items, target, pbar, scrape_sem): name
                 for name, items in items_by_feed.items()
                 if items
             }
             for fut in as_completed(futures):
                 feed_name = futures[fut]
-                papers = fut.result()
-                if papers:
-                    papers_by_feed[feed_name] = papers
+                try:
+                    papers = fut.result()
+                    if papers:
+                        papers_by_feed[feed_name] = papers
+                except Exception as exc:
+                    print(
+                        f"WARNING: {feed_name} scraping failed: {exc}",
+                        file=sys.stderr,
+                    )
 
     if not papers_by_feed:
         return []
@@ -427,4 +440,5 @@ def fetch_nature_papers(target: date, client: anthropic.Anthropic | None = None)
                     )
                 pbar.update(1)
 
+    records.sort(key=lambda r: (r["source"], r["publishedAt"], r["uid"]))
     return records

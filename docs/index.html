@@ -387,13 +387,23 @@ function catKey(cat) {
   return CAT_KEY[cat] ?? null;
 }
 
-const SOURCE_LABELS = { all: 'All Sources', hf: 'HuggingFace', nature: 'Nature' };
+const SOURCE_LABELS = {
+  hf: 'HuggingFace',
+  physics: 'Physics',
+  biophysics: 'Biophysics',
+  biotechnology: 'Biotechnology',
+  'cell-biology': 'Cell Biology',
+  'computational-biology': 'Comp. Biology',
+  'mathematics-and-computing': 'Math & Computing',
+  neuroscience: 'Neuroscience',
+  'systems-biology': 'Systems Biology',
+};
 
 let dates = [];
 let currentIdx = 0;
 let currentPapers = [];
 let activeFilter = 'all';
-let sources = ['all'];
+let sources = ['hf'];
 let sourceIdx = 0;
 
 function activeSource() { return sources[sourceIdx]; }
@@ -414,8 +424,7 @@ function formatDisplayDate(dateStr) {
 }
 
 function visiblePapers() {
-  const src = activeSource();
-  return currentPapers.filter(p => src === 'all' || p.source === src);
+  return currentPapers.filter(p => p.source === activeSource());
 }
 
 function renderFilters() {
@@ -458,9 +467,8 @@ function updatePaperCount() {
     ? papers.length
     : papers.filter(matchesFilter).length;
   const srcLabel = SOURCE_LABELS[src] ?? src;
-  const suffix = src === 'all' ? '' : ` from ${srcLabel}`;
   document.getElementById('paper-count').textContent =
-    `${visible} paper${visible !== 1 ? 's' : ''}${suffix}`;
+    `${visible} paper${visible !== 1 ? 's' : ''} from ${srcLabel}`;
 }
 
 function renderCards() {
@@ -592,7 +600,11 @@ async function loadDate(date) {
   // Rebuild source list from loaded papers, preserving selection if possible
   const prevSource = activeSource();
   const srcSet = new Set(currentPapers.map(p => p.source).filter(Boolean));
-  sources = ['all', ...Array.from(srcSet).sort()];
+  sources = Array.from(srcSet).sort((a, b) => {
+    if (a === 'hf') return -1;
+    if (b === 'hf') return 1;
+    return a.localeCompare(b);
+  });
   const newIdx = sources.indexOf(prevSource);
   sourceIdx = newIdx >= 0 ? newIdx : 0;
   updateSourceNav();

@@ -335,12 +335,11 @@ def fetch_nature_papers(target: date, client: anthropic.Anthropic | None = None)
                 f"{len(extracted) if isinstance(extracted, list) else type(extracted).__name__}"
             )
         for paper, fields in zip(papers, extracted):
-            source = "nature"
-            uid = f"{source}:{paper['doi']}"
+            uid = f"nature:{paper['doi']}"
             records.append(
                 {
                     "uid": uid,
-                    "source": source,
+                    "source": feed_name,
                     "id": paper["doi"],
                     "title": paper["title"],
                     "projectPage": paper["link"],

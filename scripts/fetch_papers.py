@@ -73,7 +73,7 @@ def filter_papers(raw: list[dict], target: date) -> list[dict]:
 def extract_fields(papers: list[dict], client: anthropic.Anthropic) -> list[dict]:
     """Call Claude once with all abstracts; return list of extracted field dicts."""
     numbered = "\n\n".join(
-        f"[{i+1}] Title: {p['paper'].get('title', '')}\n"
+        f"[{i + 1}] Title: {p['paper'].get('title', '')}\n"
         f"Abstract: {p['paper'].get('summary', '')}"
         for i, p in enumerate(papers)
     )
@@ -103,10 +103,15 @@ def build_records(papers: list[dict], extracted: list[dict]) -> list[dict]:
     for paper, fields in zip(papers, extracted):
         p = paper.get("paper", {})
         paper_id = p.get("id", "")
+        if not paper_id:
+            title = p.get("title", "(no title)")
+            print(f"Warning: skipping paper with missing id: {title}", file=sys.stderr)
+            continue
+        source = "hf"
         records.append(
             {
-                "uid": f"hf:{paper_id}",
-                "source": "hf",
+                "uid": f"{source}:{paper_id}",
+                "source": source,
                 "id": paper_id,
                 "title": p.get("title", ""),
                 "publishedAt": p.get("publishedAt", ""),

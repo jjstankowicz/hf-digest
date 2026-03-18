@@ -75,11 +75,11 @@ Nature schema TBD.
 - `paper-id-namespace`
 - `hf-api-date-param`
 - `paper-id-cache`
+- `nature-schema`
+- `nature-rss-feed`
 
 # Priority (Sorted)
 
-- `nature-schema`
-- `nature-rss-feed`
 - `nature-remaining-feeds`
 - `read-unread-markers`
 - `skill-path-update`
@@ -88,15 +88,6 @@ Nature schema TBD.
 - `email-summary`
 
 # Backlog (Unsorted)
-
-- `nature-schema` -- Determine LLM extraction schema for Nature papers.
-  Likely: hypothesis, methods (brief), finding, significance. Brainstorm
-  with user. May need per-source prompt templates.
-
-- `nature-rss-feed` -- Implement `fetch_nature.py` for
-  `http://www.nature.com/subjects/physics.rss`. Parse RSS, filter by
-  publication date, extract fields via LLM, write to per-day JSON alongside
-  HF papers.
 
 - `nature-remaining-feeds` -- Add remaining 7 Nature feeds:
   - `http://www.nature.com/subjects/biophysics.rss`

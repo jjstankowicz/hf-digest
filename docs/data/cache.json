@@ -1123,5 +1123,257 @@
     "outputs": "Answers via dynamic search tree with pruned trajectories",
     "key_results": "Outperforms baseline at 4\u00d7 resource allocation under strict budget constraints; \u22651-\u03b5 convergence guarantee",
     "comments": "Residual value predictor addressing LLM overconfidence is elegant; training-free makes deployment practical."
+  },
+  "hf:2603.16790": {
+    "category": "LLM/Reasoning",
+    "task": "Code generation for industrial domains",
+    "model": "(transformer) InCoder-32B",
+    "inputs": "natural language descriptions of programming tasks in specialized domains",
+    "outputs": "code solutions for chip design, GPU kernels, embedded systems, compiler optimization, and 3D modeling",
+    "key_results": "competitive performance on 14 general code benchmarks and strong baselines on 9 industrial benchmarks; extends context from 8K to 128K tokens",
+    "comments": "Notable for combining general pretraining with domain-specific annealing and execution-grounded verification, addressing a real gap in industrial code generation."
+  },
+  "hf:2603.15726": {
+    "category": "Agents/RL",
+    "task": "Complex long-horizon reasoning for research tasks",
+    "model": "(transformer) MiroThinker-1.7 & MiroThinker-H1",
+    "inputs": "user queries and tool APIs for open-web research, scientific reasoning, and financial analysis",
+    "outputs": "structured reasoning plans with verified intermediate steps and final answers",
+    "key_results": "state-of-the-art performance on deep research tasks with local and global-level verification; open-source 1.7-mini variant available",
+    "comments": "Integration of verification into reasoning is commendable, though the specific performance metrics relative to prior work are not quantified in the abstract."
+  },
+  "hf:2603.16870": {
+    "category": "Generative",
+    "task": "Understanding reasoning mechanisms in video generation models",
+    "model": "(diffusion transformer) video diffusion models",
+    "inputs": "prompts or conditioning signals for video generation tasks requiring reasoning",
+    "outputs": "generated video frames with reasoning across diffusion denoising steps",
+    "key_results": "identified Chain-of-Steps (CoS) as primary reasoning mechanism instead of Chain-of-Frames; ensemble latent trajectories improve performance",
+    "comments": "Provides valuable mechanistic insights into how diffusion models reason, but the practical improvements from proposed training-free strategies are not quantified."
+  },
+  "hf:2603.16871": {
+    "category": "Generative",
+    "task": "Interactive 3D gaming world generation with precise action control",
+    "model": "(diffusion transformer) video diffusion transformer",
+    "inputs": "user actions represented as 6-DoF camera poses in Lie algebra; historical observations indexed by global camera pose",
+    "outputs": "video frames of interactive gaming environment with 3D spatial consistency over long horizons",
+    "key_results": "substantially outperforms state-of-the-art in action controllability and 3D spatial consistency; introduces 3,000-minute authentic gameplay dataset with camera trajectories",
+    "comments": "Clever use of camera pose as unifying geometric representation is elegant, though quantitative comparisons on standard metrics are absent from abstract."
+  },
+  "hf:2603.13366": {
+    "category": "Vision",
+    "task": "Mitigating hallucinations in visual question answering by MLRMs",
+    "model": "(transformer) multimodal large reasoning models",
+    "inputs": "images and questions; token probability distributions during high-entropy reasoning stages",
+    "outputs": "answers with reduced hallucinations via entropy-aware decoding",
+    "key_results": "LEAD strategy effectively mitigates hallucinations across multiple MLLMs and benchmarks; uses probability-weighted embeddings under high entropy",
+    "comments": "Interesting approach leveraging entropy patterns in transition words, but specific quantitative improvements are not provided in abstract."
+  },
+  "hf:2603.16448": {
+    "category": "Agents/RL",
+    "task": "Text-to-SQL parsing with unknown database schemas",
+    "model": "(RL with GRPO) agent-based system with LLM backbone",
+    "inputs": "natural language queries; access to unknown schemas via tool calls",
+    "outputs": "executable SQL queries with metadata verification",
+    "key_results": "30.6% absolute improvement for 4B variant, 16.6% for 8B; matches schema-prefilled baselines without pre-loaded metadata",
+    "comments": "Dual-Track GRPO with token-level masked advantages is novel; 9.9% relative improvement over standard GRPO demonstrates effective credit assignment."
+  },
+  "hf:2603.16856": {
+    "category": "Agents/RL",
+    "task": "Continuous online improvement of language models from deployment experience",
+    "model": "(transformer) language models at multiple scales",
+    "inputs": "interaction trajectories from real-world deployment; user-side experience",
+    "outputs": "improved model parameters via on-policy context distillation",
+    "key_results": "consistent improvements over iterations; enhanced task accuracy and token efficiency while preserving OOD performance on text-based games",
+    "comments": "Clean separation of knowledge extraction and parameter consolidation is appealing, but experiments are limited to game environments rather than broader deployment scenarios."
+  },
+  "hf:2603.08262": {
+    "category": "Benchmark",
+    "task": "Evaluating LLM agents for real-world financial tool use",
+    "model": "(LLM agents) various foundation models with financial tool APIs",
+    "inputs": "financial queries requiring tool execution; 760 executable financial tools",
+    "outputs": "evaluation scores on timeliness, intent type, and regulatory alignment; FATR baseline results",
+    "key_results": "FinToolBench comprises 760 executable tools with 295 tool-required queries; introduces finance-critical evaluation dimensions beyond binary success",
+    "comments": "Valuable contribution addressing real-world finance domain, though this is primarily a benchmark paper without strong baseline results reported."
+  },
+  "hf:2603.14465": {
+    "category": "Benchmark",
+    "task": "Evaluating step-level effectiveness in tool-using agent trajectories",
+    "model": "(LLM agents) various policy models",
+    "inputs": "tool-augmented trajectories with 8,509 human-labeled step annotations",
+    "outputs": "per-step correctness labels and agent quality metrics",
+    "key_results": "identified key challenges: weaker models show inflated step correctness due to early termination; process signals complement outcome supervision for test-time scaling",
+    "comments": "First benchmark dedicated to step-level evaluation in realistic tool use; ternary labeling scheme and error propagation rules improve annotation reliability."
+  },
+  "hf:2603.16859": {
+    "category": "Vision",
+    "task": "Evaluating audio-visual social interactivity in omni-modal models",
+    "model": "(multimodal) omni-modal large language models",
+    "inputs": "audio-visual dialogue with speaker cues and interruption opportunities",
+    "outputs": "speaker identification, interruption timing, and natural interruption generation",
+    "key_results": "decoupling between perceptual accuracy and interaction generation quality across 12 OLMs; significant variance in social-interaction capabilities",
+    "comments": "Operationalizes underexplored dimension of conversational AI; reveals important gap between understanding and appropriate social response generation."
+  },
+  "hf:2603.16869": {
+    "category": "Generative",
+    "task": "3D part segmentation via repurposing 3D generative models",
+    "model": "(3D generative model) pretrained native 3D generator with segmentation adapter",
+    "inputs": "3D geometry; optional interactive or 2D guidance",
+    "outputs": "part segmentation masks via distinctive part colorization",
+    "key_results": "40% improvement on interactive part segmentation, 15% on full segmentation; uses only 0.32% of labeled training data versus prior work",
+    "comments": "Clever repurposing of pretrained priors for a discriminative task; significant data efficiency gain validates transferability of 3D generative models."
+  },
+  "hf:2603.16844": {
+    "category": "Systems",
+    "task": "Monocular video SLAM with dense correspondence matching",
+    "model": "(vision foundation model + Gaussian splatting) M\u00b3 system combining multi-view foundation model matching with SLAM",
+    "inputs": "uncalibrated monocular video stream",
+    "outputs": "camera poses and 3D scene reconstruction via Gaussian splatting",
+    "key_results": "64.3% ATE RMSE reduction vs VGGT-SLAM 2.0; 2.11 dB PSNR improvement over ARTDECO on ScanNet++",
+    "comments": "Augments multi-view foundation models with dedicated matching head for fine-grained correspondences; addresses critical bottleneck in geometric optimization."
+  },
+  "hf:2603.16189": {
+    "category": "Generative",
+    "task": "SVG generation with structured reasoning and code refinement",
+    "model": "(vision-language model with chain-of-thought) CTRL-S using GRPO and multi-reward optimization",
+    "inputs": "text descriptions or images",
+    "outputs": "SVG code with group-level structure and visual SVG rendering",
+    "key_results": "higher task success rates, superior code quality, and exceptional visual fidelity; multi-reward framework incorporates DINO, image-text similarity, format, and efficiency rewards",
+    "comments": "Introduction of chain-of-thought reasoning for SVG generation is novel; multi-reward optimization with GRPO demonstrates effective handling of competing objectives."
+  },
+  "hf:2603.09821": {
+    "category": "Systems",
+    "task": "Automating LLM evaluation from natural-language requests",
+    "model": "(agentic system) LLM-based evaluation orchestrator",
+    "inputs": "natural-language evaluation requests; optional human edits and rollback",
+    "outputs": "executable evaluation workflows with task-aware metrics and decision-oriented reporting",
+    "key_results": "end-to-end evaluation execution from diverse NL requests with minimal user effort; human-in-the-loop checkpoints preserve auditability",
+    "comments": "Addresses real pain point of heterogeneous evaluation codebases; focus on reproducibility and human oversight is commendable for industrial settings."
+  },
+  "hf:2603.15929": {
+    "category": "Benchmark",
+    "task": "Formal verification of plasma physics equilibrium in Vlasov-Maxwell-Landau system",
+    "model": "(AI reasoning + symbolic proof) Gemini DeepThink + Claude + Aristotle prover + Lean 4 kernel",
+    "inputs": "mathematical conjectures about plasma equilibrium",
+    "outputs": "fully formal Lean 4 proofs verified by kernel",
+    "key_results": "complete formalization of VML equilibrium characterization; 229 human prompts, 213 commits, $200 cost, 10 days with one mathematician",
+    "comments": "Remarkable demonstration of AI-assisted formal verification; detailed documentation of failure modes (hypothesis creep, definition bugs, agent avoidance) provides valuable lessons for future work."
+  },
+  "hf:2603.14152": {
+    "category": "Generative",
+    "task": "Skeletal control for native 3D object generation",
+    "model": "(3D diffusion model) frozen generative backbone with lightweight SK-Adapter",
+    "inputs": "3D skeleton (joint coordinates and topology) as structural control signal",
+    "outputs": "high-quality 3D meshes with precise skeletal articulation and preserved texture",
+    "key_results": "robust structural control while preserving geometry and texture quality; enables local 3D editing via skeletal guidance; Objaverse-TMS dataset released with 24k samples",
+    "comments": "Treating 3D skeleton as first-class control signal is intuitive; lightweight adapter design preserves generative priors while enabling precise manipulation."
+  },
+  "hf:2603.15600": {
+    "category": "Vision",
+    "task": "Process monitoring and failure detection for long-horizon robotic manipulation",
+    "model": "(video MLLM with RL) PRIMO R1 (7B), transforms passive observer to active critic",
+    "inputs": "video sequences anchored between initial and current state; optional task goal",
+    "outputs": "progress estimation and failure detection via chain-of-thought reasoning",
+    "key_results": "50% reduction in MAE vs specialized baselines; 67.0% accuracy on RoboFail, surpassing OpenAI o1 by 6.0%; strong zero-shot generalization",
+    "comments": "Clever use of structured temporal input anchoring; outcome-based RL for eliciting process reasoning is an effective way to shift from passive recognition to active evaluation."
+  },
+  "hf:2603.16867": {
+    "category": "LLM/Reasoning",
+    "task": "Efficient on-device reasoning for small language models via adapter tuning and budget forcing",
+    "model": "(adapter-based) LoRA adapters on small LLMs (Qwen2.5-7B) with dynamic switching",
+    "inputs": "prompts requiring reasoning; budget constraints for token generation and memory",
+    "outputs": "concise reasoning traces and final answers optimized for edge deployment",
+    "key_results": "practical reasoning on mobile with strict resource constraints; dynamic adapter switching and KV-cache sharing reduce overhead; 20x inference speedup potential",
+    "comments": "Practical contribution addressing real constraint of on-device deployment; budget forcing via RL to compress reasoning while maintaining accuracy is pragmatic."
+  },
+  "hf:2603.15653": {
+    "category": "LLM/Reasoning",
+    "task": "Long-context information extraction via self-reflective program search",
+    "model": "(recursive decomposition) SRLM augmenting Recursive Language Models with uncertainty-aware self-reflection",
+    "inputs": "long-context documents; prompts requiring reasoning over extended context",
+    "outputs": "answers derived from recursively decomposed context interactions",
+    "key_results": "up to 22% improvement over RLM under same time budget; self-reflection (consistency, reasoning length, confidence) outperforms recursion alone across diverse benchmarks",
+    "comments": "Important finding that self-reflection is more critical than recursion itself; demonstrates that heuristic signals can guide effective long-context handling."
+  },
+  "hf:2603.16861": {
+    "category": "Vision",
+    "task": "Zero-shot sim-to-real transfer for robot manipulation",
+    "model": "(vision-language policy) MolmoBot based on Molmo2 with flow-matching action head; plus Pi0-replica and SPOC variants",
+    "inputs": "visual observations from robot cameras; task descriptions",
+    "outputs": "continuous action commands for articulated manipulation and mobile manipulation",
+    "key_results": "79.2% success on tabletop pick-and-place in real world; outperforms \u03c0\u2080.\u2085 at 39.2%; zero-shot transfer to unseen objects without real-world fine-tuning; 1.8M synthetic trajectories",
+    "comments": "Strong result demonstrating that procedural sim-to-real gap can be bridged with sufficient scale and diversity; release of 1.8M trajectories and open-source pipeline valuable for community."
+  },
+  "hf:2603.16343": {
+    "category": "Vision",
+    "task": "3D human pose estimation from LiDAR under human-object interactions",
+    "model": "(point cloud network) HOIL framework with contrastive learning and attention pooling",
+    "inputs": "LiDAR point clouds of humans interacting with objects",
+    "outputs": "3D keypoint coordinates for human pose; temporal refinement via contact cues",
+    "key_results": "HOIL effectively resolves spatial ambiguity and class imbalance in interaction regions; robust pose estimation in cluttered backgrounds; contact-aware temporal refinement improves per-frame predictions",
+    "comments": "Well-motivated approach addressing two concrete challenges (spatial ambiguity, class imbalance) in autonomous driving context; temporal refinement is practical addition."
+  },
+  "hf:2603.16184": {
+    "category": "Systems",
+    "task": "Multilingual automatic speech recognition for Singapore languages",
+    "model": "(fine-tuned ASR) Qwen3-ASR-0.6B and 1.7B with balanced language sampling",
+    "inputs": "speech audio in English, Mandarin, Tamil, Malay",
+    "outputs": "transcribed text with implicit language identification from audio",
+    "key_results": "Polyglot-Lion-1.7B achieves 14.85 average error rate competitive with 6x larger MERaLiON-2-10B (14.32); 20x faster inference; $81 training cost vs $18,862",
+    "comments": "Impressive efficiency gains through balanced fine-tuning strategy; elimination of language tags forces implicit learning, improving cross-lingual generalization."
+  },
+  "hf:2603.15854": {
+    "category": "Systems",
+    "task": "Fast and memory-efficient categorical sampling for LLM decoding",
+    "model": "(GPU kernel) fused sampling primitive integrating into LM-head matmul",
+    "inputs": "logits tile-by-tile on-chip; Gumbel noise injection",
+    "outputs": "exact categorical samples without materializing full logits tensor in HBM",
+    "key_results": "up to 19% reduction in time per output token in vLLM; speeds up kernel-level decode across H100, H200, B200, B300 GPUs",
+    "comments": "Elegant kernel-level optimization exploiting argmax properties; demonstrates that exact sampling can be efficiently fused into matmul without approximation."
+  },
+  "hf:2603.15309": {
+    "category": "Benchmark",
+    "task": "Evaluating LLM tool use under complex constraints",
+    "model": "(LLM agents) nine state-of-the-art models in thinking and non-thinking modes",
+    "inputs": "tool-use scenarios with average 7 constraint types; prompts exceeding 4,500 tokens; 12 constraint categories across 4 dimensions",
+    "outputs": "execution traces with step-level constraint violation validation",
+    "key_results": "no model achieves >20% completion rate under strict constraint adherence; models violate constraints in >50% of cases; limited self-refinement capability even with feedback",
+    "comments": "Sobering benchmark revealing critical gap in constraint compliance; dimensional taxonomy (resource, behavior, toolset, response) provides useful structure for future improvements."
+  },
+  "hf:2603.16099": {
+    "category": "Generative",
+    "task": "3D scene generation with cross-view consistency via unified 3D representation",
+    "model": "(3D diffusion) OneWorld using 3D Unified Representation Autoencoder (3D-URAE) with pretrained 3D foundation models",
+    "inputs": "scene descriptions or conditions; token-level cross-view correspondence loss",
+    "outputs": "high-quality 3D scenes with superior cross-view appearance and geometric consistency",
+    "key_results": "superior cross-view consistency vs 2D-based methods; token-level CVC consistency loss enforces structural alignment; Manifold-Drift Forcing mitigates train-inference bias",
+    "comments": "Operating diffusion directly in unified 3D space addresses fundamental limitation of 2D latent approaches; augmentation of geometry-centric models with appearance and semantics is principled."
+  },
+  "hf:2603.13715": {
+    "category": "Systems",
+    "task": "Quantifying capitalist land enclosure via information-geometric and statistical-mechanical analysis",
+    "model": "(information geometry + Markov chains) Fisher-Rao geodesics on Marxian probability simplex; percolation and fractal analysis",
+    "inputs": "Sentinel-2 LULC satellite data (2017-2024) at 10m resolution; land-use fractions (Commons, Agrarian, Capital)",
+    "outputs": "quantitative characterization of spatial transformation velocity, topology, irreversibility; percolation thresholds and fractal dimensions",
+    "key_results": "transformation pulse of 0.405 rad/yr (2019-2020); absorption times of 46.0 yrs (cropland) and 38.1 yrs (tree cover); built-area self-retention 96.4%; urban boundary fractal dimension 1.316\u21921.397",
+    "comments": "Novel application of mathematical physics tools to political economy; information-geometric approach to quantifying enclosure is creative but requires deep domain expertise to validate causal claims."
+  },
+  "nature:10.1038/s41598-026-44097-0": {
+    "category": "Optics/Photonics",
+    "task": "Analytical solutions for soliton dynamics in nonlinear optical media",
+    "model": "(theoretical) Fokas\u2013Lenells equation with generalized quadratic-cubic self-phase modulation and nonlinear dispersion",
+    "inputs": "Perturbed quiescent optical solitons; generalized self-phase modulation and chromatic dispersion parameters",
+    "outputs": "Diverse family of soliton solutions (dark, periodic, singular, dark-singular, singular-periodic structures); spectral and temporal profiles",
+    "key_results": "Modified extended tanh method generates richest compact solution spectrum; selected soliton profiles exhibit soliton production, frequency shifting, and pulse compression phenomena",
+    "comments": "The work provides analytical rather than numerical solutions, making it valuable for understanding fundamental soliton behavior, though practical validation in real fiber systems remains unaddressed."
+  },
+  "nature:10.1038/s41598-026-43896-9": {
+    "category": "Applied Physics",
+    "task": "Optimization of ferroelectric FET memory window through oxygen control",
+    "model": "(experiment) IGZO/HfZrO\u2082 ferroelectric field-effect transistor with hafnium-oxide-based ferroelectric",
+    "inputs": "Oxygen partial pressure (P_O\u2082) during IGZO channel deposition (0\u201320%); device fabrication and characterization",
+    "outputs": "Memory window (V); oxygen vacancy concentration; interfacial defect density; polarization switching dynamics",
+    "key_results": "Optimized 5% P_O\u2082 yields maximum memory window of 1.85 V; minimized interfacial defects while maintaining carrier density; accelerated polarization switching confirmed by nucleation-limited analysis",
+    "comments": "This is a practical materials engineering study addressing a known interface bottleneck, though long-term reliability metrics (endurance cycles, retention time) are mentioned but not quantified."
   }
 }

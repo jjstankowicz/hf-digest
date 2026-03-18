@@ -1,4 +1,4 @@
-"""Fetch HuggingFace daily papers, extract structured fields via Claude, write JSON.
+"""Orchestrate daily paper fetching from all sources and write per-day JSON.
 
 Usage:
     uv run python scripts/fetch_papers.py [--date YYYY-MM-DD]
@@ -15,6 +15,8 @@ from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 import anthropic
+
+from fetch_nature import fetch_nature_papers
 
 HF_API_URL = "https://huggingface.co/api/daily_papers"
 DATA_DIR = Path(__file__).parent.parent / "docs" / "data"
@@ -130,6 +132,9 @@ def build_records(papers: list[dict], cache: dict[str, dict]) -> list[dict]:
                 "outputs": fields.get("outputs", ""),
                 "key_results": fields.get("key_results", ""),
                 "comments": fields.get("comments", ""),
+                "journal": None,
+                "hypotheses": [],
+                "results": [],
             }
         )
     return records
@@ -180,9 +185,6 @@ def main() -> None:
 
     papers = fetch_hf_papers(target)
 
-    if not papers:
-        sys.exit(0)
-
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     cache = load_cache()
 
@@ -190,6 +192,9 @@ def main() -> None:
         p for p in papers
         if p.get("paper", {}).get("id", "") and f"hf:{p['paper']['id']}" not in cache
     ]
+
+    client: anthropic.Anthropic | None = None
+
     if uncached:
         client = anthropic.Anthropic()
         extracted = extract_fields(uncached, client)
@@ -205,7 +210,21 @@ def main() -> None:
             cache[f"hf:{paper_id}"] = entry
         save_cache(cache)
 
-    records = build_records(papers, cache)
+    hf_records = build_records(papers, cache)
+
+    nature_records = fetch_nature_papers(target, client)
+    # Cache Nature records (skip hypotheses/results -- too variable to cache usefully)
+    for r in nature_records:
+        if r["uid"] not in cache:
+            cache[r["uid"]] = {k: r.get(k, "") for k in EXTRACTED_FIELDS}
+            cache[r["uid"]]["category"] = cache[r["uid"]]["category"] or "Other"
+    if nature_records:
+        save_cache(cache)
+
+    records = hf_records + nature_records
+
+    if not records:
+        sys.exit(0)
 
     out_path = DATA_DIR / f"{target_str}.json"
     out_path.write_text(json.dumps(records, indent=2))

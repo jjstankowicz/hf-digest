@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Papers Digest</title>
+<title>Paper Digest</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='2' y='1' width='10' height='13' rx='1' fill='%232563eb'/%3E%3Crect x='4' y='4' width='6' height='1.2' rx='0.6' fill='white'/%3E%3Crect x='4' y='6.4' width='6' height='1.2' rx='0.6' fill='white'/%3E%3Crect x='4' y='8.8' width='4' height='1.2' rx='0.6' fill='white'/%3E%3C/svg%3E">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -72,7 +72,7 @@
   .date-nav button:disabled,
   .source-nav button:disabled { opacity: 0.35; cursor: default; }
   #date-display { font-size: 15px; font-weight: 600; color: var(--text-primary); min-width: 160px; text-align: center; }
-  #source-display { font-size: 13px; font-weight: 600; color: var(--text-secondary); min-width: 110px; text-align: center; }
+  #source-display { font-size: 13px; font-weight: 600; color: var(--text-secondary); min-width: 170px; text-align: center; }
 
   .nav-divider { width: 1px; height: 24px; background: var(--border); }
 
@@ -269,7 +269,7 @@
 <body>
 
 <header class="site-header">
-  <div class="site-title">Papers <span>Digest</span></div>
+  <div class="site-title">Paper <span>Digest</span></div>
   <div class="nav-group">
     <div class="source-nav">
       <button id="prev-src-btn" aria-label="Previous source">&#8249;</button>
@@ -389,14 +389,14 @@ function catKey(cat) {
 
 const SOURCE_LABELS = {
   hf: 'HuggingFace',
-  physics: 'Physics',
-  biophysics: 'Biophysics',
-  biotechnology: 'Biotechnology',
-  'cell-biology': 'Cell Biology',
-  'computational-biology': 'Comp. Biology',
-  'mathematics-and-computing': 'Math & Computing',
-  neuroscience: 'Neuroscience',
-  'systems-biology': 'Systems Biology',
+  physics: 'Nature: Physics',
+  biophysics: 'Nature: Biophysics',
+  biotechnology: 'Nature: Biotechnology',
+  'cell-biology': 'Nature: Cell Biology',
+  'computational-biology': 'Nature: Comp. Biology',
+  'mathematics-and-computing': 'Nature: Math & Computing',
+  neuroscience: 'Nature: Neuroscience',
+  'systems-biology': 'Nature: Systems Biology',
 };
 
 let dates = [];

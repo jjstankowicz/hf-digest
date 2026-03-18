@@ -2,17 +2,17 @@
 
 ## Goal
 
-Publish a daily AI/ML papers digest as a GitHub Pages site, automatically updated
-each morning without manual intervention. Papers are stored as per-day JSON (30-day
-rolling window) and rendered client-side with a date selector. No per-day HTML.
+Publish a daily multi-source papers digest as a GitHub Pages site, automatically
+updated each morning. Papers from HuggingFace daily picks and Nature topical RSS
+feeds are stored as per-day JSON and rendered client-side with date and source
+selectors. No per-day HTML generation.
 
 ## Two Modes
 
-**Automated pipeline** (primary): A Python script (`scripts/fetch_papers.py`)
-fetches the HF API, filters by `publishedAt`, calls the Anthropic API for field
-extraction, and writes per-day JSON to `docs/data/`. A GitHub Actions cron workflow
-runs this daily. `docs/index.html` is a single-page site that renders the JSON
-client-side with a date selector. No per-day HTML generation.
+**Automated pipeline** (primary): Python scripts fetch HF API and Nature RSS feeds,
+call the Anthropic API for field extraction, and write per-day JSON to `docs/data/`.
+A GitHub Actions cron workflow runs this daily. `docs/index.html` is a single-page
+site that renders the JSON client-side with date and source selectors.
 
 **Interactive skill** (secondary): The `daily-digest` Claude Code skill uses browser
 MCP tools for in-session review and discussion. It maintains its own standalone
@@ -20,8 +20,8 @@ HTML template for interactive sessions.
 
 ## GitHub Repository
 
-`git@github.com:jjstankowicz/hf-digest.git`
-GitHub Pages: `https://jjstankowicz.github.io/hf-digest/`
+`git@github.com:jjstankowicz/paper-digest.git`
+GitHub Pages: `https://jjstankowicz.github.io/paper-digest/`
 
 # Development Guidelines
 
@@ -75,11 +75,11 @@ After creating a PR, start a background poll loop (Copilot review starts automat
 ```bash
 # Poll every 30s until Copilot review appears
 while true; do
-  count=$(gh api repos/jjstankowicz/hf-digest/pulls/PR_NUM/reviews \
+  count=$(gh api repos/jjstankowicz/paper-digest/pulls/PR_NUM/reviews \
     --jq '[.[] | select(.user.login | test("copilot"))] | length')
   if [ "$count" -gt 0 ]; then
     echo "COPILOT_REVIEW_READY"
-    gh api repos/jjstankowicz/hf-digest/pulls/PR_NUM/comments \
+    gh api repos/jjstankowicz/paper-digest/pulls/PR_NUM/comments \
       --jq '.[] | {id, path, body: .body[0:120]}'
     break
   fi
@@ -106,14 +106,14 @@ Avoid accidental command execution from shell interpolation when using `gh`.
 
 1. **Read comments:**
    ```bash
-   gh api repos/jjstankowicz/hf-digest/pulls/PR_NUM/comments \
+   gh api repos/jjstankowicz/paper-digest/pulls/PR_NUM/comments \
      | jq '.[] | {id, path, body: .body[0:80]}'
    ```
 
 2. **Reply to a comment** (use `in_reply_to` with comment ID):
    ```bash
    printf '%s\n' 'Fixed in COMMIT.' > /tmp/reply.md
-   gh api repos/jjstankowicz/hf-digest/pulls/PR_NUM/comments \
+   gh api repos/jjstankowicz/paper-digest/pulls/PR_NUM/comments \
      -F body=@/tmp/reply.md -F in_reply_to=COMMENT_ID
    ```
 
@@ -128,14 +128,17 @@ Avoid accidental command execution from shell interpolation when using `gh`.
 # Repository Structure
 
 ```
-hf-digest/
+paper-digest/
     docs/                              # GitHub Pages root (served from main/docs)
         index.html                     # single-page site; renders JSON client-side
         data/
             index.json                 # manifest of available dates (30-day window)
-            YYYY-MM-DD.json            # per-day paper data
+            cache.json                 # uid -> extracted fields cache
+            YYYY-MM-DD.json            # per-day paper data (all sources)
     scripts/
-        fetch_papers.py                # fetch + LLM extraction + write JSON
+        fetch_papers.py                # orchestrator: runs fetchers, updates data/
+        fetch_hf.py                    # HuggingFace daily papers fetcher
+        fetch_nature.py                # Nature RSS feed fetcher
     .github/
         workflows/
             daily-digest.yml           # cron schedule, commit, push

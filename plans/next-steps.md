@@ -6,10 +6,10 @@
 
 # Goal
 
-Publish a daily AI/ML papers digest as a GitHub Pages site, automatically updated
-each morning. Papers are stored as per-day JSON files; the site renders them
-client-side with a date selector. No per-day HTML generation -- the site is a
-single static page.
+Publish a daily multi-source papers digest as a GitHub Pages site, automatically
+updated each morning. Papers from HuggingFace daily picks and Nature topical RSS
+feeds are stored as per-day JSON; the site renders them client-side with date and
+source selectors. No per-day HTML generation.
 
 # Architecture
 
@@ -17,25 +17,34 @@ single static page.
 docs/
     index.html              # single-page site; fetches JSON on demand
     data/
-        index.json          # manifest: list of available dates
-        YYYY-MM-DD.json     # one file per day, 30-day rolling window
+        index.json          # manifest: {dates: [...], sources: [...]}
+        cache.json          # paper ID -> extracted fields (avoid re-processing)
+        YYYY-MM-DD.json     # one file per day, all sources, 30-day rolling window
+scripts/
+    fetch_hf.py             # HuggingFace daily papers fetcher
+    fetch_nature.py         # Nature RSS feed fetcher
+    fetch_papers.py         # orchestrator: runs fetchers, updates data/
 ```
 
-**Python script** (`scripts/fetch_papers.py`): fetches HF API, filters papers
-by `paper.submittedOnDailyAt == yesterday` (community curation date, not arxiv
-publication date), sorts by `paper.upvotes` descending (mirrors HF daily site
-ordering), calls Anthropic API for field extraction from `summary` (raw abstract
--- no `ai_summary`/`ai_keywords` fields exist in the API), writes
-`docs/data/YYYY-MM-DD.json`, updates `docs/data/index.json`, prunes entries
-older than 30 days.
+**Paper ID namespace**: `source:id` (e.g., `hf:2603.12345`,
+`nature:10.1038/s41586-026-12345-6`). Cache keyed on this.
 
-**Site** (`docs/index.html`): on load, fetches `data/index.json`, populates a
-date selector, fetches the selected day's JSON, and renders the table client-side.
-Uses the same CSS and filter logic as the original template.
+**HF papers** (`fetch_hf.py`): fetches `https://huggingface.co/api/daily_papers?date=DATE`,
+sorts by `paper.upvotes` descending. LLM extraction: category, task, model,
+inputs, outputs, key_results, comments.
 
-**JSON schema** (per paper):
+**Nature papers** (`fetch_nature.py`): fetches RSS feed(s), parses items by
+publication date. LLM extraction schema TBD -- likely hypothesis, methods,
+finding, significance (different decomposition from HF/ML papers).
+
+**Site** (`docs/index.html`): date selector (prev/next) + source selector
+(prev/next or tabs). Fetches selected day's JSON, filters by source client-side.
+
+**JSON schema** (per paper, HF):
 ```json
 {
+  "uid": "hf:2603.12345",
+  "source": "hf",
   "id": "2603.12345",
   "title": "...",
   "publishedAt": "2026-03-16T17:52:04.000Z",
@@ -52,7 +61,9 @@ Uses the same CSS and filter logic as the original template.
 }
 ```
 
-# Priority (Sorted)
+Nature schema TBD.
+
+# Completed
 
 - `setup-repo-structure`
 - `build-site`
@@ -60,6 +71,17 @@ Uses the same CSS and filter logic as the original template.
 - `write-fetch-script`
 - `github-actions-workflow`
 - `test-end-to-end`
+
+# Priority (Sorted)
+
+- `rename-repo`
+- `paper-id-namespace`
+- `hf-api-date-param`
+- `nature-schema`
+- `nature-rss-feed`
+- `nature-remaining-feeds`
+- `read-unread-markers`
+- `paper-id-cache`
 - `skill-path-update`
 - `rss-feed`
 - `digest-search`
@@ -67,57 +89,52 @@ Uses the same CSS and filter logic as the original template.
 
 # Backlog (Unsorted)
 
-- `setup-repo-structure` -- Create `docs/data/`, `scripts/` directories.
-  Add `pyproject.toml` with `anthropic` as dependency (uv). Add `docs/data/`
-  to `.gitignore` exclusions if needed (it should be tracked).
+- `rename-repo` -- Rename GitHub repo from `hf-digest` to `paper-digest`.
+  Update git remote locally. Update CLAUDE.md. Verify site loads at
+  `https://jjstankowicz.github.io/paper-digest/`. Package name: `padi`.
 
-- `build-site` -- Write `docs/index.html` as a self-contained single-page site.
-  On load: fetch `data/index.json`, populate date selector (prev/next arrows +
-  date display). On date change: fetch `data/YYYY-MM-DD.json`, render table.
-  Reuse CSS and category filter JS from the existing skill template. The date
-  selector should default to the most recent available date.
-  Include stub data (`docs/data/index.json` + one `docs/data/YYYY-MM-DD.json`
-  with a handful of mock papers) so the site renders correctly before real data
-  is wired up.
+- `paper-id-namespace` -- Add `uid` field (`source:id`) to all existing paper
+  records. Update fetch script to write `uid` and `source` fields. Update
+  `cache.json` to key on `uid`.
 
-- `write-fetch-script` -- Implement `scripts/fetch_papers.py`:
-  - Fetch `https://huggingface.co/api/daily_papers`
-  - Filter to papers where `paper.submittedOnDailyAt` date == yesterday (or
-    `--date`); sort by `paper.upvotes` descending (HF alignment)
-  - No `ai_summary`/`ai_keywords` in the API -- pass `summary` (abstract) to
-    Claude for field extraction; single batch call for all papers
-  - Write `docs/data/YYYY-MM-DD.json` (keyed by `submittedOnDailyAt` date)
-  - Update `docs/data/index.json` (sorted list of available dates)
-  - Delete JSON files and index entries older than 30 days
-  - Exit cleanly with no output if 0 papers found (weekend/holiday)
-  - CLI: `uv run python scripts/fetch_papers.py [--date YYYY-MM-DD]`
+- `hf-api-date-param` -- Switch `fetch_hf.py` to use
+  `?date=YYYY-MM-DD` API param instead of filtering a rolling response.
+  Enables accurate backfill of any historical date.
 
-- `github-actions-workflow` -- Create `.github/workflows/daily-digest.yml`:
-  - Cron: `0 8 * * *` (08:00 UTC daily)
-  - Steps: checkout, install uv, run script, commit + push if changed
-  - `ANTHROPIC_API_KEY` as a repo secret
-  - Exit cleanly (no commit) if API returns 0 papers for the day
+- `paper-id-cache` -- Introduce `docs/data/cache.json` mapping `uid` ->
+  extracted fields. Before LLM extraction, check cache; skip if already
+  present. Prevents redundant API calls on reruns and backfills.
 
-- `configure-github-pages` -- Enable GitHub Pages from `main/docs`. Verify
-  `https://jjstankowicz.github.io/hf-digest/` loads and the date selector works.
+- `nature-schema` -- Determine LLM extraction schema for Nature papers.
+  Likely: hypothesis, methods (brief), finding, significance. Brainstorm
+  with user. May need per-source prompt templates.
 
-- `test-end-to-end` -- Run `uv run python scripts/fetch_papers.py` manually.
-  Verify JSON output. Open `docs/index.html` locally, confirm rendering. Push
-  to main, confirm GitHub Pages serves correctly.
+- `nature-rss-feed` -- Implement `fetch_nature.py` for
+  `http://www.nature.com/subjects/physics.rss`. Parse RSS, filter by
+  publication date, extract fields via LLM, write to per-day JSON alongside
+  HF papers.
 
-- `skill-path-update` -- The `daily-digest` interactive skill currently uses its
-  own copy of the template. Now that the site is client-side, decide whether the
-  skill should generate standalone HTML (keeping the old fill-in template) or
-  write a JSON file and open the hosted site. Simplest: keep a separate
-  standalone template in the skill for interactive sessions.
+- `nature-remaining-feeds` -- Add remaining 7 Nature feeds:
+  - `http://www.nature.com/subjects/biophysics.rss`
+  - `https://www.nature.com/subjects/biotechnology/nature.rss`
+  - `https://www.nature.com/subjects/cell-biology.rss`
+  - `http://www.nature.com/subjects/computational-biology-and-bioinformatics.rss`
+  - `http://www.nature.com/subjects/mathematics-and-computing.rss`
+  - `https://www.nature.com/subjects/neuroscience/nature.rss`
+  - `http://www.nature.com/subjects/systems-biology.rss`
 
-- `rss-feed` -- Generate `docs/feed.xml` from `index.json` so the digest can be
-  followed in a feed reader. Update the workflow to regenerate it on each run.
+- `read-unread-markers` -- Client-side read/unread state stored in
+  `localStorage`. Each paper card gets a checkbox or click-to-mark.
+  Persists across page loads. No server needed.
 
-- `digest-search` -- Add client-side full-text search across all loaded (or
-  lazily fetched) JSON files. Lunr.js or a simple regex filter over a merged
-  dataset.
+- `skill-path-update` -- The `daily-digest` interactive skill currently uses
+  its own standalone HTML template. Decide whether to keep it separate or
+  wire it to the hosted site JSON.
 
-- `email-summary` -- After daily generation, send a short email of the top 3-5
-  papers most relevant to drug discovery / molecular ML / Bayesian methods.
-  GitHub Actions + sendgrid or a mail action.
+- `rss-feed` -- Generate `docs/feed.xml` from `index.json` so the digest
+  can be followed in a feed reader.
+
+- `digest-search` -- Add client-side full-text search across loaded JSON.
+
+- `email-summary` -- After daily generation, send a short email of top 3-5
+  papers relevant to drug discovery / molecular ML / Bayesian methods.

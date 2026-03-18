@@ -77,25 +77,16 @@ Nature schema TBD.
 - `paper-id-cache`
 - `nature-schema`
 - `nature-rss-feed`
+- `nature-remaining-feeds`
 
 # Priority (Sorted)
 
-- `nature-remaining-feeds`
 - `read-unread-markers`
 - `rss-feed`
 - `digest-search`
 - `email-summary`
 
 # Backlog (Unsorted)
-
-- `nature-remaining-feeds` -- Add remaining 7 Nature feeds:
-  - `http://www.nature.com/subjects/biophysics.rss`
-  - `https://www.nature.com/subjects/biotechnology/nature.rss`
-  - `https://www.nature.com/subjects/cell-biology.rss`
-  - `http://www.nature.com/subjects/computational-biology-and-bioinformatics.rss`
-  - `http://www.nature.com/subjects/mathematics-and-computing.rss`
-  - `https://www.nature.com/subjects/neuroscience/nature.rss`
-  - `http://www.nature.com/subjects/systems-biology.rss`
 
 - `read-unread-markers` -- Client-side read/unread state stored in
   `localStorage`. Each paper card gets a checkbox or click-to-mark.

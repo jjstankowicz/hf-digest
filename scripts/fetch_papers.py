@@ -221,7 +221,13 @@ def main() -> None:
     if nature_records:
         save_cache(cache)
 
-    records = hf_records + nature_records
+    seen: set[str] = set()
+    deduped: list[dict] = []
+    for r in hf_records + nature_records:
+        if r["uid"] not in seen:
+            seen.add(r["uid"])
+            deduped.append(r)
+    records = deduped
 
     if not records:
         sys.exit(0)

@@ -1591,5 +1591,176 @@
     "outputs": "Attitude estimation, rotation rate, flight control signals (replaces IMU)",
     "key_results": "Successful real-world flight without inertial sensors; small recurrent CNN trained via supervised learning replaces IMU; network with memory + horizon cues achieves best performance; narrow field-of-view variants show better relative generalization",
     "comments": "Practical contribution to insect-scale robotics; vision-only approach is compelling but generalization across diverse environments and rapid maneuvers remains limited; event camera temporal resolution is key advantage."
+  },
+  "hf:2603.16777": {
+    "category": "Agents/RL",
+    "task": "Multi-step task planning for multimodal agents",
+    "model": "(reinforcement learning) TraceR1",
+    "inputs": "Computer-use and tool-use task instructions",
+    "outputs": "Action sequences with anticipated future states",
+    "key_results": "Substantial improvements in planning stability and execution robustness across seven benchmarks; improved generalization over reactive baselines",
+    "comments": "Two-stage RL approach (trajectory-level + grounded fine-tuning) is well-motivated, though absolute performance metrics are not quantified in the abstract."
+  },
+  "hf:2603.16063": {
+    "category": "Vision",
+    "task": "Efficient adaptation of Vision Transformers with linear attention",
+    "model": "(Vision Transformer) ViT-AdaLA",
+    "inputs": "Vision foundation models and downstream vision tasks",
+    "outputs": "Linearized ViT parameters for classification and segmentation",
+    "key_results": "Effective knowledge transfer from softmax ViTs to linear attention variants; demonstrated on classification and segmentation tasks",
+    "comments": "Three-stage alignment strategy (attention, feature, fine-tuning) addresses layer-wise error accumulation, but specific performance gains versus baselines are not reported in abstract."
+  },
+  "hf:2603.12396": {
+    "category": "LLM/Reasoning",
+    "task": "Improving efficiency and accuracy of iterative RAG systems",
+    "model": "(LLM agent) Search-R1 with modifications",
+    "inputs": "Complex multi-hop questions",
+    "outputs": "Retrieved documents and generated answers with reasoning",
+    "key_results": "5.6% increase in EM score and 10.5% reduction in retrieval turns compared to Search-R1 baseline on HotpotQA and Natural Questions",
+    "comments": "Test-time modifications are practical and yield concrete improvements, but the approach is incremental optimization rather than fundamental architectural innovation."
+  },
+  "nature:10.1038/s41467-026-70837-x": {
+    "category": "Membrane Biophysics",
+    "task": "Elucidate proton channel control of carbonate chemistry in calcifying vesicles",
+    "model": "(experiment) sea urchin embryo live-cell imaging with electrophysiology",
+    "inputs": "Sea urchin calcifying cells, membrane potential, Ca\u00b2\u207a and Mg\u00b2\u207a ions, pH gradients",
+    "outputs": "Intra-vesicular pH and Ca\u00b2\u207a concentrations, proton conductance, vesicle exocytosis dynamics",
+    "key_results": "Otop2l channel activation by alkaline pH, Ca\u00b2\u207a, and Mg\u00b2\u207a creates highly alkaline (>pH 8) conditions in ACC-forming vesicles; high proton permeability drives pH control at mineralization front",
+    "comments": "The identification of Otop2l as a master pH regulator provides mechanistic insight into biomineralization robustness and suggests vulnerability to ocean acidification through impaired channel function."
+  },
+  "nature:10.1038/s41598-026-44463-y": {
+    "category": "Cell Signaling",
+    "task": "Prevent glucocorticoid-induced osteoporosis via osteoblast protection",
+    "model": "(experiment) MC3T3-E1 pre-osteoblasts, BMSCs, dexamethasone-induced mouse model",
+    "inputs": "5-HMF compound; dexamethasone treatment",
+    "outputs": "Osteogenic differentiation markers, bone density, bone architecture, VEGFR2/PI3K/AKT pathway activation",
+    "key_results": "5-HMF enhanced VEGFR2 phosphorylation, restored angiogenesis, activated PI3K/AKT signaling; MK2206 (AKT inhibitor) abrogated protective effects",
+    "comments": "Network pharmacology prediction complements functional validation, though the in vivo quantitative bone density improvements are not explicitly stated numerically."
+  },
+  "nature:10.1038/s41598-026-44176-2": {
+    "category": "Development",
+    "task": "Characterize CYFIP2 R87C variant effects on neuronal development",
+    "model": "(experiment) CRISPR/Cas9-edited hPSC-derived neurons and cortical organoids",
+    "inputs": "R87C variant in CYFIP2; differentiation protocol into NPCs and cortical neurons",
+    "outputs": "Neural morphology, motility, electrophysiology, protein expression, progenitor pool status",
+    "key_results": "Mutant NPCs showed reduced motility and altered lamellipodia; R87C/R87C organoids displayed premature progenitor depletion (absent SOX2+ cells by day 30) and increased size, while 2D cultures showed minimal phenotype",
+    "comments": "The stark divergence between 2D monolayer and 3D organoid phenotypes underscores the importance of physiological context; the mechanistic link to epileptic encephalopathy remains speculative."
+  },
+  "nature:10.1038/s41467-026-70522-z": {
+    "category": "Cytoskeleton",
+    "task": "Elucidate KIF11 function in microtubule dynamics and dendritic development",
+    "model": "(experiment) live-imaging in postmitotic neurons; photo-controllable KIF11 optogenetic tool",
+    "inputs": "KIF11 depletion or MCLID mutations (Y82F, \u0394Cterm); neuronal cultures",
+    "outputs": "MT dynamics (minus-end-out), dendritic arborization, mEPSC frequency, MT crosslinking, sliding velocity, ATP affinity",
+    "key_results": "KIF11 depletion increased MT dynamics; MCLID mutants reduced MT dynamics and dendritic growth; \u0394Cterm disrupted tetramer formation and MT crosslinking; Y82F reduced sliding velocity and ATP affinity",
+    "comments": "The identification of KIF11 as a 'MT dynamics rheostat' is elegant, though the direct causal relationship between MT dynamics changes and dendritic arborization deficits could be further mechanistically dissected."
+  },
+  "nature:10.1038/s41467-026-70677-9": {
+    "category": "Cell Division/Cycle",
+    "task": "Determine NEC pathogenesis via polarity loss and Kras activation in intestinal epithelium",
+    "model": "(experiment) Cdc42-knockout + oncogenic Kras mouse intestinal epithelial model",
+    "inputs": "Cdc42 loss; oncogenic Kras activation; initiation from stem cells or differentiated epithelium",
+    "outputs": "Intestinal architecture, stem cell population, YAP/Hippo signaling, inflammatory cytokines, necroptotic cell death, transcriptomic signatures",
+    "key_results": "Combined Cdc42 loss + Kras activation caused intestinal failure, stem cell loss, elevated IL-1/TNF\u03b1, necroptotic activation; suppression of YAP, IL-1, TNF\u03b1, or necroptosis rescued pathology",
+    "comments": "Single-cell transcriptomics reveals coordinated dysregulation, and therapeutic rescue experiments provide strong mechanistic support, though the relative contribution of each pathway to lethality remains quantitatively unspecified."
+  },
+  "nature:10.1038/s41746-026-02510-y": {
+    "category": "Other",
+    "task": "Smartphone-based detection and management of pediatric blepharoptosis",
+    "model": "N/A",
+    "inputs": "Smartphone blink video clips and facial images (3164 clips, 1229 images)",
+    "outputs": "Morphological measurements, levator dysfunction classification, ptosis management recommendations",
+    "key_results": "Morphological ICC >0.90 vs manual; functional AUC 0.993; stratification accuracy 0.91 internal/0.89 real-world; patient satisfaction 4.93/5",
+    "comments": "Clinical translation is strong but generalizability across diverse smartphone hardware and lighting conditions remains underexplored."
+  },
+  "nature:10.1038/s41598-026-44009-2": {
+    "category": "Statistical Methods",
+    "task": "Improve convergence and accuracy in differentially private stochastic gradient descent",
+    "model": "FLDP training (fractional-order learning with differential privacy)",
+    "inputs": "Sensitive training data with strict privacy budget constraints",
+    "outputs": "Model parameters, test accuracy, privacy guarantee (membership inference ROC)",
+    "key_results": "Test accuracy improvement 0.5\u20132 percentage points over baseline DPSGD; membership inference AUC ~0.5; faster convergence at same privacy level",
+    "comments": "Buffered rejection is intuitive but the phased decay strategy introduces additional hyperparameters that may complicate tuning in practice."
+  },
+  "nature:10.1038/s41598-026-40717-x": {
+    "category": "Other",
+    "task": "Distinguish neurological from orthopedic gait disorders in dogs using inertial sensors",
+    "model": "Deep learning on inertial measurement unit (IMU) data",
+    "inputs": "Wearable inertial sensor readings during gait (29 dogs)",
+    "outputs": "Multi-class classification (healthy/orthopedic/neurological) and binary (healthy/non-healthy)",
+    "key_results": "Multiclass accuracy 0.96; binary accuracy 0.85 on unseen dogs; robust generalization demonstrated",
+    "comments": "Small sample size (29 dogs) and lack of cross-breed or cross-gait-speed validation limits immediate clinical deployment."
+  },
+  "nature:10.1038/s41598-026-44370-2": {
+    "category": "Genomics",
+    "task": "Identify immune and inflammatory pathways associated with bovine respiratory disease using transcriptomics",
+    "model": "RNA-Seq differential expression analysis with functional enrichment",
+    "inputs": "Whole-blood RNA from 60 high-risk stocker heifers across multiple timepoints; metaphylaxis treatment (tulathromycin or control)",
+    "outputs": "Differentially expressed genes (DEGs), pathway enrichment, candidate biomarkers for BRD",
+    "key_results": ">2000 DEGs at disease onset (FDR \u22640.05); five consistent biomarkers (IL1R2, HP, S100A9, TLR4, ALOX15); minimal transcriptomic differences between metaphylaxis groups",
+    "comments": "Low morbidity rate in cohort prevented prediction of disease development; heat shock proteins emerged as potential severity markers but require validation."
+  },
+  "nature:10.1038/s41598-026-41657-2": {
+    "category": "Statistical Methods",
+    "task": "Regulate mean arterial pressure and cardiac output with adaptive control under time-varying delays",
+    "model": "Modified Smith predictor (MSP) with fuzzy self-tuning fractional-order PID (FLOPID) controller",
+    "inputs": "Patient hemodynamic state; drug infusions (sodium nitroprusside, dopamine); bounded variable delays (\u226460 s)",
+    "outputs": "Optimal drug infusion rates for MAP and CO regulation; closed-loop control signals",
+    "key_results": "Faster rise/settling times, reduced overshoot, lower integral error vs conventional PID and FOPID; clinically acceptable performance under parameter uncertainty and disturbances",
+    "comments": "Simulation-based validation only; clinical trial data and comparison to predictive/MPC strategies remain absent."
+  },
+  "nature:10.1038/s41598-026-43674-7": {
+    "category": "Algorithms",
+    "task": "oil well production forecasting with hyperparameter optimization",
+    "model": "ISSA-optimized CNN-LSTM",
+    "inputs": "production data, operational parameters",
+    "outputs": "daily oil production predictions",
+    "key_results": "All performance metrics outperform ISSA-LSTM and GWO-LSTM baselines; accuracy satisfies practical oilfield requirements",
+    "comments": "The improved sparrow search algorithm (cyclic chaotic mapping, producer-predator updates) is standard metaheuristic engineering; validation on only two wells limits generalization claims."
+  },
+  "nature:10.1038/s41598-026-41630-z": {
+    "category": "Algorithms",
+    "task": "hyperparameter optimization for fog computing performance prediction",
+    "model": "Good Point Set Stepwise Shrinkage optimization",
+    "inputs": "fog computing node performance data from IoT devices",
+    "outputs": "optimized hyperparameters, node performance predictions",
+    "key_results": "SVM MSE 4.061, BP MSE 4.114, CNN MSE 3.963 \u00b1 0.0323; simpler than Sequential Uniform Designs; reduces cross-validation uncertainty",
+    "comments": "The proposed method is essentially a structured design-of-experiments approach; the modest MSE values lack context without baseline comparisons or normalization by data scale."
+  },
+  "nature:10.1038/s41598-026-44613-2": {
+    "category": "Algorithms",
+    "task": "early lost circulation prediction in drilling",
+    "model": "PSO-optimized backpropagation neural network (PSO-BP)",
+    "inputs": "mud logging data (pit volume, standpipe pressure, flow difference, top drive load)",
+    "outputs": "lost circulation event predictions",
+    "key_results": "PSO-BP outperforms standard BP, BAS-BP, and GA-BP models; validated under actual drilling conditions",
+    "comments": "Domain-guided feature selection is valuable, but no quantitative accuracy metrics are reported; comparison baselines suggest only marginal improvements."
+  },
+  "nature:10.1038/s41598-026-42388-0": {
+    "category": "ML Theory",
+    "task": "spatiotemporal chlorophyll-a prediction with causal discovery",
+    "model": "Graph Neural Network Transformer (GNN-T) with convergent cross-mapping",
+    "inputs": "MODIS/Aqua and ERA5 satellite data, 300,000 observations",
+    "outputs": "spatiotemporal Chl-a concentration predictions, causal relationships, bloom risk levels",
+    "key_results": "Test R\u00b2 = 0.906 (Gulf of Mexico); outperforms CNN-LSTM, BiLSTM, Temporal-Relational GNN, AGTCNSD; causality-driven feature selection achieves R\u00b2 = 0.882 with 25% reduced computational cost; identifies SST, fluorescence height, POC as key drivers",
+    "comments": "The integration of causal inference (CCM, Sobol) with model ablation is methodologically sound; generalization across gulfs strengthens claims, and uncertainty quantification via Monte Carlo dropout is rigorous."
+  },
+  "nature:10.1038/s41598-026-44187-z": {
+    "category": "Algorithms",
+    "task": "underwater fish object detection with complex environmental conditions",
+    "model": "YOLO-Starfish (YOLOv8 + C2Star module + Attention-driven Enhancement Module)",
+    "inputs": "underwater images with poor quality, randomness, occlusion",
+    "outputs": "fish species and bounding box detections",
+    "key_results": "Strong performance on RUOD and new Underwater Freshwater Fish Dataset (UFFD: 16,904 images, 19 species); excellent results on COCO2017; C2Star and ADEM improve robustness",
+    "comments": "The C2Star module's element-wise multiplication approach to mimic optical degradation is intuitive; however, no quantitative metrics (mAP, precision/recall) are provided in the abstract."
+  },
+  "nature:10.1038/s41467-026-70721-8": {
+    "category": "Metabolic Networks",
+    "task": "identify environmental and evolutionary drivers of fungal metabolic diversity",
+    "model": "comparative genomics and metabolomics across phylogeographic populations",
+    "inputs": "1052 Aspergillus flavus strains from four continents with genomic and metabolomic data",
+    "outputs": "phylogeographic metabolic patterns, biosynthetic gene clusters, specialized metabolite profiles",
+    "key_results": "low-mycotoxin clades produce distinct uncharacterized metabolites; regulatory and primary metabolic changes, not just biosynthetic gene variation, explain 70%+ of metabolite profile differentiation",
+    "comments": "Multi-omics integration is thorough, but causal mechanisms underlying regulatory changes remain incompletely specified."
   }
 }

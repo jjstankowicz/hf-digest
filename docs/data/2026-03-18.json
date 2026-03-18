@@ -6,7 +6,7 @@
     "title": "InCoder-32B: Code Foundation Model for Industrial Scenarios",
     "publishedAt": "2026-03-17T17:01:35.000Z",
     "submittedOnDailyAt": "2026-03-18T03:33:17.568Z",
-    "upvotes": 58,
+    "upvotes": 65,
     "projectPage": "https://huggingface.co/Multilingual-Multimodal-NLP/IndustrialCoder",
     "category": "LLM/Reasoning",
     "task": "Code generation for industrial domains",
@@ -46,7 +46,7 @@
     "title": "Demystifing Video Reasoning",
     "publishedAt": "2026-03-17T17:59:55.000Z",
     "submittedOnDailyAt": "2026-03-18T00:52:17.279Z",
-    "upvotes": 44,
+    "upvotes": 45,
     "projectPage": "https://www.wruisi.com/demystifying_video_reasoning/",
     "category": "Generative",
     "task": "Understanding reasoning mechanisms in video generation models",
@@ -186,7 +186,7 @@
     "title": "SocialOmni: Benchmarking Audio-Visual Social Interactivity in Omni Models",
     "publishedAt": "2026-03-17T17:58:44.000Z",
     "submittedOnDailyAt": "2026-03-18T01:08:41.938Z",
-    "upvotes": 11,
+    "upvotes": 12,
     "projectPage": "https://huggingface.co/datasets/alexisty/SocialOmni",
     "category": "Vision",
     "task": "Evaluating audio-visual social interactivity in omni-modal models",
@@ -528,19 +528,20 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-18",
     "category": "Optics/Photonics",
-    "task": "Analyze soliton dynamics in nonlinear optical fibers",
-    "model": "(analytical) Fokas\u2013Lenells equation with generalized self-phase modulation and nonlinear dispersion",
-    "inputs": "Perturbed quiescent optical solitons with quadratic-cubic self-phase modulation",
-    "outputs": "Analytical soliton solutions (dark, periodic, singular, dark-singular, singular-periodic structures)",
-    "key_results": "Modified extended tanh method generates richest solution spectrum; soliton profiles exhibit frequency shifting, spectrum broadening, and pulse compression",
-    "comments": "The work provides multiple analytical techniques but lacks numerical validation or experimental verification of predicted phenomena.",
+    "task": "Analytical investigation of soliton dynamics in nonlinear optical media",
+    "model": "(analytical) Fokas\u2013Lenells equation with quadratic-cubic self-phase modulation and nonlinear dispersion",
+    "inputs": "Perturbed quiescent optical solitons; generalized self-phase modulation and nonlinear chromatic dispersion parameters",
+    "outputs": "Soliton solutions (dark, periodic, singular, dark-singular, singular-periodic structures); spectral and temporal profiles",
+    "key_results": "Extended simple equation method provides straightforward effective solutions; modified extended tanh method yields richest spectrum of solutions; multiple analytical solution families obtained via three expansion techniques",
+    "comments": "Practical relevance to fiber-optic communications and supercontinuum generation is claimed but physical validation against experiments is not demonstrated.",
     "hypotheses": [
-      "Generalized SPM and nonlinear dispersion can be controlled to regulate soliton behavior",
-      "Different analytical methods yield varying solution families with different compactness"
+      "Generalized quadratic-cubic self-phase modulation combined with nonlinear dispersion produces diverse soliton structures",
+      "Different analytical methods yield distinct solution families with varying richness and compactness",
+      "Oxygen stoichiometry engineering enables improved ferroelectric memory performance"
     ],
     "results": [
-      "Extended simple equation provides straightforward but less comprehensive solutions",
-      "Modified extended tanh method generates richer, non-redundant solution spectrum"
+      "Multiple soliton solution families obtained; extended simple equation method most straightforward; modified extended tanh method most comprehensive",
+      "N/A"
     ]
   },
   {
@@ -552,21 +553,19 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-18",
     "category": "Applied Physics",
-    "task": "Enhance memory window in ferroelectric FETs via interface engineering",
-    "model": "(experiment) IGZO/HfZrO2 ferroelectric field-effect transistor",
-    "inputs": "Oxygen partial pressure (0\u201320%) during IGZO channel deposition",
-    "outputs": "Memory window width, oxygen vacancy concentration, interface defect density, switching speed",
-    "key_results": "Optimal 5% PO2 yields maximum memory window of 1.85 V with minimized interfacial defects and faster polarization switching",
-    "comments": "Practical oxygen stoichiometry tuning approach; however, scalability to commercial manufacturing and long-term reliability metrics warrant further investigation.",
+    "task": "Enhancement of memory window in ferroelectric field-effect transistors via oxygen control",
+    "model": "(experiment) IGZO/HfZrO2 ferroelectric field-effect transistor with hafnium-oxide ferroelectric",
+    "inputs": "Oxygen partial pressure (PO2) during IGZO channel deposition (0\u201320%); device fabrication parameters",
+    "outputs": "Memory window width; interfacial defect density; carrier density; polarization switching speed",
+    "key_results": "Optimized 5% PO2 yields maximum memory window of 1.85 V; reduced interfacial defect states while maintaining carrier density; accelerated polarization switching compared to non-optimal conditions",
+    "comments": "Well-controlled systematic study linking oxygen stoichiometry to device performance, though endurance and retention data mentioned but not quantified in abstract.",
     "hypotheses": [
-      "Oxygen partial pressure controls oxygen vacancy concentration in IGZO",
-      "Optimized oxygen stoichiometry minimizes interface defect states while maintaining carrier density",
-      "Reduced interfacial defects accelerate ferroelectric polarization switching"
+      "Oxygen partial pressure during IGZO deposition controls oxygen vacancy concentration and interfacial defects",
+      "Optimized oxygen stoichiometry balances defect minimization with carrier density maintenance"
     ],
     "results": [
-      "5% PO2 condition minimizes defect density at IGZO/HfZrO2 interface",
-      "Nucleation-limited switching analysis confirms faster polarization switching at optimized conditions",
-      "Enhanced memory operation and switching dynamics achieved at optimal oxygen control"
+      "5% PO2 minimized interfacial defects while preserving carrier density and enabled faster switching",
+      "XPS confirmed PO2 tunes oxygen vacancy concentration and IGZO/HfZrO2 interface defect density"
     ]
   }
 ]

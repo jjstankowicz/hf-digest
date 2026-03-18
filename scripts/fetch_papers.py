@@ -18,7 +18,9 @@ import anthropic
 
 HF_API_URL = "https://huggingface.co/api/daily_papers"
 DATA_DIR = Path(__file__).parent.parent / "docs" / "data"
+CACHE_PATH = DATA_DIR / "cache.json"
 ROLLING_DAYS = 30
+EXTRACTED_FIELDS = ("category", "task", "model", "inputs", "outputs", "key_results", "comments")
 CATEGORIES = [
     "Medical",
     "Molecular",
@@ -56,6 +58,26 @@ def fetch_hf_papers(target: date) -> list[dict]:
     return papers
 
 
+def load_cache() -> dict[str, dict]:
+    """Load uid -> extracted fields cache from disk, seeding from existing day files if absent."""
+    if CACHE_PATH.exists():
+        return json.loads(CACHE_PATH.read_text())
+
+    cache: dict[str, dict] = {}
+    for f in DATA_DIR.glob("????-??-??.json"):
+        for record in json.loads(f.read_text()):
+            uid = record.get("uid")
+            if uid:
+                cache[uid] = {k: record[k] for k in EXTRACTED_FIELDS if k in record}
+    CACHE_PATH.write_text(json.dumps(cache, indent=2))
+    return cache
+
+
+def save_cache(cache: dict[str, dict]) -> None:
+    """Persist the cache to disk."""
+    CACHE_PATH.write_text(json.dumps(cache, indent=2))
+
+
 def extract_fields(papers: list[dict], client: anthropic.Anthropic) -> list[dict]:
     """Call Claude once with all abstracts; return list of extracted field dicts."""
     numbered = "\n\n".join(
@@ -78,15 +100,10 @@ def extract_fields(papers: list[dict], client: anthropic.Anthropic) -> list[dict
     return json.loads(text)
 
 
-def build_records(papers: list[dict], extracted: list[dict]) -> list[dict]:
-    """Merge HF metadata with Claude-extracted fields into the output schema."""
-    if not isinstance(extracted, list) or len(extracted) != len(papers):
-        raise RuntimeError(
-            f"Extraction mismatch: expected {len(papers)} records, got "
-            f"{len(extracted) if isinstance(extracted, list) else type(extracted).__name__}"
-        )
+def build_records(papers: list[dict], cache: dict[str, dict]) -> list[dict]:
+    """Build output records from HF metadata and cached extracted fields."""
     records = []
-    for paper, fields in zip(papers, extracted):
+    for paper in papers:
         p = paper.get("paper", {})
         paper_id = p.get("id", "")
         if not paper_id:
@@ -94,9 +111,11 @@ def build_records(papers: list[dict], extracted: list[dict]) -> list[dict]:
             print(f"Warning: skipping paper with missing id: {title}", file=sys.stderr)
             continue
         source = "hf"
+        uid = f"{source}:{paper_id}"
+        fields = cache.get(uid, {})
         records.append(
             {
-                "uid": f"{source}:{paper_id}",
+                "uid": uid,
                 "source": source,
                 "id": paper_id,
                 "title": p.get("title", ""),
@@ -164,11 +183,30 @@ def main() -> None:
     if not papers:
         sys.exit(0)
 
-    client = anthropic.Anthropic()
-    extracted = extract_fields(papers, client)
-    records = build_records(papers, extracted)
-
     DATA_DIR.mkdir(parents=True, exist_ok=True)
+    cache = load_cache()
+
+    uncached = [
+        p for p in papers
+        if p.get("paper", {}).get("id", "") and f"hf:{p['paper']['id']}" not in cache
+    ]
+    if uncached:
+        client = anthropic.Anthropic()
+        extracted = extract_fields(uncached, client)
+        if not isinstance(extracted, list) or len(extracted) != len(uncached):
+            raise RuntimeError(
+                f"Extraction mismatch: expected {len(uncached)} records, got "
+                f"{len(extracted) if isinstance(extracted, list) else type(extracted).__name__}"
+            )
+        for paper, fields in zip(uncached, extracted):
+            paper_id = paper["paper"]["id"]
+            entry = {k: fields.get(k, "") for k in EXTRACTED_FIELDS}
+            entry["category"] = entry["category"] or "Systems"
+            cache[f"hf:{paper_id}"] = entry
+        save_cache(cache)
+
+    records = build_records(papers, cache)
+
     out_path = DATA_DIR / f"{target_str}.json"
     out_path.write_text(json.dumps(records, indent=2))
 

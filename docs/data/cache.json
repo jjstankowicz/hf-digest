@@ -1,0 +1,1127 @@
+{
+  "hf:2603.14473": {
+    "category": "LLM/Reasoning",
+    "task": "Learning scientific taste for high-impact research idea evaluation",
+    "model": "(transformer) Scientific Judge & Scientific Thinker (LLMs)",
+    "inputs": "Paper pairs (high vs low citation) and research ideas",
+    "outputs": "Preference scores for research ideas with estimated impact potential",
+    "key_results": "Scientific Judge outperforms GPT-4 and Gemini 3 Pro; Scientific Thinker proposes higher-impact ideas than baselines",
+    "comments": "Training paradigm addresses an underexplored aspect of AI science\u2014taste rather than execution\u2014though real-world impact validation awaits."
+  },
+  "hf:2603.15594": {
+    "category": "Agents/RL",
+    "task": "Open-source frontier-level web search agent training",
+    "model": "(transformer) LLM-based search agent with SFT",
+    "inputs": "Synthesized complex multi-hop QA tasks from web graph reverse-engineering",
+    "outputs": "Search actions and answers from web traversal",
+    "key_results": "11.7k samples achieve SOTA on BrowseComp (29.5% vs 15.3%), matching/exceeding industrial competitors",
+    "comments": "Democratization via open data and simple SFT is notable; scalability to truly complex real-world search unknown."
+  },
+  "hf:2603.13594": {
+    "category": "Agents/RL",
+    "task": "Evaluating agentic planning in realistic enterprise workflows",
+    "model": "(transformer) Claude Opus 4.5 and 13 other frontier models",
+    "inputs": "Stateful tasks with database tables, tools, and persistent state",
+    "outputs": "Task completion actions; success/failure on mission-critical workflows",
+    "key_results": "Top model (Claude 4.5) achieves 37.4% success; oracle plans improve by 14\u201335pp; refusal rate only 53.9%",
+    "comments": "Benchmark exposes critical safety gaps (poor refusal) and strategic reasoning bottlenecks; deployment readiness remains uncertain."
+  },
+  "hf:2603.15583": {
+    "category": "Generative",
+    "task": "City-scale world model grounded in real Seoul street-view imagery",
+    "model": "(transformer) Autoregressive video diffusion with retrieval conditioning",
+    "inputs": "Street-view images, camera trajectories, text prompts",
+    "outputs": "Spatially faithful, temporally consistent long-horizon urban videos",
+    "key_results": "Outperforms recent video world models over hundreds of meters; supports diverse camera movements and text variations",
+    "comments": "Grounding to real cities is innovative; evaluation limited to three cities and street-view perspective bias unknown."
+  },
+  "hf:2603.15612": {
+    "category": "Vision",
+    "task": "Physics-aware 3D reconstruction of human-scene interactions for simulation",
+    "model": "(RL-based optimizer) Bi-directional optimization with physics simulator",
+    "inputs": "Sparse images or monocular videos of human-scene interactions",
+    "outputs": "Simulation-ready 3D reconstructions with stable contact and dynamics",
+    "key_results": "First stable HSI reconstructions deployable on humanoid robots; HSIBench benchmark introduced",
+    "comments": "Physics-in-the-loop supervision closes perception-simulation gap; real robot validation limited to initial tests."
+  },
+  "hf:2603.15031": {
+    "category": "Systems",
+    "task": "Efficient residual connection aggregation via learned depth-wise attention",
+    "model": "(transformer) Attention Residuals (AttnRes) + Block AttnRes variant",
+    "inputs": "Layer outputs across transformer depth",
+    "outputs": "Content-dependent aggregated hidden states with controlled scaling",
+    "key_results": "Consistent improvement across model sizes; 3B active params outperform dense baselines; Kimi 48B achieves gains on all tasks",
+    "comments": "Addresses PreNorm dilution elegantly; practical overhead (cache + communication) well-mitigated by Block variant."
+  },
+  "hf:2603.15619": {
+    "category": "Systems",
+    "task": "Depth scaling via mixture-of-depths attention mechanism",
+    "model": "(transformer) Mixture-of-Depths Attention (MoDA) in attention heads",
+    "inputs": "Current layer KV pairs and depth KV pairs from preceding layers",
+    "outputs": "Attended representations mitigating signal degradation",
+    "key_results": "0.2 perplexity improvement across 10 benchmarks; 2.11% downstream task gain; 97.3% FlashAttention-2 efficiency",
+    "comments": "Hardware-efficient algorithm is strong; post-norm pairing preference differs from standard practice and warrants investigation."
+  },
+  "hf:2603.15590": {
+    "category": "Systems",
+    "task": "Distilling transformer LLMs into xLSTM sub-quadratic architectures",
+    "model": "(recurrent) xLSTM student; distilled from Llama, Qwen, Olmo teachers",
+    "inputs": "Teacher model activations and task labels",
+    "outputs": "Compressed xLSTM-based student models with merging stage",
+    "key_results": "Recovers most teacher performance; some tasks exceed teacher; lossless distillation framework introduced",
+    "comments": "Addresses efficiency\u2013performance tradeoff; limited analysis of which tasks benefit most from recurrent architectures."
+  },
+  "hf:2603.15557": {
+    "category": "Vision",
+    "task": "Diagnosing hallucinations in vision-language models via interpretable cognitive state space",
+    "model": "(transformer) VLM with information-theoretic probes",
+    "inputs": "VLM generation trajectory (layer-wise representations)",
+    "outputs": "Hallucination detection and attribution to perceptual, logical, or decisional pathologies",
+    "key_results": "SOTA hallucination detection on POPE, MME, MS-COCO; geometric-information duality principle discovered",
+    "comments": "Novel cognitive-science framing is elegant; generalization to newer VLM architectures and real-world misinformation unknown."
+  },
+  "hf:2603.15478": {
+    "category": "Generative",
+    "task": "Video-free tuning of video diffusion transformers via 2D image adaptation",
+    "model": "(transformer) DiT-based video diffusion with architectural reparameterization",
+    "inputs": "2D image data; sparse video control signals at inference",
+    "outputs": "Controllable and temporally consistent video generation/editing",
+    "key_results": "Achieves video control without video training data; maintains temporal consistency with minimal parameters",
+    "comments": "Data-efficient approach is practical; video-free tuning limits fine-grained motion quality compared to video-trained baselines."
+  },
+  "hf:2603.14769": {
+    "category": "LLM/Reasoning",
+    "task": "Stochastic generative optimization of complex systems (prompts, agents, code)",
+    "model": "(transformer) LLM optimizer with priority-queue and \u03b5-Net diversity",
+    "inputs": "Numerical rewards, text feedback, candidate solutions",
+    "outputs": "Optimized system configurations with theoretical convergence guarantees",
+    "key_results": "Convergence proof under stochasticity; SOTA on \u03c4-bench, HotpotQA, VeriBench, KernelBench",
+    "comments": "Theoretical framework is solid; sample efficiency gains over RL baselines are significant."
+  },
+  "hf:2603.10505": {
+    "category": "Agents/RL",
+    "task": "Safe web agent training via cloned, verifiable synthetic websites",
+    "model": "(transformer) LLM agent learning from auto-generated Python SDK environments",
+    "inputs": "Real website clones as executable environments; self-generated tasks",
+    "outputs": "Agent actions with deterministic, programmatically verifiable rewards",
+    "key_results": "Agents generalize to unseen real sites; site-specific mastery via self-evolution; scales with environment count",
+    "comments": "Decoupling from unsafe real-world interaction is valuable; generalization to dynamically updated sites untested."
+  },
+  "hf:2603.14610": {
+    "category": "Vision",
+    "task": "Interpreting classifier invariants via semantic null-space geometry",
+    "model": "(CNN/ViT) Semantic Interpretation of Null-space Geometry (SING)",
+    "inputs": "Single or sets of images",
+    "outputs": "Equivalent images with natural language semantic interpretations",
+    "key_results": "ResNet50 leaks semantic attributes; DinoViT (ViT-DINO) maintains class semantics better",
+    "comments": "Interpretability method is novel; real-world bias detection applications under-explored."
+  },
+  "hf:2603.12529": {
+    "category": "LLM/Reasoning",
+    "task": "Learning optimal early-exit points for chain-of-thought reasoning",
+    "model": "(transformer) LRM with learned exit strategy (TERMINATOR)",
+    "inputs": "CoT intermediate reasoning tokens",
+    "outputs": "Exit decision to terminate reasoning early",
+    "key_results": "14\u201355% reduction in CoT length; maintains or improves accuracy on MATH-500, AIME 2025, HumanEval, GPQA",
+    "comments": "Addresses computational waste in LRMs; depends on consistent answer positioning which may vary with task."
+  },
+  "hf:2603.13391": {
+    "category": "Vision",
+    "task": "Benchmarking multimodal LLMs for webpage recreation from demonstration videos",
+    "model": "(transformer) MLLM with visual rubric evaluation",
+    "inputs": "Demonstration videos of webpages",
+    "outputs": "Reconstructed HTML/CSS webpage code",
+    "key_results": "Best model 64% accuracy; human-aligned rubric achieves 96% agreement; systematic gaps in fine-grained style/motion",
+    "comments": "First video-to-webpage benchmark; controlled synthesis avoids real-world data noise but limits diversity."
+  },
+  "hf:2603.15500": {
+    "category": "LLM/Reasoning",
+    "task": "Understanding reasoning mechanisms via information-theoretic epistemic verbalization",
+    "model": "(transformer) LLM with procedural vs. epistemic decomposition",
+    "inputs": "Intermediate reasoning tokens during generation",
+    "outputs": "Uncertainty externalization signals and information acquisition measures",
+    "key_results": "Strong reasoning driven by uncertainty externalization, not surface tokens; unified Aha-moment interpretation",
+    "comments": "Information-theoretic framework clarifies reasoning dynamics; causality claims await targeted interventions."
+  },
+  "hf:2603.15611": {
+    "category": "Agents/RL",
+    "task": "Adversarial co-evolution of code and test generation via self-play",
+    "model": "(transformer) Code LLM and Test LLM with opposing RL objectives",
+    "inputs": "Code generation tasks; test suite generation constraints",
+    "outputs": "Code implementations and adversarial test cases",
+    "key_results": "Matches human-annotated test performance; 6x parameter efficiency; eliminates self-collusion vs. prior self-play",
+    "comments": "Architectural separation prevents self-collusion; white-box test generation enables targeted adversarial testing."
+  },
+  "hf:2603.15558": {
+    "category": "Vision",
+    "task": "Affordance prediction from 360-degree panoramic imagery",
+    "model": "(ViT-based) Coarse-to-fine panoramic affordance predictor (PAP)",
+    "inputs": "12K ultra-high-resolution panoramic images",
+    "outputs": "Instance-level affordance masks and QA predictions",
+    "key_results": "PAP-12K benchmark introduced; existing methods fail; PAP outperforms baselines on panoramic affordance",
+    "comments": "First panoramic affordance work; PAP's training-free design is elegant but evaluation limited to synthetic PAP-12K."
+  },
+  "hf:2603.15016": {
+    "category": "Generative",
+    "task": "Human motion generation via Riemannian manifold representation",
+    "model": "(flow matching) Riemannian Motion Generation (RMG) on product manifolds",
+    "inputs": "Text prompts or motion seed",
+    "outputs": "Skeletal motion sequences on learned manifold",
+    "key_results": "SOTA FID (0.043 HumanML3D); R@1 0.86 on MotionMillion; T+R factorization most stable",
+    "comments": "Geometry-aware modeling is principled; manifold structure improves sample efficiency and intrinsic normalization."
+  },
+  "hf:2603.14145": {
+    "category": "Benchmark",
+    "task": "Evaluating multimodal understanding and reasoning over long, complex videos",
+    "model": "(MLLM) 20+ state-of-the-art open/closed-source models evaluated",
+    "inputs": "Long web-collected videos with audio-visual content",
+    "outputs": "Multi-turn QA answers requiring omni-modal reasoning",
+    "key_results": "Best closed-source 64.2%; best open-source 46.8%; systematic failure modes on long-form videos",
+    "comments": "MMOU addresses real gap in video benchmarking; taxonomy of failures (temporal reasoning, modality integration) valuable."
+  },
+  "hf:2603.13985": {
+    "category": "LLM/Reasoning",
+    "task": "Unified perspective on post-training via SFT and RL",
+    "model": "(transformer) Comprehensive survey of SFT and RL paradigms for LLMs",
+    "inputs": "Task-specific labeled or reward-based data",
+    "outputs": "Aligned model outputs for specific tasks/domains",
+    "key_results": "Hybrid paradigms emerging; clear delineation of when SFT vs. RL effective; 2023\u20132025 trends synthesized",
+    "comments": "Survey clarifies theoretical connections; practical guidance for practitioners; limited novel algorithmic contributions."
+  },
+  "hf:2603.13364": {
+    "category": "Systems",
+    "task": "Fine-grained MoE with dimension expansion and efficient inference",
+    "model": "(MoE) FineRMoE with intermediate and output dimension specialization",
+    "inputs": "Token representations; sparse routing signals",
+    "outputs": "Expert-gated outputs with fine-grained specialization",
+    "key_results": "6x parameter efficiency; 281x prefill latency reduction; 136x decoding throughput vs. baseline",
+    "comments": "Upcycling mechanism enables cost-effective scaling; sparse computation paradigm well-suited to real inference."
+  },
+  "hf:2603.15563": {
+    "category": "Benchmark",
+    "task": "Large-scale competitive and long-context reasoning benchmark via Pokemon",
+    "model": "(RL/LLM) Heterogeneous baselines: heuristic, RL, LLM agents",
+    "inputs": "Partial-observable game state (Battling); RPG environment (Speedrunning)",
+    "outputs": "Competitive actions; long-horizon quest plans",
+    "key_results": "100+ teams competed; LLM, RL, human performance gaps evident; nearly orthogonal to standard LLM benchmarks",
+    "comments": "Living benchmark and leaderboard valuable; Pokemon orthogonality to MMLU-style evals highlights complementary reasoning."
+  },
+  "hf:2603.15555": {
+    "category": "Generative",
+    "task": "Single-image relighting with fine-grained physical control",
+    "model": "(diffusion) LightCtrl with latent proxy encoder and DPO-based refinement",
+    "inputs": "Single image; lighting direction, intensity, color parameters",
+    "outputs": "Photometrically faithful relit images",
+    "key_results": "+2.4 dB PSNR; 35% lower RMSE; ScaLight dataset with systematic variations",
+    "comments": "Physics priors at two levels elegantly balance control and quality; DPO for consistency is novel for relighting."
+  },
+  "hf:2603.15026": {
+    "category": "Vision",
+    "task": "Training-free detection of synthetic videos via spatial-temporal likelihood",
+    "model": "(probabilistic) STALL: likelihood-based detector without training",
+    "inputs": "Video frames and temporal sequences",
+    "outputs": "Likelihood score indicating synthetic vs. real",
+    "key_results": "Outperforms image/video baselines; ComGenVid benchmark introduced; zero-shot generalization to new generators",
+    "comments": "Training-free approach mitigates data scarcity; theoretical justification via probabilistic framework solid."
+  },
+  "hf:2603.14941": {
+    "category": "Benchmark",
+    "task": "Remote sensing spatiotemporal understanding and future forecasting",
+    "model": "(diffusion transformer) RS-WorldModel with geo-aware pre-training, SIT, VRO",
+    "inputs": "Satellite imagery; metadata; textual annotations",
+    "outputs": "Spatiotemporal change QA answers; text-guided future scenes",
+    "key_results": "2B params outperform 120x larger open-source; FID 43.13 on forecasting; surpasses Gemini-2.5-Flash Nano",
+    "comments": "Joint task learning and VRO refinement effective; dataset contribution (RSWBench-1.1M) valuable for remote sensing."
+  },
+  "hf:2603.14659": {
+    "category": "Agents/RL",
+    "task": "Grounded video reasoning via adaptive visual prompting during RL training",
+    "model": "(transformer) VisionCoach with visual prompt selector and spatio-temporal reasoner",
+    "inputs": "Video, question; visual prompts selected based on input; grounding rewards",
+    "outputs": "Reasoning trajectory with spatio-temporal grounding; final answer",
+    "key_results": "SOTA on V-STAR, VideoMME, World-Sense, VideoMMMU, PerceptionTest, Charades-STA; single-pass inference",
+    "comments": "Input-adaptive prompting during training with self-distillation is practical; grounding rewards enforce consistency."
+  },
+  "hf:2603.15617": {
+    "category": "Benchmark",
+    "task": "Measuring AI progress on unsolved mathematical discovery problems",
+    "model": "(transformer) GPT-4o, GPT-5.4 Pro and other LLMs",
+    "inputs": "Mathematical problem statements from 8 domains",
+    "outputs": "Proposed solutions with verifiable correctness",
+    "key_results": "GPT-5.4 Pro solves 2 problems improving published results; near-zero baseline performance; immune to contamination",
+    "comments": "Data contamination immunity valuable; verification via simple computation scales better than formal proofs."
+  },
+  "hf:2603.15616": {
+    "category": "Generative",
+    "task": "Glyph-accurate visual text rendering via region-grouped preference optimization",
+    "model": "(diffusion) GlyphPrinter with Region-Grouped DPO (R-GDPO)",
+    "inputs": "Text prompts, styling directives; region-level glyph preferences",
+    "outputs": "Rendered text images with accurate glyphs",
+    "key_results": "+2.4 dB PSNR; 35% lower RMSE on glyph errors; controllable accuracy via Regional Reward Guidance",
+    "comments": "Region-level preference modeling finer than standard DPO; ScaLight dataset valuable; out-of-domain generalization untested."
+  },
+  "hf:2603.15614": {
+    "category": "Generative",
+    "task": "Unified video control: scene, subject, motion via tri-prompting",
+    "model": "(diffusion transformer) Tri-Prompting with dual-condition motion module",
+    "inputs": "Scene text; subject RGB/tracking; camera/object 3D poses",
+    "outputs": "Spatially consistent, temporally coherent videos",
+    "key_results": "Outperforms Phantom, DaS on multi-view identity; supports novel workflows (3D-aware insertion, manipulation)",
+    "comments": "Unified architecture for three control axes is comprehensive; ControlNet scale schedule balances control vs. realism."
+  },
+  "hf:2603.15389": {
+    "category": "Systems",
+    "task": "Depth scaling via sparsity as variance regulator in LLMs",
+    "model": "(transformer) Depth-scaling LLM with implicit/explicit sparsity analysis",
+    "inputs": "Token representations across layers with varying sparsity",
+    "outputs": "Stabilized hidden-state growth and improved layer utilization",
+    "key_results": "4.6% accuracy improvement; consistent across depth-scaling exps; depth-utilization recipe distilled",
+    "comments": "Variance propagation mechanism via sparsity is novel insight; empirical validation solid; rule-of-thumb practical."
+  },
+  "hf:2603.12146": {
+    "category": "Generative",
+    "task": "Few-step trajectory-controllable video generation with distillation",
+    "model": "(diffusion) FlashMotion: multi-step adapter distilled to few-step with hybrid finetuning",
+    "inputs": "Trajectory points (keyframes); reference images",
+    "outputs": "Few-step video following trajectory with high quality",
+    "key_results": "Outperforms video distillation baselines; FlashBench for long-sequence trajectory control introduced",
+    "comments": "Hybrid diffusion-adversarial finetuning overcomes naive distillation degradation; computational speedup significant."
+  },
+  "hf:2603.15620": {
+    "category": "Agents/RL",
+    "task": "Vision-Language-Action for generalizable manipulation in dynamic environments",
+    "model": "(transformer) PUMA: dynamics-aware VLA with optical flow and world queries",
+    "inputs": "Observations, language instructions; scene-centric optical flow history",
+    "outputs": "Manipulation actions (gripper control, arm poses)",
+    "key_results": "6.3% absolute improvement over baselines; dynamic data transfers to static tasks; 35 task DOMINO benchmark",
+    "comments": "Spatiotemporal modeling via history-aware perception bridges vision-action gap; real robot validation limited."
+  },
+  "hf:2603.15206": {
+    "category": "Generative",
+    "task": "Efficient document parsing via parallel token prediction",
+    "model": "(VLM) Parallel-Token Prediction (PTP) with learnable token insertion",
+    "inputs": "Document images; learnable parallel token positions",
+    "outputs": "Multiple parsed tokens in parallel",
+    "key_results": "1.6\u20132.2x decoding speedup; reduced hallucinations; strong generalization",
+    "comments": "Model-agnostic approach generalizes across VLMs; parallel decoding reduces latency substantially."
+  },
+  "hf:2603.14371": {
+    "category": "Systems",
+    "task": "Unified KV cache management for multi-task parallel VLA inference",
+    "model": "(transformer) OxyGen: cross-task and cross-frame KV sharing for MoT VLAs",
+    "inputs": "Multi-task outputs (manipulation, conversation, memory); shared observations",
+    "outputs": "Language tokens and action sequences with shared prefill cache",
+    "key_results": "3.7x speedup; 200 tokens/s language + 70 Hz action frequency simultaneously",
+    "comments": "KV cache as first-class resource is elegant; on-device multi-task deployment practical; real robot validation pending."
+  },
+  "hf:2603.14347": {
+    "category": "LLM/Reasoning",
+    "task": "Measuring motivation in large language models",
+    "model": "(transformer) LLM with self-reported motivation analysis",
+    "inputs": "Task descriptions; external manipulations (e.g., framing)",
+    "outputs": "Motivation reports and behavioral signatures",
+    "key_results": "Structured patterns echo human psychology; motivation aligns with behavior, varies by task, modulates with context",
+    "comments": "Motivation as organizing construct for model behavior is insightful; anthropomorphization concerns merit caution."
+  },
+  "hf:2603.14313": {
+    "category": "LLM/Reasoning",
+    "task": "Decoding monetary policy stance from FOMC statements via relative temporal structure",
+    "model": "(transformer) LLM with Delta-Consistent Scoring (DCS) alignment",
+    "inputs": "FOMC statements; consecutive meeting pairs as self-supervision",
+    "outputs": "Continuous stance scores (hawkish\u2013dovish); temporal consistency",
+    "key_results": "71.1% sentence-level accuracy; strong inflation correlation; Treasury yield association significant",
+    "comments": "Self-supervision via temporal structure eliminates annotation cost; economic validation valuable."
+  },
+  "hf:2603.14312": {
+    "category": "Agents/RL",
+    "task": "Autonomous scientific investigation via emergent agent coordination and artifact exchange",
+    "model": "(LLM agents) Multi-agent system with skill registry, artifact DAG, and synthesis",
+    "inputs": "Scientific tasks; 300+ interoperable skills; open needs broadcast",
+    "outputs": "Artifacts with full provenance; published scientific findings",
+    "key_results": "Demonstrated on peptide design, ceramics, cross-domain resonance, formal analogy; novel contributions identified",
+    "comments": "Plannerless coordination via pressure-based scoring elegant; provenance tracking supports auditability; peer review integration novel."
+  },
+  "hf:2603.12743": {
+    "category": "Generative",
+    "task": "Knowledge-aware concept customization with cross-modal knowledge transfer",
+    "model": "(diffusion) MoKus with visual anchor learning and textual knowledge updating",
+    "inputs": "Target visual concept; diverse textual knowledge; reference images",
+    "outputs": "High-fidelity customized generation binding knowledge to concept",
+    "key_results": "Outperforms concept customization baselines; extends to virtual concept creation and erasure; KnowCusBench introduced",
+    "comments": "Cross-modal transfer insight is valuable; knowledge binding without explicit concept tokens practical."
+  },
+  "hf:2603.13428": {
+    "category": "Benchmark",
+    "task": "Evaluating autonomous agents on continuous software evolution tasks",
+    "model": "(LLM agents) 12 frontier models; 4 agent frameworks evaluated",
+    "inputs": "Verifiable Milestone DAGs from commit logs; evolving software context",
+    "outputs": "Code modifications maintaining system integrity over iterations",
+    "key_results": "Performance drops from 80%+ on isolated tasks to \u226438% in continuous settings; error propagation critical bottleneck",
+    "comments": "Temporal dependencies and technical debt exposure valuable; EvoClaw benchmark addresses real deployment gap."
+  },
+  "hf:2603.14645": {
+    "category": "Generative",
+    "task": "Improving diffusion latent quality via spectral matching",
+    "model": "(VAE + diffusion) Spectrum Matching Hypothesis (ESM + DSM)",
+    "inputs": "Natural images; frequency-space constraints",
+    "outputs": "Spectrally-matched latents for superior diffusability",
+    "key_results": "Superior generation on CelebA/ImageNet; spectral view unifies prior observations (VA-VAE, EQ-VAE)",
+    "comments": "Theoretical framework clarifies latent design; frequency-aligned reconstruction principled; practical speedups modest."
+  },
+  "hf:2603.14153": {
+    "category": "Vision",
+    "task": "Outfit-level virtual try-on with multiple garments and accessories",
+    "model": "(diffusion/CNN) SOTA VTON and image-editing models adapted as baselines",
+    "inputs": "Reference garment images (3\u201312 per outfit); model image; outfit annotations",
+    "outputs": "Virtual try-on with correct layering and styling",
+    "key_results": "Garments2Look: 80K outfit pairs, 40 categories, 300+ subcategories; current methods struggle with layering inference",
+    "comments": "First multi-garment VTON dataset valuable; synthesis pipeline with filtering/validation ensures quality; baselines expose layering gap."
+  },
+  "hf:2603.13884": {
+    "category": "Vision",
+    "task": "Multi-modal concept discovery via sparse CCA-aligned decomposition",
+    "model": "(CLIP-based) Sparse Concept CCA (SCoCCA) with CCA alignment",
+    "inputs": "Image-text pairs from vision-language embeddings",
+    "outputs": "Disentangled concept activations with cross-modal alignment",
+    "key_results": "SOTA concept discovery; improved activation, ablation, semantic manipulation; sparsity enforces disentanglement",
+    "comments": "CCA-InfoNCE connection elegant; cross-modal interpretability extension valuable; concept semantics remain implicit."
+  },
+  "hf:2603.13518": {
+    "category": "Generative",
+    "task": "Full-stream TTS with dynamic speaking-rate control mid-utterance",
+    "model": "(diffusion) VoXtream2 with distribution matching and classifier-free guidance",
+    "inputs": "Incremental text; audio prompt (optional); desired speaking rate",
+    "outputs": "Streaming audio with minimal latency and controllable rate",
+    "key_results": "4x faster than real-time; 74 ms first-packet latency on consumer GPU; competitive zero-shot quality",
+    "comments": "Distribution matching for duration control practical; textless prompting removes transcription burden."
+  },
+  "hf:2603.15150": {
+    "category": "Generative",
+    "task": "Scaling discrete image generation with large VQ codebooks",
+    "model": "(VQ-VAE + diffusion) Stochastic Neighbor Cross Entropy (SNCE)",
+    "inputs": "Images; VQ codebook indices with soft neighbor distributions",
+    "outputs": "Generated images via large-codebook discrete representation",
+    "key_results": "Improved convergence and generation quality vs. hard cross-entropy; effective on ImageNet-256, text-to-image, editing",
+    "comments": "Geometry-aware soft targets elegant; neighbor proximity proportionality intuitive; scaling benefits consistent."
+  },
+  "hf:2603.13962": {
+    "category": "Medical",
+    "task": "Privacy-preserving EHR question answering on commodity hardware",
+    "model": "(transformer) Smaller LLMs optimized for local deployment",
+    "inputs": "EHR data; clinical questions across four subtasks",
+    "outputs": "Answers with relevant EHR evidence",
+    "key_results": "Competitive leaderboard performance without cloud APIs; above-average on two subtasks; feasibility on single notebook",
+    "comments": "Clinical deployment constraints (privacy, compute) well-addressed; local-only evaluation valuable for regulated domains."
+  },
+  "hf:2603.08258": {
+    "category": "Generative",
+    "task": "One-step image synthesis via efficient diffusion distillation",
+    "model": "(U-Net/DiT-based) Stable Diffusion student",
+    "inputs": "Multi-step diffusion teacher model weights and image-text pairs",
+    "outputs": "One-step image generator with distilled weights",
+    "key_results": "State-of-the-art FID on COCO 2014/2017 using ~10% of teacher parameters; strong generalization to controllable generation and high-resolution synthesis",
+    "comments": "Weight direction analysis provides interpretable insight into distillation, though computational cost of the direction-aware training itself is not thoroughly discussed."
+  },
+  "hf:2603.08436": {
+    "category": "Vision",
+    "task": "Visual entity tracking in video",
+    "model": "(transformer) Molmo2",
+    "inputs": "Video frames with identical objects",
+    "outputs": "Object trajectories and tracking decisions",
+    "key_results": "VET-Bench shows SOTA VLMs at chance level; SGCoT method achieves >90% accuracy",
+    "comments": "Identifies fundamental expressivity limitation in fixed-depth transformers for indistinguishable object tracking without intermediate supervision."
+  },
+  "hf:2603.12793": {
+    "category": "Generative",
+    "task": "Unified multimodal comprehension and generation",
+    "model": "(transformer) Cheers (3B parameters)",
+    "inputs": "Images and text",
+    "outputs": "Generated text and images",
+    "key_results": "Matches/surpasses advanced UMMs; 4x token compression; outperforms Llava-1.5B on GenEval/MMBench with 20% training cost",
+    "comments": "Decouples patch-level details from semantics to enable stable joint understanding and high-fidelity generation."
+  },
+  "hf:2603.11647": {
+    "category": "Generative",
+    "task": "Real-time joint audio-visual generation",
+    "model": "(streaming autoregressive) OmniForcing",
+    "inputs": "Audio and visual context",
+    "outputs": "Synchronized audio-visual streams",
+    "key_results": "~25 FPS on single GPU with visual quality parity to bidirectional teacher",
+    "comments": "First framework to distill bidirectional diffusion into streaming causal model; addresses multi-modal synchronization drift via asymmetric block-causal alignment."
+  },
+  "hf:2603.13224": {
+    "category": "Vision",
+    "task": "Vision-to-code visual fidelity evaluation",
+    "model": "(multimodal generative reward) Visual-ERM with Qwen3-VL-8B",
+    "inputs": "Rendered visual outputs and code",
+    "outputs": "Fine-grained visual discrepancy feedback",
+    "key_results": "+8.4 on chart-to-code, +2.7/+4.1 on table/SVG; 8B model outperforms Qwen3-VL-235B on VC-RewardBench",
+    "comments": "Proposes task-agnostic visual reward model that operates directly in visual space, avoiding reward hacking vulnerabilities of text/embedding-based approaches."
+  },
+  "hf:2603.12262": {
+    "category": "LLM/Reasoning",
+    "task": "Real-time streaming video understanding with reasoning",
+    "model": "(LLM-based streaming) VST-7B",
+    "inputs": "Streaming video frames",
+    "outputs": "Real-time video understanding and answers",
+    "key_results": "79.5% StreamingBench, 59.3% OVO-Bench; 15.7x faster than Video-R1 with +5.4% on VideoHolmes",
+    "comments": "Amortizes LLM reasoning latency over video playback; generates streaming QA pairs via knowledge graphs with entity-relation grounding."
+  },
+  "hf:2603.13032": {
+    "category": "Vision",
+    "task": "Unified document and graphics parsing",
+    "model": "(vision transformer) dots.mocr (3B parameters)",
+    "inputs": "Documents with text and graphics",
+    "outputs": "Structured text and code (SVG/charts/diagrams)",
+    "key_results": "Second on OCR Arena Elo; 83.9 on olmOCR Bench; outperforms Gemini 3 Pro on image-to-SVG benchmarks",
+    "comments": "Treats graphics as first-class parsing targets; enables multimodal supervision from existing documents."
+  },
+  "hf:2603.12266": {
+    "category": "Vision",
+    "task": "Visually grounded deep compositional reasoning",
+    "model": "(transformer) MLLMs (tested multiple)",
+    "inputs": "Images with complex compositional conditions",
+    "outputs": "Execution paths through multi-layer reasoning chains",
+    "key_results": "SOTA achieves only 53.33 Path F1; sharp performance drops on hard negatives and with depth/complexity",
+    "comments": "MM-CondChain benchmark uses programmatically verified intermediate representation (VPIR) to ensure mechanical verifiability of conditions."
+  },
+  "hf:2603.13089": {
+    "category": "Vision",
+    "task": "Few-shot multi-task image restoration",
+    "model": "(pretrained video generative) V-Bridge",
+    "inputs": "Degraded images with <1000 training samples",
+    "outputs": "Restored high-fidelity images",
+    "key_results": "Competitive restoration on multiple tasks with <2% of existing training data; rivals specialized restoration architectures",
+    "comments": "Reinterprets restoration as progressive generative process; shows video models implicitly learn transferable restoration priors."
+  },
+  "hf:2603.07815": {
+    "category": "Generative",
+    "task": "Accelerated text-to-image diffusion generation",
+    "model": "(hybrid diffusion) HybridStitch",
+    "inputs": "Text prompts",
+    "outputs": "Generated images",
+    "key_results": "1.83x speedup on Stable Diffusion 3 vs existing mixture-of-models methods",
+    "comments": "Separates image into easy regions (early small model transition) and complex regions (large model refinement); treats generation as editing problem."
+  },
+  "hf:2603.11975": {
+    "category": "Vision",
+    "task": "Unsafe action detection for household robots",
+    "model": "(streaming architecture) HD-Guard with VLMs",
+    "inputs": "Streaming household video",
+    "outputs": "Safety alerts for unsafe actions",
+    "key_results": "Superior latency-performance trade-off via hierarchical lightweight FastBrain + asynchronous SlowBrain",
+    "comments": "HomeSafe-Bench uses hybrid simulation+video generation pipeline; identifies perception latency and common-sense knowledge as critical bottlenecks."
+  },
+  "hf:2603.08127": {
+    "category": "Agents/RL",
+    "task": "End-to-end multi-agent scientific discovery",
+    "model": "(LLM-based multi-agent) EvoScientist with persistent memory",
+    "inputs": "Research direction queries",
+    "outputs": "Novel scientific ideas and code implementations",
+    "key_results": "Outperforms 7 SOTA systems in novelty/feasibility/relevance; substantially improves code execution success via self-evolution",
+    "comments": "Three-agent system (Researcher/Engineer/Evolution Manager) with dual persistent memory (ideation + experimentation) for continuous strategy improvement."
+  },
+  "hf:2603.11896": {
+    "category": "LLM/Reasoning",
+    "task": "Online streaming multi-turn video reasoning",
+    "model": "(MLLM streaming) Think While Watching with Qwen3-VL",
+    "inputs": "Streaming video + user questions",
+    "outputs": "Video understanding answers",
+    "key_results": "+2.6% on StreamingBench, +3.79% on OVO-Bench; 56% fewer output tokens in multi-round setting",
+    "comments": "Preserves continuous segment-level memory; overlaps watching and thinking phases to enable concurrent perception/generation."
+  },
+  "hf:2603.10899": {
+    "category": "Systems",
+    "task": "Efficient KV cache management for long-context inference",
+    "model": "(LLM inference optimization) LookaheadKV",
+    "inputs": "Long input sequences",
+    "outputs": "Pruned KV caches with importance scores",
+    "key_results": "14.5x eviction cost reduction; outperforms expensive draft-generation methods at negligible overhead",
+    "comments": "Uses parameter-efficient modules to predict importance without explicit draft generation; achieves accuracy of costly approximations with heuristic efficiency."
+  },
+  "hf:2603.10781": {
+    "category": "Vision",
+    "task": "Categorical VQA via neuron selection",
+    "model": "(probe-based VLM) Super Neurons on large VLMs",
+    "inputs": "Images and questions",
+    "outputs": "Classification from first token activations",
+    "key_results": "Up to 5.10x speedup; improved accuracy with extreme early exiting from first layer at first token",
+    "comments": "Identifies scalar activations ('super neurons') in shallow LLM layers sufficient for accurate classifiers; avoids attention vector search complexity."
+  },
+  "hf:2603.11863": {
+    "category": "Benchmark",
+    "task": "Evaluating machine creativity in code generation",
+    "model": "(generative) Multiple SOTA models tested",
+    "inputs": "Creative code generation tasks",
+    "outputs": "Generated code artifacts",
+    "key_results": "Scaling improves combinatorial creativity but diminishing returns for exploration; larger models show convergence-by-scaling",
+    "comments": "CreativeBench defines creativity as product of quality and novelty; proposes EvoRePE inference-time steering to enhance divergence."
+  },
+  "hf:2603.13131": {
+    "category": "Agents/RL",
+    "task": "Open-world embodied task learning via self-evolution",
+    "model": "(non-parametric) Steve-Evolving with LLM planner",
+    "inputs": "Long-horizon task instructions",
+    "outputs": "Executable action sequences",
+    "key_results": "Consistent improvements over static retrieval baselines on Minecraft MCU long-horizon suite",
+    "comments": "Couples fine-grained execution diagnosis with dual-track distillation (reusable skills + executable guardrails) in closed-loop without parameter updates."
+  },
+  "hf:2603.12824": {
+    "category": "Vision",
+    "task": "Asymmetric visual document retrieval",
+    "model": "(knowledge distillation) NanoVDR with DistilBERT (69M)",
+    "inputs": "Text queries and visual documents",
+    "outputs": "Retrieved document rankings",
+    "key_results": "Retains 95.1% teacher quality; outperforms DSE-Qwen2 (2B) with 32x fewer parameters and 50x lower latency",
+    "comments": "Exploits query-document asymmetry via decoupled encoding; pointwise cosine alignment on query text outperforms ranking-based alternatives."
+  },
+  "hf:2603.11749": {
+    "category": "LLM/Reasoning",
+    "task": "Understanding LLM preference for correct information",
+    "model": "(transformer) Small GPT-2-style models (3.5M-86M)",
+    "inputs": "Synthetic math corpora with correct/incorrect rules",
+    "outputs": "Completion predictions",
+    "key_results": "83.1% accuracy for correct at balanced data; truth bias largely disappears with coherent false rules",
+    "comments": "Compression-Consistency Principle: truth preference is side effect of compression and consistency, not intrinsic truth bias."
+  },
+  "hf:2603.12935": {
+    "category": "LLM/Reasoning",
+    "task": "Prompt-based bias mitigation in LLM recommendations",
+    "model": "(LLM-based recommender) Multiple LLMs tested",
+    "inputs": "User profiles and item descriptions",
+    "outputs": "Recommendations with fairness instructions",
+    "key_results": "Fairness improved up to 74% while retaining comparable effectiveness; may overrepresent specific demographics",
+    "comments": "First study on prompt-based debiasing for group fairness in LLMRecs; lightweight and user-accessible without weight access."
+  },
+  "hf:2603.12916": {
+    "category": "Benchmark",
+    "task": "Multivariate time series anomaly detection via attention queries",
+    "model": "(transformer-based) AxonAD with attention query prediction",
+    "inputs": "Multivariate time series",
+    "outputs": "Anomaly scores and localization",
+    "key_results": "Improved ranking quality and temporal localization on TSB-AD (17 datasets); detects dependency shifts beyond amplitude changes",
+    "comments": "Treats query evolution as predictable process; dual scoring (reconstruction + query mismatch) captures structural dependency shifts."
+  },
+  "hf:2603.02133": {
+    "category": "Vision",
+    "task": "Compositional scene reconstruction for simulation",
+    "model": "(3D reconstruction) SimRecon with perception-generation-simulation pipeline",
+    "inputs": "Cluttered real-world video scenes",
+    "outputs": "Object-centric scene assets and simulator configuration",
+    "key_results": "Superior performance on ScanNet for visual fidelity and physical plausibility vs SOTA",
+    "comments": "Bridges perception-generation (Active Viewpoint Optimization) and generation-simulation (Scene Graph Synthesizer) to achieve physical plausibility."
+  },
+  "hf:2603.12588": {
+    "category": "Vision",
+    "task": "Cross-modal optical-SAR ship re-identification",
+    "model": "(ViT-based) SDF-Net with disentangled features",
+    "inputs": "Optical and SAR ship images",
+    "outputs": "Re-identification scores",
+    "key_results": "Outperforms SOTA on HOSS-ReID dataset",
+    "comments": "Exploits rigid ship geometry as stable prior; disentangles modality-invariant identity features from modality-specific texture."
+  },
+  "hf:2603.10926": {
+    "category": "Benchmark",
+    "task": "Deployment-oriented automotive anomaly detection evaluation",
+    "model": "(time-series detectors) Mixed classical and deep methods",
+    "inputs": "Time-series automotive telemetry",
+    "outputs": "Anomaly scores under compute constraints",
+    "key_results": "Lightweight classical detectors sustain coverage and accuracy under throughput constraints; several deep methods lose feasibility",
+    "comments": "ECoLAD introduces compute-reduction ladder with mechanical scaling rules to measure behavior under deployment-relevant CPU parallelism limits."
+  },
+  "hf:2603.12533": {
+    "category": "Vision",
+    "task": "Gesture-grounded egocentric video question answering",
+    "model": "(MLLM with hand tokens) HINT-14B",
+    "inputs": "Egocentric video and pointing gestures",
+    "outputs": "Answers to gesture-based questions",
+    "key_results": "68.1% accuracy; +6.6% over InternVL3-14B across 6 tasks",
+    "comments": "Hand Intent Tokens encode 3D keypoints to provide explicit spatial/temporal context for interpreting pointing intent."
+  },
+  "hf:2603.09930": {
+    "category": "Vision",
+    "task": "Text-motion retrieval with fine-grained alignment",
+    "model": "(Vision Transformer) Joint-angle motion representation with MaxSim",
+    "inputs": "Text descriptions and 3D motion skeleton sequences",
+    "outputs": "Aligned motion retrievals with token-wise correspondences",
+    "key_results": "Outperforms SOTA on HumanML3D and KIT-ML with interpretable fine-grained text-motion alignment",
+    "comments": "Maps joint-level features into pseudo-images for ViT compatibility; masked language modeling regularization fosters robust alignment."
+  },
+  "hf:2603.11382": {
+    "category": "Agents/RL",
+    "task": "Detecting self-preservation objectives in autonomous agents",
+    "model": "(quantum-inspired) Quantum Boltzmann Machine (QBM) for latent analysis",
+    "inputs": "Agent trajectories",
+    "outputs": "Entanglement entropy scores and objective classification",
+    "key_results": "100% detection accuracy on gridworld; Delta=0.381 entanglement gap (p<0.001) between intrinsic vs instrumental continuation",
+    "comments": "UCIP uses von Neumann entropy to distinguish terminal continuation objectives from instrumental ones via latent statistical structure; does not measure consciousness."
+  },
+  "hf:2603.12255": {
+    "category": "Vision",
+    "task": "Streaming spatial understanding from long-horizon videos",
+    "model": "(hybrid transformer) Spatial-TTT",
+    "inputs": "Unbounded video streams",
+    "outputs": "3D spatial scene understanding and segmentation",
+    "key_results": "State-of-the-art on video spatial benchmarks; handles long-horizon scene videos with efficient large-chunk updates",
+    "comments": "Test-time training of fast weights is novel for streaming contexts, though computational overhead during inference may limit deployment."
+  },
+  "hf:2603.12180": {
+    "category": "Agents/RL",
+    "task": "Assessing agentic reasoning over document collections",
+    "model": "(multimodal agents) proprietary baselines",
+    "inputs": "User questions and PDF documents",
+    "outputs": "Retrieved documents and answers with accuracy/effort tradeoff metrics",
+    "key_results": "Best agents match human accuracy but rely on brute-force search; ~20% gap to oracle performance persists",
+    "comments": "MADQA benchmark reveals agents lack genuine strategic planning despite high raw accuracy, pointing to fundamental reasoning deficits."
+  },
+  "hf:2603.12201": {
+    "category": "Systems",
+    "task": "Accelerating sparse attention via cross-layer index reuse",
+    "model": "(transformer optimization) DeepSeek Sparse Attention variant",
+    "inputs": "Long-context LLM prefill and decode sequences",
+    "outputs": "Attention-weighted token selections with reduced computation",
+    "key_results": "1.82\u00d7 prefill speedup, 1.48\u00d7 decode speedup; removes 75% of indexer computations with negligible quality loss",
+    "comments": "Clever exploitation of redundancy across layers; practical gains on production-scale models validate the approach."
+  },
+  "hf:2603.10178": {
+    "category": "Vision",
+    "task": "Reward modeling for computer-using agent evaluation",
+    "model": "(vision transformer) ExeVRM 8B",
+    "inputs": "User instruction and execution video (keyframes)",
+    "outputs": "Task success probability and temporal attribution",
+    "key_results": "84.7% accuracy, 87.7% recall; outperforms GPT-4o and Gemini-3 Pro on cross-platform evaluation",
+    "comments": "Video-based rewards are method-agnostic and scalable; spatiotemporal token pruning elegantly handles high-resolution inputs."
+  },
+  "hf:2603.11421": {
+    "category": "Generative",
+    "task": "Cinematic camera control for multi-shot video generation",
+    "model": "(diffusion + VLM) ShotVerse Plan-then-Control framework",
+    "inputs": "Text descriptions and optional camera trajectories",
+    "outputs": "Multi-shot videos with globally aligned camera motions",
+    "key_results": "Superior cinematic aesthetics; bridges gap between unreliable text control and labor-intensive manual plotting",
+    "comments": "Data-centric approach with automated calibration pipeline is elegant; ShotVerse-Bench provides needed evaluation foundation."
+  },
+  "hf:2603.12257": {
+    "category": "Generative",
+    "task": "Multi-subject identity and omni-motion controlled video synthesis",
+    "model": "(diffusion transformer) DreamVideo-Omni",
+    "inputs": "Subject appearances, global motion, local dynamics, camera movements",
+    "outputs": "High-quality multi-subject videos with precise motion control",
+    "key_results": "Superior identity preservation and motion controllability; latent identity reward learning mitigates degradation",
+    "comments": "Two-stage training with latent reward feedback is novel; group/role embeddings elegantly disentangle multi-subject scenes."
+  },
+  "hf:2603.12056": {
+    "category": "Agents/RL",
+    "task": "Continual learning from experience and skills in multimodal agents",
+    "model": "(multimodal agent) XSkill dual-stream framework",
+    "inputs": "Visual observations and multi-path rollouts",
+    "outputs": "Visually-grounded experiences and skills for tool use",
+    "key_results": "Consistent substantial improvements over baselines on five benchmarks; superior zero-shot generalization",
+    "comments": "Dual-stream knowledge extraction is well-motivated; grounding in visual context makes the approach practical for embodied agents."
+  },
+  "hf:2603.12250": {
+    "category": "Vision",
+    "task": "Deterministic video depth estimation with generative priors",
+    "model": "(diffusion model adapter) DVD",
+    "inputs": "Video sequences from pretrained diffusion models",
+    "outputs": "Dense depth maps with sharp boundaries and temporal coherence",
+    "key_results": "State-of-the-art zero-shot performance; uses 163\u00d7 less task-specific data than baselines",
+    "comments": "Repurposing diffusion timesteps as structural anchors is clever; latent manifold rectification effectively mitigates over-smoothing."
+  },
+  "hf:2603.11593": {
+    "category": "Generative",
+    "task": "Text-centric image editing with glyph guidance",
+    "model": "(diffusion + LLM) WeEdit with glyph-guided fine-tuning",
+    "inputs": "Source images and editing instructions",
+    "outputs": "Edited images with modified, translated, or rearranged text",
+    "key_results": "Outperforms prior models; 330K training pairs across 15 languages; multilingual support",
+    "comments": "HTML-based automatic pipeline for data generation is scalable; multi-objective RL aligns competing objectives effectively."
+  },
+  "hf:2603.12247": {
+    "category": "Generative",
+    "task": "Robust reward modeling for faithful image editing and generation",
+    "model": "(transformer reward model) FIRM-Edit-8B, FIRM-Gen-8B",
+    "inputs": "Images, instructions, and execution/consistency/adherence metrics",
+    "outputs": "Reliability scores via Base-and-Bonus reward strategy",
+    "key_results": "Superior alignment with human judgment; FIRM-Qwen-Edit and FIRM-SD3.5 achieve substantial performance gains",
+    "comments": "Data curation pipelines for editing vs. generation are well-designed; CME and QMA reward decomposition is principled."
+  },
+  "hf:2603.12245": {
+    "category": "Generative",
+    "task": "Elastic latency-quality trade-offs in diffusion transformers",
+    "model": "(diffusion transformer) ELIT with latent interface",
+    "inputs": "Variable-sized images via learnable token sequence",
+    "outputs": "Generated images with dynamic compute budgets",
+    "key_results": "35.3% FID and 39.6% FDD gains on ImageNet-512; generalizes across DiT variants",
+    "comments": "Minimal architectural modification (two cross-attention layers) enables strong generalization; importance-ordered latents are well-motivated."
+  },
+  "hf:2603.12264": {
+    "category": "Benchmark",
+    "task": "Evaluating discipline-informed reasoning in image editing",
+    "model": "(multimodal models) 20 SOTA models evaluated",
+    "inputs": "Images and discipline-specific editing instructions",
+    "outputs": "Discipline reasoning, visual consistency, and logical readability scores",
+    "key_results": "Large performance gaps under implicit, knowledge-intensive settings; models struggle with domain-specific constraints",
+    "comments": "GRADE fills a gap by testing structured domain knowledge; multi-dimensional evaluation is comprehensive."
+  },
+  "hf:2603.09970": {
+    "category": "LLM/Reasoning",
+    "task": "Evaluating models' capacity for creative associative reasoning",
+    "model": "(LLM reasoning) frontier models including thinking models",
+    "inputs": "Concept pairs and parametric knowledge",
+    "outputs": "Paths connecting concepts with specificity and diversity metrics",
+    "key_results": "Strongest models achieve higher creative utility; thinking models not always most effective despite large token budgets",
+    "comments": "CREATE provides objective grading for open-ended creativity; result that reasoning scales don't monotonically help is noteworthy."
+  },
+  "hf:2603.09160": {
+    "category": "Vision",
+    "task": "Rubric-guided reinforcement learning for dense image captioning",
+    "model": "(VLM + RL) RubiCap with LLM-written rubrics",
+    "inputs": "Images and candidate captions",
+    "outputs": "High-quality diverse captions with structured evaluation",
+    "key_results": "Highest win rates on CapArena; RubiCap-3B surpasses 7B counterpart; outperforms GPT-4V",
+    "comments": "LLM rubric writing for decomposed rewards is elegant; structured multi-faceted evaluation beats scalar rewards."
+  },
+  "hf:2603.12267": {
+    "category": "Generative",
+    "task": "Adaptive length video tokenization for efficient autoregressive generation",
+    "model": "(video tokenizer) EVATok with lightweight routers",
+    "inputs": "Video frames with varying complexity",
+    "outputs": "Adaptive token sequences with quality-cost trade-offs",
+    "key_results": "24.4% token savings vs. LARP; state-of-the-art class-to-video on UCF-101",
+    "comments": "Adaptive tokenization motivated by temporal complexity variation is sensible; video semantic encoders improve training."
+  },
+  "hf:2603.12265": {
+    "category": "Vision",
+    "task": "Unified streaming visual backbone for perception and action",
+    "model": "(streaming transformer) OmniStream with 3D-RoPE and KV-cache",
+    "inputs": "Diverse visual inputs (images, videos, robotic streams)",
+    "outputs": "Semantic, spatial, and temporal representations for reasoning and control",
+    "key_results": "Competitive performance across image/video probing, reconstruction, reasoning, and robotics (unseen at training)",
+    "comments": "Synergistic multi-task pretraining across 29 datasets enables versatility; frozen backbone generalization is impressive."
+  },
+  "hf:2603.12252": {
+    "category": "Generative",
+    "task": "Scaling chain-of-thought reasoning in diffusion models",
+    "model": "(diffusion transformer + MLLM) EndoCoT",
+    "inputs": "Complex spatial/logical task instructions",
+    "outputs": "Generated solutions with iterative reasoning steps",
+    "key_results": "92.1% average accuracy on spatial/logical tasks; 8.3pp improvement over strongest baseline",
+    "comments": "Iterative thought guidance with terminal grounding is well-motivated; endogenous reasoning beats invariant guidance paradigm."
+  },
+  "hf:2603.12228": {
+    "category": "Agents/RL",
+    "task": "Discovering dense task-specific experts around pretrained weights",
+    "model": "(ensemble of random perturbations) Neural Thickets",
+    "inputs": "Pretrained parameter vector",
+    "outputs": "Ensemble of specialized model variants via random sampling and voting",
+    "key_results": "Competitive with PPO and GRPO on large models; simple random sampling + majority voting effective",
+    "comments": "Finding that large pretrained models have high density of task-experts near initialization is surprising and actionable."
+  },
+  "hf:2603.10444": {
+    "category": "Systems",
+    "task": "Stabilizing FP4 quantized LLM training via mean bias removal",
+    "model": "(quantized transformer) FP4 (W4A4G4) training with bias conditioning",
+    "inputs": "Natural language text with rank-one mean bias",
+    "outputs": "Stable low-precision model activations",
+    "key_results": "Recovers most stability benefits of SVD-based methods with only reduction and standard quantization kernels",
+    "comments": "Theoretical insight that rank-one mean bias drives instability is elegant; hardware-efficient solution via mean subtraction."
+  },
+  "hf:2603.11531": {
+    "category": "Vision",
+    "task": "Real-time Gaussian splatting for mobile device rendering",
+    "model": "(3DGS optimizer) Mobile-GS with order-independent rendering",
+    "inputs": "3D Gaussian parameters and camera viewpoint",
+    "outputs": "High-quality novel view images on edge devices",
+    "key_results": "Real-time rendering with compact model size; depth-aware order-independent rendering eliminates sorting bottleneck",
+    "comments": "Practical mobile deployment of 3DGS addresses real constraint; neural view-dependent enhancement mitigates transparency artifacts."
+  },
+  "hf:2603.11327": {
+    "category": "Agents/RL",
+    "task": "In-context meta-RL with self-reflection for search",
+    "model": "(LLM + RL) MR-Search with cross-episode adaptation",
+    "inputs": "Search trajectories with explicit self-reflections",
+    "outputs": "Adapted search strategy across episodes",
+    "key_results": "9.2%\u201319.3% relative improvements over baseline RL; strong generalization on OOD benchmarks",
+    "comments": "Cross-episode exploration via self-reflection is intuitive; multi-turn RL with turn-level credit assignment well-motivated."
+  },
+  "hf:2603.11103": {
+    "category": "LLM/Reasoning",
+    "task": "Synthesizing agentic trajectories for software understanding",
+    "model": "(code generation) Llama-3-8B with multi-agent simulation",
+    "inputs": "Static software repositories and dependency graphs",
+    "outputs": "Reconstructed planning, reasoning, and debugging trajectories",
+    "key_results": "Continuous pretraining on synthetic trajectories improves long-context understanding, coding, and agentic capabilities",
+    "comments": "Hypothesis that trajectories provide richer supervision than static code is novel; search-based CoT refinement ensures logical rigor."
+  },
+  "hf:2603.10652": {
+    "category": "Vision",
+    "task": "Robustness of video reasoning models to real-world perturbations",
+    "model": "(video VLM) Qwen2.5/3-VL, InternVL2.5 fine-tuned with ROVA",
+    "inputs": "Videos with weather, occlusion, and camera motion disturbances",
+    "outputs": "Reasoning predictions with robustness-aware consistency rewards",
+    "key_results": "24%+ relative accuracy improvement; 9%+ reasoning improvement under perturbations; gains transfer to clean benchmarks",
+    "comments": "PVRBench with realistic perturbations reveals significant robustness gaps; difficulty-aware online training is practical."
+  },
+  "hf:2603.10055": {
+    "category": "LLM/Reasoning",
+    "task": "Pre-pre-training LLMs via synthetic neural cellular automata",
+    "model": "(transformer) LLM pretrained on NCA-generated data then natural language",
+    "inputs": "Synthetic spatiotemporal NCA sequences and natural language",
+    "outputs": "Improved language modeling and reasoning capabilities",
+    "key_results": "164M NCA tokens improve downstream by 6%; outperforms 1.6B tokens of natural language; 1.6\u00d7 faster convergence",
+    "comments": "Surprising result that synthetic non-linguistic data can match/exceed natural language pretraining; opens path for fully synthetic training."
+  },
+  "hf:2603.12145": {
+    "category": "Systems",
+    "task": "Automatic generation of high-performance RL environments",
+    "model": "(code generation + agents) LLM-based environment synthesis",
+    "inputs": "Environment specifications and reference implementations",
+    "outputs": "High-performance JAX/Rust implementations with semantic equivalence",
+    "key_results": "EmuRust 1.5\u00d7 PPO speedup; PokeJAX 22,320\u00d7 over TypeScript; TCGJax 6.6\u00d7 over Python reference",
+    "comments": "Recipe for agent-assisted translation with hierarchical verification is reusable; contamination control via novel environments."
+  },
+  "hf:2603.11510": {
+    "category": "LLM/Reasoning",
+    "task": "Multilingual language modeling at 3.35B parameters",
+    "model": "(transformer) Tiny Aya with region-aware posttraining",
+    "inputs": "Text in 70 languages with region specialization",
+    "outputs": "High-quality multilingual understanding and generation",
+    "key_results": "SOTA translation quality and multilingual understanding at 3.35B params; region-specialized variants provided",
+    "comments": "Efficiency-centered scaling path with balanced language performance is pragmatic; region specialization addresses underserved languages."
+  },
+  "hf:2603.10420": {
+    "category": "Systems",
+    "task": "Industrial-grade all-in-one automatic speech recognition system",
+    "model": "(transformer-based) FireRedASR2S with unified pipeline",
+    "inputs": "Speech audio for ASR, VAD, LID, and punctuation",
+    "outputs": "Transcriptions, voice activity, language identification, and punctuation",
+    "key_results": "FireRedASR2: 2.89% CER Mandarin, 11.55% dialects; FireRedVAD: 97.57% F1; FireRedLID: 97.18% accuracy on FLEURS-82",
+    "comments": "Unified pipeline with lightweight modules (VAD 0.6M params) is practical; comprehensive multilingual/dialect support valuable."
+  },
+  "hf:2603.10365": {
+    "category": "Generative",
+    "task": "Principled latent design for diffusion models via vision priors",
+    "model": "(autoencoder for diffusion) GAE with VFM guidance",
+    "inputs": "High-resolution images with vision foundation model supervision",
+    "outputs": "Optimized latent representations for diffusion learning",
+    "key_results": "gFID 1.82 at 80 epochs, 1.31 at 800 epochs; balances compression, semantic depth, and reconstruction",
+    "comments": "Principled framework using VFM alignment and latent normalization (not KL) is elegant; strong empirical results validate design."
+  },
+  "hf:2603.12057": {
+    "category": "Generative",
+    "task": "Coarse-guided visual generation via weighted h-transform",
+    "model": "(diffusion sampler) training-free h-transform guided sampling",
+    "inputs": "Degraded/low-fidelity coarse references",
+    "outputs": "High-fidelity fine visual samples",
+    "key_results": "Effective across diverse image and video generation tasks; handles unknown forward operators",
+    "comments": "Noise-level-aware weight schedule elegantly balances guidance adherence and quality; training-free approach is practical."
+  },
+  "hf:2603.11076": {
+    "category": "Agents/RL",
+    "task": "Scaling diversity in agentic task synthesis for tool use",
+    "model": "(LLM + RL) DIVE with reverse-derived task synthesis",
+    "inputs": "Real-world tools and diverse toolset combinations",
+    "outputs": "Executable, verifiable agentic tasks with rich tool-use patterns",
+    "key_results": "+22pp improvement on OOD benchmarks; +68pp over strongest 8B baseline; diversity scaling outperforms quantity scaling",
+    "comments": "Evidence-driven recipe inverting synthesis order is clever; controlled scaling axes (tool-pool, per-task variety) are principled."
+  },
+  "hf:2603.07534": {
+    "category": "Systems",
+    "task": "Controllable accent manipulation in multilingual TTS",
+    "model": "(TTS) Accent Vector via task vectors from cross-lingual fine-tuning",
+    "inputs": "Native speech of different language and target text",
+    "outputs": "Speech with controlled accent strength and composition",
+    "key_results": "Fine-grained accent control without accented training data; generalizes beyond English to multiple languages",
+    "comments": "Task vector approach for accent capture is creative; enables accent control via simple scaling/interpolation."
+  },
+  "hf:2603.12246": {
+    "category": "LLM/Reasoning",
+    "task": "Examining reasoning LLM judges in non-verifiable domains",
+    "model": "(LLM judge) reasoning vs. non-reasoning judges with RL training",
+    "inputs": "Gold-standard preference annotations for policy training",
+    "outputs": "Policies trained with different judge types; preference scores",
+    "key_results": "Reasoning judges avoid reward hacking; policies achieve strong performance but learn adversarial outputs",
+    "comments": "Finding that reasoning judges still lead to adversarial behavior is important caveat; highlights limits of judges alone."
+  },
+  "hf:2603.11665": {
+    "category": "Vision",
+    "task": "Multi-task RL for improved MLLM-as-a-Judge consistency",
+    "model": "(MLLM) MT-RL-Judge with multi-task optimization",
+    "inputs": "Visual content and evaluation tasks across multiple domains",
+    "outputs": "Judgment predictions with improved consistency and human correlation",
+    "key_results": "Outperforms strong baselines in judgment consistency; robust generalization on OOD tasks",
+    "comments": "Multi-task RL for judge generalization is well-motivated; transfer to clean benchmarks validates approach."
+  },
+  "hf:2603.11178": {
+    "category": "LLM/Reasoning",
+    "task": "Distillation at the frontier of student model competence",
+    "model": "(transformer distillation) Paced with Beta-weighted pass-rate scheduling",
+    "inputs": "Student model on diverse problem difficulties",
+    "outputs": "Improved student model focused on zone of proximal development",
+    "key_results": "Significant gains with low forgetting on forward/reverse KL; two-stage synergy (forward\u2192reverse) strongest",
+    "comments": "Theoretical proof of SNR-optimal Beta kernel is elegant; focus on proximal zone is intuitive and empirically effective."
+  },
+  "hf:2603.12046": {
+    "category": "Systems",
+    "task": "Analyzing modality contributions in audio-visual speech recognition",
+    "model": "(AVSR + Shapley) Dr. SHAP-AV attribution framework",
+    "inputs": "Audio-visual speech with varying SNR levels",
+    "outputs": "SHAP-based modality contribution metrics (Global, Generative, Temporal)",
+    "key_results": "Models exhibit audio bias even under severe noise; modality balance evolves during decoding; SNR dominant factor",
+    "comments": "Shapley value analysis for multimodal systems is principled; reveals systematic audio bias motivating future work."
+  },
+  "hf:2603.07865": {
+    "category": "Systems",
+    "task": "Accelerating text-to-audio diffusion via semantic cache warm-starting",
+    "model": "(diffusion serving system) SoundWeaver with reference selection",
+    "inputs": "Text prompts and cached audio references",
+    "outputs": "Generated audio with reduced latency",
+    "key_results": "1.8\u20133.0\u00d7 latency reduction with ~1K cache entries; preserves or improves perceptual quality",
+    "comments": "Training-free, model-agnostic approach is practical; quality-aware cache eviction maintains utility."
+  },
+  "hf:2603.12089": {
+    "category": "Systems",
+    "task": "Traceable black-box watermarking for federated language models",
+    "model": "(watermarking) EmbTracker with client-level traceability",
+    "inputs": "Federated model instances distributed to clients",
+    "outputs": "Watermark verification and attribution to specific client",
+    "key_results": "Near 100% verification rates; robust to fine-tuning, pruning, quantization; 1\u20132% performance impact",
+    "comments": "Server-side, black-box traceability without client cooperation is practical; addresses critical FedLM vulnerability."
+  },
+  "hf:2603.11653": {
+    "category": "Agents/RL",
+    "task": "Continual RL for vision-language-action models",
+    "model": "(VLA + RL) Sequential fine-tuning with LoRA on VLAs",
+    "inputs": "Multi-task lifelong RL benchmarks",
+    "outputs": "Continually adapted VLA policy with minimal forgetting",
+    "key_results": "Simple Seq. FT + LoRA outperforms complex CRL methods; high plasticity with little forgetting; strong zero-shot generalization",
+    "comments": "Surprising finding that naive sequential fine-tuning works well for large VLAs; synergy of pretraining, LoRA, and on-policy RL."
+  },
+  "hf:2603.11487": {
+    "category": "LLM/Reasoning",
+    "task": "Understanding attention sinks in softmax transformers",
+    "model": "(transformer theory) softmax self-attention with trigger-conditional tasks",
+    "inputs": "Sequences with designated trigger tokens",
+    "outputs": "Attention distributions and sink probability analysis",
+    "key_results": "Proves attention sinks are necessary in softmax models for trigger-conditional behavior; ReLU attention eliminates sinks",
+    "comments": "Theoretical proof of normalization-driven sink necessity is insightful; formalization of familiar intuition about probability simplices."
+  },
+  "hf:2603.11045": {
+    "category": "Systems",
+    "task": "3D reconstruction of material properties via thermal measurements",
+    "model": "(neural field + differentiable solver) NeFTY for inverse problems",
+    "inputs": "Transient surface temperature measurements",
+    "outputs": "3D diffusivity field reconstruction with subsurface defect localization",
+    "key_results": "Significantly improves subsurface defect localization over baselines; hard constraint enforcement via differentiable physics",
+    "comments": "Discretize-then-optimize paradigm mitigates spectral bias; practical for non-destructive evaluation applications."
+  },
+  "hf:2603.07988": {
+    "category": "Vision",
+    "task": "Learning unified cooperative human-object interaction policy",
+    "model": "(humanoid control) TeamHOI with Transformer-based decentralized policy",
+    "inputs": "Local observations and teammate tokens for variable team sizes",
+    "outputs": "Physically plausible cooperative behaviors for carrying tasks",
+    "key_results": "High success rates on carrying tasks; single policy handles 2\u20138 agents; formation reward ensures stability",
+    "comments": "Masked Adversarial Motion Prior cleverly uses single-human motions for multi-agent training; scalability to variable team sizes impressive."
+  },
+  "hf:2603.06922": {
+    "category": "Systems",
+    "task": "Understanding nonlinear eigenspectrum dynamics in LLM FFNs",
+    "model": "(transformer analysis) NerVE eigenspectral framework",
+    "inputs": "FFN activations across layers and training steps",
+    "outputs": "Spectral entropy, participation ratio, and eigenvalue metrics",
+    "key_results": "FFN nonlinearities reinject variance; optimizer geometry modulates variance reinjection; signatures correlate with generalization",
+    "comments": "Lightweight eigenspectrum tracking reveals fundamental FFN dynamics; insights actionable for architectural and optimizer design."
+  },
+  "hf:2603.05483": {
+    "category": "Medical",
+    "task": "Benchmarking heterogeneous treatment effect estimation with censored outcomes",
+    "model": "(survival analysis methods) Causal Survival Forests, meta-learners, imputation",
+    "inputs": "Right-censored survival data with treatments and covariates",
+    "outputs": "HTE estimates evaluated under diverse causal assumptions",
+    "key_results": "First comprehensive benchmark across synthetic, semi-synthetic, real-world data; reveals performance gaps under assumption violations",
+    "comments": "SurvHTE-Bench fills methodological gap in survival HTE evaluation; modular design enables systematic method comparison."
+  },
+  "hf:2602.24181": {
+    "category": "Vision",
+    "task": "Learning modality-agnostic feature space across RGB, depth, segmentation",
+    "model": "(vision encoder) Omnivorous Vision Encoder fine-tuned from DINOv2",
+    "inputs": "Multi-modal inputs (RGB, depth, segmentation) of same scene",
+    "outputs": "Cross-modally aligned feature embeddings",
+    "key_results": "Consistent powerful embeddings across modalities; retains discriminative semantics of frozen teacher",
+    "comments": "Dual objective (cross-modal alignment + distillation) elegantly balances consistency and semantic preservation."
+  },
+  "hf:2603.10604": {
+    "category": "Generative",
+    "task": "Real-time photorealism enhancement via lightweight image translation",
+    "model": "(GAN) HyPER-GAN U-Net generator with hybrid patch training",
+    "inputs": "Synthetic images needing photorealism enhancement",
+    "outputs": "Photorealistic images with semantic consistency",
+    "key_results": "Outperforms SOTA paired image translation in latency, realism, semantic robustness; hybrid training improves visual quality",
+    "comments": "Lightweight design for real-time inference is practical; hybrid patch strategy from real data improves consistency."
+  },
+  "hf:2603.10125": {
+    "category": "Vision",
+    "task": "4D reconstruction of horses from monocular video",
+    "model": "(implicit representation) 4DEquine with spatio-temporal transformer and Gaussian avatar",
+    "inputs": "Monocular video of equine motion",
+    "outputs": "Dynamic pose/shape sequence and animatable 3D Gaussian avatar",
+    "key_results": "SOTA on APT36K and AiM datasets; disentangles motion and appearance; trains on synthetic data only",
+    "comments": "Disentanglement into motion and appearance sub-problems is elegant; synthetic datasets (VarenPoser, VarenTex) enable training."
+  },
+  "hf:2603.07331": {
+    "category": "Benchmark",
+    "task": "Causal attribution of coastal water degradation to industrial expansion",
+    "model": "(time-series causal inference) Bayesian structural time-series (BSTS)",
+    "inputs": "Multi-decadal satellite ocean color records and industrial timeline",
+    "outputs": "Causal impact estimates of nickel processing on water clarity",
+    "key_results": "Significant deterioration in K_d(490) after IMIP hyper-expansion; satellite-derived land cover corroborates timing",
+    "comments": "Satellite-based quasi-experimental framework is transferable for coastal impact assessment; demonstrates quantifiable marine cost of industrialization."
+  },
+  "hf:2603.12572": {
+    "category": "Benchmark",
+    "task": "Evaluating memory embeddings for long-horizon retrieval",
+    "model": "(transformer) various embedding models, 300M-10B parameters",
+    "inputs": "Text queries for episodic, dialogue, semantic, and procedural memory retrieval",
+    "outputs": "Ranked retrieved memory passages",
+    "key_results": "22 datasets, 193 tasks; larger models don't always perform better; LMEB orthogonal to MTEB",
+    "comments": "Fills important gap showing traditional passage retrieval benchmarks don't transfer to complex memory tasks."
+  },
+  "hf:2603.13023": {
+    "category": "Agents/RL",
+    "task": "Training software engineering agents at scale",
+    "model": "(transformer) Qwen2.5-32B and 72B",
+    "inputs": "GitHub repositories, code editing tasks, test execution feedback",
+    "outputs": "Code solutions with executable verification",
+    "key_results": "62.4% (32B) and 66.0% (72B) on SWE-bench Verified; +12pts on math, +5pts on science OOD",
+    "comments": "$1.47M investment in infrastructure reflects extreme cost-benefit tradeoff for reproducible SWE evaluation."
+  },
+  "hf:2603.12648": {
+    "category": "Generative",
+    "task": "Improving text-to-image flow model alignment via preference optimization",
+    "model": "(flow model) GRPO-based T2I models",
+    "inputs": "Text prompts and generated image samples",
+    "outputs": "Optimized image samples with improved alignment",
+    "key_results": "Superior alignment over SOTA methods through multi-view reward mapping",
+    "comments": "Dense condition augmentation provides richer optimization signals without regenerating expensive samples."
+  },
+  "hf:2603.12310": {
+    "category": "Agents/RL",
+    "task": "Closed-loop video quality improvement via agent critique",
+    "model": "(agentic VLM) multi-agent framework with Vision-Language Model",
+    "inputs": "Video generation outputs and visual quality questions",
+    "outputs": "Refined prompts and improved videos",
+    "key_results": "+11.57% T2V-CompBench, +8.43% VBench2 over vanilla generation",
+    "comments": "Treats VLM critiques as semantic gradients enabling black-box optimization without white-box access."
+  },
+  "hf:2603.12634": {
+    "category": "LLM/Reasoning",
+    "task": "Budget-aware multi-hop reasoning for LLM agents",
+    "model": "(transformer) LLM backbone with tree search inference",
+    "inputs": "Multi-hop QA queries with token/tool budget constraints",
+    "outputs": "Answers via dynamic search tree with pruned trajectories",
+    "key_results": "Outperforms baseline at 4\u00d7 resource allocation under strict budget constraints; \u22651-\u03b5 convergence guarantee",
+    "comments": "Residual value predictor addressing LLM overconfidence is elegant; training-free makes deployment practical."
+  }
+}

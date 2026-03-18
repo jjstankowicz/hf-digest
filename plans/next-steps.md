@@ -74,10 +74,10 @@ Nature schema TBD.
 - `rename-repo`
 - `paper-id-namespace`
 - `hf-api-date-param`
+- `paper-id-cache`
 
 # Priority (Sorted)
 
-- `paper-id-cache`
 - `nature-schema`
 - `nature-rss-feed`
 - `nature-remaining-feeds`
@@ -88,10 +88,6 @@ Nature schema TBD.
 - `email-summary`
 
 # Backlog (Unsorted)
-
-- `paper-id-cache` -- Introduce `docs/data/cache.json` mapping `uid` ->
-  extracted fields. Before LLM extraction, check cache; skip if already
-  present. Prevents redundant API calls on reruns and backfills.
 
 - `nature-schema` -- Determine LLM extraction schema for Nature papers.
   Likely: hypothesis, methods (brief), finding, significance. Brainstorm

@@ -82,7 +82,6 @@ Nature schema TBD.
 
 - `nature-remaining-feeds`
 - `read-unread-markers`
-- `skill-path-update`
 - `rss-feed`
 - `digest-search`
 - `email-summary`
@@ -101,10 +100,6 @@ Nature schema TBD.
 - `read-unread-markers` -- Client-side read/unread state stored in
   `localStorage`. Each paper card gets a checkbox or click-to-mark.
   Persists across page loads. No server needed.
-
-- `skill-path-update` -- The `daily-digest` interactive skill currently uses
-  its own standalone HTML template. Decide whether to keep it separate or
-  wire it to the hosted site JSON.
 
 - `rss-feed` -- Generate `docs/feed.xml` from `index.json` so the digest
   can be followed in a feed reader.

@@ -186,7 +186,10 @@ def main() -> None:
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     cache = load_cache()
 
-    uncached = [p for p in papers if f"hf:{p.get('paper', {}).get('id', '')}" not in cache]
+    uncached = [
+        p for p in papers
+        if p.get("paper", {}).get("id", "") and f"hf:{p['paper']['id']}" not in cache
+    ]
     if uncached:
         client = anthropic.Anthropic()
         extracted = extract_fields(uncached, client)
@@ -196,9 +199,10 @@ def main() -> None:
                 f"{len(extracted) if isinstance(extracted, list) else type(extracted).__name__}"
             )
         for paper, fields in zip(uncached, extracted):
-            paper_id = paper.get("paper", {}).get("id", "")
-            if paper_id:
-                cache[f"hf:{paper_id}"] = {k: fields.get(k, "") for k in EXTRACTED_FIELDS}
+            paper_id = paper["paper"]["id"]
+            entry = {k: fields.get(k, "") for k in EXTRACTED_FIELDS}
+            entry["category"] = entry["category"] or "Systems"
+            cache[f"hf:{paper_id}"] = entry
         save_cache(cache)
 
     records = build_records(papers, cache)

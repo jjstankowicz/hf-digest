@@ -892,32 +892,6 @@
     ]
   },
   {
-    "uid": "nature:10.1038/s41598-026-44009-2",
-    "source": "nature",
-    "id": "10.1038/s41598-026-44009-2",
-    "title": "Stabilizing updates in differentially private stochastic gradient descent with buffered rejection",
-    "projectPage": "https://www.nature.com/articles/s41598-026-44009-2",
-    "journal": "Scientific Reports",
-    "publishedAt": "2026-03-18",
-    "category": "ML Theory",
-    "task": "differentially private training with improved convergence",
-    "model": "buffered rejection mechanism + phased parameter decay",
-    "inputs": "sensitive data, privacy budget",
-    "outputs": "trained model weights, test accuracy",
-    "key_results": "0.5\u20132 percentage point accuracy improvement over standard DP-SGD at identical privacy budgets; faster convergence; AUC \u2248 0.5 on membership inference attacks",
-    "comments": "The buffering strategy is clever for reducing variance in rejection decisions, though the phased decay introduces additional hyperparameters that may require tuning.",
-    "hypotheses": [
-      "Buffered comparison reduces instability of selective updates",
-      "Phased decay matches training stages and improves accuracy",
-      "Empirical privacy is maintained despite accuracy gains"
-    ],
-    "results": [
-      "Confirmed by consistent improvements on MNIST, Fashion-MNIST, CIFAR-10, IMDb",
-      "Confirmed by tracking validation accuracy with adjusted noise/learning rate",
-      "Confirmed by membership inference AUC close to 0.5"
-    ]
-  },
-  {
     "uid": "nature:10.1038/s41598-026-43674-7",
     "source": "nature",
     "id": "10.1038/s41598-026-43674-7",
@@ -941,32 +915,6 @@
       "Confirmed by superior performance metrics vs. baselines",
       "Confirmed by outperformance on production data",
       "Inferred from model selection but not directly validated"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41598-026-44097-0",
-    "source": "nature",
-    "id": "10.1038/s41598-026-44097-0",
-    "title": "Analytical investigation of soliton dynamics in the Fokas\u2013Lenells equation with generalized self-phase modulation and nonlinear dispersion",
-    "projectPage": "https://www.nature.com/articles/s41598-026-44097-0",
-    "journal": "Scientific Reports",
-    "publishedAt": "2026-03-18",
-    "category": "Analysis",
-    "task": "analytical soliton solutions for nonlinear optical equations",
-    "model": "Fokas\u2013Lenells equation with generalized self-phase modulation and nonlinear dispersion",
-    "inputs": "nonlinear optical media parameters",
-    "outputs": "soliton solutions (dark, periodic, singular varieties)",
-    "key_results": "Multiple solution families obtained via three analytical methods; extended simple equation approach is most effective; physical behavior visualized in 2D/3D plots",
-    "comments": "The paper is primarily analytical; no numerical validation or experimental comparison of solution stability under perturbations is provided.",
-    "hypotheses": [
-      "Modified extended tanh method yields diverse compact solutions",
-      "Extended simple equation method provides efficient solution construction",
-      "Generalized SPM and nonlinear dispersion enable soliton compression and frequency shifting"
-    ],
-    "results": [
-      "Confirmed by richer solution spectrum in compact form",
-      "Confirmed by straightforward applicability",
-      "Confirmed by visualization of soliton dynamics"
     ]
   },
   {

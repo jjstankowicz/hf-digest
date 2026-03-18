@@ -130,7 +130,7 @@ JOURNAL_CODES: dict[str, str] = {
     "41551": "Nature Biomedical Engineering",
     "41560": "Nature Energy",
     "41562": "Nature Human Behaviour",
-    "41563": "Nature Nanotechnology",
+    "41563": "Nature Materials",
     "41564": "Nature Microbiology",
     "41565": "Nature Nanotechnology",
     "41566": "Nature Photonics",
@@ -253,7 +253,9 @@ def filter_items(items: list[ET.Element], target: date) -> list[ET.Element]:
     return [it for it in items if parse_item_date(it) == target]
 
 
-def extract_fields(papers: list[dict], categories: list[str], client: anthropic.Anthropic) -> list[dict]:
+def extract_fields(
+    papers: list[dict], categories: list[str], client: anthropic.Anthropic
+) -> list[dict]:
     """Call Claude once with all abstracts; return list of extracted field dicts."""
     system = EXTRACTION_SYSTEM_TEMPLATE.format(categories=" | ".join(categories))
     numbered = "\n\n".join(

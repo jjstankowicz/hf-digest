@@ -438,7 +438,7 @@ function renderFilters() {
       const style = isActive
         ? `border-color:${stripe};background:${stripe};color:#fff`
         : `border-color:${stripe};color:${text}`;
-      html += `<button class="filter-chip fc-dynamic" style="${style}" onclick="filterCat(${JSON.stringify(cat)})">${esc(cat)}<span class="chip-count">${n}</span></button>`;
+      html += `<button class="filter-chip fc-dynamic" style="${style}" onclick='filterCat(${JSON.stringify(cat)})'>${esc(cat)}<span class="chip-count">${n}</span></button>`;
     }
   });
   el.innerHTML = html;

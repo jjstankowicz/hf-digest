@@ -2149,5 +2149,464 @@
     "outputs": "Pyomelanin titer (g/L), homogentisic acid yield fold-change",
     "key_results": "66-fold increase in homogentisic acid yield; strain Pyo29 achieved 70.5 \u00b1 0.7 g/L pyomelanin in 204 h fermentation; established color-screening system for directed evolution",
     "comments": "The substantial yield improvement demonstrates practical pathway engineering, though the balance between the three biosynthetic modules and their individual contributions could be better characterized."
+  },
+  "nature:10.1038/s41467-026-69985-x": {
+    "category": "Structural Biology",
+    "task": "Determine how RPA stimulates Mer3 helicase processivity in meiotic crossover formation",
+    "model": "(experiment) single-molecule magnetic tweezers; (computational) AlphaFold2 structural modeling",
+    "inputs": "Mer3 helicase, RPA protein, double-stranded DNA, varying DNA tension conditions",
+    "outputs": "Helicase processivity, crossover frequency, recombination intermediate accumulation, protein localization at DSB sites",
+    "key_results": "RPA binding directly increases Mer3 processivity under low DNA tension; mer3 RPA-binding mutant shows reduced crossover frequencies and weakened DSB site recruitment",
+    "comments": "This work elegantly connects molecular interaction specificity to whole-organism meiotic phenotypes via single-molecule mechanics, though the biological relevance of low-tension conditions requires further validation."
+  },
+  "nature:10.1038/s41467-026-70167-y": {
+    "category": "Other",
+    "task": "review translational pathways from mycology research to commercial products",
+    "model": "N/A",
+    "inputs": "mushroom biotechnology innovations and startup ecosystems",
+    "outputs": "classification of cross-sectoral bioinspired innovation models",
+    "key_results": "mushrooms identified as platform for sustainable industry and human wellbeing; startups bridge scientific advances to commercial application",
+    "comments": "Perspective article lacking quantitative validation or mechanistic detail; primarily a conceptual framework for biotech translation."
+  },
+  "nature:10.1038/s41467-026-69856-5": {
+    "category": "Gene Regulation",
+    "task": "disentangle intra- and inter-cellular gene regulation from spatial transcriptomics",
+    "model": "generative graph neural network with causal inference framework",
+    "inputs": "spatial transcriptomics data from tissues",
+    "outputs": "causal gene regulation networks; post-perturbation counterfactual transcriptomics predictions",
+    "key_results": "validated disentanglement and causal identifiability on glioblastoma, fetal spleen, and lung cancer samples; generated experimentally inaccessible counterfactual transcriptomics states",
+    "comments": "Novel causal approach to single-cell spatial modeling, but counterfactual accuracy depends critically on causal graph identifiability assumptions."
+  },
+  "nature:10.1038/s41556-026-01895-y": {
+    "category": "Cell Signaling",
+    "task": "Characterize TDP-43 regulation of paraspeckle condensate assembly and neuroprotection",
+    "model": "(experiment) in vitro paraspeckle assembly; stressed human neurons",
+    "inputs": "TDP-43 concentration; NEAT1_2 ribonucleoprotein particles; cellular stress",
+    "outputs": "Paraspeckle condensation; cytoprotection; ALS survival correlation",
+    "key_results": "TDP-43 inhibits paraspeckle assembly in concentration-dependent manner; 3\u2032-end UG repeat deletion increases paraspeckle stability and cytoprotection; longer UG repeats linked to shorter ALS survival",
+    "comments": "Elegant mechanistic link between condensate dynamics and disease outcome, with direct clinical relevance to ALS pathology."
+  },
+  "nature:10.1038/s42255-026-01484-1": {
+    "category": "Cell Signaling",
+    "task": "Determine role of lysosomal phosphoinositides in mTORC1 signaling and muscle growth",
+    "model": "(experiment) mouse models of myopathy; cellular myogenic differentiation",
+    "inputs": "Amino acid availability; ER stress; MTM1 phosphoinositide metabolism",
+    "outputs": "RagGTPase-mTORC1 activation; anabolic-catabolic balance; muscle growth",
+    "key_results": "PI3P and PI(3,5)P2 regulate LAMTOR complex stability; MTM1-dependent phosphoinositide remodeling suppresses mTORC1 under ER stress; restoring phosphoinositide homeostasis rescues muscle growth in myopathy models",
+    "comments": "Novel positioning of lipid metabolism as upstream mTORC1 regulator; direct disease relevance to myotubular myopathy."
+  },
+  "nature:10.1038/s41598-026-44537-x": {
+    "category": "Cell Signaling",
+    "task": "Elucidate PTP4A3 contribution to diabetic retinopathy via PI3K-AKT pathway",
+    "model": "(experiment) endothelial cells; STZ-induced diabetic model; oxygen-induced retinopathy (OIR) model",
+    "inputs": "PTP4A3 overexpression; diabetic conditions; PI3K/AKT inhibitors",
+    "outputs": "Endothelial cell proliferation/migration; barrier integrity; retinal vascular leakage and neovascularization",
+    "key_results": "PTP4A3 increased in diabetic retinopathy; overexpression promotes EC proliferation/migration and reduces Occludin/Claudin-5; PI3K/AKT inhibition partially alleviates PTP4A3-induced EC dysfunction",
+    "comments": "Clear demonstration of phosphatase contribution to diabetic vascular pathology; partial dependence on PI3K-AKT suggests additional signaling mechanisms."
+  },
+  "nature:10.1038/s41598-026-42663-0": {
+    "category": "Cell Signaling",
+    "task": "Model seizure suppression via optogenetic modulation of neuron-astrocyte interactions",
+    "model": "(computational) three-compartment model: neurons, astrocytes, extracellular space with ionic dynamics",
+    "inputs": "Optogenetic stimulation (astrocytic ChR2) or inhibition (neuronal ArchT); dynamic Na+, K+, Ca2+ concentrations",
+    "outputs": "Seizure severity; extracellular K+ clearance; neuronal spiking rate; Na+/K+-ATPase activity",
+    "key_results": "Astrocytic stimulation reduces seizure severity by enhancing Na+ influx and Na+/K+-ATPase activity; effect persists despite impaired Ca2+ signaling or Kir4.1; combined astrocyte stimulation and neuronal inhibition synergistically decreases K+ and spiking",
+    "comments": "Computational study identifying Na+/K+-ATPase as dominant seizure control mechanism; pre-seizure activation more effective than post-onset."
+  },
+  "nature:10.1038/s41598-026-44561-x": {
+    "category": "Cytoskeleton",
+    "task": "Identify dysregulated proteins in glaucomatous trabecular meshwork cells via proteomics",
+    "model": "(experiment) TMTpro isobaric quantitative proteomics; mass spectrometry; immunofluorescence",
+    "inputs": "Glaucomatous vs. non-glaucomatous TM cell lysates",
+    "outputs": "Differentially expressed proteins; pathway enrichment; subcellular localization patterns",
+    "key_results": "206 proteins upregulated in GTM cells; key pathways: ECM (DCN, COL4A1, CHI3L1), Wnt (FZD1, FZD7, GSK3B), cytoskeletal (ROCK2, MSN, TPM2, VIM), protein degradation, nuclear proteins; GTM nucleoli significantly larger; DIAPH2 more cytosolic",
+    "comments": "Comprehensive proteomics with pathway validation and immunofluorescence confirmation; multiple dysregulated pathways suggest complex glaucomatous pathogenesis."
+  },
+  "nature:10.1038/s41598-026-40407-8": {
+    "category": "Cell Signaling",
+    "task": "Evaluate cardioprotective effects of curcumin and piperine against obesity-induced oxidative stress",
+    "model": "(experiment) rat high-fat diet obesity model; in vivo treatment",
+    "inputs": "Curcumin (100 mg/kg) + piperine (5 mg/kg) oral treatment; high-fat diet exposure",
+    "outputs": "Cardiac oxidative stress markers (ROS, MDA, NO); antioxidant enzyme activity (CAT, GPx, SOD); inflammatory cytokines; lipid profiles; histological changes",
+    "key_results": "HFD increased MDA, NO, ROS and decreased antioxidants; reduced Na+/K+-ATPase activity and increased TNF-\u03b1, IL-1, IL-6; CUR+PIP suppressed cardiac oxidative stress, inflammation, and histological damage; downregulated NF-\u03baB",
+    "comments": "Standard in vivo pharmacology model demonstrating antioxidant and anti-inflammatory benefits; multi-parameter assessment strengthens conclusions."
+  },
+  "nature:10.1038/s42005-026-02585-9": {
+    "category": "Quantum",
+    "task": "Injection locking control of dissipative time crystals",
+    "model": "(experiment) Rydberg gas with RF field",
+    "inputs": "RF electric field at varying amplitude and frequency",
+    "outputs": "Oscillation frequency, locking bandwidth, synchronization state",
+    "key_results": "Full synchronization above critical threshold; locking bandwidth scales linearly with RF amplitude; higher-order harmonics entrained",
+    "comments": "Bridges classical nonlinear dynamics and quantum many-body physics, with practical applications in quantum metrology and precision sensing."
+  },
+  "nature:10.1038/s42005-026-02561-3": {
+    "category": "Optics/Photonics",
+    "task": "Realization of higher-order exceptional points using frequency-dependent gain",
+    "model": "(circuit) PT-symmetric dimer and anti-PT-symmetric trimer with impedance observer",
+    "inputs": "Frequency-dependent gain derived from input impedance",
+    "outputs": "Eigenfrequencies, EP order, spectral sensitivity",
+    "key_results": "Third-order EP confirmed in PT-dimer; fifth-order EP verified in anti-PT-trimer; eliminates need for nonlinear-gain mechanisms",
+    "comments": "Offers experimentally accessible route to HOEPs without requiring nonlinear gain, substantially simplifying implementation."
+  },
+  "nature:10.1038/s41699-026-00683-4": {
+    "category": "Applied Physics",
+    "task": "Dual-mode physically unclonable function using grain-boundary oxidation",
+    "model": "(experiment) 2D SnSe multilayers with SnSe/SnO\u2082 junctions",
+    "inputs": "Photo-oxidative activation, electrical bias, optical excitation",
+    "outputs": "Electrical resistance, photocurrent response, cryptographic keys",
+    "key_results": "Maximal entropy achieved at optimized oxidation duration; dual electrical-optical challenge-response behavior; mode-orthogonal keys generated",
+    "comments": "Exploits intrinsic material microstructure for entropy generation without lithography, offering scalability for secure hardware."
+  },
+  "nature:10.1038/s41598-026-39918-1": {
+    "category": "Condensed Matter",
+    "task": "Characterization of thermal, vibrational, and electrical properties of Ag\u2082Te",
+    "model": "(experiment) high-purity Ag\u2082Te single crystals (monoclinic structure)",
+    "inputs": "Temperature range 163\u2013520 K, X-ray/Raman/AC conductivity measurements",
+    "outputs": "Lattice parameters, decomposition behavior, vibrational modes, frequency-dependent conductivity",
+    "key_results": "Monoclinic lattice: a = 0.8165 nm, \u03b2 = 112.81\u00b0; TGA reveals thermal decomposition; Raman identifies vibrational/bonding characteristics",
+    "comments": "Comprehensive characterization but limited quantitative thermoelectric performance metrics provided for advanced applications."
+  },
+  "nature:10.1038/s41598-026-43686-3": {
+    "category": "Condensed Matter",
+    "task": "Investigation of altermagnetism and chiral order in MnF\u2082",
+    "model": "(theory + experiment) collinear antiferromagnet MnF\u2082",
+    "inputs": "Resonant X-ray scattering, polarized neutron diffraction",
+    "outputs": "Magnetic chiral signature, altermagnetic order parameter (axial octupole), spin-flip patterns",
+    "key_results": "X-ray circular dichroism reveals magnetic chiral signature; neutron diffraction confirms axial octupole order parameter; spin-flip patterns test electronic structure",
+    "comments": "Clever use of symmetry-informed scattering techniques to access higher-rank multipole tensors and verify electronic structure assumptions."
+  },
+  "nature:10.1038/s41598-026-41814-7": {
+    "category": "Applied Physics",
+    "task": "Underwater target detection using dual-sensor coherence-driven adaptive denoising",
+    "model": "(signal processing) CSEM-WF-VMD-DDCDO pipeline with dual magnetometers",
+    "inputs": "Shaft-rate magnetic field signals at ultra-low SNR (\u221254.39 dB) with interference line spectra and colored noise",
+    "outputs": "Detected magnetic field, target classification, false alarm rate",
+    "key_results": "95.83% accuracy on field test data; detects shaft-rate magnetic field at SNR = \u221254.39 dB; coherent spatial combination attenuates interference while preserving target",
+    "comments": "Practical engineering solution combining multiple signal processing techniques; color noise handling is realistic but performance on diverse ocean conditions unclear."
+  },
+  "nature:10.1038/s41598-026-44107-1": {
+    "category": "Applied Physics",
+    "task": "Scale-up of silver particle flattening using DEM simulation",
+    "model": "(DEM simulation + experiment) dry ball milling of silver particles in vibration mills",
+    "inputs": "Mill size, ball motion parameters, collision energies from DEM",
+    "outputs": "Normalized specific surface area (SSA), flattening rate constant Kf, specific impact energy Ew",
+    "key_results": "Normal component of Ew has highest prediction accuracy; SSA scaling validated from small to large mill scales; Kf and Ew predict arbitrary timescales",
+    "comments": "Rigorous validation of DEM-derived impact energy metrics for process scale-up; focus on normal vs. shear components provides practical guidance."
+  },
+  "nature:10.1038/s43246-026-01139-4": {
+    "category": "Condensed Matter",
+    "task": "Investigation of electron-phonon coupling and Jahn-Teller effects in La\u2081\u208b\u2093Sr\u2093MnO\u2083 with weak CMR",
+    "model": "(experiment + DFT) perovskite manganites with neutron scattering",
+    "inputs": "Temperature, magnetic field, composition x = 0.2, 0.3",
+    "outputs": "Phonon dispersions, magnon dispersions, Jahn\u2013Teller optical vibration intensity, quasielastic scattering",
+    "key_results": "Jahn\u2013Teller-active optical phonons collapse above Tc despite low CMR; diffusive quasistatic carrier-trapping distortions emerge; magnetoresistance correlates with diffusion rate, not JT coupling strength",
+    "comments": "Challenges conventional CMR theory by decoupling JT coupling strength from magnetoresistance magnitude; implies CMR driven by carrier dynamics rather than lattice mechanism."
+  },
+  "nature:10.1038/s41535-026-00870-y": {
+    "category": "Condensed Matter",
+    "task": "Clarification of strain-tuned ferroelectric phase transition pathway in HfO\u2082",
+    "model": "(DFT + theory) HfO\u2082 with phonon mode instability analysis",
+    "inputs": "Tensile/compressive strain, symmetry analysis of Pca21 phase",
+    "outputs": "Phase stability, order parameter (X\u2082\u207b displacement), Landau coefficients, transition pathway",
+    "key_results": "X\u2082\u207b mode coupling with polar/antipolar distortions lowers trilinear-coupling barrier; tensile strain enhances X\u2082\u207b displacement and destabilizes intermediate phases; X\u2082\u207b engineering controls Pca21 fraction",
+    "comments": "Novel mechanistic insight into HfO\u2082 ferroelectricity via higher-order displacement coupling; practical control parameter X\u2082\u207b identified for device engineering."
+  },
+  "nature:10.1038/s41377-025-02181-6": {
+    "category": "Quantum",
+    "task": "Quantum-enhanced in-memory stochastic computing",
+    "model": "(experiment) room-temperature quantum memory with correlated photon generation",
+    "inputs": "Correlated photon pairs from quantum memory, photon count accumulation",
+    "outputs": "Computation results (addition/multiplication), parallel task acceleration, stochastic output",
+    "key_results": "Addition and multiplication via photon count accumulation; multiple tasks parallelized; nonclassical correlations accelerate computation; inherent security via eavesdropping difficulty",
+    "comments": "Creative repurposing of quantum memory as computing substrate; stochastic security claim interesting but scalability to practical problem sizes not demonstrated."
+  },
+  "nature:10.1038/s41563-026-02538-1": {
+    "category": "Condensed Matter",
+    "task": "Investigation of non-monotonic friction from magnetic rotor dynamics",
+    "model": "(MD simulation + experiment) 2D array of rotatable magnetic moments on commensurate substrate",
+    "inputs": "Interlayer separation (effective load), sliding velocity",
+    "outputs": "Friction force, torque cycles, collective magnetic reorientation patterns",
+    "key_results": "Non-monotonic friction vs. interlayer separation with pronounced peak at intermediate distance; friction driven by competing FM/AFM interactions and dynamical frustration; energy dissipation from hysteretic torque cycles",
+    "comments": "Elegant demonstration that Amontons' law breaks down when internal magnetic degrees of freedom dominate; opens door to contactless friction control via magnetic tuning."
+  },
+  "nature:10.1038/s41467-026-70295-5": {
+    "category": "Condensed Matter",
+    "task": "Characterization of equilibrium rotator glass phase in colloidal rods",
+    "model": "(experiment + simulation) charged colloidal rods with long-range repulsion",
+    "inputs": "Volume fraction, external electric field, temperature",
+    "outputs": "Positional order, rotational order parameter, phase diagram, transition type",
+    "key_results": "Equilibrium glassy rotator phase exhibits glass-like positions but liquid-like rotations; reversible switching to crystal via first-order transition with minimal rearrangements under E-field",
+    "comments": "Rare observation of equilibrium glass-forming phase; decoupling of translational and rotational order is conceptually interesting but mechanisms governing glass formation remain complex."
+  },
+  "nature:10.1038/s41598-026-41410-9": {
+    "category": "Evolutionary Biology",
+    "task": "Predict vertebrate species susceptibility to sarbecovirus infection",
+    "model": "Multi-reference Similarity Analysis of Receptor Sequences (MrSARS)",
+    "inputs": "825 vertebrate ACE2 sequences",
+    "outputs": "susceptibility classification (highly/moderately susceptible or resistant)",
+    "key_results": "Primates and even-toed ungulates ranked highest susceptibility; experimental validation with VSV pseudotypes correlated with predictions",
+    "comments": "Strong concordance between sequence analysis and experimental infection, though mechanistic basis may vary across species."
+  },
+  "nature:10.1038/s41598-026-44536-y": {
+    "category": "Statistical Methods",
+    "task": "Cross-subject generalization in EEG-based seizure detection",
+    "model": "lightweight deep convolutional neural network with power spectral density features",
+    "inputs": "raw EEG signals (bandpass filtered, segmented)",
+    "outputs": "seizure/non-seizure classification; event-based false alarm rate",
+    "key_results": "85.84% accuracy CHB-MIT, 83.21% TUSZ; 1.9\u20132.1 ms inference time; 0.33\u20131.09 false alarms/hour",
+    "comments": "Excellent efficiency and cross-subject generalization, but false alarm rate on heterogeneous TUSZ dataset remains clinically challenging."
+  },
+  "nature:10.1038/s41598-026-44093-4": {
+    "category": "Other",
+    "task": "Reconstruct timing and amount of alcohol consumption from biomarkers",
+    "model": "physiological digital twin integrating multi-kinetic metabolism",
+    "inputs": "BAC, BrAC, EtG, EtS, UAC measurements",
+    "outputs": "personalized alcohol intake and metabolism trajectories; drinking scenario reconstruction",
+    "key_results": "integrated model substantially improves temporal reconstruction of past drinking events; interactive web tool provided",
+    "comments": "Mechanistic integration of fast and slow biomarkers is novel, though forensic validation in real cases remains limited."
+  },
+  "nature:10.1038/s41597-026-07030-8": {
+    "category": "Genomics",
+    "task": "Assemble and annotate reference genome for pecan weevil",
+    "model": "PacBio HiFi long-read sequencing + Hi-C scaffolding",
+    "inputs": "~40x PacBio HiFi reads; Hi-C chromatin contact data; Iso-Seq RNA",
+    "outputs": "chromosome-level reference genome; gene annotation",
+    "key_results": "2.2 Gb assembly; N50 132 Mb; BUSCO 95.4%; ~19,000 protein-coding genes; >80% repeat content",
+    "comments": "High-quality assembly suitable for comparative genomics; extensive repeats typical of insects but provide insights into pest biology."
+  },
+  "nature:10.1038/s41598-026-44589-z": {
+    "category": "Network Biology",
+    "task": "Identify BPA-associated molecular pathways in endometrial cancer",
+    "model": "integrative toxicogenomics and network analysis",
+    "inputs": "BPA toxicological predictions; TCGA-UCEC gene expression; GEO dataset",
+    "outputs": "BPA-EC associated genes; pathway enrichment; survival associations",
+    "key_results": "129 BPA-EC genes identified; 48 DEGs in TCGA; 5 prognostic genes (ESR1, NOTCH1, GABARAP, B4GALT1, PAN3); angiogenesis and EGFR/MAPK pathway enrichment",
+    "comments": "Comprehensive hypothesis-generating study; molecular docking is in silico only and lacks direct BPA-protein binding validation."
+  },
+  "nature:10.1038/s41598-026-44038-x": {
+    "category": "Structural Prediction",
+    "task": "Characterize allophycocyanin inhibition of HIV-1 entry and replication",
+    "model": "molecular dynamics simulation + isothermal titration calorimetry + cell-based assays",
+    "inputs": "APC protein structure; HIV-1 gp120, protease, RT structures",
+    "outputs": "binding affinities; RT enzymatic activity; viral protein abundance; redox balance",
+    "key_results": "APC binds gp120 with favorable free energy and enthalpy-driven interaction; inhibits RT activity and reduces viral protein; mitigates oxidative stress in infected cells",
+    "comments": "Strong multi-modal validation (simulation, biophysics, cells); cellular uptake mechanisms and in vivo efficacy remain uncharacterized."
+  },
+  "nature:10.1038/s41598-026-44040-3": {
+    "category": "Other",
+    "task": "Protect medical imaging training data from adversarial attacks via blockchain",
+    "model": "Hyperledger Fabric + Private IPFS decentralized storage",
+    "inputs": "MRI brain scans; access control policies",
+    "outputs": "tamper-proof dataset storage; cryptographic data provenance",
+    "key_results": "decentralized framework ensures data integrity and prevents unauthorized access; Hyperledger Caliper validates performance",
+    "comments": "Addresses real threat to medical AI, but doesn't demonstrate actual adversarial robustness of downstream models trained on protected data."
+  },
+  "nature:10.1038/s41538-026-00802-x": {
+    "category": "Genomics",
+    "task": "Characterize food chemistry and trace molecular origins across foods",
+    "model": "untargeted mass spectrometry + database linking (metabolomics)",
+    "inputs": "~24,000 molecular features from 500 foods",
+    "outputs": "annotated compounds; xenobiotic signatures; natural product identifications",
+    "key_results": "characteristic chemical patterns per food group; unannotated features reveal contamination pathways; unexpected natural products (e.g., biochanin A) identified in Canada thistle",
+    "comments": "Valuable One Health perspective linking environment to food to human health; majority of features remain unannotated, limiting mechanistic interpretation."
+  },
+  "nature:10.1038/s41746-026-02545-1": {
+    "category": "Other",
+    "task": "Assess integration of AI as active collaborator in diagnostic workflows",
+    "model": "large language model (LLM) with collaborative reasoning framework",
+    "inputs": "clinical case information; independent clinician and AI assessments",
+    "outputs": "synthesized diagnostic recommendation; agreement/disagreement commentary",
+    "key_results": "AI-first and AI-second workflows both improved clinician accuracy (85%, 82% vs. 75% baseline); performance comparable to AI-alone (90%); qualitative analysis illustrates workflow design shapes interaction",
+    "comments": "Important shift from tool-centric to collaborative paradigm; modest sample (n=70) and unclear if gains persist across broader case diversity."
+  },
+  "nature:10.1038/s41598-026-44721-z": {
+    "category": "Network Biology",
+    "task": "Identify neutrophil extracellular trap-associated biomarkers in comorbid osteoporosis-diabetes",
+    "model": "transcriptomic integration + machine learning + network analysis",
+    "inputs": "transcriptomic dataset; NETs-related genes from literature; immune infiltration",
+    "outputs": "candidate biomarkers; regulatory axes; drug predictions",
+    "key_results": "S100A12 and SLC25A37 identified as biomarkers; upregulated at protein level in validation cohort; enriched in 68 and 54 pathways respectively; XIST-miR-146a-5p-S100A12 and XIST-miR-7-5p-SLC25A37 regulatory axes proposed",
+    "comments": "Hypothesis-generating pilot leveraging multiple analysis modalities; limited sample size and lack of functional validation require larger follow-up studies."
+  },
+  "nature:10.1038/s41598-026-43169-5": {
+    "category": "Statistical Methods",
+    "task": "Automate discovery and ranking of interesting biomedical phenomena",
+    "model": "machine learning + knowledge graphs + literature search + LLMs",
+    "inputs": "structured biomedical data (time-split); historical literature",
+    "outputs": "ranked candidate discoveries; novelty/utility/plausibility scores",
+    "key_results": "up to 21% of suggested factors appeared in literature after cutoff; 28% deemed interesting by physicians; 40\u201353% of top-ranked candidates interesting vs. 0\u201320% for SHAP/L1 baselines",
+    "comments": "Novel operationalization of 'interestingness' as multi-modal score; time-split evaluation is principled, but annotation by only 4 physicians limits generalizability."
+  },
+  "nature:10.1038/s41598-025-32409-9": {
+    "category": "Other",
+    "task": "Detect camouflaged objects via context and texture integration",
+    "model": "context/texture encoder branches + multi-head feature aggregation + hierarchical interaction modules",
+    "inputs": "RGB images; texture and boundary labels",
+    "outputs": "camouflaged object segmentation masks",
+    "key_results": "superior performance on CAMO, COD10K, NC4K benchmarks; promising generalization to polyp segmentation downstream task",
+    "comments": "Well-motivated architecture combining contextual and texture cues; quantitative metrics (e.g., MAE, F-measure) not reported in abstract."
+  },
+  "nature:10.1038/s41598-026-44409-4": {
+    "category": "Algorithms",
+    "task": "Flexible job shop scheduling with machine deterioration",
+    "model": "Improved Whale Optimization Algorithm (IWOA)",
+    "inputs": "Job shop scheduling problem with machine degradation parameters",
+    "outputs": "Makespan minimization schedule",
+    "key_results": "IWOA balances global and local search via nonlinear convergence factors and golden sinusoidal strategies; effectiveness proven via simulation experiments",
+    "comments": "Standard metaheuristic application; lacks detailed comparison metrics against baselines."
+  },
+  "nature:10.1038/s41598-026-43402-1": {
+    "category": "ML Theory",
+    "task": "Vibration error correction in gravity measurement",
+    "model": "Adam-optimized BP neural network",
+    "inputs": "Vibration signals and falling body trajectories",
+    "outputs": "Corrected time coordinate errors and gravitational acceleration",
+    "key_results": "Measurement accuracies: 1.51 \u00b5Gal (H03), 1.30 \u00b5Gal (H09), 3.01 \u00b5Gal (H20); Adam optimizer improves convergence over SGD",
+    "comments": "Practical metrology application; Adam acceleration is standard; achieves sub-\u00b5Gal precision in field conditions."
+  },
+  "nature:10.1038/s41598-026-43692-5": {
+    "category": "ML Theory",
+    "task": "Battery management system with SOH and RUL prediction",
+    "model": "Hybrid LSTM-GRU, Gradient Boosting, QPPONet (DQN+PPO)",
+    "inputs": "EV battery cycling data (voltage, current, temperature)",
+    "outputs": "State of Health, Remaining Useful Life, optimal charge-discharge policy",
+    "key_results": "SOH: R\u00b2 0.9926\u20130.9995; RUL: RMSE 3.36, MAE 2.09; RL policy gain 24\u00b11.2%; thermal runaway detection >92% accuracy",
+    "comments": "Comprehensive modular framework; strong empirical results on proprietary and public datasets; real-world deployment ready."
+  },
+  "nature:10.1038/s41598-026-44145-9": {
+    "category": "Algorithms",
+    "task": "Crowd counting and facility utilization assessment",
+    "model": "Visual state space model (CrowdVision) + LLM (LLM-Advisor)",
+    "inputs": "Images/video of sports facilities, facility metadata, demographic data",
+    "outputs": "Crowd counts, usage patterns, supply-demand gaps, optimization recommendations",
+    "key_results": "Crowd counting accuracy 93.8%; LLM recommendations scored 4.2/5.0 by domain experts",
+    "comments": "Novel synergy of lightweight vision and LLM for actionable insights; strong practical applicability."
+  },
+  "nature:10.1038/s41598-026-44084-5": {
+    "category": "Algorithms",
+    "task": "Robust cyber-physical control for islanded/interconnected microgrids",
+    "model": "Event-Triggered Sliding Mode Controller (ET-SMC) with Extended Kalman Filter and Sliding Mode Observer",
+    "inputs": "Renewable generation, network delays, DoS attacks, false data injection signals",
+    "outputs": "Voltage and reactive power regulation commands",
+    "key_results": "Enhanced robustness, quicker transient response, reduced chattering vs. PID and baseline SMC; validated on OPAL-RT hardware-in-the-loop testbed",
+    "comments": "Addresses real cyber-security and communication challenges in modern grids; Lyapunov stability guarantees provided."
+  },
+  "nature:10.1038/s41598-026-42400-7": {
+    "category": "Algorithms",
+    "task": "Photovoltaic model parameter estimation",
+    "model": "Improved Red-tailed Hawk Algorithm (IRTHA) with chaotic mapping and nonlinear decay",
+    "inputs": "I-V curve data for single/double/triple diode PV models",
+    "outputs": "Optimized diode model parameters",
+    "key_results": "RMSE: 7.73e-4 (SDM-RTC), 7.42e-4 (DDM), 7.35e-4 (TDM); outperforms PSO, GWO, etc. via Friedman and Wilcoxon tests",
+    "comments": "Metaheuristic with proven convergence and diversity balance; validated on five real PV cell/module datasets."
+  },
+  "nature:10.1038/s41598-026-42912-2": {
+    "category": "ML Theory",
+    "task": "Multimodal sentiment analysis on text and images",
+    "model": "Deep Maxout (text) + MS-Bi-GRU (image) optimized by Innovative Beluga Whale Optimization (IBwOA)",
+    "inputs": "Text (N-grams, emojis, TF-IDF) and image features (multitexon, SLBT)",
+    "outputs": "Sentiment label/score",
+    "key_results": "Outperforms conventional models across multiple metrics; IBwOA-optimized Deep Maxout weights improve text feature learning",
+    "comments": "Hybrid architecture effectively combines modalities; transfer learning for images is standard practice."
+  },
+  "nature:10.1038/s41598-026-42865-6": {
+    "category": "Algorithms",
+    "task": "Recommendation system with knowledge graph reasoning",
+    "model": "Knowledge Graph Enhanced Reasoning Architecture (KGERA); ensemble of ItemKNN, LightGCN, SGL, SimGCL, NCF, TransE, TextProxy, PopRec",
+    "inputs": "User-item interactions, item metadata, knowledge graph (genre, creator, similarity)",
+    "outputs": "Ranked item recommendations",
+    "key_results": "NDCG@10 +52.83%, Recall@10 +50.24%, MRR@10 +54.62% vs. best baseline on MovieLens-1M; robust across user/item tiers (5-fold CV=4.84%)",
+    "comments": "Lightweight inference-time reasoning avoids expensive LLM calls; extensive ablation and stratification validation; p<0.001 significance."
+  },
+  "nature:10.1038/s41598-026-43841-w": {
+    "category": "Algorithms",
+    "task": "Text-guided image segmentation with vision Mamba",
+    "model": "H-type Bidirectional Alignment Network: Vision Mamba (SSM) + Qwen LLM + Q-Former + multi-scale decoder",
+    "inputs": "Image and referential text description",
+    "outputs": "Instance segmentation mask",
+    "key_results": "Strong performance on RefCOCO, RefCOCO+, RefCOCOg; bidirectional cross-modal supervision via Q-Former",
+    "comments": "State space models (Mamba) efficiently capture long-range visual context; selective attention and local convolution balance expressivity and efficiency."
+  },
+  "nature:10.1038/s41598-026-44214-z": {
+    "category": "ML Theory",
+    "task": "Intrusion detection with epistemic uncertainty analysis",
+    "model": "AA-NLS (Algebraic Average-based Neutrosophic Logic), HLWBMM, GRUSO-GRU, LCFFOA, PESHAP",
+    "inputs": "Network packet data, behavioral and temporal patterns",
+    "outputs": "Intrusion classification, alert priority ranking",
+    "key_results": "Accuracy 99.299% (full multi-class); AA-NLS addresses out-of-order packet uncertainty; PESHAP provides explainability",
+    "comments": "Complex pipeline with neutrosophic logic for handling incomplete data; strong accuracy but limited novelty in individual components."
+  },
+  "nature:10.1038/s41598-026-44542-0": {
+    "category": "Algorithms",
+    "task": "Underwater debris detection and material classification",
+    "model": "Lightweight Mask R-CNN with upgraded RPN and MobileNetV3 backbone",
+    "inputs": "Underwater images with color distortion and low contrast",
+    "outputs": "Instance segmentation and debris material class labels",
+    "key_results": "Real-time performance at 30 FPS; mAP, SSIM, IoU, PSNR improvements over conventional approaches; data augmentation (contrast, flip, blur) enhances robustness",
+    "comments": "Practical system for marine waste management; lightweight architecture crucial for real-time deployment on edge devices."
+  },
+  "nature:10.1038/s41598-026-44146-8": {
+    "category": "Algorithms",
+    "task": "Sketch recognition with CycleGAN and dual attention",
+    "model": "Improved CycleGAN (multi-directional convolution, brightness equalization) + channel and spatial attention modules + classifier",
+    "inputs": "Hand-drawn sketches",
+    "outputs": "Sketch category label",
+    "key_results": "TU-Berlin: 97.08% accuracy, 98.12% precision, 98.23% recall, 97.45% F1; QuickDraw: 98.65% accuracy, 98.12% precision, 98.76% recall, 97.95% F1",
+    "comments": "Dual attention effectively handles sparse strokes and uneven spatial distribution; strong benchmarks suggest practical sketch-to-animation pipeline."
+  },
+  "nature:10.1038/s44333-026-00088-2": {
+    "category": "Other",
+    "task": "Role of humanoid robots in autonomous public transport",
+    "model": "N/A",
+    "inputs": "Autonomous shuttle systems without on-board staff",
+    "outputs": "Enhanced passenger support and safety services",
+    "key_results": "Conceptual proposal to integrate humanoid robots as complement to autonomous shuttles",
+    "comments": "Position paper addressing loss of human assistance in fully autonomous systems; lacks empirical validation or detailed design."
+  },
+  "nature:10.1038/s41598-026-44535-z": {
+    "category": "Algorithms",
+    "task": "Underwater image enhancement via color correction and recurrent CNN",
+    "model": "Customized color correction (dynamic attenuation coefficients) + Recurrent Convolutional Neural Networks (R-CNN)",
+    "inputs": "Degraded underwater images (low contrast, color distortion, reduced visibility)",
+    "outputs": "Enhanced images with improved clarity, contrast, visibility",
+    "key_results": "Superior image quality over state-of-the-art methods; improved performance in downstream tasks (object detection, recognition, monitoring)",
+    "comments": "Recurrent design iteratively refines features, preserving details better than static CNNs; adaptive color correction handles dynamic underwater conditions."
+  },
+  "nature:10.1038/s41598-026-40442-5": {
+    "category": "ML Theory",
+    "task": "Biomass torrefaction analysis and simulator deployment",
+    "model": "Ensemble ML (linear, ensemble, boosting, kernel) with domain-informed feature engineering; CatBoost best performer",
+    "inputs": "Torrefaction operating conditions (temperature, time, heating rate), feedstock properties",
+    "outputs": "Mass yield (MY) and higher heating value (HHV) predictions",
+    "key_results": "CatBoost robust across datasets with stable feature attribution; GUI simulator visualizes MY-HHV trade-offs and identifies feasible operating windows",
+    "comments": "Practical engineering tool replacing trial-and-error; tree-based models excel due to domain complexity and nonlinearity."
+  },
+  "nature:10.1038/s41598-026-44111-5": {
+    "category": "Algorithms",
+    "task": "3D point cloud completion from partial inputs",
+    "model": "GAN-based architecture (encoder, generator, discriminator) with multi-term joint loss",
+    "inputs": "Partial 3D point clouds with high occlusion/noise",
+    "outputs": "Complete high-fidelity point clouds",
+    "key_results": "Chamfer Distance=0.085, Earth Mover's Distance=0.199, F-Score=0.208 on ModelNet40; supports downstream tasks (path planning, robotic grasping)",
+    "comments": "End-to-end framework handles high missing-rate scenarios better than prior methods; no paired training data required."
+  },
+  "nature:10.1038/s41598-026-41068-3": {
+    "category": "Algorithms",
+    "task": "Battery thermal management system design with multiple cooling plates",
+    "model": "Thermal fluid analysis coupled with optimization (objective: minimize pack-level temperature difference)",
+    "inputs": "LIB pack configuration, cooling plate parameters, operating conditions",
+    "outputs": "Optimized cooling plate design and flow rates",
+    "key_results": "Temperature difference reduction of 2.25 K by equalizing cooling performance; constraints: max temperature, pumping power",
+    "comments": "Addresses non-uniform temperature distribution in EV packs; interaction effects among cooling plates properly handled."
+  },
+  "nature:10.1038/s44335-026-00061-9": {
+    "category": "Algorithms",
+    "task": "Error correction for processing-in-memory multiply-accumulate operations",
+    "model": "Non-binary LDPC codes over Galois Field GF(3) for analog/memristor-based PIM",
+    "inputs": "8-symbol error-prone multiply-accumulate results from memristor arrays",
+    "outputs": "Corrected computation results with provable error tolerance",
+    "key_results": "59.65\u00d7 BER reduction, 1.562\u00d7 power efficiency gain, 8-symbol error correction; 40nm prototype validated; unified error correction for memory and computation",
+    "comments": "GF-based approach elegantly handles non-ideal analog devices; eliminates dataflow interruption; enables robust neuromorphic hardware."
   }
 }

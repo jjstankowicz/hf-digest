@@ -920,337 +920,55 @@
     "results": []
   },
   {
-    "uid": "nature:10.1038/s41467-026-70589-8",
-    "source": "physics",
-    "id": "10.1038/s41467-026-70589-8",
-    "title": "Exploring electron spin dynamics in spin chains using defects as a quantum probe",
-    "projectPage": "https://www.nature.com/articles/s41467-026-70589-8",
+    "uid": "nature:10.1038/s41467-026-70627-5",
+    "source": "systems-biology",
+    "id": "10.1038/s41467-026-70627-5",
+    "title": "Origins and breadth of pairwise epistasis in an \u03b1-helix of \u03b2-lactamase TEM-1",
+    "projectPage": "https://www.nature.com/articles/s41467-026-70627-5",
     "journal": "Nature Communications",
     "publishedAt": "2026-03-17",
-    "category": "Condensed Matter",
-    "task": "Characterize electron spin dynamics and coherence in topological defects of spin chains",
-    "model": "(theory) dimerized spin chains with topological edge states",
-    "inputs": "Spin chain dimerization gap, phonon interactions, inter-defect dipolar coupling",
-    "outputs": "Relaxation rates, coherence times, homogeneous linewidth broadening",
-    "key_results": "Phonon-bottlenecked relaxation at low T, dimerization-gap-governed relaxation at high T; coherence time longer than isolated ions due to reduced effective dipolar field",
-    "comments": "Provides practical design principles for quantum devices, though real materials may face additional decoherence sources not captured by the model.",
+    "category": "Evolutionary Dynamics",
+    "task": "Characterize mechanistic basis of epistasis in protein evolution",
+    "model": "Two-state protein stability model with additive contributions",
+    "inputs": "Library of 14,000+ double mutants in TEM-1 \u03b2-lactamase \u03b1-helix",
+    "outputs": "Fitness, minimum inhibitory concentration, epistatic interaction patterns",
+    "key_results": "Most epistatic effects predictable from single-mutation effects; systematic deviations occur at structurally-interacting residue pairs; statistical models from homologous sequences partially recover epistatic interactions",
+    "comments": "Elegant deep mutational scan connecting protein stability to epistasis, though the two-state model's limitations at interaction interfaces suggest more complex structural determinants exist.",
     "hypotheses": [
-      "Phonon-bottlenecked process dominates relaxation at lowest temperatures",
-      "Chain dimerization gap governs relaxation at high temperature",
-      "Intrachain exchange coupling reduces inter-defect dipolar field and extends coherence"
+      "Epistatic effects arise primarily from additive contributions to protein stability",
+      "Structurally-interacting residues show non-additive epistasis",
+      "Evolutionary constraints are recoverable from sequence homologs"
     ],
     "results": [
-      "Confirmed: phonon bottleneck identified at low T",
-      "Confirmed: dimerization gap controls high-T relaxation",
-      "Confirmed: longer coherence than isolated ions at equivalent concentration"
+      "Confirmed for majority of double mutants; model explains most variance",
+      "Confirmed; direct 3D contacts show systematic deviations",
+      "Partially confirmed; homolog-trained models recover subset of interactions"
     ]
   },
   {
-    "uid": "nature:10.1038/s42005-026-02586-8",
-    "source": "physics",
-    "id": "10.1038/s42005-026-02586-8",
-    "title": "Real-time simulation of jet energy loss and entropy production in high-energy scattering with matter",
-    "projectPage": "https://www.nature.com/articles/s42005-026-02586-8",
-    "journal": "Communications Physics",
-    "publishedAt": "2026-03-17",
-    "category": "High Energy/Particle",
-    "task": "Simulate real-time scattering dynamics and energy loss in gauge theories",
-    "model": "(theory) 1+1D massive QED with tensor network methods",
-    "inputs": "Probe state, target medium density, collision parameters",
-    "outputs": "Probe energy loss rate, entanglement entropy evolution, scattering regimes",
-    "key_results": "Probe energy loss scales linearly with path length; three regimes identified (ballistic, local excitation, black-disk); entanglement entropy reveals probe-medium mixing",
-    "comments": "Bridging high-energy physics and quantum simulation is promising, but 1+1D setup may not capture full complexity of realistic nuclear collisions.",
-    "hypotheses": [
-      "Three qualitatively distinct dynamical regimes exist based on target density",
-      "Probe energy loss rate is linear with path length",
-      "Entanglement entropy reveals quantum mechanical mixing between probe and medium"
-    ],
-    "results": [
-      "Confirmed: ballistic, intermediate, and black-disk regimes observed",
-      "Confirmed: linear energy loss scaling with path length",
-      "Confirmed: entanglement entropy tracks probe-medium mixing"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41567-026-03213-7",
-    "source": "physics",
-    "id": "10.1038/s41567-026-03213-7",
-    "title": "Bose\u2013Hubbard simulator with long-range hopping",
-    "projectPage": "https://www.nature.com/articles/s41567-026-03213-7",
-    "journal": "Nature Physics",
-    "publishedAt": "2026-03-17",
-    "category": "Condensed Matter",
-    "task": "Realize Bose-Hubbard model with long-range hopping using exciton arrays",
-    "model": "(experiment) dipolar excitons in nanoscopic lattices",
-    "inputs": "Exciton density, lattice geometry, dipolar interaction strength",
-    "outputs": "Radiative dissipation rate, temporal coherence, Mott phase properties",
-    "key_results": "Long-range hopping evidenced by algebraic slowdown of radiative dissipation; threshold coherence increase in dipolar quantum solids; excitons condense in single sub-radiant state for Mott phases",
-    "comments": "Novel platform combining dipolar interactions with lattice geometry, though dissipation and finite-size effects may limit observation of long-range correlations.",
-    "hypotheses": [
-      "Long-range hopping produces sub-radiance and slowdown of radiative decay",
-      "Dipolar quantum solids exhibit threshold coherence increase",
-      "Excitons condense in sub-radiant state for Mott-like phases with spatial order and extended coherence"
-    ],
-    "results": [
-      "Confirmed: algebraic slowdown of dissipation observed",
-      "Confirmed: threshold coherence increase for dipolar solids",
-      "Confirmed: single-state condensation in Mott phases"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41567-026-03216-4",
-    "source": "physics",
-    "id": "10.1038/s41567-026-03216-4",
-    "title": "Origin of strange metallicity in a d-orbital kagome metal",
-    "projectPage": "https://www.nature.com/articles/s41567-026-03216-4",
-    "journal": "Nature Physics",
-    "publishedAt": "2026-03-17",
-    "category": "Condensed Matter",
-    "task": "Identify microscopic origin of strange metallicity in kagome metal",
-    "model": "(experiment) kagome metal Ni\u2083In with flat band near Fermi energy",
-    "inputs": "Magnetic field, temperature, scanning tunneling spectroscopy probe",
-    "outputs": "Zero-bias peak-dip spectral features, quasiparticle properties, orbital localization signature",
-    "key_results": "Zero-bias peak arises from compact molecular orbitals via destructive quantum interference; orbital-driven localization creates emergent f-shell-like moments in d-orbital metal; quasiparticle collapse across Brillouin zone",
-    "comments": "STS reveals microscopic mechanism of strange metallicity, but connection to bulk transport properties requires additional measurements.",
-    "hypotheses": [
-      "Zero-bias peak originates from compact molecular orbitals formed by destructive quantum interference",
-      "Orbital-driven localization creates emergent localized moments in d-orbital kagome metal",
-      "Spectral features track evolution of strange metal state with field and temperature"
-    ],
-    "results": [
-      "Confirmed: zero-bias peak attributed to interference-derived molecular orbitals",
-      "Confirmed: orbital localization generates f-shell-like moments",
-      "Confirmed: peak-dip evolution correlates with strange-metal behavior"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41467-026-70371-w",
-    "source": "physics",
-    "id": "10.1038/s41467-026-70371-w",
-    "title": "Vertical substitution strategy to enable cooperation between spin\u2013orbit coupling and transition dipoles for organic phosphorescence",
-    "projectPage": "https://www.nature.com/articles/s41467-026-70371-w",
+    "uid": "nature:10.1038/s41467-026-70512-1",
+    "source": "systems-biology",
+    "id": "10.1038/s41467-026-70512-1",
+    "title": "Biosynthesis of pyomelanin from methanol with engineered Komagataella phaffii and its characterizations",
+    "projectPage": "https://www.nature.com/articles/s41467-026-70512-1",
     "journal": "Nature Communications",
     "publishedAt": "2026-03-17",
-    "category": "Optics/Photonics",
-    "task": "Enhance organic phosphorescence through cooperative spin-orbit and transition dipole coupling",
-    "model": "(molecule design) conjugated organic systems with vertical substituents",
-    "inputs": "Main-group element substituents perpendicular to conjugation plane, molecular geometry",
-    "outputs": "Phosphorescence efficiency, emission wavelength, intensity enhancement",
-    "key_results": "Vertical substitution cooperatively enhances spin-orbit and transition dipoles; organic phosphorescence efficiency reaches fluorescence levels across visible wavelengths",
-    "comments": "Novel molecular design strategy differs from standard horizontal-substituent approach, though quantum yield limits and triplet-state lifetimes merit further study.",
+    "category": "Synthetic Circuits",
+    "task": "Engineer high-yield microbial biosynthesis of pyomelanin",
+    "model": "Engineered Komagataella phaffii with modular metabolic pathway design",
+    "inputs": "Methanol and balanced biosynthetic modules for homogentisic acid synthesis",
+    "outputs": "Pyomelanin titer, color phenotype, polymer characterization",
+    "key_results": "66-fold increase in homogentisic acid yield; final titer 70.5 \u00b1 0.7 g/L after 204 h fermentation; pyomelanin produced via oxidative polymerization or laccase treatment with distinct properties",
+    "comments": "Impressive industrial-scale achievement combining directed evolution and semirational design, though the comparison between oxidative and enzymatic polymerization mechanisms deserves deeper mechanistic investigation.",
     "hypotheses": [
-      "Vertical substitution creates cooperative enhancement of spin-orbit coupling and transition dipoles",
-      "This cooperation increases phosphorescence efficiency to match fluorescence levels across visible spectrum"
+      "Balancing three biosynthetic modules increases precursor yield",
+      "3-deoxy-D-arabinoheptulosonate 7-phosphate synthase variants improve flux",
+      "Laccase treatment produces distinct pyomelanin versus alkaline polymerization"
     ],
     "results": [
-      "Confirmed: vertical substitution enhances phosphorescence efficiency",
-      "Confirmed: efficiency comparable to fluorescence across visible range"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41598-026-44218-9",
-    "source": "physics",
-    "id": "10.1038/s41598-026-44218-9",
-    "title": "A new free surface identification method for 3D MPS method",
-    "projectPage": "https://www.nature.com/articles/s41598-026-44218-9",
-    "journal": "Scientific Reports",
-    "publishedAt": "2026-03-17",
-    "category": "Applied Physics",
-    "task": "Improve free-surface identification in 3D Moving Particle Semi-Implicit method",
-    "model": "(numerical method) MPS with relative position divergence (RPD) formulation",
-    "inputs": "Particle positions, particle number density, normal vector estimation",
-    "outputs": "Surface particle classification, pressure field predictions",
-    "key_results": "RPD+NV method reduces false negatives/positives; smoother, more physically consistent pressure fields; no significant computational cost increase; validated on convex, concave, and cavity-containing geometries",
-    "comments": "Robust surface detection improves MPS accuracy for practical applications, though method still depends on local particle density variations.",
-    "hypotheses": [
-      "Improved RPD formulation achieves better consistency with theoretical values",
-      "RPD coupled with surface normal vector (RPD+NV) accurately identifies particles on complex boundaries",
-      "Combined method reduces pressure oscillations without computational penalty"
-    ],
-    "results": [
-      "Confirmed: improved RPD consistency demonstrated",
-      "Confirmed: RPD+NV identifies surface particles on convex, concave, and cavity boundaries",
-      "Confirmed: pressure oscillations reduced; minimal cost increase"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41598-026-43327-9",
-    "source": "physics",
-    "id": "10.1038/s41598-026-43327-9",
-    "title": "Deep learning analysis for enhanced prediction of heat transfer in Maxwell hybrid nanofluids with non-Fourier law and radiation effects",
-    "projectPage": "https://www.nature.com/articles/s41598-026-43327-9",
-    "journal": "Scientific Reports",
-    "publishedAt": "2026-03-17",
-    "category": "Applied Physics",
-    "task": "Predict heat transfer in Maxwell hybrid nanofluids using deep learning surrogate models",
-    "model": "(numerical + ML) MATLAB bvp4c solver + multilayer perceptron neural network",
-    "inputs": "Magnetic parameter (0.1\u20131.2), radiation parameter (0.3\u20130.9), Biot number (0\u20130.8), velocity slip",
-    "outputs": "Velocity and temperature distributions, velocity gradients, Nusselt number",
-    "key_results": "ANN achieves MSE \u2264 6.9\u00d710\u207b\u00b9\u00b2 for velocity gradients, \u2264 1.5\u00d710\u207b\u00b9\u00b9 for temperature; R \u2248 1 across all subsets; thermal radiation and Biot enhance heat transfer; magnetic field suppresses velocity",
-    "comments": "ANN surrogate model provides excellent accuracy and computational efficiency, but generalization to out-of-range parameters requires validation.",
-    "hypotheses": [
-      "Thermal radiation and Biot number enhance heat transfer rates",
-      "Magnetic field effects suppress velocity field",
-      "ANN models accurately capture nonlinear boundary-layer physics with negligible error"
-    ],
-    "results": [
-      "Confirmed: thermal radiation and Biot increase heat transfer",
-      "Confirmed: magnetic parameter suppresses velocity",
-      "Confirmed: ANN reproduces numerical solutions with R\u22481"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41598-026-44737-5",
-    "source": "physics",
-    "id": "10.1038/s41598-026-44737-5",
-    "title": "Temperature control performance change of EPS foam box with ice packing in aircraft cargo hold",
-    "projectPage": "https://www.nature.com/articles/s41598-026-44737-5",
-    "journal": "Scientific Reports",
-    "publishedAt": "2026-03-17",
-    "category": "Applied Physics",
-    "task": "Evaluate refrigeration performance of foam box with ice packing in aircraft cargo hold",
-    "model": "(simulation) finite element energy balance and temperature field model",
-    "inputs": "Low-pressure cargo hold environment, convective heat transfer coefficient, insulation properties",
-    "outputs": "Temperature distribution inside foam box, cooling rate, ice consumption",
-    "key_results": "Refrigeration effect degrades in aircraft cargo hold compared to ground; degradation increases with convective heat transfer coefficient; moderate ice increase recommended for air transport",
-    "comments": "Practical guidance for air cargo operations, though model simplifications and uncertainty in convective coefficients may limit quantitative predictions.",
-    "hypotheses": [
-      "Low-pressure aircraft environment reduces refrigeration effectiveness compared to ground transport",
-      "Cooling degradation correlates with convective heat transfer coefficient"
-    ],
-    "results": [
-      "Confirmed: refrigeration effect changes in aircraft cargo hold",
-      "Confirmed: performance degrades with increasing convective heat transfer"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41598-026-44091-6",
-    "source": "physics",
-    "id": "10.1038/s41598-026-44091-6",
-    "title": "Deterministic statistical patterns preceding ice shocks revealed by ice deformation measurements",
-    "projectPage": "https://www.nature.com/articles/s41598-026-44091-6",
-    "journal": "Scientific Reports",
-    "publishedAt": "2026-03-17",
-    "category": "Applied Physics",
-    "task": "Identify short-term precursor patterns preceding ice shock fracture events",
-    "model": "(statistical analysis) deformation measurement time series with topological pattern recognition",
-    "inputs": "Ice deformation measurements, thermal expansion history, temporal evolution",
-    "outputs": "Statistical precursor patterns, temporal signatures, fracture prediction indicators",
-    "key_results": "Ordered linear features emerge preceding ice shocks; transition from stochastic to deterministic dynamics; precursors appear ~1 hour, ~tens of minutes, and ~minutes before failure; increasing topological similarity indicates progressive synchronization",
-    "comments": "Statistical approach identifies deterministic precursors in complex fracture process, though applicability to other systems and sensitivity to measurement noise require investigation.",
-    "hypotheses": [
-      "Ice shock approach accompanied by transition from stochastic to deterministic dynamics",
-      "Multiple groups of short-term precursors exist at different timescales before failure",
-      "Progressive synchronization of deformation processes precedes fracture"
-    ],
-    "results": [
-      "Confirmed: deterministic patterns emerge before ice shocks",
-      "Confirmed: precursor groups identified at ~1 hour, ~tens of minutes, ~minutes timescales",
-      "Confirmed: topological similarity increases progressively prior to failure"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41598-026-42509-9",
-    "source": "physics",
-    "id": "10.1038/s41598-026-42509-9",
-    "title": "\u00c9tendue and radiance conservation in transformation optics establish strict analytical bounds on field enhancement",
-    "projectPage": "https://www.nature.com/articles/s41598-026-42509-9",
-    "journal": "Scientific Reports",
-    "publishedAt": "2026-03-17",
-    "category": "Optics/Photonics",
-    "task": "Establish fundamental bounds on field enhancement in passive transformation optics",
-    "model": "(theory) transformation optics with phase-space formulation and Liouville theorem",
-    "inputs": "Coordinate transformation, geometric area-compression ratio, impedance-matching condition",
-    "outputs": "Maximum achievable field enhancement, radiance and \u00e9tendue conservation constraints",
-    "key_results": "Maximum average intensity in passive concentrator limited solely by geometric area-compression ratio; Liouville's theorem enforces phase-space volume preservation; constraint applies universally to zero-index, optical-null, and illusion devices",
-    "comments": "Elegant metric-based framework provides fundamental limits, though practical devices may face additional constraints from dispersion and material losses.",
-    "hypotheses": [
-      "Passive transformation optics performs canonical (symplectic) mapping on optical phase space",
-      "Liouville's theorem applies to transformation-optical media, enforcing phase-space conservation",
-      "Maximum field enhancement limited by geometric area-compression ratio independent of material realization"
-    ],
-    "results": [
-      "Confirmed: TO establishes canonical phase-space mappings",
-      "Confirmed: phase-space volume preservation enforced",
-      "Confirmed: concentration limits depend only on geometric compression ratio"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41524-026-02023-y",
-    "source": "physics",
-    "id": "10.1038/s41524-026-02023-y",
-    "title": "Constructing machine learning interatomic potentials with minimum amount of ab initio data",
-    "projectPage": "https://www.nature.com/articles/s41524-026-02023-y",
-    "journal": "npj Computational Materials",
-    "publishedAt": "2026-03-17",
-    "category": "Applied Physics",
-    "task": "Develop system-specific machine learning interatomic potentials with minimal ab initio data",
-    "model": "(ML) fine-tuned MACE model \u2192 distilled NEP model with active sampling",
-    "inputs": "Few hundred DFT calculations, pretrained MACE model, target system",
-    "outputs": "Fast, accurate NEP model for large-scale MD; comparison of models and computational efficiency",
-    "key_results": "Fine-tuned MACE retains stability of pretrained model; single-shot workflow significantly reduces DFT overhead compared to conventional active learning; fine-tuned MACE is ~10\u00d7 more DFT-efficient than start-from-scratch NEP; final NEP enables competitive accuracy in large-scale MD",
-    "comments": "Practical workflow leveraging transfer learning and model distillation achieves efficiency gains, though applicability depends on similarity between pretrained MACE data and target system.",
-    "hypotheses": [
-      "Fine-tuning pretrained MACE model is more DFT-efficient than training start-from-scratch NEP",
-      "Distilling fine-tuned MACE into NEP maintains accuracy for large-scale MD",
-      "Single-shot MACE-driven sampling strategy reduces active learning iterations"
-    ],
-    "results": [
-      "Confirmed: fine-tuning MACE more efficient than start-from-scratch NEP training",
-      "Confirmed: distilled NEP achieves competitive accuracy",
-      "Confirmed: single-shot workflow reduces total DFT cost"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41598-026-43994-8",
-    "source": "physics",
-    "id": "10.1038/s41598-026-43994-8",
-    "title": "Thermal and dielectric performance of transformer oil-based nanofluid with fullerene C60 nanoparticles",
-    "projectPage": "https://www.nature.com/articles/s41598-026-43994-8",
-    "journal": "Scientific Reports",
-    "publishedAt": "2026-03-17",
-    "category": "Applied Physics",
-    "task": "Evaluate thermal and dielectric performance of C60-fullerene-doped transformer oil",
-    "model": "(experiment + analytical) distribution transformer with natural convection loop model",
-    "inputs": "C60 concentration (0.004% w/V), transformer loading, thermal and electrical test conditions",
-    "outputs": "Thermal conductivity, AC breakdown voltage, flash point, temperature rise, heat circulation effects",
-    "key_results": "C60 concentration negligible impact on viscosity/density/thermal conductivity; AC breakdown voltage increased 65%; flash point decreased; transformer met EN 60076-2:2011 standard; slight temperature reduction due to enhanced oil circulation; analytical model predictions agree with experiments",
-    "comments": "Industrial-scale production and deployment demonstrate practical viability, though long-term aging and particle agglomeration require monitoring.",
-    "hypotheses": [
-      "Very small C60 concentration significantly increases AC breakdown voltage",
-      "C60 particles enhance coupling between windings and cooling surfaces",
-      "Nanofluid meets transformer safety standards"
-    ],
-    "results": [
-      "Confirmed: 65% AC breakdown voltage increase at 0.004% concentration",
-      "Confirmed: slight temperature reduction from improved circulation",
-      "Confirmed: meets EN 60076-2:2011 standard"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41598-026-43858-1",
-    "source": "physics",
-    "id": "10.1038/s41598-026-43858-1",
-    "title": "Effect of copper rod length on the melting behavior of paraffin wax in hemispherical latent heat storage units",
-    "projectPage": "https://www.nature.com/articles/s41598-026-43858-1",
-    "journal": "Scientific Reports",
-    "publishedAt": "2026-03-17",
-    "category": "Applied Physics",
-    "task": "Enhance melting performance of paraffin wax using copper rod inserts in hemispherical geometry",
-    "model": "(simulation) ANSYS Fluent 16 with enthalpy-porosity method",
-    "inputs": "Copper rod length (0, 10, 20, 30 mm), RT42 paraffin wax, hemispherical cell geometry",
-    "outputs": "Melting time, melting rate, temperature distribution, convective currents",
-    "key_results": "Melting time reduced from 300 min (no rod) to 150, 120, 90 min with 10, 20, 30 mm rods respectively; highest melting time reduction 70%; melting rate increased 233%; stronger convection and more homogeneous temperature distribution",
-    "comments": "Simple, effective thermal enhancement for organic PCMs, though rod placement optimization and material corrosion/compatibility merit further investigation.",
-    "hypotheses": [
-      "Copper rod length directly enhances thermal conductivity and convection",
-      "Increasing rod length monotonically reduces melting time",
-      "Rod presence strengthens convective currents and homogenizes temperature"
-    ],
-    "results": [
-      "Confirmed: 70% melting time reduction with 30 mm rod",
-      "Confirmed: monotonic improvement with increasing rod length",
-      "Confirmed: enhanced convection and temperature homogeneity"
+      "Confirmed; 66-fold homogentisic acid increase achieved",
+      "Confirmed; directed evolution identified beneficial variants",
+      "Confirmed; different polymerization conditions yield different product properties"
     ]
   },
   {
@@ -1262,19 +980,19 @@
     "journal": "Nature Communications",
     "publishedAt": "2026-03-17",
     "category": "Structural Biology",
-    "task": "Determine structures of ATP synthase and respiratory supercomplexes in native mitochondrial membranes",
-    "model": "cryo-electron microscopy on sub-mitochondrial particles",
-    "inputs": "Sub-mitochondrial particles (SMPs) from bovine heart mitochondria",
-    "outputs": "High-resolution 3D structures of FoF1-IF\u2081 dimers/tetramers and respiratory supercomplex compositions",
-    "key_results": "FoF1 tetrameric units stabilized by IF\u2081; identification of new supercomplex composition CI\u2081CIII\u2082CIV\u2083 and mega-complex CI\u2082CIII\u2082CIV\u2086; Fo domain e-subunit\u2013c\u2088-ring interface resolved without discrete lipid density",
-    "comments": "This work elegantly bridges structural biology with functional organization of cristae, enabling rapid characterization from minimal membrane fractions.",
+    "task": "Determine structures of ATP synthase and respiratory supercomplexes in native membranes",
+    "model": "(experiment) cryo-electron microscopy on sub-mitochondrial particles",
+    "inputs": "Bovine heart mitochondrial sub-mitochondrial particles",
+    "outputs": "3D structures of FoF1 ATP synthase dimers/tetramers and respiratory supercomplex compositions",
+    "key_results": "FoF1 tetrameric units stabilized by IF\u2081; identification of CI\u2081CIII\u2082CIV\u2083 and CI\u2082CIII\u2082CIV\u2086 megacomplex assemblies",
+    "comments": "High-resolution native-state structures enable mechanistic understanding of energy metabolism but lack functional validation of oligomeric state roles.",
     "hypotheses": [
-      "FoF1 complexes oligomerize via IF\u2081-mediated interactions to organize membrane architecture",
-      "Respiratory complexes assemble into functionally distinct supercomplex stoichiometries"
+      "FoF1 tetrameric units contribute to cristae tip formation",
+      "Multiple respiratory supercomplex compositions coexist in mammalian mitochondria"
     ],
     "results": [
-      "Confirmed FoF1 tetramers contribute to cristae tip shaping",
-      "Identified additional supercomplex compositions beyond previously known variants"
+      "Confirmed tetrameric FoF1 assemblies observed in mitochondrial inner membrane",
+      "Confirmed additional supercomplex compositions identified beyond previously known CI\u2081CIII\u2082CIV\u2081 and CI\u2081CIII\u2082CIV\u2082"
     ]
   },
   {
@@ -1286,20 +1004,21 @@
     "journal": "Nature Communications",
     "publishedAt": "2026-03-17",
     "category": "Protein Dynamics",
-    "task": "Map mutational effects on IAPP amyloid nucleation and aggregation",
-    "model": "deep mutational scanning of 1916 IAPP variants",
-    "inputs": "Islet amyloid polypeptide sequence variants (substitutions, insertions, truncations, deletions)",
-    "outputs": "Quantitative mutational atlas showing relative amyloid nucleation propensity for each variant",
-    "key_results": "Residues 15-32 are highly sensitive to mutation; residues 21-27 show tightest structural constraints; nucleation-slowing mutations correlate between IAPP and A\u03b2 but acceleration mutations do not",
-    "comments": "The finding that mutation effects are directionally asymmetric between different amyloid peptides suggests context-dependent mechanistic differences in nucleation pathways.",
+    "task": "Quantify effects of mutations on IAPP amyloid nucleation",
+    "model": "(experiment) deep mutational scanning with amyloid formation assay",
+    "inputs": "1916 IAPP variants (substitutions, insertions, truncations, deletions)",
+    "outputs": "Mutational effects on amyloid nucleation rates and identification of structurally sensitive regions",
+    "key_results": "Residues 15-32 are mutation-sensitive; residues 21-27 show substantial effects on nucleation; nucleation-slowing mutations correlate between IAPP and amyloid-beta but acceleration effects do not",
+    "comments": "Comprehensive mutational atlas reveals that aggregation mechanisms differ between amyloids despite sequence homology, limiting cross-prediction of pathogenic variants.",
     "hypotheses": [
-      "IAPP core region (15-32) is structured in amyloid fibrils and constrains sequence variation",
-      "Mutations slowing nucleation share common biophysical principles across different amyloid peptides",
-      "Mutations accelerating nucleation exploit peptide-specific sequence context"
+      "Core amyloid-forming region (15-32) matches early aggregated species in vitro",
+      "Mutation effects on nucleation are transferable between different amyloids",
+      "Residues 21-27 experience tighter structural constraints in amyloid core"
     ],
     "results": [
-      "Identified continuous mutation-sensitive region matching experimentally observed early aggregated species",
-      "Demonstrated asymmetric correlation of mutational effects between IAPP and A\u03b2 amyloids"
+      "Confirmed mutation sensitivity in residues 15-32 matching in vitro early aggregates",
+      "Refuted universal transferability of acceleration mutations across amyloids",
+      "Confirmed enhanced sensitivity of residues 21-27"
     ]
   },
   {
@@ -1312,19 +1031,526 @@
     "publishedAt": "2026-03-17",
     "category": "Protein Dynamics",
     "task": "Elucidate kinase-mediated regulation of biomolecular condensate size and dynamics",
-    "model": "biophysical model of phase separation with phosphorylation-dependent interaction disruption",
-    "inputs": "Cell cycle phase; KEY1 kinase activity; Rubisco-EPYC1 linker protein interactions",
-    "outputs": "Condensate size, number, and positioning dynamics; dissolution and re-condensation kinetics",
-    "key_results": "KEY1 phosphorylates EPYC1 to disrupt Rubisco-EPYC1 interactions and control pyrenoid condensate size; key1 mutants display multiple persistent small condensates unable to dissolve during cell division; biophysical model predicts condensate position control",
-    "comments": "This work elegantly connects post-translational modification to phase separation regulation, offering a generalizable mechanism for controlling condensate properties that likely extends beyond pyrenoids.",
+    "model": "(experiment) live-cell imaging and biophysical modeling of phase-separated condensates",
+    "inputs": "KEY1 kinase activity, EPYC1 phosphorylation state, Rubisco-EPYC1 interaction strength",
+    "outputs": "Condensate size, number, and dissolution dynamics; mechanistic model of size regulation",
+    "key_results": "KEY1 phosphorylates EPYC1 to disrupt Rubisco-EPYC1 interactions promoting condensate dissolution; key1 mutants show multiple persistent smaller condensates throughout cell cycle",
+    "comments": "Elegant demonstration of kinase-controlled phase separation but mechanistic model predictions for condensate positioning require experimental validation.",
     "hypotheses": [
-      "Kinase-mediated phosphorylation regulates biomolecular condensate size by modulating core-constituent interactions",
-      "KEY1 activity is necessary for pyrenoid dissolution and reconfiguration during cell division",
-      "Phase separation interaction strength scales with condensate size and positioning"
+      "KEY1 kinase controls pyrenoid condensate size through EPYC1 phosphorylation",
+      "KEY1-mediated dissolution is necessary for cell cycle-dependent condensate remodeling",
+      "Biophysical model can recapitulate condensate size and number regulation"
     ],
     "results": [
-      "KEY1-phosphorylated EPYC1 disrupts Rubisco binding and promotes condensate dissolution",
-      "KEY1 activity required for cell cycle-dependent condensate dynamics and normal photosynthetic function"
+      "Confirmed KEY1-dependent EPYC1 phosphorylation disrupts condensate-forming interactions",
+      "Confirmed key1 mutants fail normal cell cycle condensate dynamics",
+      "Confirmed biophysical model recapitulates size and number regulation with mechanism for position control"
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41597-026-07069-7",
+    "source": "computational-biology",
+    "id": "10.1038/s41597-026-07069-7",
+    "title": "VISDB 2.0: A manually curated resource of viral integration sites and their regulatory maps in human diseases",
+    "projectPage": "https://www.nature.com/articles/s41597-026-07069-7",
+    "journal": "Scientific Data",
+    "publishedAt": "2026-03-17",
+    "category": "Genomics",
+    "task": "Catalog and annotate human viral integration sites",
+    "model": "N/A",
+    "inputs": "209 peer-reviewed publications on viral integration events",
+    "outputs": "270,000+ manually curated viral integration site records with genomic annotations",
+    "key_results": "3.5-fold expansion from previous version; covers 11 viruses across 4 retroviruses and 7 DNA viruses; includes standardized coordinates and regulatory element mappings",
+    "comments": "A comprehensive reference resource with clear manual curation, though utility depends on continued updates and integration with emerging discovery methods.",
+    "hypotheses": [],
+    "results": []
+  },
+  {
+    "uid": "nature:10.1038/s41467-026-70065-3",
+    "source": "computational-biology",
+    "id": "10.1038/s41467-026-70065-3",
+    "title": "Local lateral connectivity is sufficient for replicating cortex-like topographical organization in deep neural networks",
+    "projectPage": "https://www.nature.com/articles/s41467-026-70065-3",
+    "journal": "Nature Communications",
+    "publishedAt": "2026-03-17",
+    "category": "Structural Prediction",
+    "task": "Determine mechanisms of topographic map formation in visual cortex",
+    "model": "Deep neural networks with local lateral connections",
+    "inputs": "Visual stimuli; standard backpropagation training",
+    "outputs": "Emergent topographic maps resembling primary, intermediate, and high-level visual cortex",
+    "key_results": "Local lateral connections alone drive cortical-like modular organization without explicit topography-inducing objectives; improved adversarial robustness",
+    "comments": "Elegant demonstration that local recurrent structure can self-organize feature maps, though it remains unclear how closely artificial maps capture biological constraints.",
+    "hypotheses": [
+      "Local lateral connections are sufficient for cortical topographic organization",
+      "Topographic maps improve robustness to adversarial perturbations"
+    ],
+    "results": [
+      "Maps resembling visual cortex emerged without explicit topography constraints",
+      "Models with lateral connections showed improved adversarial robustness"
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-44499-0",
+    "source": "computational-biology",
+    "id": "10.1038/s41598-026-44499-0",
+    "title": "An attention-based multimodal deep learning framework integrating EEG and ECG for enhanced stress detection",
+    "projectPage": "https://www.nature.com/articles/s41598-026-44499-0",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-17",
+    "category": "Statistical Methods",
+    "task": "Detect psychological stress from multimodal physiological signals",
+    "model": "Attention-based deep learning with multi-stream fusion (VGG16, EfficientNetB0, ResNeXt50)",
+    "inputs": "EEG (wavelet time-frequency maps) and ECG (beat variability and raw data)",
+    "outputs": "Stress state classification (neutral, tense, positive)",
+    "key_results": "95.7% accuracy in 3-way stress classification; 13.4\u201310.1 percentage points improvement over EEG-only (82.3%) and ECG-only (85.6%)",
+    "comments": "Strong multimodal fusion results, but generalization to other datasets and populations requires further validation before clinical deployment.",
+    "hypotheses": [
+      "Multimodal fusion improves stress detection over single modalities",
+      "Attention-based weighting optimally combines EEG and ECG signals"
+    ],
+    "results": [
+      "95.7% accuracy achieved with multimodal approach vs. 82.3% (EEG) and 85.6% (ECG)",
+      "System generalizes across WESAD and CASE datasets"
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-43638-x",
+    "source": "computational-biology",
+    "id": "10.1038/s41598-026-43638-x",
+    "title": "In silico discovery of thioglycoside analogues as donor-site inhibitors of glycosyltransferase LgtC",
+    "projectPage": "https://www.nature.com/articles/s41598-026-43638-x",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-17",
+    "category": "Other",
+    "task": "Identify glycosyltransferase LgtC inhibitors for antivirulence therapy",
+    "model": "Molecular docking (AutoDock-GPU) and molecular dynamics (AMBER14)",
+    "inputs": "Thioglycoside analog library from PubChem; crystal structure of LgtC UDP-galactose donor site",
+    "outputs": "Ranked candidate inhibitors with binding scores and stability metrics",
+    "key_results": "C-5 (\u22128.36 kcal/mol) and C-18 (\u22128.13 kcal/mol) show favorable binding superior to natural substrate UDP-\u03b1-D-galactose (\u22126.74 kcal/mol); stable RMSD 2.0\u20133.0 \u00c5 over 100 ns MD",
+    "comments": "Rigorous computational pipeline with consistency between docking and MD, but biochemical validation of the three prioritized candidates remains essential.",
+    "hypotheses": [
+      "Thioglycoside analogs competitively inhibit LgtC's donor site",
+      "Binding stability correlates between docking and molecular dynamics"
+    ],
+    "results": [
+      "C-5, C-14, C-18 identified as computationally prioritized candidates",
+      "Top candidates maintained stable poses with hydrogen-bond and \u03c0-stacking networks"
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-44209-w",
+    "source": "computational-biology",
+    "id": "10.1038/s41598-026-44209-w",
+    "title": "Zero-shot English\u2013Assamese neural machine translation via pivot-based cross-lingual embedding alignment and transfer learning",
+    "projectPage": "https://www.nature.com/articles/s41598-026-44209-w",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-17",
+    "category": "Statistical Methods",
+    "task": "Enable zero-shot neural machine translation for low-resource language pair",
+    "model": "Multilingual mBART with cross-lingual embedding alignment (Procrustes optimization)",
+    "inputs": "English-Bengali parallel data; English-Assamese test corpus; subword tokenization and language tagging",
+    "outputs": "English-to-Assamese translations without direct parallel training data",
+    "key_results": "BLEU 28.65 (7.53 points above baseline); human adequacy/fluency 4.5/5 and 4.6/5; 8.4% error reduction; 26.9% inference speedup",
+    "comments": "Strong empirical results leveraging linguistic proximity, though the approach is inherently limited to language families with available bridge languages.",
+    "hypotheses": [
+      "Pivot-based transfer learning bridges resource gaps for linguistically proximate languages",
+      "Embedding alignment and language tagging reduce off-target errors"
+    ],
+    "results": [
+      "BLEU 28.65 achieved; 7.53 point improvement over direct baselines",
+      "Ablation confirmed criticality of embedding alignment and language-aware tagging"
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-42273-w",
+    "source": "computational-biology",
+    "id": "10.1038/s41598-026-42273-w",
+    "title": "A GWAS\u2013machine learning framework reveals protein-synthesis pathway signals for yield in Theobroma cacao after population-structure correction",
+    "projectPage": "https://www.nature.com/articles/s41598-026-42273-w",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-17",
+    "category": "Genomics",
+    "task": "Identify genetic variants and phenotypic predictors of cacao yield",
+    "model": "Bootstrap Forest GWAS with neural networks for phenotype-only prediction",
+    "inputs": "346 diverse cacao accessions; SNP genotypes; phenotypes (yield components, seed traits)",
+    "outputs": "SNP importance rankings; functional enrichment; phenotype-based yield prediction",
+    "key_results": "Population-structure-corrected GWAS enriched for ribosome/translation pathways; cotyledon mass and length are top predictors of wet bean mass; SNP signals consistent across pod index and seed number",
+    "comments": "Pragmatic ML workflow with explicit acknowledgment of limitations (marker density, phenotype provenance), though low-density genotyping may miss rare variants.",
+    "hypotheses": [
+      "Population structure correction reveals true genetic associations with yield",
+      "Phenotypic predictors (cotyledon traits) forecast total bean mass"
+    ],
+    "results": [
+      "Protein-synthesis pathway enrichment after population-structure adjustment",
+      "Cotyledon morphology identified as strongest yield predictor"
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-42822-3",
+    "source": "computational-biology",
+    "id": "10.1038/s41598-026-42822-3",
+    "title": "From chain length to cell death: mechanistic basis for ROS-mediated apoptosis induced by saturated fatty acids",
+    "projectPage": "https://www.nature.com/articles/s41598-026-42822-3",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-17",
+    "category": "Other",
+    "task": "Characterize structure\u2013function relationships for saturated fatty acid ethanolamides and apoptosis",
+    "model": "Experimental and molecular docking (physicochemical and biochemical assays; receptor docking PDB 5TGZ, 6PT0)",
+    "inputs": "Fatty acid ethanolamide series (C8:0\u2013C18:0); cell lines; molecular docking to cannabinoid receptors",
+    "outputs": "ROS generation, mitochondrial membrane potential, apoptosis rates, and receptor binding profiles",
+    "key_results": "C12:0-MEA exhibits distinct profile with enhanced ROS and apoptosis; chain length is dominant determinant (PCA); C12:0\u2013C18:0 interact favorably with cannabinoid receptors",
+    "comments": "Comprehensive structure\u2013activity analysis, but the mechanistic contribution of cannabinoid receptor binding versus other targets warrants functional validation.",
+    "hypotheses": [
+      "Acyl chain length modulates ROS generation and apoptotic activity",
+      "C12:0-MEA represents an optimal prodrug balance between bioactivity and toxicity"
+    ],
+    "results": [
+      "Chain length identified as dominant determinant of physicochemical and biological behavior",
+      "C12:0-MEA showed distinct enhanced ROS and apoptosis profile"
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-44593-3",
+    "source": "computational-biology",
+    "id": "10.1038/s41598-026-44593-3",
+    "title": "Automated detection and segmentation of Weiss ring in fundus photography images using deep learning",
+    "projectPage": "https://www.nature.com/articles/s41598-026-44593-3",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-17",
+    "category": "Structural Prediction",
+    "task": "Automated detection and localization of Weiss rings in fundus photographs",
+    "model": "U-Net segmentation + EfficientNet-B0 dual classifiers with meta-classifier fusion",
+    "inputs": "Fundus photograph images",
+    "outputs": "Weiss-ring presence classification and spatial segmentation",
+    "key_results": "U-Net Dice 0.578, IoU 0.421 for segmentation; meta-classifier AUC 0.903, accuracy 0.812, sensitivity 0.692, specificity 0.872; Grad-CAM highlights peripapillary regions",
+    "comments": "Integrated segmentation\u2013classification approach with interpretability, but moderate segmentation performance reflects the challenge of low-contrast peripapillary anatomy on fundus photos.",
+    "hypotheses": [
+      "Meta-classifier fusion outperforms individual CNN classifiers",
+      "Segmentation plus classification improves discrimination over classification alone"
+    ],
+    "results": [
+      "Meta-classifier achieved AUC 0.903, outperforming individual CNNs",
+      "Integrated approach improved discrimination relative to classification alone"
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41467-026-70589-8",
+    "source": "physics",
+    "id": "10.1038/s41467-026-70589-8",
+    "title": "Exploring electron spin dynamics in spin chains using defects as a quantum probe",
+    "projectPage": "https://www.nature.com/articles/s41467-026-70589-8",
+    "journal": "Nature Communications",
+    "publishedAt": "2026-03-17",
+    "category": "Condensed Matter",
+    "task": "Characterizing spin relaxation and coherence in topological defects of dimerized spin chains",
+    "model": "(theory) dimerized spin chain with edge states",
+    "inputs": "Topological defect (edge state) in dimerized chain; temperature, phonon interactions",
+    "outputs": "Electron spin resonance relaxation time, coherence time, homogeneous broadening",
+    "key_results": "Low-temperature relaxation governed by phonon-bottlenecking; coherence time enhanced relative to isolated ions due to reduced inter-edge dipolar field",
+    "comments": "Provides design principles for quantum device implementation, though experimental validation on realistic materials would strengthen claims.",
+    "hypotheses": [
+      "Phonon-bottlenecked process dominates relaxation at low temperatures",
+      "Chain dimerization gap governs high-temperature relaxation",
+      "Intrachain exchange coupling reduces effective dipolar field between edge states"
+    ],
+    "results": [
+      "Confirmed phonon-bottlenecking regime at lowest T",
+      "Confirmed dimerization-gap dependence at high T",
+      "Confirmed enhanced coherence from reduced dipolar interactions"
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s42005-026-02586-8",
+    "source": "physics",
+    "id": "10.1038/s42005-026-02586-8",
+    "title": "Real-time simulation of jet energy loss and entropy production in high-energy scattering with matter",
+    "projectPage": "https://www.nature.com/articles/s42005-026-02586-8",
+    "journal": "Communications Physics",
+    "publishedAt": "2026-03-17",
+    "category": "High Energy/Particle",
+    "task": "Simulating real-time jet energy loss in high-energy nuclear scattering",
+    "model": "(simulation) 1+1d massive QED with tensor networks",
+    "inputs": "Propagating probe state, dense dynamical target medium; probe energy, medium density",
+    "outputs": "Energy loss rate, entanglement entropy, probe-medium mixing dynamics",
+    "key_results": "Energy loss scales linearly with path length in medium; three regimes identified (ballistic, local excitation, black-disk limit); entanglement entropy tracks mixing",
+    "comments": "Tensor network approach is promising for quantum simulators, but translation to experimental quantum devices remains conceptually sketched rather than fully developed.",
+    "hypotheses": [
+      "Energy loss rate scales linearly with path length",
+      "Three distinct dynamical regimes exist across density ranges",
+      "Entanglement entropy reveals probe-medium quantum mixing"
+    ],
+    "results": [
+      "Confirmed linear energy loss scaling",
+      "Confirmed three regimes with distinct evolution signatures",
+      "Confirmed entanglement as probe of mixing dynamics"
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41567-026-03213-7",
+    "source": "physics",
+    "id": "10.1038/s41567-026-03213-7",
+    "title": "Bose\u2013Hubbard simulator with long-range hopping",
+    "projectPage": "https://www.nature.com/articles/s41567-026-03213-7",
+    "journal": "Nature Physics",
+    "publishedAt": "2026-03-17",
+    "category": "Condensed Matter",
+    "task": "Engineering strongly correlated lattice models via dipolar exciton arrays",
+    "model": "(experiment) Bose\u2013Hubbard with long-range hopping and dipolar repulsions",
+    "inputs": "Nanoscopic exciton lattice; dipole density, confinement geometry",
+    "outputs": "Many-body sub-radiance buildup, temporal coherence, Mott-like phase signatures",
+    "key_results": "Long-range hopping evidenced by algebraic slowdown of radiative dissipation; threshold coherence increase for dipolar quantum solids indicating exciton condensation in sub-radiant state",
+    "comments": "Elegant experimental platform combining quantum optics with condensed-matter simulation, though scalability to larger arrays with tunable interactions remains unclear.",
+    "hypotheses": [
+      "Long-range hopping produces sub-radiant many-body states",
+      "Coherence threshold emergence signals condensation in Mott phase",
+      "Excitons condense into single sub-radiant state for ordered phases"
+    ],
+    "results": [
+      "Confirmed long-range hopping via sub-radiance buildup",
+      "Confirmed coherence threshold for dipolar solids",
+      "Confirmed single-state condensation in Mott phases"
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41567-026-03216-4",
+    "source": "physics",
+    "id": "10.1038/s41567-026-03216-4",
+    "title": "Origin of strange metallicity in a d-orbital kagome metal",
+    "projectPage": "https://www.nature.com/articles/s41567-026-03216-4",
+    "journal": "Nature Physics",
+    "publishedAt": "2026-03-17",
+    "category": "Condensed Matter",
+    "task": "Identifying microscopic origin of strange metallicity in kagome metal",
+    "model": "(experiment) Ni\u2083In kagome metal with flat band near Fermi level",
+    "inputs": "Magnetic field, temperature; scanning tunneling spectroscopy",
+    "outputs": "Zero-bias peak\u2013dip structure, quasiparticle collapse, orbital-driven localization signature",
+    "key_results": "Zero-bias peak arises from compact molecular orbitals via destructive quantum interference; emergent f-shell-like moments in d-electron kagome metal; quasiparticle collapse across Brillouin zone",
+    "comments": "Provides concrete spectroscopic evidence linking kagome geometry to strange metallicity through orbital physics, though microscopic mechanism explanation is somewhat qualitative.",
+    "hypotheses": [
+      "Destructive quantum interference creates compact molecular orbitals",
+      "Orbital-driven localization produces emergent f-shell-like moments",
+      "Quasiparticle collapse is correlated with strange-metal behavior"
+    ],
+    "results": [
+      "Confirmed orbital origin of zero-bias peak",
+      "Confirmed emergence of f-like moments in d-electron system",
+      "Confirmed tracking of quasiparticle dynamics with temperature/field"
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41467-026-70371-w",
+    "source": "physics",
+    "id": "10.1038/s41467-026-70371-w",
+    "title": "Vertical substitution strategy to enable cooperation between spin\u2013orbit coupling and transition dipoles for organic phosphorescence",
+    "projectPage": "https://www.nature.com/articles/s41467-026-70371-w",
+    "journal": "Nature Communications",
+    "publishedAt": "2026-03-17",
+    "category": "Optics/Photonics",
+    "task": "Enhancing organic phosphorescence efficiency via cooperative spin-orbit coupling",
+    "model": "(molecular design) conjugated chromophore with vertical through-space substitution",
+    "inputs": "Main-group element vertical substituents perpendicular to conjugation plane",
+    "outputs": "Phosphorescence quantum yield across visible wavelengths",
+    "key_results": "Vertical substitution strategy enhances organic phosphorescence to fluorescence-level efficiency (visible range); cooperative effect of spin-orbit and transition dipoles achieved",
+    "comments": "Novel design strategy differs fundamentally from horizontal-substitution fluorescence approaches, but quantitative efficiency benchmarks and structural examples would strengthen the work.",
+    "hypotheses": [
+      "Vertical substitution cooperatively enhances spin-orbit coupling strength",
+      "Through-space interaction with conjugated dipoles amplifies phosphorescence",
+      "Efficiency parity with fluorescence is achievable across visible spectrum"
+    ],
+    "results": [
+      "Confirmed cooperative enhancement of spin-orbit and dipole effects",
+      "Confirmed phosphorescence efficiency improvement to fluorescence levels",
+      "Confirmed wavelength-independent enhancement across visible range"
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-44218-9",
+    "source": "physics",
+    "id": "10.1038/s41598-026-44218-9",
+    "title": "A new free surface identification method for 3D MPS method",
+    "projectPage": "https://www.nature.com/articles/s41598-026-44218-9",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-17",
+    "category": "Applied Physics",
+    "task": "Improving free-surface identification in 3D Moving Particle Semi-Implicit method",
+    "model": "(computational) MPS method with improved relative position divergence formulation",
+    "inputs": "Particle positions, number density; surface normal vector estimation",
+    "outputs": "Surface particle detection accuracy, pressure field predictions",
+    "key_results": "RPD + NV method reduces false negatives/positives in surface identification; smoother pressure fields without computational overhead; validated on hydrostatic, dam-break, damped oscillation cases",
+    "comments": "Practical improvement to standard MPS addressing real implementation issues; results are incremental but solid engineering contribution for 3D fluid simulations.",
+    "hypotheses": [
+      "Improved RPD formulation better matches theoretical divergence values",
+      "Surface normal vector estimation improves detection on curved boundaries",
+      "Combined RPD + NV method reduces pressure oscillations"
+    ],
+    "results": [
+      "Confirmed improved RPD consistency with theory",
+      "Confirmed detection accuracy on convex, concave, and cavity boundaries",
+      "Confirmed pressure field smoothing and low false-positive/negative rates"
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-43327-9",
+    "source": "physics",
+    "id": "10.1038/s41598-026-43327-9",
+    "title": "Deep learning analysis for enhanced prediction of heat transfer in Maxwell hybrid nanofluids with non-Fourier law and radiation effects",
+    "projectPage": "https://www.nature.com/articles/s41598-026-43327-9",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-17",
+    "category": "Applied Physics",
+    "task": "Predicting heat transfer in Maxwell hybrid nanofluids using deep learning",
+    "model": "(simulation + neural network) Cattaneo\u2013Christov heat flux, Maxwell fluid, CNT hybrid nanofluid",
+    "inputs": "Magnetic field strength, radiation parameter, Biot number, velocity slip, boundary conditions",
+    "outputs": "Velocity and temperature distributions; heat transfer rates",
+    "key_results": "ANN achieves MSE of 6.92\u00d710\u207b\u00b9\u00b2 (velocity) and 1.47\u00d710\u207b\u00b9\u00b9 (temperature) with R\u22481; thermal radiation and Biot number enhance heat transfer; magnetic field suppresses velocity",
+    "comments": "Strong ANN performance (R\u22481) suggests effective surrogate modeling, though generalization to untrained parameter regimes and comparison with other ML methods would be valuable.",
+    "hypotheses": [
+      "Thermal radiation and Biot number enhance heat transfer rates",
+      "Magnetic effects suppress velocity field",
+      "Hybrid nanofluid outperforms single nanofluid thermally",
+      "ANN can accurately reproduce nonlinear boundary-layer solutions"
+    ],
+    "results": [
+      "Confirmed thermal radiation and Biot number enhancement",
+      "Confirmed magnetic suppression of velocity",
+      "Confirmed hybrid nanofluid superiority",
+      "Confirmed ANN surrogacy with near-perfect correlation"
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-44737-5",
+    "source": "physics",
+    "id": "10.1038/s41598-026-44737-5",
+    "title": "Temperature control performance change of EPS foam box with ice packing in aircraft cargo hold",
+    "projectPage": "https://www.nature.com/articles/s41598-026-44737-5",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-17",
+    "category": "Applied Physics",
+    "task": "Modeling foam box refrigeration performance in aircraft cargo hold low-pressure environment",
+    "model": "(simulation) finite element thermal model of foam box with ice; aircraft cabin conditions",
+    "inputs": "Cabin pressure, convective heat transfer coefficient, foam insulation properties, ice mass",
+    "outputs": "Temperature field inside foam box, refrigeration effect, required ice adjustment",
+    "key_results": "Refrigeration performance degrades in aircraft cabin vs. ground; degradation increases with convective heat transfer coefficient; ice mass can be moderately reduced for air transport",
+    "comments": "Practical engineering study addressing real-world logistics, though results are qualitative and specific adjustment factors for different cabin configurations would improve utility.",
+    "hypotheses": [
+      "Low-pressure aircraft cabin environment reduces refrigeration effectiveness",
+      "Convective heat transfer coefficient correlates with performance degradation",
+      "Ice mass can be optimized based on flight conditions"
+    ],
+    "results": [
+      "Confirmed performance degradation in cabin vs. ground conditions",
+      "Confirmed correlation with convective heat transfer",
+      "Confirmed feasibility of moderate ice reduction"
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-44091-6",
+    "source": "physics",
+    "id": "10.1038/s41598-026-44091-6",
+    "title": "Deterministic statistical patterns preceding ice shocks revealed by ice deformation measurements",
+    "projectPage": "https://www.nature.com/articles/s41598-026-44091-6",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-17",
+    "category": "Other",
+    "task": "Identifying precursor patterns to ice-shock fracture events",
+    "model": "(observational analysis) ice deformation measurements with statistical and topological analysis",
+    "inputs": "Ice deformation time series during springtime thermal expansion",
+    "outputs": "Statistical precursor signatures, temporal evolution, topological pattern similarity",
+    "key_results": "Three distinct precursor groups: ~1 hour before, tens of minutes before, and final minutes before ice shock; deterministic patterns emerge preceding failure; increasing topological synchronization observed",
+    "comments": "Novel statistical framework for fracture precursors in complex media; applicability to other explosive-like processes is promising but requires validation on independent datasets.",
+    "hypotheses": [
+      "Ordered linear features constrain deformation statistics preceding shock",
+      "Transition from stochastic to deterministic behavior precedes failure",
+      "Multiple groups of short-term precursors exist at different timescales",
+      "Topological synchronization of deformation indicates imminent fracture"
+    ],
+    "results": [
+      "Confirmed emergence of ordered features constraining statistics",
+      "Confirmed stochastic-to-deterministic transition",
+      "Confirmed three groups of precursors at hour, tens-of-minutes, and minute timescales",
+      "Confirmed progressive topological synchronization"
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-42509-9",
+    "source": "physics",
+    "id": "10.1038/s41598-026-42509-9",
+    "title": "\u00c9tendue and radiance conservation in transformation optics establish strict analytical bounds on field enhancement",
+    "projectPage": "https://www.nature.com/articles/s41598-026-42509-9",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-17",
+    "category": "Optics/Photonics",
+    "task": "Establishing fundamental bounds on field enhancement in transformation optics",
+    "model": "(theory) transformation optics with optical-metric formulation; passive impedance-matched media",
+    "inputs": "Coordinate transformation; optical phase space, Hamiltonian ray dynamics",
+    "outputs": "Achievable field enhancement, radiance conservation, phase-space constraints",
+    "key_results": "Maximum intensity in passive TO concentrator limited solely by geometric area-compression ratio; Liouville's theorem constrains radiance preservation; bounds hold for zero-index, optical-null, and illusion devices",
+    "comments": "Elegant connection to canonical mechanics and phase-space geometry provides rigorous fundamental bounds, though experimental validation of predicted limits on real metamaterials would be instructive.",
+    "hypotheses": [
+      "Smooth passive impedance-matched TO performs canonical phase-space mapping",
+      "Liouville's theorem applies to transformation-optical media",
+      "Maximum field enhancement is limited by geometric compression ratio alone",
+      "TO redistributes intensity without increasing radiance"
+    ],
+    "results": [
+      "Confirmed canonical mapping properties of TO",
+      "Confirmed Liouville-type phase-space constraint",
+      "Confirmed geometric-ratio limitation independent of material",
+      "Confirmed intensity redistribution without radiance increase"
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41524-026-02023-y",
+    "source": "physics",
+    "id": "10.1038/s41524-026-02023-y",
+    "title": "Constructing machine learning interatomic potentials with minimum amount of ab initio data",
+    "projectPage": "https://www.nature.com/articles/s41524-026-02023-y",
+    "journal": "npj Computational Materials",
+    "publishedAt": "2026-03-17",
+    "category": "Applied Physics",
+    "task": "Accelerating machine learning interatomic potential development via model distillation",
+    "model": "(ML workflow) MACE fine-tuning + NEP distillation with active sampling",
+    "inputs": "Few hundred additional DFT calculations for target system; pretrained MACE model",
+    "outputs": "System-specific NEP model with competitive accuracy for large-scale MD",
+    "key_results": "Single-shot workflow eliminates multiple active-learning loops; fine-tuned MACE inherits pretrained stability; final NEP achieves accuracy competitive with conventional training using ~100\u00d7 fewer DFT data",
+    "comments": "Pragmatic reduction in DFT cost for MLIP development is valuable for practical materials discovery, though generalization to diverse material classes and systematic accuracy benchmarking across chemistries would strengthen claims.",
+    "hypotheses": [
+      "Pretrained MACE fine-tuning is more DFT-efficient than start-from-scratch training",
+      "Fine-tuned MACE can distill knowledge to smaller NEP model without accuracy loss",
+      "MACE-driven sampling strategy eliminates need for iterative active learning"
+    ],
+    "results": [
+      "Confirmed DFT efficiency of fine-tuning over cold-start",
+      "Confirmed successful knowledge distillation from MACE to NEP",
+      "Confirmed single-shot workflow feasibility with hundreds of DFT calculations"
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-43994-8",
+    "source": "physics",
+    "id": "10.1038/s41598-026-43994-8",
+    "title": "Thermal and dielectric performance of transformer oil-based nanofluid with fullerene C60 nanoparticles",
+    "projectPage": "https://www.nature.com/articles/s41598-026-43994-8",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-17",
+    "category": "Applied Physics",
+    "task": "Evaluating fullerene C60 nanofluid for transformer oil replacement",
+    "model": "(experimental + analytical) C60 nanofluid in 250 kVA distribution transformer; natural convection model",
+    "inputs": "C60 nanoparticle concentration (0.004% w/V); temperature, voltage, oil circulation",
+    "outputs": "Thermal conductivity, AC breakdown voltage, dissipation factor, temperature rise, flow velocity",
+    "key_results": "C60 increases AC breakdown voltage by 65% with minimal viscosity/density/conductivity change; slight temperature decrease from enhanced winding-cooling coupling; meets EN 60076-2:2011 standard",
+    "comments": "Comprehensive industrial validation of nanofluid in real transformer; practical benefit of enhanced breakdown voltage is significant, though flash-point decrease requires monitoring in operational deployment.",
+    "hypotheses": [
+      "C60 nanoparticles enhance dielectric breakdown strength",
+      "C60 concentration has minimal impact on viscosity and density",
+      "Improved oil circulation enhances cooling efficiency",
+      "C60 nanofluid meets industrial transformer standards"
+    ],
+    "results": [
+      "Confirmed 65% AC breakdown enhancement",
+      "Confirmed negligible viscosity/density impacts",
+      "Confirmed slight temperature decrease from circulation improvement",
+      "Confirmed standard compliance"
     ]
   },
   {
@@ -1336,19 +1562,19 @@
     "journal": "Nature Communications",
     "publishedAt": "2026-03-17",
     "category": "Cell Signaling",
-    "task": "Characterize UPR dynamics under chronic ER stress",
+    "task": "Characterize IRE1\u03b1 activity dynamics during chronic ER stress",
     "model": "(experiment) pharmacologically induced ER stress in cultured cells and mouse liver",
-    "inputs": "Long-term ER stress (tunicamycin/thapsigargin); ER calcium levels",
-    "outputs": "IRE1\u03b1 phosphorylation; calreticulin-IRE1\u03b1 interaction intensity; ER calcium dynamics",
-    "key_results": "IRE1\u03b1 activity shows 'up-down-up' fluctuation pattern; calreticulin-IRE1\u03b1 interaction negatively correlates with Ca2+ concentration and exhibits circadian oscillation in mouse liver",
-    "comments": "Elegant mapping of temporal dynamics reveals calcium-dependent regulation that may explain why chronic ER stress can be both pro-survival and pro-apoptotic.",
+    "inputs": "Long-term ER stress induction; calcium concentration changes",
+    "outputs": "IRE1\u03b1 phosphorylation levels; calreticulin-IRE1\u03b1 interaction intensity; ER luminal calcium fluctuation",
+    "key_results": "IRE1\u03b1 shows 'up-down-up' fluctuation pattern; calreticulin-IRE1\u03b1 interaction negatively correlates with calcium concentration; circadian rhythmic oscillation observed in mouse liver",
+    "comments": "Well-designed study revealing temporal dynamics of a key UPR sensor, though the functional significance of oscillations for cellular outcomes remains partially unclear.",
     "hypotheses": [
-      "Calreticulin-IRE1\u03b1 interaction inversely correlates with ER calcium",
-      "This interaction oscillates with circadian rhythm in vivo"
+      "Calcium-mediated calreticulin binding regulates IRE1\u03b1 activity",
+      "Chronic ER stress induces oscillatory rather than sustained IRE1\u03b1 activation"
     ],
     "results": [
-      "Confirmed; 'down-up-down' Ca2+ pattern drives 'up-down-up' IRE1\u03b1 activity",
-      "Confirmed in mouse liver with regular physiological oscillations"
+      "Confirmed: calcium-calreticulin-IRE1\u03b1 axis controls activity fluctuation",
+      "Confirmed: circadian and stress-induced oscillation patterns identified"
     ]
   },
   {
@@ -1360,19 +1586,19 @@
     "journal": "Nature Communications",
     "publishedAt": "2026-03-17",
     "category": "Cell Division/Cycle",
-    "task": "Elucidate mechanism of polar chromosome rescue from missegregation",
-    "model": "(experiment) live-cell imaging; Eg5/KIF11 modulation in cultured cells",
-    "inputs": "Polar chromosomes initially behind spindle pole; spindle elongation signals",
-    "outputs": "Chromosome positioning; microtubule pivoting angle and extent; kinetochore attachment topology",
-    "key_results": "Spindle elongation drives astral microtubule pivoting around centrosome; polar chromosomes form mono-lateral kinetochore attachments lacking Astrin; enhanced elongation accelerates polar chromosome resolution",
-    "comments": "Mechanistic insight into a common source of chromosomal instability in cancer; the 'danger zone' concept provides a useful framework for understanding segregation errors.",
+    "task": "Elucidate mechanism rescuing polar chromosomes from missegregation",
+    "model": "(experiment) live-cell imaging of mitotic spindle dynamics; perturbation of Eg5/KIF11",
+    "inputs": "Polar chromosome positioning; spindle elongation signals",
+    "outputs": "Chromosome positioning relative to spindle poles; microtubule pivoting angle and extent; kinetochore attachment status",
+    "key_results": "Spindle elongation drives microtubule pivoting around centrosome to reposition polar chromosomes; Eg5 activity modulates pivoting direction and extent",
+    "comments": "Mechanistic insight into a cancer-relevant chromosome segregation error; the contribution of astral vs. kinetochore microtubules is well dissected.",
     "hypotheses": [
-      "Spindle elongation repositions astral microtubules via pivoting",
-      "Polar chromosomes require distinct kinetochore architecture for rescue"
+      "Spindle elongation repositions polar chromosomes via microtubule pivoting",
+      "Eg5 activity determines pivoting efficacy"
     ],
     "results": [
-      "Confirmed; microtubule pivoting directed by Eg5-dependent elongation",
-      "Confirmed; mono-lateral attachments and missing Astrin distinguish polar chromosomes"
+      "Confirmed: spindle elongation necessary for polar chromosome rescue",
+      "Confirmed: Eg5 modulates pivoting parameters"
     ]
   },
   {
@@ -1384,19 +1610,19 @@
     "journal": "Nature Communications",
     "publishedAt": "2026-03-17",
     "category": "Cell Signaling",
-    "task": "Identify MAPK scaffold regulating sexual differentiation signaling in fission yeast",
-    "model": "(experiment) fission yeast (S. pombe) mating pathway",
-    "inputs": "Pheromone activation; PIP2 membrane localization signals",
-    "outputs": "Sms1 membrane translocation; MAPK cascade assembly and activation; mating pathway output",
-    "key_results": "Sms1 (hemi-arrestin) recruits MAPK cascade to membrane via G\u03b1 and PIP2; phosphorylation (including by MAPK itself) antagonizes membrane localization, creating negative feedback; prevents untimely mating",
-    "comments": "Convergent evolution of MAPK scaffolds despite distinct structural folds highlights functional convergence; the feedback mechanism elegantly explains how cells prevent spurious mating attempts.",
+    "task": "Identify and characterize MAPK scaffold regulating mating pathway in fission yeast",
+    "model": "(experiment) yeast genetics and cell biology; signal transduction analysis in Schizosaccharomyces pombe",
+    "inputs": "Pheromone receptor activation; G\u03b1 subunit coupling; PIP2 availability",
+    "outputs": "MAPK cascade assembly; polarized growth; mating response kinetics",
+    "key_results": "Sms1 hemi-arrestin acts as MAPK scaffold via PIP2 and G\u03b1 interactions; phosphorylation-mediated negative feedback prevents untimely mating",
+    "comments": "Elegant identification of a convergently evolved MAPK scaffold with clear biological output; demonstrates how post-translational modification regulates scaffold function.",
     "hypotheses": [
-      "Sms1 acts as essential MAPK scaffold for mating pathway",
-      "MAPK-mediated phosphorylation of Sms1 creates negative feedback"
+      "Hemi-arrestins function as MAPK scaffolds",
+      "Phosphorylation provides negative feedback control of mating signaling"
     ],
     "results": [
-      "Confirmed; Sms1 assembles active cascade at membrane patches",
-      "Confirmed; feedback antagonizes membrane translocation and prevents signal overamplification"
+      "Confirmed: Sms1 recruits and organizes MAPK cascade",
+      "Confirmed: phosphorylation antagonizes membrane localization and prevents premature mating"
     ]
   },
   {
@@ -1409,18 +1635,18 @@
     "publishedAt": "2026-03-17",
     "category": "Cell Division/Cycle",
     "task": "Determine role of Chk1-mediated \u03b2-tubulin phosphorylation in spindle formation",
-    "model": "(experiment) vertebrate cell culture (HeLa, RPE1); in vitro kinase assays",
-    "inputs": "\u03b2-tubulin; Chk1 kinase; ATR-ATRIP-TopBP1 signaling complex at centrosomes",
-    "outputs": "\u03b2-tubulin-T285 phosphorylation; spindle microtubule density and nucleation; chromosome segregation fidelity",
-    "key_results": "Chk1 phosphorylates \u03b2-tubulin at T285 at centrosomes; impaired phosphorylation causes improper spindle, delayed anaphase, chromosome misalignment, unequal daughter cell size; ATR-ATRIP-TopBP1 promotes Chk1 activation",
-    "comments": "Surprising discovery that a DNA damage kinase (Chk1) functions in unperturbed mitosis; suggests spindle integrity checkpoints share kinase machinery with DNA damage responses.",
+    "model": "(experiment) vertebrate cell culture; in vitro kinase assays; centrosome isolation",
+    "inputs": "Unperturbed mitosis; ATR-ATRIP-TopBP1 pathway activation",
+    "outputs": "\u03b2-tubulin-T285 phosphorylation level; spindle microtubule density and nucleation; chromosome alignment and segregation fidelity",
+    "key_results": "Chk1 phosphorylates \u03b2-tubulin at T285; impaired phosphorylation causes improper spindles, delayed anaphase, and erroneous segregation; ATR-ATRIP-TopBP1 pathway required for Chk1 activation",
+    "comments": "Unexpected link between DNA damage checkpoint kinase and mitotic spindle assembly in unperturbed mitosis; suggests broader role for checkpoint machinery in normal cell division.",
     "hypotheses": [
-      "Chk1 phosphorylates \u03b2-tubulin at conserved T285 residue",
-      "This phosphorylation is essential for proper spindle assembly and function"
+      "Chk1 phosphorylates \u03b2-tubulin at T285",
+      "This phosphorylation is necessary for optimal spindle assembly and function"
     ],
     "results": [
-      "Confirmed in vitro and in vivo at mitotic centrosomes",
-      "Confirmed; T285 phosphorylation deficiency causes multiple spindle and chromosome segregation errors"
+      "Confirmed: \u03b2-tubulin T285 phosphorylation by Chk1 identified",
+      "Confirmed: phosphorylation required for normal spindle maturation and chromosome segregation"
     ]
   },
   {
@@ -1431,20 +1657,20 @@
     "projectPage": "https://www.nature.com/articles/s41598-026-44659-2",
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-17",
-    "category": "Development",
-    "task": "Compare efficacy of albumin-cross-linked PRF vs. conventional platelet concentrates for angiogenesis",
-    "model": "(experiment) co-culture of HUVECs with autologous platelet concentrates (APCs); in vitro assays",
-    "inputs": "Alb-PRF, PRP, or H-PRF; HUVEC cultures; LPS-induced inflammatory damage",
-    "outputs": "HUVEC proliferation; migration; apoptosis; CD31 expression; mitochondrial markers",
-    "key_results": "Alb-PRF superior to PRP and H-PRF in promoting HUVEC proliferation and migration; Alb-PRF rescues LPS-induced apoptosis and upregulates CD31; superior angiogenic capacity under normal and inflammatory conditions",
-    "comments": "Clinical translation appears promising, but lacks in vivo wound healing validation and mechanistic insight into why albumin cross-linking provides advantage over conventional PRF formulations.",
+    "category": "Cell Signaling",
+    "task": "Compare autologous platelet concentrates for enhancement of endothelial cell function and wound healing",
+    "model": "(experiment) co-culture of APCs with HUVECs; LPS-induced inflammation model; in vitro assays",
+    "inputs": "Platelet concentrate type (Alb-PRF, PRP, H-PRF); pro-inflammatory stimulus (LPS)",
+    "outputs": "Endothelial cell viability, proliferation, migration; CD31 expression; apoptosis resistance",
+    "key_results": "Alb-PRF superior to PRP and H-PRF in promoting HUVEC proliferation and migration; Alb-PRF rescued LPS-induced apoptosis and enhanced CD31 expression",
+    "comments": "Practical translational work comparing APC formulations; lacks mechanism of improved Alb-PRF function and requires in vivo wound healing validation.",
     "hypotheses": [
-      "Alb-PRF promotes superior HUVEC proliferation vs. PRP/H-PRF",
-      "Alb-PRF provides cytoprotection against inflammatory stress"
+      "Alb-PRF formulation enhances endothelial cell function vs. traditional concentrates",
+      "Alb-PRF provides cytoprotection under inflammatory stress"
     ],
     "results": [
-      "Confirmed; higher viability and migration rates observed",
-      "Confirmed; LPS-induced apoptosis rescued only by Alb-PRF"
+      "Confirmed: Alb-PRF outperforms PRP and H-PRF in proliferation and migration assays",
+      "Confirmed: Alb-PRF protects against LPS-induced endothelial damage"
     ]
   },
   {
@@ -1456,19 +1682,19 @@
     "journal": "Communications Biology",
     "publishedAt": "2026-03-17",
     "category": "Cell Signaling",
-    "task": "Elucidate butyrate-FFAR2 signaling in L-cell GLP-1/PYY secretion",
-    "model": "(experiment) human L-cell model; mouse intestinal organoid (Hes1-GFP reporter)",
-    "inputs": "Butyrate; FFAR2 agonist AZ-1729; Notch cascade modulation",
-    "outputs": "GLP-1/PYY secretion ratio; NeuroD1 and Pax6 expression; Hes1 signal; transcriptional profile",
-    "key_results": "Butyrate stimulates PYY-biased GLP-1/PYY secretion via FFAR2-G\u03b1i without dynamin-dependent internalization; suppresses Notch-antagonistic Hes1; upregulates late-stage maturation markers NeuroD1/Pax6; AZ-1729 further enhances response",
-    "comments": "Demonstrates how dietary fiber metabolites fine-tune enteroendocrine cell identity; selective G\u03b1i-biased agonism offers potential therapeutic avenue for obesity without classical \u03b2-arrestin signaling.",
+    "task": "Delineate FFAR2 signaling selectivity in programming enteroendocrine L-cell identity toward PYY secretion",
+    "model": "(experiment) human L-cell model; mouse intestinal organoids; transcriptomics and secretion assays",
+    "inputs": "Butyrate (FFAR2 agonist); Notch cascade modulation; biased allosteric FFAR2 agonist (AZ-1729)",
+    "outputs": "GLP-1 vs. PYY transcript and secretion levels; Notch target expression (Hes1); maturation markers (NeuroD1, Pax6)",
+    "key_results": "Butyrate drives PYY-biased profile via FFAR2-G\u03b1i signaling without receptor internalization; modulates Notch cascades and late-stage maturation markers; AZ-1729 augments effects",
+    "comments": "Mechanistically clear demonstration of biased FFAR2 signaling in L-cell programming; translational relevance to metabolic disease control is evident.",
     "hypotheses": [
-      "Butyrate selectively activates G\u03b1i bias of FFAR2 signaling",
-      "This suppresses Hes1-mediated anti-secretory Notch signaling"
+      "Butyrate-FFAR2 signaling preferentially activates PYY over GLP-1 secretion",
+      "Biased FFAR2 agonists can pharmacologically amplify this selectivity"
     ],
     "results": [
-      "Confirmed; G\u03b1i-dependent without dynamin internalization",
-      "Confirmed; Notch modulation in organoid model and upregulation of secretory maturation factors"
+      "Confirmed: butyrate induces PYY-biased profile via G\u03b1i axis",
+      "Confirmed: AZ-1729 further enhances butyrate-dependent PYY upregulation and Pax6 expression"
     ]
   },
   {
@@ -1480,19 +1706,19 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-17",
     "category": "Cell Signaling",
-    "task": "Determine kynurenine-mTOR signaling axis in HNSCC angiogenesis",
-    "model": "(experiment) HNSCC tissue; HUVECs; CAM assay; CDX mouse model",
-    "inputs": "Kynurenine (tryptophan metabolite); IDO1 enzyme expression; endothelial cells",
-    "outputs": "HUVEC migration and tube formation; neovascularization; mTOR activation; angiogenic gene expression",
-    "key_results": "IDO1-driven kynurenine elevated in HNSCC correlates with CD31/CD34 endothelial markers; kynurenine enhances HUVEC migration, tube formation and CAM neovascularization; activates mTOR signaling upregulating pro-angiogenic genes (VEGF, bFGF, IL-8)",
-    "comments": "Links tryptophan catabolism in tumor microenvironment to vascular remodeling; suggests metabolic reprogramming actively shapes angiogenesis, offering druggable targets beyond anti-angiogenic ligand inhibition.",
+    "task": "Establish kynurenine-mTOR axis in promoting angiogenesis in head and neck squamous cell carcinoma",
+    "model": "(experiment) TCGA bioinformatic analysis; patient immunohistochemistry; HUVEC culture; CAM and CDX mouse models",
+    "inputs": "Kynurenine concentration; IDO1 expression level; endothelial cell stimulation",
+    "outputs": "Endothelial migration rate; tube formation capacity; neovascularization area; mTOR phosphorylation; angiogenesis-related gene expression",
+    "key_results": "IDO1-driven kynurenine elevated in HNSCC correlates with angiogenesis genes and vascular markers; kynurenine activates mTOR in endothelial cells to upregulate pro-angiogenic factors",
+    "comments": "Comprehensive multi-level validation from bioinformatics to in vivo models; identifies tryptophan metabolism as targetable pro-angiogenic pathway in HNSCC.",
     "hypotheses": [
-      "Kynurenine promotes endothelial migration and tube formation",
-      "This occurs via mTOR pathway activation"
+      "Kynurenine promotes angiogenesis in HNSCC",
+      "IDO1-kynurenine-mTOR axis mediates this effect"
     ],
     "results": [
-      "Confirmed in vitro and in CAM model",
-      "Confirmed; mTOR cascade upregulates angiogenic mediators"
+      "Confirmed: kynurenine enhances endothelial migration, tube formation, and neovascularization",
+      "Confirmed: mTOR pathway activation is mechanistic link between kynurenine and angiogenic gene upregulation"
     ]
   },
   {
@@ -1504,19 +1730,19 @@
     "journal": "Nature Portfolio",
     "publishedAt": "2026-03-17",
     "category": "Cell Signaling",
-    "task": "Characterize cytoplasmic AR localization and metabolic reprogramming in AI-resistant breast cancer",
-    "model": "(experiment) AI-resistant breast cancer cell lines; human tumor microarray; LC-MS/MS proteomics",
-    "inputs": "Adrenal androgens; aromatase inhibitor-resistant conditions; AI-sensitive vs. resistant cells",
-    "outputs": "AR subcellular localization; interacting protein partners; mitochondrial mass/potential; oxidative metabolism",
-    "key_results": "High cytoplasmic AR predicts poor survival in luminal B post-menopausal breast cancer; AI-resistant cells show diffuse cytoplasmic AR with increased mitochondrial mass, oxidative phosphorylation and glycolysis; G3BP1, SLIRP, IGFBP5 identified as AR-interacting proteins mediating metabolic adaptation and ER\u03b1 repression",
-    "comments": "Novel mechanistic link between non-genomic AR signaling and metabolic rewiring in endocrine resistance; cytoplasmic AR localization may be a biomarker for treatment-refractory disease with prognostic value.",
+    "task": "Characterize cytoplasmic androgen receptor localization and protein interactions driving AI-resistant metabolic reprogramming",
+    "model": "(experiment) breast cancer microarray analysis; LC-MS/MS proteomics; co-immunoprecipitation and confocal imaging; metabolic profiling",
+    "inputs": "Androgen exposure; aromatase inhibitor resistance status; cellular localization",
+    "outputs": "Cytoplasmic AR abundance; interacting protein partners; mitochondrial mass and membrane potential; oxidative phosphorylation and glycolysis rates",
+    "key_results": "High cytoplasmic AR predicts poor survival in luminal B breast cancer; AI-resistant cells show diffuse cytoplasmic AR with elevated mitochondrial function; G3BP1, SLIRP, IGFBP5 identified as metabolic adaptor proteins",
+    "comments": "Novel link between AR subcellular localization and metabolic rewiring in endocrine resistance; identifies prognostic biomarker and candidate therapeutic targets.",
     "hypotheses": [
-      "Cytoplasmic AR localizes in AI-resistant cells",
-      "Cytoplasmic AR interactome drives metabolic adaptation"
+      "Cytoplasmic AR localizes and interacts with metabolic proteins in AI-resistant cells",
+      "These interactions drive oxidative metabolism adaptation"
     ],
     "results": [
-      "Confirmed; high cytoplasmic AR associated with poor survival",
-      "Confirmed; G3BP1/SLIRP/IGFBP5 interactions linked to metabolic shifts and ER\u03b1 suppression"
+      "Confirmed: cytoplasmic AR abundance correlates with poor prognosis",
+      "Confirmed: AR interacts with stress response and metabolic adaptation proteins including G3BP1, SLIRP, IGFBP5"
     ]
   },
   {
@@ -1527,20 +1753,20 @@
     "projectPage": "https://www.nature.com/articles/s41420-026-02997-0",
     "journal": "Nature Portfolio",
     "publishedAt": "2026-03-17",
-    "category": "Cell Division/Cycle",
-    "task": "Elucidate GAD1/GABA pathway suppression of glioblastoma via Wnt-signaling inhibition",
-    "model": "(experiment) glioblastoma cell lines (U87, LN229); zebrafish xenotransplantation",
-    "inputs": "GAD1 overexpression/knockdown; GSK3\u03b2 inhibitor AR-A014418",
-    "outputs": "Cell proliferation; colony formation; cell cycle phase distribution; invasion; p-GSK3\u03b2/\u03b2-catenin signaling; Cyclin D1, MMP9 expression",
-    "key_results": "GAD1 downregulated in glioma correlating with poor prognosis; overexpression suppresses proliferation, invasion, and cell cycle progression via reduced p-GSK3\u03b2/\u03b2-catenin signaling; GSK3\u03b2 inhibitor phenocopies GAD1 knockdown effects; zebrafish model confirms tumor suppression",
-    "comments": "Interesting connection between neuronal GABA synthesis enzyme and canonical Wnt pathway suppression; raises questions about whether GAD1 functions as a metabolic sensor or whether GABA itself mediates effects.",
+    "category": "Apoptosis/Cell Death",
+    "task": "Elucidate GSK3\u03b2/\u03b2-catenin pathway suppression by GAD1 in glioblastoma progression",
+    "model": "(experiment) glioblastoma cell lines; expression modulation; pathway inhibition; zebrafish xenotransplantation",
+    "inputs": "GAD1 expression level; GSK3\u03b2 phosphorylation status; \u03b2-catenin abundance",
+    "outputs": "Cell proliferation, colony formation, cell cycle phase distribution, migration, invasion rates; Cyclin D1 and MMP9 expression; tumor growth in vivo",
+    "key_results": "GAD1 downregulation correlates with poor prognosis; GAD1 overexpression suppresses proliferation and invasion via reduced p-GSK3\u03b2/\u03b2-catenin signaling; GSK3\u03b2 inhibitor phenocopies GAD1 knockdown effects",
+    "comments": "Clear mechanistic pathway with in vivo validation; GAD1-GABA link to glioma suppression is novel and potentially exploitable therapeutically.",
     "hypotheses": [
-      "GAD1 suppresses Wnt signaling via GSK3\u03b2/\u03b2-catenin axis",
-      "This inhibits Cyclin D1 and MMP9 driving tumor progression"
+      "GAD1 suppresses glioblastoma via GSK3\u03b2/\u03b2-catenin pathway inhibition",
+      "p-GSK3\u03b2 inactivation controls Cyclin D1 and MMP9 expression"
     ],
     "results": [
-      "Confirmed; GAD1 reduces p-GSK3\u03b2 and \u03b2-catenin levels",
-      "Confirmed in cell lines and in vivo zebrafish model"
+      "Confirmed: GAD1 overexpression reduces p-GSK3\u03b2, \u03b2-catenin, Cyclin D1, MMP9",
+      "Confirmed: GSK3\u03b2 inhibition phenocopies GAD1 knockdown effects on proliferation and invasion"
     ]
   },
   {
@@ -1552,19 +1778,19 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-17",
     "category": "Apoptosis/Cell Death",
-    "task": "Determine SIRT1-mediated ferroptosis pathway in cerebral infarction",
-    "model": "(experiment) rat MCAO/reperfusion model; primary astrocytes; bioinformatic mining of ferroptosis-related genes",
-    "inputs": "SIRT1 activation/inhibition; E2F1, NOTCH-1, YAP signaling; ferroptosis triggers",
-    "outputs": "Infarction volume; astrocyte apoptosis; autophagy markers (Beclin-2, P62); ferroptosis markers (MDA, Fe2+, SOD); FOXO1 and NCOA4 expression",
-    "key_results": "SIRT1 upregulated in cerebral infarction; SIRT1 activation increases infarct volume and astrocyte apoptosis; SIRT1 inhibits nuclear E2F1/NOTCH-1/YAP while upregulating FOXO1/autophagy/NCOA4 cascade; increased MDA and Fe2+ accumulation; NOTCH-1 overexpression reverses effects",
-    "comments": "Mechanistically complex with multiple pathway intersections; the linkage between SIRT1, ferroptosis and NOTCH signaling is novel but would benefit from clearer cause-effect ordering and validation of ferroptosis vs. apoptosis as primary death mechanism.",
+    "task": "Define SIRT1-mediated ferroptosis pathway in cerebral infarction progression",
+    "model": "(experiment) rat transient middle cerebral artery occlusion/reperfusion model; astrocyte culture under ischemic stress; Western blotting and flow cytometry",
+    "inputs": "SIRT1 activation; E2F1/NOTCH-1/YAP signaling status; FOXO1 and autophagy levels",
+    "outputs": "Infarction area; ferroptosis marker expression (MDA, Fe2+, SOD); autophagy and apoptosis rates; NCOA4-mediated ferroptotic flux",
+    "key_results": "SIRT1 upregulated in cerebral infarction; SIRT1 activation increases infarction by suppressing E2F1/NOTCH-1/YAP and inducing FOXO1/autophagy/NCOA4-mediated ferroptosis; NOTCH-1 overexpression protective",
+    "comments": "Complex multi-pathway model linking sirtuins to ferroptosis in stroke; clinical translation requires validation that SIRT1 inhibition reduces infarction.",
     "hypotheses": [
-      "SIRT1 activation induces ferroptosis in cerebral infarction",
-      "This occurs via E2F1/NOTCH-1/YAP suppression and FOXO1/autophagy/NCOA4 induction"
+      "SIRT1 activation promotes ferroptosis during cerebral infarction",
+      "E2F1/NOTCH-1/YAP suppression mediates FOXO1/autophagy/NCOA4-driven ferroptosis"
     ],
     "results": [
-      "Confirmed; SIRT1 upregulation correlates with infarct progression",
-      "Confirmed; SIRT1 alters pathway expression and ferroptosis markers"
+      "Confirmed: SIRT1 activation increases infarction area and ferroptosis markers",
+      "Confirmed: SIRT1 suppresses nuclear E2F1/NOTCH-1/YAP while promoting FOXO1, Beclin-2, P62, NCOA4 expression"
     ]
   },
   {
@@ -1576,19 +1802,19 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-17",
     "category": "Cell Signaling",
-    "task": "Develop sequencing technique to monitor sncRNA-Argonaute interactions and cell-cell transfer",
-    "model": "(experiment) MIME-seq2.0 with engineered methyltransferase-Argonaute chimera; MIN6B1, Jurkat, C2C12 cell lines",
-    "inputs": "Small non-coding RNAs (miRNAs, Y-RNAs, tRNA-fragments); extracellular vesicles; Argonaute proteins",
-    "outputs": "Protected (non-oxidized) sncRNA abundance; sncRNA-Ago2 binding status; transferred miRNA detection in recipient cells",
-    "key_results": "MIME enzyme protects oxidized sncRNAs from degradation enabling detection; distinguishes Ago2-bound miRNAs, Y-RNAs, and tRNA-fragments; successfully tracks miRNA transfer between Jurkat/C2C12 cells and MIN6B1 recipients via EVs",
-    "comments": "Clever technical solution to a real problem (sncRNA oxidation preventing cloning), but the biological novelty is limited; applications to mechanistic questions about EV miRNA function remain to be demonstrated.",
+    "task": "Develop MIME-seq2.0 for tracking small RNA-Argonaute interactions and intercellular transfer",
+    "model": "(experiment) engineered methyltransferase-Argonaute binding chimera; MIN6B1 insulin-secreting cells, Jurkat T cells, C2C12 myotubes; RNA-seq and qPCR",
+    "inputs": "Small non-coding RNAs; Argonaute protein binding; extracellular vesicle release",
+    "outputs": "Oxidation-protected sncRNA profile; miRNA-Ago2 binding status; transferred miRNA detection in recipient cells",
+    "key_results": "MIME-seq2.0 efficiently distinguishes oxidized and non-oxidized sncRNAs; protects miRNAs, Y-RNAs, and tRNA fragments; enables sensitive detection of EV-transferred miRNAs between cell types",
+    "comments": "Methodological advance with clear technical merit; enables previously inaccessible measurements of RNA oxidation status and intercellular RNA transfer dynamics.",
     "hypotheses": [
-      "MIME enzyme protects oxidized sncRNAs from degradation",
-      "Protected sncRNAs enable sensitive EV miRNA transfer tracking"
+      "MIME enzyme protects sncRNAs from oxidation to enable cloning",
+      "Protected miRNAs can be tracked across cell boundaries via EVs"
     ],
     "results": [
-      "Confirmed; protected Y-RNA and tRNA-fragments are Ago2-bound",
-      "Confirmed; miRNAs in EVs remain protected and detectable in recipient cells"
+      "Confirmed: MIME enzyme protects miRNAs, Y-RNAs, and tRNA fragments from oxidation",
+      "Confirmed: transferred miRNAs in EVs protected and detectably accumulated in recipient cells"
     ]
   },
   {
@@ -1600,19 +1826,19 @@
     "journal": "Nature Portfolio",
     "publishedAt": "2026-03-17",
     "category": "Apoptosis/Cell Death",
-    "task": "Elucidate hydroxychloroquine protection against CTX-induced premature ovarian failure via mtDNA-cGAS pathway",
-    "model": "(experiment) CTX-induced POF mouse model; human granulosa cells (KGN); phosphoramide mustard (CTX metabolite)",
-    "inputs": "Hydroxychloroquine (HCQ); cyclophosphamide; mtDNA and ROS signals",
-    "outputs": "Follicle number; serum FSH/estradiol; granulosa cell senescence markers; mtDNA leakage; cGAS-STING activation; SASP factors",
-    "key_results": "HCQ reverses CTX-induced ovarian dysfunction and follicular depletion; attenuates senescence, stabilizes mitochondrial membranes, decreases ROS and mtDNA leakage, inhibits cGAS-STING signaling and SASP expression; improves fertility outcomes",
-    "comments": "Well-designed preclinical study with clear mechanistic pathway (mitochondrial dysfunction \u2192 mtDNA leak \u2192 cGAS activation \u2192 senescence); HCQ's anti-autophagy effects appear paradoxically beneficial here, suggesting context-dependent roles.",
+    "task": "Determine hydroxychloroquine protection against cyclophosphamide-induced premature ovarian failure",
+    "model": "(experiment) CTX-induced POF mouse model; human granulosa cell line (KGN); phosphoramide mustard (PM) exposure; mitochondrial and STING pathway analysis",
+    "inputs": "Cyclophosphamide or PM exposure; hydroxychloroquine treatment; mtDNA leakage status",
+    "outputs": "Ovarian function markers; follicle count; hormone levels; granulosa cell senescence; ROS and mtDNA levels; cGAS-STING pathway activation",
+    "key_results": "HCQ reverses CTX-induced ovarian dysfunction and reduces granulosa cell senescence; decreases mtDNA leakage and ROS; inhibits cGAS-STING pathway and SASP expression",
+    "comments": "Mechanistically sound preclinical study with clear translational path for fertility preservation in cancer patients; demonstrates mtDNA-cGAS axis as druggable target.",
     "hypotheses": [
-      "HCQ prevents CTX-induced mtDNA leakage and ROS production",
-      "This suppresses mtDNA-cGAS-STING-driven senescence and SASP"
+      "HCQ protects against CTX-induced premature ovarian failure",
+      "mtDNA leakage triggers cGAS-STING-dependent senescence and SASP"
     ],
     "results": [
-      "Confirmed; HCQ stabilizes mitochondrial membranes and decreases mtDNA/ROS",
-      "Confirmed; cGAS-STING inhibition and reduced senescence markers and SASP factors"
+      "Confirmed: HCQ improves ovarian function and reduces follicular depletion",
+      "Confirmed: HCQ suppresses mtDNA leakage, ROS production, and cGAS-STING pathway activation"
     ]
   },
   {
@@ -1624,19 +1850,19 @@
     "journal": "Nature Communications",
     "publishedAt": "2026-03-17",
     "category": "Other",
-    "task": "Develop statistical framework for selecting appropriate background datasets in contrastive dimension reduction",
-    "model": "(computational) spectral subspace inclusion theory; contrastive dimension reduction methods",
-    "inputs": "Target dataset; multiple candidate background datasets; single-cell genomic data",
-    "outputs": "Background suitability score; optimized target representation; contrast enrichment metrics",
-    "key_results": "BasCoD framework based on spectral subspace inclusion theory enables rigorous background selection; improves contrast and interpretability of target representations across diverse single-cell datasets; guides experimental design for large-scale perturbation studies",
-    "comments": "Addresses real practical problem in single-cell analysis where background choice critically impacts downstream interpretation; statistical rigor is strong but biological validation of selected backgrounds is limited.",
+    "task": "Develop BasCoD framework for systematic background selection in contrastive dimension reduction",
+    "model": "(theory) spectral subspace inclusion theory; contrastive learning; statistical hypothesis testing",
+    "inputs": "Target and background single-cell datasets; heterogeneous experimental conditions",
+    "outputs": "Background suitability scores; recommended background selections; improved target representation contrast",
+    "key_results": "BasCoD identifies suitable backgrounds that enhance contrast and interpretability of target representations; guides design of contrastive analyses in large-scale single-cell experiments",
+    "comments": "Valuable methodological framework addressing practical challenge in single-cell genomics; enables principled background selection rather than ad hoc choices.",
     "hypotheses": [
-      "Spectral subspace inclusion theory predicts suitable background datasets",
-      "Systematic background selection improves contrastive representation quality"
+      "Spectral subspace inclusion theory enables rigorous background selection evaluation",
+      "Appropriate background selection substantially improves contrastive dimension reduction"
     ],
     "results": [
-      "Confirmed; BasCoD identifies backgrounds yielding high contrast",
-      "Confirmed; improved target representation interpretability across datasets"
+      "Confirmed: BasCoD identifies suitable backgrounds across diverse datasets",
+      "Confirmed: appropriate backgrounds enhance contrast and biological interpretability of representations"
     ]
   },
   {
@@ -1648,19 +1874,19 @@
     "journal": "Nature",
     "publishedAt": "2026-03-17",
     "category": "Development",
-    "task": "Determine molecular architecture of oocyte cytoplasmic lattice assembly",
-    "model": "(structural) cryo-EM of CPL isolated from mouse oocytes; protein-protein interaction mapping",
-    "inputs": "Oocyte cytoplasmic lattice components; CPL-containing oocyte lysates",
-    "outputs": "CPL three-dimensional structure; subunit composition; interaction interfaces; assembly organization",
-    "key_results": "CPL comprises 14 constitutive proteins organized as repeating 'U-shaped basket' (UB) and 'adapter ring' (AR) units forming filamentous architecture; PADI6 forms didecameric anchor; AR contains NLRP4f, SCMC, ZBED3; UBE2D3-UHRF1-NLRP14 and TUBB2B-TUBB2A-FBXW24-SKP1 complexes form UB sides",
-    "comments": "Landmark structural study resolving a long-standing mystery about a critical but poorly understood structure; provides molecular basis for understanding oocyte maturation and early embryonic development, though functional validation of specific interaction interfaces remains ongoing work.",
+    "task": "Determine molecular architecture and assembly mechanism of oocyte cytoplasmic lattice",
+    "model": "(experiment) cryo-electron microscopy of isolated mouse oocyte cytoplasmic lattice; structural analysis and modeling",
+    "inputs": "Cytoplasmic lattice protein components; assembly forces and interactions",
+    "outputs": "CPL three-dimensional structure; constituent protein identification; repeating unit architecture; interaction network topology",
+    "key_results": "CPL comprises 14 protein subunits assembled into repeating 'U-shaped basket' (UB) and 'adapter ring' (AR) units; PADI6 didecamer forms UB core; AR connects adjacent UBs via SCMC dimers; multiple interaction clusters maintain filamentous architecture",
+    "comments": "Exceptional structural biology work providing atomic-level understanding of an essential embryonic matrix; reveals principles of large periodic protein lattice assembly.",
     "hypotheses": [
-      "CPL forms periodic filamentous architecture with repeating structural units",
-      "Specific protein-protein interaction networks maintain CPL integrity"
+      "CPL forms repeating modular units",
+      "Multiple interaction clusters maintain structural periodicity"
     ],
     "results": [
-      "Confirmed; cryo-EM structure reveals UB-AR repeat organization",
-      "Confirmed; identified 14 subunits and critical interaction clusters maintaining structure"
+      "Confirmed: CPL consists of UB-AR repeating units with specific protein composition",
+      "Confirmed: PADI6 pentamers and SCMC dimer networks form structural core"
     ]
   },
   {
@@ -1671,258 +1897,20 @@
     "projectPage": "https://www.nature.com/articles/s41598-026-37518-7",
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-17",
-    "category": "Cell Division/Cycle",
-    "task": "Identify BTG3 tumor suppressor function in oral squamous cell carcinoma",
-    "model": "(experiment) OSCC cell lines (CAL27, SCC15); GEO/TCGA database analysis; gain/loss-of-function studies",
-    "inputs": "BTG3 overexpression/knockdown; PI3K/AKT signaling; epithelial-mesenchymal transition (EMT) markers",
-    "outputs": "OSCC cell proliferation; migration/invasion; cell cycle distribution; PI3K/AKT phosphorylation; EMT marker expression",
-    "key_results": "BTG3 downregulated in OSCC correlating with poor prognosis; overexpression inhibits proliferation, migration, invasion and arrests cells at G1 phase; negatively regulates PI3K/AKT signaling and inhibits EMT progression; knockdown reverses effects",
-    "comments": "Standard tumor suppressor characterization lacking mechanistic novelty; BTG3 interaction partners and direct downstream targets remain unidentified, limiting understanding of how it inhibits PI3K/AKT.",
+    "category": "Cell Signaling",
+    "task": "Characterize BTG3 tumor suppressor function in oral squamous cell carcinoma via PI3K/AKT pathway",
+    "model": "(experiment) OSCC cell lines (CAL27, SCC15) and tissues; expression modulation; pathway analysis; cell cycle and migration assays",
+    "inputs": "BTG3 expression level; PI3K/AKT phosphorylation status; EMT marker expression",
+    "outputs": "Cell proliferation rate; migration and invasion capacity; cell cycle phase distribution; PI3K/AKT signaling output; E-cadherin and mesenchymal marker levels",
+    "key_results": "BTG3 downregulated in OSCC correlates with poor prognosis; BTG3 overexpression suppresses proliferation, migration, invasion, and G1 cell cycle arrest via PI3K/AKT inhibition and EMT suppression",
+    "comments": "Establishes BTG3 as tumor suppressor in OSCC with clear mechanistic pathway; pathway inhibition appears to be primary mode of action.",
     "hypotheses": [
-      "BTG3 overexpression inhibits PI3K/AKT signaling",
-      "This suppresses OSCC proliferation and EMT progression"
+      "BTG3 suppresses OSCC via PI3K/AKT pathway inhibition",
+      "BTG3-mediated AKT inhibition blocks EMT progression"
     ],
     "results": [
-      "Confirmed; BTG3 reduces pAKT levels",
-      "Confirmed; reduced proliferation, invasion and EMT marker expression"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41597-026-07069-7",
-    "source": "computational-biology",
-    "id": "10.1038/s41597-026-07069-7",
-    "title": "VISDB 2.0: A manually curated resource of viral integration sites and their regulatory maps in human diseases",
-    "projectPage": "https://www.nature.com/articles/s41597-026-07069-7",
-    "journal": "Scientific Data",
-    "publishedAt": "2026-03-17",
-    "category": "Genomics",
-    "task": "Catalog viral integration sites and their genomic associations",
-    "model": "N/A",
-    "inputs": "Manually curated data from 209 peer-reviewed publications covering 11 viruses",
-    "outputs": "Database of >270,000 VIS records with genomic coordinates, regulatory elements, and epigenomic features",
-    "key_results": "3.5-fold increase in VIS entries; standardized annotations across retroviruses and DNA viruses; web-based query interface",
-    "comments": "Comprehensive resource but limited by publication bias and manual curation scalability; utility depends on annotation completeness.",
-    "hypotheses": [],
-    "results": []
-  },
-  {
-    "uid": "nature:10.1038/s41467-026-70065-3",
-    "source": "computational-biology",
-    "id": "10.1038/s41467-026-70065-3",
-    "title": "Local lateral connectivity is sufficient for replicating cortex-like topographical organization in deep neural networks",
-    "projectPage": "https://www.nature.com/articles/s41467-026-70065-3",
-    "journal": "Nature Communications",
-    "publishedAt": "2026-03-17",
-    "category": "Network Biology",
-    "task": "Investigate emergence of topographic cortical organization in neural networks",
-    "model": "(experiment) deep neural networks with local lateral connections trained via backpropagation",
-    "inputs": "Visual input data; lateral recurrent connections between neighboring units",
-    "outputs": "Emergent topographic maps resembling primary, intermediate, and high-level visual cortex",
-    "key_results": "Modular organization emerges without explicit topography-inducing objectives; improved robustness to adversarial perturbations",
-    "comments": "Elegant demonstration that local recurrence suffices for map organization, but the relationship to actual cortical plasticity mechanisms remains unclear.",
-    "hypotheses": [
-      "Local lateral connections alone drive cortical-like topographic organization",
-      "Lateral recurrence improves adversarial robustness"
-    ],
-    "results": [
-      "Topographic maps emerge without explicit topography induction",
-      "Enhanced robustness to adversarial perturbations observed"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41598-026-44499-0",
-    "source": "computational-biology",
-    "id": "10.1038/s41598-026-44499-0",
-    "title": "An attention-based multimodal deep learning framework integrating EEG and ECG for enhanced stress detection",
-    "projectPage": "https://www.nature.com/articles/s41598-026-44499-0",
-    "journal": "Scientific Reports",
-    "publishedAt": "2026-03-17",
-    "category": "Statistical Methods",
-    "task": "Multimodal stress detection from EEG and ECG signals",
-    "model": "(experiment) attention-based fusion of pre-trained neural networks (VGG16, EfficientNetB0, ResNeXt50)",
-    "inputs": "EEG time-frequency maps (wavelet) and ECG time-series variability from neutral, tense, and positive states",
-    "outputs": "Stress classification (three-way); attention weights for multimodal integration",
-    "key_results": "95.7% accuracy (vs. 82.3% EEG-only, 85.6% ECG-only); significant synergy between modalities; 26.9% inference speedup",
-    "comments": "Strong empirical results on two datasets, but cross-dataset generalization and real-world deployment feasibility warrant further investigation.",
-    "hypotheses": [
-      "Multimodal fusion outperforms unimodal stress detection",
-      "Attention-based fusion captures complementary signal information"
-    ],
-    "results": [
-      "95.7% three-way classification accuracy achieved",
-      "EEG and ECG modalities enhance each other's predictive power"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41598-026-43638-x",
-    "source": "computational-biology",
-    "id": "10.1038/s41598-026-43638-x",
-    "title": "In silico discovery of thioglycoside analogues as donor-site inhibitors of glycosyltransferase LgtC",
-    "projectPage": "https://www.nature.com/articles/s41598-026-43638-x",
-    "journal": "Scientific Reports",
-    "publishedAt": "2026-03-17",
-    "category": "Structural Prediction",
-    "task": "Identify glycosyltransferase LgtC inhibitors targeting UDP-galactose donor pocket",
-    "model": "(computational) molecular docking (AutoDock-GPU) and 100 ns MD simulations (AMBER14)",
-    "inputs": "Thioglycoside analogs (18 candidates from PubChem screening) with ADME-Tox filtering",
-    "outputs": "Binding affinity scores and dynamic stability metrics; prioritized lead compounds",
-    "key_results": "C-5 (\u22128.36 kcal/mol) and C-18 (\u22128.13 kcal/mol) exceed natural ligand UDP-\u03b1-D-galactose (\u22126.74 kcal/mol); stable poses with RMSD 2.0\u20133.0 \u00c5",
-    "comments": "Rigorous computational screening with MD validation, but in vitro biochemical assays remain necessary to confirm donor-site inhibition.",
-    "hypotheses": [
-      "Thioglycoside analogs bind competitively at the UDP-galactose donor site",
-      "Stable MD trajectories correlate with inhibitory potency"
-    ],
-    "results": [
-      "C-5, C-14, C-18 identified as lead compounds",
-      "Stable hydrogen-bond and \u03c0-stacking interactions maintained in MD simulations"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41598-026-44209-w",
-    "source": "computational-biology",
-    "id": "10.1038/s41598-026-44209-w",
-    "title": "Zero-shot English\u2013Assamese neural machine translation via pivot-based cross-lingual embedding alignment and transfer learning",
-    "projectPage": "https://www.nature.com/articles/s41598-026-44209-w",
-    "journal": "Scientific Reports",
-    "publishedAt": "2026-03-17",
-    "category": "Statistical Methods",
-    "task": "Zero-shot English\u2013Assamese translation via cross-lingual embedding alignment",
-    "model": "(computational) multilingual mBART with Procrustes-optimized embedding alignment",
-    "inputs": "Pivot language (Bengali) parallel data; English and Assamese text; language tags",
-    "outputs": "English-to-Assamese translations; BLEU scores; adequacy and fluency ratings",
-    "key_results": "BLEU 28.65 (7.53 points above baseline); adequacy 4.5/5, fluency 4.6/5; 8.4% error rate reduction; 26.9% inference speedup",
-    "comments": "Effective bridge for low-resource translation, but BLEU gains are modest and human evaluation sample size is not disclosed.",
-    "hypotheses": [
-      "Pivot-based transfer learning bridges resource gaps for linguistically proximate languages",
-      "Cross-lingual embedding alignment improves translation quality"
-    ],
-    "results": [
-      "BLEU score 28.65 achieved; 7.53 point improvement over direct baselines",
-      "Language-aware tagging reduces off-target errors; dynamic vocabulary expansion mitigates OOV"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41598-026-42273-w",
-    "source": "computational-biology",
-    "id": "10.1038/s41598-026-42273-w",
-    "title": "A GWAS\u2013machine learning framework reveals protein-synthesis pathway signals for yield in Theobroma cacao after population-structure correction",
-    "projectPage": "https://www.nature.com/articles/s41598-026-42273-w",
-    "journal": "Scientific Reports",
-    "publishedAt": "2026-03-17",
-    "category": "Genomics",
-    "task": "Identify genetic and phenotypic determinants of cacao yield via GWAS and ML prediction",
-    "model": "(experimental) Bootstrap Forest GWAS with population-structure correction; Neural Network phenotype prediction",
-    "inputs": "346 diverse cacao accessions; SNP genotypes; pod index, seed number, wet bean mass phenotypes",
-    "outputs": "SNP-importance rankings; enriched functional terms; phenotype-based yield predictions",
-    "key_results": "Population-structure-corrected GWAS enriches for ribosome/translation terms; cotyledon mass and length are top predictors of wet bean mass",
-    "comments": "Population structure correction improves interpretability, but low marker density and phenotype provenance limitations may inflate effect sizes.",
-    "hypotheses": [
-      "Population structure confounds yield association signals",
-      "Phenotypic traits alone can predict yield"
-    ],
-    "results": [
-      "Ribosome/translation pathway signals enriched after structure correction",
-      "Cotyledon morphology strongly predicts total wet bean mass"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41598-026-42822-3",
-    "source": "computational-biology",
-    "id": "10.1038/s41598-026-42822-3",
-    "title": "From chain length to cell death: mechanistic basis for ROS-mediated apoptosis induced by saturated fatty acids",
-    "projectPage": "https://www.nature.com/articles/s41598-026-42822-3",
-    "journal": "Scientific Reports",
-    "publishedAt": "2026-03-17",
-    "category": "Other",
-    "task": "Characterize structure\u2013function relationships of fatty acid ethanolamides and ROS-mediated apoptosis",
-    "model": "(experiment) homologous FAE series (C8:0\u2013C18:0); molecular docking; principal component analysis",
-    "inputs": "FAE chain length; physicochemical properties (solubility, hydrophobicity); cell-based assays (ROS, MMP, apoptosis)",
-    "outputs": "Acyl chain length as dominant determinant; apoptotic activity profiles; docking poses with cannabinoid receptors",
-    "key_results": "C12:0-MEA shows distinct ROS/MMP/apoptosis profile; C16:0\u2013C18:0-MEA exhibit enhanced hydrophobicity and apoptosis; chain length explains ~70% variance (PCA)",
-    "comments": "Comprehensive structure\u2013function study with elegant PCA synthesis, but the split between ROS-dependent and independent pathways in long-chain FAEs requires mechanistic clarification.",
-    "hypotheses": [
-      "Acyl chain length is the dominant physicochemical determinant",
-      "C12:0-MEA exhibits optimized bioactivity for targeted prodrug applications"
-    ],
-    "results": [
-      "Chain length explains dominant variance in physicochemical and biological behavior",
-      "C12:0-MEA shows controlled bioactivity profile; long-chain FAEs activate both ROS-dependent and independent pathways"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41598-026-44593-3",
-    "source": "computational-biology",
-    "id": "10.1038/s41598-026-44593-3",
-    "title": "Automated detection and segmentation of Weiss ring in fundus photography images using deep learning",
-    "projectPage": "https://www.nature.com/articles/s41598-026-44593-3",
-    "journal": "Scientific Reports",
-    "publishedAt": "2026-03-17",
-    "category": "Other",
-    "task": "Automated detection and segmentation of Weiss rings in fundus photographs",
-    "model": "(experiment) U-Net segmentation + EfficientNet-B0 classification + meta-classifier fusion",
-    "inputs": "Fundus photography images; segmentation and classification targets",
-    "outputs": "Weiss ring localization masks; binary classification (presence/absence); Grad-CAM attention maps",
-    "key_results": "U-Net Dice 0.578, IoU 0.421; meta-classifier AUC 0.903, accuracy 0.812, sensitivity 0.692, specificity 0.872",
-    "comments": "Modest segmentation performance due to low contrast and peripapillary visibility challenges; clinical utility limited to archival review and research phenotyping without OCT confirmation.",
-    "hypotheses": [
-      "Segmentation and classification fusion outperforms classification alone",
-      "Attention maps localize Weiss ring appearance patterns"
-    ],
-    "results": [
-      "Meta-classifier outperforms individual CNNs (AUC 0.903 vs. unimodal)",
-      "Grad-CAM highlights peripapillary regions of Weiss ring appearance"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41467-026-70627-5",
-    "source": "systems-biology",
-    "id": "10.1038/s41467-026-70627-5",
-    "title": "Origins and breadth of pairwise epistasis in an \u03b1-helix of \u03b2-lactamase TEM-1",
-    "projectPage": "https://www.nature.com/articles/s41467-026-70627-5",
-    "journal": "Nature Communications",
-    "publishedAt": "2026-03-17",
-    "category": "Evolutionary Dynamics",
-    "task": "Characterize mechanistic basis of epistasis in protein mutations",
-    "model": "Two-state protein stability model with additive contributions",
-    "inputs": "Library of 14,000+ double mutants in TEM-1 \u03b2-lactamase \u03b1-helix",
-    "outputs": "Fitness, minimum inhibitory concentration, epistatic interaction predictions",
-    "key_results": "Most epistasis predictable from single-mutation effects via stability model; systematic deviations occur for residues in direct 3D contact; statistical models from homologous sequences partially recover epistatic interactions",
-    "comments": "The finding that structure-dependent interactions explain deviations from additivity provides mechanistic insight, though the model's predictive power outside this specific helix remains unclear.",
-    "hypotheses": [
-      "Epistatic effects arise primarily from changes in protein stability",
-      "Direct residue-residue interactions in 3D structure cause non-additive epistasis",
-      "Evolutionary information from homologous sequences encodes epistatic patterns"
-    ],
-    "results": [
-      "Two-state model explains most epistatic variance",
-      "Direct interactions identified as source of model deviations",
-      "Homolog-trained statistical models partially predict observed epistasis"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41467-026-70512-1",
-    "source": "systems-biology",
-    "id": "10.1038/s41467-026-70512-1",
-    "title": "Biosynthesis of pyomelanin from methanol with engineered Komagataella phaffii and its characterizations",
-    "projectPage": "https://www.nature.com/articles/s41467-026-70512-1",
-    "journal": "Nature Communications",
-    "publishedAt": "2026-03-17",
-    "category": "Synthetic Circuits",
-    "task": "Engineer high-yield pyomelanin biosynthesis from methanol",
-    "model": "(Experiment) Engineered Komagataella phaffii with balanced biosynthetic modules and directed evolution",
-    "inputs": "Methanol, engineered biosynthetic pathways (homogentisic acid synthesis and oxidative polymerization)",
-    "outputs": "Pyomelanin titer (g/L), homogentisic acid yield fold-change",
-    "key_results": "66-fold increase in homogentisic acid yield; strain Pyo29 achieved 70.5 \u00b1 0.7 g/L pyomelanin in 204 h fermentation; established color-screening system for directed evolution",
-    "comments": "The substantial yield improvement demonstrates practical pathway engineering, though the balance between the three biosynthetic modules and their individual contributions could be better characterized.",
-    "hypotheses": [
-      "Balancing biosynthetic modules increases flux through homogentisic acid synthesis",
-      "Directed evolution of 3-deoxy-D-arabinoheptulosonate 7-phosphate synthase improves upstream efficiency",
-      "Laccase-catalyzed polymerization differs mechanistically from alkaline oxidative polymerization"
-    ],
-    "results": [
-      "Module balancing achieved 66-fold homogentisic acid yield increase",
-      "Directed evolution and semirational design improved enzyme efficiency",
-      "High-density fermentation reached 70.5 g/L pyomelanin titer"
+      "Confirmed: BTG3 overexpression inhibits proliferation, migration, invasion",
+      "Confirmed: BTG3 overexpression suppresses PI3K/AKT signaling and EMT markers"
     ]
   }
 ]

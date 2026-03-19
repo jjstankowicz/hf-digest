@@ -233,6 +233,8 @@
 
   /* model_io / hypotheses field rendering */
   .model-io-toggle { border-bottom: 1px solid #f3f4f6; padding: 4px 0; }
+  .model-io-toggle > summary::-webkit-details-marker { display: none; }
+  .model-io-toggle > summary::marker { content: ''; }
   .model-io-toggle > summary {
     cursor: pointer; list-style: none;
     font-size: 11px; font-weight: 600; text-transform: uppercase;
@@ -266,7 +268,7 @@
   .empty-state { text-align: center; padding: 80px 20px; color: var(--text-muted); font-size: 15px; }
 
   @media (max-width: 600px) {
-    .card-grid { grid-template-columns: 1fr; }
+    .card-grid { columns: 1; }
     .site-header { flex-wrap: wrap; }
     #paper-count { display: none; }
   }

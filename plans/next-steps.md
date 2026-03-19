@@ -104,6 +104,9 @@ Nature schema TBD.
   triplets (model | inputs -> outputs); render hypotheses/results stacked
   (Hypothesis N: ... / Result N: ... per pair); move key_results and comments
   to bottom of card. Preserve existing left|right label/value layout.
+  For Nature cards, suppress model_io by default with a "show model/inputs/outputs"
+  toggle; hypotheses/results are the primary display. HF cards show model_io
+  prominently. model_io is always extracted for graph-viz regardless.
 
 - `model-io-normalize` -- Canonicalize model_io vocabulary across papers so the
   same concept gets the same label (e.g. "image" vs "RGB image" vs "image patch").

@@ -41,6 +41,7 @@ finding, significance (different decomposition from HF/ML papers).
 (prev/next or tabs). Fetches selected day's JSON, filters by source client-side.
 
 **JSON schema** (per paper, HF):
+
 ```json
 {
   "uid": "hf:2603.12345",
@@ -82,6 +83,13 @@ Nature schema TBD.
 
 # Priority (Sorted)
 
+- `unified-schema`
+- `card-rendering`
+- `read-unread-markers`
+- `digest-search`
+
+# Backlog (Unsorted)
+
 - `unified-schema` -- Redesign extraction schema: replace flat model/inputs/outputs
   scalars and parallel hypotheses[]/results[] arrays with two array-of-object fields:
   `model_io: [{model, inputs, outputs}]` and `hypotheses: [{hypothesis, result}]`.
@@ -92,13 +100,6 @@ Nature schema TBD.
   triplets (model | inputs -> outputs), hypotheses as side-by-side pairs,
   move key_results and comments to bottom of card.
 
-- `read-unread-markers`
-- `rss-feed`
-- `digest-search`
-- `email-summary`
-
-# Backlog (Unsorted)
-
 - `graph-viz` -- Category theory graph across ML/DL papers: inputs/outputs as
   objects, models as morphisms. Requires unified-schema (model_io tuples) first.
   Needs controlled vocabulary or normalization pass to canonicalize type names.
@@ -107,10 +108,4 @@ Nature schema TBD.
   `localStorage`. Each paper card gets a checkbox or click-to-mark.
   Persists across page loads. No server needed.
 
-- `rss-feed` -- Generate `docs/feed.xml` from `index.json` so the digest
-  can be followed in a feed reader.
-
 - `digest-search` -- Add client-side full-text search across loaded JSON.
-
-- `email-summary` -- After daily generation, send a short email of top 3-5
-  papers relevant to drug discovery / molecular ML / Bayesian methods.

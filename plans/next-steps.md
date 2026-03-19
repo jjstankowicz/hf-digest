@@ -79,13 +79,13 @@ non-empty). Rendering decides what to surface per source.
 - `per-feed-sources`
 - `unified-schema`
 - `refactor-python`
-
-# Priority (Sorted)
-
 - `card-rendering`
 - `nav-style`
 - `read-unread-markers`
 - `refactor-simplify`
+
+# Priority (Sorted)
+
 - `model-io-normalize`
 - `graph-viz`
 - `digest-search`

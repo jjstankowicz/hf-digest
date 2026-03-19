@@ -21,6 +21,9 @@
     --radius-card: 0.75rem;
     --radius-chip: 0.375rem;
     --shadow-card: 0 1px 3px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.04);
+    --card-bg: #fafafa;
+    --field-border: #f3f4f6;
+    --chip-bg: #f1f5f9;
 
     /* HF categories: stripe color, badge bg, badge text */
     --c-medical:      #4ade80; --cb-medical:      #dcfce7; --ct-medical:      #166534;
@@ -32,8 +35,6 @@
     --c-benchmark:    #2dd4bf; --cb-benchmark:    #ccfbf1; --ct-benchmark:    #134e4a;
     --c-systems:      #94a3b8; --cb-systems:      #f1f5f9; --ct-systems:      #334155;
 
-    /* Nature physics categories (retained for legacy; new categories use JS color lookup) */
-    --c-other: #6b7280; --cb-other: #f9fafb; --ct-other: #374151;
   }
 
   body {
@@ -154,7 +155,7 @@
   /* ---- Card ---- */
   .paper-card {
     cursor: pointer;
-    background: #fafafa;
+    background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: var(--radius-card);
     box-shadow: var(--shadow-card);
@@ -217,7 +218,7 @@
 
   .journal-badge {
     margin-left: auto;
-    background: #f1f5f9; border-radius: var(--radius-chip);
+    background: var(--chip-bg); border-radius: var(--radius-chip);
     padding: 3px 8px; font-size: 11px; font-weight: 600; color: #475569;
     white-space: nowrap; max-width: 180px; overflow: hidden; text-overflow: ellipsis;
   }
@@ -242,7 +243,7 @@
     grid-template-columns: 130px 1fr;
     gap: 0 10px;
     padding: 7px 0;
-    border-bottom: 1px solid #f3f4f6;
+    border-bottom: 1px solid var(--field-border);
     font-size: 13px;
     line-height: 1.45;
   }
@@ -255,7 +256,7 @@
   .field-value { color: var(--text-secondary); }
 
   /* model_io / hypotheses field rendering */
-  .model-io-toggle { border-bottom: 1px solid #f3f4f6; padding: 4px 0; }
+  .model-io-toggle { border-bottom: 1px solid var(--field-border); padding: 4px 0; }
   .model-io-toggle > summary::-webkit-details-marker { display: none; }
   .model-io-toggle > summary::marker { content: ''; }
   .model-io-toggle > summary {
@@ -274,7 +275,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    background: #fafafa;
+    background: var(--card-bg);
     margin-top: auto;
   }
   .date-chip { font-size: 11px; color: var(--text-muted); margin-right: auto; }
@@ -289,6 +290,7 @@
   .link-article { background: #e0f2fe; color: #075985; }
 
   .empty-state { text-align: center; padding: 80px 20px; color: var(--text-muted); font-size: 15px; }
+  .hidden { display: none; }
 
   @media (max-width: 600px) {
     .card-grid { columns: 1; }
@@ -515,6 +517,11 @@ function formatDisplayDate(dateStr) {
   return d.toLocaleDateString('en-US', {month:'long', day:'numeric', year:'numeric', timeZone:'UTC'});
 }
 
+function safeUrl(href) {
+  try { const u = new URL(href); return (u.protocol === 'https:' || u.protocol === 'http:') ? href : null; }
+  catch (_) { return null; }
+}
+
 function visiblePapers() {
   return currentPapers.filter(p => p.source === activeSource());
 }
@@ -580,25 +587,14 @@ function renderCards() {
     let primaryLink = '';
     if (isHF) {
       primaryLink = `<a class="link-pill link-arxiv" href="https://arxiv.org/abs/${esc(p.id)}" target="_blank" rel="noopener noreferrer">arXiv</a>`;
-    } else if (p.projectPage) {
-      try {
-        const u = new URL(p.projectPage);
-        if (u.protocol === 'https:' || u.protocol === 'http:') {
-          primaryLink = `<a class="link-pill link-article" href="${esc(p.projectPage)}" target="_blank" rel="noopener noreferrer">Article</a>`;
-        }
-      } catch (_) {}
+    } else if (safeUrl(p.projectPage)) {
+      primaryLink = `<a class="link-pill link-article" href="${esc(p.projectPage)}" target="_blank" rel="noopener noreferrer">Article</a>`;
     }
 
     // Project link (HF only)
-    let projectLink = '';
-    if (isHF && p.projectPage) {
-      try {
-        const u = new URL(p.projectPage);
-        if (u.protocol === 'https:' || u.protocol === 'http:') {
-          projectLink = `<a class="link-pill link-project" href="${esc(p.projectPage)}" target="_blank" rel="noopener noreferrer">Project</a>`;
-        }
-      } catch (_) {}
-    }
+    const projectLink = (isHF && safeUrl(p.projectPage))
+      ? `<a class="link-pill link-project" href="${esc(p.projectPage)}" target="_blank" rel="noopener noreferrer">Project</a>`
+      : '';
 
     // Header badge: upvotes for HF, journal for Nature
     const headerBadge = isHF
@@ -641,9 +637,9 @@ function renderCards() {
       fieldRows += `<details class="model-io-toggle"><summary>Model / Inputs / Outputs</summary>${modelIoRows(p.model_io)}</details>`;
     }
 
-    const show = matchesFilter(p) ? '' : 'display:none;';
+    const hiddenCls = matchesFilter(p) ? '' : ' hidden';
     const readCls = readSet.has(p.uid) ? ' read' : '';
-    return `<div class="paper-card cat-${key}${readCls}" data-uid="${esc(p.uid)}" data-cat="${esc(p.category)}" tabindex="0" style="${show}">
+    return `<div class="paper-card cat-${key}${readCls}${hiddenCls}" data-uid="${esc(p.uid)}" data-cat="${esc(p.category)}" tabindex="0">
       <div class="card-stripe" style="background:${stripe}"></div>
       <div class="card-header">
         <span class="cat-badge" style="background:${badgeBg};color:${badgeText}">${esc(p.category)}</span>

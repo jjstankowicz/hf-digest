@@ -43,23 +43,31 @@
     min-height: 100vh;
   }
 
-  /* ---- Header ---- */
-  .site-header {
-    background: var(--surface);
-    border-bottom: 1px solid var(--border);
-    padding: 14px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
+  /* ---- Nav ---- */
+  .site-nav {
     position: sticky;
     top: 0;
     z-index: 100;
+    background: var(--surface);
+  }
+  .site-header {
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
   }
   .site-title { font-size: 20px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.02em; }
   .site-title span { color: var(--accent); }
 
-  .nav-group { display: flex; align-items: center; gap: 16px; }
+  .controls-bar {
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--border);
+  }
 
   .date-nav, .source-nav { display: flex; align-items: center; gap: 8px; }
   .date-nav button, .source-nav button {
@@ -71,21 +79,12 @@
   .source-nav button:hover:not(:disabled) { background: var(--border); color: var(--text-primary); }
   .date-nav button:disabled,
   .source-nav button:disabled { opacity: 0.35; cursor: default; }
-  #date-display { font-size: 15px; font-weight: 600; color: var(--text-primary); min-width: 160px; text-align: center; }
+  #date-display { font-size: 13px; font-weight: 600; color: var(--text-primary); min-width: 120px; text-align: center; }
   #source-display { font-size: 13px; font-weight: 600; color: var(--text-secondary); min-width: 170px; text-align: center; }
 
-  .nav-divider { width: 1px; height: 24px; background: var(--border); }
+  .nav-divider { width: 1px; height: 24px; background: var(--border); flex-shrink: 0; }
 
   /* ---- Filters ---- */
-  .filters-bar {
-    padding: 12px 24px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    align-items: center;
-    border-bottom: 1px solid var(--border);
-    background: var(--surface);
-  }
   .filter-chip {
     border: 1.5px solid var(--border); border-radius: 20px; padding: 4px 12px;
     font-size: 12px; font-weight: 600; cursor: pointer; background: var(--surface);
@@ -121,7 +120,7 @@
   .filter-chip.fc-dynamic.active { color: #fff; }
 
   #filters { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
-  #paper-count { font-size: 12px; color: var(--text-muted); margin-left: auto; white-space: nowrap; }
+  #paper-count { font-size: 12px; color: var(--text-muted); white-space: nowrap; }
 
   /* ---- Card Grid ---- */
   .grid-wrap { padding: 24px; max-width: 1400px; margin: 0 auto; }
@@ -269,19 +268,22 @@
 
   @media (max-width: 600px) {
     .card-grid { columns: 1; }
-    .site-header { flex-wrap: wrap; }
+    .controls-bar { gap: 8px; }
     #paper-count { display: none; }
   }
 </style>
 </head>
 <body>
 
-<header class="site-header">
-  <div class="site-title">Paper <span>Digest</span></div>
-  <div class="nav-group">
+<div class="site-nav">
+  <header class="site-header">
+    <div class="site-title">Paper <span>Digest</span></div>
+    <div id="paper-count"></div>
+  </header>
+  <div class="controls-bar">
     <div class="source-nav">
       <button id="prev-src-btn" aria-label="Previous source">&#8249;</button>
-      <span id="source-display">All Sources</span>
+      <span id="source-display">HF Daily</span>
       <button id="next-src-btn" aria-label="Next source">&#8250;</button>
     </div>
     <div class="nav-divider"></div>
@@ -290,12 +292,9 @@
       <span id="date-display">Loading...</span>
       <button id="next-btn" aria-label="Next day">&#8250;</button>
     </div>
+    <div class="nav-divider"></div>
+    <div id="filters"></div>
   </div>
-</header>
-
-<div class="filters-bar">
-  <div id="filters"></div>
-  <div id="paper-count"></div>
 </div>
 
 <div class="grid-wrap">

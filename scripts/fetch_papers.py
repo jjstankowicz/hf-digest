@@ -66,10 +66,22 @@ def fetch_hf_papers(target: date) -> list[dict]:
     return papers
 
 
+def _normalize_cache_entry(entry: dict) -> dict:
+    """Ensure a cache entry has all required fields with correct default types."""
+    normalized: dict = {}
+    for k in EXTRACTED_FIELDS:
+        default: list | str = [] if k in ARRAY_FIELDS else ""
+        normalized[k] = entry.get(k, default)
+    if isinstance(normalized.get("model_io"), list):
+        normalized["model_io"] = _normalize_model_io(normalized["model_io"])
+    return normalized
+
+
 def load_cache() -> dict[str, dict]:
     """Load uid -> extracted fields cache from disk, seeding from existing day files if absent."""
     if CACHE_PATH.exists():
-        return json.loads(CACHE_PATH.read_text())
+        raw = json.loads(CACHE_PATH.read_text())
+        return {uid: _normalize_cache_entry(entry) for uid, entry in raw.items()}
 
     cache: dict[str, dict] = {}
     for f in DATA_DIR.glob("????-??-??.json"):
@@ -122,6 +134,8 @@ def extract_fields(papers: list[dict], client: anthropic.Anthropic) -> list[dict
     if text.startswith("```"):
         text = text.split("\n", 1)[1].rsplit("```", 1)[0]
     result = json.loads(text)
+    if not isinstance(result, list) or not all(isinstance(e, dict) for e in result):
+        raise RuntimeError(f"Unexpected extraction response shape: {type(result).__name__}")
     for entry in result:
         if isinstance(entry.get("model_io"), list):
             entry["model_io"] = _normalize_model_io(entry["model_io"])

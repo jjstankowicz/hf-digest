@@ -291,6 +291,8 @@ def extract_fields(
     if text.startswith("```"):
         text = text.split("\n", 1)[1].rsplit("```", 1)[0]
     result = json.loads(text)
+    if not isinstance(result, list) or not all(isinstance(e, dict) for e in result):
+        raise RuntimeError(f"Unexpected extraction response shape: {type(result).__name__}")
     for entry in result:
         if isinstance(entry.get("model_io"), list):
             entry["model_io"] = _normalize_model_io(entry["model_io"])

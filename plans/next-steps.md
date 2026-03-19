@@ -97,8 +97,9 @@ Nature schema TBD.
   Re-ingest all existing dates (no cache migration -- just re-extract cleanly).
 
 - `card-rendering` -- Update card UI to match new schema: render model_io as
-  triplets (model | inputs -> outputs), hypotheses as side-by-side pairs,
-  move key_results and comments to bottom of card.
+  triplets (model | inputs -> outputs); render hypotheses/results stacked
+  (Hypothesis N: ... / Result N: ... per pair); move key_results and comments
+  to bottom of card. Preserve existing left|right label/value layout.
 
 - `graph-viz` -- Category theory graph across ML/DL papers: inputs/outputs as
   objects, models as morphisms. Requires unified-schema (model_io tuples) first.

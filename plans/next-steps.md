@@ -140,10 +140,14 @@ non-empty). Rendering decides what to surface per source.
   improvement to date and source selectors. Design should accommodate future
   "all read" indicators on date and source without a rework.
 
-- `refactor-simplify` -- After unified-schema and card-rendering land, do a
-  simplification pass on index.html. Consider splitting CSS/JS into separate
-  files (needs cache-busting strategy, e.g. query param versioning). Clean up
-  any dead code left by schema and rendering changes.
+- `refactor-simplify` -- Targeted code smell cleanup in index.html. No file split.
+  Specific items:
+  - Extract duplicated link URL validation into a helper (two identical try/new URL() blocks)
+  - Delete unused legacy CSS vars: --c-other, --cb-other, --ct-other
+  - Add CSS vars for repeated bare hex values: #fafafa (card bg), #f3f4f6 (field row border),
+    #f1f5f9 (journal badge bg)
+  - Replace magic 8px border-radius on segmented controls with var(--radius-chip)
+  - Use a CSS class (.hidden) instead of inline display:none for filtered cards
 
 - `digest-search` -- Add client-side full-text search across loaded JSON.
 

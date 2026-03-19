@@ -59,6 +59,8 @@
   }
   .site-title { font-size: 20px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.02em; }
   .site-title span { color: var(--accent); }
+  .header-info { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
+  #read-status { font-size: 11px; color: var(--text-muted); }
 
   .controls-bar {
     padding: 10px 24px;
@@ -134,6 +136,14 @@
   #filters { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
   #paper-count { font-size: 12px; color: var(--text-muted); white-space: nowrap; }
 
+  .mark-all-btn {
+    margin-left: auto; white-space: nowrap;
+    font-size: 12px; font-weight: 500; color: var(--text-muted);
+    background: none; border: 1px solid var(--border); border-radius: 6px;
+    padding: 4px 10px; cursor: pointer; transition: all 0.15s;
+  }
+  .mark-all-btn:hover { border-color: #9ca3af; color: var(--text-primary); }
+
   /* ---- Card Grid ---- */
   .grid-wrap { padding: 24px; max-width: 1400px; margin: 0 auto; }
   .card-grid {
@@ -143,6 +153,7 @@
 
   /* ---- Card ---- */
   .paper-card {
+    cursor: pointer;
     background: #fafafa;
     border: 1px solid var(--border);
     border-radius: var(--radius-card);
@@ -154,6 +165,7 @@
     break-inside: avoid;
     margin-bottom: 16px;
   }
+  .paper-card.read { opacity: 0.45; transition: opacity 0.2s; }
   .paper-card:hover {
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     transform: translateY(-1px);
@@ -290,7 +302,10 @@
 <div class="site-nav">
   <header class="site-header">
     <div class="site-title">Paper <span>Digest</span></div>
-    <div id="paper-count"></div>
+    <div class="header-info">
+      <div id="paper-count"></div>
+      <div id="read-status"></div>
+    </div>
   </header>
   <div class="controls-bar">
     <div class="source-nav">
@@ -306,6 +321,7 @@
     </div>
     <div class="nav-divider"></div>
     <div id="filters"></div>
+    <button class="mark-all-btn" onclick="markAllRead()">Mark all read</button>
   </div>
 </div>
 
@@ -424,6 +440,59 @@ let currentPapers = [];
 let activeFilter = 'all';
 let sources = ['hf'];
 let sourceIdx = 0;
+
+// ---- Read state ----
+const readSet = new Set(JSON.parse(localStorage.getItem('readPapers') ?? '[]'));
+
+function saveRead() {
+  localStorage.setItem('readPapers', JSON.stringify([...readSet]));
+}
+
+function toggleRead(uid) {
+  if (readSet.has(uid)) readSet.delete(uid);
+  else readSet.add(uid);
+  saveRead();
+  const card = document.querySelector(`.paper-card[data-uid="${CSS.escape(uid)}"]`);
+  if (card) card.classList.toggle('read', readSet.has(uid));
+  updateReadIndicators();
+}
+
+function isSourceAllRead(src) {
+  const papers = currentPapers.filter(p => p.source === src);
+  return papers.length > 0 && papers.every(p => readSet.has(p.uid));
+}
+
+function isDateAllRead() {
+  return currentPapers.length > 0 && currentPapers.every(p => readSet.has(p.uid));
+}
+
+function allVisibleRead() {
+  const papers = visiblePapers().filter(matchesFilter);
+  return papers.length > 0 && papers.every(p => readSet.has(p.uid));
+}
+
+function updateReadIndicators() {
+  if (!dates.length) return;
+  const src = activeSource();
+  document.getElementById('source-display').textContent =
+    (isSourceAllRead(src) ? '\u2713 ' : '') + (SOURCE_LABELS[src] ?? src);
+  document.getElementById('date-display').textContent =
+    (isDateAllRead() ? '\u2713 ' : '') + formatDisplayDate(dates[currentIdx]);
+  const btn = document.querySelector('.mark-all-btn');
+  if (btn) btn.textContent = allVisibleRead() ? 'Mark all unread' : 'Mark all read';
+  const visible = visiblePapers().filter(matchesFilter);
+  const readCount = visible.filter(p => readSet.has(p.uid)).length;
+  document.getElementById('read-status').textContent =
+    `${readCount} of ${visible.length} read \u00b7 click card to toggle`;
+}
+
+function markAllRead() {
+  const papers = visiblePapers().filter(matchesFilter);
+  const markRead = !allVisibleRead();
+  papers.forEach(p => markRead ? readSet.add(p.uid) : readSet.delete(p.uid));
+  saveRead();
+  renderCards();
+}
 
 function activeSource() { return sources[sourceIdx]; }
 
@@ -568,7 +637,8 @@ function renderCards() {
     }
 
     const show = matchesFilter(p) ? '' : 'display:none;';
-    return `<div class="paper-card cat-${key}" data-cat="${esc(p.category)}" style="${show}">
+    const readCls = readSet.has(p.uid) ? ' read' : '';
+    return `<div class="paper-card cat-${key}${readCls}" data-uid="${esc(p.uid)}" data-cat="${esc(p.category)}" style="${show}">
       <div class="card-stripe" style="background:${stripe}"></div>
       <div class="card-header">
         <span class="cat-badge" style="background:${badgeBg};color:${badgeText}">${esc(p.category)}</span>
@@ -582,6 +652,7 @@ function renderCards() {
       </div>
     </div>`;
   }).join('');
+  updateReadIndicators();
 }
 
 function filterCat(cat) {
@@ -633,6 +704,13 @@ async function loadDate(date) {
   renderFilters();
   renderCards();
 }
+
+document.getElementById('card-grid').addEventListener('click', e => {
+  const card = e.target.closest('.paper-card');
+  if (!card) return;
+  if (e.target.closest('a') || e.target.closest('details')) return;
+  toggleRead(card.dataset.uid);
+});
 
 document.getElementById('prev-btn').addEventListener('click', async () => {
   if (currentIdx > 0) { currentIdx--; updateNav(); await loadDate(dates[currentIdx]); }

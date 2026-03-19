@@ -147,6 +147,13 @@ non-empty). Rendering decides what to surface per source.
 
 - `digest-search` -- Add client-side full-text search across loaded JSON.
 
+- `read-sync` -- Cross-device sync of read state. localStorage is per-browser/device;
+  syncing requires a backend. Options: a tiny serverless function + KV store (e.g.
+  Cloudflare Workers + KV, keyed on a user token stored in localStorage); or a
+  GitHub Gist as a poor-man's remote store (read/write via GitHub API with a PAT).
+  Gist approach keeps it serverless and fits the static-site model, but requires
+  user setup. Not worth it unless the site gets used across devices regularly.
+
 - `nature-historical` -- Backfill older Nature articles beyond the ~30-item RSS window.
   Options: CrossRef API (query by ISSN + date range, then scrape abstracts), Springer
   Nature API (may return abstracts directly), or Wayback Machine RSS snapshots via

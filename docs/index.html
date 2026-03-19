@@ -527,13 +527,9 @@ function renderCards() {
     // Task (always first)
     let fieldRows = `<div class="field-row"><span class="field-label">Task</span><span class="field-value">${esc(p.task)}</span></div>`;
 
-    // model_io: prominent for HF, collapsed toggle for Nature
-    if (Array.isArray(p.model_io) && p.model_io.length) {
-      if (isHF) {
-        fieldRows += modelIoRows(p.model_io);
-      } else {
-        fieldRows += `<details class="model-io-toggle"><summary>Model / Inputs / Outputs</summary>${modelIoRows(p.model_io)}</details>`;
-      }
+    // model_io: prominent for HF (after task), collapsed at bottom for Nature
+    if (isHF && Array.isArray(p.model_io) && p.model_io.length) {
+      fieldRows += modelIoRows(p.model_io);
     }
 
     // Hypotheses / Results: stacked Hyp N / Result N pairs
@@ -549,6 +545,11 @@ function renderCards() {
     // Key results and comments at bottom
     if (p.key_results) fieldRows += `<div class="field-row"><span class="field-label">Key Results</span><span class="field-value">${esc(p.key_results)}</span></div>`;
     if (p.comments) fieldRows += `<div class="field-row"><span class="field-label">Notes</span><span class="field-value">${esc(p.comments)}</span></div>`;
+
+    // Nature: model_io collapsed at the very bottom
+    if (!isHF && Array.isArray(p.model_io) && p.model_io.length) {
+      fieldRows += `<details class="model-io-toggle"><summary>Model / Inputs / Outputs</summary>${modelIoRows(p.model_io)}</details>`;
+    }
 
     const show = matchesFilter(p) ? '' : 'display:none;';
     return `<div class="paper-card cat-${key}" data-cat="${esc(p.category)}" style="${show}">

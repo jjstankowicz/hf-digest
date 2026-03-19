@@ -10900,5 +10900,755 @@
         "result": "Gallacetophenone demonstrated stable COMT binding, enhanced conformational stability, and favorable pharmacokinetic properties in silico"
       }
     ]
+  },
+  "hf:2603.11535": {
+    "category": "LLM/Reasoning",
+    "task": "Dynamic computation allocation in mixture-of-experts routing for language models",
+    "key_results": "0.067 lower cross-entropy loss than TC-MoE; equivalent performance with 1.6\u00d7 fewer tokens on 2.4B parameter model",
+    "comments": "The fully causal, token-independent routing mechanism is elegant and well-motivated for autoregressive settings, though the practical speedup gains depend on how efficiently threshold-based routing can be implemented.",
+    "model_io": [
+      {
+        "model": "Expert Threshold (ET) Mixture-of-Experts",
+        "inputs": [
+          "token embeddings"
+        ],
+        "outputs": [
+          "routed token representations",
+          "load-balanced expert assignments"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Dynamic routing with EMA-based thresholds can achieve load balance without auxiliary losses",
+        "result": "Confirmed; ET maintains load balance while reducing auxiliary loss dependency"
+      },
+      {
+        "hypothesis": "Fully causal token routing improves autoregressive language modeling efficiency",
+        "result": "Confirmed; achieved better cross-entropy loss and token efficiency than TC-MoE"
+      }
+    ]
+  },
+  "hf:2603.14482": {
+    "category": "Vision",
+    "task": "Self-supervised dense visual representation learning for images and videos",
+    "key_results": "7.71 mAP on Ego4D object-interaction anticipation; 40.8 Recall@5 on EPIC-KITCHENS action anticipation; 20-point improvement in robot grasping success over V-JEPA-2 AC",
+    "comments": "The hierarchical self-supervision and dense masking-based objectives effectively couple spatial and temporal grounding, though the method's computational cost during training is not discussed.",
+    "model_io": [
+      {
+        "model": "V-JEPA 2.1 (vision encoder with multi-modal tokenizers)",
+        "inputs": [
+          "image or video frames",
+          "masked regions"
+        ],
+        "outputs": [
+          "dense spatiotemporal feature representations"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Dense predictive loss with both visible and masked token contributions improves spatial and temporal grounding",
+        "result": "Confirmed; strong performance on interaction and action anticipation benchmarks"
+      },
+      {
+        "hypothesis": "Deep hierarchical self-supervision across encoder layers improves representation quality",
+        "result": "Confirmed; state-of-the-art results across multiple downstream tasks"
+      },
+      {
+        "hypothesis": "Multi-modal tokenizers enable unified image and video representation learning",
+        "result": "Confirmed; strong scaling and performance gains over single-modality approaches"
+      }
+    ]
+  },
+  "nature:10.1038/s41467-026-70722-7": {
+    "category": "Structural Biology",
+    "task": "Resolve cryo-EM structure of TRPM1 and determine ion channel architecture",
+    "key_results": "TRPM1 adopts canonical tetrameric intracellular domain; transmembrane domain has inverted handedness (opposite to related TRPM channels) with domain-swapped voltage sensor and pore domains forming large pore structure",
+    "comments": "Non-canonical architecture explains unique pharmacology and resolves controversy about TRPM1 ion channel function, though functional validation of permeation properties is needed.",
+    "model_io": [
+      {
+        "model": "cryo-EM structure determination",
+        "inputs": [
+          "TRPM1 protein complex",
+          "vitreous ice"
+        ],
+        "outputs": [
+          "3D density map",
+          "atomic model",
+          "transmembrane domain organization"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "TRPM1 functions as an ion channel despite sequence similarity to TRPM3",
+        "result": "Confirmed; canonical tetrameric fold and pore-like structure support ion channel function"
+      },
+      {
+        "hypothesis": "Inverted transmembrane domain confers unique permeation properties",
+        "result": "Supported; large pore structure and non-canonical architecture suggest distinct pharmacological traits"
+      }
+    ]
+  },
+  "nature:10.1038/s41419-026-08558-8": {
+    "category": "Cell Signaling",
+    "task": "Elucidate ZDHHC9-mediated palmitoylation of LAMTOR1 in mTOR signaling activation",
+    "key_results": "ZDHHC9 palmitoylates LAMTOR1 at Cys3/4 residues, enhancing mTORC1 recruitment and accelerating RCC progression",
+    "comments": "Identifies a specific palmitoylation event as a mechanistic driver of cancer progression, with potential therapeutic implications.",
+    "model_io": [
+      {
+        "model": "RCC cell lines and xenografts",
+        "inputs": [
+          "ZDHHC9",
+          "LAMTOR1",
+          "mTORC1"
+        ],
+        "outputs": [
+          "mTOR pathway activation",
+          "cancer progression",
+          "cell growth"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "ZDHHC9 palmitoylation of LAMTOR1 enhances mTORC1 recruitment",
+        "result": "Confirmed: palmitoylation at Cys3/4 increases mTORC1 localization and signaling"
+      }
+    ]
+  },
+  "nature:10.1038/s41467-026-70752-1": {
+    "category": "Organelles",
+    "task": "Determine PLA2G6 function in MAM-mediated Ca\u00b2\u207a transfer and Parkinson's disease pathogenesis",
+    "key_results": "PLA2G6 stabilizes IP3R1-GRP75-VDAC1 complex; loss causes IP3R1 degradation, reduced ER-mitochondria contacts, and impaired Ca\u00b2\u207a transfer",
+    "comments": "Provides mechanistic insight into PD pathophysiology through organellar dysfunction and suggests MAM remodeling as a therapeutic target.",
+    "model_io": [
+      {
+        "model": "Patient-derived dopaminergic neurons (iPSCs), in vitro MAM assays",
+        "inputs": [
+          "PLA2G6",
+          "IP3R1",
+          "GRP75",
+          "VDAC1"
+        ],
+        "outputs": [
+          "ER-mitochondria contacts",
+          "Ca\u00b2\u207a transfer",
+          "IP3R1 stability"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "PLA2G6 loss destabilizes IP3R1-GRP75-VDAC1 complex",
+        "result": "Confirmed: PLA2G6 deficiency accelerates IP3R1 degradation and disrupts MAM structure"
+      },
+      {
+        "hypothesis": "MAM linker can rescue PLA2G6 loss phenotypes",
+        "result": "Confirmed in patient-derived neurons"
+      }
+    ]
+  },
+  "nature:10.1038/s41580-026-00957-1": {
+    "category": "Other",
+    "task": "Review technologies for measuring and modulating protein subcellular localization",
+    "key_results": "Comprehensive assessment of microscopy, mass spectrometry-based correlation profiling, proximity labelling (measuring localization); localization tags, bifunctional molecules (manipulating localization); evaluation of strengths/weaknesses for contextualizing multilocalizing/multifunctional proteins",
+    "comments": "Timely review addressing critical gap in spatial proteomics; emphasizes importance of spatial context for protein function interpretation.",
+    "model_io": [],
+    "hypotheses": []
+  },
+  "nature:10.1038/s41598-026-41545-9": {
+    "category": "Cell Signaling",
+    "task": "Establish glutamine-mediated wound healing mechanism via MEK/ERK/SLC1A5 pathway and M2 macrophage polarization",
+    "key_results": "Glutamine activates MEK/ERK, upregulating SLC1A5; promotes glutamine metabolic reprogramming, M2 macrophage polarization, angiogenesis (CD31+), and fibroblast activation (\u03b1-SMA+); inhibitors of MEK/GLS1/SLC1A5 block effects",
+    "comments": "Identifies metabolite-dependent macrophage polarization as rate-limiting step in wound healing; suggests therapeutic targeting of glutamine metabolism.",
+    "model_io": [
+      {
+        "model": "C57BL/6J mice full-thickness wound model",
+        "inputs": [
+          "glutamine",
+          "MEK/ERK pathway",
+          "SLC1A5",
+          "GLS1"
+        ],
+        "outputs": [
+          "wound closure rate",
+          "angiogenesis (CD31)",
+          "fibroblast activation (\u03b1-SMA)",
+          "M2 macrophage markers (CD206)"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Glutamine promotes wound healing via MEK/ERK/SLC1A5-dependent M2 polarization",
+        "result": "Confirmed: inhibitors of MEK, GLS1, or SLC1A5 block glutamine-mediated angiogenesis and macrophage polarization"
+      }
+    ]
+  },
+  "nature:10.1038/s41467-026-70637-3": {
+    "category": "Statistical Methods",
+    "task": "Evaluating digital breast tomosynthesis AI model subgroup performance for cancer detection",
+    "key_results": "Overall AUROC 0.91, sensitivity 0.73; in-situ cancers (AUROC 0.85, sens 0.55), calcifications (0.80, 0.66), dense tissue (0.88, 0.63) lower; masses (0.93, 0.85), architectural distortion (0.90, 0.83) higher",
+    "comments": "Granular subgroup evaluation reveals critical performance disparities; dense breast tissue and calcifications warrant model refinement.",
+    "model_io": [
+      {
+        "model": "Commercial DBT AI model",
+        "inputs": [
+          "167,860 DBT screening exams (1,368 screen-detected cancers, 166,387 negative)"
+        ],
+        "outputs": [
+          "cancer detection predictions",
+          "AUROC/sensitivity stratified by demographic, imaging, pathologic features"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "AI performance varies substantially across cancer morphologies and breast tissue types",
+        "result": "In-situ cancers and dense tissue are challenging; masses and architectural distortions well-detected"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-024-84792-4": {
+    "category": "Structural Prediction",
+    "task": "Immunoinformatics design of multi-epitope lung cancer vaccine targeting pyroptosis-associated antigens",
+    "key_results": "Vaccine achieves high antigenicity and solubility; strong TLR2/4/5/3/7/8 binding; 100 ns MD simulations confirm stability; codon optimization enables E. coli expression",
+    "comments": "Comprehensive in silico design but entirely computational; immunogenicity claims require functional validation in vitro and in vivo.",
+    "model_io": [
+      {
+        "model": "Epitope prediction, molecular docking, MD simulation, immune simulation, codon optimization",
+        "inputs": [
+          "pyroptosis proteins (CARD8, NAIP, NLRP1, NLRP3)",
+          "adjuvants",
+          "linkers"
+        ],
+        "outputs": [
+          "vaccine construct",
+          "3D structure",
+          "TLR binding affinity",
+          "immunogenicity prediction",
+          "expression cassette"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Multi-epitope vaccine targeting pyroptosis antigens activates innate and adaptive immunity",
+        "result": "Computational predictions show strong immunogenic responses with stable vaccine structure"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-39287-9": {
+    "category": "Statistical Methods",
+    "task": "Predicting heat stress response in dairy cows from milk mid-infrared spectra",
+    "key_results": "Body temperature prediction equation R\u00b2=0.67 (RMSE=0.64\u00b0C); three-class heat stress classification accuracy 61%; multiparous early-lactation cows most affected",
+    "comments": "Non-invasive MIR-based phenotyping is practical; moderate classification accuracy suggests multivariate confounding.",
+    "model_io": [
+      {
+        "model": "MIR spectral prediction models + mixed effects analysis",
+        "inputs": [
+          "milk MIR spectra",
+          "surface body temperature",
+          "milk composition",
+          "weather data",
+          "cow characteristics"
+        ],
+        "outputs": [
+          "body temperature predictions",
+          "heat stress response classification",
+          "cow sensitivity rankings"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Milk MIR spectral profiles reflect individual heat stress response",
+        "result": "Moderate predictive accuracy for temperature and heat stress class; genetic/physiologic factors identified"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-40783-1": {
+    "category": "Statistical Methods",
+    "task": "Protein language model-based E. coli O-serotype classification",
+    "key_results": "93% accuracy with 9 ML-prioritized marker genes; outperforms sequence similarity tools; high recall for rare serotypes",
+    "comments": "Strong performance on underrepresented serotypes is clinically relevant; generalizability to divergent strains promising.",
+    "model_io": [
+      {
+        "model": "ESM-2 protein language model with Random Forest classifier",
+        "inputs": [
+          "E. coli protein sequences (wcaM, wcaL, wcaK, wzzE, wzxC, wecC, glmM, garR, hisD)",
+          "11,272 genomes"
+        ],
+        "outputs": [
+          "O-serotype predictions",
+          "marker gene importance scores"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Protein language model embeddings improve serotype generalization vs. sequence similarity",
+        "result": "93% accuracy with better recall for low-frequency and divergent serotypes"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-43871-4": {
+    "category": "Evolutionary Biology",
+    "task": "Characterizing LtmA-mediated repression of cholesterol transport in Mycobacterium",
+    "key_results": "LtmA acts as repressor of mce4 operon; reduces cholesterol uptake and intracellular survival in macrophages",
+    "comments": "Functional characterization of regulatory mechanism in model organism; translational relevance to TB pathogenesis inference required.",
+    "model_io": [
+      {
+        "model": "EMSA, transcriptional knockdown/overexpression, macrophage infection assays",
+        "inputs": [
+          "LtmA protein",
+          "mce4 regulatory DNA",
+          "M. smegmatis strains",
+          "macrophages"
+        ],
+        "outputs": [
+          "LtmA binding sites",
+          "mce4 expression levels",
+          "intracellular survival rates"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "LtmA represses mce4 operon cholesterol transport function",
+        "result": "ltmA knockdown increased mce4 expression and macrophage survival; overexpression decreased both"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44413-8": {
+    "category": "Statistical Methods",
+    "task": "Medical image segmentation via dual-branch attention network with split convolution and transformers",
+    "key_results": "D3T-Net surpasses contemporary benchmarks in liver and lesion segmentation; dual CNN-Transformer branches capture local and global features; cross-attention mechanism improves boundary retention",
+    "comments": "Architectural innovation combining CNNs and transformers is sound; evaluation on liver only; multi-organ validation would strengthen claims.",
+    "model_io": [
+      {
+        "model": "D3T-Net: parallel CNN (deep split module) + Transformer (multi-dimensional) branches with direction-aware interaction attention",
+        "inputs": [
+          "medical images (liver and lesion emphasis)",
+          "anatomical annotations"
+        ],
+        "outputs": [
+          "organ/lesion segmentation masks",
+          "boundary-refined boundaries"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Dual-branch fusion of CNN local features and Transformer global context improves segmentation",
+        "result": "Surpassed benchmarks; enhanced boundary retention for small objects via multi-scale skip connections"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45113-z": {
+    "category": "Statistical Methods",
+    "task": "Identifying miRNA regulation of drug-metabolizing enzymes in human liver",
+    "key_results": "22 unique miRNAs detected regulating CYP450/UGT genes; significant negative correlations observed for CYP2C8/2C9/3A4, UGT1A1/1A3/2B15; miR-200a-3p directly targets UGT1A3",
+    "comments": "Comprehensive prediction + experimental validation for two miRNA-target pairs; remaining pairs require functional validation.",
+    "model_io": [
+      {
+        "model": "miRNA prediction tools + qPCR arrays + targeted proteomics + reporter assays",
+        "inputs": [
+          "liver tissue",
+          "miRNA expression databases",
+          "enzyme 3'UTR constructs",
+          "HepG2 cells"
+        ],
+        "outputs": [
+          "miRNA-enzyme target predictions",
+          "expression correlations",
+          "direct binding validation"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "miRNAs post-transcriptionally regulate drug-metabolizing enzymes",
+        "result": "Direct validation of miR-200a-3p \u2192 UGT1A3; miR-655-3p \u2192 CYP2C8 interaction inconclusive"
+      }
+    ]
+  },
+  "nature:10.1038/s41698-026-01335-y": {
+    "category": "Structural Prediction",
+    "task": "Predicting PAM50/PSC molecular subtypes from H&E histology using vision transformers",
+    "key_results": "UNIv2-MIL achieves AUC 0.863 (PAM50) and 0.81 (PSC); luminal predictions correlate with hormone therapy response (p<0.03); luminal B/proliferating scores correlate with adverse pathologic features (p<0.001/0.003)",
+    "comments": "Histopathology-to-molecular prediction is clinically appealing; external validation cohorts strengthen claims but prospective testing required.",
+    "model_io": [
+      {
+        "model": "UNIv2-MIL (pathology foundation model + multiple instance learning)",
+        "inputs": [
+          "H&E-stained biopsy slides (903 slides from 424 patients with molecular data)",
+          "PAM50/PSC molecular subtypes"
+        ],
+        "outputs": [
+          "molecular subtype predictions",
+          "high-attention region clusters",
+          "therapy response predictions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Histomorphology encodes molecular subtype information predictive of treatment response",
+        "result": "Predicted luminal subtypes correlated with HT responsiveness and APF risk"
+      }
+    ]
+  },
+  "nature:10.1038/s41698-026-01356-7": {
+    "category": "Genomics",
+    "task": "Predicting drug response in metastatic colorectal cancer via personalized functional profiling of spheroids",
+    "key_results": "PDS mirrored histopathology and genetics; anti-EGFR screening distinguished responders from non-responders; complementarity with genomics demonstrated",
+    "comments": "3D ex vivo model is more physiologically relevant than 2D; partial concordance with clinical outcomes suggests need for protocol refinement.",
+    "model_io": [
+      {
+        "model": "Patient-derived spheroid (PDS) screening with drug libraries",
+        "inputs": [
+          "patient tumor tissue (12 patients)",
+          "42 small molecules + 5 standard-of-care drugs"
+        ],
+        "outputs": [
+          "drug sensitivity profiles",
+          "cell viability measurements",
+          "clinical response correlation"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Ex vivo PDS drug screening predicts clinical treatment response",
+        "result": "Anti-EGFR and anti-ERBB2 sensitivity distinguished responsive patients; SOC screening partially correlated with outcomes"
+      }
+    ]
+  },
+  "nature:10.1038/s41746-026-02548-y": {
+    "category": "Statistical Methods",
+    "task": "Unified denoising for multi-organ accelerated MRI via deep learning",
+    "key_results": "Model trained on 148,930 noisy-clean pairs from 6 centers, 4 vendors, 6 organs, 96 protocols; 7.05% Dice improvement in downstream segmentation; 3\u00d7 acceleration with diagnostic equivalence to clean images",
+    "comments": "Large-scale real-world dataset and multi-vendor validation are excellent; clinical deployment requires vendor-specific recalibration and regulatory clearance.",
+    "model_io": [
+      {
+        "model": "Deep learning denoising CNN",
+        "inputs": [
+          "accelerated MRI reconstructions from commercial systems (148,930 image pairs)",
+          "6 organs, 96 protocols, 4 vendors"
+        ],
+        "outputs": [
+          "denoised images",
+          "tissue segmentation masks",
+          "diagnostic quality assessments"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Deep learning denoising restores diagnostic image quality in accelerated multi-organ MRI",
+        "result": "Outperformed state-of-the-art; 7.05% segmentation Dice improvement; 3\u00d7 acceleration maintains diagnostic equivalence"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-025-31668-w": {
+    "category": "Algorithms",
+    "task": "Blockchain-based residential demand side management with peer-to-peer energy trading",
+    "key_results": "Two-layer hybrid architecture (EnPlus server + Ethereum blockchain) reduces energy costs via P2P trading with GER tokens; improved peak-to-average ratio on 52-prosumer case study",
+    "comments": "Practical system design integrating Firefly Algorithm scheduling and cryptographic security; transaction latency acknowledged as limitation of hybrid model.",
+    "model_io": [
+      {
+        "model": "EnPlus server + private Ethereum blockchain with Solidity smart contracts + Firefly Optimization",
+        "inputs": [
+          "smart meter readings",
+          "prosumer bids/offers",
+          "PV generation"
+        ],
+        "outputs": [
+          "load schedules",
+          "P2P energy trades",
+          "GER token transfers"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "P2P trading with blockchain improves financial savings and local energy independence",
+        "result": "Confirmed on 52-prosumer Kolkata case; minor transaction delays from hybrid processing"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-43252-x": {
+    "category": "ML Theory",
+    "task": "Secure multimodal biometric authentication with trust-adaptive fusion",
+    "key_results": "Equal Error Rate 0.0038 on fused CASIA-Face/Fingerprint features; MobileNet + trust-adaptive fusion + CKKS homomorphic encryption; Grad-CAM interpretability provided",
+    "comments": "Solid integration of deep learning, privacy-preserving encryption, and explainability; practical deployment feasibility depends on cryptographic overhead.",
+    "model_io": [
+      {
+        "model": "MobileNet feature extractor + Trust Adaptive Fusion + CKKS homomorphic encryption + Grad-CAM",
+        "inputs": [
+          "facial images",
+          "fingerprint scans"
+        ],
+        "outputs": [
+          "authentication decision (accept/reject)",
+          "feature importance heatmaps"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Trust-adaptive fusion improves robustness against noisy modality inputs vs. static fusion",
+        "result": "Confirmed; EER 0.0038 demonstrates high accuracy on biometric datasets"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-43851-8": {
+    "category": "Algorithms",
+    "task": "Service-oriented vulnerability assessment for high-speed rail network under disruptions",
+    "key_results": "Three-layer bipartite coupled network captures passenger-train-track interactions; HSR network exhibits low structural vulnerability but high service capacity vulnerability under full load",
+    "comments": "Service-centric perspective improves realism vs. topological-only analysis; transfer strategies and demand evaluation method are novel but lack sensitivity analysis.",
+    "model_io": [
+      {
+        "model": "Three-layer coupled network (passenger demand, train service, track infrastructure) with transfer strategy simulation",
+        "inputs": [
+          "network topology",
+          "passenger demand OD matrix",
+          "train capacity",
+          "disruption scenarios"
+        ],
+        "outputs": [
+          "service capacity reduction metrics",
+          "vulnerability indices by line"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Service-oriented vulnerability assessment reveals degradation risk missed by topological analysis alone",
+        "result": "Confirmed; lines with high demand/long transfers show high vulnerability under full-load disruptions"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44718-8": {
+    "category": "Analysis",
+    "task": "Fractional-order coupled damped oscillator and non-Fickian heat conduction model",
+    "key_results": "Existence/uniqueness proven via Banach fixed-point; Hopf bifurcation criteria derived; fractional model (\u03b1=0.9, \u03b2=0.5) preserves memory effects and slower decay vs. integer-order",
+    "comments": "Rigorous mathematical framework with numerical validation; practical relevance to nanohybrid materials demonstrated but only via simulations.",
+    "model_io": [
+      {
+        "model": "Fractional-order coupled PDE system with time delay and energy-based stability analysis",
+        "inputs": [
+          "material parameters",
+          "time delay",
+          "fractional exponents"
+        ],
+        "outputs": [
+          "displacement/temperature fields",
+          "bifurcation diagram"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Fractional derivatives capture memory effects in viscoelastic nanofiller interactions better than integer-order models",
+        "result": "Confirmed; fractional model exhibits slower decay and enhanced memory properties"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44816-7": {
+    "category": "Analysis",
+    "task": "Linear stability analysis of MHD channel flow with Navier slip and porous medium",
+    "key_results": "Symmetric slip destabilizes flow (20\u201330% wall shear stress decrease); porous resistance and asymmetric slip enhance stability; magnetic field partially recovers shear (10\u201315% increase)",
+    "comments": "Comprehensive spectral analysis with practical implications for microfluidics and MHD energy systems; findings are robust but engineering design guidance is qualitative.",
+    "model_io": [
+      {
+        "model": "Brinkman-Navier-Stokes with modified Orr-Sommerfeld equation solved via Chebyshev spectral collocation",
+        "inputs": [
+          "slip boundary condition type",
+          "Hartmann number",
+          "Darcy number",
+          "Reynolds number"
+        ],
+        "outputs": [
+          "critical Reynolds number",
+          "wall shear stress",
+          "eigenvalue spectrum"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Magnetic damping and porous drag counteract destabilizing effects of wall slip",
+        "result": "Confirmed; magnetic field and porosity partially restore wall shear stress"
+      }
+    ]
+  },
+  "nature:10.1038/s41427-026-00639-6": {
+    "category": "Condensed Matter",
+    "task": "Understanding asymmetric doping effects on quantum criticality in heavy-fermion compound CeRhIn5",
+    "key_results": "5% Hg doping suppresses superconductivity and stabilizes SDW-type AFM phases vs. Kondo-breakdown QCP in lightly doped case; hole-doping nucleates localized magnetic droplets",
+    "comments": "Reveals mechanistic doping asymmetry via local electronic structure modifications; highlights interplay of magnetism and Kondo screening in phase evolution.",
+    "model_io": [
+      {
+        "model": "Pressure-dependent transport measurements on CeRhIn5 with varying dopants",
+        "inputs": [
+          "5% Hg (vs. 0.45% Hg, 4.4% Sn)",
+          "pressure"
+        ],
+        "outputs": [
+          "resistivity",
+          "magnetic phase diagram"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Electron and hole doping produce qualitatively different electronic structure changes affecting QCP type",
+        "result": "Heavy hole doping stabilizes SDW-type QCP while suppressing superconductivity"
+      }
+    ]
+  },
+  "nature:10.1038/s41524-026-02029-6": {
+    "category": "Condensed Matter",
+    "task": "Discovery of half-metallic 2D Cr2Se3 monolayer from Se-deficient antiferromagnetic CrSe2 with engineered high Curie temperature",
+    "key_results": "Cr2Se3 exhibits half-metallicity with 1.39 eV (H) and 2.28 eV (T) spin-down band gaps; Curie temperatures 547 K (H) and 606 K (T); T-phase Stoner criterion satisfied under 2-4% strain",
+    "comments": "First-principles prediction of promising 2D magnet; high Tc values suggest practical utility in spintronic devices at accessible temperatures.",
+    "model_io": [
+      {
+        "model": "DFT calculations (GGA+U) on CrSe2 and defect-engineered Cr2Se3",
+        "inputs": [
+          "crystal structures (1H/1T phases)",
+          "Se line defects (25%)"
+        ],
+        "outputs": [
+          "band structure",
+          "magnetic moments",
+          "magnon dispersions",
+          "Curie temperature"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "25% Se vacancies transform antiferromagnetic CrSe2 into half-metallic ferromagnetic Cr2Se3",
+        "result": "Both H and T phases exhibit half-metallicity and high Tc values"
+      }
+    ]
+  },
+  "nature:10.1038/s41540-026-00688-1": {
+    "category": "Applied Physics",
+    "task": "High-throughput phenotyping of peanut pod geometry via manifold learning for cultivar discrimination and crop breeding",
+    "key_results": "6500+ pods analyzed; geographically distinct morphological signatures identified; accurate cultivar discrimination achieved; scalable framework enables Large Geometric Model development",
+    "comments": "Innovative application of manifold learning to agricultural phenotyping; demonstrates potential to bridge gap between genomics and breeding decisions.",
+    "model_io": [
+      {
+        "model": "Digital microscopy/smartphone imaging + manifold learning",
+        "inputs": [
+          "peanut pod images (6500+)"
+        ],
+        "outputs": [
+          "geometric features",
+          "morphological clusters",
+          "cultivar classification"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Manifold learning captures pod geometry sufficient for cultivar and geographic discrimination",
+        "result": "Achieved high accuracy on cultivar discrimination and identified geographic signatures"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44684-1": {
+    "category": "Applied Physics",
+    "task": "Natural convection heat transfer optimization for passive cooling via fin material and geometry variation",
+    "key_results": "Copper V-fin config achieved max heat transfer coefficient 47.66 W/m\u00b2K at 150W (30-40% enhancement); surface temperature reduction 15-20%; uncertainty \u00b16-8%",
+    "comments": "Well-executed experimental study with rigorous uncertainty analysis; practical guidance for heat sink design though limited to passive convection regime.",
+    "model_io": [
+      {
+        "model": "Heated vertical aluminum plate with variable fin configurations",
+        "inputs": [
+          "heater power (25-150W)",
+          "fin material (Al/Cu/brass)",
+          "fin geometry (vertical/horizontal/V-shape)"
+        ],
+        "outputs": [
+          "surface temperature",
+          "heat transfer coefficient",
+          "Nusselt number",
+          "thermal resistance"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Copper V-fins maximize heat transfer through combined material conductivity and geometric optimization",
+        "result": "Achieved highest heat transfer coefficient and temperature reduction"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44770-4": {
+    "category": "Applied Physics",
+    "task": "Optimization of ultrasonic crystal removal in tunnel drainage pipelines via frequency and geometry tuning",
+    "key_results": "40 kHz optimal frequency; straight installation achieves 98% removal in closest sections vs. <45% in distant sections; 45-50 min optimal operating time",
+    "comments": "Practical engineering solution combining COMSOL FEA and experimental validation; spatial dependence of removal efficiency is a significant design constraint.",
+    "model_io": [
+      {
+        "model": "COMSOL sound-pressure field simulation + lab crystallization-removal experiment",
+        "inputs": [
+          "rotor frequency (20-52 kHz)",
+          "stator inlet diameter",
+          "time",
+          "crystal composition"
+        ],
+        "outputs": [
+          "sound pressure field",
+          "removal rate (%)",
+          "residual mass (g)"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "40 kHz provides optimal acoustic conditions in corrugated pipe geometry",
+        "result": "Achieved highest and most uniform removal performance vs. other frequencies"
+      }
+    ]
+  },
+  "nature:10.1038/s42005-026-02583-x": {
+    "category": "Quantum",
+    "task": "Deriving finite sufficient conditions for catalytic state transformations in quantum information",
+    "key_results": "Finite set of inequalities derived via polynomial \u2113p-norm representation; software toolbox provided for checking catalysis feasibility",
+    "comments": "Resolves computational intractability of checking infinite inequality sets; extends majorization framework to thermal operations.",
+    "model_io": [
+      {
+        "model": "Mathematical framework connecting \u2113p norms and R\u00e9nyi entropies",
+        "inputs": [
+          "quantum states",
+          "generalized entropic quantities"
+        ],
+        "outputs": [
+          "finite feasibility conditions for catalysis"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Polynomial representation of \u2113p norms enables finite characterization of catalytic transformations",
+        "result": "Successfully derived finite sufficient condition set"
+      }
+    ]
+  },
+  "nature:10.1038/s42254-026-00925-w": {
+    "category": "Condensed Matter",
+    "task": "Review of sphere packing physics across dimensions for ordered and disordered systems",
+    "key_results": "Comprehensive survey of three decades of sphere packing developments; connections to equilibrium/nonequilibrium phase properties",
+    "comments": "Foundational review article synthesizing diverse mathematical and physical insights; limited quantitative results as surveys typically do.",
+    "model_io": [],
+    "hypotheses": []
   }
 }

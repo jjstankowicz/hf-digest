@@ -2,11 +2,13 @@ name: Daily Digest
 
 on:
   schedule:
-    - cron: '0 8 * * *'   # 08:00 UTC daily
+    - cron: '0 12 * * *'  # 12:00 UTC (Nature done, ~half HF)
+    - cron: '0 16 * * *'  # 16:00 UTC (most HF done)
+    - cron: '0 21 * * *'  # 21:00 UTC (all HF done)
   workflow_dispatch:        # allow manual trigger from default branch only
     inputs:
       date:
-        description: 'Target date (YYYY-MM-DD). Defaults to yesterday UTC.'
+        description: 'Target date (YYYY-MM-DD). Defaults to today UTC.'
         required: false
         default: ''
 

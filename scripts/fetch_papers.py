@@ -3,7 +3,7 @@
 Usage:
     uv run python scripts/fetch_papers.py [--date YYYY-MM-DD]
 
-If --date is omitted, targets yesterday (UTC). Exits cleanly with no output if
+If --date is omitted, targets today (UTC). Exits cleanly with no output if
 no papers are found for the target date (weekend/holiday).
 """
 
@@ -92,14 +92,14 @@ def main() -> None:
         "--date",
         type=str,
         default=None,
-        help="Target date YYYY-MM-DD (default: yesterday UTC)",
+        help="Target date YYYY-MM-DD (default: today UTC)",
     )
     args = parser.parse_args()
 
     if args.date:
         target = date.fromisoformat(args.date)
     else:
-        target = (datetime.now(timezone.utc) - timedelta(days=1)).date()
+        target = datetime.now(timezone.utc).date()
 
     target_str = target.isoformat()
     print(f"Target date: {target_str}")

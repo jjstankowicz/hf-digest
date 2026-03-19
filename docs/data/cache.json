@@ -10730,5 +10730,175 @@
         "result": "Optimal time ~45\u201350 min for minimal stratification and energy across multiple crop types"
       }
     ]
+  },
+  "hf:2603.12789": {
+    "category": "Vision",
+    "task": "Multi-person multi-view 3D human and scene reconstruction from video",
+    "key_results": "Competitive performance on EMDB, RICH, EgoHumans, and EgoExo4D; 8x faster than optimization-based multi-view approaches",
+    "comments": "Unified single-pass framework avoiding external modules is elegant, though scale adjustment module suggests fundamental challenges in multi-scale reasoning remain.",
+    "model_io": [
+      {
+        "model": "CHROMM (integrated Pi3X + Multi-HMR architecture)",
+        "inputs": [
+          "multi-view video frames"
+        ],
+        "outputs": [
+          "camera parameters",
+          "scene point clouds",
+          "human meshes (per person)"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Geometry-based multi-person association is more robust than appearance-based methods",
+        "result": "Confirmed through evaluation on multi-person datasets"
+      },
+      {
+        "hypothesis": "Scale adjustment module can resolve discrepancies between human and scene scales",
+        "result": "Demonstrated effectiveness on benchmarks with varying human-scene scale ratios"
+      }
+    ]
+  },
+  "nature:10.1038/s41467-026-70840-2": {
+    "category": "Membrane Biophysics",
+    "task": "Determine how lipid membrane interfaces promote \u03b1-Synuclein phase separation and aggregation",
+    "key_results": "\u03b1-Synuclein condenses at sub-critical concentrations (~10 nM) on specific lipid stoichiometries; condensates nucleate fibrils and trigger membrane deformation; membrane depolarization alters puncta size/number and releases protein from neurons",
+    "comments": "The prewetting-like transition model elegantly explains how interfacial potential drives condensation below bulk saturation, with direct relevance to PD pathogenesis mechanisms.",
+    "model_io": [
+      {
+        "model": "In vitro lipid bilayer + \u03b1-Synuclein reconstitution",
+        "inputs": [
+          "lipid membranes",
+          "\u03b1-Synuclein protein",
+          "varying lipid stoichiometries"
+        ],
+        "outputs": [
+          "condensate formation",
+          "fibril nucleation",
+          "membrane deformation"
+        ]
+      },
+      {
+        "model": "Lattice gas model (simulations)",
+        "inputs": [
+          "interfacial potential",
+          "lipid composition"
+        ],
+        "outputs": [
+          "phase diagram",
+          "prewetting transition predictions"
+        ]
+      },
+      {
+        "model": "Neuronal cell culture",
+        "inputs": [
+          "\u03b1-Synuclein",
+          "membrane depolarization",
+          "lipid composition variants"
+        ],
+        "outputs": [
+          "puncta size/number",
+          "protein release from cells"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Lipid membrane interfacial potential drives local phase separation of \u03b1-Synuclein below bulk saturation concentration",
+        "result": "Confirmed; prewetting-like transition observed with specific lipid stoichiometries"
+      },
+      {
+        "hypothesis": "Condensates serve as nucleation sites for fibril formation",
+        "result": "Confirmed; fibrils form from membrane-localized condensates causing membrane damage"
+      }
+    ]
+  },
+  "nature:10.1038/s41596-026-01334-0": {
+    "category": "Computational Biophysics",
+    "task": "Develop and describe residue interaction network (RIN) analysis for protein structure interpretation",
+    "key_results": "RING software condenses structural data into noncovalent interaction subsets enabling rapid biological insight; complete workflow executable in <45 min for single and multi-state protein analyses",
+    "comments": "This is a protocol paper providing practical guidance rather than novel mechanistic insights; useful for streamlining structure analysis but limited in experimental innovation.",
+    "model_io": [
+      {
+        "model": "RING software (web server and stand-alone)",
+        "inputs": [
+          "protein structure files (PDB)",
+          "protein-ligand complex structures",
+          "molecular dynamics trajectories"
+        ],
+        "outputs": [
+          "residue interaction networks (RINs)",
+          "noncovalent interaction maps",
+          "multi-state comparative analyses"
+        ]
+      }
+    ],
+    "hypotheses": []
+  },
+  "nature:10.1038/s41523-026-00929-w": {
+    "category": "Cell Signaling",
+    "task": "Elucidate POU1F1-mediated cancer stem cell induction in breast cancer",
+    "key_results": "POU1F1 overexpression increased ALDH+ cells and enhanced mammosphere formation; IL-6/JAK2/STAT3 inhibitors decreased ALDH expression and colony formation",
+    "comments": "The mechanistic link between POU1F1 and IL-6/JAK2/STAT3 activation is demonstrated but the direct transcriptional targets remain incompletely characterized.",
+    "model_io": [
+      {
+        "model": "POU1F1-overexpressing and knockdown MCF-7 breast cancer cells",
+        "inputs": [
+          "POU1F1 expression",
+          "IL-6",
+          "JAK2/STAT3 pathway activation"
+        ],
+        "outputs": [
+          "CD24/CD44/CD133/ALDH expression",
+          "mammosphere formation",
+          "chemotherapy/radiotherapy resistance"
+        ]
+      },
+      {
+        "model": "Immunodeficient mouse xenografts",
+        "inputs": [
+          "POU1F1-overexpressing tumor cells"
+        ],
+        "outputs": [
+          "tumor-initiating capacity",
+          "treatment resistance"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "POU1F1 induces BCSC phenotype via IL-6/JAK2/STAT3 pathway activation",
+        "result": "Confirmed: JAK inhibitors and anti-IL-6R antibodies reduced ALDH expression and mammosphere formation"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-41470-x": {
+    "category": "Structural Prediction",
+    "task": "Evaluate Tamarindus indica phytochemicals as COMT inhibitors for Parkinson's disease",
+    "key_results": "Gallacetophenone identified from 170 phytochemicals as promising COMT inhibitor; enhanced conformational stability in MD simulations; favorable drug-likeness properties",
+    "comments": "Natural product screening reduces hepatotoxicity risk but computational prediction requires in vitro/in vivo validation.",
+    "model_io": [
+      {
+        "model": "Phytochemical screening pipeline",
+        "inputs": [
+          "170 Tamarindus indica phytochemicals",
+          "COMT protein structure (3BWY)",
+          "drug-likeness criteria"
+        ],
+        "outputs": [
+          "COMT binding affinity predictions",
+          "MD simulation trajectories",
+          "free energy landscapes",
+          "ADMET properties"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Plant-derived COMT inhibitors provide safer alternatives to synthetic inhibitors",
+        "result": "Gallacetophenone demonstrated stable COMT binding, enhanced conformational stability, and favorable pharmacokinetic properties in silico"
+      }
+    ]
   }
 }

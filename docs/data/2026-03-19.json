@@ -110,7 +110,7 @@
     "title": "Alignment Makes Language Models Normative, Not Descriptive",
     "publishedAt": "2026-03-17T23:47:08.000Z",
     "submittedOnDailyAt": "2026-03-19T08:25:03.903Z",
-    "upvotes": 31,
+    "upvotes": 32,
     "projectPage": null,
     "category": "LLM/Reasoning",
     "task": "Analyzing alignment's effect on LLM descriptiveness vs normativity",
@@ -316,6 +316,39 @@
     ]
   },
   {
+    "uid": "hf:2603.16557",
+    "source": "hf",
+    "id": "2603.16557",
+    "title": "BenchPreS: A Benchmark for Context-Aware Personalized Preference Selectivity of Persistent-Memory LLMs",
+    "publishedAt": "2026-03-17T14:19:05.000Z",
+    "submittedOnDailyAt": "2026-03-19T04:58:18.028Z",
+    "upvotes": 15,
+    "projectPage": null,
+    "category": "LLM/Reasoning",
+    "task": "Context-aware preference application in persistent-memory LLMs",
+    "key_results": "Frontier LLMs struggle with context-sensitive preference application; models with stronger preference adherence show higher misapplication rates",
+    "comments": "BenchPreS reveals that memory-augmented LLMs treat personalized preferences as globally enforceable rules, not context-dependent signals\u2014a critical design flaw for production systems.",
+    "model_io": [
+      {
+        "model": "Memory-based LLM with user preferences",
+        "inputs": [
+          "user preferences",
+          "communication context",
+          "queries"
+        ],
+        "outputs": [
+          "responses with appropriate/inappropriate preference application"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Frontier LLMs struggle to suppress preferences in third-party communication contexts",
+        "result": "Confirmed; high misapplication rates even with reasoning"
+      }
+    ]
+  },
+  {
     "uid": "hf:2603.17995",
     "source": "hf",
     "id": "2603.17995",
@@ -344,39 +377,6 @@
       {
         "hypothesis": "Semantic-level tokenization outperforms geometric level-of-detail hierarchies for AR modeling",
         "result": "Confirmed; SoTA reconstruction metrics, efficient generation"
-      }
-    ]
-  },
-  {
-    "uid": "hf:2603.16557",
-    "source": "hf",
-    "id": "2603.16557",
-    "title": "BenchPreS: A Benchmark for Context-Aware Personalized Preference Selectivity of Persistent-Memory LLMs",
-    "publishedAt": "2026-03-17T14:19:05.000Z",
-    "submittedOnDailyAt": "2026-03-19T04:58:18.028Z",
-    "upvotes": 14,
-    "projectPage": null,
-    "category": "LLM/Reasoning",
-    "task": "Context-aware preference application in persistent-memory LLMs",
-    "key_results": "Frontier LLMs struggle with context-sensitive preference application; models with stronger preference adherence show higher misapplication rates",
-    "comments": "BenchPreS reveals that memory-augmented LLMs treat personalized preferences as globally enforceable rules, not context-dependent signals\u2014a critical design flaw for production systems.",
-    "model_io": [
-      {
-        "model": "Memory-based LLM with user preferences",
-        "inputs": [
-          "user preferences",
-          "communication context",
-          "queries"
-        ],
-        "outputs": [
-          "responses with appropriate/inappropriate preference application"
-        ]
-      }
-    ],
-    "hypotheses": [
-      {
-        "hypothesis": "Frontier LLMs struggle to suppress preferences in third-party communication contexts",
-        "result": "Confirmed; high misapplication rates even with reasoning"
       }
     ]
   },
@@ -885,6 +885,43 @@
     ]
   },
   {
+    "uid": "hf:2603.12789",
+    "source": "hf",
+    "id": "2603.12789",
+    "title": "Coherent Human-Scene Reconstruction from Multi-Person Multi-View Video in a Single Pass",
+    "publishedAt": "2026-03-13T08:48:19.000Z",
+    "submittedOnDailyAt": "2026-03-19T14:18:40.860Z",
+    "upvotes": 0,
+    "projectPage": "https://nstar1125.github.io/chromm",
+    "category": "Vision",
+    "task": "Multi-person multi-view 3D human and scene reconstruction from video",
+    "key_results": "Competitive performance on EMDB, RICH, EgoHumans, and EgoExo4D; 8x faster than optimization-based multi-view approaches",
+    "comments": "Unified single-pass framework avoiding external modules is elegant, though scale adjustment module suggests fundamental challenges in multi-scale reasoning remain.",
+    "model_io": [
+      {
+        "model": "CHROMM (integrated Pi3X + Multi-HMR architecture)",
+        "inputs": [
+          "multi-view video frames"
+        ],
+        "outputs": [
+          "camera parameters",
+          "scene point clouds",
+          "human meshes (per person)"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Geometry-based multi-person association is more robust than appearance-based methods",
+        "result": "Confirmed through evaluation on multi-person datasets"
+      },
+      {
+        "hypothesis": "Scale adjustment module can resolve discrepancies between human and scene scales",
+        "result": "Demonstrated effectiveness on benchmarks with varying human-scene scale ratios"
+      }
+    ]
+  },
+  {
     "uid": "hf:2603.08501",
     "source": "hf",
     "id": "2603.08501",
@@ -928,52 +965,53 @@
     "journal": "Nature Communications",
     "publishedAt": "2026-03-19",
     "category": "Membrane Biophysics",
-    "task": "Develop inverted emulsion methodology to produce synthetic cells with spatially defined asymmetric lipid bilayers and phase separation",
-    "key_results": "Inverted emulsion technique generates synthetic cells with tunable symmetric/asymmetric membranes and phase-separated domains with distinct asymmetries; asymmetric membranes exhibit pronounced curvature, membrane budding, and spontaneous division",
-    "comments": "Methodologically valuable for synthetic cell engineering, though the mechanistic drivers of budding and division in these systems require further investigation.",
+    "task": "Engineer synthetic cells with spatially-confined membrane asymmetries using inverted emulsion method",
+    "key_results": "Inverted emulsion produces synthetic cells with symmetric, asymmetric, and phase-separated bilayers with distinct lateral asymmetries; asymmetric domains show pronounced curvature, budding, and division; asymmetry validated via protein-lipid interaction and quenching assays",
+    "comments": "This biomimetic approach successfully recapitulates key membrane organization principles, though the spontaneous budding/division phenotype requires mechanistic clarification regarding membrane tension and curvature coupling.",
     "model_io": [
       {
-        "model": "Inverted emulsion vesicle production",
+        "model": "Inverted emulsion synthetic cell platform",
         "inputs": [
-          "Lipid molecules (asymmetrically distributed compositions)",
-          "Aqueous phase",
-          "Oil phase",
-          "Cholesterol (variable inclusion)"
+          "lipid compositions (varied asymmetry)",
+          "aqueous phase",
+          "oil phase",
+          "cholesterol variants"
         ],
         "outputs": [
-          "Synthetic cells with symmetric bilayers",
-          "Synthetic cells with asymmetric bilayers",
-          "Phase-separated domains",
-          "Intramembrane domains with distinct asymmetries"
+          "synthetic cells",
+          "bilayer symmetry/asymmetry",
+          "phase-separated domains",
+          "membrane curvature"
         ]
       },
       {
         "model": "Protein-lipid interaction assay",
         "inputs": [
-          "Probe proteins with lipid specificity"
+          "synthetic membranes with defined asymmetry",
+          "lipid-binding proteins"
         ],
         "outputs": [
-          "Quantitative lipid asymmetry measurements"
+          "asymmetry quantification"
         ]
       },
       {
-        "model": "Quenching assay for lipid distribution",
+        "model": "Fluorescence quenching assay",
         "inputs": [
-          "Fluorescent lipid probes"
+          "labeled lipids in asymmetric bilayers"
         ],
         "outputs": [
-          "Lipid distribution profiles across bilayer leaflets"
+          "leaflet-specific lipid distribution"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Inverted emulsion method can produce membranes with asymmetric lipid distributions mimicking natural cells",
-        "result": "Confirmed; protein-lipid interaction and quenching assays validate asymmetric compositions"
+        "hypothesis": "Inverted emulsion method can reliably produce membranes with laterally-confined asymmetric domains",
+        "result": "Confirmed; phase-separated domains with distinct bilayer asymmetries generated"
       },
       {
-        "hypothesis": "Membrane asymmetry drives curvature generation and morphological changes (budding/division)",
-        "result": "Confirmed; asymmetric and phase-separated membranes exhibit pronounced curvature, budding, and division"
+        "hypothesis": "Membrane asymmetry promotes curvature and membrane division in synthetic cells",
+        "result": "Confirmed; asymmetric and phase-separated membranes display pronounced curvature, budding, and division"
       }
     ]
   },
@@ -986,56 +1024,144 @@
     "journal": "Nature Communications",
     "publishedAt": "2026-03-19",
     "category": "Single Molecule",
-    "task": "Elucidate the DNA condensation mechanism of the ComEA receptor during bacterial natural transformation",
-    "key_results": "ComEA forms reversible bridging oligomers at low coverage that condense DNA (sub-pN forces) and non-bridging oligomers at high coverage that decondense DNA; both conformations are mechanistically essential for efficient transformation",
-    "comments": "Elegant single-molecule dissection of a force-generating mechanism, though the structural details of the conformational switch remain unclear.",
+    "task": "Elucidate ComEA-mediated DNA condensation and decondensation mechanism during bacterial natural transformation",
+    "key_results": "ComEA forms two conformational states: bridging oligomers (sparse decoration) generating sub-piconewton DNA condensation forces; non-bridging oligomers (dense decoration) decondensing DNA without force; mutations favoring either state cause transformation deficiency",
+    "comments": "Single-molecule optical tweezers elegantly reveal the mechanical switching mechanism underlying DNA transport; the reversible condensation-decondensation cycle is a sophisticated regulatory mechanism for controlling DNA transit.",
     "model_io": [
       {
         "model": "Single-molecule optical tweezers assay",
         "inputs": [
-          "Geobacillus stearothermophilus ComEA protein",
-          "Double-stranded DNA",
-          "Varying ComEA surface densities"
+          "DNA substrate",
+          "ComEA protein",
+          "varying ComEA concentrations"
         ],
         "outputs": [
-          "DNA condensation/decondensation state",
-          "Pulling forces (sub-pN range)",
-          "Oligomerization configuration (bridging vs. non-bridging)"
+          "pulling force (sub-pN range)",
+          "DNA extension/condensation state",
+          "oligomer conformation"
         ]
       },
       {
-        "model": "Electron microscopy structural characterization",
+        "model": "Electron microscopy",
         "inputs": [
-          "ComEA-DNA complexes",
-          "Two oligomerization states"
+          "ComEA-DNA complexes"
         ],
         "outputs": [
-          "Bridging oligomer structure",
-          "Non-bridging oligomer structure"
+          "oligomer morphology",
+          "bridging vs non-bridging structures"
         ]
       },
       {
-        "model": "Bacillus subtilis transformation assay",
+        "model": "Bacillus subtilis natural transformation assay",
         "inputs": [
-          "Wild-type ComEA",
-          "Bridging-favoring ComEA mutant",
-          "Non-bridging-favoring ComEA mutant"
+          "wild-type and mutant ComEA",
+          "transforming DNA"
         ],
         "outputs": [
-          "Transformation efficiency (%)"
+          "transformation efficiency"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "DNA condensation by ComEA generates mechanical force for DNA uptake into periplasm",
-        "result": "Confirmed; bridging oligomers produce measurable sub-pN pulling forces"
+        "hypothesis": "ComEA undergoes conformation-dependent oligomerization to reversibly condense DNA",
+        "result": "Confirmed; bridging oligomers condense, non-bridging oligomers decondense"
       },
       {
-        "hypothesis": "Both condensation and decondensation phases are required for efficient transformation",
-        "result": "Confirmed; mutants locked in either bridging or non-bridging state show reduced transformation efficiency in B. subtilis"
+        "hypothesis": "Both condensation and decondensation phases are mechanistically essential for transformation",
+        "result": "Confirmed; mutations locking either conformation impair transformation efficiency"
       }
     ]
+  },
+  {
+    "uid": "nature:10.1038/s41467-026-70840-2",
+    "source": "biophysics",
+    "id": "10.1038/s41467-026-70840-2",
+    "title": "Membrane interfacial potential governs surface condensation and fibrillation of \u03b1-Synuclein in neurons",
+    "projectPage": "https://www.nature.com/articles/s41467-026-70840-2",
+    "journal": "Nature Communications",
+    "publishedAt": "2026-03-19",
+    "category": "Membrane Biophysics",
+    "task": "Determine how lipid membrane interfaces promote \u03b1-Synuclein phase separation and aggregation",
+    "key_results": "\u03b1-Synuclein condenses at sub-critical concentrations (~10 nM) on specific lipid stoichiometries; condensates nucleate fibrils and trigger membrane deformation; membrane depolarization alters puncta size/number and releases protein from neurons",
+    "comments": "The prewetting-like transition model elegantly explains how interfacial potential drives condensation below bulk saturation, with direct relevance to PD pathogenesis mechanisms.",
+    "model_io": [
+      {
+        "model": "In vitro lipid bilayer + \u03b1-Synuclein reconstitution",
+        "inputs": [
+          "lipid membranes",
+          "\u03b1-Synuclein protein",
+          "varying lipid stoichiometries"
+        ],
+        "outputs": [
+          "condensate formation",
+          "fibril nucleation",
+          "membrane deformation"
+        ]
+      },
+      {
+        "model": "Lattice gas model (simulations)",
+        "inputs": [
+          "interfacial potential",
+          "lipid composition"
+        ],
+        "outputs": [
+          "phase diagram",
+          "prewetting transition predictions"
+        ]
+      },
+      {
+        "model": "Neuronal cell culture",
+        "inputs": [
+          "\u03b1-Synuclein",
+          "membrane depolarization",
+          "lipid composition variants"
+        ],
+        "outputs": [
+          "puncta size/number",
+          "protein release from cells"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Lipid membrane interfacial potential drives local phase separation of \u03b1-Synuclein below bulk saturation concentration",
+        "result": "Confirmed; prewetting-like transition observed with specific lipid stoichiometries"
+      },
+      {
+        "hypothesis": "Condensates serve as nucleation sites for fibril formation",
+        "result": "Confirmed; fibrils form from membrane-localized condensates causing membrane damage"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41596-026-01334-0",
+    "source": "biophysics",
+    "id": "10.1038/s41596-026-01334-0",
+    "title": "Exploring proteins and protein\u2013ligand complexes through residue interaction networks",
+    "projectPage": "https://www.nature.com/articles/s41596-026-01334-0",
+    "journal": "Nature Protocols",
+    "publishedAt": "2026-03-19",
+    "category": "Computational Biophysics",
+    "task": "Develop and describe residue interaction network (RIN) analysis for protein structure interpretation",
+    "key_results": "RING software condenses structural data into noncovalent interaction subsets enabling rapid biological insight; complete workflow executable in <45 min for single and multi-state protein analyses",
+    "comments": "This is a protocol paper providing practical guidance rather than novel mechanistic insights; useful for streamlining structure analysis but limited in experimental innovation.",
+    "model_io": [
+      {
+        "model": "RING software (web server and stand-alone)",
+        "inputs": [
+          "protein structure files (PDB)",
+          "protein-ligand complex structures",
+          "molecular dynamics trajectories"
+        ],
+        "outputs": [
+          "residue interaction networks (RINs)",
+          "noncovalent interaction maps",
+          "multi-state comparative analyses"
+        ]
+      }
+    ],
+    "hypotheses": []
   },
   {
     "uid": "nature:10.1038/s42003-026-09890-7",
@@ -1045,35 +1171,45 @@
     "projectPage": "https://www.nature.com/articles/s42003-026-09890-7",
     "journal": "Communications Biology",
     "publishedAt": "2026-03-19",
-    "category": "Membrane Biophysics",
-    "task": "Engineer stimulus-responsive lipid membrane remodeling in artificial cells via riboswitch-controlled phospholipase D",
-    "key_results": "Fluoride-triggered riboswitch activation enables PLD-mediated conversion of phosphatidylcholine to phosphatidic acid, generating asymmetric negatively charged membranes capable of hosting mechanosensitive channels (MscL)",
-    "comments": "Clever coupling of gene regulation to membrane chemistry, though the functional relevance of asymmetry beyond channel insertion remains somewhat limited in scope.",
+    "category": "Synthetic Biology",
+    "task": "Engineer stimulus-responsive lipid remodeling in artificial cells via riboswitch-controlled enzyme expression",
+    "key_results": "Fluoride-responsive riboswitch triggers PLD expression converting PC to PA; creates asymmetric negatively-charged membrane enabling MscL channel incorporation; kinetics characterized across varying DNA and fluoride concentrations",
+    "comments": "This work demonstrates programmable membrane remodeling in cell-free systems, though scalability and robustness of riboswitch switching kinetics warrant further optimization.",
     "model_io": [
       {
-        "model": "Cell-free artificial cell platform",
+        "model": "Cell-free expression system in lipid vesicles",
         "inputs": [
-          "Plasmid DNA (PLD gene)",
-          "Fluoride ion (riboswitch activator)",
-          "Lipid vesicles (PC/cholesterol)",
-          "Cell-free transcription-translation machinery"
+          "plasmid DNA (riboswitch-PLD construct)",
+          "fluoride stimulus",
+          "phosphatidylcholine lipids",
+          "cholesterol variants"
         ],
         "outputs": [
-          "Phospholipase D enzyme",
-          "Phosphatidic acid (PA) lipids",
-          "Asymmetric membrane",
-          "Functionally integrated MscL channels"
+          "phosphatidic acid generation",
+          "membrane asymmetry",
+          "lipid composition changes"
+        ]
+      },
+      {
+        "model": "Synthetic membrane + mechanosensitive channel",
+        "inputs": [
+          "asymmetric lipid bilayer",
+          "MscL protein"
+        ],
+        "outputs": [
+          "channel functionality",
+          "membrane properties"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Riboswitch-mediated PLD expression enables dynamic lipid remodeling in response to chemical stimulus",
-        "result": "Confirmed; fluoride triggers PC-to-PA conversion kinetically characterized by varying DNA and fluoride concentrations"
+        "hypothesis": "Riboswitch-mediated PLD expression can dynamically remodel membrane lipid composition",
+        "result": "Confirmed; PC\u2192PA conversion kinetics achieved with fluoride induction"
       },
       {
-        "hypothesis": "PA asymmetry enables functional integration of mechanosensitive channels",
-        "result": "Confirmed; MscL channels successfully incorporated into asymmetric membranes"
+        "hypothesis": "Lipid asymmetry enables functional incorporation of mechanosensitive channels",
+        "result": "Confirmed; asymmetric membranes support MscL channel activity"
       }
     ]
   },
@@ -1085,50 +1221,45 @@
     "projectPage": "https://www.nature.com/articles/s41388-026-03729-5",
     "journal": "Nature Portfolio",
     "publishedAt": "2026-03-19",
-    "category": "Cell Signaling",
-    "task": "Identify PRSS22 as driver of inflammation-cancer transition in colorectal cancer via ferroptosis and macrophage polarization",
-    "key_results": "PRSS22 knockdown promoted HMOX1 expression, inducing ferroptosis; prevented osteopontin cleavage and reduced CRC cell migration; reduced M0-to-M2 macrophage polarization in cocultures; PRSS22 expression positively correlated with colitis-associated ICT pathological progression",
-    "comments": "Multi-mechanistic approach linking proteolysis, oxidative stress, and immune modulation, though direct therapeutic targeting efficacy in vivo remains undemonstrated.",
+    "category": "Apoptosis/Cell Death",
+    "task": "Identify PRSS22 as driver of inflammation-cancer transition in CRC by suppressing HMOX1-mediated ferroptosis and promoting macrophage M2 polarization",
+    "key_results": "PRSS22 knockdown increased HMOX1 expression inducing ferroptosis and redox stress in CRC cells; PRSS22 cleaves osteopontin reducing migration; loss of PRSS22 suppressed M0-to-M2 macrophage polarization in co-culture assays",
+    "comments": "The multi-level mechanistic integration is comprehensive, but the direct substrates of PRSS22 beyond osteopontin and the structural basis of ferroptosis inhibition require additional proteomic and biochemical characterization.",
     "model_io": [
       {
-        "model": "Colorectal cancer cells with PRSS22 knockdown",
+        "model": "PRSS22 knockdown CRC cell lines",
         "inputs": [
-          "PRSS22",
-          "HMOX1",
-          "osteopontin",
-          "ferroptosis signaling"
+          "PRSS22 expression"
         ],
         "outputs": [
+          "HMOX1 expression",
+          "ROS levels",
+          "ferroptosis markers",
           "cell growth",
-          "migration",
-          "redox stress",
-          "ferroptosis"
+          "migration capacity"
         ]
       },
       {
-        "model": "CRC cell + THP-1-derived macrophage coculture",
+        "model": "Co-culture of CRC cells and THP-1-derived macrophages with PRSS22 modulation",
         "inputs": [
-          "PRSS22",
-          "osteopontin cleavage"
+          "PRSS22 expression",
+          "CRC cell secretome"
         ],
         "outputs": [
-          "M0-to-M2 polarization",
-          "macrophage phenotype"
+          "macrophage polarization markers (M1 vs M2)",
+          "osteopontin cleavage",
+          "pro-inflammatory cytokines"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "PRSS22 suppresses HMOX1 and prevents ferroptosis",
-        "result": "PRSS22 knockdown promoted HMOX1 and induced ferroptosis"
+        "hypothesis": "PRSS22 suppresses HMOX1 expression enabling tumor progression via ferroptosis inhibition",
+        "result": "Confirmed: PRSS22 knockdown promoted HMOX1 expression and ferroptosis"
       },
       {
-        "hypothesis": "PRSS22 cleaves osteopontin to promote CRC migration",
-        "result": "Loss of PRSS22 prevented cleavage and reduced migration"
-      },
-      {
-        "hypothesis": "PRSS22 promotes M0-to-M2 macrophage polarization",
-        "result": "PRSS22 knockdown reduced M2 polarization in cocultures"
+        "hypothesis": "PRSS22-mediated osteopontin cleavage promotes macrophage M2 polarization and CRC migration",
+        "result": "Confirmed: Loss of PRSS22 prevented osteopontin cleavage and reduced M2 polarization and migration"
       }
     ]
   },
@@ -1141,37 +1272,35 @@
     "journal": "Nature Portfolio",
     "publishedAt": "2026-03-19",
     "category": "Cell Signaling",
-    "task": "Identify feedback loop mechanism driving prostate cancer radiotherapy resistance",
-    "key_results": "STAT1 enhances lactate secretion; lactate activates NF\u03baB1\u2192MCP-1 in macrophages; MCP-1 via CCR2 activates JAK/STAT1 in cancer cells, establishing a positive feedback loop",
-    "comments": "Clear mechanistic pathway with defined signaling nodes, but in vivo validation and therapeutic efficacy data are absent.",
+    "task": "Decipher STAT1-mediated lactate-driven crosstalk between prostate cancer and macrophages in radiotherapy resistance",
+    "key_results": "STAT1 increased glycolytic enzyme expression driving lactate secretion; lactate activated macrophage NF\u03baB1 promoting M2 polarization and MCP-1 secretion; MCP-1/CCR2 signaling activated JAK/STAT1 in cancer cells",
+    "comments": "The positive feedback loop is elegantly mapped but requires validation that disrupting any single node (STAT1, MCT1, NF\u03baB1, or CCR2) is sufficient to restore radiotherapy sensitivity in vivo.",
     "model_io": [
       {
-        "model": "Prostate cancer cells + tumor-associated macrophages coculture",
+        "model": "Prostate cancer cells and bone marrow-derived macrophages co-culture",
         "inputs": [
-          "STAT1",
-          "lactate",
-          "NF\u03baB1",
-          "MCP-1",
-          "CCR2"
+          "STAT1 activation",
+          "glycolytic activity",
+          "lactate production",
+          "MCT1 transporter",
+          "NF\u03baB1 signaling"
         ],
         "outputs": [
-          "tumor progression",
+          "macrophage polarization (M2 marker expression)",
+          "MCP-1 secretion",
+          "cancer cell JAK/STAT1 activation",
           "radiotherapy resistance"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "STAT1 drives lactate secretion in prostate cancer cells",
-        "result": "Increased lactate production via enhanced glycolytic enzyme transcription"
+        "hypothesis": "STAT1-driven lactate secretion activates macrophage NF\u03baB1 pathway promoting M2 polarization",
+        "result": "Confirmed: Lactate transport via MCT1 activated NF\u03baB1 and induced M2 markers"
       },
       {
-        "hypothesis": "Lactate-MCT1-NF\u03baB1 axis polarizes macrophages to M2 phenotype",
-        "result": "M2 polarization with MCP-1 upregulation"
-      },
-      {
-        "hypothesis": "MCP-1-CCR2 engagement on cancer cells reactivates JAK/STAT1",
-        "result": "Positive feedback loop established"
+        "hypothesis": "Macrophage-derived MCP-1 activates CCR2/JAK/STAT1 axis in cancer cells completing positive feedback",
+        "result": "Confirmed: MCP-1 treatment activated JAK/STAT1 in cancer cells"
       }
     ]
   },
@@ -1183,41 +1312,38 @@
     "projectPage": "https://www.nature.com/articles/s41419-026-08582-8",
     "journal": "Nature Portfolio",
     "publishedAt": "2026-03-19",
-    "category": "Apoptosis/Cell Death",
-    "task": "Elucidate circPDE4D-mediated autophagy regulation in COPD via K48/K63-competed BECN1 ubiquitination",
-    "key_results": "circPDE4D reduced in COPD correlates with FEV1 decline; circPDE4D\u2192miR545-3p\u2192SMURF1\u2192BECN1 axis where SMURF1 enhances K63-ubiquitination and antagonizes K48-ubiquitination of BECN1, promoting autophagy and SG formation",
-    "comments": "Mechanistically intricate feedback loop with clinical correlation, though functional validation of individual ubiquitination events requires further biochemical confirmation.",
+    "category": "Cell Division/Cycle",
+    "task": "Elucidate circPDE4D-mediated autophagy regulation through K48/K63 ubiquitination competition on BECN1 in COPD",
+    "key_results": "circPDE4D downregulated in COPD correlates with reduced lung function; circPDE4D/miR545-3p/SMURF1 axis competes K63 vs K48 ubiquitination of BECN1; K63-linked ubiquitination enhances BECN1 stability and autophagy promoting inflammation relief",
+    "comments": "The mechanistic loop is comprehensive but the in vivo therapeutic potential requires demonstration that circPDE4D restoration or miR545-3p inhibition improves COPD outcomes in animal models.",
     "model_io": [
       {
-        "model": "COPD patient cells and COPD disease models",
+        "model": "COPD patient samples and cell culture models",
         "inputs": [
-          "circPDE4D",
+          "circPDE4D expression",
           "miR545-3p",
           "SMURF1",
           "Ub-K48",
           "Ub-K63"
         ],
         "outputs": [
+          "BECN1 ubiquitination status",
           "BECN1 stability",
-          "autophagy",
-          "SG formation",
-          "inflammation",
-          "lung function (FEV1/FVC%)"
+          "autophagy markers",
+          "inflammation markers",
+          "lung function (FEV1/FVC%)",
+          "stress granule formation"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "circPDE4D downregulation impairs autophagy in COPD",
-        "result": "Low circPDE4D associated with reduced FEV1 values"
+        "hypothesis": "circPDE4D suppresses miR545-3p regulating SMURF1 and BECN1 ubiquitination",
+        "result": "Confirmed: circPDE4D acts as miR545-3p sponge promoting SMURF1 expression and K63-linked BECN1 ubiquitination"
       },
       {
-        "hypothesis": "circPDE4D binds miR545-3p to suppress SMURF1",
-        "result": "miR545-3p-SMURF1 regulatory link confirmed"
-      },
-      {
-        "hypothesis": "SMURF1 recruits Ub-K63 and antagonizes Ub-K48 to stabilize BECN1",
-        "result": "K48/K63-linkage competition mechanism identified"
+        "hypothesis": "K63-linked BECN1 ubiquitination enhances stability and autophagy relieving COPD inflammation",
+        "result": "Confirmed: circPDE4D promoted autophagy and reduced inflammation in vitro and in vivo"
       }
     ]
   },
@@ -1229,39 +1355,46 @@
     "projectPage": "https://www.nature.com/articles/s41420-026-03018-w",
     "journal": "Nature Portfolio",
     "publishedAt": "2026-03-19",
-    "category": "Apoptosis/Cell Death",
-    "task": "Determine how MSX1 acetylation regulates palatal development and cleft palate pathogenesis",
-    "key_results": "SIRT1-catalyzed MSX1 deacetylation maintains protein stability; atRA-induced SIRT1 suppression drives MSX1 hyperacetylation and proteasomal degradation, triggering EPM apoptosis; SIRT1 lentivirus and MSX1 K139R reduced cleft severity",
-    "comments": "Novel proteostatic mechanism distinct from PTM-mediated transcriptional control; therapeutic potential demonstrated but mechanistic details on acetyl-transferase identity and recruitment need clarification.",
+    "category": "Development",
+    "task": "Elucidate SIRT1-mediated MSX1 acetylation as a proteostatic switch governing embryonic palatal development and cleft palate pathogenesis",
+    "key_results": "MSX1 hyperacetylation in atRA-induced cleft palate drives proteasomal degradation triggering EPM apoptosis; SIRT1 suppression promotes MSX1 acetylation; SIRT1 overexpression or MSX1 K139R deacetylation mimic reduced cleft severity",
+    "comments": "The acetylation-dependent proteostatic regulation is novel and mechanistically distinct from transcriptional PTM effects; however, the precise acetyl-transferase and the structural basis of acetylation-triggered degradation require identification.",
     "model_io": [
       {
-        "model": "Embryonic palatal mesenchymal cells and atRA-induced cleft palate model",
+        "model": "atRA-induced embryonic palatal mesenchymal (EPM) cells and tissues",
         "inputs": [
-          "MSX1",
-          "SIRT1",
-          "acetylation (Ac)",
-          "proteasomal degradation"
+          "atRA",
+          "SIRT1 expression/inhibition",
+          "MSX1 acetylation status"
         ],
         "outputs": [
           "MSX1 protein stability",
+          "MSX1 acetylation level",
           "EPM apoptosis",
-          "palatal fusion",
-          "cleft severity"
+          "palatal fusion"
+        ]
+      },
+      {
+        "model": "Mouse palatal development with lentivirus-mediated SIRT1 or MSX1 K139R delivery",
+        "inputs": [
+          "SIRT1 overexpression",
+          "MSX1 K139R (deacetylation mimic)"
+        ],
+        "outputs": [
+          "cleft severity",
+          "palatal shelf fusion",
+          "MSX1 stability"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "SIRT1-mediated MSX1 deacetylation preserves protein stability",
-        "result": "MSX1 K139R deacetylation mimic stabilizes protein"
+        "hypothesis": "SIRT1-catalyzed MSX1 deacetylation preserves MSX1 protein stability and EPM survival during palatal development",
+        "result": "Confirmed: SIRT1 suppression drove MSX1 hyperacetylation and degradation; SIRT1 restoration reduced cleft severity"
       },
       {
-        "hypothesis": "atRA-induced SIRT1 suppression causes MSX1 hyperacetylation and degradation",
-        "result": "Proteasomal degradation and EPM apoptosis triggered"
-      },
-      {
-        "hypothesis": "SIRT1 delivery or MSX1 K139R reduces cleft severity",
-        "result": "Lentivirus-mediated SIRT1 and MSX1 K139R reduced cleft in vivo"
+        "hypothesis": "Acetylation-mediated MSX1 degradation is the primary pathogenic mechanism in atRA-induced cleft palate",
+        "result": "Confirmed: Transcriptomic profiling revealed exclusively proteostatic role of acetylation distinct from transcriptional effects"
       }
     ]
   },
@@ -1274,44 +1407,38 @@
     "journal": "Nature Communications",
     "publishedAt": "2026-03-19",
     "category": "Cell Division/Cycle",
-    "task": "Determine cellular mechanisms of IVNS1ABP mutation in progeroid neuropathy",
-    "key_results": "Mutant IVNS1ABP fibroblasts, iPSCs, and NPCs exhibited defective cytokinesis, increased DNA damage, and premature senescence; dysregulated actin dynamics during cytokinesis identified",
-    "comments": "Strong use of patient-derived cellular models, though mechanistic link between actin dysregulation and senescence remains partially unexplored.",
+    "task": "Determine cellular mechanisms of IVNS1ABP mutation-induced premature senescence in progeroid neuropathy",
+    "key_results": "Mutant IVNS1ABP caused defective cytokinesis, increased DNA damage, and premature senescence in patient-derived fibroblasts, iPSCs, and NPCs; mutation altered binding to actin/actin-associated proteins dysregulating actin dynamics",
+    "comments": "The cytokinesis defect is mechanistically linked to actin dysregulation, but the direct substrate interactions and structural basis of mutant protein dysfunction require further biochemical characterization.",
     "model_io": [
       {
-        "model": "Patient-derived iPSCs and differentiated NPCs",
+        "model": "Patient-derived iPSCs and isogenic controls differentiated to NPCs",
         "inputs": [
           "IVNS1ABP mutation",
           "actin dynamics"
         ],
         "outputs": [
-          "cytokinesis defects",
-          "DNA damage",
-          "cellular senescence"
+          "cytokinesis efficiency",
+          "DNA damage (\u03b3H2AX)",
+          "senescence markers (p21, p16, SA-\u03b2-gal)",
+          "actin polymerization"
         ]
       },
       {
-        "model": "Cerebral organoids",
+        "model": "Patient-derived cerebral organoids",
         "inputs": [
-          "mutant IVNS1ABP"
+          "IVNS1ABP mutation"
         ],
         "outputs": [
-          "early NPC differentiation"
+          "NPC differentiation kinetics",
+          "neuronal differentiation timing"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "IVNS1ABP mutation disrupts actin polymerization",
-        "result": "Altered binding to actin/actin-associated proteins confirmed"
-      },
-      {
-        "hypothesis": "Dysregulated actin dynamics impairs cytokinesis",
-        "result": "Defective cytokinesis observed in mutant cells"
-      },
-      {
-        "hypothesis": "Cytokinesis defects trigger DNA damage and senescence",
-        "result": "Increased DNA damage and premature senescence confirmed"
+        "hypothesis": "Mutant IVNS1ABP dysregulates actin dynamics causing cytokinesis failure and DNA damage",
+        "result": "Confirmed: Mutant cells exhibited defective cytokinesis and increased DNA damage; altered actin binding observed"
       }
     ]
   },
@@ -1323,19 +1450,54 @@
     "projectPage": "https://www.nature.com/articles/s41514-026-00353-1",
     "journal": "Nature Portfolio",
     "publishedAt": "2026-03-19",
-    "category": "Other",
-    "task": "Propose strategies to restock bone marrow MSC niche to meet BMAT demands in aging",
-    "key_results": "Outlined approaches including pluripotent precursor activation, BM-MSC graft breakdown, and extramedullary MSC mobilization to sustain BMAT development",
-    "comments": "Conceptual framework lacking empirical validation; mechanistic details on niche remodeling and aging-associated MSC dysfunction require experimental support.",
+    "category": "Development",
+    "task": "Conceptualize strategies to restore bone marrow MSC niche and regulate MSC-adipocyte axis during aging",
+    "key_results": "Proposed activation of pluripotent precursor cells, breakdown of BM-MSC grafts, and mobilization of extramedullary MSCs as mechanisms to restock BM-MSC niche and manage BMAT expansion",
+    "comments": "This is a perspective/opinion piece lacking empirical data; the proposed strategies require experimental validation to assess feasibility and efficacy in aging models.",
     "model_io": [],
-    "hypotheses": [
+    "hypotheses": []
+  },
+  {
+    "uid": "nature:10.1038/s41523-026-00929-w",
+    "source": "cell-biology",
+    "id": "10.1038/s41523-026-00929-w",
+    "title": "POU1F1 induces cancer stem cell-like traits in breast cancer cells by IL-6/JAK2/STAT3 activation and enrichment of ALDH",
+    "projectPage": "https://www.nature.com/articles/s41523-026-00929-w",
+    "journal": "Nature Portfolio",
+    "publishedAt": "2026-03-19",
+    "category": "Cell Signaling",
+    "task": "Elucidate POU1F1-mediated cancer stem cell induction in breast cancer",
+    "key_results": "POU1F1 overexpression increased ALDH+ cells and enhanced mammosphere formation; IL-6/JAK2/STAT3 inhibitors decreased ALDH expression and colony formation",
+    "comments": "The mechanistic link between POU1F1 and IL-6/JAK2/STAT3 activation is demonstrated but the direct transcriptional targets remain incompletely characterized.",
+    "model_io": [
       {
-        "hypothesis": "Activation of pluripotent precursor cells maintains BM-MSC pool in aging",
-        "result": "Proposed mechanism; empirical validation needed"
+        "model": "POU1F1-overexpressing and knockdown MCF-7 breast cancer cells",
+        "inputs": [
+          "POU1F1 expression",
+          "IL-6",
+          "JAK2/STAT3 pathway activation"
+        ],
+        "outputs": [
+          "CD24/CD44/CD133/ALDH expression",
+          "mammosphere formation",
+          "chemotherapy/radiotherapy resistance"
+        ]
       },
       {
-        "hypothesis": "BM-MSC graft breakdown and extramedullary MSC mobilization preserve BMAT development",
-        "result": "Theoretical framework presented"
+        "model": "Immunodeficient mouse xenografts",
+        "inputs": [
+          "POU1F1-overexpressing tumor cells"
+        ],
+        "outputs": [
+          "tumor-initiating capacity",
+          "treatment resistance"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "POU1F1 induces BCSC phenotype via IL-6/JAK2/STAT3 pathway activation",
+        "result": "Confirmed: JAK inhibitors and anti-IL-6R antibodies reduced ALDH expression and mammosphere formation"
       }
     ]
   },
@@ -1348,49 +1510,46 @@
     "journal": "Nature Portfolio",
     "publishedAt": "2026-03-19",
     "category": "Cell Signaling",
-    "task": "Overcome vascular niche-mediated TKI resistance in AML through miR-126 inhibition",
-    "key_results": "Agent-based model demonstrates EC-derived miR-126 promotes LSC quiescence; simulations show TKI+miRisten combination dismantles protective niche and enhances LSC eradication",
-    "comments": "Innovative computational approach capturing dynamic feedback, but therapeutic efficacy requires in vivo validation before clinical translation.",
+    "task": "Overcome TKI resistance in AML by targeting vascular niche-mediated miR-126 transfer to leukemic stem cells",
+    "key_results": "Agent-based model demonstrated that TNF-\u03b1 suppresses endothelial miR-126 production during blast expansion; post-TKI blast reduction restores EC miR-126 enabling LSC re-entry into quiescence; miR-126 inhibitor combined with TKI enhanced LSC eradication",
+    "comments": "The computational model elegantly predicts niche dynamics, but clinical validation of the miRisten-TKI combination schedule in AML patients remains necessary.",
     "model_io": [
       {
         "model": "Agent-based computational model of AML bone marrow microenvironment",
         "inputs": [
           "LSC quiescence",
-          "EC miR-126 production",
-          "TNF-\u03b1",
-          "TKI",
-          "miRisten"
+          "TNF-\u03b1 levels",
+          "endothelial miR-126 production",
+          "TKI treatment",
+          "miRisten dosing"
         ],
         "outputs": [
-          "LSC eradication",
-          "niche protection",
-          "relapse prevention"
+          "LSC proliferation/quiescence state",
+          "niche remodeling",
+          "relapse probability"
         ]
       },
       {
-        "model": "In vitro AML LSC + arteriolar EC coculture",
+        "model": "In vitro AML cell lines and endothelial co-culture",
         "inputs": [
-          "miR-126",
-          "TKI"
+          "TNF-\u03b1",
+          "TKI",
+          "miR-126 levels"
         ],
         "outputs": [
-          "LSC quiescence",
-          "treatment resistance"
+          "LSC quiescence markers",
+          "treatment response"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "EC-derived miR-126 promotes LSC quiescence and TKI resistance",
-        "result": "miR-126 enables LSC re-entry into quiescence post-TKI"
+        "hypothesis": "Expanding blasts suppress EC miR-126; TKI-mediated blast reduction restores miR-126 promoting LSC quiescence and relapse",
+        "result": "Confirmed: Model simulations showed dynamic miR-126 modulation driving niche-mediated TKI resistance"
       },
       {
-        "hypothesis": "TNF-\u03b1 from blasts suppresses EC miR-126; TKI-induced blast reduction restores miR-126",
-        "result": "Dynamic feedback loop captured in computational model"
-      },
-      {
-        "hypothesis": "miR-126 inhibition with miRisten combined with TKI disrupts protective niche",
-        "result": "Simulations predict enhanced LSC eradication"
+        "hypothesis": "Combining TKI with miR-126 inhibitor disrupts protective niche enhancing LSC eradication",
+        "result": "Confirmed in simulations: Combination dismantled protective niche and enhanced LSC eradication"
       }
     ]
   },
@@ -1403,33 +1562,31 @@
     "journal": "Nature Protocols",
     "publishedAt": "2026-03-19",
     "category": "Development",
-    "task": "Develop long-term mammary organoid culture recapitulating morphogenesis and functional cycles",
-    "key_results": "Mouse mammary organoids ('mini-glands') generated from basal stem cells exhibit branched architecture and undergo developmental stages mimicking puberty, pregnancy, lactation, and involution; pseudoestrous cycle simulation enabled",
-    "comments": "Comprehensive Protocol bridging in vitro-in vivo gap with practical accessibility, though quantitative metrics for morphological fidelity and functional output equivalency to in vivo glands are not systematized.",
+    "task": "Develop long-term mammary organoid system recapitulating in vivo morphogenesis, functional cycles, and lineage plasticity for breast biology and cancer studies",
+    "key_results": "Single basal stem cells generate 'mini-glands' replicating branched architecture and developmental stages (puberty, pregnancy, lactation, involution) in ~2 weeks; system enables lineage tracing and oncogenic transformation modeling",
+    "comments": "The protocol successfully bridges in vitro and in vivo complexity with excellent morphological fidelity, though functional assessment of milk production capacity and hormonally-responsive gene expression kinetics require deeper validation.",
     "model_io": [
       {
-        "model": "3D mouse mammary organoid culture from basal stem cells",
+        "model": "Mouse primary mammary basal stem cells cultured in 3D organoid system",
         "inputs": [
-          "basal stem cells"
+          "growth factors",
+          "ECM",
+          "hormonal signals (estrogen/progesterone)"
         ],
         "outputs": [
           "sphere formation",
-          "polarity",
+          "polarity induction",
           "branching morphogenesis",
-          "pseudoestrous cycle",
-          "lineage tracing",
-          "oncogenic transformation"
+          "luminal/myoepithelial differentiation",
+          "pseudoestrous cycle simulation",
+          "lactation markers"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Sequential culture phases (sphere\u2192polarity\u2192branching) recapitulate in vivo morphogenesis",
-        "result": "Mini-glands develop branched architecture mimicking natural gland"
-      },
-      {
-        "hypothesis": "Organoid system enables pseudoestrous cycle simulation",
-        "result": "Developmental stages recapitulating puberty, pregnancy, lactation, involution observed"
+        "hypothesis": "Single basal stem cells recapitulate in vivo mammary gland development and functional cycles in 3D culture",
+        "result": "Confirmed: 'Mini-glands' replicated branched architecture and developmental stages within ~2 weeks"
       }
     ]
   },
@@ -1441,49 +1598,44 @@
     "projectPage": "https://www.nature.com/articles/s41598-026-39616-y",
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-19",
-    "category": "Cell Division/Cycle",
-    "task": "Establish zebrafish model to study blood-brain/retinal barrier dysfunction under hyperglycemia",
-    "key_results": "External glucose exposure induced hyperglycemia and increased midbrain vessel diameter with tracer leakage; hyperglycemia reduced claudin-5 and increased PLVAP, with ultrastructural junction defects observed by TEM",
-    "comments": "Proof-of-concept model with clear readouts, but incomplete optimization of caveolae assessment and limited exploration of molecular mechanisms downstream of claudin-5/PLVAP alterations.",
+    "category": "Organelles",
+    "task": "Establish zebrafish in vivo model to investigate blood-brain/retinal barrier dysfunction and tight junction disruption in hyperglycemia",
+    "key_results": "Hyperglycemia increased midbrain vessel diameter and tracer leakage without affecting larval survival; hyperglycemia reduced claudin-5 and increased PLVAP indicating compromised tight junctions; TEM revealed ultrastructural junction defects",
+    "comments": "The hyperglycemia-induced barrier disruption is well-characterized at molecular and structural levels, but caveolae quantification remains incomplete limiting conclusions about transcytosis mechanisms.",
     "model_io": [
       {
-        "model": "Zebrafish larvae exposed to external glucose",
+        "model": "Hyperglycemia-exposed zebrafish larvae with fluorescent barrier reporters",
         "inputs": [
-          "glucose",
-          "hyperglycemia"
+          "external glucose exposure",
+          "duration of hyperglycemia"
         ],
         "outputs": [
+          "internal glucose levels",
           "blood vessel diameter",
           "tracer leakage",
           "claudin-5 expression",
-          "PLVAP expression",
-          "barrier permeability"
+          "PLVAP expression"
         ]
       },
       {
-        "model": "In vivo live imaging with fluorescent reporters",
+        "model": "Zebrafish larval midbrain tissue ultrastructure (TEM)",
         "inputs": [
           "hyperglycemia"
         ],
         "outputs": [
-          "tight junction integrity",
-          "BBB maturation status",
-          "ultrastructural defects"
+          "tight junction morphology",
+          "caveolae density and distribution"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Hyperglycemia increases BBB permeability",
-        "result": "Elevated tracer leakage and increased vessel diameter observed"
+        "hypothesis": "Hyperglycemia reduces claudin-5 and increases PLVAP compromising BBB/BRB tight junction integrity",
+        "result": "Confirmed: Hyperglycemia reduced claudin-5 and increased PLVAP; tracer leakage increased"
       },
       {
-        "hypothesis": "Hyperglycemia compromises tight junction proteins",
-        "result": "Claudin-5 reduction and PLVAP increase confirmed"
-      },
-      {
-        "hypothesis": "Tight junction disruption causes ultrastructural junction defects",
-        "result": "TEM revealed ultrastructural abnormalities; caveolae assessment incomplete"
+        "hypothesis": "Hyperglycemia induces ultrastructural tight junction defects",
+        "result": "Partially confirmed: TEM revealed junction defects; caveolae quantification incomplete"
       }
     ]
   },
@@ -1496,44 +1648,52 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-19",
     "category": "Cell Signaling",
-    "task": "Investigate extracellular vesicle-mediated coagulation and immune modulation in glioblastoma",
-    "key_results": "Tumor tissues showed high TF/PDPN expression with low TFPI (p<0.001); GBM-derived EVs exhibited procoagulant activity proportional to TF expression and modulated microglial behavior and immune polarization",
-    "comments": "Comprehensive translational workflow linking clinical data to mechanistic findings, though heterogeneous cell line responses limit direct therapeutic prediction.",
+    "task": "Investigate dual roles of extracellular vesicles in glioblastoma-associated thrombosis and immune modulation",
+    "key_results": "GBM tumor tissues showed high TF/PDPN expression with low TFPI (p<0.001); GBM-derived EVs exhibited procoagulant activity proportional to TF expression and modulated microglial senescence and immune polarization",
+    "comments": "The work comprehensively links EV-mediated coagulation and immunity but lacks direct evidence that EV-targeting therapeutically prevents VTE complications in vivo.",
     "model_io": [
       {
-        "model": "Ex vivo GBM tissue and patient-derived cell lines",
+        "model": "Patient-derived GBM tissue and cell lines",
         "inputs": [
-          "TF",
-          "PDPN",
-          "TFPI"
+          "TF expression",
+          "PDPN expression",
+          "TFPI expression"
         ],
         "outputs": [
           "clotting time",
           "platelet aggregation",
-          "thrombin generation"
+          "procoagulant EV activity"
         ]
       },
       {
-        "model": "EV isolation from GBM plasma and culture media",
+        "model": "GBM-derived EVs co-cultured with microglia",
         "inputs": [
-          "GBM-derived EVs",
-          "TF expression"
+          "EV cargo (TF, PDPN, immunomodulatory factors)"
         ],
         "outputs": [
-          "procoagulant activity",
-          "microglial modulation",
-          "immune polarization"
+          "microglial senescence",
+          "immune polarization",
+          "cytokine profiles"
+        ]
+      },
+      {
+        "model": "ClotPro\u00ae intraoperative coagulation profiling",
+        "inputs": [
+          "Peripheral blood from GBM patients"
+        ],
+        "outputs": [
+          "clotting parameters"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "GBM-derived EVs promote local hypercoagulation via TF and PDPN",
-        "result": "EVs showed procoagulant activity correlating with TF expression"
+        "hypothesis": "GBM-derived EVs promote hypercoagulation via TF and PDPN transfer to circulating cells",
+        "result": "Confirmed: EV procoagulant activity correlated with TF expression"
       },
       {
-        "hypothesis": "GBM-derived EVs modulate immune responses",
-        "result": "EVs induced senescence and M2-like polarization in microglia"
+        "hypothesis": "GBM-derived EVs modulate immune responses independently of coagulation",
+        "result": "Confirmed: EVs induced microglial senescence and immune polarization in cell line-dependent manner"
       }
     ]
   },
@@ -1546,34 +1706,34 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-19",
     "category": "Organelles",
-    "task": "Develop robust liver organoid platform incorporating hepatocytes, cholangiocytes, and stellate cells for fibrosis modeling",
-    "key_results": "Hep-Med+Notch inhibitor+dexamethasone sustained albumin production and metabolic activity over multiple passages; TGF\u03b2-activated HSCs induced EMT in hepatocyte and cholangiocyte organoids",
-    "comments": "Practical platform addressing scalability and tissue efficiency, though direct comparison to in vivo liver fibrosis dynamics is limited.",
+    "task": "Develop robust liver organoid platform for fibrosis modeling incorporating hepatocytes, cholangiocytes, and stellate cells",
+    "key_results": "Multi-cellular organoids with Notch inhibitor and dexamethasone sustained albumin production and liver-specific gene expression over multiple passages; TGF\u03b2-activated HSCs induced EMT and impaired hepatocyte/cholangiocyte proliferation recapitulating fibrosis",
+    "comments": "The system successfully maintains mature hepatobiliary functions while modeling fibrosis, though metabolic capacity and drug metabolism kinetics require further validation against primary tissue.",
     "model_io": [
       {
-        "model": "3D liver organoid culture (hepatocytes+cholangiocytes+HSCs)",
+        "model": "3D multi-cellular liver organoids from primary mouse hepatocytes, cholangiocytes, and HSCs",
         "inputs": [
           "Notch inhibitor",
           "dexamethasone",
-          "TGF\u03b2"
+          "TGF\u03b2 stimulation"
         ],
         "outputs": [
           "albumin production",
-          "metabolic activity",
-          "liver-specific gene expression",
-          "HSC activation",
-          "EMT"
+          "hepatobiliary gene expression",
+          "HSC activation markers",
+          "EMT markers",
+          "proliferation rates"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Notch inhibition and dexamethasone sustain hepatobiliary maturity",
-        "result": "Stable albumin production and metabolic activity maintained over passages"
+        "hypothesis": "Notch inhibition and dexamethasone sustain organoid maturity and hepatobiliary function",
+        "result": "Confirmed: Stable albumin production and liver-specific gene expression over multiple passages"
       },
       {
-        "hypothesis": "TGF\u03b2 activates quiescent HSCs into myofibroblast-like phenotype",
-        "result": "Activated HSCs induce EMT and impair proliferation in Hep-Orgs and Cho-Orgs"
+        "hypothesis": "TGF\u03b2-activated HSCs induce hepatocyte/cholangiocyte EMT and growth inhibition modeling fibrosis",
+        "result": "Confirmed: Activated HSCs impaired proliferation and induced EMT in epithelial compartments"
       }
     ]
   },
@@ -1586,21 +1746,34 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-19",
     "category": "Cell Signaling",
-    "task": "Determine mitochondria-dependent mechanism of raloxifene-induced vasodilation",
-    "key_results": "Raloxifene-induced vasodilation is endothelium-dependent but independent of COX2/estrogen receptors; mitochondrial ROS inhibition (rotenone, mito-tempo) attenuates vasodilation; raloxifene suppresses PE-induced ROS and maintains UCP2 expression",
-    "comments": "Well-designed pharmacological approach with clear target identification, though the initial trigger for raloxifene-induced mitochondrial ROS suppression remains mechanistically unclear.",
+    "task": "Identify mitochondria-dependent mechanism of raloxifene-induced vascular relaxation independent of estrogen receptors",
+    "key_results": "Mitochondrial ROS inhibition (rotenone, mito-tempo) attenuated raloxifene-induced vasodilation; raloxifene suppressed phenylephrine-induced mitochondrial ROS and prevented UCP2 downregulation in vascular smooth muscle cells",
+    "comments": "The mitochondrial ROS and UCP2 regulation is clearly demonstrated, but the upstream target or sensor initiating these effects remains unidentified.",
     "model_io": [
       {
-        "model": "Rat aortic rings and cultured VSMCs",
+        "model": "Rat aortic rings with and without endothelium",
         "inputs": [
           "raloxifene",
           "phenylephrine",
-          "mitochondrial inhibitors (rotenone, mito-tempo)",
-          "estrogen receptor antagonist (ICI-182,780)"
+          "mitochondrial ROS inhibitors (rotenone, mito-tempo)",
+          "COX inhibitors",
+          "estrogen receptor antagonists"
         ],
         "outputs": [
           "vascular relaxation",
           "intracellular ROS",
+          "mitochondrial ROS",
+          "mitochondrial membrane potential"
+        ]
+      },
+      {
+        "model": "Cultured rat vascular smooth muscle cells",
+        "inputs": [
+          "raloxifene",
+          "phenylephrine"
+        ],
+        "outputs": [
+          "total ROS",
           "mitochondrial ROS",
           "mitochondrial membrane potential",
           "UCP2 expression"
@@ -1609,16 +1782,12 @@
     ],
     "hypotheses": [
       {
-        "hypothesis": "Raloxifene-induced vasodilation requires endothelium but not estrogen receptors",
-        "result": "Endothelium removal attenuates; ICI-182,780 has no effect"
+        "hypothesis": "Raloxifene-induced vasodilation is mediated by mitochondrial ROS modulation independent of estrogen receptors",
+        "result": "Confirmed: Estrogen receptor antagonist did not block effect; mitochondrial ROS inhibitors attenuated vasodilation"
       },
       {
-        "hypothesis": "Mitochondria-derived ROS mediate raloxifene vasodilation",
-        "result": "Rotenone and mito-tempo significantly attenuate vasodilation"
-      },
-      {
-        "hypothesis": "Raloxifene suppresses PE-induced mitochondrial ROS via UCP2",
-        "result": "Raloxifene prevents PE-induced ROS and UCP2 downregulation"
+        "hypothesis": "Raloxifene prevents phenylephrine-induced mitochondrial ROS and UCP2 suppression",
+        "result": "Confirmed: Raloxifene inhibited PE-induced ROS increase and prevented UCP2 downregulation"
       }
     ]
   },
@@ -1630,45 +1799,44 @@
     "projectPage": "https://www.nature.com/articles/s41598-026-45156-2",
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-19",
-    "category": "Organelles",
-    "task": "Evaluate SPION labeling of hUCMSCs for MRI tracking in scarred uteri",
-    "key_results": "SPIONs effectively labeled hUCMSCs without compromising proliferation/differentiation; minimal effects on cell surface markers; SPION labeling persisted >600 days; non-invasive MRI tracking confirmed in vivo in scarred monkey uteri",
-    "comments": "Practical translational application with long-term tracking capability, though mechanistic assessment of stem cell therapeutic efficacy in uterine repair is deferred.",
+    "category": "Development",
+    "task": "Evaluate safety and efficacy of SPION-labeled hUCMSCs for MRI tracking in scarred uterine tissue repair",
+    "key_results": "SPIONs effectively labeled hUCMSCs without compromising proliferation, differentiation, or surface marker expression; SPION labeling persisted >600 days enabling long-term MRI monitoring; no cytotoxicity observed",
+    "comments": "The labeling and imaging are well-characterized, but functional assessment of uterine tissue repair and restoration of contractility following hUCMSC transplantation remains underdeveloped.",
     "model_io": [
       {
         "model": "hUCMSCs labeled with SPIONs",
         "inputs": [
-          "SPIONs",
-          "hUCMSCs"
+          "SPION concentration",
+          "labeling incubation time"
         ],
         "outputs": [
-          "cell proliferation",
+          "cell viability",
+          "proliferation rate",
           "differentiation potential",
-          "cell surface markers",
-          "MRI signal",
-          "tracking duration (>600 days)"
+          "surface marker expression",
+          "vimentin staining"
         ]
       },
       {
-        "model": "In vivo scarred monkey uteri",
+        "model": "SPION-labeled hUCMSCs injected into scarred monkey uteri",
         "inputs": [
-          "SPION-labeled hUCMSCs"
+          "SPION-labeled cells",
+          "injection volume/site"
         ],
         "outputs": [
-          "MRI imaging",
-          "injection site monitoring",
-          "tissue regeneration"
+          "MRI signal intensity",
+          "cell distribution",
+          "localization persistence (>600 days)",
+          "tissue repair assessment",
+          "pathological changes"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "SPIONs can label hUCMSCs without compromising cellular function",
-        "result": "No adverse effects on proliferation or differentiation observed"
-      },
-      {
-        "hypothesis": "SPION-labeled hUCMSCs enable long-term non-invasive MRI tracking",
-        "result": "Sustained labeling and detection >600 days confirmed"
+        "hypothesis": "SPION labeling preserves hUCMSC functionality and enables sustained MRI tracking",
+        "result": "Confirmed: Labeled cells retained proliferation, differentiation, and viability with labeling persisting >600 days"
       }
     ]
   },
@@ -1681,27 +1849,27 @@
     "journal": "Nature Communications",
     "publishedAt": "2026-03-19",
     "category": "Structural Prediction",
-    "task": "Closed-loop protein engineering with ontology-guided generation and RL feedback",
-    "key_results": "Lysozyme with 100-fold activity increase; chitinase stable at 85\u00b0C; dual-function enzymes with both activities",
-    "comments": "Impressive experimental validation but scalability to complex multi-objective problems and transferability across protein families remain open questions.",
+    "task": "Engineer proteins with enhanced functionality through ontology-guided design and feedback loops",
+    "key_results": "Lysozyme variant with 100-fold activity increase; chitinase stable at 85\u00b0C; dual-function enzyme with lysozyme and chitinase activities",
+    "comments": "Closed-loop iterative design bridges computational modeling and wet-lab validation but scalability to larger variant spaces unclear.",
     "model_io": [
       {
-        "model": "ORI (Ontology Reinforcement Iteration)",
+        "model": "ORI framework",
         "inputs": [
-          "ontology constraints",
           "protein sequences",
-          "experimental measurements"
+          "ontology constraints",
+          "experimental fitness measurements"
         ],
         "outputs": [
           "engineered protein variants",
-          "activity/stability metrics"
+          "activity/stability predictions"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Ontology-conditioned decoding improves protein engineering interpretability",
-        "result": "Multi-objective improvements demonstrated across enzymatic activity, thermal stability, and dual-function design"
+        "hypothesis": "Ontology-conditioned decoding with RLWF enables multi-objective protein optimization",
+        "result": "Achieved substantial improvements across enzymatic activity, thermal stability, and multifunctionality"
       }
     ]
   },
@@ -1714,28 +1882,29 @@
     "journal": "Nature Communications",
     "publishedAt": "2026-03-19",
     "category": "Network Biology",
-    "task": "Mechanistic role of tumor-specific lncRNA IGF1R-AS1 in MYC-driven cancers",
-    "key_results": "IGF1R-AS1 identified as super-enhancer-associated lncRNA overexpressed in prostate and lung cancers; facilitates long-range chromatin looping to MYC promoter",
-    "comments": "Novel trans-acting mechanism well-characterized but functional validation in patient-derived models would strengthen therapeutic relevance.",
+    "task": "Characterize trans-acting lncRNA regulation of oncogenic MYC through chromatin looping",
+    "key_results": "IGF1R-AS1 identified in 1,344 lncRNAs; facilitates long-range MYC enhancer-promoter looping; overexpressed in prostate and lung cancers",
+    "comments": "Non-canonical lncRNA mechanism provides mechanistic insight but functional validation limited to computational/molecular approaches.",
     "model_io": [
       {
-        "model": "Integrated genomics analysis (transcriptomics, chromatin interaction)",
+        "model": "Multi-omics integration pipeline",
         "inputs": [
-          "metastatic CRPC transcriptomes",
-          "super-enhancer profiles",
-          "chromatin architecture data"
+          "lncRNA expression data",
+          "super-enhancer maps",
+          "transcriptome datasets",
+          "chromatin interaction data"
         ],
         "outputs": [
-          "IGF1R-AS1 expression patterns",
-          "MYC enhancer-promoter looping",
-          "tumorigenicity metrics"
+          "IGF1R-AS1 regulatory networks",
+          "MYC chromatin looping evidence",
+          "tumor-specific lncRNA assignments"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "IGF1R-AS1 trans-acts on MYC through chromatin remodeling complexes",
-        "result": "Demonstrated interaction with chromatin remodelers and long-range looping to MYC enhancers; correlates with MYC overexpression"
+        "hypothesis": "IGF1R-AS1 trans-acts with chromatin remodeling complexes to enhance MYC expression",
+        "result": "Demonstrated non-canonical trans-acting role facilitating distal MYC enhancer-promoter looping"
       }
     ]
   },
@@ -1747,28 +1916,30 @@
     "projectPage": "https://www.nature.com/articles/s41467-026-70839-9",
     "journal": "Nature Communications",
     "publishedAt": "2026-03-19",
-    "category": "Network Biology",
-    "task": "Inferring transmission facilities for carbapenem-resistant K. pneumoniae outbreak via genomic and exposure histories",
-    "key_results": "Single focal facility identified as primary transmission source in 72-patient outbreak; facilities implicated prior to case detection based on genomic linkage and exposure overlap; distinguishes transmission source from colonization site",
-    "comments": "Elegant integration of genomics and epidemiology but retrospective design limits real-time intervention evaluation; scalability to multi-facility networks unclear.",
+    "category": "Evolutionary Biology",
+    "task": "Infer facility transmission sources for regional healthcare-associated pathogen spread using genomic epidemiology",
+    "key_results": "Single focal facility implicated in sustained transmission of carbapenem-resistant K. pneumoniae across 72 patients in Michigan; identified transmission sites prior to case detection",
+    "comments": "Genomics-informed surveillance enables real-time intervention targeting; approach sensitive to healthcare exposure completeness and phylogenetic uncertainty.",
     "model_io": [
       {
-        "model": "Genomic transmission inference (phylogenetics + exposure matching)",
+        "model": "Genomic transmission inference",
         "inputs": [
           "regional isolate genomes",
-          "healthcare facility exposure histories",
-          "phylogenetic distances"
+          "healthcare exposure histories",
+          "patient movement data",
+          "phylogenetic relationships"
         ],
         "outputs": [
-          "inferred facility transmission sources",
-          "outbreak transmission linkages"
+          "facility transmission linkages",
+          "suspected infection sources",
+          "regional spread networks"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Genomic clustering combined with shared healthcare exposures identifies outbreak source facilities",
-        "result": "Single focal facility implicated as primary source; early detection enabled via overlapping exposures in genomically linked cases"
+        "hypothesis": "Shared healthcare exposures among phylogenetically linked cases identify facility transmission sources",
+        "result": "Successfully implicated focal facility and predicted upstream transmission sites prior to case detection"
       }
     ]
   },
@@ -1781,15 +1952,16 @@
     "journal": "Scientific Data",
     "publishedAt": "2026-03-19",
     "category": "Single Cell",
-    "task": "Quantifying cell type populations across 3D anatomical structures",
-    "key_results": "27.6 million cells mapped across 73 organs and 1,283 anatomical structures; 662 single-cell datasets integrated with 104 proteomics datasets",
-    "comments": "Comprehensive reference resource but relies on existing high-quality datasets; generalizability to diseased states remains untested.",
+    "task": "Quantify cell type populations across 3D anatomical structures",
+    "key_results": "27.6 million cells mapped across 73 organs and 1,283 anatomical structures; integrated 662 spatial-transcriptomics and proteomics datasets",
+    "comments": "Provides comprehensive reference framework but relies on heterogeneous datasets with potential batch effects and variable annotation quality.",
     "model_io": [
       {
-        "model": "Cell type annotation pipeline (Azimuth, CellTypist, popV)",
+        "model": "HRA v2.3 integration pipeline",
         "inputs": [
           "single-cell transcriptomics datasets",
-          "single-cell proteomics datasets"
+          "single-cell proteomics datasets",
+          "spatial registration data"
         ],
         "outputs": [
           "cell type populations per anatomical structure",
@@ -1797,7 +1969,12 @@
         ]
       }
     ],
-    "hypotheses": []
+    "hypotheses": [
+      {
+        "hypothesis": "Integrated sc-transcriptomics and sc-proteomics yield consistent cell type assignments",
+        "result": "558 transcriptomics and 104 proteomics datasets successfully integrated with generalizability validation"
+      }
+    ]
   },
   {
     "uid": "nature:10.1038/s41597-026-06729-y",
@@ -1808,27 +1985,28 @@
     "journal": "Scientific Data",
     "publishedAt": "2026-03-19",
     "category": "Genomics",
-    "task": "Expanding and refining 16S-ITS-23S rRNA operon dataset for microbial identification",
-    "key_results": "MIrROR v2 covers 476,579 sequences from 249,907 genomes (29,051 species); 387% increase in sequences, 472% in genomes, 206% in species over v1; improved mock community classification",
-    "comments": "Significant dataset expansion but quality gains from GTDB reclassification and rigorous curation are not quantitatively benchmarked.",
+    "task": "Expand and refine 16S-ITS-23S rRNA operon dataset for microbial identification",
+    "key_results": "MIrROR v2 covers 476,579 sequences, 249,907 genomes, 29,051 species (387.39%, 472.49%, 206.28% increases); added archaeal genomes; improved mock community performance",
+    "comments": "Comprehensive curation pipeline addresses redundancy and contamination; GTDB taxonomy reclassification increases consistency but impacts backward compatibility.",
     "model_io": [
       {
-        "model": "rRNA operon curation and clustering pipeline",
+        "model": "MIrROR database construction",
         "inputs": [
-          "1.69 million genomes (NCBI)",
-          "GTDB R220 taxonomy",
-          "sequence quality filters"
+          "1,690,470 NCBI genomes (bacterial + archaeal)",
+          "rRNA operon sequences",
+          "GTDB R220 taxonomy"
         ],
         "outputs": [
           "curated rRNA operon dataset",
-          "mock community classification metrics"
+          "taxonomic annotations",
+          "microbial identification resource"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Expanded and reclassified rRNA operon dataset improves microbial identification accuracy",
-        "result": "Updated dataset shows improved performance in mock community analyses; 387% increase in curated sequences"
+        "hypothesis": "Expanded dataset with improved curation enhances microbial identification accuracy",
+        "result": "Demonstrated improved performance in mock community analyses; 206-472% increase in covered genomes/species"
       }
     ]
   },
@@ -1840,29 +2018,64 @@
     "projectPage": "https://www.nature.com/articles/s41598-026-36965-6",
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-19",
-    "category": "Statistical Methods",
-    "task": "Immunoinformatic design of multi-epitope mRNA vaccine against Lassa virus",
-    "key_results": "LF-mVax achieves 99.98% global population coverage with CD8+/CD4+ epitopes; TLR-2/4 binding energies \u22121048.9 and \u22121099.9 kJ/mol; strong immune simulations",
-    "comments": "Comprehensive computational pipeline but lacks experimental animal validation; in silico immune predictions require empirical confirmation.",
+    "category": "Structural Prediction",
+    "task": "Design multi-epitope mRNA vaccine against Lassa virus with global population coverage",
+    "key_results": "99.98% global population coverage; secondary structure quality 82.4% Ramachandran; strong TLR-2/TLR-4 binding; predicted IL-2 and IFN-\u03b3 activation",
+    "comments": "Comprehensive immunoinformatics pipeline but lacks experimental validation; animal studies required for safety/potency assessment.",
     "model_io": [
       {
-        "model": "Immunoinformatic vaccine design pipeline",
+        "model": "Vaccine design pipeline",
         "inputs": [
-          "consensus protein sequences (GP, NP, ZP)",
-          "HLA allele frequencies",
-          "adjuvants/linkers"
+          "Lassa virus protein sequences (GP, NP, ZP)",
+          "population HLA diversity data",
+          "epitope prediction algorithms"
         ],
         "outputs": [
-          "multi-epitope vaccine construct",
-          "structural predictions",
-          "immune simulation predictions"
+          "multi-epitope mRNA vaccine construct",
+          "immunogenicity predictions",
+          "structural models"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Consensus epitopes provide broad population coverage without allergenic/toxic effects",
-        "result": "99.98% coverage achieved; quality metrics (Ramachandran 82.4%) and strong TLR binding support immunogenicity"
+        "hypothesis": "Multi-epitope design with adjuvants achieves global population coverage and immunogenicity",
+        "result": "99.98% MHC coverage with favorable structural quality and immune simulation responses"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-41470-x",
+    "source": "computational-biology",
+    "id": "10.1038/s41598-026-41470-x",
+    "title": "Evaluation of phytochemicals from Tamarindus indica as a potential catechol-O-methyltransferase (COMT) inhibitor: an in-silico approach for Parkinson\u2019s disease",
+    "projectPage": "https://www.nature.com/articles/s41598-026-41470-x",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-19",
+    "category": "Structural Prediction",
+    "task": "Evaluate Tamarindus indica phytochemicals as COMT inhibitors for Parkinson's disease",
+    "key_results": "Gallacetophenone identified from 170 phytochemicals as promising COMT inhibitor; enhanced conformational stability in MD simulations; favorable drug-likeness properties",
+    "comments": "Natural product screening reduces hepatotoxicity risk but computational prediction requires in vitro/in vivo validation.",
+    "model_io": [
+      {
+        "model": "Phytochemical screening pipeline",
+        "inputs": [
+          "170 Tamarindus indica phytochemicals",
+          "COMT protein structure (3BWY)",
+          "drug-likeness criteria"
+        ],
+        "outputs": [
+          "COMT binding affinity predictions",
+          "MD simulation trajectories",
+          "free energy landscapes",
+          "ADMET properties"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Plant-derived COMT inhibitors provide safer alternatives to synthetic inhibitors",
+        "result": "Gallacetophenone demonstrated stable COMT binding, enhanced conformational stability, and favorable pharmacokinetic properties in silico"
       }
     ]
   },
@@ -1875,28 +2088,28 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-19",
     "category": "Single Cell",
-    "task": "Characterizing immunomodulatory effects of L-serine in autism spectrum disorder via integrated proteomics and sc-transcriptomics",
-    "key_results": "12-week L-serine treatment improves behavioral measures and CGI scores; extracellular vesicle proteomics shows immune-related pathway changes; naive CD4 T cell transcriptional states shift toward typical phenotype",
-    "comments": "Mechanistic integration of two omics layers is compelling but small cohort size and lack of placebo control limit causal inference.",
+    "task": "Elucidate immunomodulatory effects of L-serine in autism spectrum disorder via proteomics and single-cell transcriptomics",
+    "key_results": "12-week L-serine treatment improved behavioral measures; shifted naive CD4 T cell transcriptional signatures toward typical state; altered immune-related plasma protein pathways",
+    "comments": "Integrative proteome-transcriptome approach provides mechanistic insight; small cohort size and lack of placebo control limit generalizability.",
     "model_io": [
       {
-        "model": "Integrated proteome + single-cell transcriptome profiling",
+        "model": "Multi-omics profiling",
         "inputs": [
-          "plasma extracellular vesicles (EV proteomics)",
-          "peripheral blood mononuclear cells (sc-RNA-seq)",
-          "behavioral/clinical assessments"
+          "plasma extracellular vesicles",
+          "peripheral blood mononuclear cells",
+          "behavioral assessments"
         ],
         "outputs": [
-          "immune pathway alterations",
-          "CD4 T cell transcriptional state changes",
-          "treatment effect metrics"
+          "proteomic signatures",
+          "single-cell transcriptional states",
+          "immune pathway alterations"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "L-serine reshapes adaptive immune cell states in ASD via altered T cell communication proteins",
-        "result": "Plasma EV proteomics shows immune pathway changes; naive CD4 T cells shift toward more typical transcriptional state post-treatment"
+        "hypothesis": "L-serine reshapes adaptive immune cell states in ASD patients",
+        "result": "Demonstrated favorable shifts in CD4 T cell transcriptional profiles and immune-related protein pathways alongside behavioral improvements"
       }
     ]
   },
@@ -1909,28 +2122,28 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-19",
     "category": "Structural Prediction",
-    "task": "Drug repurposing against Atg4-mediated autophagy in blast-causing fungus via virtual screening and MD simulations",
-    "key_results": "Six FDA-approved drug candidates identified (31h-Phthalocyanine, rebastinib, flumatinib, zafirlukast, beigene-283, radotinib); 18 \u00b5s all-atom MD simulations confirm distinct ligand binding; validated via RMSD/RMSF/Rg and hydrogen bond analysis",
-    "comments": "Thorough computational pipeline but lacks fungal cell culture validation; inhibition of Atg4 cleavage function requires experimental confirmation.",
+    "task": "Identify fungal autophagy inhibitors for blast disease via virtual screening and MD simulations",
+    "key_results": "Six FDA-approved drugs identified as Atg4 binders (31 h-Phthalocyanine, rebastinib, flumatinib, zafirlukast, beigene-283, radotinib); 18 \u00b5s MD simulations validated binding stability",
+    "comments": "Drug repurposing approach accelerates development timeline; Atg4 inhibition mechanism validated computationally but requires fungal viability assays.",
     "model_io": [
       {
-        "model": "Virtual screening + Molecular Dynamics simulations",
+        "model": "Virtual screening and MD pipeline",
         "inputs": [
           "3,800 FDA-approved drugs",
-          "M. oryzae Atg4 structure",
+          "M. oryzae Atg4 protein structure",
           "Atg8 substrate"
         ],
         "outputs": [
-          "drug candidates with binding energies",
-          "MD-derived stability metrics",
-          "key residue interactions"
+          "drug-Atg4 binding predictions",
+          "stability metrics (RMSD, RMSF, Rg)",
+          "binding energy estimates"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "FDA-approved drugs can inhibit Atg4-mediated Atg8 cleavage in M. oryzae",
-        "result": "Six candidates show distinct Atg4 binding and stable complexes in MD; hydrogen bond patterns support functional inhibition potential"
+        "hypothesis": "Virtual screening and MD simulations identify stable FDA-approved drug-Atg4 binders",
+        "result": "Six candidate compounds with distinct binding modes; sustained hydrogen bonding and favorable binding energies across simulation trajectories"
       }
     ]
   },
@@ -1943,26 +2156,27 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-19",
     "category": "Statistical Methods",
-    "task": "Named entity recognition for SARS-CoV-2 viral proteins using adaptive modular BERT",
-    "key_results": "BER-AM-FFN-SPAN model achieves F1 score 93.66% vs. BERT-SPAN 91.85% and BERT-BiLSTM-CRF 80.81%",
-    "comments": "Solid incremental improvement but dataset remains limited (viral proteins only); generalization to other biomedical entity types unclear.",
+    "task": "Optimize named entity recognition for SARS-CoV-2 viral proteins using adaptive modular neural networks",
+    "key_results": "BERT-AM-FFN-SPAN achieves 93.66% F1 score; surpasses BERT-SPAN (91.85%) and BERT-BiLSTM-CRF (80.81%)",
+    "comments": "Addresses domain-specific NER challenge but limited to single protein entity type; corpus size and annotation methodology not detailed.",
     "model_io": [
       {
-        "model": "BER-AM-FFN-SPAN architecture",
+        "model": "BERT-AM-FFN-SPAN pipeline",
         "inputs": [
-          "biomedical text corpora",
-          "viral protein entity annotations"
+          "biomedical text",
+          "annotated viral protein corpus"
         ],
         "outputs": [
-          "named entities (protein names, positions)",
-          "F1/precision/recall metrics"
+          "named entity predictions",
+          "token-level position spans",
+          "confidence scores"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Adaptive modular feedforward networks improve entity recognition over static BERT architectures",
-        "result": "2% absolute F1 improvement with AM-FFN; 13% improvement over BiLSTM-CRF baseline"
+        "hypothesis": "Adaptive modular FFN with attention mechanism improves viral protein entity recognition",
+        "result": "AM-FFN-SPAN variant outperformed standard BERT-SPAN and BERT-BiLSTM-CRF models"
       }
     ]
   },
@@ -1975,26 +2189,27 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-19",
     "category": "Statistical Methods",
-    "task": "Multi-disease lung classification via entropy-regularized dual-stream attention fusion of CNNs and vision transformers",
-    "key_results": "ADSAF achieves 98.3% accuracy on pneumonia/COVID-19; consistent gains over CNN/transformer/ensemble baselines in accuracy, F-score, sensitivity; robustness to noise and domain shifts; Grad-CAM highlights clinically relevant regions",
-    "comments": "Strong technical fusion design with good interpretability but limited to two lung pathologies; generalization to other thoracic diseases untested.",
+    "task": "Classify multiple lung diseases using dual-stream attention fusion of CNNs and vision transformers",
+    "key_results": "ADSAF achieves 98.3% accuracy; outperforms CNN, transformer, and ensemble baselines; robust to noisy conditions and domain shifts; Grad-CAM localizes clinically meaningful regions",
+    "comments": "Strong multi-disease classification performance; adaptive fusion mechanism addresses static fusion limitations effectively.",
     "model_io": [
       {
         "model": "Adaptive Dual-Stream Attention Fusion (ADSAF)",
         "inputs": [
-          "chest X-ray/CT images (pneumonia, COVID-19 datasets)"
+          "pneumonia and COVID-19 chest imaging datasets"
         ],
         "outputs": [
-          "multi-class disease predictions",
-          "attention maps",
-          "interpretability visualizations (Grad-CAM)"
+          "disease classification predictions",
+          "attention fusion weights",
+          "Grad-CAM visualizations",
+          "confidence scores"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Adaptive attention fusion of CNNs and vision transformers improves lung disease classification",
-        "result": "ADSAF achieves 98.3% accuracy with improved robustness under noisy/shifted conditions; attention maps focus on clinically meaningful regions"
+        "hypothesis": "Dynamic attention fusion of CNN and transformer streams improves multi-disease lung classification",
+        "result": "Achieved 98.3% accuracy with superior robustness and generalization; clinically meaningful attention maps"
       }
     ]
   },
@@ -2007,39 +2222,29 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-19",
     "category": "Genomics",
-    "task": "Identifying ALOX5 as therapeutic target for tubulointerstitial inflammation in diabetic kidney disease",
-    "key_results": "ALOX5 identified as key inflammatory biomarker via WGCNA/LASSO/Random Forest; upregulated in DKD with correlation to decreased GFR and M1 macrophage infiltration; honokiol identified as candidate inhibitor",
-    "comments": "Multi-omics integration is thorough but ALOX5 mechanism remains partially speculative; honokiol requires experimental validation.",
+    "task": "Identify key inflammatory biomarkers in diabetic kidney disease tubulointerstitial inflammation",
+    "key_results": "ALOX5 identified as crucial feature gene; upregulated in DKD tissues; high expression correlates with decreased GFR and M1 macrophage infiltration; honokiol identified as potential ALOX5 inhibitor",
+    "comments": "Multi-omics integration robust but candidate compound validation limited to computational prediction; requires experimental confirmation.",
     "model_io": [
       {
-        "model": "Integrated machine learning + multi-omics pipeline",
+        "model": "Machine learning pipeline",
         "inputs": [
-          "GEO transcriptome datasets",
-          "single-cell RNA-seq",
-          "multiplex immunohistochemistry data"
+          "transcriptome datasets",
+          "single-cell sequencing data",
+          "clinical metadata",
+          "imaging data"
         ],
         "outputs": [
-          "ALOX5 as key feature gene",
-          "immune cell infiltration patterns",
+          "ALOX5 biomarker ranking",
+          "immune cell associations",
           "drug-target predictions"
-        ]
-      },
-      {
-        "model": "Molecular docking + ADMET",
-        "inputs": [
-          "ALOX5 protein structure",
-          "small molecule library"
-        ],
-        "outputs": [
-          "honokiol as candidate inhibitor",
-          "pharmacokinetic predictions"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "ALOX5 mediates pro-inflammatory macrophage polarization via leukotriene-NF-\u03baB axis in DKD",
-        "result": "ALOX5/ALOX5AP co-localize with NF-\u03baB/p65 and iNOS in CD68+ macrophages; suggests mechanistic link"
+        "hypothesis": "ALOX5 mediates pro-inflammatory macrophage polarization through leukotriene-NF-\u03baB signaling in DKD",
+        "result": "High ALOX5/ALOX5AP co-localization with NF-\u03baB/p65 and iNOS in CD68+ macrophages; ALOX5 associated with decreased GFR"
       }
     ]
   },
@@ -2052,27 +2257,28 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-19",
     "category": "Statistical Methods",
-    "task": "Identifying drug-responsive temporally varying genes from high-frequency longitudinal RNA-seq",
-    "key_results": "Three temporal patterns identified (early-transient, sustained, late-phase); 186 conserved hepatotoxicity genes across four compounds; compound-specific mechanistic pathways",
-    "comments": "Novel temporal variance approach captures dynamics missed by static differential expression; rat model limits direct human translation.",
+    "task": "Identify and cluster temporally varying genes in drug response using high-frequency longitudinal RNA-seq",
+    "key_results": "Three distinct temporal patterns identified; 186 conserved hepatotoxicity signature genes across all compounds; dose-dependent kinetic-pharmacodynamic modeling enabled",
+    "comments": "Novel approach captures dynamic transcriptional responses missed by standard DE analysis; limited to hepatotoxicity in rodent model.",
     "model_io": [
       {
-        "model": "Temporally Varying Gene (TVG) detection framework",
+        "model": "TVG identification framework",
         "inputs": [
-          "daily RNA-seq from blood (10-21 days)",
-          "hepatotoxic compound treatments"
+          "daily longitudinal RNA-seq (10-21 days)",
+          "hepatotoxic drug treatments",
+          "dose-response data"
         ],
         "outputs": [
-          "TVGs with temporal patterns",
-          "treatment-induced transcriptomic trajectories",
-          "dose-dependent dynamics"
+          "temporally varying gene sets",
+          "clustering patterns",
+          "kinetic-pharmacodynamic models"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Temporal gene expression patterns distinguish primary drug targets from secondary adaptive responses",
-        "result": "Three temporal clusters identified with distinct biological processes; dose-dependent trajectories from Healthy to Response regions"
+        "hypothesis": "Variance-based scoring detects temporal gene dynamics missed by static differential expression",
+        "result": "Identified three temporal response patterns with distinct biological process enrichments and dose-dependent trajectories"
       }
     ]
   },
@@ -2085,26 +2291,27 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-19",
     "category": "Structural Prediction",
-    "task": "Deep learning estimation of major pathological response in post-NAT NSCLC via WSI analysis",
-    "key_results": "MMT-Net outperforms standard methods; attention maps correlate with pathologist annotations and immunohistochemistry markers (CK, Ki67)",
-    "comments": "Clever multi-scale transformer design but validation limited to single NSCLC dataset; clinical implementation requires prospective validation.",
+    "task": "Estimate major pathological response in lung cancer post-neoadjuvant therapy from whole-slide images",
+    "key_results": "MMT-Net achieves high accuracy; attention maps correlate with pathologist annotations and immunohistochemistry markers (CK, Ki67)",
+    "comments": "Self-supervised learning framework addresses practical WSI analysis; external validation and clinical deployment potential not addressed.",
     "model_io": [
       {
         "model": "Multi-Magnifier Transformer Network (MMT-Net)",
         "inputs": [
-          "whole slide images (WSIs) from post-NAT NSCLC specimens"
+          "post-NAT lung cancer whole-slide images",
+          "unannotated pathological image corpus"
         ],
         "outputs": [
-          "major pathological response classification",
+          "MPR estimates",
           "attention maps",
-          "correlation with Ki67/CK markers"
+          "viability predictions"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Multi-scale attention fusion improves MPR estimation vs. single-scale CNNs",
-        "result": "MMT-Net shows stronger agreement with pathologist annotations and biomarker correlations than standard methods"
+        "hypothesis": "Multi-scale feature fusion with transformer layers improves MPR estimation accuracy",
+        "result": "MMT-Net demonstrated superior performance with strong agreement between model attention and pathologist annotations"
       }
     ]
   },
@@ -2117,25 +2324,26 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-19",
     "category": "Statistical Methods",
-    "task": "Calcaneal spur detection from lateral foot X-rays using deep feature engineering on small dataset",
-    "key_results": "DFE framework achieves 93.42% accuracy on 775 images; integration of CNN features, INCA selection, tkNN ensemble, and IMV voting",
-    "comments": "Creative approach to small-dataset medical imaging but modest sample size and single anatomical region limit generalizability.",
+    "task": "Detect calcaneal spurs from X-ray images using deep feature engineering on small dataset",
+    "key_results": "93.42% accuracy achieved on 775 X-ray images (316 normal, 459 with spur) using CNN-INCA-tkNN-IMV-greedy ensemble",
+    "comments": "Addresses small biomedical dataset challenge effectively; framework combines multiple dimensionality reduction and ensemble strategies but computational complexity high.",
     "model_io": [
       {
-        "model": "Deep Feature Engineering (DFE) pipeline",
+        "model": "Deep Feature Engineering (DFE) framework",
         "inputs": [
-          "lateral foot X-ray images (775 total: 316 normal, 459 spur)"
+          "lateral foot X-ray images (775 total)"
         ],
         "outputs": [
           "spur/no-finding classification",
-          "accuracy/sensitivity/specificity metrics"
+          "ensemble voting scores",
+          "feature importance rankings"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "CNN-derived features + INCA selection + ensemble voting improve small-dataset classification",
-        "result": "93.42% accuracy achieved with feature engineering; higher sensitivity for spur (vs. normal) reflects visual similarity in early cases"
+        "hypothesis": "Multi-stage feature engineering (CNN extraction + INCA selection + tkNN ensemble + IMV voting) achieves high accuracy on small datasets",
+        "result": "93.42% accuracy with higher sensitivity for spur detection than normal heel detection"
       }
     ]
   },
@@ -2147,28 +2355,30 @@
     "projectPage": "https://www.nature.com/articles/s41598-026-44707-x",
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-19",
-    "category": "Evolutionary Biology",
-    "task": "Characterizing Cypriot population genetic variation via serial independent pool-sequencing",
-    "key_results": "4 million variants identified across 10,000 donors; >100,000 novel variants absent from gnomAD/ClinVar; >0.92 concordance with published cohorts; pathogenic variants common locally but rare globally",
-    "comments": "Elegant pool-seq design and comprehensive variant annotation; notable absence of individual-level genotypes limits linkage/haplotype analysis.",
+    "category": "Genomics",
+    "task": "Characterize population-specific genetic variation in Cypriot population via serial pool-sequencing",
+    "key_results": ">4 million variants identified; >100,000 novel variants absent from gnomAD v4.1/ClinVar; >0.92 concordance with published cohorts; significant local-global allele frequency differences",
+    "comments": "Pool-seq design enables cost-effective large cohort sequencing with empirical confidence intervals; notable geographic variation in pathogenic variant frequencies.",
     "model_io": [
       {
-        "model": "Serial independent pool-seq (10 replicates \u00d7 1,000 samples)",
+        "model": "Serial pool-seq pipeline",
         "inputs": [
-          "bone marrow DNA from 10,000 Cypriot donors",
-          "WES + targeted 813-gene panel"
+          "DNA from 10,000 bone marrow donors (10 independent pools)",
+          "whole exome sequencing",
+          "targeted panel (813 genes)"
         ],
         "outputs": [
-          "allele frequencies with confidence intervals",
-          "variant annotations (gnomAD v4.1, ClinVar)",
-          "public genome browser"
+          "variant calls",
+          "allele frequency estimates",
+          "confidence intervals",
+          "pathogenicity annotations"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Independent biological replicates enable distinction of true variants from sequencing artifacts",
-        "result": "10-fold replicate design validated high concordance (r>0.92); identified population-specific pathogenic variants"
+        "hypothesis": "Serial independent pool-seq with 10 replicates distinguishes true variants from sequencing artifacts",
+        "result": "Identified >100,000 novel variants; validated against clinical cohorts (r>0.92); revealed population-specific frequency patterns"
       }
     ]
   },
@@ -2181,27 +2391,28 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-19",
     "category": "Proteomics",
-    "task": "Characterizing exercise intensity-associated proteomic changes in elite athletes' plasma",
-    "key_results": "High-intensity group distinguishable by proteins in immune response, lipid metabolism, oxygen/iron transport; combined PLGS + PowerNovo identification strategies improve proteome completeness",
-    "comments": "Comprehensive proteomics analysis but cross-sectional design limits causal inference; mechanistic basis for intensity-dependent protein changes unclear.",
+    "task": "Analyze plasma proteomic changes associated with exercise intensity in elite athletes",
+    "key_results": "Identified proteins distinguishing high-intensity from other activity groups; changes in immune response, lipid transport, oxygen/iron transport proteins associated with training load intensity",
+    "comments": "Combined identification strategies (PLGS + PowerNovo) improve completeness; lacks mechanistic validation linking proteomics to performance outcomes.",
     "model_io": [
       {
-        "model": "Tandem mass spectrometry (DIA-MS) + protein identification",
+        "model": "Plasma proteomic profiling",
         "inputs": [
           "blood plasma from 93 elite athletes",
-          "activity intensity groupings (years of training)"
+          "data-independent acquisition mass spectra",
+          "known protein sequence library"
         ],
         "outputs": [
-          "proteomic profiles",
+          "quantified plasma proteins",
           "intensity-associated protein signatures",
-          "pathway enrichment"
+          "metabolic pathway associations"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "High exercise intensity induces distinct plasma protein signatures related to immune and metabolic adaptation",
-        "result": "High-intensity athletes show elevated proteins in immune response, lipid transport, and oxygen/iron metabolism pathways"
+        "hypothesis": "High-intensity exercise induces distinct proteomic signatures in immune response and nutrient transport",
+        "result": "Identified differential protein levels in high-intensity athletes in immune, lipid transport, and oxygen/iron transport pathways"
       }
     ]
   },
@@ -2214,25 +2425,26 @@
     "journal": "Nature Portfolio",
     "publishedAt": "2026-03-19",
     "category": "Statistical Methods",
-    "task": "Evaluating human-AI collaboration for CTG interpretation and perinatal acidaemia prediction",
-    "key_results": "cCTG assistance improves success rate from 54.0% to 61.4% (p<0.01); sensitivity from 49.3% to 61.7%; improves clinician agreement across professions and experience levels",
-    "comments": "Well-designed randomized trial but modest absolute sensitivity gain; clinical utility depends on specificity-sensitivity tradeoff and implementation context.",
+    "task": "Evaluate human-machine collaboration for cardiotocography interpretation and perinatal acidemia prediction",
+    "key_results": "cCTG assistance increased success rate from 54.0% to 61.4% (p<0.01) and sensitivity from 49.3% to 61.7% (p<0.01); improved inter-clinician agreement across professions and experience levels",
+    "comments": "Rigorous randomized multi-reader design; cCTG correct 67.5% in discordant cases, suggesting room for improvement.",
     "model_io": [
       {
         "model": "Computerized CTG (cCTG) assistance system",
         "inputs": [
-          "CTG recordings (n=100, 50 with pH<7.15)"
+          "CTG recordings (100 records; 50 pH <7.15)"
         ],
         "outputs": [
-          "perinatal acidaemia predictions",
-          "clinician decision support"
+          "perinatal acidemia predictions",
+          "confidence scores",
+          "interpretation support"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "AI-assisted CTG interpretation improves clinician sensitivity for perinatal acidaemia detection",
-        "result": "12.4% absolute sensitivity improvement with cCTG; cCTG correct in 67.5% of clinician-discordant cases"
+        "hypothesis": "cCTG assistance improves clinician detection of perinatal acidemia and inter-observer agreement",
+        "result": "Significant improvement in overall prediction accuracy and sensitivity; enhanced reliability across professions and experience levels"
       }
     ]
   },
@@ -2245,40 +2457,26 @@
     "journal": "npj Computational Materials",
     "publishedAt": "2026-03-19",
     "category": "ML Theory",
-    "task": "Vacancy formation energy prediction in high entropy alloys via GNN",
-    "key_results": "Generalizes from binary/ternary to quaternary+ alloys with minimal fine-tuning; Bader charges improve accuracy",
-    "comments": "Eliminates expensive DFT for complex alloys; integration of electronic structure information via Bader charges is methodologically sound.",
+    "task": "DFT bypass for vacancy formation energy prediction in high entropy alloys via GNN",
+    "key_results": "ML model generalizes from binary/ternary to quaternary+ alloys; eliminates DFT expense",
+    "comments": "Practical high-throughput materials screening; incorporates DFT-informed electronic structure via Bader charges.",
     "model_io": [
       {
-        "model": "CHGNet fine-tuned model",
+        "model": "CHGNet relaxation + CGCNN prediction",
         "inputs": [
-          "FCC structure",
-          "alloy composition"
+          "alloy composition",
+          "FCC structure"
         ],
         "outputs": [
-          "relaxed atomic configuration"
-        ]
-      },
-      {
-        "model": "Crystal Graph Convolutional Neural Network (CGCNN)",
-        "inputs": [
-          "relaxed structure graph",
+          "vacancy formation energy",
           "Bader charges"
-        ],
-        "outputs": [
-          "Bader charge prediction",
-          "vacancy formation energy Evf"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "CGCNN trained on binary/ternary alloys generalizes to higher-order HEAs",
-        "result": "Model shows good generalization with minimal fine-tuning across alloy systems"
-      },
-      {
-        "hypothesis": "Bader charges as descriptors improve Evf prediction vs. elemental features alone",
-        "result": "Incorporation of DFT-informed electronic structure significantly improved accuracy"
+        "hypothesis": "Bader charges improve CGCNN vacancy energy prediction beyond elemental features",
+        "result": "Confirmed; generalization demonstrated across alloy systems"
       }
     ]
   },
@@ -2291,35 +2489,24 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-19",
     "category": "Other",
-    "task": "Multi-criteria EV battery selection under uncertainty",
-    "key_results": "q-Rung orthopair fuzzy Schweizer-Sklar operators show improved ranking stability and robustness vs. existing fuzzy MCDM methods",
-    "comments": "Novel fuzzy MCDM framework; lacks quantitative benchmarking results; focus on qualitative robustness claims without numerical comparisons.",
+    "task": "Multi-criteria decision making for EV battery selection via q-Rung orthopair fuzzy prioritized operators",
+    "key_results": "Proposed qROFZ Schweizer\u2013Sklar operators improve ranking stability and robustness vs. existing fuzzy MCDM approaches",
+    "comments": "Mathematical framework for uncertainty quantification; demonstrates comparative robustness but lacks empirical validation on real battery datasets.",
     "model_io": [
       {
-        "model": "qROFZN-based Schweizer-Sklar prioritized aggregation operators",
+        "model": "qROFZ-Schweizer\u2013Sklar prioritized aggregation + WASPAS",
         "inputs": [
-          "battery criteria (technical, economic, ecological)",
-          "expert judgments"
+          "technical/economic/ecological criteria"
         ],
         "outputs": [
-          "ranked battery options"
-        ]
-      },
-      {
-        "model": "WASPAS in qROFZ context",
-        "inputs": [
-          "weighted attributes",
-          "preference relations"
-        ],
-        "outputs": [
-          "final ranking"
+          "battery ranking"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Prioritized aggregation under qROFZ framework improves decision stability",
-        "result": "Proposed operators outperform existing fuzzy MCDM in stability and flexibility"
+        "hypothesis": "Prioritized operators with DFT-informed Z-numbers improve decision reliability under uncertainty",
+        "result": "Confirmed via comparative stability analysis"
       }
     ]
   },
@@ -2332,35 +2519,25 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-19",
     "category": "ML Theory",
-    "task": "Color art image generation with visual guidance",
-    "key_results": "PSNR increased from 22.5 to 34.8 dB; SSIM reached 0.85 after 100 iterations",
-    "comments": "GAN-based approach with attention mechanism shows solid quantitative improvements, though evaluation limited to self-built dataset.",
+    "task": "AI-driven color art image generation with adaptive attention GAN",
+    "key_results": "PSNR increased from 22.5 to 34.8 dB; SSIM reached 0.85 after 100 generations",
+    "comments": "Standard GAN improvements with attention mechanisms; limited novelty beyond combining existing techniques.",
     "model_io": [
       {
-        "model": "Enhanced GAN with Adaptive Attention + CNN",
+        "model": "Adaptive Attention GAN with CNN",
         "inputs": [
-          "visual guide images",
-          "style parameters"
+          "visual guidance",
+          "style references"
         ],
         "outputs": [
           "generated color art images"
-        ]
-      },
-      {
-        "model": "Deep Reinforcement Learning optimizer",
-        "inputs": [
-          "style loss",
-          "color loss"
-        ],
-        "outputs": [
-          "adjusted generator/discriminator weights"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Adaptive attention mechanism combined with multi-layer CNN improves image generation quality",
-        "result": "PSNR and SSIM metrics improved significantly with stable loss values"
+        "hypothesis": "Adaptive attention and multi-layer CNN improve adversarial training",
+        "result": "Confirmed via PSNR and style/texture loss metrics"
       }
     ]
   },
@@ -2373,38 +2550,25 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-19",
     "category": "ML Theory",
-    "task": "Haze-aware object detection in foggy environments",
-    "key_results": "MSDSS=0.944, SNR=50.769 dB, SSIM=0.925 on foggy images",
-    "comments": "DCNN-YOLOv8 with haze-aware features addresses practical problem; Chronological Chimp Optimization is novel but no comparison vs. standard optimizers provided.",
+    "task": "Object detection in foggy environments via haze-aware DCNN-YOLOv8 with CChOA optimization",
+    "key_results": "MSDSS=0.944, SNR=50.769, SSIM=0.925 on hazy images; CChOA optimizes image quality assessment",
+    "comments": "Addresses practical low-visibility detection; CChOA (Chronological Chimp Optimization) contribution is incremental variant.",
     "model_io": [
       {
-        "model": "Haze-aware image quality assessment (DCNN + CChOA)",
+        "model": "DCNN-YOLOv8 with CChOA",
         "inputs": [
-          "hazy image"
+          "hazy images"
         ],
         "outputs": [
-          "image quality score"
-        ]
-      },
-      {
-        "model": "YOLOv8 object detector",
-        "inputs": [
-          "quality-assessed image"
-        ],
-        "outputs": [
-          "object bounding boxes",
-          "class labels"
+          "object detection",
+          "image quality scores"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "HSPN features + MSCN coefficients improve IQA for hazy images",
-        "result": "SSIM=0.925, SNR=50.769 dB achieved on foggy test set"
-      },
-      {
-        "hypothesis": "CChOA optimization improves DCNN training for haze robustness",
-        "result": "Enhanced YOLOv8 performance with reported metrics"
+        "hypothesis": "Haze-aware features (HSPN, MSCN) + CChOA improve fog robustness",
+        "result": "Confirmed via quality metrics on hazy datasets"
       }
     ]
   },
@@ -2416,49 +2580,32 @@
     "projectPage": "https://www.nature.com/articles/s41598-026-39525-0",
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-19",
-    "category": "Algorithms",
-    "task": "Airfoil aerodynamic enhancement via bio-inspired riblets and plasma actuation",
-    "key_results": "Fillet riblet + plasma actuator: CL \u219120.38%, CL/CD \u219145.71%; NN and SVM models show high correlation (low MSE)",
-    "comments": "CFD-ML hybrid approach well-executed; bio-inspired design combined with active control is innovative; Reynolds number 3.1\u00d710\u2076 limits scalability.",
+    "category": "ML Theory",
+    "task": "Airfoil aerodynamic optimization via CFD-driven neural networks and SVM with bio-inspired riblets",
+    "key_results": "Bio-inspired fillet riblet + plasma actuator: CL increase 20.38%, CL/CD increase 45.71%; NN and SVM models validated",
+    "comments": "Well-integrated CFD-ML pipeline; AI models (NN, SVM) serve as surrogate predictors for optimization.",
     "model_io": [
       {
-        "model": "CFD simulation (NACA4412 with riblets + AC-DBD plasma)",
+        "model": "CFD simulation + ANN/SVM surrogate",
         "inputs": [
           "riblet geometry",
           "plasma actuation",
-          "angle of attack (0-20\u00b0)"
+          "Reynolds number"
         ],
         "outputs": [
-          "CL, CD, vorticity field"
-        ]
-      },
-      {
-        "model": "Artificial Neural Network (scaled conjugate gradient)",
-        "inputs": [
-          "CFD simulation results"
-        ],
-        "outputs": [
-          "CL/CD prediction"
-        ]
-      },
-      {
-        "model": "Support Vector Machine regression",
-        "inputs": [
-          "CFD simulation results"
-        ],
-        "outputs": [
-          "CL/CD prediction"
+          "lift/drag coefficients",
+          "flow patterns"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Fillet riblet + AC-DBD plasma improves lift and lift-to-drag ratio",
-        "result": "CL +20.38%, CL/CD +45.71% vs. baseline configuration"
+        "hypothesis": "Fillet riblets + AC-DBD plasma improve aerodynamic efficiency vs. baseline NACA4412",
+        "result": "Confirmed; 45.71% CL/CD improvement"
       },
       {
-        "hypothesis": "NN and SVM capture CFD aerodynamic relationships with high accuracy",
-        "result": "High correlation coefficient and low MSE in CL/CD predictions"
+        "hypothesis": "ML surrogates accurately predict CFD results",
+        "result": "Confirmed via high R\u00b2 and low MSE"
       }
     ]
   },
@@ -2471,14 +2618,14 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-19",
     "category": "Combinatorics/Graph Theory",
-    "task": "Metric dimension of cycloparaphenylene and derived molecular structures",
-    "key_results": "Metric dimension computed for cycloparaphenylene, pyrene-extended carbon nanorings, hexabenzocoronene-functionalized structures, polythiophenes",
-    "comments": "Graph-theoretic approach to molecular fingerprinting; results likely enable isomer differentiation and symmetry analysis in cheminformatics applications.",
+    "task": "Metric dimension determination for cycloparaphenylene and derived molecular structures",
+    "key_results": "Metric dimension computed for cycloparaphenylene, pyrene-containing nanorings, graphenic hexabenzocoronene structures, and polythiophene",
+    "comments": "Pure graph-theoretic characterization; metric dimension useful for molecular isomer differentiation and symmetry analysis.",
     "model_io": [],
     "hypotheses": [
       {
-        "hypothesis": "Metric dimension inversely correlates with molecular symmetry; lower for symmetric structures",
-        "result": "Theoretical characterization of cycloparaphenylene and derived structures via metric dimension"
+        "hypothesis": "Highly symmetric molecules exhibit lower metric dimension",
+        "result": "Demonstrated on cycloparaphenylene family"
       }
     ]
   },
@@ -2491,9 +2638,9 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-19",
     "category": "ML Theory",
-    "task": "Facial emotion recognition with transformer attention",
-    "key_results": "99.20% accuracy on JAFFE; 98-99% precision, recall, F1-score",
-    "comments": "Impressive reported metrics, but generalization to other FER datasets and real-world conditions unclear.",
+    "task": "Facial emotion recognition via transformer-CNN fusion with HySHO optimization",
+    "key_results": "99.20% accuracy on JAFFE database; precision/recall/F1 98\u201399%",
+    "comments": "Strong empirical results but HySHO algorithm contribution unclear; limited methodological novelty.",
     "model_io": [
       {
         "model": "SiaCon-DetNet with HySHO",
@@ -2501,25 +2648,14 @@
           "facial images"
         ],
         "outputs": [
-          "emotion class prediction",
-          "confidence scores"
-        ]
-      },
-      {
-        "model": "Siamese CNN + Transformer Detection Network",
-        "inputs": [
-          "face region",
-          "detected face"
-        ],
-        "outputs": [
-          "fine-grained facial features"
+          "emotion classification"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Combining Siamese CNN with transformer attention improves emotion recognition robustness",
-        "result": "Achieved 99.20% on JAFFE with consistent precision/recall ~98-99%"
+        "hypothesis": "Siamese CNN + transformer attention + bio-inspired optimization improves emotion recognition",
+        "result": "Confirmed; 99.20% accuracy on JAFFE"
       }
     ]
   },
@@ -2532,35 +2668,26 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-19",
     "category": "Algorithms",
-    "task": "Fault-tolerant control for centrifugal pump level systems with sensor faults",
-    "key_results": "Proposed FDI-based FTC maintains control loop operation despite single sensor failure",
-    "comments": "Practical industrial solution; results are qualitative and lack quantitative robustness metrics (overshoot, settling time, response to multiple faults).",
+    "task": "Fault-tolerant control for centrifugal pump level systems with sensor fault detection/isolation",
+    "key_results": "FDI estimator maintains control loop stability under sensor faults by cross-validating with redundant sensors",
+    "comments": "Practical industrial application; lacks quantitative performance metrics (response time, robustness margins).",
     "model_io": [
       {
-        "model": "Fault Detection and Isolation (FDI) estimator",
+        "model": "PID + Fault Detection/Isolation (FDI) estimator",
         "inputs": [
-          "sensor readings from multiple sensors"
+          "level sensors",
+          "pump command"
         ],
         "outputs": [
-          "fault diagnosis",
-          "estimated faulty sensor value"
-        ]
-      },
-      {
-        "model": "PID controller",
-        "inputs": [
-          "estimated level",
-          "setpoint"
-        ],
-        "outputs": [
-          "pump control signal"
+          "corrected level estimate",
+          "fault flag"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "FDI-based FTC maintains stable operation despite single sensor fault",
-        "result": "Control loop continues operation using FDI estimate; qualitative validation only"
+        "hypothesis": "FDI-based adaptive feedback maintains system stability despite single sensor fault",
+        "result": "Confirmed qualitatively; pump continues operation"
       }
     ]
   },
@@ -2573,45 +2700,26 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-19",
     "category": "Other",
-    "task": "Explainable resource allocation in public safety networks",
-    "key_results": "XAI framework with SHAP/LIME ensures transparent allocation decisions; Bayesian uncertainty modeling improves reliability",
-    "comments": "Addresses important stakeholder trust concern; framework design sound but lacks numerical performance metrics or empirical validation on real PSN scenarios.",
+    "task": "Explainable AI for resource allocation in public safety networks via SHAP/LIME + Bayesian uncertainty",
+    "key_results": "Framework optimizes resource distribution while maintaining global/local interpretability; fosters stakeholder trust",
+    "comments": "Timely application; lack of quantitative performance metrics and comparative evaluation against black-box baselines.",
     "model_io": [
       {
-        "model": "XAI-driven resource allocation engine",
+        "model": "XAI framework (SHAP + LIME) with Bayesian uncertainty",
         "inputs": [
-          "network demand",
-          "available resources",
-          "emergency status"
+          "resource demand",
+          "bandwidth constraints"
         ],
         "outputs": [
-          "allocation decisions"
-        ]
-      },
-      {
-        "model": "SHAP/LIME explainer",
-        "inputs": [
-          "allocation decisions"
-        ],
-        "outputs": [
-          "feature importance",
-          "local explanations"
-        ]
-      },
-      {
-        "model": "Bayesian uncertainty quantification",
-        "inputs": [
-          "allocation uncertainties"
-        ],
-        "outputs": [
-          "confidence intervals"
+          "allocation decisions",
+          "explanations"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "SHAP/LIME explanation improves stakeholder trust in AI allocation decisions",
-        "result": "Framework provides transparent justifications; empirical trust validation not reported"
+        "hypothesis": "SHAP + LIME + Bayesian modeling improve transparency and fairness in emergency resource allocation",
+        "result": "Qualitatively confirmed; quantitative metrics absent"
       }
     ]
   },
@@ -2624,39 +2732,24 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-19",
     "category": "ML Theory",
-    "task": "High-resolution edge detection with structure-aware supervision",
+    "task": "High-resolution edge detection via CNN-transformer dual-branch with structure-aware loss",
     "key_results": "BSDS500: ODS=0.847/OIS=0.861; Multicue: ODS=0.899/OIS=0.907; NYUDv2: ODS=0.761/OIS=0.776",
-    "comments": "Novel structure-aware loss explicitly addresses known failure modes; curriculum learning via dynamic scheduling is well-motivated.",
+    "comments": "Novel structure-aware loss enforces geometric properties (continuity, smoothness, directionality); three-stage curriculum learning strategy well-motivated.",
     "model_io": [
       {
-        "model": "Dual-branch CNN-Transformer network",
+        "model": "Dual-branch CNN-Transformer with structure loss",
         "inputs": [
-          "image"
+          "images"
         ],
         "outputs": [
-          "edge probability map",
-          "edge structure"
-        ]
-      },
-      {
-        "model": "Edge-Structure-Aware Loss Function",
-        "inputs": [
-          "predicted edges",
-          "ground truth edges"
-        ],
-        "outputs": [
-          "loss value"
+          "edge maps"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Structure-aware loss with gradient/continuity/directional constraints reduces edge artifacts",
-        "result": "Competitive performance on BSDS500, Multicue, NYUDv2; addresses fragmentation and blurring"
-      },
-      {
-        "hypothesis": "Three-stage dynamic loss scheduling guides refinement from pixel to structure level",
-        "result": "Curriculum learning improves convergence and output coherence"
+        "hypothesis": "Structure-aware loss + curriculum learning reduces fragmentation and blur vs. pixel-wise BCE",
+        "result": "Confirmed via competitive benchmark scores"
       }
     ]
   },
@@ -2669,46 +2762,28 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-19",
     "category": "Algorithms",
-    "task": "Autonomous vehicle sensor fusion under adverse weather",
-    "key_results": "31.2% precision improvement, 27.8% reduction in false positives, latency 51\u219243 ms",
-    "comments": "Large-scale evaluation on 4.5TB real-world data provides solid validation; precipitation nowcasting MAE of 0.42 mm/h (R\u00b2=0.91) is reasonable.",
+    "task": "Precipitation-aware multi-sensor fusion for autonomous vehicle perception",
+    "key_results": "31.2% increase in detection precision; 27.8% reduction in false positives; latency 51\u219243 ms",
+    "comments": "Well-engineered sensor fusion under real adversarial conditions; 320 hours of driving data provides strong validation.",
     "model_io": [
       {
-        "model": "Precipitation-aware sensor fusion framework",
+        "model": "Adaptive sensor fusion with DNN degradation modeling",
         "inputs": [
           "LiDAR",
           "RADAR",
           "camera",
-          "precipitation data"
+          "precipitation nowcasting"
         ],
         "outputs": [
-          "object detections",
-          "bounding boxes"
-        ]
-      },
-      {
-        "model": "Radar-based precipitation nowcasting",
-        "inputs": [
-          "radar signal"
-        ],
-        "outputs": [
-          "rainfall estimation"
-        ]
-      },
-      {
-        "model": "Deep neural network sensor degradation model",
-        "inputs": [
-          "precipitation severity"
-        ],
-        "outputs": [
-          "sensor reliability weights"
+          "object detection",
+          "perception confidence"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Dynamic sensor fusion based on precipitation severity improves detection under adverse weather",
-        "result": "31.2% precision increase, 27.8% FP reduction vs. fixed-weight baseline"
+        "hypothesis": "Adaptive weighting based on precipitation and sensor reliability outperforms fixed-weight fusion",
+        "result": "Confirmed; 31.2% precision gain"
       }
     ]
   },
@@ -2721,43 +2796,24 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-19",
     "category": "Statistics/Probability",
-    "task": "Multi-criteria decision making with probabilistic linguistic terms via cloud model",
-    "key_results": "PLC-TOPSIS method integrates cloud model to represent ambiguity and stochasticity; nuclear evacuation case study demonstrates feasibility",
-    "comments": "Probabilistic linguistic cloud framework is theoretically sound for capturing decision uncertainty; case study validation provided but limited to single application.",
+    "task": "Multi-criteria decision making with probabilistic linguistic terms via cloud model TOPSIS",
+    "key_results": "PLC-TOPSIS method integrates ambiguity and stochasticity; case study validates group decision making for nuclear evacuation",
+    "comments": "Extends TOPSIS to probabilistic linguistic domain; cloud model captures uncertainty well but lacks comparative quantitative metrics.",
     "model_io": [
       {
-        "model": "Golden Section transformation",
+        "model": "Cloud model + PLC-WA aggregation + PLC-TOPSIS",
         "inputs": [
-          "probabilistic linguistic terms"
+          "probabilistic linguistic criteria assessments"
         ],
         "outputs": [
-          "probabilistic linguistic clouds"
-        ]
-      },
-      {
-        "model": "Cloud-weighted averaging operator (PLC-WA)",
-        "inputs": [
-          "probabilistic linguistic clouds"
-        ],
-        "outputs": [
-          "aggregated cloud"
-        ]
-      },
-      {
-        "model": "PLC-TOPSIS decision maker",
-        "inputs": [
-          "criteria clouds",
-          "decision matrix"
-        ],
-        "outputs": [
-          "ranked alternatives"
+          "decision ranking"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Cloud model representation improves accuracy of ambiguity/stochasticity in group decisions",
-        "result": "PLC-TOPSIS applied to nuclear evacuation; feasibility demonstrated via case study"
+        "hypothesis": "Cloud model TOPSIS better handles ambiguity and stochasticity than traditional MCDM",
+        "result": "Demonstrated on nuclear evacuation case study"
       }
     ]
   },
@@ -2770,37 +2826,26 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-19",
     "category": "ML Theory",
-    "task": "Thermoelectric property prediction via Kolmogorov-Arnold Networks",
-    "key_results": "KANs achieve comparable accuracy to MLPs while providing explicit symbolic representations of structure-property relationships",
-    "comments": "Novel KAN application addressing interpretability gap; no quantitative benchmarks provided; generalization to other property targets unclear.",
+    "task": "Thermoelectric property prediction via Kolmogorov\u2013Arnold Networks with interpretability",
+    "key_results": "KAN achieves comparable accuracy to MLP while providing explicit symbolic structure-property relationships",
+    "comments": "Novel symbolic architecture bridging predictive power and interpretability; limited quantitative benchmarking details provided.",
     "model_io": [
       {
-        "model": "Kolmogorov-Arnold Networks (KANs)",
+        "model": "Kolmogorov\u2013Arnold Networks (KAN)",
         "inputs": [
-          "material composition",
-          "structural descriptors"
+          "material composition/structure features"
         ],
         "outputs": [
           "Seebeck coefficient",
-          "band gap prediction"
-        ]
-      },
-      {
-        "model": "Multilayer Perceptron (MLP) baseline",
-        "inputs": [
-          "material composition",
-          "structural descriptors"
-        ],
-        "outputs": [
-          "Seebeck coefficient",
-          "band gap prediction"
+          "band gap",
+          "symbolic functional forms"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "KANs provide physically interpretable functional forms comparable in accuracy to MLPs",
-        "result": "Comparable predictive accuracy with explicit symbolic structure-property representations"
+        "hypothesis": "KANs provide superior interpretability vs. MLPs without sacrificing accuracy",
+        "result": "Confirmed; symbolic representations derived"
       }
     ]
   },
@@ -2813,38 +2858,29 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-19",
     "category": "Statistics/Probability",
-    "task": "Household cooking fuel choice prediction in sub-Saharan Africa",
-    "key_results": "XGBoost: 80.43% accuracy (95% CI: 80.17-80.67%), AUC=0.8987; electricity identified as highest-impact predictor",
-    "comments": "Large-scale study (430k households, 28 countries) with appropriate handling of imbalance (SMOTE) and survey design (sampling weights); SHAP interpretability adds policy value.",
+    "task": "Household cooking fuel choice prediction in sub-Saharan Africa via supervised ML",
+    "key_results": "XGBoost: 80.43% accuracy (95% CI: 80.17\u201380.67%), AUC 0.8987; SHAP identifies electricity as top predictor",
+    "comments": "Large-scale policy-relevant study (430K households, 28 countries); SMOTE addresses 5.4:1 class imbalance; strong validation framework.",
     "model_io": [
       {
-        "model": "XGBoost classifier",
+        "model": "XGBoost with SMOTE + SHAP interpretation",
         "inputs": [
-          "household features (electricity, residence, education, wealth, etc.)"
+          "DHS socioeconomic features"
         ],
         "outputs": [
-          "cooking fuel type prediction"
-        ]
-      },
-      {
-        "model": "SHAP explainer",
-        "inputs": [
-          "model predictions",
-          "feature values"
-        ],
-        "outputs": [
-          "feature importance rankings"
+          "fuel choice prediction",
+          "feature importance"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "XGBoost outperforms RF, DT, LR, AdaBoost, NB, ANN on imbalanced fuel choice data",
-        "result": "XGBoost AUC=0.8987 vs. other models; superior accuracy and F1-score"
+        "hypothesis": "XGBoost outperforms RF, DT, XGB, LR, AdaBoost, NB, ANN for fuel choice",
+        "result": "Confirmed; 80.43% accuracy"
       },
       {
-        "hypothesis": "Electricity access is the strongest driver of clean fuel adoption",
-        "result": "SHAP analysis ranked electricity highest, followed by residence and education"
+        "hypothesis": "Electricity access is strongest predictor of clean fuel adoption",
+        "result": "Confirmed via SHAP analysis"
       }
     ]
   },
@@ -2857,38 +2893,29 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-19",
     "category": "ML Theory",
-    "task": "Music audio recognition for intelligent teaching evaluation",
-    "key_results": "95.65% \u00b1 0.35% accuracy; 82.4 ms inference on Jetson Nano",
-    "comments": "Practical deployment advantage with low latency, and validated educational impact via RCT, though single-device inference time reported.",
+    "task": "Music audio recognition for intelligent teaching via DCNN with attention",
+    "key_results": "Recognition accuracy 95.65% \u00b1 0.35%; inference latency 82.4 ms on Jetson Nano",
+    "comments": "Strong embedded deployment; validated via RCT on student learning outcomes.",
     "model_io": [
       {
-        "model": "MBFN-DCAM (Multi-Branch Fusion Dilated Convolution + Attention)",
+        "model": "MBFN-DCAM (dilated CNN + attention)",
         "inputs": [
-          "audio spectrogram"
+          "audio spectrograms"
         ],
         "outputs": [
-          "music class prediction"
-        ]
-      },
-      {
-        "model": "Educational feedback system",
-        "inputs": [
-          "student pitch performance"
-        ],
-        "outputs": [
-          "corrective feedback",
-          "self-efficacy metrics"
+          "music recognition",
+          "pitch feedback"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "DCNN with attention mechanism outperforms AST and ResNet-50 on music recognition",
-        "result": "95.65% accuracy, statistically significant vs. baselines (p < 0.01)"
+        "hypothesis": "Dilated convolution + attention outperforms AST and ResNet-50",
+        "result": "Confirmed; 95.65% accuracy with p<0.01"
       },
       {
-        "hypothesis": "Model feedback improves student pitch accuracy and self-efficacy",
-        "result": "RCT (n=60) showed significant improvement in MES and pitch accuracy"
+        "hypothesis": "AI feedback improves student pitch accuracy and self-efficacy",
+        "result": "Confirmed via RCT validation"
       }
     ]
   },
@@ -2901,9 +2928,9 @@
     "journal": "Nature Portfolio",
     "publishedAt": "2026-03-19",
     "category": "Other",
-    "task": "Regulatory framework for generative AI in medical devices",
-    "key_results": "Perspective piece identifying gaps in existing medical device regulation and proposing multidisciplinary collaborative regulatory science approach",
-    "comments": "Policy discussion rather than empirical research; highlights urgent need for adaptive regulatory frameworks but lacks specific technical solutions.",
+    "task": "Regulatory frameworks and risk assessment for generative AI in medical devices",
+    "key_results": "Perspective identifying regulatory gaps and advocating multidisciplinary global collaboration for GenAI/LLM medical device governance",
+    "comments": "Position paper; no empirical results or quantitative findings presented.",
     "model_io": [],
     "hypotheses": []
   },
@@ -2915,70 +2942,26 @@
     "projectPage": "https://www.nature.com/articles/s42005-026-02582-y",
     "journal": "Communications Physics",
     "publishedAt": "2026-03-19",
-    "category": "Algorithms",
-    "task": "Automated atomic fine structure determination for plasma spectroscopy",
-    "key_results": "Co II: 95% agreement; Nd II/III: 54-87% agreement with published values; 103 levels identified in hours",
-    "comments": "Novel application of graph RL to spectroscopy; lower agreement for Nd species suggests challenges with more complex atomic structure.",
+    "category": "ML Theory",
+    "task": "Atomic fine structure determination via graph reinforcement learning",
+    "key_results": "Hundreds of energy levels identified in hours; 95% agreement with published Co II values; 54\u201387% for Nd species",
+    "comments": "Partially automates years of manual spectroscopic analysis; human-in-the-loop with reward functions learned from historical decisions.",
     "model_io": [
       {
-        "model": "Graph Reinforcement Learning agent",
+        "model": "Graph RL with SHAP-learned reward",
         "inputs": [
-          "observed spectral lines (104 per species)",
-          "atomic graph"
+          "spectral line observations",
+          "historical decisions"
         ],
         "outputs": [
           "fine structure energy levels"
         ]
-      },
-      {
-        "model": "Reward function (learned from historical decisions)",
-        "inputs": [
-          "proposed level assignments"
-        ],
-        "outputs": [
-          "reward signal"
-        ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Graph RL with human-informed rewards accelerates fine structure determination",
-        "result": "Hundreds of levels identified in hours vs. years of manual analysis; 95% Co II agreement, 54-87% for Nd"
-      }
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41467-026-70552-7",
-    "source": "physics",
-    "id": "10.1038/s41467-026-70552-7",
-    "title": "A connectivity threshold between grass patches amplifies coastal dune formation",
-    "projectPage": "https://www.nature.com/articles/s41467-026-70552-7",
-    "journal": "Nature Communications",
-    "publishedAt": "2026-03-19",
-    "category": "Astrophysics/Cosmology",
-    "task": "Quantify spatial interactions between grass patches in coastal dune formation",
-    "key_results": "S-shaped percolation threshold: dune height driven by neighbor patch density; abrupt shift from isolated patches to functionally connected clusters amplifies engineering capacity",
-    "comments": "Reveals overlooked spatial dimension of ecosystem engineering; percolation theory explains landscape-scale biogeomorphic feedbacks.",
-    "model_io": [
-      {
-        "model": "Spatiotemporal analysis of decade-long dune system morphodynamics",
-        "inputs": [
-          "grass patch density",
-          "patch size",
-          "patch spatial arrangement",
-          "time"
-        ],
-        "outputs": [
-          "dune height",
-          "engineering capacity",
-          "connectivity threshold"
-        ]
-      }
-    ],
-    "hypotheses": [
-      {
-        "hypothesis": "Percolation threshold controls transition from isolated to functionally connected patch clusters",
-        "result": "Initial neighbor patch density\u2014not patch size\u2014primarily drives dune height amplification"
+        "hypothesis": "MDP formulation + learned reward functions accelerate atomic data determination",
+        "result": "Confirmed; Co II 95%, Nd species 54\u201387% agreement"
       }
     ]
   },
@@ -2991,27 +2974,32 @@
     "journal": "Nature Communications",
     "publishedAt": "2026-03-19",
     "category": "Condensed Matter",
-    "task": "Characterize coexistence of kagome and heavy-fermion flat bands in YbCr\u2086Ge\u2086",
-    "key_results": "Intrinsic kagome flat band at high T transforms to momentum-independent Kondo resonance upon cooling via Yb 4f hybridization; topological analysis reveals tunable weak/strong topological Kondo-insulating regimes",
-    "comments": "First observation unifying geometric frustration, strong correlations, and topology in single material; prototype for topological heavy-fermion physics.",
+    "task": "Identify coexisting kagome and heavy fermion flat bands in YbCr6Ge6",
+    "key_results": "Intrinsic kagome flat band at high temperature; upon cooling, Yb 4f hybridization creates momentum-independent Kondo resonances; topological weak/strong Kondo-insulating regimes and topological Dirac\u2013Kondo semimetal identified",
+    "comments": "Important discovery unifying topology with heavy-fermion physics; experimental techniques (ARPES, other spectroscopies) not detailed\u2014confirmation by independent probes would strengthen conclusions.",
     "model_io": [
       {
-        "model": "Layered kagome metal YbCr\u2086Ge\u2086 with temperature-dependent electronic structure",
+        "model": "Layered kagome metal YbCr6Ge6",
         "inputs": [
-          "electron momentum",
-          "temperature"
+          "temperature",
+          "chemical potential/filling"
         ],
         "outputs": [
-          "energy dispersion",
-          "Kondo resonance",
-          "topological band gaps"
+          "band structure",
+          "flat band properties",
+          "Kondo resonance states",
+          "topological indices"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Yb 4f hybridization transforms kagome flat band into Kondo resonance at low T",
-        "result": "Topological Kondo-insulating phases with filling-tunable weak/strong regimes observed"
+        "hypothesis": "Yb 4f states hybridize with topological kagome flat bands upon cooling",
+        "result": "High-temperature kagome flat band transforms into momentum-independent Kondo resonances; topological properties preserved"
+      },
+      {
+        "hypothesis": "Hybridization gaps support tunable topological phases",
+        "result": "Filling-dependent weak and strong topological Kondo-insulating regimes and topological Dirac\u2013Kondo semimetal states identified"
       }
     ]
   },
@@ -3024,91 +3012,25 @@
     "journal": "Nature Communications",
     "publishedAt": "2026-03-19",
     "category": "Optics/Photonics",
-    "task": "Transmit spatial information through scattering media using epsilon-near-zero nonlinear gating",
-    "key_results": "Sub-picosecond time-gate selects ballistic photons; reduces scintillation by ~100\u00d7 in dynamic scattering",
-    "comments": "Upconversion to visible wavelength avoids phase-matching limits of bulk materials while preserving spatial resolution.",
+    "task": "High-fidelity spatial information transfer through scattering media using time-gating",
+    "key_results": "Sub-picosecond time-gate via four-wave mixing in epsilon-near-zero ITO film; two orders of magnitude scintillation reduction in dynamic scattering",
+    "comments": "Novel use of ENZ nonlinearity for ballistic photon selection; promising for in vivo imaging but practical integration with existing systems needs clarification.",
     "model_io": [
       {
-        "model": "Four-wave mixing in sub-micron ITO film at ENZ wavelength",
+        "model": "Epsilon-near-zero four-wave mixing in ITO film",
         "inputs": [
-          "signal pulse (infrared)",
-          "two pump pulses (ultrashort, ENZ-centered)",
-          "scattering medium"
+          "signal pulse",
+          "pump pulse at ENZ wavelength"
         ],
         "outputs": [
-          "upconverted visible signal (ballistic photons only)"
+          "upconverted visible signal with preserved spatial information"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "ENZ nonlinearity creates sub-wavelength time-gate that filters scattered light",
-        "result": "High-fidelity spatial information transfer through both static and dynamic scattering"
-      }
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41563-026-02539-0",
-    "source": "physics",
-    "id": "10.1038/s41563-026-02539-0",
-    "title": "Optically detected nuclear magnetic resonance of coherent spins in a molecular complex",
-    "projectPage": "https://www.nature.com/articles/s41563-026-02539-0",
-    "journal": "Nature Materials",
-    "publishedAt": "2026-03-19",
-    "category": "Quantum",
-    "task": "Optical detection and control of coherent nuclear spins in europium molecular complex",
-    "key_results": "Achieved optical initialization/detection of nuclear spins with 2 ms coherence lifetime; implemented Rabi oscillations, spin echo, and dynamical decoupling",
-    "comments": "Ultranarrow optical transitions enable single-molecule-level sensitivity; demonstrates quantum coherence control in molecular system.",
-    "model_io": [
-      {
-        "model": "Europium-based molecular crystal with optical and RF control",
-        "inputs": [
-          "optical pulses (ultranarrow transitions)",
-          "radio-frequency drives"
-        ],
-        "outputs": [
-          "nuclear spin states",
-          "coherence measurements",
-          "quadrupole resonance spectra"
-        ]
-      }
-    ],
-    "hypotheses": [
-      {
-        "hypothesis": "Ultranarrow optical transitions enable optical initialization and detection of molecular nuclear spins",
-        "result": "Achieved 2 ms nuclear spin coherence with quantum control via RF pulses"
-      }
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41597-026-07052-2",
-    "source": "physics",
-    "id": "10.1038/s41597-026-07052-2",
-    "title": "An ontology-based description of nano computed tomography measurements in electronic laboratory notebooks",
-    "projectPage": "https://www.nature.com/articles/s41597-026-07052-2",
-    "journal": "Scientific Data",
-    "publishedAt": "2026-03-19",
-    "category": "Other",
-    "task": "Create FAIR metadata for nano-computed tomography measurements via semantic annotation in electronic lab notebooks",
-    "key_results": "Ontology-based schema automatically validates and semantically annotates synchrotron-beamline metadata; SPARQL queries extract data from knowledge graph",
-    "comments": "Addresses metadata documentation at experiment design stage rather than post-hoc; demonstrates practical FAIR implementation.",
-    "model_io": [
-      {
-        "model": "Herbie ELN with semantic web technologies and SPARQL query engine",
-        "inputs": [
-          "instrument configuration parameters",
-          "beamline metadata"
-        ],
-        "outputs": [
-          "FAIR-compliant knowledge graph",
-          "SPARQL-queryable semantic documents"
-        ]
-      }
-    ],
-    "hypotheses": [
-      {
-        "hypothesis": "Schema-first approach at experiment design ensures automatic FAIR compliance",
-        "result": "Metadata automatically validated and semantically annotated with minimal user overhead"
+        "hypothesis": "Time-gating via sum-FWM in sub-wavelength ENZ film removes scattered photons",
+        "result": "Only ballistic photons retained; intensity and phase information preserved through scattering media"
       }
     ]
   },
@@ -3121,63 +3043,28 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-19",
     "category": "Applied Physics",
-    "task": "Detect slippage in wet environments using bionic fingerprint-patterned e-skin",
-    "key_results": "Micropatterned sensor detects slippage on oil/water-coated surfaces; captures microvibrations and ultrafast signal changes for soft robotic applications",
-    "comments": "Fingerprint biomimicry enables wet-surface sensing where existing technologies fail; demonstrates cyber-physical integration.",
+    "task": "Detect slippage in wet environments using bionic fingerprint-patterned E-skin sensor",
+    "key_results": "Fingerprint-inspired micropatterned sensor detects slippage on oil- and water-coated low-friction surfaces; captures microvibrations and ultrafast signal changes for soft robotic hands",
+    "comments": "Novel biomimetic approach addresses critical gap in wet-surface slip detection; long-term durability and reproducibility of fingerprint patterns under repeated use needs validation.",
     "model_io": [
       {
-        "model": "Laser-etched multilayer e-skin with fingerprint-inspired micropatterning + AI classifier",
+        "model": "Micropatterned fingerprint E-skin with AI integration",
         "inputs": [
-          "tactile pressure",
-          "surface wetness/friction",
-          "object geometry"
+          "object contact",
+          "surface wetness conditions",
+          "sliding motion"
         ],
         "outputs": [
           "slippage detection signal",
-          "microvibration data",
-          "texture classification"
+          "microtexture geometry",
+          "microvibration data"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Fingerprint-like microstructure enables slip detection across all surface conditions",
-        "result": "Detects slippage on oil/water surfaces and captures high-speed geometric microtextures"
-      }
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41598-026-41158-2",
-    "source": "physics",
-    "id": "10.1038/s41598-026-41158-2",
-    "title": "Thermodynamic and exergoeconomic analysis of a solar-assisted LiBr/H\u2082O ejector\u2013absorption refrigeration system with triple-layer thermal storage",
-    "projectPage": "https://www.nature.com/articles/s41598-026-41158-2",
-    "journal": "Scientific Reports",
-    "publishedAt": "2026-03-19",
-    "category": "Applied Physics",
-    "task": "Optimize solar-assisted LiBr/H\u2082O ejector\u2013absorption refrigeration with triple-layer thermal storage",
-    "key_results": "Ejector integration enhances COP by 12.7% and exergy efficiency by 11.3%; reduces investment cost 9%; achieves COP 0.74 and solar COP 0.58 at 973 W/m\u00b2",
-    "comments": "Combines thermodynamic and thermoeconomic optimization; demonstrates practical path for sustainable electricity-independent cooling.",
-    "model_io": [
-      {
-        "model": "Solar-assisted single-effect absorption cycle with ejector and triple-layer thermal storage",
-        "inputs": [
-          "solar irradiation (W/m\u00b2)",
-          "generator temperature",
-          "cooling demand"
-        ],
-        "outputs": [
-          "COP",
-          "exergy efficiency",
-          "total investment cost",
-          "solar COP"
-        ]
-      }
-    ],
-    "hypotheses": [
-      {
-        "hypothesis": "Ejector integration recovers energy and reduces irreversibility in absorption cycle",
-        "result": "12.7% COP improvement and 11.3% exergy gain versus baseline"
+        "hypothesis": "Human fingerprint-inspired micropatterns enable slip detection across all surface wetness conditions",
+        "result": "Randomly patterned fingerprint design successfully detects slippage on oil-film and water-coated surfaces"
       }
     ]
   },
@@ -3190,25 +3077,25 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-19",
     "category": "Optics/Photonics",
-    "task": "Implement spiral phase-contrast imaging of infrared objects using undetected visible photons",
-    "key_results": "Fourier filtering applied to visible beam enables omnidirectional edge enhancement of infrared object images",
-    "comments": "Extends induced-coherence undetected photon imaging to complex Fourier filtering; generalizes to other microscopy modes.",
+    "task": "Infrared imaging and Fourier filtering using visible-wavelength spatial light modulator",
+    "key_results": "Spiral phase-contrast imaging of infrared object using only visible photon detection; omnidirectional edge enhancement demonstrated",
+    "comments": "Elegant extension of undetected photon imaging to include Fourier filtering; practical sensitivity limits for weak infrared signals not discussed.",
     "model_io": [
       {
         "model": "Nonlinear interferometer with induced coherence between downconverted photon pairs",
         "inputs": [
           "infrared probe photons",
-          "spiral phase mask on visible SLM"
+          "visible phase mask (spiral pattern)"
         ],
         "outputs": [
-          "visible-detected image with infrared edge enhancement"
+          "visible detection signal encoding infrared image with phase contrast"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Induced coherence permits Fourier component manipulation via phase masks on visible beam",
-        "result": "Spiral phase-contrast imaging achieved with only visible photon detection"
+        "hypothesis": "Induced coherence allows manipulation of infrared Fourier components via visible beam phase mask",
+        "result": "Spiral phase mask implements edge-enhancement filtering on undetected infrared photons"
       }
     ]
   },
@@ -3221,31 +3108,31 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-19",
     "category": "Applied Physics",
-    "task": "Optimize liquid fodder homogenizer-disperser for pigs",
-    "key_results": "Optimal operation time 45.1\u201350.4 min minimizes stratification (id < 5%) and energy consumption; soybean shows lowest specific energy consumption (0.696 MJ/kg)",
-    "comments": "Engineering optimization of agricultural equipment; results are highly dependent on input material type.",
+    "task": "Optimize liquid fodder homogenization process for pig feed production",
+    "key_results": "Optimal equipment operation time 45.1\u201350.4 min for stratification index <5%; lowest specific energy consumption with soybeans (0.696 MJ/kg), wheat (0.794 MJ/kg), barley (0.896 MJ/kg)",
+    "comments": "Practical agricultural engineering study with clear optimization targets; generalization to other feedstock types and equipment scales not explored.",
     "model_io": [
       {
-        "model": "Homogenizer-disperser with rotor-stator system",
+        "model": "Homogenizer-disperser equipment",
         "inputs": [
-          "rotor frequency (n, rpm)",
-          "inlet orifice diameter (D_in)",
-          "operation time (t, s)",
-          "fodder type"
+          "rotor rotation frequency (rpm)",
+          "stator inlet orifice diameter (m)",
+          "operation time (s)",
+          "feedstock type"
         ],
         "outputs": [
-          "particle size distribution",
-          "stratification index",
-          "temperature",
-          "power consumption",
-          "energy consumption"
+          "particle size distribution (%)",
+          "stratification index (%)",
+          "mixture temperature (\u00b0C)",
+          "motor power consumption (kW)",
+          "energy consumption (MJ)"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Operation time and inlet geometry control particle dispersion and energy efficiency",
-        "result": "Optimal time ~45\u201350 min for minimal stratification and energy across multiple crop types"
+        "hypothesis": "Operation time, rotor frequency, and inlet diameter control mixture homogeneity and energy efficiency",
+        "result": "Optimal time ~45\u201350 min balances stratification minimization with energy consumption across cereal crop types"
       }
     ]
   }

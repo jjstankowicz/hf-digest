@@ -86,6 +86,7 @@ Nature schema TBD.
 - `unified-schema`
 - `card-rendering`
 - `read-unread-markers`
+- `refactor-simplify`
 - `digest-search`
 
 # Backlog (Unsorted)
@@ -112,6 +113,11 @@ Nature schema TBD.
   selector gets a similar indicator when all sources for that day are done.
   Bulk "mark all visible as read" action. localStorage entries for pruned dates
   accumulate but are harmless.
+
+- `refactor-simplify` -- After unified-schema and card-rendering land, do a
+  simplification pass on index.html. Consider splitting CSS/JS into separate
+  files (needs cache-busting strategy, e.g. query param versioning). Clean up
+  any dead code left by schema and rendering changes.
 
 - `digest-search` -- Add client-side full-text search across loaded JSON.
 

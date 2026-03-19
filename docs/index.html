@@ -126,14 +126,13 @@
   /* ---- Card Grid ---- */
   .grid-wrap { padding: 24px; max-width: 1400px; margin: 0 auto; }
   .card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
-    gap: 16px;
+    columns: 2 480px;
+    column-gap: 16px;
   }
 
   /* ---- Card ---- */
   .paper-card {
-    background: var(--surface);
+    background: #fafafa;
     border: 1px solid var(--border);
     border-radius: var(--radius-card);
     box-shadow: var(--shadow-card);
@@ -141,6 +140,8 @@
     flex-direction: column;
     overflow: hidden;
     transition: box-shadow 0.15s, transform 0.15s;
+    break-inside: avoid;
+    margin-bottom: 16px;
   }
   .paper-card:hover {
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -211,10 +212,11 @@
     gap: 0;
     border-top: 1px solid var(--border);
     margin-top: 12px;
+    background: var(--surface);
   }
   .field-row {
     display: grid;
-    grid-template-columns: 110px 1fr;
+    grid-template-columns: 130px 1fr;
     gap: 0 10px;
     padding: 7px 0;
     border-bottom: 1px solid #f3f4f6;
@@ -248,7 +250,7 @@
     align-items: center;
     gap: 8px;
     background: #fafafa;
-    margin-top: 12px;
+    margin-top: auto;
   }
   .date-chip { font-size: 11px; color: var(--text-muted); margin-right: auto; }
   .link-pill {
@@ -518,7 +520,7 @@ function renderCards() {
 
     // model_io rows helper: one Model/Inputs/Outputs triplet per entry
     const modelIoRows = (entries) => (entries || []).map((e, i) => {
-      const n = entries.length > 1 ? ` ${i + 1}` : '';
+      const n = ` ${i + 1}`;
       let rows = `<div class="field-row"><span class="field-label">Model${n}</span><span class="field-value">${esc(e.model)}</span></div>`;
       if (e.inputs && e.inputs.length) rows += `<div class="field-row"><span class="field-label">Inputs${n}</span><span class="field-value">${esc(e.inputs.join(', '))}</span></div>`;
       if (e.outputs && e.outputs.length) rows += `<div class="field-row"><span class="field-label">Outputs${n}</span><span class="field-value">${esc(e.outputs.join(', '))}</span></div>`;

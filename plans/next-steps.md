@@ -88,6 +88,8 @@ Nature schema TBD.
 - `read-unread-markers`
 - `refactor-simplify`
 - `digest-search`
+- `graph-viz`
+- `nature-historical`
 
 # Backlog (Unsorted)
 

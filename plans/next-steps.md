@@ -78,8 +78,19 @@ Nature schema TBD.
 - `nature-schema`
 - `nature-rss-feed`
 - `nature-remaining-feeds`
+- `per-feed-sources`
 
 # Priority (Sorted)
+
+- `unified-schema` -- Redesign extraction schema: replace flat model/inputs/outputs
+  scalars and parallel hypotheses[]/results[] arrays with two array-of-object fields:
+  `model_io: [{model, inputs, outputs}]` and `hypotheses: [{hypothesis, result}]`.
+  LLM decides which (or both) apply per paper; empty arrays are skipped in render.
+  Re-ingest all existing dates (no cache migration -- just re-extract cleanly).
+
+- `card-rendering` -- Update card UI to match new schema: render model_io as
+  triplets (model | inputs -> outputs), hypotheses as side-by-side pairs,
+  move key_results and comments to bottom of card.
 
 - `read-unread-markers`
 - `rss-feed`
@@ -87,6 +98,10 @@ Nature schema TBD.
 - `email-summary`
 
 # Backlog (Unsorted)
+
+- `graph-viz` -- Category theory graph across ML/DL papers: inputs/outputs as
+  objects, models as morphisms. Requires unified-schema (model_io tuples) first.
+  Needs controlled vocabulary or normalization pass to canonicalize type names.
 
 - `read-unread-markers` -- Client-side read/unread state stored in
   `localStorage`. Each paper card gets a checkbox or click-to-mark.

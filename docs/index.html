@@ -69,18 +69,30 @@
     border-bottom: 1px solid var(--border);
   }
 
-  .date-nav, .source-nav { display: flex; align-items: center; gap: 8px; }
+  .date-nav, .source-nav {
+    display: flex; align-items: stretch;
+    border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
+  }
   .date-nav button, .source-nav button {
-    background: var(--bg); border: 1px solid var(--border); border-radius: 6px;
-    width: 30px; height: 30px; font-size: 15px; cursor: pointer; color: var(--text-muted);
+    background: var(--surface); border: none;
+    width: 30px; font-size: 15px; cursor: pointer; color: var(--text-muted);
     display: flex; align-items: center; justify-content: center; transition: all 0.15s;
+    flex-shrink: 0;
   }
   .date-nav button:hover:not(:disabled),
-  .source-nav button:hover:not(:disabled) { background: var(--border); color: var(--text-primary); }
+  .source-nav button:hover:not(:disabled) { background: var(--bg); color: var(--text-primary); }
   .date-nav button:disabled,
   .source-nav button:disabled { opacity: 0.35; cursor: default; }
-  #date-display { font-size: 13px; font-weight: 600; color: var(--text-primary); min-width: 120px; text-align: center; }
-  #source-display { font-size: 13px; font-weight: 600; color: var(--text-secondary); min-width: 170px; text-align: center; }
+  #date-display {
+    font-size: 13px; font-weight: 600; color: var(--text-primary);
+    min-width: 120px; text-align: center; padding: 6px 10px;
+    border-left: 1px solid var(--border); border-right: 1px solid var(--border);
+  }
+  #source-display {
+    font-size: 13px; font-weight: 600; color: var(--text-secondary);
+    min-width: 170px; text-align: center; padding: 6px 10px;
+    border-left: 1px solid var(--border); border-right: 1px solid var(--border);
+  }
 
   .nav-divider { width: 1px; height: 24px; background: var(--border); flex-shrink: 0; }
 
@@ -283,7 +295,7 @@
   <div class="controls-bar">
     <div class="source-nav">
       <button id="prev-src-btn" aria-label="Previous source">&#8249;</button>
-      <span id="source-display">HF Daily</span>
+      <span id="source-display">Loading...</span>
       <button id="next-src-btn" aria-label="Next source">&#8250;</button>
     </div>
     <div class="nav-divider"></div>
@@ -401,7 +413,7 @@ const SOURCE_LABELS = {
   biotechnology: 'Nature: Biotechnology',
   'cell-biology': 'Nature: Cell Biology',
   'computational-biology': 'Nature: Comp. Biology',
-  'mathematics-and-computing': 'Nature: Math & Computing',
+  'mathematics-and-computing': 'Nature: Math/CS',
   neuroscience: 'Nature: Neuroscience',
   'systems-biology': 'Nature: Systems Biology',
 };

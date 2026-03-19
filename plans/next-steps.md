@@ -53,8 +53,8 @@ neuroscience, systems-biology), scrapes abstracts from article HTML.
   "task": "...",
   "key_results": "...",
   "comments": "...",
-  "model_io": [{"model": "...", "inputs": "...", "outputs": "..."}],
-  "hypotheses": [{"hypothesis": "...", "result": "..."}]
+  "model_io": [{ "model": "...", "inputs": "...", "outputs": "..." }],
+  "hypotheses": [{ "hypothesis": "...", "result": "..." }]
 }
 ```
 
@@ -77,11 +77,11 @@ non-empty). Rendering decides what to surface per source.
 - `nature-rss-feed`
 - `nature-remaining-feeds`
 - `per-feed-sources`
+- `unified-schema`
+- `refactor-python`
 
 # Priority (Sorted)
 
-- `unified-schema`
-- `refactor-python`
 - `card-rendering`
 - `nav-style`
 - `read-unread-markers`
@@ -99,7 +99,7 @@ non-empty). Rendering decides what to surface per source.
   - `fetch_papers.py`: lean orchestrator only -- runs fetch_hf and fetch_nature_papers
     concurrently via ThreadPoolExecutor(max_workers=2), merges results, writes JSON,
     updates index. Nature's internal parallelism is preserved inside its thread.
-  - `utils.py`: shared helpers (_normalize_model_io, any future shared logic).
+  - `utils.py`: shared helpers (\_normalize_model_io, any future shared logic).
     Fetchers import from utils; orchestrator imports from fetchers. No circular deps.
 
 - `unified-schema` -- Redesign extraction schema: replace flat model/inputs/outputs
@@ -108,13 +108,15 @@ non-empty). Rendering decides what to surface per source.
   Both fields always extracted for all papers; rendering decides what to surface.
   Re-ingest all existing dates (no cache migration -- just re-extract cleanly).
 
-- `card-rendering` -- Update card UI to match new schema: render model_io as
-  triplets (model | inputs -> outputs); render hypotheses/results stacked
+- `card-rendering` -- Update card UI to match new schema: render model_io and
+  hypotheses/results stacked
+  (Model: ... / Inputs: ... / Outputs: ... per model_io entry) and
   (Hypothesis N: ... / Result N: ... per pair); move key_results and comments
   to bottom of card. Preserve existing left|right label/value layout.
   For Nature cards, suppress model_io by default with a "show model/inputs/outputs"
   toggle; hypotheses/results are the primary display. HF cards show model_io
   prominently. model_io is always extracted for graph-viz regardless.
+  Preserve the existing left|right layout within each card.
 
 - `model-io-normalize` -- Canonicalize model_io vocabulary across papers so the
   same concept gets the same label (e.g. "image" vs "RGB image" vs "image patch").

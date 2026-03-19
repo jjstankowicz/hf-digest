@@ -229,13 +229,17 @@
   }
   .field-value { color: var(--text-secondary); }
 
-  /* Hypotheses/results: numbered list layout */
-  .field-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
-  .field-list li { display: flex; gap: 6px; }
-  .field-list li::before {
-    content: attr(data-n); font-size: 10px; font-weight: 700;
-    color: var(--text-muted); min-width: 14px; padding-top: 2px;
+  /* model_io / hypotheses field rendering */
+  .model-io-toggle { border-bottom: 1px solid #f3f4f6; padding: 4px 0; }
+  .model-io-toggle > summary {
+    cursor: pointer; list-style: none;
+    font-size: 11px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.05em; color: var(--text-muted);
+    padding: 3px 0; user-select: none;
   }
+  .model-io-toggle > summary::before { content: '+ '; }
+  .model-io-toggle[open] > summary::before { content: '- '; }
+  .model-io-toggle .field-row:last-child { border-bottom: none; }
 
   .card-footer {
     padding: 10px 16px;
@@ -512,34 +516,39 @@ function renderCards() {
       ? `<span class="upvote-badge"><svg viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M5 1l4 8H1z"/></svg>${p.upvotes ?? 0}</span>`
       : (p.journal ? `<span class="journal-badge">${esc(p.journal)}</span>` : '');
 
-    // Core fields
-    const fields = [
-      ['Task',        p.task],
-      ['Model',       p.model],
-      ['Inputs',      p.inputs],
-      ['Outputs',     p.outputs],
-      ['Key Results', p.key_results],
-      ['Notes',       p.comments],
-    ];
-    let fieldRows = fields.map(([label, val]) =>
-      `<div class="field-row">
-        <span class="field-label">${label}</span>
-        <span class="field-value">${esc(val)}</span>
-      </div>`
-    ).join('');
+    // model_io rows helper: one Model/Inputs/Outputs triplet per entry
+    const modelIoRows = (entries) => (entries || []).map(e => {
+      let rows = `<div class="field-row"><span class="field-label">Model</span><span class="field-value">${esc(e.model)}</span></div>`;
+      if (e.inputs && e.inputs.length) rows += `<div class="field-row"><span class="field-label">Inputs</span><span class="field-value">${esc(e.inputs.join(', '))}</span></div>`;
+      if (e.outputs && e.outputs.length) rows += `<div class="field-row"><span class="field-label">Outputs</span><span class="field-value">${esc(e.outputs.join(', '))}</span></div>`;
+      return rows;
+    }).join('');
 
-    // Hypotheses / Results (only when non-empty; each entry is {hypothesis, result})
+    // Task (always first)
+    let fieldRows = `<div class="field-row"><span class="field-label">Task</span><span class="field-value">${esc(p.task)}</span></div>`;
+
+    // model_io: prominent for HF, collapsed toggle for Nature
+    if (Array.isArray(p.model_io) && p.model_io.length) {
+      if (isHF) {
+        fieldRows += modelIoRows(p.model_io);
+      } else {
+        fieldRows += `<details class="model-io-toggle"><summary>Model / Inputs / Outputs</summary>${modelIoRows(p.model_io)}</details>`;
+      }
+    }
+
+    // Hypotheses / Results: stacked Hyp N / Result N pairs
     if (Array.isArray(p.hypotheses) && p.hypotheses.length) {
-      const items = p.hypotheses.map((h, i) => {
+      fieldRows += p.hypotheses.map((h, i) => {
         const hyp = typeof h === 'object' ? h.hypothesis : h;
         const res = typeof h === 'object' ? h.result : null;
-        return `<li data-n="${i+1}">${esc(hyp)}${res ? `<br><em>${esc(res)}</em>` : ''}</li>`;
+        return `<div class="field-row"><span class="field-label">Hyp ${i+1}</span><span class="field-value">${esc(hyp)}</span></div>`
+          + (res ? `<div class="field-row"><span class="field-label">Result ${i+1}</span><span class="field-value"><em>${esc(res)}</em></span></div>` : '');
       }).join('');
-      fieldRows += `<div class="field-row">
-        <span class="field-label">Hypotheses</span>
-        <ul class="field-list field-value">${items}</ul>
-      </div>`;
     }
+
+    // Key results and comments at bottom
+    if (p.key_results) fieldRows += `<div class="field-row"><span class="field-label">Key Results</span><span class="field-value">${esc(p.key_results)}</span></div>`;
+    if (p.comments) fieldRows += `<div class="field-row"><span class="field-label">Notes</span><span class="field-value">${esc(p.comments)}</span></div>`;
 
     const show = matchesFilter(p) ? '' : 'display:none;';
     return `<div class="paper-card cat-${key}" data-cat="${esc(p.category)}" style="${show}">

@@ -22,7 +22,8 @@ HF_API_URL = "https://huggingface.co/api/daily_papers"
 DATA_DIR = Path(__file__).parent.parent / "docs" / "data"
 CACHE_PATH = DATA_DIR / "cache.json"
 ROLLING_DAYS = 30
-EXTRACTED_FIELDS = ("category", "task", "model", "inputs", "outputs", "key_results", "comments")
+EXTRACTED_FIELDS = ("category", "task", "key_results", "comments", "model_io", "hypotheses")
+ARRAY_FIELDS = {"model_io", "hypotheses"}
 CATEGORIES = [
     "Medical",
     "Molecular",
@@ -42,11 +43,16 @@ the input order. Use exactly these fields:
   category    : one of Medical | Molecular | Generative | LLM/Reasoning |
                 Agents/RL | Vision | Benchmark | Systems
   task        : the specific problem being solved (1 short phrase)
-  model       : architecture type and model name, e.g. "(transformer) GPT-4o"
-  inputs      : what the model takes as input (1 short phrase)
-  outputs     : what the model produces (1 short phrase)
   key_results : 1-2 concrete quantitative results or main findings
   comments    : 1 sentence of your own perspective or a notable caveat
+  model_io    : JSON array of {"model": ..., "inputs": [...], "outputs": [...]} objects
+                describing the model architecture(s) and data flow; inputs and outputs
+                are arrays of typed entities (strings); for ML papers this should
+                almost always be non-empty, e.g.
+                {"model": "(transformer) GPT-4o", "inputs": ["text prompt"],
+                 "outputs": ["text completion"]}; may be [] only if truly absent
+  hypotheses  : JSON array of {"hypothesis": ..., "result": ...} objects
+                for explicit research questions tested and their outcomes; may be []
 
 Be terse. Do not add fields or wrap in markdown."""
 
@@ -70,7 +76,11 @@ def load_cache() -> dict[str, dict]:
         for record in json.loads(f.read_text()):
             uid = record.get("uid")
             if uid:
-                cache[uid] = {k: record[k] for k in EXTRACTED_FIELDS if k in record}
+                entry = {}
+                for k in EXTRACTED_FIELDS:
+                    default: list | str = [] if k in ARRAY_FIELDS else ""
+                    entry[k] = record.get(k, default)
+                cache[uid] = entry
     CACHE_PATH.write_text(json.dumps(cache, indent=2))
     return cache
 
@@ -78,6 +88,18 @@ def load_cache() -> dict[str, dict]:
 def save_cache(cache: dict[str, dict]) -> None:
     """Persist the cache to disk."""
     CACHE_PATH.write_text(json.dumps(cache, indent=2))
+
+
+def _normalize_model_io(model_io: list[dict]) -> list[dict]:
+    """Ensure inputs/outputs in each model_io entry are lists, not strings."""
+    normalized = []
+    for entry in model_io:
+        normalized.append({
+            "model": entry.get("model", ""),
+            "inputs": entry["inputs"] if isinstance(entry.get("inputs"), list) else [entry["inputs"]] if entry.get("inputs") else [],
+            "outputs": entry["outputs"] if isinstance(entry.get("outputs"), list) else [entry["outputs"]] if entry.get("outputs") else [],
+        })
+    return normalized
 
 
 def extract_fields(papers: list[dict], client: anthropic.Anthropic) -> list[dict]:
@@ -99,7 +121,11 @@ def extract_fields(papers: list[dict], client: anthropic.Anthropic) -> list[dict
     text = text_blocks[0].strip()
     if text.startswith("```"):
         text = text.split("\n", 1)[1].rsplit("```", 1)[0]
-    return json.loads(text)
+    result = json.loads(text)
+    for entry in result:
+        if isinstance(entry.get("model_io"), list):
+            entry["model_io"] = _normalize_model_io(entry["model_io"])
+    return result
 
 
 def build_records(papers: list[dict], cache: dict[str, dict]) -> list[dict]:
@@ -127,14 +153,10 @@ def build_records(papers: list[dict], cache: dict[str, dict]) -> list[dict]:
                 "projectPage": (p.get("projectPage") or None),
                 "category": fields.get("category", "Systems"),
                 "task": fields.get("task", ""),
-                "model": fields.get("model", ""),
-                "inputs": fields.get("inputs", ""),
-                "outputs": fields.get("outputs", ""),
                 "key_results": fields.get("key_results", ""),
                 "comments": fields.get("comments", ""),
-                "journal": None,
-                "hypotheses": [],
-                "results": [],
+                "model_io": fields.get("model_io", []),
+                "hypotheses": fields.get("hypotheses", []),
             }
         )
     return records
@@ -167,6 +189,7 @@ def prune_old_files(keep_dates: list[str]) -> None:
 
 
 def main() -> None:
+    sys.stdout.reconfigure(line_buffering=True)
     parser = argparse.ArgumentParser(description="Fetch and process HF daily papers.")
     parser.add_argument(
         "--date",
@@ -182,8 +205,11 @@ def main() -> None:
         target = (datetime.now(timezone.utc) - timedelta(days=1)).date()
 
     target_str = target.isoformat()
+    print(f"Target date: {target_str}")
 
+    print("Fetching HF papers...")
     papers = fetch_hf_papers(target)
+    print(f"  {len(papers)} HF papers found")
 
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     cache = load_cache()
@@ -196,6 +222,7 @@ def main() -> None:
     client: anthropic.Anthropic | None = None
 
     if uncached:
+        print(f"  Extracting fields for {len(uncached)} uncached HF papers...")
         client = anthropic.Anthropic()
         extracted = extract_fields(uncached, client)
         if not isinstance(extracted, list) or len(extracted) != len(uncached):
@@ -205,19 +232,29 @@ def main() -> None:
             )
         for paper, fields in zip(uncached, extracted):
             paper_id = paper["paper"]["id"]
-            entry = {k: fields.get(k, "") for k in EXTRACTED_FIELDS}
+            entry: dict = {}
+            for k in EXTRACTED_FIELDS:
+                default: list | str = [] if k in ARRAY_FIELDS else ""
+                entry[k] = fields.get(k, default)
             entry["category"] = entry["category"] or "Systems"
             cache[f"hf:{paper_id}"] = entry
         save_cache(cache)
+    else:
+        print("  All HF papers cached")
 
     hf_records = build_records(papers, cache)
 
+    print("Fetching Nature papers...")
     nature_records = fetch_nature_papers(target, client)
-    # Cache Nature records (skip hypotheses/results -- too variable to cache usefully)
+    print(f"  {len(nature_records)} Nature papers found")
     for r in nature_records:
         if r["uid"] not in cache:
-            cache[r["uid"]] = {k: r.get(k, "") for k in EXTRACTED_FIELDS}
-            cache[r["uid"]]["category"] = cache[r["uid"]]["category"] or "Other"
+            entry = {}
+            for k in EXTRACTED_FIELDS:
+                default = [] if k in ARRAY_FIELDS else ""
+                entry[k] = r.get(k, default)
+            entry["category"] = entry["category"] or "Other"
+            cache[r["uid"]] = entry
     if nature_records:
         save_cache(cache)
 
@@ -230,8 +267,10 @@ def main() -> None:
     records = deduped
 
     if not records:
+        print("No papers found; exiting.")
         sys.exit(0)
 
+    print(f"Writing {len(records)} total papers to {target_str}.json")
     out_path = DATA_DIR / f"{target_str}.json"
     out_path.write_text(json.dumps(records, indent=2))
 

@@ -81,6 +81,7 @@ non-empty). Rendering decides what to surface per source.
 # Priority (Sorted)
 
 - `unified-schema`
+- `refactor-python`
 - `card-rendering`
 - `nav-style`
 - `read-unread-markers`
@@ -91,6 +92,15 @@ non-empty). Rendering decides what to surface per source.
 - `nature-historical`
 
 # Backlog (Unsorted)
+
+- `refactor-python` -- Restructure Python scripts into three clean modules:
+  - `fetch_hf.py`: self-contained HF fetcher (API fetch + Claude extraction + normalize),
+    mirrors fetch_nature.py structure, returns list of records
+  - `fetch_papers.py`: lean orchestrator only -- runs fetch_hf and fetch_nature_papers
+    concurrently via ThreadPoolExecutor(max_workers=2), merges results, writes JSON,
+    updates index. Nature's internal parallelism is preserved inside its thread.
+  - `utils.py`: shared helpers (_normalize_model_io, any future shared logic).
+    Fetchers import from utils; orchestrator imports from fetchers. No circular deps.
 
 - `unified-schema` -- Redesign extraction schema: replace flat model/inputs/outputs
   scalars and parallel hypotheses[]/results[] arrays with two array-of-object fields:

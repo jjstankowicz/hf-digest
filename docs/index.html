@@ -137,8 +137,11 @@
   #filters { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
   #paper-count { font-size: 12px; color: var(--text-muted); white-space: nowrap; }
 
+  .filters-wrap {
+    flex: 1; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; min-width: 0;
+  }
   .mark-all-btn {
-    margin-left: auto; white-space: nowrap;
+    margin-left: auto; white-space: nowrap; flex-shrink: 0;
     font-size: 12px; font-weight: 500; color: var(--text-muted);
     background: none; border: 1px solid var(--border); border-radius: 6px;
     padding: 4px 10px; cursor: pointer; transition: all 0.15s;
@@ -322,8 +325,10 @@
       <button id="next-btn" aria-label="Next day">&#8250;</button>
     </div>
     <div class="nav-divider"></div>
-    <div id="filters"></div>
-    <button class="mark-all-btn" onclick="markAllRead()">Mark all read</button>
+    <div class="filters-wrap">
+      <div id="filters"></div>
+      <button class="mark-all-btn" onclick="markAllRead()">Mark all read</button>
+    </div>
   </div>
 </div>
 

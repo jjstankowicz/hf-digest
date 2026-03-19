@@ -4,24 +4,12 @@ import json
 import sys
 import urllib.request
 from datetime import date
-from pathlib import Path
 
 import anthropic
 
 from utils import ARRAY_FIELDS, EXTRACTED_FIELDS, normalize_model_io
 
 HF_API_URL = "https://huggingface.co/api/daily_papers"
-
-CATEGORIES = [
-    "Medical",
-    "Molecular",
-    "Generative",
-    "LLM/Reasoning",
-    "Agents/RL",
-    "Vision",
-    "Benchmark",
-    "Systems",
-]
 
 EXTRACTION_SYSTEM = """\
 You are a concise technical analyst. For each paper, extract structured fields

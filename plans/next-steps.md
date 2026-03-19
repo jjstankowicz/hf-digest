@@ -88,6 +88,7 @@ Nature schema TBD.
 - `read-unread-markers`
 - `refactor-simplify`
 - `digest-search`
+- `model-io-normalize`
 - `graph-viz`
 - `nature-historical`
 
@@ -104,9 +105,14 @@ Nature schema TBD.
   (Hypothesis N: ... / Result N: ... per pair); move key_results and comments
   to bottom of card. Preserve existing left|right label/value layout.
 
+- `model-io-normalize` -- Canonicalize model_io vocabulary across papers so the
+  same concept gets the same label (e.g. "image" vs "RGB image" vs "image patch").
+  Options: second LLM pass to map extracted terms to a controlled vocabulary, or
+  prompt-time vocabulary list per category. Prerequisite for graph-viz.
+
 - `graph-viz` -- Category theory graph across ML/DL papers: inputs/outputs as
-  objects, models as morphisms. Requires unified-schema (model_io tuples) first.
-  Needs controlled vocabulary or normalization pass to canonicalize type names.
+  objects, models as morphisms. Requires model-io-normalize first. Design TBD:
+  static SVG, interactive D3, or separate page.
 
 - `read-unread-markers` -- Client-side read/unread state via a `Set` of uids in
   `localStorage`. Click card to toggle read; card dims with `.read` CSS class.

@@ -18,6 +18,8 @@ from xml.etree import ElementTree as ET
 import anthropic
 from tqdm import tqdm
 
+from utils import normalize_model_io
+
 # All Nature RSS feeds with their per-feed category lists.
 FEEDS: dict[str, dict] = {
     "physics": {
@@ -257,18 +259,6 @@ def filter_items(items: list[ET.Element], target: date) -> list[ET.Element]:
     return [it for it in items if parse_item_date(it) == target]
 
 
-def _normalize_model_io(model_io: list[dict]) -> list[dict]:
-    """Ensure inputs/outputs in each model_io entry are lists, not strings."""
-    normalized = []
-    for entry in model_io:
-        normalized.append({
-            "model": entry.get("model", ""),
-            "inputs": entry["inputs"] if isinstance(entry.get("inputs"), list) else [entry["inputs"]] if entry.get("inputs") else [],
-            "outputs": entry["outputs"] if isinstance(entry.get("outputs"), list) else [entry["outputs"]] if entry.get("outputs") else [],
-        })
-    return normalized
-
-
 def extract_fields(
     papers: list[dict], categories: list[str], client: anthropic.Anthropic
 ) -> list[dict]:
@@ -295,7 +285,7 @@ def extract_fields(
         raise RuntimeError(f"Unexpected extraction response shape: {type(result).__name__}")
     for entry in result:
         if isinstance(entry.get("model_io"), list):
-            entry["model_io"] = _normalize_model_io(entry["model_io"])
+            entry["model_io"] = normalize_model_io(entry["model_io"])
     return result
 
 
@@ -374,7 +364,7 @@ def _extract_feed(
     return records
 
 
-def fetch_nature_papers(target: date, client: anthropic.Anthropic | None = None) -> list[dict]:
+def fetch_nature_papers(target: date) -> list[dict]:
     """Fetch all Nature RSS feed papers for target date, extract fields via Claude.
 
     Returns records conforming to the unified paper schema. Feeds are processed
@@ -430,8 +420,7 @@ def fetch_nature_papers(target: date, client: anthropic.Anthropic | None = None)
     if not papers_by_feed:
         return []
 
-    if client is None:
-        client = anthropic.Anthropic()
+    client = anthropic.Anthropic()
 
     # Phase 3: Extract fields via Claude in parallel across feeds.
     records: list[dict] = []

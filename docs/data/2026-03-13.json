@@ -1539,40 +1539,39 @@
     "journal": "Nature Communications",
     "publishedAt": "2026-03-13",
     "category": "Computational Biophysics",
-    "task": "Elucidate role of solvent forces and substrate symmetry on designed protein assembly at liquid-solid interfaces",
-    "key_results": "High-speed AFM + machine learning tracked protein nanorod assembly on disparate-symmetry mica substrates; Monte Carlo simulations reproduced observed smectic phase emergence driven by crystal symmetry-induced directional bias; hydration structure imprinting on substrate modulates assembly patterns",
-    "comments": "Integration of physics-based simulations with hydration-layer physics reveals important design oversight in current protein-design algorithms; coupling to de novo design platforms is promising but requires further validation.",
+    "task": "Model protein nanorod assembly at liquid-solid interface under competing solvent and surface symmetry forces",
+    "key_results": "High-speed AFM + machine learning resolves assembly phases on mica substrates; Monte Carlo simulations reveal smectic phase emerges from crystal symmetry-induced directional bias; solvent-mediated hydration structure crucial for assembly pattern",
+    "comments": "Strong integration of simulation and experiment, but the role of specific protein-mica interactions versus generic hydration effects remains incompletely separated.",
     "model_io": [
       {
-        "model": "High-speed AFM + machine learning analysis",
+        "model": "High-speed AFM with machine learning analysis",
         "inputs": [
           "designed protein nanorods",
-          "aqueous electrolytes",
-          "mica surfaces (two symmetry types)"
+          "mica substrates (disparate symmetry)",
+          "aqueous electrolyte"
         ],
         "outputs": [
-          "assembly phase behavior",
-          "dynamic assembly trajectories",
-          "smectic phase formation"
+          "assembly phase identification",
+          "nucleation kinetics"
         ]
       },
       {
-        "model": "Monte Carlo simulations",
+        "model": "Monte Carlo simulation of non-interacting rods",
         "inputs": [
-          "crystal symmetry constraints",
-          "solvent-mediated directional bias",
-          "rod-rod interactions"
+          "rod geometry",
+          "surface symmetry",
+          "solvent-mediated forces"
         ],
         "outputs": [
-          "predicted phases",
-          "smectic phase emergence mechanism"
+          "predicted assembly phases",
+          "smectic phase emergence"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Crystal symmetry and hydration structure impart directional bias stabilizing smectic phases",
-        "result": "Simulations reproduced observed smectic phases; non-interacting rod model alone insufficient"
+        "hypothesis": "Crystal surface symmetry imprints directional bias in hydration structure, stabilizing smectic order",
+        "result": "Confirmed: Monte Carlo simulations reproduce observed smectic phase only when symmetry-induced bias included"
       }
     ]
   },
@@ -1585,38 +1584,36 @@
     "journal": "Nature Communications",
     "publishedAt": "2026-03-13",
     "category": "Structural Biology",
-    "task": "Screen and characterize WDR5 oligomerization inducers via nanopore technology",
-    "key_results": "WZ-1 identified as selective WDR5 oligomerizer; forms intramolecular disulfide at Cys248; triggers thio\u2013disulfide exchange oligomerization; potent anti-tumor activity demonstrated in cells",
-    "comments": "Nanopore-based screening combined with cryo-EM provides compelling validation of the CaPPO mechanism, though translation to other protein targets remains to be tested.",
+    "task": "Screen small molecules for WDR5 oligomerization induction and elucidate mechanism",
+    "key_results": "WZ-1 induces WDR5 oligomerization via disulfide exchange; demonstrates potent anti-tumor activity by disrupting WIN and WBM site interactions",
+    "comments": "Nanopore screening is elegant for kinetic discovery, but therapeutic validation requires in vivo tumor models beyond cellular assays.",
     "model_io": [
       {
-        "model": "Nanopore screening + cryo-EM structural analysis",
+        "model": "Nanopore sensing platform",
         "inputs": [
-          "WDR5 protein",
-          "compound library small molecules"
+          "small molecule library",
+          "WDR5 protein"
         ],
         "outputs": [
-          "WZ-1 identifier",
-          "cryo-EM structures",
-          "oligomerization mechanism"
+          "oligomerization candidates",
+          "kinetic rates"
         ]
       },
       {
-        "model": "Cellular anti-tumor assays",
+        "model": "Cryo-EM structure determination",
         "inputs": [
-          "WZ-1",
-          "cancer cells"
+          "WZ-1-bound WDR5 complex"
         ],
         "outputs": [
-          "transcriptional downregulation",
-          "anti-tumor potency"
+          "atomic structure",
+          "binding site identification"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Disulfide motif in WZ-1 acts as molecular scout to initiate oligomerization",
-        "result": "Structure-activity relationship confirmed; disulfide necessary for activity"
+        "hypothesis": "WZ-1 disulfide motif catalyzes proximal WDR5 oligomerization via thio-disulfide exchange",
+        "result": "Confirmed: disulfide-dependent mechanism observed in structure and biochemistry"
       }
     ]
   },
@@ -1629,39 +1626,39 @@
     "journal": "Nature Communications",
     "publishedAt": "2026-03-13",
     "category": "Single Molecule",
-    "task": "Push limit of nanofluidic scattering microscopy to sub-10-kDa label-free biomolecule characterization",
-    "key_results": "Extended detection range from \u224860 kDa to <6 kDa molecular weight and \u22481.5 nm hydrodynamic radius using ultrasmall nanofluidic channels and hierarchical vision transformer; demonstrated on insulin peptide; approaches Cram\u00e9r\u2013Rao Lower Bound with sufficient trajectory length",
-    "comments": "Vision transformer augmentation of standard trajectory analysis is innovative and well-validated against theoretical bounds; applicability to diverse peptide hormones, cytokines, and chemokines promises broad impact.",
+    "task": "Characterize few-kilodalton biomolecules (peptide hormones, cytokines) label-free via nanofluidic scattering microscopy and vision transformer analysis",
+    "key_results": "Detection limit extended to ~6 kDa and ~1.5 nm hydrodynamic radius (10-fold improvement); insulin (5.8 kDa) successfully characterized; hierarchical vision transformer analysis approaches Cram\u00e9r\u2013Rao theoretical limit with sufficiently long trajectories",
+    "comments": "Vision transformer architecture is powerful but computationally opaque; sensitivity near physical limits suggests potential impact, but throughput and practical workflow adoption remain to be demonstrated.",
     "model_io": [
       {
-        "model": "Nanofluidic scattering microscopy + hierarchical vision transformer analysis",
+        "model": "Nanofluidic scattering microscopy",
         "inputs": [
-          "single biomolecules in subwavelength nanofluidic channels",
-          "visible light scattering interference"
+          "ultrasmall nanofluidic channels",
+          "label-free biomolecules (<10 kDa)",
+          "visible light illumination"
         ],
         "outputs": [
-          "hydrodynamic radius trajectory",
-          "scattering intensity profile",
-          "molecular weight",
-          "size <6 kDa"
+          "scattering intensity trajectory",
+          "diffusion trajectory",
+          "hydrodynamic radius",
+          "molecular weight"
         ]
       },
       {
-        "model": "Benchmark against Cram\u00e9r\u2013Rao Lower Bound",
+        "model": "Hierarchical vision transformer analysis",
         "inputs": [
-          "trajectory length",
-          "signal-to-noise"
+          "single-molecule scattering and diffusion data"
         ],
         "outputs": [
-          "measurement precision limit",
-          "optimization parameter"
+          "mass and size estimates",
+          "Cram\u00e9r\u2013Rao lower bound approach"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Vision transformer-augmented trajectory analysis can extend mass/size range to sub-10-kDa regime approaching theoretical limits",
-        "result": "Characterized insulin (\u22485.8 kDa) label-free; approached CRLB precision with sufficient trajectory length"
+        "hypothesis": "Vision transformer can extract size/mass information from low-SNR nanofluidic trajectories beyond conventional algorithm limits",
+        "result": "Confirmed: achieves ~6 kDa sensitivity and approaches theoretical limit with long trajectories"
       }
     ]
   },
@@ -1674,39 +1671,43 @@
     "journal": "Nature Communications",
     "publishedAt": "2026-03-13",
     "category": "Structural Biology",
-    "task": "Resolve pH-sensing and ivermectin-modulation mechanisms in mite chloride channel SsCl",
-    "key_results": "Cryo-EM structures at 3.6\u20133.7 \u00c5 in closed (pH 6.5) and desensitized (pH 9) states; desensitized state adopts hourglass conformation; His and Glu residues contribute to pH-sensing network; ivermectin enhances open-state at pH 9 and enables atypical activation at pH 6.5",
-    "comments": "Hourglass desensitized conformation is structurally unexpected and suggests gating mechanisms differ from cation-selective homologs; functional implications for scabies treatment warrant further study.",
+    "task": "Determine pH-sensing mechanism and ivermectin modulation of mite chloride channel SsCl",
+    "key_results": "Cryo-EM structures at pH 6.5 (closed) and pH 9 (desensitized hourglass state); histidine and glutamic acid residues mediate pH sensitivity; ivermectin enhances open-state at pH 9 and enables atypical activation at pH 6.5",
+    "comments": "Hourglass desensitized state is unexpectedly different from expected cation-channel analogs, suggesting unique gating mechanisms in mite channels.",
     "model_io": [
       {
-        "model": "Cryo-EM structural determination + electrophysiology",
+        "model": "Cryo-EM structure determination",
         "inputs": [
-          "SsCl pentameric channel",
+          "SsCl channel protein",
           "pH conditions (6.5, 9)",
-          "ivermectin"
+          "ivermectin ligand"
         ],
         "outputs": [
-          "closed-state structure",
-          "desensitized-state structure",
-          "ivermectin-bound conformations",
-          "channel activity traces"
+          "3D structure (closed, desensitized, ivermectin-bound)",
+          "atomic coordinates"
         ]
       },
       {
-        "model": "Structural mutagenesis analysis",
+        "model": "Electrophysiology recordings",
         "inputs": [
-          "histidine/glutamic acid residues"
+          "SsCl-expressing cells",
+          "pH variations",
+          "ivermectin"
         ],
         "outputs": [
-          "pH-sensitivity contributions",
-          "gating mechanism details"
+          "channel conductance",
+          "open/closed state occupancy"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Extracellular His and Glu residues form a pH-sensing network similar to cation channels",
-        "result": "Mutagenesis confirmed impact on pH-sensitivity; network identified via structural analysis"
+        "hypothesis": "Extracellular His and Glu residues are principal pH sensors",
+        "result": "Confirmed: mutagenesis shows these residues impact pH sensitivity and define gating network"
+      },
+      {
+        "hypothesis": "Ivermectin modulation is pH-dependent, favoring open state at alkaline pH",
+        "result": "Confirmed: structures and electrophysiology show enhanced activation at pH 9"
       }
     ]
   },
@@ -1719,50 +1720,42 @@
     "journal": "Nature Communications",
     "publishedAt": "2026-03-13",
     "category": "Structural Biology",
-    "task": "Determine high-resolution structure and regulatory mechanisms of GSDME pore assembly",
-    "key_results": "Cryo-EM structures of 27- and 28-fold GSDME pores at 3.58\u20133.64 \u00c5; extended transmembrane \u03b2-barrel architecture identified; caspase-3 activates via DMPD tetrapeptide recognition in linker; S-palmitoylation at Cys180 enhances pore-forming efficiency",
-    "comments": "Structure-guided mutagenesis validates lipid-binding and oligomerization interfaces; the two-step activation (proteolytic then palmitoylation) provides a rational control mechanism for pyroptotic regulation.",
+    "task": "Determine GSDME pore structure and regulation by proteolytic activation and post-translational modification",
+    "key_results": "Cryo-EM GSDME pores (27/28-fold symmetry) at 3.58\u20133.64 \u00c5; extended \u03b2-barrel architecture; caspase-3 cleaves DMPD tetrapeptide motif independently of C-terminal domain; S-palmitoylation at Cys180 enhances pore-forming efficiency",
+    "comments": "High-resolution structures reveal regulatory checkpoints, but functional impact of distinct 27 vs 28-fold pores remains unclear.",
     "model_io": [
       {
-        "model": "Cryo-EM structure determination",
+        "model": "Cryo-EM pore structure determination",
         "inputs": [
-          "human GSDME pores",
-          "27- and 28-fold symmetry"
+          "GSDME pore assembly",
+          "lipid bilayer"
         ],
         "outputs": [
-          "3.58\u20133.64 \u00c5 resolution structures",
-          "transmembrane \u03b2-barrel geometry",
+          "3D density maps (3.58\u20133.64 \u00c5)",
+          "pore geometry",
           "oligomerization interfaces"
         ]
       },
       {
-        "model": "Caspase-3 activation biochemistry",
+        "model": "Caspase-3 proteolytic activation",
         "inputs": [
-          "caspase-3",
-          "GSDME with DMPD linker"
+          "full-length GSDME",
+          "caspase-3 protease"
         ],
         "outputs": [
-          "proteolytic cleavage",
-          "N-terminal domain release"
-        ]
-      },
-      {
-        "model": "S-palmitoylation functional assays",
-        "inputs": [
-          "GSDME N-terminal domain",
-          "Cys180 site",
-          "lipid modifications"
-        ],
-        "outputs": [
-          "pore-forming efficiency",
-          "membrane insertion kinetics"
+          "DMPD cleavage product",
+          "activated N-terminal domain"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Caspase-3 directly recognizes DMPD motif independently of C-terminal domain",
-        "result": "Proteolytic activation confirmed; C-terminal domain not required for cleavage"
+        "hypothesis": "Caspase-3 activates GSDME via DMPD motif cleavage, independent of C-terminal domain",
+        "result": "Confirmed: direct recognition of interdomain linker tetrapeptide sufficient for activation"
+      },
+      {
+        "hypothesis": "S-palmitoylation enhances pore assembly through increased membrane engagement",
+        "result": "Confirmed: Cys180 palmitoylation is primary functional modification site"
       }
     ]
   },
@@ -1774,62 +1767,63 @@
     "projectPage": "https://www.nature.com/articles/s41598-026-40136-y",
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-13",
-    "category": "Protein Dynamics",
-    "task": "Characterize dolutegravir groove-binding mode with DNA and assess genotoxicity potential",
-    "key_results": "Binding constant Kb = 10\u00b3 M\u207b\u00b9 for groove interaction; fluorescence displacement assays confirm groove (not intercalative) binding; viscosity unchanged ruling out intercalation; isothermal titration shows spontaneous interaction (\u0394G\u00b0 = -15.0 to -25.4 kJ/mol) driven by H-bonds and van der Waals forces; preference for GC-rich regions identified by docking",
-    "comments": "Comprehensive biophysical characterization supports groove-binding mechanism with good thermodynamic consistency, though in vivo genotoxicity assessment remains necessary for clinical repositioning claims.",
+    "category": "Structural Biology",
+    "task": "Characterize dolutegravir (HIV integrase inhibitor) groove-binding interactions with DNA and assess genotoxic potential",
+    "key_results": "Binding constant Kb = 10\u00b3 M\u207b\u00b9 via groove interaction; fluorescence displacement assays confirm groove mode; hydrogen bonds and van der Waals dominate thermodynamics (\u0394H\u00b0 = -198.51 kJ/mol); interaction spontaneous (\u0394G\u00b0 = -15.0 to -25.4 kJ/mol) and driven by entropy loss",
+    "comments": "Comprehensive biophysical characterization using salmon sperm DNA as model, but groove selectivity for GC-rich regions may not fully predict in vivo genomic targeting and genotoxicity.",
     "model_io": [
       {
-        "model": "UV-Visible spectroscopy + Benesi\u2013Hildebrand analysis",
+        "model": "Spectroscopic binding assays",
         "inputs": [
           "dolutegravir",
           "salmon sperm DNA"
         ],
         "outputs": [
           "binding constant (10\u00b3 M\u207b\u00b9)",
-          "binding mode classification"
+          "interaction mode"
         ]
       },
       {
         "model": "Fluorescence displacement assays",
         "inputs": [
-          "ethidium bromide/rhodamine B",
-          "DGV-DNA complex"
+          "dolutegravir-DNA complex",
+          "ethidium bromide",
+          "rhodamine B"
         ],
         "outputs": [
-          "groove vs intercalation confirmation"
+          "groove binding confirmation"
         ]
       },
       {
-        "model": "Viscosity profiling + ionic strength experiments",
+        "model": "Viscosity and ionic strength profiling",
         "inputs": [
-          "DGV",
-          "SS-DNA",
-          "varying salt conditions"
+          "dolutegravir",
+          "salmon sperm DNA",
+          "varying salt concentration"
         ],
         "outputs": [
-          "viscosity change (null)",
-          "electrostatic contribution (negligible)"
+          "intercalation vs groove mode discrimination"
         ]
       },
       {
-        "model": "Molecular docking + thermodynamic analysis",
+        "model": "Molecular docking",
         "inputs": [
-          "DGV structure",
-          "DNA sequence variants",
-          "temperature-dependent ITC"
+          "dolutegravir structure",
+          "DNA sequence variants"
         ],
         "outputs": [
-          "GC-rich region preference",
-          "\u0394H\u00b0 (-198.51 kJ/mol)",
-          "\u0394S\u00b0 (-573.33 J/mol\u00b7K)"
+          "GC-rich region preference"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Dolutegravir binds DNA grooves via hydrogen bonds and van der Waals interactions without intercalation",
-        "result": "All biophysical methods confirmed groove binding; viscosity unchanged; \u0394H\u00b0 and \u0394S\u00b0 consistent with H-bonding"
+        "hypothesis": "Dolutegravir binds DNA grooves via hydrogen bonds and van der Waals interactions",
+        "result": "Confirmed: constant viscosity and docking show groove binding; \u0394H\u00b0 and entropy loss consistent with H-bonding"
+      },
+      {
+        "hypothesis": "Electrostatic interactions do not contribute significantly to binding",
+        "result": "Confirmed: ionic strength variation yields no major effect on binding constant"
       }
     ]
   },
@@ -1842,41 +1836,39 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-13",
     "category": "Mechanobiology",
-    "task": "Characterize soft-tissue biomechanics and locomotion of unsegmented sipunculan worms for soft robotics inspiration",
-    "key_results": "Introvert eversion drives 2.1\u00d7 body elongation (8.87\u201318.75 mm); trunk sustains 90\u2013110% strain vs introvert 60\u201365%; peristaltic model captures locomotion at 0.5\u20135 mm/s; magneto-responsive silicone robot achieves 2.5\u00d7 length protrusion",
-    "comments": "High-resolution \u00b5CT and mathematical modeling provide solid biophysical foundation, though the robot prototype remains a proof-of-concept with limited functional complexity relative to biological system.",
+    "task": "Reverse-engineer soft-robot locomotion from unsegmented marine annelid biomechanics",
+    "key_results": "Trunk length constant (~7.3\u20137.7 mm) while total body length doubles via introvert eversion; trunk strain \u224890\u2013110% vs introvert \u224860\u201365%; peristaltic model predicts 0.5\u20135 mm/s speed; magnetic soft robot achieves 2.5\u00d7 length protrusion",
+    "comments": "Excellent morphological and mechanical characterization, but the peristaltic model validation is limited to confined media and lacks comparison to free swimming.",
     "model_io": [
       {
-        "model": "High-resolution \u00b5CT imaging + morphometric analysis",
+        "model": "Micro-CT and morphometric analysis",
         "inputs": [
-          "Phascolosoma stephensoni specimens",
-          "retracted vs extended configurations"
+          "Phascolosoma stephensoni live specimens"
         ],
         "outputs": [
-          "internal musculoskeletal architecture",
-          "body segment lengths",
-          "introvert eversion magnitude"
+          "musculoskeletal architecture",
+          "body region dimensions (retracted/extended)"
         ]
       },
       {
-        "model": "Tensile mechanical testing",
+        "model": "Tensile testing",
         "inputs": [
           "trunk and introvert tissue samples"
         ],
         "outputs": [
-          "strain-to-failure (%)",
-          "elastic modulus"
+          "strain-to-failure",
+          "mechanical property maps"
         ]
       },
       {
-        "model": "Peristaltic locomotion mathematical model",
+        "model": "Mathematical peristaltic locomotion model",
         "inputs": [
-          "wave-like muscle contractions",
-          "confined media geometry"
+          "wave propagation parameters",
+          "confinement geometry"
         ],
         "outputs": [
-          "locomotion speed (0.5\u20135 mm/s)",
-          "trajectory predictions"
+          "predicted speed 0.5\u20135 mm/s",
+          "wave profiles"
         ]
       },
       {
@@ -1885,14 +1877,18 @@
           "magnetic field stimulus"
         ],
         "outputs": [
-          "protrusion length (2.5\u00d7 initial)"
+          "protrusion length up to 2.5\u00d7 initial"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Introvert eversion is primary driver of body elongation in unsegmented design",
-        "result": "Trunk length remained nearly constant; total length doubled via introvert extension"
+        "hypothesis": "Introvert eversion, not trunk contraction, drives body elongation",
+        "result": "Confirmed: trunk length invariant while total length doubles during eversion"
+      },
+      {
+        "hypothesis": "Peristaltic wave model reproduces observed locomotion speed in confined media",
+        "result": "Confirmed: model predictions agree with experimental observations at 0.5\u20135 mm/s"
       }
     ]
   },
@@ -1905,30 +1901,30 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-13",
     "category": "Neural Biophysics",
-    "task": "Quantify physiological and pupillary responses to elite weightlifting training intensity",
-    "key_results": "All vital signs significantly elevated during power snatch vs rest/cool-down (p \u2264 0.001); positive correlation between max clean & jerk and systolic BP in 100% max weight condition (r = 0.27\u20130.44); mean pupil diameter modulated by training phase",
-    "comments": "Study design is observational rather than mechanistic; pupillary responses suggest sympathetic autonomic activation but causality and functional significance remain unclear.",
+    "task": "Characterize autonomic and pupillary responses to varying-intensity Olympic weightlifting training",
+    "key_results": "All vital signs significantly altered during power snatch/clean & jerk phases (p\u22640.001); positive correlation between max performance and systolic blood pressure (r=0.27\u20130.44)",
+    "comments": "Pupil diameter is a proxy for sympathetic activation, but lacks direct mechanistic connection to documented vital sign changes.",
     "model_io": [
       {
-        "model": "Elite female weightlifter training sessions (75% vs 100% max load)",
+        "model": "Elite female weightlifter training protocol",
         "inputs": [
-          "training load",
-          "training phase (rest, power snatch, clean & jerk, cool-down)"
+          "75% and 100% maximum load",
+          "movement phases (rest, power snatch, clean & jerk, cooldown)"
         ],
         "outputs": [
           "systolic/diastolic BP",
+          "heart rate",
           "oxygen saturation",
-          "pulse",
           "respiratory rate",
           "body temperature",
-          "mean pupil diameter"
+          "pupil diameter"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Higher training loads elicit greater sympathetic nervous system activation than lower loads",
-        "result": "100% max weight training produced significantly different vital signs and pupil responses across phases"
+        "hypothesis": "High-intensity weightlifting induces greater sympathetic activation than rest/cooldown",
+        "result": "Confirmed: significant vital sign elevation during power snatch and clean & jerk phases"
       }
     ]
   },
@@ -1941,49 +1937,39 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-13",
     "category": "Structural Biology",
-    "task": "Characterize donor/acceptor binding and product translocation in archaeal dolichylphosphate mannose synthase",
-    "key_results": "Crystal complex captures pre-transfer geometry for GDP-mannose and dolichylphosphate binding; unexpected TM-domain state shows Dol-P-Man bound 'upside-down' in polar pocket between helices; TM-domain mutants confirm non-catalytic role suggesting moonlighting translocation function",
-    "comments": "The inverted product-binding pose is unexpected and suggests the GtrA-like TM domain may function in lipid-linked product translocation rather than direct catalysis, though direct evidence for translocation remains lacking.",
+    "task": "Elucidate DPMS catalytic mechanism and lipid product translocation via transmembrane domain",
+    "key_results": "Crystallographic complex shows donor/acceptor binding prior to mannosyl transfer; TM domain captures Dol-P-Man in 'upside-down' inverted orientation; TM domain mutations confirm non-catalytic role",
+    "comments": "The inverted Dol-P-Man binding pose is compelling but remains a static snapshot; whether this represents genuine translocation or an artifact of crystallization conditions needs validation.",
     "model_io": [
       {
-        "model": "X-ray crystallography of reaction-mixture complex",
+        "model": "X-ray crystallography from enzymatic reaction mixture",
         "inputs": [
-          "Pyrococcus furiosus DPMS",
-          "GDP-mannose",
-          "dolichylphosphate",
-          "crystallization conditions"
+          "PfDPMS enzyme",
+          "GDP-mannose donor",
+          "dolichylphosphate acceptor"
         ],
         "outputs": [
-          "donor binding mode",
-          "acceptor positioning",
-          "pre-transfer active site geometry"
+          "crystal structure",
+          "active site donor/acceptor geometry",
+          "TM domain Dol-P-Man binding pose"
         ]
       },
       {
-        "model": "Structural state discovery (TM domain)",
+        "model": "Mutagenesis panel of TM domain",
         "inputs": [
-          "crystal complex data"
-        ],
-        "outputs": [
-          "Dol-P-Man upside-down binding",
-          "polar pocket interactions"
-        ]
-      },
-      {
-        "model": "TM-domain mutagenesis assays",
-        "inputs": [
-          "TM-domain mutant library"
+          "TM domain variants",
+          "enzymatic assay"
         ],
         "outputs": [
           "catalytic activity retention",
-          "localization/translocation changes"
+          "product translocation efficiency"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "TM domain provides moonlighting translocation function rather than catalytic role",
-        "result": "TM-domain mutants retained catalytic activity; inverted product-binding suggests translocation role"
+        "hypothesis": "TM domain provides moonlighting function to translocate Dol-P-Man product across membrane",
+        "result": "Partially supported: inverted binding geometry observed, but direct translocation not demonstrated"
       }
     ]
   },
@@ -1996,43 +1982,32 @@
     "journal": "Nature Portfolio",
     "publishedAt": "2026-03-13",
     "category": "Gene Regulation",
-    "task": "Map genetic network controlling autophagy activation and inactivation in response to nutrient changes",
-    "key_results": "AutoDRY dataset profiles 5,919 mutants; identified retrograde pathway as pivotal hierarchical modulator of autophagy inactivation and core autophagy gene expression",
-    "comments": "Strong systems-level approach integrating time-resolved imaging and deep learning, though the retrograde pathway role in inactivation deserves quantitative kinetic validation.",
+    "task": "Map hierarchical genetic networks controlling autophagy activation and inactivation during nutrient changes",
+    "key_results": "AutoDRY dataset categorizes 5,919 mutants by nutrient response kinetics; retrograde pathway identified as pivotal time-varying modulator of autophagy gene expression and inactivation",
+    "comments": "Integrating high-content imaging with deep learning and network analysis effectively revealed multilayered regulatory control, though retrograde pathway validation requires follow-up mechanistic studies.",
     "model_io": [
       {
-        "model": "Genetic regulatory network of autophagy",
+        "model": "Time-resolved genetic network analysis",
         "inputs": [
-          "nitrogen nutrient changes",
-          "5919 mutant genotypes"
+          "nutrient (nitrogen) availability",
+          "mutant genotypes",
+          "time-series imaging data"
         ],
         "outputs": [
-          "autophagosome formation rates",
-          "clearance kinetics",
-          "core autophagy gene expression",
-          "retrograde pathway activity"
-        ]
-      },
-      {
-        "model": "Deep learning latent feature analysis",
-        "inputs": [
-          "time-resolved high-content imaging data"
-        ],
-        "outputs": [
-          "nutrient response kinetic profiles",
-          "mutant categorization",
-          "functional genetic network"
+          "autophagosome formation/clearance kinetics",
+          "hierarchical regulatory pathway architecture",
+          "retrograde pathway modulation strength"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Retrograde pathway is a key regulator of autophagy inactivation",
-        "result": "Confirmed: identified as pivotal time-varying modulator of core autophagy genes and inactivation"
+        "hypothesis": "Retrograde pathway plays central role in autophagy inactivation upon nutrient restoration",
+        "result": "Confirmed: retrograde pathway identified as pivotal time-varying modulator tuning core autophagy gene expression"
       },
       {
-        "hypothesis": "Autophagy control exhibits hierarchical multilayered architecture",
-        "result": "Confirmed: multiple new regulatory pathways uncovered with hierarchical organization"
+        "hypothesis": "Autophagy control exhibits hierarchical and multilayered genetic architecture",
+        "result": "Confirmed: integrated analysis of functional and genetic network data revealed multiple new regulatory pathways with hierarchical organization"
       }
     ]
   },
@@ -2045,34 +2020,14 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-13",
     "category": "Other",
-    "task": "Evaluate immunological and clinical outcomes of combined herbal and pharmacological asthma treatment",
-    "key_results": "Chaipu Decoction + Seretide achieved 86.7% efficacy vs. 66.7% for Seretide alone; greater TNF-\u03b1 reduction and CD4+/CD8+ ratio improvement in combination group",
-    "comments": "This is a clinical trial addressing immunological markers but lacks mechanistic systems modeling of immune signaling networks.",
-    "model_io": [
-      {
-        "model": "Randomized controlled trial (n=300)",
-        "inputs": [
-          "Chaipu Decoction dosing",
-          "Seretide dosing",
-          "patient demographics"
-        ],
-        "outputs": [
-          "clinical efficacy rate",
-          "TNF-\u03b1 serum levels",
-          "CD4+/CD8+ ratio",
-          "ACT scores",
-          "pulmonary function indices"
-        ]
-      }
-    ],
+    "task": "Evaluate combined Traditional Chinese Medicine and Seretide efficacy in bronchial asthma treatment",
+    "key_results": "Combined treatment achieved 86.7% vs 66.7% efficacy (p<0.05), with greater TNF-\u03b1 reduction and increased CD4+/CD8+ ratio compared to Seretide alone",
+    "comments": "This is a clinical trial evaluating herbal-drug combination therapy; it measures immune markers but does not model mechanistic regulation networks.",
+    "model_io": [],
     "hypotheses": [
       {
-        "hypothesis": "Combined Chaipu Decoction and Seretide improves clinical outcomes over Seretide alone",
-        "result": "Confirmed: 86.7% vs. 66.7% efficacy (p<0.05)"
-      },
-      {
-        "hypothesis": "Combined treatment reduces inflammatory TNF-\u03b1 more than Seretide alone",
-        "result": "Confirmed: greater TNF-\u03b1 reduction in combination group"
+        "hypothesis": "Chaipu Decoction combined with Seretide improves clinical outcomes and immune markers in bronchial asthma",
+        "result": "Confirmed: higher efficacy rate, greater TNF-\u03b1 decrease, improved CD4+/CD8+ ratio and lung function"
       }
     ]
   },
@@ -2086,22 +2041,9 @@
     "publishedAt": "2026-03-13",
     "category": "Other",
     "task": "Interactive 3D visualization of sparse histology data in virtual reality",
-    "key_results": "SparStVR enables intuitive exploration of 3D tissue structures and pathology from serial-sectioned histology with embedded multimodal measurements",
-    "comments": "While innovative for visualization, this is primarily a software/tool contribution rather than a systems biology modeling study.",
-    "model_io": [
-      {
-        "model": "SparStVR VR application",
-        "inputs": [
-          "labeled masks",
-          "color image stacks",
-          "heatmaps"
-        ],
-        "outputs": [
-          "textured 3D models",
-          "interactive VR visualization"
-        ]
-      }
-    ],
+    "key_results": "SparStVR enables intuitive exploration of tissue structures and pathology from serial-sectioned histology stacks with embedded multimodal measurements",
+    "comments": "This is a visualization/informatics tool rather than a systems biology model, focusing on data presentation rather than mechanistic insight.",
+    "model_io": [],
     "hypotheses": []
   }
 ]

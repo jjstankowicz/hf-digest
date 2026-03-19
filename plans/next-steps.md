@@ -109,3 +109,8 @@ Nature schema TBD.
   Persists across page loads. No server needed.
 
 - `digest-search` -- Add client-side full-text search across loaded JSON.
+
+- `nature-historical` -- Backfill older Nature articles beyond the ~30-item RSS window.
+  Options: CrossRef API (query by ISSN + date range, then scrape abstracts), Springer
+  Nature API (may return abstracts directly), or Wayback Machine RSS snapshots via
+  Backfeed/history4feed. PubMed/Europe PMC viable for bio feeds only.

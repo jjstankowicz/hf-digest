@@ -161,11 +161,11 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    transition: box-shadow 0.15s, transform 0.15s;
+    transition: box-shadow 0.15s, transform 0.15s, opacity 0.2s;
     break-inside: avoid;
     margin-bottom: 16px;
   }
-  .paper-card.read { opacity: 0.45; transition: opacity 0.2s; }
+  .paper-card.read { opacity: 0.45; }
   .paper-card:hover {
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     transform: translateY(-1px);
@@ -442,18 +442,22 @@ let sources = ['hf'];
 let sourceIdx = 0;
 
 // ---- Read state ----
-const readSet = new Set(JSON.parse(localStorage.getItem('readPapers') ?? '[]'));
+function loadReadSet() {
+  try { return new Set(JSON.parse(localStorage.getItem('readPapers') ?? '[]')); }
+  catch (_) { return new Set(); }
+}
+const readSet = loadReadSet();
 
 function saveRead() {
-  localStorage.setItem('readPapers', JSON.stringify([...readSet]));
+  try { localStorage.setItem('readPapers', JSON.stringify([...readSet])); }
+  catch (_) {}
 }
 
-function toggleRead(uid) {
+function toggleRead(uid, cardEl) {
   if (readSet.has(uid)) readSet.delete(uid);
   else readSet.add(uid);
   saveRead();
-  const card = document.querySelector(`.paper-card[data-uid="${CSS.escape(uid)}"]`);
-  if (card) card.classList.toggle('read', readSet.has(uid));
+  if (cardEl) cardEl.classList.toggle('read', readSet.has(uid));
   updateReadIndicators();
 }
 
@@ -564,6 +568,7 @@ function renderCards() {
   const papers = visiblePapers();
   if (!papers.length) {
     grid.innerHTML = `<div class="empty-state">No papers found for this date.</div>`;
+    updateReadIndicators();
     return;
   }
   grid.innerHTML = papers.map(p => {
@@ -638,7 +643,7 @@ function renderCards() {
 
     const show = matchesFilter(p) ? '' : 'display:none;';
     const readCls = readSet.has(p.uid) ? ' read' : '';
-    return `<div class="paper-card cat-${key}${readCls}" data-uid="${esc(p.uid)}" data-cat="${esc(p.category)}" style="${show}">
+    return `<div class="paper-card cat-${key}${readCls}" data-uid="${esc(p.uid)}" data-cat="${esc(p.category)}" tabindex="0" style="${show}">
       <div class="card-stripe" style="background:${stripe}"></div>
       <div class="card-header">
         <span class="cat-badge" style="background:${badgeBg};color:${badgeText}">${esc(p.category)}</span>
@@ -705,11 +710,18 @@ async function loadDate(date) {
   renderCards();
 }
 
+function handleCardToggle(e, card) {
+  if (e.target.closest('a') || e.target.closest('details')) return;
+  toggleRead(card.dataset.uid, card);
+}
 document.getElementById('card-grid').addEventListener('click', e => {
   const card = e.target.closest('.paper-card');
-  if (!card) return;
-  if (e.target.closest('a') || e.target.closest('details')) return;
-  toggleRead(card.dataset.uid);
+  if (card) handleCardToggle(e, card);
+});
+document.getElementById('card-grid').addEventListener('keydown', e => {
+  if (e.key !== 'Enter' && e.key !== ' ') return;
+  const card = e.target.closest('.paper-card');
+  if (card) { e.preventDefault(); handleCardToggle(e, card); }
 });
 
 document.getElementById('prev-btn').addEventListener('click', async () => {

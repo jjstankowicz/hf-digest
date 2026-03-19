@@ -66,13 +66,13 @@
   .controls-bar {
     padding: 10px 24px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 12px;
-    flex-wrap: wrap;
     border-bottom: 1px solid var(--border);
   }
 
   .date-nav, .source-nav {
+    flex-shrink: 0;
     display: flex; align-items: stretch;
     border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
   }
@@ -141,7 +141,7 @@
     flex: 1; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; min-width: 0;
   }
   .mark-all-btn {
-    margin-left: auto; white-space: nowrap; flex-shrink: 0;
+    white-space: nowrap; flex-shrink: 0;
     font-size: 12px; font-weight: 500; color: var(--text-muted);
     background: none; border: 1px solid var(--border); border-radius: 6px;
     padding: 4px 10px; cursor: pointer; transition: all 0.15s;
@@ -327,8 +327,8 @@
     <div class="nav-divider"></div>
     <div class="filters-wrap">
       <div id="filters"></div>
-      <button class="mark-all-btn" onclick="markAllRead()">Mark all read</button>
     </div>
+    <button class="mark-all-btn" onclick="markAllRead()">Mark all read</button>
   </div>
 </div>
 

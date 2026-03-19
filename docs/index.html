@@ -528,20 +528,15 @@ function renderCards() {
       </div>`
     ).join('');
 
-    // Hypotheses / Results (only when non-empty)
+    // Hypotheses / Results (only when non-empty; each entry is {hypothesis, result})
     if (Array.isArray(p.hypotheses) && p.hypotheses.length) {
-      const items = p.hypotheses.map((h, i) =>
-        `<li data-n="${i+1}">${esc(h)}</li>`).join('');
+      const items = p.hypotheses.map((h, i) => {
+        const hyp = typeof h === 'object' ? h.hypothesis : h;
+        const res = typeof h === 'object' ? h.result : null;
+        return `<li data-n="${i+1}">${esc(hyp)}${res ? `<br><em>${esc(res)}</em>` : ''}</li>`;
+      }).join('');
       fieldRows += `<div class="field-row">
         <span class="field-label">Hypotheses</span>
-        <ul class="field-list field-value">${items}</ul>
-      </div>`;
-    }
-    if (Array.isArray(p.results) && p.results.length) {
-      const items = p.results.map((r, i) =>
-        `<li data-n="${i+1}">${esc(r)}</li>`).join('');
-      fieldRows += `<div class="field-row">
-        <span class="field-label">Results</span>
         <ul class="field-list field-value">${items}</ul>
       </div>`;
     }

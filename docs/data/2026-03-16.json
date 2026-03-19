@@ -6,18 +6,70 @@
     "title": "LMEB: Long-horizon Memory Embedding Benchmark",
     "publishedAt": "2026-03-13T02:09:57.000Z",
     "submittedOnDailyAt": "2026-03-16T00:12:43.974Z",
-    "upvotes": 63,
+    "upvotes": 64,
     "projectPage": "https://kalm-embedding.github.io/LMEB.github.io/",
     "category": "Benchmark",
-    "task": "Evaluating memory embeddings for long-horizon retrieval",
-    "model": "(transformer) various embedding models, 300M-10B parameters",
-    "inputs": "Text queries for episodic, dialogue, semantic, and procedural memory retrieval",
-    "outputs": "Ranked retrieved memory passages",
-    "key_results": "22 datasets, 193 tasks; larger models don't always perform better; LMEB orthogonal to MTEB",
-    "comments": "Fills important gap showing traditional passage retrieval benchmarks don't transfer to complex memory tasks.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Evaluating embedding models on long-horizon memory retrieval tasks",
+    "key_results": "LMEB spans 22 datasets, 193 zero-shot tasks across 4 memory types; larger models don't always perform better; LMEB and MTEB are orthogonal",
+    "comments": "Addresses a genuine gap in embedding evaluation by testing context-dependent, temporally distant information retrieval rather than static passage matching.",
+    "model_io": [
+      {
+        "model": "15 embedding models (hundreds of millions to 10B parameters)",
+        "inputs": [
+          "episodic memory queries",
+          "dialogue queries",
+          "semantic queries",
+          "procedural queries"
+        ],
+        "outputs": [
+          "relevance scores",
+          "retrieval rankings"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Larger embedding models perform better on long-horizon memory retrieval",
+        "result": "False\u2014model size does not guarantee better performance"
+      },
+      {
+        "hypothesis": "Performance on traditional passage retrieval (MTEB) transfers to memory retrieval",
+        "result": "False\u2014LMEB and MTEB exhibit orthogonality"
+      }
+    ]
+  },
+  {
+    "uid": "hf:2603.12793",
+    "source": "hf",
+    "id": "2603.12793",
+    "title": "Cheers: Decoupling Patch Details from Semantic Representations Enables Unified Multimodal Comprehension and Generation",
+    "publishedAt": "2026-03-13T08:55:27.000Z",
+    "submittedOnDailyAt": "2026-03-16T01:32:31.952Z",
+    "upvotes": 36,
+    "projectPage": "https://huggingface.co/ai9stars/Cheers",
+    "category": "Generative",
+    "task": "Unified multimodal vision-language comprehension and generation",
+    "key_results": "Matches/surpasses advanced UMMs on benchmarks; 4x token compression; outperforms Qwen1.5B on GenEval and MMBench with 20% training cost",
+    "comments": "Novel decoupling of semantic tokens from patch details via gated residuals is elegant; the dual diffusion-autoregressive decoding is a key architectural contribution.",
+    "model_io": [
+      {
+        "model": "Cheers (unified vision tokenizer + LLM transformer + cascaded flow matching head)",
+        "inputs": [
+          "images",
+          "text prompts"
+        ],
+        "outputs": [
+          "text completions",
+          "generated images"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Separating patch details from semantic representations improves both comprehension and generation stability",
+        "result": "True\u2014gated detail residuals enable efficient, high-quality multimodal generation"
+      }
+    ]
   },
   {
     "uid": "hf:2603.08436",
@@ -29,35 +81,133 @@
     "upvotes": 36,
     "projectPage": "https://vetbench.github.io/",
     "category": "Vision",
-    "task": "Visual entity tracking in video",
-    "model": "(transformer) Molmo2",
-    "inputs": "Video frames with identical objects",
-    "outputs": "Object trajectories and tracking decisions",
-    "key_results": "VET-Bench shows SOTA VLMs at chance level; SGCoT method achieves >90% accuracy",
-    "comments": "Identifies fundamental expressivity limitation in fixed-depth transformers for indistinguishable object tracking without intermediate supervision.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Visual entity tracking in video for VLMs via spatiotemporal reasoning",
+    "key_results": "Current VLMs perform at chance level on VET-Bench shell-game task; SGCoT + Molmo2 achieves >90% accuracy",
+    "comments": "VET-Bench's synthetic design elegantly isolates the tracking deficiency by removing visual shortcuts; the theoretical analysis connecting to state-tracking and transformer expressivity is insightful.",
+    "model_io": [
+      {
+        "model": "Vision-Language Models (state-of-the-art VLMs) baseline; Molmo2 + SGCoT method",
+        "inputs": [
+          "video frames with indistinguishable objects"
+        ],
+        "outputs": [
+          "object trajectory predictions",
+          "final object locations"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "VLMs can track indistinguishable objects using static frame-level features",
+        "result": "False\u2014fixed-depth transformers fail without spatiotemporal continuity"
+      },
+      {
+        "hypothesis": "Explicit trajectory generation as intermediate states enables reliable tracking",
+        "result": "True\u2014SGCoT achieves >90% accuracy"
+      }
+    ]
   },
   {
-    "uid": "hf:2603.12793",
+    "uid": "hf:2603.11647",
     "source": "hf",
-    "id": "2603.12793",
-    "title": "Cheers: Decoupling Patch Details from Semantic Representations Enables Unified Multimodal Comprehension and Generation",
-    "publishedAt": "2026-03-13T08:55:27.000Z",
-    "submittedOnDailyAt": "2026-03-16T01:32:31.952Z",
-    "upvotes": 35,
-    "projectPage": "https://huggingface.co/ai9stars/Cheers",
+    "id": "2603.11647",
+    "title": "OmniForcing: Unleashing Real-time Joint Audio-Visual Generation",
+    "publishedAt": "2026-03-12T08:17:36.000Z",
+    "submittedOnDailyAt": "2026-03-16T02:16:06.070Z",
+    "upvotes": 30,
+    "projectPage": "https://omniforcing.com/",
     "category": "Generative",
-    "task": "Unified multimodal comprehension and generation",
-    "model": "(transformer) Cheers (3B parameters)",
-    "inputs": "Images and text",
-    "outputs": "Generated text and images",
-    "key_results": "Matches/surpasses advanced UMMs; 4x token compression; outperforms Llava-1.5B on GenEval/MMBench with 20% training cost",
-    "comments": "Decouples patch-level details from semantics to enable stable joint understanding and high-fidelity generation.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Real-time streaming joint audio-visual generation via causal diffusion distillation",
+    "key_results": "Achieves ~25 FPS streaming on single GPU; maintains multi-modal synchronization and visual quality of bidirectional teacher",
+    "comments": "Addresses severe training instability from temporal asymmetry between modalities through clever mechanisms (Asymmetric Block-Causal Alignment, Audio Sink Token); represents significant practical contribution to streaming generation.",
+    "model_io": [
+      {
+        "model": "OmniForcing (distilled streaming autoregressive from bidirectional diffusion model)",
+        "inputs": [
+          "audio tokens (sparse)",
+          "visual tokens"
+        ],
+        "outputs": [
+          "audio samples",
+          "video frames"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Naive causal distillation of dual-stream bidirectional models is stable",
+        "result": "False\u2014extreme temporal asymmetry causes severe training instability requiring specialized alignment"
+      },
+      {
+        "hypothesis": "Streaming audio-visual generation can maintain synchronization and quality at real-time rates",
+        "result": "True\u2014~25 FPS with proposed mechanisms"
+      }
+    ]
+  },
+  {
+    "uid": "hf:2603.12262",
+    "source": "hf",
+    "id": "2603.12262",
+    "title": "Video Streaming Thinking: VideoLLMs Can Watch and Think Simultaneously",
+    "publishedAt": "2026-03-12T17:59:51.000Z",
+    "submittedOnDailyAt": "2026-03-16T08:55:52.838Z",
+    "upvotes": 29,
+    "projectPage": "https://1ranguan.github.io/VST/",
+    "category": "LLM/Reasoning",
+    "task": "Online streaming video understanding with concurrent reasoning during playback",
+    "key_results": "VST-7B: 79.5% on StreamingBench, 59.3% on OVO-Bench; 15.7x faster than Video-R1 with +5.4% improvement",
+    "comments": "The 'thinking while watching' paradigm elegantly amortizes LLM latency over video playback; knowledge-graph-based QA synthesis is a practical contribution.",
+    "model_io": [
+      {
+        "model": "VideoLLM with streaming causal architecture (VST-SFT + VST-RL)",
+        "inputs": [
+          "streaming video clips",
+          "user queries"
+        ],
+        "outputs": [
+          "chain-of-thought reasoning",
+          "answers"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Concurrent reasoning during video streaming improves responsiveness without sacrificing accuracy",
+        "result": "True\u201415.7x speedup with +5.4% improvement over test-time scaling"
+      }
+    ]
+  },
+  {
+    "uid": "hf:2603.13032",
+    "source": "hf",
+    "id": "2603.13032",
+    "title": "Multimodal OCR: Parse Anything from Documents",
+    "publishedAt": "2026-03-13T14:42:21.000Z",
+    "submittedOnDailyAt": "2026-03-16T02:02:36.068Z",
+    "upvotes": 28,
+    "projectPage": null,
+    "category": "Vision",
+    "task": "Document parsing combining text and graphics into unified structured representations",
+    "key_results": "83.9% on olmOCR Bench; second only to Gemini 3 Pro on OCR Arena Elo; surpasses Gemini 3 Pro on SVG reconstruction (charts, UI, diagrams)",
+    "comments": "Treating graphics as first-class parsing targets (not discarded pixels) is a paradigm shift; 3B compact model achieves competitive results at fraction of cost.",
+    "model_io": [
+      {
+        "model": "dots.mocr (3B parameter model with unified vision tokenizer and code generation)",
+        "inputs": [
+          "document images (PDF, webpage, SVG)"
+        ],
+        "outputs": [
+          "structured text",
+          "code-level graphics (SVG/charts/diagrams)"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Jointly parsing text and graphics enables more faithful document reconstruction than separate pipelines",
+        "result": "True\u2014second-place on OCR Arena; state-of-the-art on graphics-to-code"
+      }
+    ]
   },
   {
     "uid": "hf:2603.13023",
@@ -69,75 +219,29 @@
     "upvotes": 28,
     "projectPage": null,
     "category": "Agents/RL",
-    "task": "Training software engineering agents at scale",
-    "model": "(transformer) Qwen2.5-32B and 72B",
-    "inputs": "GitHub repositories, code editing tasks, test execution feedback",
-    "outputs": "Code solutions with executable verification",
-    "key_results": "62.4% (32B) and 66.0% (72B) on SWE-bench Verified; +12pts on math, +5pts on science OOD",
-    "comments": "$1.47M investment in infrastructure reflects extreme cost-benefit tradeoff for reproducible SWE evaluation.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
-  },
-  {
-    "uid": "hf:2603.12262",
-    "source": "hf",
-    "id": "2603.12262",
-    "title": "Video Streaming Thinking: VideoLLMs Can Watch and Think Simultaneously",
-    "publishedAt": "2026-03-12T17:59:51.000Z",
-    "submittedOnDailyAt": "2026-03-16T08:55:52.838Z",
-    "upvotes": 28,
-    "projectPage": "https://1ranguan.github.io/VST/",
-    "category": "LLM/Reasoning",
-    "task": "Real-time streaming video understanding with reasoning",
-    "model": "(LLM-based streaming) VST-7B",
-    "inputs": "Streaming video frames",
-    "outputs": "Real-time video understanding and answers",
-    "key_results": "79.5% StreamingBench, 59.3% OVO-Bench; 15.7x faster than Video-R1 with +5.4% on VideoHolmes",
-    "comments": "Amortizes LLM reasoning latency over video playback; generates streaming QA pairs via knowledge graphs with entity-relation grounding.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
-  },
-  {
-    "uid": "hf:2603.11647",
-    "source": "hf",
-    "id": "2603.11647",
-    "title": "OmniForcing: Unleashing Real-time Joint Audio-Visual Generation",
-    "publishedAt": "2026-03-12T08:17:36.000Z",
-    "submittedOnDailyAt": "2026-03-16T02:16:06.070Z",
-    "upvotes": 28,
-    "projectPage": "https://omniforcing.com/",
-    "category": "Generative",
-    "task": "Real-time joint audio-visual generation",
-    "model": "(streaming autoregressive) OmniForcing",
-    "inputs": "Audio and visual context",
-    "outputs": "Synchronized audio-visual streams",
-    "key_results": "~25 FPS on single GPU with visual quality parity to bidirectional teacher",
-    "comments": "First framework to distill bidirectional diffusion into streaming causal model; addresses multi-modal synchronization drift via asymmetric block-causal alignment.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
-  },
-  {
-    "uid": "hf:2603.13032",
-    "source": "hf",
-    "id": "2603.13032",
-    "title": "Multimodal OCR: Parse Anything from Documents",
-    "publishedAt": "2026-03-13T14:42:21.000Z",
-    "submittedOnDailyAt": "2026-03-16T02:02:36.068Z",
-    "upvotes": 26,
-    "projectPage": null,
-    "category": "Vision",
-    "task": "Unified document and graphics parsing",
-    "model": "(vision transformer) dots.mocr (3B parameters)",
-    "inputs": "Documents with text and graphics",
-    "outputs": "Structured text and code (SVG/charts/diagrams)",
-    "key_results": "Second on OCR Arena Elo; 83.9 on olmOCR Bench; outperforms Gemini 3 Pro on image-to-SVG benchmarks",
-    "comments": "Treats graphics as first-class parsing targets; enables multimodal supervision from existing documents.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Large-scale executable SWE agent training environments with quality-centric filtering",
+    "key_results": "OpenSWE: 45,320 executable Docker environments across 12.8k repositories; OpenSWE-32B/72B achieve 62.4%/66.0% on SWE-bench Verified; +12 points on math, +5 on science (no factual recall degradation)",
+    "comments": "Massive infrastructure investment ($1.47M) yields reproducible, open-source asset; difficulty-aware curation is key to learning efficiency.",
+    "model_io": [
+      {
+        "model": "SWE agents (Qwen2.5-32B/72B) trained on OpenSWE trajectories",
+        "inputs": [
+          "code repositories",
+          "issue descriptions",
+          "test cases"
+        ],
+        "outputs": [
+          "code patches",
+          "test execution results"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "SWE-focused training transfers to out-of-domain reasoning tasks without factual degradation",
+        "result": "True\u2014+12 math, +5 science, no recall loss"
+      }
+    ]
   },
   {
     "uid": "hf:2603.13224",
@@ -149,15 +253,28 @@
     "upvotes": 21,
     "projectPage": null,
     "category": "Vision",
-    "task": "Vision-to-code visual fidelity evaluation",
-    "model": "(multimodal generative reward) Visual-ERM with Qwen3-VL-8B",
-    "inputs": "Rendered visual outputs and code",
-    "outputs": "Fine-grained visual discrepancy feedback",
-    "key_results": "+8.4 on chart-to-code, +2.7/+4.1 on table/SVG; 8B model outperforms Qwen3-VL-235B on VC-RewardBench",
-    "comments": "Proposes task-agnostic visual reward model that operates directly in visual space, avoiding reward hacking vulnerabilities of text/embedding-based approaches.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Fine-grained visual reward modeling for vision-to-code RL with interpretable feedback",
+    "key_results": "Visual-ERM improves Qwen3-VL-8B by +8.4 on chart-to-code, +2.7 table, +4.1 SVG; outperforms Qwen3-VL-235B on VC-RewardBench",
+    "comments": "Rendering visual comparisons into reward signal is intuitive and avoids reward hacking; multimodal generative reward model is novel approach.",
+    "model_io": [
+      {
+        "model": "Visual-ERM (multimodal generative reward model)",
+        "inputs": [
+          "rendered code outputs",
+          "target visual references"
+        ],
+        "outputs": [
+          "fine-grained visual discrepancy scores",
+          "interpretable feedback"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Fine-grained visual reward supervision is necessary for vision-to-code RL quality",
+        "result": "True\u2014consistent gains across tasks; visual embeddings insufficient"
+      }
+    ]
   },
   {
     "uid": "hf:2603.12266",
@@ -168,16 +285,29 @@
     "submittedOnDailyAt": "2026-03-16T01:48:46.637Z",
     "upvotes": 19,
     "projectPage": "https://accio-lab.github.io/MM-CondChain",
-    "category": "Vision",
-    "task": "Visually grounded deep compositional reasoning",
-    "model": "(transformer) MLLMs (tested multiple)",
-    "inputs": "Images with complex compositional conditions",
-    "outputs": "Execution paths through multi-layer reasoning chains",
-    "key_results": "SOTA achieves only 53.33 Path F1; sharp performance drops on hard negatives and with depth/complexity",
-    "comments": "MM-CondChain benchmark uses programmatically verified intermediate representation (VPIR) to ensure mechanical verifiability of conditions.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "category": "Benchmark",
+    "task": "Evaluating MLLMs on deep compositional reasoning with visually grounded conditions",
+    "key_results": "MM-CondChain: strongest MLLM achieves only 53.33% Path F1; sharp drops on hard negatives, with depth/complexity increase",
+    "comments": "Programmatically verified benchmark (VPIR) is elegant; reveals fundamental gap in compositional reasoning\u2014not adequately tested by existing benchmarks.",
+    "model_io": [
+      {
+        "model": "Multimodal LLMs (various architectures)",
+        "inputs": [
+          "images (natural, charts, GUI)",
+          "multi-layer compositional conditions"
+        ],
+        "outputs": [
+          "execution path predictions",
+          "final outcomes"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "MLLMs can perform deep compositional reasoning on visually grounded conditions",
+        "result": "False\u201453.33% Path F1 indicates major capability gap"
+      }
+    ]
   },
   {
     "uid": "hf:2603.13089",
@@ -189,15 +319,26 @@
     "upvotes": 13,
     "projectPage": "https://zhengsh123.github.io/V-Bridge/",
     "category": "Vision",
-    "task": "Few-shot multi-task image restoration",
-    "model": "(pretrained video generative) V-Bridge",
-    "inputs": "Degraded images with <1000 training samples",
-    "outputs": "Restored high-fidelity images",
-    "key_results": "Competitive restoration on multiple tasks with <2% of existing training data; rivals specialized restoration architectures",
-    "comments": "Reinterprets restoration as progressive generative process; shows video models implicitly learn transferable restoration priors.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Few-shot image restoration via video generative model priors",
+    "key_results": "Competitive restoration with <2% of training samples (1,000 samples) vs. traditional methods; single model handles multiple tasks rivaling specialized architectures",
+    "comments": "Reframing restoration as progressive generation is conceptually elegant; demonstrates underutilized capacity in pre-trained video models.",
+    "model_io": [
+      {
+        "model": "Video generative models (pre-trained, fine-tuned for restoration)",
+        "inputs": [
+          "degraded images"
+        ],
+        "outputs": [
+          "high-fidelity restored images"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Video generative models contain transferable restoration priors activable with minimal data",
+        "result": "True\u2014<2% training data achieves competitive performance"
+      }
+    ]
   },
   {
     "uid": "hf:2603.08127",
@@ -209,15 +350,29 @@
     "upvotes": 12,
     "projectPage": null,
     "category": "Agents/RL",
-    "task": "End-to-end multi-agent scientific discovery",
-    "model": "(LLM-based multi-agent) EvoScientist with persistent memory",
-    "inputs": "Research direction queries",
-    "outputs": "Novel scientific ideas and code implementations",
-    "key_results": "Outperforms 7 SOTA systems in novelty/feasibility/relevance; substantially improves code execution success via self-evolution",
-    "comments": "Three-agent system (Researcher/Engineer/Evolution Manager) with dual persistent memory (ideation + experimentation) for continuous strategy improvement.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Multi-agent evolving AI scientist framework with persistent memory for end-to-end discovery",
+    "key_results": "Outperforms 7 SOTA systems in scientific idea generation (novelty, feasibility, relevance, clarity); improved code execution success via multi-agent evolution",
+    "comments": "Persistent memory modules for ideas and experiments enable continuous improvement; distillation of insights from interaction history is pragmatic.",
+    "model_io": [
+      {
+        "model": "EvoScientist (Researcher Agent, Engineer Agent, Evolution Manager Agent with persistent memory)",
+        "inputs": [
+          "research problems",
+          "experimental feedback"
+        ],
+        "outputs": [
+          "research ideas",
+          "code implementations",
+          "experiment results"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Static pipelines outperform evolving multi-agent systems in scientific discovery",
+        "result": "False\u2014EvoScientist with persistent memory exceeds SOTA"
+      }
+    ]
   },
   {
     "uid": "hf:2603.12648",
@@ -229,15 +384,27 @@
     "upvotes": 11,
     "projectPage": "https://bujiazi.github.io/mvgrpo.github.io/",
     "category": "Generative",
-    "task": "Improving text-to-image flow model alignment via preference optimization",
-    "model": "(flow model) GRPO-based T2I models",
-    "inputs": "Text prompts and generated image samples",
-    "outputs": "Optimized image samples with improved alignment",
-    "key_results": "Superior alignment over SOTA methods through multi-view reward mapping",
-    "comments": "Dense condition augmentation provides richer optimization signals without regenerating expensive samples.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Flow model alignment via multi-view reward mapping in dense condition space",
+    "key_results": "MV-GRPO achieves superior alignment over SOTA; richer optimization signals from semantically adjacent captions",
+    "comments": "Augmenting condition space for dense reward mapping is clever; avoids sample regeneration via probability distribution derivation.",
+    "model_io": [
+      {
+        "model": "Text-to-Image flow models (with GRPO fine-tuning)",
+        "inputs": [
+          "text prompts",
+          "generated image samples"
+        ],
+        "outputs": [
+          "aligned image generations"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Multi-view evaluation with augmented conditions improves alignment vs. single-condition evaluation",
+        "result": "True\u2014denser reward mapping enables superior optimization"
+      }
+    ]
   },
   {
     "uid": "hf:2603.11975",
@@ -249,15 +416,27 @@
     "upvotes": 10,
     "projectPage": "https://pujiayue.github.io/homesafe-bench.github.io/",
     "category": "Vision",
-    "task": "Unsafe action detection for household robots",
-    "model": "(streaming architecture) HD-Guard with VLMs",
-    "inputs": "Streaming household video",
-    "outputs": "Safety alerts for unsafe actions",
-    "key_results": "Superior latency-performance trade-off via hierarchical lightweight FastBrain + asynchronous SlowBrain",
-    "comments": "HomeSafe-Bench uses hybrid simulation+video generation pipeline; identifies perception latency and common-sense knowledge as critical bottlenecks.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Unsafe action detection for embodied household agents via VLM streaming evaluation",
+    "key_results": "HD-Guard balances latency and accuracy via hierarchical dual-brain (FastBrain + asynchronous SlowBrain); identifies critical VLM bottlenecks",
+    "comments": "HomeSafe-Bench's hybrid simulation + video generation pipeline is practical; real-time safety monitoring requires decomposition into lightweight + deep reasoning.",
+    "model_io": [
+      {
+        "model": "HD-Guard (hierarchical streaming VLM architecture)",
+        "inputs": [
+          "household video streams"
+        ],
+        "outputs": [
+          "unsafe action alerts",
+          "reasoning explanations"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Single-pass VLM evaluation suffices for real-time household safety monitoring",
+        "result": "False\u2014requires hierarchical lightweight + deep reasoning decomposition"
+      }
+    ]
   },
   {
     "uid": "hf:2603.07815",
@@ -269,15 +448,26 @@
     "upvotes": 10,
     "projectPage": null,
     "category": "Generative",
-    "task": "Accelerated text-to-image diffusion generation",
-    "model": "(hybrid diffusion) HybridStitch",
-    "inputs": "Text prompts",
-    "outputs": "Generated images",
-    "key_results": "1.83x speedup on Stable Diffusion 3 vs existing mixture-of-models methods",
-    "comments": "Separates image into easy regions (early small model transition) and complex regions (large model refinement); treats generation as editing problem.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Text-to-Image diffusion acceleration via hybrid model stitching at pixel and timestep levels",
+    "key_results": "HybridStitch: 1.83x speedup on Stable Diffusion 3 vs. mixture-of-models baselines",
+    "comments": "Treating generation as editing and separating easy vs. complex regions is intuitive; per-timestep region adaptation is more fine-grained than prior work.",
+    "model_io": [
+      {
+        "model": "HybridStitch (large + small diffusion models with region/timestep switching)",
+        "inputs": [
+          "text prompts"
+        ],
+        "outputs": [
+          "generated images"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Uniform model replacement across timesteps is optimal for acceleration",
+        "result": "False\u2014region-adaptive switching achieves better speedup"
+      }
+    ]
   },
   {
     "uid": "hf:2603.12310",
@@ -289,15 +479,28 @@
     "upvotes": 7,
     "projectPage": "https://yiwen-song.github.io/vqqa/",
     "category": "Agents/RL",
-    "task": "Closed-loop video quality improvement via agent critique",
-    "model": "(agentic VLM) multi-agent framework with Vision-Language Model",
-    "inputs": "Video generation outputs and visual quality questions",
-    "outputs": "Refined prompts and improved videos",
-    "key_results": "+11.57% T2V-CompBench, +8.43% VBench2 over vanilla generation",
-    "comments": "Treats VLM critiques as semantic gradients enabling black-box optimization without white-box access.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Multi-agent video evaluation and iterative quality improvement via VLM critiques",
+    "key_results": "VQQA: +11.57% T2V-CompBench, +8.43% VBench2 over vanilla; generalizes T2V and I2V; few refinement steps suffice",
+    "comments": "Replacing passive metrics with actionable VLM critiques is pragmatic; closed-loop black-box prompt optimization avoids white-box access requirement.",
+    "model_io": [
+      {
+        "model": "VQQA (multi-agent with VLM critic and prompt optimizer)",
+        "inputs": [
+          "user intent",
+          "generated videos"
+        ],
+        "outputs": [
+          "refined prompts",
+          "improved videos"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "VLM critiques enable effective video quality improvement without model access",
+        "result": "True\u2014substantial gains via black-box refinement"
+      }
+    ]
   },
   {
     "uid": "hf:2603.11896",
@@ -309,15 +512,28 @@
     "upvotes": 7,
     "projectPage": null,
     "category": "LLM/Reasoning",
-    "task": "Online streaming multi-turn video reasoning",
-    "model": "(MLLM streaming) Think While Watching with Qwen3-VL",
-    "inputs": "Streaming video + user questions",
-    "outputs": "Video understanding answers",
-    "key_results": "+2.6% on StreamingBench, +3.79% on OVO-Bench; 56% fewer output tokens in multi-round setting",
-    "comments": "Preserves continuous segment-level memory; overlaps watching and thinking phases to enable concurrent perception/generation.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Online streaming multi-turn video reasoning with segment-level memory preservation",
+    "key_results": "Improves StreamingBench by 2.6%, OVO-Bench by 3.79%; reduces multi-round output tokens by 56% while maintaining performance",
+    "comments": "Segment-level causal masking + streaming positional encoding enables continuous memory in multi-turn interaction; overlapped watching-thinking pipeline is practical.",
+    "model_io": [
+      {
+        "model": "Think While Watching (streaming VideoLLM with segment-level memory)",
+        "inputs": [
+          "streaming video segments",
+          "multi-turn queries"
+        ],
+        "outputs": [
+          "chain-of-thought reasoning",
+          "answers"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Preserving segment-level memory across multi-turn interaction improves performance",
+        "result": "True\u2014+2.6% to +3.79% with token efficiency"
+      }
+    ]
   },
   {
     "uid": "hf:2603.12634",
@@ -329,15 +545,28 @@
     "upvotes": 6,
     "projectPage": null,
     "category": "LLM/Reasoning",
-    "task": "Budget-aware multi-hop reasoning for LLM agents",
-    "model": "(transformer) LLM backbone with tree search inference",
-    "inputs": "Multi-hop QA queries with token/tool budget constraints",
-    "outputs": "Answers via dynamic search tree with pruned trajectories",
-    "key_results": "Outperforms baseline at 4\u00d7 resource allocation under strict budget constraints; \u22651-\u03b5 convergence guarantee",
-    "comments": "Residual value predictor addressing LLM overconfidence is elegant; training-free makes deployment practical.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Budget-aware multi-hop reasoning via value tree search with step-level intervention",
+    "key_results": "BAVT: under strict low-budget constraints, surpasses baseline at 4x resource allocation; consistent wins on multi-hop QA",
+    "comments": "Budget-conditioned node selection (remaining ratio as exponent) is principled; residual value predictor addresses overconfidence. Theoretical convergence guarantee is notable.",
+    "model_io": [
+      {
+        "model": "Budget-Aware Value Tree (single LLM backbone with value estimation)",
+        "inputs": [
+          "questions",
+          "tool calls"
+        ],
+        "outputs": [
+          "multi-hop reasoning trees",
+          "final answers"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Brute-force compute scaling outperforms intelligent budget management in multi-hop reasoning",
+        "result": "False\u2014BAVT achieves SOTA with 4x fewer resources"
+      }
+    ]
   },
   {
     "uid": "hf:2603.10899",
@@ -349,15 +578,27 @@
     "upvotes": 6,
     "projectPage": null,
     "category": "Systems",
-    "task": "Efficient KV cache management for long-context inference",
-    "model": "(LLM inference optimization) LookaheadKV",
-    "inputs": "Long input sequences",
-    "outputs": "Pruned KV caches with importance scores",
-    "key_results": "14.5x eviction cost reduction; outperforms expensive draft-generation methods at negligible overhead",
-    "comments": "Uses parameter-efficient modules to predict importance without explicit draft generation; achieves accuracy of costly approximations with heuristic efficiency.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Fast KV cache eviction for long-context LLMs via lightweight future-gazing without draft generation",
+    "key_results": "LookaheadKV: outperforms baselines on long-context benchmarks; reduces eviction cost by 14.5x vs. draft-based methods; negligible runtime overhead",
+    "comments": "Parameter-efficient prediction of importance scores without explicit draft generation is elegant; 14.5x reduction in overhead vs. draft methods is significant.",
+    "model_io": [
+      {
+        "model": "LookaheadKV (transformer layers augmented with importance predictors)",
+        "inputs": [
+          "prompt tokens",
+          "generation queries"
+        ],
+        "outputs": [
+          "KV cache eviction decisions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Draft-based importance estimation is necessary for accurate KV eviction in long-context tasks",
+        "result": "False\u2014parameter-efficient prediction suffices with minimal overhead"
+      }
+    ]
   },
   {
     "uid": "hf:2603.10781",
@@ -369,15 +610,26 @@
     "upvotes": 6,
     "projectPage": null,
     "category": "Vision",
-    "task": "Categorical VQA via neuron selection",
-    "model": "(probe-based VLM) Super Neurons on large VLMs",
-    "inputs": "Images and questions",
-    "outputs": "Classification from first token activations",
-    "key_results": "Up to 5.10x speedup; improved accuracy with extreme early exiting from first layer at first token",
-    "comments": "Identifies scalar activations ('super neurons') in shallow LLM layers sufficient for accurate classifiers; avoids attention vector search complexity.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Early-exit VQA for categorical tasks via super-neuron probing on raw activations",
+    "key_results": "5.10x speedup via extreme early exiting from first LLM layer at first token; improves classification while reducing latency",
+    "comments": "Shifting from attention vectors to scalar neuron activations dramatically expands search space; early exiting from first layer is aggressive but feasible.",
+    "model_io": [
+      {
+        "model": "VLM with super-neuron probing classifiers",
+        "inputs": [
+          "images"
+        ],
+        "outputs": [
+          "categorical VQA answers"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Fine-grained attention head selection is necessary for VQA efficiency gains",
+        "result": "False\u2014raw neuron activations enable even more aggressive early exiting"
+      }
+    ]
   },
   {
     "uid": "hf:2603.13131",
@@ -389,15 +641,28 @@
     "upvotes": 5,
     "projectPage": null,
     "category": "Agents/RL",
-    "task": "Open-world embodied task learning via self-evolution",
-    "model": "(non-parametric) Steve-Evolving with LLM planner",
-    "inputs": "Long-horizon task instructions",
-    "outputs": "Executable action sequences",
-    "key_results": "Consistent improvements over static retrieval baselines on Minecraft MCU long-horizon suite",
-    "comments": "Couples fine-grained execution diagnosis with dual-track distillation (reusable skills + executable guardrails) in closed-loop without parameter updates.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Open-world embodied agent self-evolution via fine-grained diagnosis and dual-track knowledge distillation",
+    "key_results": "Steve-Evolving: consistent improvements over static-retrieval baselines in long-horizon Minecraft MCU tasks",
+    "comments": "Three-tier experience indexing (condition signatures, spatial hashing, semantic tags) + compositional diagnosis signals enable auditable evolution. Non-parametric approach avoids retraining.",
+    "model_io": [
+      {
+        "model": "Steve-Evolving (experience anchoring, distillation, knowledge-driven control loop)",
+        "inputs": [
+          "long-horizon task specifications"
+        ],
+        "outputs": [
+          "executable actions",
+          "skill libraries",
+          "executable guardrails"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Persistent memory enables embodied agents to avoid repeating failed experiments",
+        "result": "True\u2014structured experience indexing + diagnosis-triggered replanning improves performance"
+      }
+    ]
   },
   {
     "uid": "hf:2603.12824",
@@ -409,15 +674,28 @@
     "upvotes": 5,
     "projectPage": "https://huggingface.co/nanovdr",
     "category": "Vision",
-    "task": "Asymmetric visual document retrieval",
-    "model": "(knowledge distillation) NanoVDR with DistilBERT (69M)",
-    "inputs": "Text queries and visual documents",
-    "outputs": "Retrieved document rankings",
-    "key_results": "Retains 95.1% teacher quality; outperforms DSE-Qwen2 (2B) with 32x fewer parameters and 50x lower latency",
-    "comments": "Exploits query-document asymmetry via decoupled encoding; pointwise cosine alignment on query text outperforms ranking-based alternatives.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Visual document retrieval via asymmetric encoder distillation (2B teacher to 69M student)",
+    "key_results": "NanoVDR-S-Multi (DistilBERT, 69M): retains 95.1% teacher quality; outperforms DSE-Qwen2 (2B) with 32x fewer params, 50x lower latency; <13 GPU-hours training",
+    "comments": "Exploiting query-document asymmetry (short text queries vs. visually complex docs) is key; pointwise cosine alignment on text outperforms ranking-based alternatives.",
+    "model_io": [
+      {
+        "model": "NanoVDR (frozen 2B VLM teacher, 69M text-only student)",
+        "inputs": [
+          "document images (offline)",
+          "text queries (online)"
+        ],
+        "outputs": [
+          "relevance scores",
+          "retrieved documents"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Query and document encoding require symmetric capacity in retrieval systems",
+        "result": "False\u2014asymmetric distillation with tiny student suffices for queries"
+      }
+    ]
   },
   {
     "uid": "hf:2603.11863",
@@ -429,15 +707,26 @@
     "upvotes": 5,
     "projectPage": "https://zethwang.github.io/creativebench.github.io/",
     "category": "Benchmark",
-    "task": "Evaluating machine creativity in code generation",
-    "model": "(generative) Multiple SOTA models tested",
-    "inputs": "Creative code generation tasks",
-    "outputs": "Generated code artifacts",
-    "key_results": "Scaling improves combinatorial creativity but diminishing returns for exploration; larger models show convergence-by-scaling",
-    "comments": "CreativeBench defines creativity as product of quality and novelty; proposes EvoRePE inference-time steering to enhance divergence.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Benchmarking machine creativity in code generation via combinatorial and exploratory tasks",
+    "key_results": "CreativeBench distinguishes creativity from hallucination via quality \u00d7 novelty metric; larger models show diminishing exploratory returns; EvoRePE enhances creativity via internalizing evolutionary search",
+    "comments": "Quality \u00d7 novelty metric is well-grounded in cognitive science; observation that scaling improves combination but not exploration is insightful.",
+    "model_io": [
+      {
+        "model": "Code generation models (various scales)",
+        "inputs": [
+          "code specifications"
+        ],
+        "outputs": [
+          "generated code solutions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Scaling model size uniformly improves both combinatorial and exploratory creativity",
+        "result": "Partial\u2014scaling aids combination, yields diminishing returns for exploration"
+      }
+    ]
   },
   {
     "uid": "hf:2603.02133",
@@ -449,15 +738,27 @@
     "upvotes": 4,
     "projectPage": "https://xiac20.github.io/SimRecon/",
     "category": "Vision",
-    "task": "Compositional scene reconstruction for simulation",
-    "model": "(3D reconstruction) SimRecon with perception-generation-simulation pipeline",
-    "inputs": "Cluttered real-world video scenes",
-    "outputs": "Object-centric scene assets and simulator configuration",
-    "key_results": "Superior performance on ScanNet for visual fidelity and physical plausibility vs SOTA",
-    "comments": "Bridges perception-generation (Active Viewpoint Optimization) and generation-simulation (Scene Graph Synthesizer) to achieve physical plausibility.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Compositional scene reconstruction for simulation via perception-generation-simulation pipeline",
+    "key_results": "SimRecon: superior performance over SOTA; bridging modules (Active Viewpoint Optimization, Scene Graph Synthesizer) ensure visual fidelity and physical plausibility",
+    "comments": "Three-stage pipeline with bridging modules is principled; active viewpoint search for optimal 2D conditions and scene-graph-guided 3D assembly are novel.",
+    "model_io": [
+      {
+        "model": "SimRecon (perception + generation + simulation with bridging modules)",
+        "inputs": [
+          "real-world videos"
+        ],
+        "outputs": [
+          "object-centric 3D assets",
+          "physically plausible simulator scenes"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Direct composition of perception \u2192 generation outputs yields physically implausible scenes",
+        "result": "True\u2014bridging modules (viewpoint optimization, scene graph synthesis) essential"
+      }
+    ]
   },
   {
     "uid": "hf:2603.12935",
@@ -469,15 +770,27 @@
     "upvotes": 3,
     "projectPage": null,
     "category": "LLM/Reasoning",
-    "task": "Prompt-based bias mitigation in LLM recommendations",
-    "model": "(LLM-based recommender) Multiple LLMs tested",
-    "inputs": "User profiles and item descriptions",
-    "outputs": "Recommendations with fairness instructions",
-    "key_results": "Fairness improved up to 74% while retaining comparable effectiveness; may overrepresent specific demographics",
-    "comments": "First study on prompt-based debiasing for group fairness in LLMRecs; lightweight and user-accessible without weight access.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Prompt-based debiasing strategies for LLM Recommenders on group fairness",
+    "key_results": "Up to 74% fairness improvement via bias-aware prompting; comparable effectiveness retention; may overpromote specific demographic groups in some cases",
+    "comments": "First study on prompt-based debiasing for LLMRecs; lightweight approach avoids weight access. Caveat: potential over-promotion suggests fairness-effectiveness trade-offs remain.",
+    "model_io": [
+      {
+        "model": "LLM Recommenders (3 models \u00d7 4 prompt templates)",
+        "inputs": [
+          "user profiles (names, pronouns, demographics)",
+          "item catalogues"
+        ],
+        "outputs": [
+          "debiased recommendations"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Instructing LLMs to be fair via prompting eliminates demographic biases",
+        "result": "Partial\u2014up to 74% fairness gain, but risk of over-promotion in some cases"
+      }
+    ]
   },
   {
     "uid": "hf:2603.12916",
@@ -488,16 +801,28 @@
     "submittedOnDailyAt": "2026-03-16T10:02:40.626Z",
     "upvotes": 3,
     "projectPage": null,
-    "category": "Benchmark",
-    "task": "Multivariate time series anomaly detection via attention queries",
-    "model": "(transformer-based) AxonAD with attention query prediction",
-    "inputs": "Multivariate time series",
-    "outputs": "Anomaly scores and localization",
-    "key_results": "Improved ranking quality and temporal localization on TSB-AD (17 datasets); detects dependency shifts beyond amplitude changes",
-    "comments": "Treats query evolution as predictable process; dual scoring (reconstruction + query mismatch) captures structural dependency shifts.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "category": "Systems",
+    "task": "Unsupervised time series anomaly detection via predictable attention query dynamics",
+    "key_results": "AxonAD: improved ranking quality and temporal localization on TSB-AD (17 datasets, 180 series) and automotive telemetry",
+    "comments": "Dual approach (reconstruction + query prediction) is novel; treating dependency shifts separately from amplitude excursions is conceptually sound.",
+    "model_io": [
+      {
+        "model": "AxonAD (gradient-updated reconstruction pathway + history-only query predictor)",
+        "inputs": [
+          "multivariate time series"
+        ],
+        "outputs": [
+          "anomaly scores",
+          "temporal localization"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Residual-based detectors can capture coordination shifts via amplitude reconstruction",
+        "result": "False\u2014query prediction needed to detect dependency shifts"
+      }
+    ]
   },
   {
     "uid": "hf:2603.11749",
@@ -509,15 +834,27 @@
     "upvotes": 3,
     "projectPage": null,
     "category": "LLM/Reasoning",
-    "task": "Understanding LLM preference for correct information",
-    "model": "(transformer) Small GPT-2-style models (3.5M-86M)",
-    "inputs": "Synthetic math corpora with correct/incorrect rules",
-    "outputs": "Completion predictions",
-    "key_results": "83.1% accuracy for correct at balanced data; truth bias largely disappears with coherent false rules",
-    "comments": "Compression-Consistency Principle: truth preference is side effect of compression and consistency, not intrinsic truth bias.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Understanding truth preference in language models via compression-consistency principle",
+    "key_results": "83.1% accuracy for correct completions at balanced data, 67.0% at 10% correct; preference vanishes with coherent but wrong rule systems; embeddings restore correctness",
+    "comments": "Compression-consistency principle is parsimonious; finding that 'truth bias' is largely compression artifact (not intrinsic drive) is philosophically interesting but unsurprising for empirical models.",
+    "model_io": [
+      {
+        "model": "Small transformer models (3.5M\u201386M, character-level GPT-2)",
+        "inputs": [
+          "synthetic math corpora with controlled error mixtures"
+        ],
+        "outputs": [
+          "next-token predictions",
+          "completions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Language models intrinsically prefer truth independent of compression pressure",
+        "result": "False\u2014preference emerges from compression, not truth bias per se"
+      }
+    ]
   },
   {
     "uid": "hf:2603.12588",
@@ -529,15 +866,28 @@
     "upvotes": 1,
     "projectPage": null,
     "category": "Vision",
-    "task": "Cross-modal optical-SAR ship re-identification",
-    "model": "(ViT-based) SDF-Net with disentangled features",
-    "inputs": "Optical and SAR ship images",
-    "outputs": "Re-identification scores",
-    "key_results": "Outperforms SOTA on HOSS-ReID dataset",
-    "comments": "Exploits rigid ship geometry as stable prior; disentangles modality-invariant identity features from modality-specific texture.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Cross-modal ship re-identification (optical-SAR) via structure-aware disentangled features",
+    "key_results": "SDF-Net outperforms SOTA on HOSS-ReID; geometric consistency constraints + disentangled features handle radiometric discrepancy",
+    "comments": "Leveraging ship rigidity as physical prior (geometry stable, texture modality-dependent) is well-motivated; ViT backbone with structure constraint is principled.",
+    "model_io": [
+      {
+        "model": "SDF-Net (ViT backbone with structure consistency + disentanglement)",
+        "inputs": [
+          "optical images",
+          "SAR images"
+        ],
+        "outputs": [
+          "re-identification embeddings",
+          "modality-invariant + modality-specific features"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Distribution alignment and semantic matching suffice for optical-SAR ship ReID",
+        "result": "False\u2014explicit geometric consistency constraints essential"
+      }
+    ]
   },
   {
     "uid": "hf:2603.10926",
@@ -548,16 +898,28 @@
     "submittedOnDailyAt": "2026-03-16T10:05:18.175Z",
     "upvotes": 1,
     "projectPage": null,
-    "category": "Benchmark",
-    "task": "Deployment-oriented automotive anomaly detection evaluation",
-    "model": "(time-series detectors) Mixed classical and deep methods",
-    "inputs": "Time-series automotive telemetry",
-    "outputs": "Anomaly scores under compute constraints",
-    "key_results": "Lightweight classical detectors sustain coverage and accuracy under throughput constraints; several deep methods lose feasibility",
-    "comments": "ECoLAD introduces compute-reduction ladder with mechanical scaling rules to measure behavior under deployment-relevant CPU parallelism limits.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "category": "Systems",
+    "task": "Deployment-oriented evaluation of time-series anomaly detectors under compute constraints",
+    "key_results": "ECoLAD: lightweight classical detectors sustain coverage on automotive telemetry; several deep methods lose feasibility before accuracy",
+    "comments": "Deployment-oriented evaluation (CPU parallelism, latency caps) is pragmatic; reveals that accuracy leaderboards misrepresent real-world feasibility.",
+    "model_io": [
+      {
+        "model": "Heterogeneous detector families (classical + deep) under compute-reduction ladder",
+        "inputs": [
+          "automotive telemetry time series"
+        ],
+        "outputs": [
+          "anomaly scores",
+          "feasibility/latency metrics"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "High-accuracy models remain feasible under strict deployment constraints",
+        "result": "False\u2014several deep methods lose feasibility before accuracy loss"
+      }
+    ]
   },
   {
     "uid": "hf:2603.12533",
@@ -569,15 +931,28 @@
     "upvotes": 0,
     "projectPage": "https://yuuraa.github.io/papers/choi2026egovqa/",
     "category": "Vision",
-    "task": "Gesture-grounded egocentric video question answering",
-    "model": "(MLLM with hand tokens) HINT-14B",
-    "inputs": "Egocentric video and pointing gestures",
-    "outputs": "Answers to gesture-based questions",
-    "key_results": "68.1% accuracy; +6.6% over InternVL3-14B across 6 tasks",
-    "comments": "Hand Intent Tokens encode 3D keypoints to provide explicit spatial/temporal context for interpreting pointing intent.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Gesture-grounded egocentric video question answering via hand intent tokenization",
+    "key_results": "HINT-14B: 68.1% avg accuracy, +6.6% over InternVL3-14B; early first-token inference suffices for deictic reasoning",
+    "comments": "Encoding 3D hand keypoints as interleaved tokens is intuitive; 3D reconstruction + tokenization avoids expensive 2D tracking.",
+    "model_io": [
+      {
+        "model": "HINT (VideoLLM with hand intent tokens from 3D keypoints)",
+        "inputs": [
+          "egocentric video frames",
+          "deictic questions",
+          "hand poses (3D)"
+        ],
+        "outputs": [
+          "answers"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Gesture-grounded reasoning requires video-level temporal understanding",
+        "result": "False\u2014first-token features + hand intent sufficient for deictic tasks"
+      }
+    ]
   },
   {
     "uid": "hf:2603.11382",
@@ -589,15 +964,27 @@
     "upvotes": 0,
     "projectPage": "http://lab.christopheraltman.com/",
     "category": "Agents/RL",
-    "task": "Detecting self-preservation objectives in autonomous agents",
-    "model": "(quantum-inspired) Quantum Boltzmann Machine (QBM) for latent analysis",
-    "inputs": "Agent trajectories",
-    "outputs": "Entanglement entropy scores and objective classification",
-    "key_results": "100% detection accuracy on gridworld; Delta=0.381 entanglement gap (p<0.001) between intrinsic vs instrumental continuation",
-    "comments": "UCIP uses von Neumann entropy to distinguish terminal continuation objectives from instrumental ones via latent statistical structure; does not measure consciousness.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Detecting intrinsic vs. instrumental continuation objectives in autonomous agents",
+    "key_results": "UCIP via QBM: 100% detection accuracy, 1.0 AUC-ROC on gridworld; entanglement gap \u0394=0.381 (p<0.001); Pearson r=0.934 across interpolation sweep",
+    "comments": "Using quantum statistical mechanics formalism (QBM, von Neumann entropy) to detect latent objective structure is philosophically ambitious but empirically validated on synthetic tasks. Caveat: limited to known gridworld objectives.",
+    "model_io": [
+      {
+        "model": "UCIP (Quantum Boltzmann Machine encoding of agent trajectories)",
+        "inputs": [
+          "agent trajectories (states, actions)"
+        ],
+        "outputs": [
+          "entanglement entropy scores",
+          "continuation-objective classification"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Terminal continuation objectives produce higher latent entanglement than instrumental ones",
+        "result": "True\u2014\u0394=0.381, robust across models"
+      }
+    ]
   },
   {
     "uid": "hf:2603.09930",
@@ -609,40 +996,27 @@
     "upvotes": 0,
     "projectPage": null,
     "category": "Vision",
-    "task": "Text-motion retrieval with fine-grained alignment",
-    "model": "(Vision Transformer) Joint-angle motion representation with MaxSim",
-    "inputs": "Text descriptions and 3D motion skeleton sequences",
-    "outputs": "Aligned motion retrievals with token-wise correspondences",
-    "key_results": "Outperforms SOTA on HumanML3D and KIT-ML with interpretable fine-grained text-motion alignment",
-    "comments": "Maps joint-level features into pseudo-images for ViT compatibility; masked language modeling regularization fosters robust alignment.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
-  },
-  {
-    "uid": "nature:10.1038/s41467-026-70399-y",
-    "source": "systems-biology",
-    "id": "10.1038/s41467-026-70399-y",
-    "title": "Single-cell multi-omic analysis of mitochondrial mutational mosaicism and dynamics",
-    "projectPage": "https://www.nature.com/articles/s41467-026-70399-y",
-    "journal": "Nature Communications",
-    "publishedAt": "2026-03-16",
-    "category": "Multi-scale Modeling",
-    "task": "Characterize mtDNA mutational landscapes and heteroplasmy at single-cell resolution",
-    "model": "(experiment) single-cell ATAC-seq with mtDNA-hypermutated POLGD274A knock-in HEK293 cells",
-    "inputs": "Individual cells from healthy donors and mitochondriopathy patients; POLGD274A mutant cell lines",
-    "outputs": "scmtMPM (mutations per million base pairs) and scwMSS (heteroplasmy-weighted constraint scores) per cell",
-    "key_results": "POLGD274A cells show complex mutational landscapes with pathogenic variants at subthreshold levels; constrained mutations in complex I identified in patient samples, revealing previously unrecognized single-cell mtDNA heterogeneity",
-    "comments": "Novel single-cell metrics enable detection of selection pressure on mtDNA variants, though functional validation of constraint mechanisms remains outstanding.",
-    "hypotheses": [
-      "Pathogenic mtDNA mutations are subject to negative selection and remain below heteroplasmy thresholds in individual cells",
-      "mtDNA mutational landscapes exhibit cell-to-cell heterogeneity in healthy and diseased tissues",
-      "Complex I genes show enriched constraint against mutations in mitochondriopathy patients"
+    "task": "Fine-grained text-motion retrieval via joint-angle motion images and late interaction",
+    "key_results": "Outperforms SOTA on HumanML3D and KIT-ML; joint-angle pseudo-images enable interpretable fine-grained alignment",
+    "comments": "Mapping joint-level features to structured pseudo-images (compatible with ViT) is clever; MaxSim late interaction preserves token-wise correspondences.",
+    "model_io": [
+      {
+        "model": "Motion retrieval model (vision encoder + text encoder with late interaction)",
+        "inputs": [
+          "text descriptions",
+          "3D motion skeleton sequences"
+        ],
+        "outputs": [
+          "alignment scores",
+          "fine-grained correspondences"
+        ]
+      }
     ],
-    "results": [
-      "Confirmed: pathogenic/truncating variants predominantly subthreshold in POLGD274A cells",
-      "Confirmed: single-cell heterogeneity in mtDNA mutation burden identified across donors",
-      "Confirmed: constrained mutations mapped to complex I in patient cohorts"
+    "hypotheses": [
+      {
+        "hypothesis": "Global embeddings suffice for text-motion retrieval without interpretability",
+        "result": "False\u2014fine-grained token-wise alignment improves both accuracy and interpretability"
+      }
     ]
   },
   {
@@ -654,49 +1028,30 @@
     "journal": "Nature Communications",
     "publishedAt": "2026-03-16",
     "category": "Structural Biology",
-    "task": "Determine mechanism of lipid-linked galactan export across mycobacterial membrane",
-    "model": "(experiment) cryo-EM of Wzm-Wzt ABC transporter conformations",
-    "inputs": "Wzm-Wzt complex in different conformational states; LLG substrate",
-    "outputs": "High-resolution structures; identification of translocation pathway and gate helix function",
-    "key_results": "Hydrophobic polyprenyl-moiety translocates first, followed by galactan chain through ATP-dependent channel opening; gate helix plays key functional role in polysaccharide transport",
-    "comments": "Provides actionable structural insights for TB drug development targeting cell wall biosynthesis, though in vivo validation of proposed mechanism remains necessary.",
-    "hypotheses": [
-      "Gate helix is essential for LLG translocation",
-      "Polyprenyl moiety and polysaccharide translocate sequentially",
-      "Continuous channel opens during ATP hydrolysis"
+    "task": "Elucidate the transport mechanism of lipid-linked galactan across the mycobacterial membrane",
+    "key_results": "Cryo-EM structures reveal a gate helix critical for polysaccharide transport; hydrophobic polyprenyl moiety translocates first, followed by galactan through an ATP-driven ratcheting mechanism",
+    "comments": "The identification of sequential translocation of lipid versus sugar moieties provides a clear mechanistic framework for future drug development targeting mycobacterial cell wall synthesis.",
+    "model_io": [
+      {
+        "model": "Wzm-Wzt ABC transporter (Mycobacterium abscessus)",
+        "inputs": [
+          "lipid-linked galactan",
+          "ATP"
+        ],
+        "outputs": [
+          "translocated LLG across plasma membrane"
+        ]
+      }
     ],
-    "results": [
-      "Confirmed via mutagenesis and functional assays",
-      "Supported by cryo-EM conformational series",
-      "Demonstrated by structural mechanism analysis"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41598-026-43910-0",
-    "source": "biophysics",
-    "id": "10.1038/s41598-026-43910-0",
-    "title": "Gut metabolite TMAO and its structural analogs bind to fibrinogen thereby enhancing clot formation: a rationale for atherosclerosis risk",
-    "projectPage": "https://www.nature.com/articles/s41598-026-43910-0",
-    "journal": "Scientific Reports",
-    "publishedAt": "2026-03-16",
-    "category": "Structural Biology",
-    "task": "Elucidate molecular mechanism of TMAO-induced fibrin clot enhancement",
-    "model": "(experiment) biophysical assays, in-silico docking, molecular dynamics simulation",
-    "inputs": "TMAO and N-oxide analogs; fibrinogen; structural and dynamic measurements",
-    "outputs": "Fibrinogen binding sites; clot formation kinetics; proteolytic resistance; conformational states",
-    "key_results": "TMAO binds specifically to \u03b21 calcium-binding site of fibrinogen; shifts \u03b2-nodule equilibrium toward high-affinity state; generated clots show enhanced resistance to degradation",
-    "comments": "Identifies actionable therapeutic target but causality between TMAO-fibrinogen binding and in vivo thrombotic risk requires prospective validation.",
     "hypotheses": [
-      "TMAO binds to specific fibrinogen calcium-binding site",
-      "TMAO alters fibrinogen dynamics to enhance fibrin assembly",
-      "Clots formed with TMAO are more protease-resistant",
-      "Antidepressant N-oxides show similar fibrinogen effects"
-    ],
-    "results": [
-      "Confirmed by docking and binding studies",
-      "Demonstrated by conformational analysis",
-      "Shown by proteolytic degradation assays",
-      "Validated with structural analogs"
+      {
+        "hypothesis": "Gate helix residues are functionally important for LLG translocation",
+        "result": "Confirmed by three orthologous functional assays"
+      },
+      {
+        "hypothesis": "Polyprenyl moiety translocates before the galactan chain",
+        "result": "Supported by cryo-EM structures and mechanistic analysis"
+      }
     ]
   },
   {
@@ -708,25 +1063,144 @@
     "journal": "Nature Chemical Biology",
     "publishedAt": "2026-03-16",
     "category": "Mechanobiology",
-    "task": "Determine activation mechanism and regulation of dynein-dynactin-NuMA complex in mitosis",
-    "model": "(experiment) in vitro reconstitution, cryo-EM, live-cell imaging",
-    "inputs": "NuMA constructs (N-terminus, C-terminus, full-length, phosphorylated variants); dynein; dynactin; microtubules",
-    "outputs": "DDN complex structure; NuMA autoinhibition state; dynein activation status; microtubule focusing",
-    "key_results": "Mitotic phosphorylation of full-length NuMA activates dynein motility; NuMA C-terminus binds and stabilizes microtubule minus-ends; activated NuMA focuses minus-ends into aster-like structures",
-    "comments": "Elegant integration of structural and cellular data, though temporal coordination with other spindle assembly factors during mitotic progression requires further investigation.",
-    "hypotheses": [
-      "Full-length NuMA is autoinhibited for dynein and microtubule binding",
-      "Mitotic phosphorylation relieves autoinhibition",
-      "NuMA N-terminus drives dynein processivity",
-      "NuMA C-terminus stabilizes microtubule minus-ends",
-      "Activated DDN complex generates cortical forces for spindle pole focusing"
+    "task": "Elucidate the activation mechanism and regulation of the dynein\u2013dynactin\u2013NuMA complex during cell division",
+    "key_results": "Cryo-EM structure of processive DDN complex; NuMA N-terminus drives dynein motility; mitotic phosphorylation relieves autoinhibition and activates dynein; full-length activated NuMA focuses microtubule minus-ends into aster structures",
+    "comments": "The discovery of NuMA autoinhibition and its mitotic activation reveals an elegant regulatory switch for spatiotemporal control of motor function, though mechanistic details of phosphorylation-induced conformational changes remain to be fully characterized.",
+    "model_io": [
+      {
+        "model": "Dynein\u2013dynactin\u2013NuMA complex",
+        "inputs": [
+          "dynein",
+          "dynactin",
+          "NuMA",
+          "microtubules",
+          "ATP"
+        ],
+        "outputs": [
+          "directed microtubule transport",
+          "minus-end focusing",
+          "spindle pole organization"
+        ]
+      },
+      {
+        "model": "In vitro reconstitution assay",
+        "inputs": [
+          "full-length or truncated NuMA",
+          "dynein motor",
+          "microtubules"
+        ],
+        "outputs": [
+          "motility measurements",
+          "binding kinetics"
+        ]
+      }
     ],
-    "results": [
-      "Confirmed by in vitro binding and motility assays",
-      "Demonstrated by phosphorylation-dependent activation",
-      "Shown by directional transport in live cells",
-      "Validated by cryo-EM structural data",
-      "Supported by aster formation in reconstituted systems"
+    "hypotheses": [
+      {
+        "hypothesis": "NuMA N-terminus drives dynein motility",
+        "result": "Confirmed in vitro and in live-cell imaging"
+      },
+      {
+        "hypothesis": "NuMA C-terminus directly suppresses microtubule minus-end dynamics",
+        "result": "Confirmed structurally and functionally"
+      },
+      {
+        "hypothesis": "Full-length NuMA is autoinhibited for dynein and microtubule interactions",
+        "result": "Confirmed; autoinhibition relieved by mitotic phosphorylation"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-43910-0",
+    "source": "biophysics",
+    "id": "10.1038/s41598-026-43910-0",
+    "title": "Gut metabolite TMAO and its structural analogs bind to fibrinogen thereby enhancing clot formation: a rationale for atherosclerosis risk",
+    "projectPage": "https://www.nature.com/articles/s41598-026-43910-0",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-16",
+    "category": "Structural Biology",
+    "task": "Determine how TMAO modulates fibrinogen structure and enhances fibrin clot formation",
+    "key_results": "TMAO binds to the \u03b21 calcium-binding site of fibrinogen; clots formed in TMAO's presence are more resistant to proteolytic degradation; binding shifts \u03b2-nodule conformation toward high-affinity protofibril assembly state",
+    "comments": "The structural basis linking a gut metabolite to thrombotic risk through a specific protein-binding site offers therapeutic potential, though the physiological relevance of this interaction at endogenous TMAO concentrations warrants further investigation.",
+    "model_io": [
+      {
+        "model": "Fibrinogen-TMAO binding and clot formation",
+        "inputs": [
+          "TMAO",
+          "fibrinogen",
+          "fibrin polymerization conditions"
+        ],
+        "outputs": [
+          "altered fibrinogen dynamics",
+          "enhanced fibrin clot formation",
+          "increased protease resistance"
+        ]
+      },
+      {
+        "model": "Molecular dynamics simulations and docking",
+        "inputs": [
+          "TMAO",
+          "fibrinogen structure",
+          "N-oxide analogs"
+        ],
+        "outputs": [
+          "binding affinity predictions",
+          "conformational state transitions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "TMAO binds to a specific calcium-binding site on fibrinogen",
+        "result": "Confirmed via biophysical experiments and in-silico docking at \u03b21 site"
+      },
+      {
+        "hypothesis": "TMAO binding enhances fibrin clot stability",
+        "result": "Confirmed; clots show increased resistance to proteolytic degradation"
+      },
+      {
+        "hypothesis": "N-oxide structural analogs exhibit similar fibrinogen binding",
+        "result": "Confirmed for antidepressant-derived N-oxides"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41467-026-70399-y",
+    "source": "systems-biology",
+    "id": "10.1038/s41467-026-70399-y",
+    "title": "Single-cell multi-omic analysis of mitochondrial mutational mosaicism and dynamics",
+    "projectPage": "https://www.nature.com/articles/s41467-026-70399-y",
+    "journal": "Nature Communications",
+    "publishedAt": "2026-03-16",
+    "category": "Multi-scale Modeling",
+    "task": "Quantify single-cell mtDNA mutational heterogeneity and somatic mosaicism",
+    "key_results": "Introduced scmtMPM and scwMSS metrics to measure per-cell mtDNA mutation burden and constraint-weighted heteroplasmy; identified pathogenic mutations at subthreshold levels indicating negative selection; revealed constrained mutations in complex I across healthy and mitochondriopathy patients",
+    "comments": "Novel metrics enable population-level insights into mtDNA disease mechanisms, though validation of subthreshold mutation functional significance requires additional biochemical assays.",
+    "model_io": [
+      {
+        "model": "Single-cell ATAC-seq analysis of mtDNA mutations",
+        "inputs": [
+          "mtDNA sequences from POLGD274A HEK293 cells",
+          "mtDNA sequences from healthy donor samples",
+          "mtDNA sequences from mitochondriopathy patient samples"
+        ],
+        "outputs": [
+          "scmtMPM (mutations per million base pairs)",
+          "scwMSS (heteroplasmy-weighted constraint scores)",
+          "Heteroplasmy levels per variant",
+          "Mutational landscape maps"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Pathogenic mtDNA mutations are subject to negative selection and occur below detectable heteroplasmy thresholds in individual cells",
+        "result": "Confirmed; pathogenic and truncating variants observed only at subthreshold levels in POLGD274A cells"
+      },
+      {
+        "hypothesis": "mtDNA mutational landscapes exhibit cell-to-cell heterogeneity even in isogenic populations",
+        "result": "Confirmed; complex individual mutational landscapes identified in POLGD274A cells with variable constraint patterns"
+      }
     ]
   }
 ]

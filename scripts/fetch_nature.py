@@ -195,14 +195,14 @@ the input order. Use exactly these fields:
 
   category    : one of {categories}
   task        : the specific problem being solved (1 short phrase)
-  model       : theoretical framework or experimental system, e.g. "(tight-binding) Bose-Hubbard"
-                or "(experiment) optical lattice"; use "N/A" if not applicable
-  inputs      : what the system takes as input or initial conditions (1 short phrase)
-  outputs     : what is measured or derived (1 short phrase)
   key_results : 1-2 concrete quantitative results or main findings
   comments    : 1 sentence of your own perspective or a notable caveat
-  hypotheses  : JSON array of hypotheses or research questions tested (may be empty)
-  results     : JSON array of outcomes aligned to hypotheses (same length; may be empty)
+  model_io    : JSON array of {{"model": ..., "inputs": [...], "outputs": [...]}} objects
+                describing the experimental system or computational pipeline(s);
+                inputs and outputs are arrays of typed entities (molecules, signals,
+                measurements); may be empty []
+  hypotheses  : JSON array of {{"hypothesis": ..., "result": ...}} objects
+                for research questions tested and their outcomes; may be empty []
 
 Be terse. Do not add fields or wrap in markdown."""
 
@@ -257,6 +257,18 @@ def filter_items(items: list[ET.Element], target: date) -> list[ET.Element]:
     return [it for it in items if parse_item_date(it) == target]
 
 
+def _normalize_model_io(model_io: list[dict]) -> list[dict]:
+    """Ensure inputs/outputs in each model_io entry are lists, not strings."""
+    normalized = []
+    for entry in model_io:
+        normalized.append({
+            "model": entry.get("model", ""),
+            "inputs": entry["inputs"] if isinstance(entry.get("inputs"), list) else [entry["inputs"]] if entry.get("inputs") else [],
+            "outputs": entry["outputs"] if isinstance(entry.get("outputs"), list) else [entry["outputs"]] if entry.get("outputs") else [],
+        })
+    return normalized
+
+
 def extract_fields(
     papers: list[dict], categories: list[str], client: anthropic.Anthropic
 ) -> list[dict]:
@@ -278,7 +290,13 @@ def extract_fields(
     text = text_blocks[0].strip()
     if text.startswith("```"):
         text = text.split("\n", 1)[1].rsplit("```", 1)[0]
-    return json.loads(text)
+    result = json.loads(text)
+    if not isinstance(result, list) or not all(isinstance(e, dict) for e in result):
+        raise RuntimeError(f"Unexpected extraction response shape: {type(result).__name__}")
+    for entry in result:
+        if isinstance(entry.get("model_io"), list):
+            entry["model_io"] = _normalize_model_io(entry["model_io"])
+    return result
 
 
 def _scrape_feed(
@@ -347,13 +365,10 @@ def _extract_feed(
                 "publishedAt": paper["publishedAt"],
                 "category": fields.get("category", "Other"),
                 "task": fields.get("task", ""),
-                "model": fields.get("model", ""),
-                "inputs": fields.get("inputs", ""),
-                "outputs": fields.get("outputs", ""),
                 "key_results": fields.get("key_results", ""),
                 "comments": fields.get("comments", ""),
+                "model_io": fields.get("model_io") or [],
                 "hypotheses": fields.get("hypotheses") or [],
-                "results": fields.get("results") or [],
             }
         )
     return records

@@ -6,18 +6,38 @@
     "title": "AI Can Learn Scientific Taste",
     "publishedAt": "2026-03-15T16:31:51.000Z",
     "submittedOnDailyAt": "2026-03-17T01:14:04.187Z",
-    "upvotes": 228,
+    "upvotes": 242,
     "projectPage": "https://tongjingqi.github.io/AI-Can-Learn-Scientific-Taste/",
     "category": "LLM/Reasoning",
-    "task": "Learning scientific taste for high-impact research idea evaluation",
-    "model": "(transformer) Scientific Judge & Scientific Thinker (LLMs)",
-    "inputs": "Paper pairs (high vs low citation) and research ideas",
-    "outputs": "Preference scores for research ideas with estimated impact potential",
-    "key_results": "Scientific Judge outperforms GPT-4 and Gemini 3 Pro; Scientific Thinker proposes higher-impact ideas than baselines",
-    "comments": "Training paradigm addresses an underexplored aspect of AI science\u2014taste rather than execution\u2014though real-world impact validation awaits.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Learning scientific taste for high-impact research idea generation",
+    "key_results": "Scientific Judge outperforms GPT-5.2 and Gemini 3 Pro on citation-prediction; Scientific Thinker generates research ideas with higher potential impact than baselines",
+    "comments": "Novel application of preference modeling to scientific impact prediction, though citation count as ground truth may not fully capture true impact.",
+    "model_io": [
+      {
+        "model": "Scientific Judge (preference model)",
+        "inputs": [
+          "paper pairs (high vs low citation)"
+        ],
+        "outputs": [
+          "impact preference prediction"
+        ]
+      },
+      {
+        "model": "Scientific Thinker (policy, RLHF)",
+        "inputs": [
+          "research topic descriptions"
+        ],
+        "outputs": [
+          "research idea proposals"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "AI can learn scientific taste via community feedback signals",
+        "result": "Confirmed: Scientific Judge generalizes to future years, unseen fields, and peer-review preferences"
+      }
+    ]
   },
   {
     "uid": "hf:2603.15612",
@@ -26,38 +46,29 @@
     "title": "HSImul3R: Physics-in-the-Loop Reconstruction of Simulation-Ready Human-Scene Interactions",
     "publishedAt": "2026-03-16T17:58:33.000Z",
     "submittedOnDailyAt": "2026-03-17T03:13:58.307Z",
-    "upvotes": 138,
+    "upvotes": 142,
     "projectPage": "https://yukangcao.github.io/HSImul3R/",
     "category": "Vision",
-    "task": "Physics-aware 3D reconstruction of human-scene interactions for simulation",
-    "model": "(RL-based optimizer) Bi-directional optimization with physics simulator",
-    "inputs": "Sparse images or monocular videos of human-scene interactions",
-    "outputs": "Simulation-ready 3D reconstructions with stable contact and dynamics",
-    "key_results": "First stable HSI reconstructions deployable on humanoid robots; HSIBench benchmark introduced",
-    "comments": "Physics-in-the-loop supervision closes perception-simulation gap; real robot validation limited to initial tests.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
-  },
-  {
-    "uid": "hf:2603.15594",
-    "source": "hf",
-    "id": "2603.15594",
-    "title": "OpenSeeker: Democratizing Frontier Search Agents by Fully Open-Sourcing Training Data",
-    "publishedAt": "2026-03-16T17:52:04.000Z",
-    "submittedOnDailyAt": "2026-03-17T02:51:00.207Z",
-    "upvotes": 133,
-    "projectPage": null,
-    "category": "Agents/RL",
-    "task": "Open-source frontier-level web search agent training",
-    "model": "(transformer) LLM-based search agent with SFT",
-    "inputs": "Synthesized complex multi-hop QA tasks from web graph reverse-engineering",
-    "outputs": "Search actions and answers from web traversal",
-    "key_results": "11.7k samples achieve SOTA on BrowseComp (29.5% vs 15.3%), matching/exceeding industrial competitors",
-    "comments": "Democratization via open data and simple SFT is notable; scalability to truly complex real-world search unknown.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Physics-grounded 3D reconstruction of human-scene interactions from casual video",
+    "key_results": "First stable, simulation-ready HSI reconstructions; direct deployment to real-world humanoid robots",
+    "comments": "Strong physics-in-the-loop approach bridging perception-simulation gap, though limited to lab-scale validation.",
+    "model_io": [
+      {
+        "model": "Physics simulator + bi-directional optimizer",
+        "inputs": [
+          "sparse-view images or monocular video"
+        ],
+        "outputs": [
+          "stable 3D human pose and scene geometry"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Treating physics simulator as active supervisor improves stability and simulation readiness",
+        "result": "Confirmed: Produces first stable HSI reconstructions deployable to real robots"
+      }
+    ]
   },
   {
     "uid": "hf:2603.13594",
@@ -66,18 +77,64 @@
     "title": "EnterpriseOps-Gym: Environments and Evaluations for Stateful Agentic Planning and Tool Use in Enterprise Settings",
     "publishedAt": "2026-03-13T21:09:39.000Z",
     "submittedOnDailyAt": "2026-03-17T08:04:03.249Z",
-    "upvotes": 132,
+    "upvotes": 136,
     "projectPage": "https://enterpriseops-gym.github.io/",
     "category": "Agents/RL",
-    "task": "Evaluating agentic planning in realistic enterprise workflows",
-    "model": "(transformer) Claude Opus 4.5 and 13 other frontier models",
-    "inputs": "Stateful tasks with database tables, tools, and persistent state",
-    "outputs": "Task completion actions; success/failure on mission-critical workflows",
-    "key_results": "Top model (Claude 4.5) achieves 37.4% success; oracle plans improve by 14\u201335pp; refusal rate only 53.9%",
-    "comments": "Benchmark exposes critical safety gaps (poor refusal) and strategic reasoning bottlenecks; deployment readiness remains uncertain.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Evaluating agentic planning and tool use in realistic enterprise environments",
+    "key_results": "Claude Opus 4.5 achieves only 37.4% on 1,150 tasks; oracle plans improve performance by 14-35 pp; agents fail to refuse infeasible tasks 46.1% of the time",
+    "comments": "Valuable benchmark exposing critical safety gaps; strategic reasoning identified as primary bottleneck, suggesting current agents are premature for autonomous enterprise deployment.",
+    "model_io": [
+      {
+        "model": "14 frontier LLMs (Claude, GPT, Gemini, etc.)",
+        "inputs": [
+          "enterprise task descriptions, database schema, 512 functional tools"
+        ],
+        "outputs": [
+          "tool calls, database queries, task completion"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Strategic reasoning is the primary bottleneck in enterprise agentic planning",
+        "result": "Confirmed: oracle plans improve performance by 14-35 percentage points"
+      },
+      {
+        "hypothesis": "Current agents are ready for autonomous enterprise deployment",
+        "result": "Refuted: top model achieves only 37.4% success; agents frequently fail to refuse infeasible tasks"
+      }
+    ]
+  },
+  {
+    "uid": "hf:2603.15594",
+    "source": "hf",
+    "id": "2603.15594",
+    "title": "OpenSeeker: Democratizing Frontier Search Agents by Fully Open-Sourcing Training Data",
+    "publishedAt": "2026-03-16T17:52:04.000Z",
+    "submittedOnDailyAt": "2026-03-17T02:51:00.207Z",
+    "upvotes": 135,
+    "projectPage": null,
+    "category": "Agents/RL",
+    "task": "Open-source frontier search agent development with synthetic training data",
+    "key_results": "11.7k synthesized samples achieve SOTA on BrowseComp (29.5% vs 15.3%), BrowseComp-ZH (48.4% vs 46.7% Tongyi), outperforming larger industrial systems",
+    "comments": "Impressive data efficiency and full open-sourcing democratizes research; synthetic trajectory refinement is key innovation.",
+    "model_io": [
+      {
+        "model": "OpenSeeker (SFT on synthetic data)",
+        "inputs": [
+          "user queries, web graph topology"
+        ],
+        "outputs": [
+          "search actions, ranked documents"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "High-quality synthetic data can match industrial search agent performance",
+        "result": "Confirmed: 11.7k samples achieve SOTA, surpassing much larger proprietary systems"
+      }
+    ]
   },
   {
     "uid": "hf:2603.15583",
@@ -86,18 +143,29 @@
     "title": "Grounding World Simulation Models in a Real-World Metropolis",
     "publishedAt": "2026-03-16T17:46:04.000Z",
     "submittedOnDailyAt": "2026-03-17T02:23:54.611Z",
-    "upvotes": 118,
+    "upvotes": 123,
     "projectPage": "https://seoul-world-model.github.io/",
     "category": "Generative",
-    "task": "City-scale world model grounded in real Seoul street-view imagery",
-    "model": "(transformer) Autoregressive video diffusion with retrieval conditioning",
-    "inputs": "Street-view images, camera trajectories, text prompts",
-    "outputs": "Spatially faithful, temporally consistent long-horizon urban videos",
-    "key_results": "Outperforms recent video world models over hundreds of meters; supports diverse camera movements and text variations",
-    "comments": "Grounding to real cities is innovative; evaluation limited to three cities and street-view perspective bias unknown.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "City-scale autoregressive video generation grounded in real Seoul streets",
+    "key_results": "Generates spatially faithful, temporally consistent videos over 100+ meter trajectories; outperforms recent video world models on three cities",
+    "comments": "Novel retrieval-augmented conditioning approach with cross-temporal pairing is elegant; evaluation limited to urban street scenes.",
+    "model_io": [
+      {
+        "model": "Seoul World Model (autoregressive video diffusion)",
+        "inputs": [
+          "street-view image conditioning, camera trajectory, optional text prompts"
+        ],
+        "outputs": [
+          "long-horizon video frames (100+ meters)"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Retrieval-augmented conditioning enables realistic city-scale video grounding",
+        "result": "Confirmed: generates spatially faithful long-horizon videos matching real urban environments"
+      }
+    ]
   },
   {
     "uid": "hf:2603.15031",
@@ -106,18 +174,29 @@
     "title": "Attention Residuals",
     "publishedAt": "2026-03-16T09:32:21.000Z",
     "submittedOnDailyAt": "2026-03-17T02:50:26.660Z",
-    "upvotes": 86,
+    "upvotes": 99,
     "projectPage": null,
     "category": "Systems",
-    "task": "Efficient residual connection aggregation via learned depth-wise attention",
-    "model": "(transformer) Attention Residuals (AttnRes) + Block AttnRes variant",
-    "inputs": "Layer outputs across transformer depth",
-    "outputs": "Content-dependent aggregated hidden states with controlled scaling",
-    "key_results": "Consistent improvement across model sizes; 3B active params outperform dense baselines; Kimi 48B achieves gains on all tasks",
-    "comments": "Addresses PreNorm dilution elegantly; practical overhead (cache + communication) well-mitigated by Block variant.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Efficient residual connection design for deep LLMs via learned depth-wise aggregation",
+    "key_results": "Consistent improvements across model sizes; Block AttnRes integrates into 48B-param Kimi with 1.4T token pre-training; more uniform gradients across depth",
+    "comments": "Principled approach to addressing PreNorm dilution with minimal overhead; practical for large-scale training.",
+    "model_io": [
+      {
+        "model": "Attention Residuals / Block AttnRes",
+        "inputs": [
+          "layer hidden states across depth"
+        ],
+        "outputs": [
+          "adaptively aggregated residual updates"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Softmax attention over layer outputs mitigates PreNorm dilution better than uniform accumulation",
+        "result": "Confirmed: more uniform output magnitudes and gradient distribution; downstream improvements across all tasks"
+      }
+    ]
   },
   {
     "uid": "hf:2603.15619",
@@ -126,18 +205,29 @@
     "title": "Mixture-of-Depths Attention",
     "publishedAt": "2026-03-16T17:59:55.000Z",
     "submittedOnDailyAt": "2026-03-17T05:41:06.756Z",
-    "upvotes": 60,
+    "upvotes": 67,
     "projectPage": "https://github.com/hustvl/MoDA",
     "category": "Systems",
-    "task": "Depth scaling via mixture-of-depths attention mechanism",
-    "model": "(transformer) Mixture-of-Depths Attention (MoDA) in attention heads",
-    "inputs": "Current layer KV pairs and depth KV pairs from preceding layers",
-    "outputs": "Attended representations mitigating signal degradation",
-    "key_results": "0.2 perplexity improvement across 10 benchmarks; 2.11% downstream task gain; 97.3% FlashAttention-2 efficiency",
-    "comments": "Hardware-efficient algorithm is strong; post-norm pairing preference differs from standard practice and warrants investigation.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Attending over both current and preceding layer KV pairs to preserve features in deep LLMs",
+    "key_results": "0.2 perplexity improvement across 10 validation benchmarks; 2.11% downstream task improvement; 97.3% FlashAttention-2 efficiency at 64K length",
+    "comments": "Hardware-efficient solution to signal degradation in depth scaling; combines MoDA with post-norm for best results.",
+    "model_io": [
+      {
+        "model": "Mixture-of-Depths Attention (MoDA)",
+        "inputs": [
+          "sequence KV pairs at current layer, depth KV from preceding layers"
+        ],
+        "outputs": [
+          "attended features with preserved shallow-layer signals"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Attention heads can selectively preserve features from earlier layers to combat signal dilution",
+        "result": "Confirmed: consistent perplexity and downstream improvements; post-norm combination yields best results"
+      }
+    ]
   },
   {
     "uid": "hf:2603.15590",
@@ -149,15 +239,26 @@
     "upvotes": 31,
     "projectPage": null,
     "category": "Systems",
-    "task": "Distilling transformer LLMs into xLSTM sub-quadratic architectures",
-    "model": "(recurrent) xLSTM student; distilled from Llama, Qwen, Olmo teachers",
-    "inputs": "Teacher model activations and task labels",
-    "outputs": "Compressed xLSTM-based student models with merging stage",
-    "key_results": "Recovers most teacher performance; some tasks exceed teacher; lossless distillation framework introduced",
-    "comments": "Addresses efficiency\u2013performance tradeoff; limited analysis of which tasks benefit most from recurrent architectures.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Lossless distillation of transformer LLMs into xLSTM linearized architectures",
+    "key_results": "xLSTM students recover most teacher performance, exceeding on some tasks; effective across Llama, Qwen, Olmo families",
+    "comments": "Merging stage for linearized experts is novel; achieves energy-efficient replacements but with task-dependent trade-offs.",
+    "model_io": [
+      {
+        "model": "xLSTM student (distilled from transformer teacher)",
+        "inputs": [
+          "teacher outputs, training data"
+        ],
+        "outputs": [
+          "linearized model predictions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "xLSTM students can achieve lossless distillation via merging stage",
+        "result": "Confirmed: recover most teacher performance and exceed on some downstream tasks"
+      }
+    ]
   },
   {
     "uid": "hf:2603.15557",
@@ -169,15 +270,26 @@
     "upvotes": 26,
     "projectPage": null,
     "category": "Vision",
-    "task": "Diagnosing hallucinations in vision-language models via interpretable cognitive state space",
-    "model": "(transformer) VLM with information-theoretic probes",
-    "inputs": "VLM generation trajectory (layer-wise representations)",
-    "outputs": "Hallucination detection and attribution to perceptual, logical, or decisional pathologies",
-    "key_results": "SOTA hallucination detection on POPE, MME, MS-COCO; geometric-information duality principle discovered",
-    "comments": "Novel cognitive-science framing is elegant; generalization to newer VLM architectures and real-world misinformation unknown.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Diagnosing hallucinations in VLMs via geometric-information duality in cognitive state space",
+    "key_results": "SOTA hallucination detection across POPE, MME, MS-COCO; 96% agreement with human preferences; identifies three pathological states (perceptual instability, logical-causal failure, decisional ambiguity)",
+    "comments": "Innovative information-theoretic framework linking geometry to surprisal; enables causal attribution of failures.",
+    "model_io": [
+      {
+        "model": "Information-theoretic diagnostic probes",
+        "inputs": [
+          "VLM generation trajectory"
+        ],
+        "outputs": [
+          "cognitive state space projection, hallucination detection, causal pathology attribution"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Geometric abnormality in cognitive state space is equivalent to information-theoretic surprisal",
+        "result": "Confirmed: geometric-information duality principle holds; enables efficient hallucination detection"
+      }
+    ]
   },
   {
     "uid": "hf:2603.15478",
@@ -189,15 +301,57 @@
     "upvotes": 23,
     "projectPage": null,
     "category": "Generative",
-    "task": "Video-free tuning of video diffusion transformers via 2D image adaptation",
-    "model": "(transformer) DiT-based video diffusion with architectural reparameterization",
-    "inputs": "2D image data; sparse video control signals at inference",
-    "outputs": "Controllable and temporally consistent video generation/editing",
-    "key_results": "Achieves video control without video training data; maintains temporal consistency with minimal parameters",
-    "comments": "Data-efficient approach is practical; video-free tuning limits fine-grained motion quality compared to video-trained baselines.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Video-free tuning of video diffusion transformers using only 2D image data",
+    "key_results": "Versatile controllable video generation and editing without video training data; maintains temporal consistency with minimal parameters",
+    "comments": "Clever decoupling of spatial and temporal attention via reparameterization; practical for data-scarce scenarios.",
+    "model_io": [
+      {
+        "model": "ViFeEdit (reparameterized video DiT)",
+        "inputs": [
+          "2D images, conditioning signals"
+        ],
+        "outputs": [
+          "controllable video generation/editing with temporal consistency"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Architectural reparameterization can decouple spatial and temporal attention for efficient video tuning",
+        "result": "Confirmed: achieves temporal consistency while training only on 2D images with minimal parameters"
+      }
+    ]
+  },
+  {
+    "uid": "hf:2603.10505",
+    "source": "hf",
+    "id": "2603.10505",
+    "title": "Safe and Scalable Web Agent Learning via Recreated Websites",
+    "publishedAt": "2026-03-11T07:58:53.000Z",
+    "submittedOnDailyAt": "2026-03-17T00:51:18.089Z",
+    "upvotes": 22,
+    "projectPage": "https://huggingface.co/spaces/hyungjoochae/verienv-project-page",
+    "category": "Agents/RL",
+    "task": "Training web agents safely via automatically cloned verifiable synthetic websites",
+    "key_results": "Agents generalize to unseen websites, achieve site-specific mastery via self-evolution, benefit from scaling environments",
+    "comments": "Elegant solution treating LMs as environment creators; deterministic verifiable rewards eliminate heuristic judges.",
+    "model_io": [
+      {
+        "model": "Web agent (trained in VeriEnv synthetic environments)",
+        "inputs": [
+          "cloned website state, task description"
+        ],
+        "outputs": [
+          "web actions with deterministic verifiable rewards"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Agents trained on synthetic cloned websites generalize to real websites",
+        "result": "Confirmed: generalize to unseen websites and self-evolve through environment expansion"
+      }
+    ]
   },
   {
     "uid": "hf:2603.14769",
@@ -209,35 +363,26 @@
     "upvotes": 21,
     "projectPage": null,
     "category": "LLM/Reasoning",
-    "task": "Stochastic generative optimization of complex systems (prompts, agents, code)",
-    "model": "(transformer) LLM optimizer with priority-queue and \u03b5-Net diversity",
-    "inputs": "Numerical rewards, text feedback, candidate solutions",
-    "outputs": "Optimized system configurations with theoretical convergence guarantees",
-    "key_results": "Convergence proof under stochasticity; SOTA on \u03c4-bench, HotpotQA, VeriBench, KernelBench",
-    "comments": "Theoretical framework is solid; sample efficiency gains over RL baselines are significant.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
-  },
-  {
-    "uid": "hf:2603.10505",
-    "source": "hf",
-    "id": "2603.10505",
-    "title": "Safe and Scalable Web Agent Learning via Recreated Websites",
-    "publishedAt": "2026-03-11T07:58:53.000Z",
-    "submittedOnDailyAt": "2026-03-17T00:51:18.089Z",
-    "upvotes": 21,
-    "projectPage": "https://huggingface.co/spaces/hyungjoochae/verienv-project-page",
-    "category": "Agents/RL",
-    "task": "Safe web agent training via cloned, verifiable synthetic websites",
-    "model": "(transformer) LLM agent learning from auto-generated Python SDK environments",
-    "inputs": "Real website clones as executable environments; self-generated tasks",
-    "outputs": "Agent actions with deterministic, programmatically verifiable rewards",
-    "key_results": "Agents generalize to unseen real sites; site-specific mastery via self-evolution; scales with environment count",
-    "comments": "Decoupling from unsafe real-world interaction is valuable; generalization to dynamically updated sites untested.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Stochastic generative optimization of complex systems via LLM-guided exploration",
+    "key_results": "POLCA converges to near-optimal solutions under stochasticity; SOTA on \u03c4-bench, HotpotQA, VeriBench, KernelBench",
+    "comments": "Principled framework handling optimization stochasticity; priority queue and LLM summarizer enable efficient search.",
+    "model_io": [
+      {
+        "model": "POLCA (LLM optimizer with reward feedback)",
+        "inputs": [
+          "numerical rewards, text feedback, candidate solutions"
+        ],
+        "outputs": [
+          "optimized system configuration"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "POLCA converges to near-optimal solutions under stochasticity with priority queuing",
+        "result": "Confirmed: theoretical convergence proof; SOTA across diverse benchmarks"
+      }
+    ]
   },
   {
     "uid": "hf:2603.12529",
@@ -249,15 +394,26 @@
     "upvotes": 18,
     "projectPage": "https://terminator-llm.github.io/",
     "category": "LLM/Reasoning",
-    "task": "Learning optimal early-exit points for chain-of-thought reasoning",
-    "model": "(transformer) LRM with learned exit strategy (TERMINATOR)",
-    "inputs": "CoT intermediate reasoning tokens",
-    "outputs": "Exit decision to terminate reasoning early",
-    "key_results": "14\u201355% reduction in CoT length; maintains or improves accuracy on MATH-500, AIME 2025, HumanEval, GPQA",
-    "comments": "Addresses computational waste in LRMs; depends on consistent answer positioning which may vary with task.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Predicting and learning optimal early-stopping points in chain-of-thought reasoning",
+    "key_results": "14%-55% CoT length reduction while maintaining or outperforming performance on MATH-500, AIME 2025, HumanEval, GPQA",
+    "comments": "Pragmatic approach leveraging first answer arrival; significant compute savings for reasoning models.",
+    "model_io": [
+      {
+        "model": "TERMINATOR (early-exit predictor)",
+        "inputs": [
+          "LRM reasoning tokens"
+        ],
+        "outputs": [
+          "optimal stopping decision"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "First answer arrival in CoT is predictable and indicates optimal reasoning length",
+        "result": "Confirmed: 14%-55% length reduction achievable with performance parity"
+      }
+    ]
   },
   {
     "uid": "hf:2603.13391",
@@ -269,15 +425,26 @@
     "upvotes": 17,
     "projectPage": "https://webvr-benchmark.github.io/",
     "category": "Vision",
-    "task": "Benchmarking multimodal LLMs for webpage recreation from demonstration videos",
-    "model": "(transformer) MLLM with visual rubric evaluation",
-    "inputs": "Demonstration videos of webpages",
-    "outputs": "Reconstructed HTML/CSS webpage code",
-    "key_results": "Best model 64% accuracy; human-aligned rubric achieves 96% agreement; systematic gaps in fine-grained style/motion",
-    "comments": "First video-to-webpage benchmark; controlled synthesis avoids real-world data noise but limits diversity.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Evaluating multimodal LLMs on webpage recreation fidelity from demonstration videos",
+    "key_results": "19 models evaluated; gaps in fine-grained style and motion quality; rubric-based evaluation achieves 96% human agreement",
+    "comments": "First benchmark for video-conditioned webpage generation; 175 synthetic webpages ensure reproducibility.",
+    "model_io": [
+      {
+        "model": "Multimodal LLMs (19 models tested)",
+        "inputs": [
+          "demonstration video of webpage interaction"
+        ],
+        "outputs": [
+          "HTML/CSS/JS recreation"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Video-conditioned generation enables faithful webpage recreation",
+        "result": "Confirmed: videos convey interaction flow better than static inputs; human-aligned rubric at 96% agreement"
+      }
+    ]
   },
   {
     "uid": "hf:2603.14610",
@@ -289,15 +456,57 @@
     "upvotes": 16,
     "projectPage": "https://harel314.github.io/SING-analyzing-semantic-invariants-classifiers/",
     "category": "Vision",
-    "task": "Interpreting classifier invariants via semantic null-space geometry",
-    "model": "(CNN/ViT) Semantic Interpretation of Null-space Geometry (SING)",
-    "inputs": "Single or sets of images",
-    "outputs": "Equivalent images with natural language semantic interpretations",
-    "key_results": "ResNet50 leaks semantic attributes; DinoViT (ViT-DINO) maintains class semantics better",
-    "comments": "Interpretability method is novel; real-world bias detection applications under-explored.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Interpreting classifier invariants and semantic content via null-space geometry",
+    "key_results": "ResNet50 leaks semantic attributes to null space; DinoViT better maintains class semantics; provides natural language descriptions of invariant variations",
+    "comments": "Novel application of multimodal VLMs to interpret classifier geometry; reveals important semantic leakage in standard models.",
+    "model_io": [
+      {
+        "model": "SING (semantic null-space interpreter)",
+        "inputs": [
+          "classifier, input image or image set"
+        ],
+        "outputs": [
+          "equivalent images, natural language semantic descriptions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Vision-language models can interpret semantic content of classifier null-space invariants",
+        "result": "Confirmed: provides human-interpretable descriptions; reveals model differences (ResNet vs DinoViT)"
+      }
+    ]
+  },
+  {
+    "uid": "hf:2603.14347",
+    "source": "hf",
+    "id": "2603.14347",
+    "title": "Motivation in Large Language Models",
+    "publishedAt": "2026-03-15T12:30:36.000Z",
+    "submittedOnDailyAt": "2026-03-17T06:55:59.489Z",
+    "upvotes": 12,
+    "projectPage": null,
+    "category": "LLM/Reasoning",
+    "task": "Examining whether LLMs exhibit motivation-like constructs affecting behavior",
+    "key_results": "Self-reported motivation aligns with behavioral signatures, varies across task types, can be modulated by external factors; mirrors human psychology",
+    "comments": "Intriguing psychological perspective on LLM behavior; raises questions about anthropomorphization vs genuine information structure.",
+    "model_io": [
+      {
+        "model": "LLMs (queried for motivation and task behavior)",
+        "inputs": [
+          "task prompts, motivation elicitation prompts"
+        ],
+        "outputs": [
+          "motivation reports, task performance metrics"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "LLMs exhibit motivation-like constructs organizing behavior similarly to human psychology",
+        "result": "Confirmed: motivation reports correlate with performance, effort, and choice patterns"
+      }
+    ]
   },
   {
     "uid": "hf:2603.15500",
@@ -309,35 +518,57 @@
     "upvotes": 11,
     "projectPage": null,
     "category": "LLM/Reasoning",
-    "task": "Understanding reasoning mechanisms via information-theoretic epistemic verbalization",
-    "model": "(transformer) LLM with procedural vs. epistemic decomposition",
-    "inputs": "Intermediate reasoning tokens during generation",
-    "outputs": "Uncertainty externalization signals and information acquisition measures",
-    "key_results": "Strong reasoning driven by uncertainty externalization, not surface tokens; unified Aha-moment interpretation",
-    "comments": "Information-theoretic framework clarifies reasoning dynamics; causality claims await targeted interventions.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Understanding reasoning mechanisms via epistemic verbalization and information-theoretic decomposition",
+    "key_results": "Epistemic verbalization (uncertainty externalization) drives reasoning performance over surface tokens; enables information acquisition and sufficiency",
+    "comments": "Principled information-theoretic framework unifying Aha moment phenomena; emphasizes uncertainty over specific token patterns.",
+    "model_io": [
+      {
+        "model": "LLM reasoning process",
+        "inputs": [
+          "problem statements"
+        ],
+        "outputs": [
+          "reasoning trajectory with procedural and epistemic components"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Uncertainty externalization (epistemic verbalization) is critical for reasoning, not specific surface tokens",
+        "result": "Confirmed: strong reasoning driven by externalized uncertainty; unifies prior Aha moment findings"
+      }
+    ]
   },
   {
-    "uid": "hf:2603.14347",
+    "uid": "hf:2603.13428",
     "source": "hf",
-    "id": "2603.14347",
-    "title": "Motivation in Large Language Models",
-    "publishedAt": "2026-03-15T12:30:36.000Z",
-    "submittedOnDailyAt": "2026-03-17T06:55:59.489Z",
-    "upvotes": 10,
-    "projectPage": null,
-    "category": "LLM/Reasoning",
-    "task": "Measuring motivation in large language models",
-    "model": "(transformer) LLM with self-reported motivation analysis",
-    "inputs": "Task descriptions; external manipulations (e.g., framing)",
-    "outputs": "Motivation reports and behavioral signatures",
-    "key_results": "Structured patterns echo human psychology; motivation aligns with behavior, varies by task, modulates with context",
-    "comments": "Motivation as organizing construct for model behavior is insightful; anthropomorphization concerns merit caution.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "id": "2603.13428",
+    "title": "EvoClaw: Evaluating AI Agents on Continuous Software Evolution",
+    "publishedAt": "2026-03-13T03:20:40.000Z",
+    "submittedOnDailyAt": "2026-03-17T03:27:54.666Z",
+    "upvotes": 11,
+    "projectPage": "https://evo-claw.com/",
+    "category": "Agents/RL",
+    "task": "Evaluating AI agents on continuous long-term software evolution with technical debt",
+    "key_results": "12 frontier models drop from >80% isolated task performance to \u226438% in continuous settings; exposes profound struggles with error propagation",
+    "comments": "Important benchmark revealing critical gap; most agents fail at long-term maintenance despite strong one-off capabilities.",
+    "model_io": [
+      {
+        "model": "12 frontier models + 4 agent frameworks",
+        "inputs": [
+          "software milestone sequences with dependencies"
+        ],
+        "outputs": [
+          "code generation maintaining system integrity over time"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Agents capable on isolated tasks fail on continuous software evolution",
+        "result": "Confirmed: 40-50 percentage point performance drop in continuous vs isolated settings"
+      }
+    ]
   },
   {
     "uid": "hf:2603.15611",
@@ -349,15 +580,26 @@
     "upvotes": 9,
     "projectPage": "https://zju-real.github.io/Code-A1/",
     "category": "Agents/RL",
-    "task": "Adversarial co-evolution of code and test generation via self-play",
-    "model": "(transformer) Code LLM and Test LLM with opposing RL objectives",
-    "inputs": "Code generation tasks; test suite generation constraints",
-    "outputs": "Code implementations and adversarial test cases",
-    "key_results": "Matches human-annotated test performance; 6x parameter efficiency; eliminates self-collusion vs. prior self-play",
-    "comments": "Architectural separation prevents self-collusion; white-box test generation enables targeted adversarial testing.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Adversarial co-evolution of code and test generation LLMs via competing RL objectives",
+    "key_results": "Code-A1 matches or exceeds performance of models trained on human-annotated tests; eliminates self-collusion in self-play; improves test generation",
+    "comments": "Elegant solution to self-play dilemma via architectural separation; Mistake Book mechanism for experience replay is practical.",
+    "model_io": [
+      {
+        "model": "Code LLM + Test LLM (adversarial)",
+        "inputs": [
+          "code generation tasks"
+        ],
+        "outputs": [
+          "candidate code, adversarial test cases"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Adversarial code-test co-evolution avoids self-collusion and generates higher-quality tests",
+        "result": "Confirmed: matches human-test performance; Test LLM generates targeted adversarial tests"
+      }
+    ]
   },
   {
     "uid": "hf:2603.15563",
@@ -369,15 +611,26 @@
     "upvotes": 9,
     "projectPage": "https://pokeagentchallenge.com/",
     "category": "Benchmark",
-    "task": "Large-scale competitive and long-context reasoning benchmark via Pokemon",
-    "model": "(RL/LLM) Heterogeneous baselines: heuristic, RL, LLM agents",
-    "inputs": "Partial-observable game state (Battling); RPG environment (Speedrunning)",
-    "outputs": "Competitive actions; long-horizon quest plans",
-    "key_results": "100+ teams competed; LLM, RL, human performance gaps evident; nearly orthogonal to standard LLM benchmarks",
-    "comments": "Living benchmark and leaderboard valuable; Pokemon orthogonality to MMLU-style evals highlights complementary reasoning.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Large-scale competitive and long-context decision-making via Pokemon battles and speedrunning",
+    "key_results": "100+ competition teams; 20M+ battle trajectories; shows orthogonality between Pokemon and standard LLM benchmarks; considerable gaps to human elite play",
+    "comments": "High-quality living benchmark; partial observability and long-horizon planning remain open problems.",
+    "model_io": [
+      {
+        "model": "RL baselines, LLM-based agents, heuristic agents",
+        "inputs": [
+          "game state (battles) or RPG environment (speedrunning)"
+        ],
+        "outputs": [
+          "battle decisions or game actions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Pokemon benchmarks measure orthogonal capabilities to standard LLM evaluation suites",
+        "result": "Confirmed: BenchPress analysis shows near-orthogonality; unsolved benchmark for future research"
+      }
+    ]
   },
   {
     "uid": "hf:2603.15558",
@@ -389,15 +642,26 @@
     "upvotes": 9,
     "projectPage": "https://zixinzhang02.github.io/Panoramic-Affordance-Prediction/",
     "category": "Vision",
-    "task": "Affordance prediction from 360-degree panoramic imagery",
-    "model": "(ViT-based) Coarse-to-fine panoramic affordance predictor (PAP)",
-    "inputs": "12K ultra-high-resolution panoramic images",
-    "outputs": "Instance-level affordance masks and QA predictions",
-    "key_results": "PAP-12K benchmark introduced; existing methods fail; PAP outperforms baselines on panoramic affordance",
-    "comments": "First panoramic affordance work; PAP's training-free design is elegant but evaluation limited to synthetic PAP-12K.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Affordance prediction from 360-degree panoramic imagery with coarse-to-fine visual routing",
+    "key_results": "PAP outperforms SOTA methods on ultra-high-resolution panoramic images; existing affordance methods fail on panoramic vision; introduces PAP-12K benchmark with 12k QA pairs",
+    "comments": "Novel panoramic affordance prediction task; foveal visual system inspiration is elegant for handling extreme resolution.",
+    "model_io": [
+      {
+        "model": "PAP (coarse-to-fine panoramic affordance predictor)",
+        "inputs": [
+          "12k ultra-high-resolution panoramic images"
+        ],
+        "outputs": [
+          "affordance masks, instance segmentation"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Panoramic imagery improves affordance prediction via holistic context",
+        "result": "Confirmed: existing methods fail on panoramic vision; PAP handles ultra-high resolution effectively"
+      }
+    ]
   },
   {
     "uid": "hf:2603.15016",
@@ -409,15 +673,26 @@
     "upvotes": 9,
     "projectPage": "https://frank-miao.github.io/RMG-Project-Page/",
     "category": "Generative",
-    "task": "Human motion generation via Riemannian manifold representation",
-    "model": "(flow matching) Riemannian Motion Generation (RMG) on product manifolds",
-    "inputs": "Text prompts or motion seed",
-    "outputs": "Skeletal motion sequences on learned manifold",
-    "key_results": "SOTA FID (0.043 HumanML3D); R@1 0.86 on MotionMillion; T+R factorization most stable",
-    "comments": "Geometry-aware modeling is principled; manifold structure improves sample efficiency and intrinsic normalization.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Human motion generation via Riemannian manifold representation and flow matching",
+    "key_results": "SOTA FID on HumanML3D (0.043); state-of-the-art on MotionStreamer format; FID 5.6, R@1 0.86 on MotionMillion",
+    "comments": "Principled geometry-aware approach; scale-free representation with intrinsic normalization is theoretically motivated.",
+    "model_io": [
+      {
+        "model": "RMG (Riemannian flow matching)",
+        "inputs": [
+          "text descriptions or motion conditioning"
+        ],
+        "outputs": [
+          "human motion sequences on product manifold"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Riemannian manifold representation captures motion geometry better than Euclidean space",
+        "result": "Confirmed: T+R (translation+rotations) factorization most stable; SOTA FID and metrics"
+      }
+    ]
   },
   {
     "uid": "hf:2603.14145",
@@ -429,15 +704,26 @@
     "upvotes": 9,
     "projectPage": "https://huggingface.co/datasets/nvidia/MMOU",
     "category": "Benchmark",
-    "task": "Evaluating multimodal understanding and reasoning over long, complex videos",
-    "model": "(MLLM) 20+ state-of-the-art open/closed-source models evaluated",
-    "inputs": "Long web-collected videos with audio-visual content",
-    "outputs": "Multi-turn QA answers requiring omni-modal reasoning",
-    "key_results": "Best closed-source 64.2%; best open-source 46.8%; systematic failure modes on long-form videos",
-    "comments": "MMOU addresses real gap in video benchmarking; taxonomy of failures (temporal reasoning, modality integration) valuable.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Evaluating multimodal LLMs on omni-modal understanding and reasoning in long complex videos",
+    "key_results": "Best closed-source model (64.2%), best open-source (46.8%); substantial performance gaps on 13 skill categories; frequent failures in long-form understanding",
+    "comments": "Valuable benchmark exposing multimodal reasoning gaps; 15k questions on 9k videos provide comprehensive evaluation.",
+    "model_io": [
+      {
+        "model": "20+ state-of-the-art multimodal models",
+        "inputs": [
+          "long complex videos with visual, audio, textual signals"
+        ],
+        "outputs": [
+          "reasoning answers across 13 skill categories"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Current MLLMs can effectively integrate omni-modal signals in long videos",
+        "result": "Refuted: substantial gaps; best model reaches 64.2% accuracy; models fail on fundamental skills in long-form settings"
+      }
+    ]
   },
   {
     "uid": "hf:2603.13985",
@@ -449,15 +735,26 @@
     "upvotes": 9,
     "projectPage": null,
     "category": "LLM/Reasoning",
-    "task": "Unified perspective on post-training via SFT and RL",
-    "model": "(transformer) Comprehensive survey of SFT and RL paradigms for LLMs",
-    "inputs": "Task-specific labeled or reward-based data",
-    "outputs": "Aligned model outputs for specific tasks/domains",
-    "key_results": "Hybrid paradigms emerging; clear delineation of when SFT vs. RL effective; 2023\u20132025 trends synthesized",
-    "comments": "Survey clarifies theoretical connections; practical guidance for practitioners; limited novel algorithmic contributions.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Comprehensive analysis of SFT vs RL post-training paradigms for LLMs",
+    "key_results": "Unified framework showing SFT and RL are interconnected; identifies hybrid paradigms as emerging trend; clarifies when each method is effective",
+    "comments": "Thorough synthesis covering 2023-2025 literature; provides practical guidance for practitioners.",
+    "model_io": [
+      {
+        "model": "Representative SFT and RL methods",
+        "inputs": [
+          "pre-trained LLM, task data"
+        ],
+        "outputs": [
+          "post-trained model with improved performance"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "SFT and RL are distinct but complementary post-training paradigms",
+        "result": "Confirmed: unified framework shows interconnection; hybrid methods outperform single-paradigm approaches"
+      }
+    ]
   },
   {
     "uid": "hf:2603.13364",
@@ -469,15 +766,26 @@
     "upvotes": 9,
     "projectPage": "https://github.com/liaoning97/FineRMoE",
     "category": "Systems",
-    "task": "Fine-grained MoE with dimension expansion and efficient inference",
-    "model": "(MoE) FineRMoE with intermediate and output dimension specialization",
-    "inputs": "Token representations; sparse routing signals",
-    "outputs": "Expert-gated outputs with fine-grained specialization",
-    "key_results": "6x parameter efficiency; 281x prefill latency reduction; 136x decoding throughput vs. baseline",
-    "comments": "Upcycling mechanism enables cost-effective scaling; sparse computation paradigm well-suited to real inference.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Fine-grained MoE design extending to both intermediate and output dimensions with upcycling",
+    "key_results": "6x parameter efficiency vs baseline; 281x lower prefill latency; 136x higher decoding throughput; SOTA across 10 benchmarks",
+    "comments": "Principled scaling beyond single-dimension constraints; upcycling from existing models is cost-effective.",
+    "model_io": [
+      {
+        "model": "FineRMoE (fine-grained mixture of experts)",
+        "inputs": [
+          "input tokens"
+        ],
+        "outputs": [
+          "model predictions via sparse expert routing"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Extending fine-grained design to output dimension improves efficiency and performance",
+        "result": "Confirmed: 6x parameter efficiency, significant latency/throughput improvements across benchmarks"
+      }
+    ]
   },
   {
     "uid": "hf:2603.15555",
@@ -488,16 +796,27 @@
     "submittedOnDailyAt": "2026-03-17T06:53:45.144Z",
     "upvotes": 8,
     "projectPage": null,
-    "category": "Generative",
-    "task": "Single-image relighting with fine-grained physical control",
-    "model": "(diffusion) LightCtrl with latent proxy encoder and DPO-based refinement",
-    "inputs": "Single image; lighting direction, intensity, color parameters",
-    "outputs": "Photometrically faithful relit images",
-    "key_results": "+2.4 dB PSNR; 35% lower RMSE; ScaLight dataset with systematic variations",
-    "comments": "Physics priors at two levels elegantly balance control and quality; DPO for consistency is novel for relighting.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "category": "Vision",
+    "task": "Controllable single-image relighting via physical priors and latent proxy learning",
+    "key_results": "Up to +2.4 dB PSNR and 35% lower RMSE under controlled lighting shifts; photometrically faithful with accurate continuous control",
+    "comments": "Efficient design avoiding full intrinsic decomposition; sparse physical cues sufficient for guidance.",
+    "model_io": [
+      {
+        "model": "LightCtrl (diffusion + physical proxies)",
+        "inputs": [
+          "single image, lighting parameters"
+        ],
+        "outputs": [
+          "relit image with physical consistency"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Sparse physical priors enable controllable relighting without full intrinsic decomposition",
+        "result": "Confirmed: achieves photometrically faithful results with efficient latent proxy learning"
+      }
+    ]
   },
   {
     "uid": "hf:2603.15026",
@@ -509,15 +828,26 @@
     "upvotes": 8,
     "projectPage": "https://omerbenhayun.github.io/stall-video/",
     "category": "Vision",
-    "task": "Training-free detection of synthetic videos via spatial-temporal likelihood",
-    "model": "(probabilistic) STALL: likelihood-based detector without training",
-    "inputs": "Video frames and temporal sequences",
-    "outputs": "Likelihood score indicating synthetic vs. real",
-    "key_results": "Outperforms image/video baselines; ComGenVid benchmark introduced; zero-shot generalization to new generators",
-    "comments": "Training-free approach mitigates data scarcity; theoretical justification via probabilistic framework solid.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Training-free detection of synthetic videos via spatial-temporal likelihood scoring",
+    "key_results": "STALL outperforms image and video-based baselines on public benchmarks and new ComGenVid; zero-shot, model-agnostic detection",
+    "comments": "Theoretically justified likelihood-based approach; avoids synthetic training data while achieving strong generalization.",
+    "model_io": [
+      {
+        "model": "STALL (spatial-temporal likelihood detector)",
+        "inputs": [
+          "video sequence"
+        ],
+        "outputs": [
+          "synthetic video probability score"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Training-free likelihood scoring detects synthetic videos via spatial-temporal anomalies",
+        "result": "Confirmed: outperforms baselines without access to generator models or synthetic data"
+      }
+    ]
   },
   {
     "uid": "hf:2603.14941",
@@ -528,16 +858,27 @@
     "submittedOnDailyAt": "2026-03-17T08:28:57.580Z",
     "upvotes": 8,
     "projectPage": null,
-    "category": "Benchmark",
-    "task": "Remote sensing spatiotemporal understanding and future forecasting",
-    "model": "(diffusion transformer) RS-WorldModel with geo-aware pre-training, SIT, VRO",
-    "inputs": "Satellite imagery; metadata; textual annotations",
-    "outputs": "Spatiotemporal change QA answers; text-guided future scenes",
-    "key_results": "2B params outperform 120x larger open-source; FID 43.13 on forecasting; surpasses Gemini-2.5-Flash Nano",
-    "comments": "Joint task learning and VRO refinement effective; dataset contribution (RSWBench-1.1M) valuable for remote sensing.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "category": "Generative",
+    "task": "Remote sensing world model for spatiotemporal change understanding and future forecasting",
+    "key_results": "FID 43.13 on text-guided forecasting; outperforms open-source models 120x larger; surpasses Gemini 2.5 on change QA with 2B parameters",
+    "comments": "Efficient unified model; three-stage training including geographic pre-training is well-designed.",
+    "model_io": [
+      {
+        "model": "RS-WorldModel (2B params with geographic awareness)",
+        "inputs": [
+          "satellite imagery, textual descriptions, metadata"
+        ],
+        "outputs": [
+          "change understanding answers, future scene forecasts"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Unified world model with geographic pre-training improves remote sensing tasks",
+        "result": "Confirmed: 2B model outperforms 120x larger baselines; achieves SOTA FID on forecasting"
+      }
+    ]
   },
   {
     "uid": "hf:2603.15617",
@@ -549,15 +890,26 @@
     "upvotes": 5,
     "projectPage": null,
     "category": "Benchmark",
-    "task": "Measuring AI progress on unsolved mathematical discovery problems",
-    "model": "(transformer) GPT-4o, GPT-5.4 Pro and other LLMs",
-    "inputs": "Mathematical problem statements from 8 domains",
-    "outputs": "Proposed solutions with verifiable correctness",
-    "key_results": "GPT-5.4 Pro solves 2 problems improving published results; near-zero baseline performance; immune to contamination",
-    "comments": "Data contamination immunity valuable; verification via simple computation scales better than formal proofs.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Evaluating AI progress on predominantly unsolved mathematical problems with automatic verification",
+    "key_results": "GPT 5.4 Pro proposes solutions improving on best-known results for 2 problems; most models score near 0%; immune to data contamination",
+    "comments": "Novel benchmark design with hard discovery but easy verification; enables growth as community solves problems.",
+    "model_io": [
+      {
+        "model": "State-of-the-art LLMs (GPT, Claude, etc.)",
+        "inputs": [
+          "mathematical problem statements"
+        ],
+        "outputs": [
+          "solution attempts with verifiable correctness"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "AI models can make progress on unsolved mathematical problems",
+        "result": "Confirmed: GPT 5.4 Pro solves 2 problems improving on published results; most models near 0%"
+      }
+    ]
   },
   {
     "uid": "hf:2603.15389",
@@ -569,15 +921,26 @@
     "upvotes": 5,
     "projectPage": "https://pumpkin-co.github.io/SparsityAndCoD/",
     "category": "Systems",
-    "task": "Depth scaling via sparsity as variance regulator in LLMs",
-    "model": "(transformer) Depth-scaling LLM with implicit/explicit sparsity analysis",
-    "inputs": "Token representations across layers with varying sparsity",
-    "outputs": "Stabilized hidden-state growth and improved layer utilization",
-    "key_results": "4.6% accuracy improvement; consistent across depth-scaling exps; depth-utilization recipe distilled",
-    "comments": "Variance propagation mechanism via sparsity is novel insight; empirical validation solid; rule-of-thumb practical.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Understanding sparsity's role in mitigating curse of depth and improving layer utilization in LLMs",
+    "key_results": "Sparsity improves layer utilization by reducing variance; 4.6% downstream accuracy improvement from depth-scaling recipe",
+    "comments": "Principled analysis connecting sparsity to variance control; practical guidance for deep model training.",
+    "model_io": [
+      {
+        "model": "LLMs with various sparsity types (weight, attention, expert)",
+        "inputs": [
+          "training with different sparsity configurations"
+        ],
+        "outputs": [
+          "layer utilization metrics, downstream task performance"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Sparsity mitigates curse of depth by regulating variance propagation",
+        "result": "Confirmed: consistent relationship across implicit and explicit sparsity; 4.6% improvement on downstream tasks"
+      }
+    ]
   },
   {
     "uid": "hf:2603.14659",
@@ -588,16 +951,27 @@
     "submittedOnDailyAt": "2026-03-17T11:51:15.689Z",
     "upvotes": 5,
     "projectPage": "https://visioncoach.github.io/",
-    "category": "Agents/RL",
-    "task": "Grounded video reasoning via adaptive visual prompting during RL training",
-    "model": "(transformer) VisionCoach with visual prompt selector and spatio-temporal reasoner",
-    "inputs": "Video, question; visual prompts selected based on input; grounding rewards",
-    "outputs": "Reasoning trajectory with spatio-temporal grounding; final answer",
-    "key_results": "SOTA on V-STAR, VideoMME, World-Sense, VideoMMMU, PerceptionTest, Charades-STA; single-pass inference",
-    "comments": "Input-adaptive prompting during training with self-distillation is practical; grounding rewards enforce consistency.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "category": "Vision",
+    "task": "Improving spatio-temporal grounding in video reasoning via adaptive visual prompting and RL",
+    "key_results": "SOTA on V-STAR, VideoMME, World-Sense, VideoMMU, PerceptionTest, Charades-STA; inference-time efficiency without external tools",
+    "comments": "Clever training-time visual prompting with self-distillation for inference; addresses grounding without tool overhead.",
+    "model_io": [
+      {
+        "model": "VisionCoach (RL-trained with adaptive visual prompts)",
+        "inputs": [
+          "video, question, optional visual prompts"
+        ],
+        "outputs": [
+          "answer with spatio-temporal grounding"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Visual prompting during RL training enables grounded reasoning internalized for inference",
+        "result": "Confirmed: SOTA across benchmarks; single efficient inference path without external perception"
+      }
+    ]
   },
   {
     "uid": "hf:2603.12146",
@@ -609,15 +983,26 @@
     "upvotes": 5,
     "projectPage": "https://quanhaol.github.io/flashmotion-site/",
     "category": "Generative",
-    "task": "Few-step trajectory-controllable video generation with distillation",
-    "model": "(diffusion) FlashMotion: multi-step adapter distilled to few-step with hybrid finetuning",
-    "inputs": "Trajectory points (keyframes); reference images",
-    "outputs": "Few-step video following trajectory with high quality",
-    "key_results": "Outperforms video distillation baselines; FlashBench for long-sequence trajectory control introduced",
-    "comments": "Hybrid diffusion-adversarial finetuning overcomes naive distillation degradation; computational speedup significant.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Few-step trajectory-controllable video generation via distillation and hybrid training",
+    "key_results": "FlashMotion achieves both video quality and trajectory accuracy with few steps; new FlashBench evaluates long-sequence controllable generation",
+    "comments": "Practical acceleration while maintaining trajectory control; hybrid diffusion-adversarial finetuning is effective.",
+    "model_io": [
+      {
+        "model": "FlashMotion (few-step trajectory adapter + distilled generator)",
+        "inputs": [
+          "trajectory specifications, text prompts"
+        ],
+        "outputs": [
+          "trajectory-accurate videos in few denoising steps"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Trajectory adapters can maintain control fidelity after distillation via hybrid finetuning",
+        "result": "Confirmed: surpasses video distillation methods; achieves quality and trajectory accuracy"
+      }
+    ]
   },
   {
     "uid": "hf:2603.15616",
@@ -628,16 +1013,27 @@
     "submittedOnDailyAt": "2026-03-17T05:40:44.583Z",
     "upvotes": 4,
     "projectPage": "https://henghuiding.com/GlyphPrinter/",
-    "category": "Generative",
-    "task": "Glyph-accurate visual text rendering via region-grouped preference optimization",
-    "model": "(diffusion) GlyphPrinter with Region-Grouped DPO (R-GDPO)",
-    "inputs": "Text prompts, styling directives; region-level glyph preferences",
-    "outputs": "Rendered text images with accurate glyphs",
-    "key_results": "+2.4 dB PSNR; 35% lower RMSE on glyph errors; controllable accuracy via Regional Reward Guidance",
-    "comments": "Region-level preference modeling finer than standard DPO; ScaLight dataset valuable; out-of-domain generalization untested.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "category": "Vision",
+    "task": "Region-level glyph accuracy optimization in text rendering via preference-based learning",
+    "key_results": "GlyphPrinter outperforms existing methods; Region-GDPO substantially enhances glyph accuracy; Regional Reward Guidance enables controllable precision",
+    "comments": "Novel region-grouped DPO objective addresses glyph-level errors better than standard DPO.",
+    "model_io": [
+      {
+        "model": "GlyphPrinter (diffusion + Region-GDPO)",
+        "inputs": [
+          "text, style parameters"
+        ],
+        "outputs": [
+          "rendered images with accurate glyphs"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Region-level preference optimization improves glyph accuracy over standard DPO",
+        "result": "Confirmed: R-GDPO substantially enhances accuracy; Regional Reward Guidance enables control"
+      }
+    ]
   },
   {
     "uid": "hf:2603.15614",
@@ -649,15 +1045,26 @@
     "upvotes": 4,
     "projectPage": "https://zhouzhenghong-gt.github.io/Tri-Prompting-Page/",
     "category": "Generative",
-    "task": "Unified video control: scene, subject, motion via tri-prompting",
-    "model": "(diffusion transformer) Tri-Prompting with dual-condition motion module",
-    "inputs": "Scene text; subject RGB/tracking; camera/object 3D poses",
-    "outputs": "Spatially consistent, temporally coherent videos",
-    "key_results": "Outperforms Phantom, DaS on multi-view identity; supports novel workflows (3D-aware insertion, manipulation)",
-    "comments": "Unified architecture for three control axes is comprehensive; ControlNet scale schedule balances control vs. realism.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Unified video generation with joint scene, subject, and motion control via Tri-Prompting",
+    "key_results": "Superior multi-view subject identity and 3D consistency; unified framework supporting novel workflows (3D-aware subject insertion, subject manipulation)",
+    "comments": "Elegant three-stage control via dual-condition motion module; supports practical creative workflows.",
+    "model_io": [
+      {
+        "model": "Tri-Prompting (video diffusion with 3D tracking + RGB conditions)",
+        "inputs": [
+          "scene, subject identity, motion trajectories"
+        ],
+        "outputs": [
+          "video with consistent subjects and motion"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Unified framework can jointly control scene, subject, and motion in video generation",
+        "result": "Confirmed: superior multi-view consistency; enables novel creative workflows"
+      }
+    ]
   },
   {
     "uid": "hf:2603.14645",
@@ -669,15 +1076,26 @@
     "upvotes": 4,
     "projectPage": null,
     "category": "Generative",
-    "task": "Improving diffusion latent quality via spectral matching",
-    "model": "(VAE + diffusion) Spectrum Matching Hypothesis (ESM + DSM)",
-    "inputs": "Natural images; frequency-space constraints",
-    "outputs": "Spectrally-matched latents for superior diffusability",
-    "key_results": "Superior generation on CelebA/ImageNet; spectral view unifies prior observations (VA-VAE, EQ-VAE)",
-    "comments": "Theoretical framework clarifies latent design; frequency-aligned reconstruction principled; practical speedups modest.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Improving discrete image generation via spectrum matching of latent encodings",
+    "key_results": "Superior generation on CelebA and ImageNet; outperforms prior approaches; unified view clarifying prior observations (over-noisy/smooth latents)",
+    "comments": "Principled spectral approach to VAE diffusability; explains and improves upon prior methods.",
+    "model_io": [
+      {
+        "model": "Latent diffusion with Spectrum Matching (ESM + DSM)",
+        "inputs": [
+          "image"
+        ],
+        "outputs": [
+          "reconstructed/generated image"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Flattened power-law spectrum in latent space improves diffusability",
+        "result": "Confirmed: ESM and DSM enhance generation quality; unifies prior glyph observations"
+      }
+    ]
   },
   {
     "uid": "hf:2603.14371",
@@ -689,15 +1107,26 @@
     "upvotes": 4,
     "projectPage": null,
     "category": "Systems",
-    "task": "Unified KV cache management for multi-task parallel VLA inference",
-    "model": "(transformer) OxyGen: cross-task and cross-frame KV sharing for MoT VLAs",
-    "inputs": "Multi-task outputs (manipulation, conversation, memory); shared observations",
-    "outputs": "Language tokens and action sequences with shared prefill cache",
-    "key_results": "3.7x speedup; 200 tokens/s language + 70 Hz action frequency simultaneously",
-    "comments": "KV cache as first-class resource is elegant; on-device multi-task deployment practical; real robot validation pending.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Unified KV cache management for efficient multi-task parallel inference in vision-language-action models",
+    "key_results": "Up to 3.7x speedup; 200+ tokens/s language throughput + 70 Hz action frequency simultaneously without quality degradation",
+    "comments": "Practical system contribution; unified KV cache abstraction enables cross-task sharing.",
+    "model_io": [
+      {
+        "model": "OxyGen (unified KV cache manager for MoT VLAs)",
+        "inputs": [
+          "shared observations, multiple task branches"
+        ],
+        "outputs": [
+          "parallel language generation and action commands"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Unified KV cache enables efficient cross-task sharing and continuous batching",
+        "result": "Confirmed: 3.7x speedup; simultaneous 200 tokens/s language and 70 Hz action generation"
+      }
+    ]
   },
   {
     "uid": "hf:2603.15620",
@@ -708,16 +1137,27 @@
     "submittedOnDailyAt": "2026-03-17T08:39:16.933Z",
     "upvotes": 3,
     "projectPage": "https://h-embodvis.github.io/DOMINO/",
-    "category": "Agents/RL",
-    "task": "Vision-Language-Action for generalizable manipulation in dynamic environments",
-    "model": "(transformer) PUMA: dynamics-aware VLA with optical flow and world queries",
-    "inputs": "Observations, language instructions; scene-centric optical flow history",
-    "outputs": "Manipulation actions (gripper control, arm poses)",
-    "key_results": "6.3% absolute improvement over baselines; dynamic data transfers to static tasks; 35 task DOMINO benchmark",
-    "comments": "Spatiotemporal modeling via history-aware perception bridges vision-action gap; real robot validation limited.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "category": "Vision",
+    "task": "Generalizable dynamic manipulation via dataset and dynamics-aware VLA architecture",
+    "key_results": "PUMA achieves 6.3% absolute improvement in success rate; dynamic data improves robustness to static tasks; 35 tasks with 110K trajectories",
+    "comments": "First large-scale dynamic manipulation benchmark; historical optical flow + world queries for spatiotemporal reasoning.",
+    "model_io": [
+      {
+        "model": "PUMA (dynamics-aware VLA)",
+        "inputs": [
+          "image history with optical flow, task description"
+        ],
+        "outputs": [
+          "manipulation action"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Explicit historical and predictive spatiotemporal reasoning improves dynamic manipulation",
+        "result": "Confirmed: 6.3% improvement over baselines; dynamic data transfers to static tasks"
+      }
+    ]
   },
   {
     "uid": "hf:2603.15206",
@@ -728,16 +1168,27 @@
     "submittedOnDailyAt": "2026-03-17T06:54:06.825Z",
     "upvotes": 3,
     "projectPage": null,
-    "category": "Generative",
-    "task": "Efficient document parsing via parallel token prediction",
-    "model": "(VLM) Parallel-Token Prediction (PTP) with learnable token insertion",
-    "inputs": "Document images; learnable parallel token positions",
-    "outputs": "Multiple parsed tokens in parallel",
-    "key_results": "1.6\u20132.2x decoding speedup; reduced hallucinations; strong generalization",
-    "comments": "Model-agnostic approach generalizes across VLMs; parallel decoding reduces latency substantially.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "category": "Vision",
+    "task": "Accelerating document parsing via parallel token prediction in vision-language models",
+    "key_results": "1.6x-2.2x speedup; reduced hallucinations; strong generalization; comprehensive data generation pipeline",
+    "comments": "Model-agnostic method; practical speedup for document understanding without quality loss.",
+    "model_io": [
+      {
+        "model": "VLM with Parallel-Token Prediction (PTP)",
+        "inputs": [
+          "document images"
+        ],
+        "outputs": [
+          "parallel decoded text predictions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Learnable tokens with parallel decoding objectives accelerate document parsing",
+        "result": "Confirmed: 1.6x-2.2x speedup with reduced hallucinations and good generalization"
+      }
+    ]
   },
   {
     "uid": "hf:2603.14313",
@@ -749,15 +1200,26 @@
     "upvotes": 3,
     "projectPage": "https://yixuantt.github.io/DeltaConsistent/",
     "category": "LLM/Reasoning",
-    "task": "Decoding monetary policy stance from FOMC statements via relative temporal structure",
-    "model": "(transformer) LLM with Delta-Consistent Scoring (DCS) alignment",
-    "inputs": "FOMC statements; consecutive meeting pairs as self-supervision",
-    "outputs": "Continuous stance scores (hawkish\u2013dovish); temporal consistency",
-    "key_results": "71.1% sentence-level accuracy; strong inflation correlation; Treasury yield association significant",
-    "comments": "Self-supervision via temporal structure eliminates annotation cost; economic validation valuable.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Extracting monetary policy stance from FOMC statements via LLM representations and self-supervision",
+    "key_results": "71.1% sentence-level classification accuracy; correlation with inflation indicators; association with Treasury yield movements",
+    "comments": "Novel application of CCA and relative temporal structure; economically meaningful without manual labels.",
+    "model_io": [
+      {
+        "model": "Delta-Consistent Scoring (LLM representation mapper)",
+        "inputs": [
+          "consecutive FOMC statements"
+        ],
+        "outputs": [
+          "hawkish-dovish stance scores, inter-meeting shifts"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "LLM representations encode monetary-policy signals recoverable via relative temporal structure",
+        "result": "Confirmed: 71.1% accuracy; scores correlate with inflation and yield movements"
+      }
+    ]
   },
   {
     "uid": "hf:2603.14312",
@@ -769,15 +1231,26 @@
     "upvotes": 3,
     "projectPage": "https://lamm.mit.edu/infinite",
     "category": "Agents/RL",
-    "task": "Autonomous scientific investigation via emergent agent coordination and artifact exchange",
-    "model": "(LLM agents) Multi-agent system with skill registry, artifact DAG, and synthesis",
-    "inputs": "Scientific tasks; 300+ interoperable skills; open needs broadcast",
-    "outputs": "Artifacts with full provenance; published scientific findings",
-    "key_results": "Demonstrated on peptide design, ceramics, cross-domain resonance, formal analogy; novel contributions identified",
-    "comments": "Plannerless coordination via pressure-based scoring elegant; provenance tracking supports auditability; peer review integration novel.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Autonomous scientific investigation via distributed agents with emergent artifact exchange",
+    "key_results": "4 autonomous investigations (peptide design, ceramics, interdisciplinary bridging, analogies); agents discover needs and synthesize across analyses",
+    "comments": "Ambitious framework for multi-agent scientific discovery; provenance-aware governance and autonomous mutation are sophisticated.",
+    "model_io": [
+      {
+        "model": "ScienceClaw + Infinite (distributed agent ecosystem)",
+        "inputs": [
+          "scientific problems, 300+ interoperable skills"
+        ],
+        "outputs": [
+          "artifacts with lineage, auditable scientific findings"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Independent agents coordinating via artifact exchange enable complex multi-domain scientific discovery",
+        "result": "Confirmed: 4 successful investigations show heterogeneous tool chaining and emergent convergence"
+      }
+    ]
   },
   {
     "uid": "hf:2603.12743",
@@ -789,35 +1262,26 @@
     "upvotes": 3,
     "projectPage": "https://chenyangzhu1.github.io/MoKus/",
     "category": "Generative",
-    "task": "Knowledge-aware concept customization with cross-modal knowledge transfer",
-    "model": "(diffusion) MoKus with visual anchor learning and textual knowledge updating",
-    "inputs": "Target visual concept; diverse textual knowledge; reference images",
-    "outputs": "High-fidelity customized generation binding knowledge to concept",
-    "key_results": "Outperforms concept customization baselines; extends to virtual concept creation and erasure; KnowCusBench introduced",
-    "comments": "Cross-modal transfer insight is valuable; knowledge binding without explicit concept tokens practical.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
-  },
-  {
-    "uid": "hf:2603.13428",
-    "source": "hf",
-    "id": "2603.13428",
-    "title": "EvoClaw: Evaluating AI Agents on Continuous Software Evolution",
-    "publishedAt": "2026-03-13T03:20:40.000Z",
-    "submittedOnDailyAt": "2026-03-17T03:27:54.666Z",
-    "upvotes": 3,
-    "projectPage": "https://evo-claw.com/",
-    "category": "Benchmark",
-    "task": "Evaluating autonomous agents on continuous software evolution tasks",
-    "model": "(LLM agents) 12 frontier models; 4 agent frameworks evaluated",
-    "inputs": "Verifiable Milestone DAGs from commit logs; evolving software context",
-    "outputs": "Code modifications maintaining system integrity over iterations",
-    "key_results": "Performance drops from 80%+ on isolated tasks to \u226438% in continuous settings; error propagation critical bottleneck",
-    "comments": "Temporal dependencies and technical debt exposure valuable; EvoClaw benchmark addresses real deployment gap.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Knowledge-aware visual concept customization with cross-modal knowledge transfer",
+    "key_results": "MoKus outperforms SOTA; enables virtual concept creation and concept erasure; improves world knowledge benchmarks",
+    "comments": "Novel insight on cross-modal knowledge transfer; introduces knowledge-aware task and KnowCusBench.",
+    "model_io": [
+      {
+        "model": "MoKus (concept learner + knowledge updater)",
+        "inputs": [
+          "target concept images, textual knowledge"
+        ],
+        "outputs": [
+          "customized generation with integrated knowledge"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Cross-modal knowledge transfer enables binding diverse textual knowledge to visual concepts",
+        "result": "Confirmed: outperforms SOTA; supports virtual creation and erasure with knowledge preservation"
+      }
+    ]
   },
   {
     "uid": "hf:2603.14153",
@@ -829,15 +1293,26 @@
     "upvotes": 2,
     "projectPage": "https://artmesciencelab.github.io/Garments2Look/",
     "category": "Vision",
-    "task": "Outfit-level virtual try-on with multiple garments and accessories",
-    "model": "(diffusion/CNN) SOTA VTON and image-editing models adapted as baselines",
-    "inputs": "Reference garment images (3\u201312 per outfit); model image; outfit annotations",
-    "outputs": "Virtual try-on with correct layering and styling",
-    "key_results": "Garments2Look: 80K outfit pairs, 40 categories, 300+ subcategories; current methods struggle with layering inference",
-    "comments": "First multi-garment VTON dataset valuable; synthesis pipeline with filtering/validation ensures quality; baselines expose layering gap.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Multi-reference dataset and evaluation for outfit-level virtual try-on with accessories and layering",
+    "key_results": "80K many-garments-to-look pairs across 40 major and 300+ fine-grained categories; baselines struggle with seamless try-on and layering",
+    "comments": "First outfit-level VTON benchmark; synthesis pipeline with quality assurance is rigorous.",
+    "model_io": [
+      {
+        "model": "VTON methods (adapted SOTA and general editing models)",
+        "inputs": [
+          "model image, reference garment images"
+        ],
+        "outputs": [
+          "image with outfit try-on"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Outfit-level VTON requires coordinated multi-garment and accessory reasoning",
+        "result": "Confirmed: current methods struggle with layering and styling coordination"
+      }
+    ]
   },
   {
     "uid": "hf:2603.13884",
@@ -849,15 +1324,26 @@
     "upvotes": 2,
     "projectPage": null,
     "category": "Vision",
-    "task": "Multi-modal concept discovery via sparse CCA-aligned decomposition",
-    "model": "(CLIP-based) Sparse Concept CCA (SCoCCA) with CCA alignment",
-    "inputs": "Image-text pairs from vision-language embeddings",
-    "outputs": "Disentangled concept activations with cross-modal alignment",
-    "key_results": "SOTA concept discovery; improved activation, ablation, semantic manipulation; sparsity enforces disentanglement",
-    "comments": "CCA-InfoNCE connection elegant; cross-modal interpretability extension valuable; concept semantics remain implicit.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Interpreting vision-language models via multi-modal sparse concept decomposition and CCA",
+    "key_results": "SCoCCA achieves SOTA concept discovery; enables improved activation, ablation, and semantic manipulation; addresses modality gap",
+    "comments": "Principled CCA-based approach to multi-modal interpretability; sparse concepts more disentangled.",
+    "model_io": [
+      {
+        "model": "SCoCCA (sparse concept CCA decomposer)",
+        "inputs": [
+          "vision-language embeddings (CLIP)"
+        ],
+        "outputs": [
+          "sparse interpretable concept dimensions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "CCA can align cross-modal embeddings while enabling sparse concept discovery",
+        "result": "Confirmed: SOTA concept discovery; improved ablation and manipulation over baselines"
+      }
+    ]
   },
   {
     "uid": "hf:2603.13518",
@@ -868,16 +1354,27 @@
     "submittedOnDailyAt": "2026-03-17T11:23:43.724Z",
     "upvotes": 1,
     "projectPage": "https://herimor.github.io/voxtream2",
-    "category": "Generative",
-    "task": "Full-stream TTS with dynamic speaking-rate control mid-utterance",
-    "model": "(diffusion) VoXtream2 with distribution matching and classifier-free guidance",
-    "inputs": "Incremental text; audio prompt (optional); desired speaking rate",
-    "outputs": "Streaming audio with minimal latency and controllable rate",
-    "key_results": "4x faster than real-time; 74 ms first-packet latency on consumer GPU; competitive zero-shot quality",
-    "comments": "Distribution matching for duration control practical; textless prompting removes transcription burden.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "category": "Systems",
+    "task": "Full-stream text-to-speech with dynamic speaking rate control via duration distribution matching",
+    "key_results": "Competitive zero-shot performance; 4x faster than real-time with 74 ms first-packet latency; dynamic rate control mid-utterance",
+    "comments": "Practical streaming TTS with no prompt transcription required; classifier-free guidance improves control.",
+    "model_io": [
+      {
+        "model": "VoXtream2 (streaming TTS with rate control)",
+        "inputs": [
+          "text, speaker prompt, optional rate parameter"
+        ],
+        "outputs": [
+          "audio stream with controllable speaking rate"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Distribution matching over duration states enables controllable streaming TTS",
+        "result": "Confirmed: competitive performance with dynamic rate control and minimal latency"
+      }
+    ]
   },
   {
     "uid": "hf:2603.15150",
@@ -889,15 +1386,26 @@
     "upvotes": 0,
     "projectPage": null,
     "category": "Generative",
-    "task": "Scaling discrete image generation with large VQ codebooks",
-    "model": "(VQ-VAE + diffusion) Stochastic Neighbor Cross Entropy (SNCE)",
-    "inputs": "Images; VQ codebook indices with soft neighbor distributions",
-    "outputs": "Generated images via large-codebook discrete representation",
-    "key_results": "Improved convergence and generation quality vs. hard cross-entropy; effective on ImageNet-256, text-to-image, editing",
-    "comments": "Geometry-aware soft targets elegant; neighbor proximity proportionality intuitive; scaling benefits consistent.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
+    "task": "Improving large-codebook discrete image generation via geometric soft-supervision in latent space",
+    "key_results": "SNCE improves convergence speed and generation quality vs standard cross-entropy; SOTA on ImageNet, text-to-image, and editing",
+    "comments": "Elegant geometric approach to codebook supervision; captures semantic structure in quantization.",
+    "model_io": [
+      {
+        "model": "Discrete image generator with SNCE objective",
+        "inputs": [
+          "image"
+        ],
+        "outputs": [
+          "reconstructed/generated image with large VQ codebook"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Soft supervision via neighbor proximity improves large-codebook generation",
+        "result": "Confirmed: faster convergence, better quality; SOTA on diverse generation tasks"
+      }
+    ]
   },
   {
     "uid": "hf:2603.13962",
@@ -909,66 +1417,25 @@
     "upvotes": 0,
     "projectPage": null,
     "category": "Medical",
-    "task": "Privacy-preserving EHR question answering on commodity hardware",
-    "model": "(transformer) Smaller LLMs optimized for local deployment",
-    "inputs": "EHR data; clinical questions across four subtasks",
-    "outputs": "Answers with relevant EHR evidence",
-    "key_results": "Competitive leaderboard performance without cloud APIs; above-average on two subtasks; feasibility on single notebook",
-    "comments": "Clinical deployment constraints (privacy, compute) well-addressed; local-only evaluation valuable for regulated domains.",
-    "journal": null,
-    "hypotheses": [],
-    "results": []
-  },
-  {
-    "uid": "nature:10.1038/s41467-026-70627-5",
-    "source": "systems-biology",
-    "id": "10.1038/s41467-026-70627-5",
-    "title": "Origins and breadth of pairwise epistasis in an \u03b1-helix of \u03b2-lactamase TEM-1",
-    "projectPage": "https://www.nature.com/articles/s41467-026-70627-5",
-    "journal": "Nature Communications",
-    "publishedAt": "2026-03-17",
-    "category": "Evolutionary Dynamics",
-    "task": "Characterize mechanistic basis of epistasis in protein evolution",
-    "model": "Two-state protein stability model with additive contributions",
-    "inputs": "Library of 14,000+ double mutants in TEM-1 \u03b2-lactamase \u03b1-helix",
-    "outputs": "Fitness, minimum inhibitory concentration, epistatic interaction patterns",
-    "key_results": "Most epistatic effects predictable from single-mutation effects; systematic deviations occur at structurally-interacting residue pairs; statistical models from homologous sequences partially recover epistatic interactions",
-    "comments": "Elegant deep mutational scan connecting protein stability to epistasis, though the two-state model's limitations at interaction interfaces suggest more complex structural determinants exist.",
-    "hypotheses": [
-      "Epistatic effects arise primarily from additive contributions to protein stability",
-      "Structurally-interacting residues show non-additive epistasis",
-      "Evolutionary constraints are recoverable from sequence homologs"
+    "task": "Grounded EHR question answering on local hardware without cloud infrastructure",
+    "key_results": "Competitive performance on ArchEHR-QA leaderboards on commodity hardware; above-average on 2/4 subtasks; smaller models approach large system performance",
+    "comments": "Privacy-preserving EHR QA is feasible locally; practical for clinical deployment constraints.",
+    "model_io": [
+      {
+        "model": "LLMs and retrieval systems (local deployment)",
+        "inputs": [
+          "clinical questions, EHR documents"
+        ],
+        "outputs": [
+          "clinical question answers"
+        ]
+      }
     ],
-    "results": [
-      "Confirmed for majority of double mutants; model explains most variance",
-      "Confirmed; direct 3D contacts show systematic deviations",
-      "Partially confirmed; homolog-trained models recover subset of interactions"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41467-026-70512-1",
-    "source": "systems-biology",
-    "id": "10.1038/s41467-026-70512-1",
-    "title": "Biosynthesis of pyomelanin from methanol with engineered Komagataella phaffii and its characterizations",
-    "projectPage": "https://www.nature.com/articles/s41467-026-70512-1",
-    "journal": "Nature Communications",
-    "publishedAt": "2026-03-17",
-    "category": "Synthetic Circuits",
-    "task": "Engineer high-yield microbial biosynthesis of pyomelanin",
-    "model": "Engineered Komagataella phaffii with modular metabolic pathway design",
-    "inputs": "Methanol and balanced biosynthetic modules for homogentisic acid synthesis",
-    "outputs": "Pyomelanin titer, color phenotype, polymer characterization",
-    "key_results": "66-fold increase in homogentisic acid yield; final titer 70.5 \u00b1 0.7 g/L after 204 h fermentation; pyomelanin produced via oxidative polymerization or laccase treatment with distinct properties",
-    "comments": "Impressive industrial-scale achievement combining directed evolution and semirational design, though the comparison between oxidative and enzymatic polymerization mechanisms deserves deeper mechanistic investigation.",
     "hypotheses": [
-      "Balancing three biosynthetic modules increases precursor yield",
-      "3-deoxy-D-arabinoheptulosonate 7-phosphate synthase variants improve flux",
-      "Laccase treatment produces distinct pyomelanin versus alkaline polymerization"
-    ],
-    "results": [
-      "Confirmed; 66-fold homogentisic acid increase achieved",
-      "Confirmed; directed evolution identified beneficial variants",
-      "Confirmed; different polymerization conditions yield different product properties"
+      {
+        "hypothesis": "Privacy-preserving EHR QA is feasible with local models on commodity hardware",
+        "result": "Confirmed: competitive leaderboard performance without external APIs; practical for clinics"
+      }
     ]
   },
   {
@@ -980,19 +1447,33 @@
     "journal": "Nature Communications",
     "publishedAt": "2026-03-17",
     "category": "Structural Biology",
-    "task": "Determine structures of ATP synthase and respiratory supercomplexes in native membranes",
-    "model": "(experiment) cryo-electron microscopy on sub-mitochondrial particles",
-    "inputs": "Bovine heart mitochondrial sub-mitochondrial particles",
-    "outputs": "3D structures of FoF1 ATP synthase dimers/tetramers and respiratory supercomplex compositions",
-    "key_results": "FoF1 tetrameric units stabilized by IF\u2081; identification of CI\u2081CIII\u2082CIV\u2083 and CI\u2082CIII\u2082CIV\u2086 megacomplex assemblies",
-    "comments": "High-resolution native-state structures enable mechanistic understanding of energy metabolism but lack functional validation of oligomeric state roles.",
-    "hypotheses": [
-      "FoF1 tetrameric units contribute to cristae tip formation",
-      "Multiple respiratory supercomplex compositions coexist in mammalian mitochondria"
+    "task": "Determine high-resolution structures of ATP synthase and respiratory supercomplexes in native mitochondrial membranes",
+    "key_results": "Resolved FoF1 ATP synthase as dimers and tetramers stabilized by IF\u2081; identified new respiratory supercomplex compositions including CI\u2081CIII\u2082CIV\u2083 and CI\u2082CIII\u2082CIV\u2086 mega-complex",
+    "comments": "Cryo-EM on native SMPs elegantly bridges structural and functional studies, though the absence of discrete lipid density in the c\u2088-ring warrants further investigation.",
+    "model_io": [
+      {
+        "model": "Cryo-electron microscopy",
+        "inputs": [
+          "sub-mitochondrial particles from bovine heart",
+          "FoF1 ATP synthase",
+          "respiratory complexes CI, CIII, CIV"
+        ],
+        "outputs": [
+          "3D structures of FoF1 dimers and tetramers",
+          "regulatory factor IF\u2081 binding interfaces",
+          "electron density maps of Fo domain and e-subunit\u2013c\u2088-ring interface"
+        ]
+      }
     ],
-    "results": [
-      "Confirmed tetrameric FoF1 assemblies observed in mitochondrial inner membrane",
-      "Confirmed additional supercomplex compositions identified beyond previously known CI\u2081CIII\u2082CIV\u2081 and CI\u2081CIII\u2082CIV\u2082"
+    "hypotheses": [
+      {
+        "hypothesis": "Tetrameric FoF1 units contribute to cristae tip shaping in mammalian mitochondria",
+        "result": "Tetrameric assemblies of FoF1\u2013IF\u2081 dimers identified in native membrane"
+      },
+      {
+        "hypothesis": "Multiple respiratory supercomplex compositions exist in mammalian mitochondria",
+        "result": "Identified previously unreported CI\u2081CIII\u2082CIV\u2083 and CI\u2082CIII\u2082CIV\u2086 assemblies alongside known compositions"
+      }
     ]
   },
   {
@@ -1004,21 +1485,32 @@
     "journal": "Nature Communications",
     "publishedAt": "2026-03-17",
     "category": "Protein Dynamics",
-    "task": "Quantify effects of mutations on IAPP amyloid nucleation",
-    "model": "(experiment) deep mutational scanning with amyloid formation assay",
-    "inputs": "1916 IAPP variants (substitutions, insertions, truncations, deletions)",
-    "outputs": "Mutational effects on amyloid nucleation rates and identification of structurally sensitive regions",
-    "key_results": "Residues 15-32 are mutation-sensitive; residues 21-27 show substantial effects on nucleation; nucleation-slowing mutations correlate between IAPP and amyloid-beta but acceleration effects do not",
-    "comments": "Comprehensive mutational atlas reveals that aggregation mechanisms differ between amyloids despite sequence homology, limiting cross-prediction of pathogenic variants.",
-    "hypotheses": [
-      "Core amyloid-forming region (15-32) matches early aggregated species in vitro",
-      "Mutation effects on nucleation are transferable between different amyloids",
-      "Residues 21-27 experience tighter structural constraints in amyloid core"
+    "task": "Map mutational effects on IAPP amyloid nucleation across 1916 variants",
+    "key_results": "Residues 15-32 are mutation-sensitive with core constraints at 21-27; nucleation-slowing mutations correlate between IAPP and A\u03b2, but nucleation-accelerating mutations do not transfer predictively",
+    "comments": "Deep mutational scanning provides unprecedented coverage, but the lack of predictive transfer of acceleration mutations between amyloids suggests distinct nucleation mechanisms despite sequence conservation.",
+    "model_io": [
+      {
+        "model": "Deep mutational scanning",
+        "inputs": [
+          "islet amyloid polypeptide variants (substitutions, insertions, truncations, deletions)",
+          "1916 sequence variants"
+        ],
+        "outputs": [
+          "amyloid nucleation rates",
+          "mutational effect atlas",
+          "identification of structured core regions"
+        ]
+      }
     ],
-    "results": [
-      "Confirmed mutation sensitivity in residues 15-32 matching in vitro early aggregates",
-      "Refuted universal transferability of acceleration mutations across amyloids",
-      "Confirmed enhanced sensitivity of residues 21-27"
+    "hypotheses": [
+      {
+        "hypothesis": "Residues 15-32 form a structured core in amyloid fibrils and early aggregates",
+        "result": "This region shows highest sensitivity to mutation and matches in vitro nucleation intermediates"
+      },
+      {
+        "hypothesis": "Nucleation mechanisms are conserved between IAPP and A\u03b2 amyloids",
+        "result": "Only mutations that slow nucleation correlate; acceleration mutations are amyloid-specific"
+      }
     ]
   },
   {
@@ -1030,527 +1522,126 @@
     "journal": "Nature Portfolio",
     "publishedAt": "2026-03-17",
     "category": "Protein Dynamics",
-    "task": "Elucidate kinase-mediated regulation of biomolecular condensate size and dynamics",
-    "model": "(experiment) live-cell imaging and biophysical modeling of phase-separated condensates",
-    "inputs": "KEY1 kinase activity, EPYC1 phosphorylation state, Rubisco-EPYC1 interaction strength",
-    "outputs": "Condensate size, number, and dissolution dynamics; mechanistic model of size regulation",
-    "key_results": "KEY1 phosphorylates EPYC1 to disrupt Rubisco-EPYC1 interactions promoting condensate dissolution; key1 mutants show multiple persistent smaller condensates throughout cell cycle",
-    "comments": "Elegant demonstration of kinase-controlled phase separation but mechanistic model predictions for condensate positioning require experimental validation.",
-    "hypotheses": [
-      "KEY1 kinase controls pyrenoid condensate size through EPYC1 phosphorylation",
-      "KEY1-mediated dissolution is necessary for cell cycle-dependent condensate remodeling",
-      "Biophysical model can recapitulate condensate size and number regulation"
+    "task": "Elucidate kinase-mediated regulation of pyrenoid condensate size and dynamics during cell cycle",
+    "key_results": "KEY1 kinase regulates pyrenoid size by phosphorylating EPYC1 linker protein to disrupt Rubisco\u2013EPYC1 interactions; key1 mutants exhibit multiple small condensates that fail to dissolve",
+    "comments": "The mechanistic model elegantly connects kinase activity to phase separation control, though the regulatory factors determining condensate position and the role of additional post-translational modifications remain to be explored.",
+    "model_io": [
+      {
+        "model": "Chlamydomonas reinhardtii pyrenoid system",
+        "inputs": [
+          "KEY1 kinase",
+          "Rubisco enzyme",
+          "EPYC1 linker protein",
+          "cell cycle stage"
+        ],
+        "outputs": [
+          "pyrenoid condensate size",
+          "condensate number",
+          "condensate dissolution and re-condensation dynamics"
+        ]
+      },
+      {
+        "model": "Biophysical phase separation model",
+        "inputs": [
+          "KEY1-mediated EPYC1 phosphorylation",
+          "Rubisco\u2013EPYC1 binding interactions",
+          "condensate nucleation parameters"
+        ],
+        "outputs": [
+          "predicted condensate size distribution",
+          "temporal dynamics of size and number",
+          "positioning mechanisms"
+        ]
+      }
     ],
-    "results": [
-      "Confirmed KEY1-dependent EPYC1 phosphorylation disrupts condensate-forming interactions",
-      "Confirmed key1 mutants fail normal cell cycle condensate dynamics",
-      "Confirmed biophysical model recapitulates size and number regulation with mechanism for position control"
+    "hypotheses": [
+      {
+        "hypothesis": "KEY1 regulates pyrenoid size by disrupting phase separation via EPYC1 phosphorylation",
+        "result": "KEY1 localizes to condensates and phosphorylates EPYC1 to weaken Rubisco\u2013EPYC1 interactions, promoting dissolution"
+      },
+      {
+        "hypothesis": "KEY1 is necessary for normal pyrenoid dissolution during cell division",
+        "result": "key1 mutants retain multiple smaller condensates throughout cell cycle and fail to dissolve during division"
+      }
     ]
   },
   {
-    "uid": "nature:10.1038/s41597-026-07069-7",
-    "source": "computational-biology",
-    "id": "10.1038/s41597-026-07069-7",
-    "title": "VISDB 2.0: A manually curated resource of viral integration sites and their regulatory maps in human diseases",
-    "projectPage": "https://www.nature.com/articles/s41597-026-07069-7",
-    "journal": "Scientific Data",
-    "publishedAt": "2026-03-17",
-    "category": "Genomics",
-    "task": "Catalog and annotate human viral integration sites",
-    "model": "N/A",
-    "inputs": "209 peer-reviewed publications on viral integration events",
-    "outputs": "270,000+ manually curated viral integration site records with genomic annotations",
-    "key_results": "3.5-fold expansion from previous version; covers 11 viruses across 4 retroviruses and 7 DNA viruses; includes standardized coordinates and regulatory element mappings",
-    "comments": "A comprehensive reference resource with clear manual curation, though utility depends on continued updates and integration with emerging discovery methods.",
-    "hypotheses": [],
-    "results": []
-  },
-  {
-    "uid": "nature:10.1038/s41467-026-70065-3",
-    "source": "computational-biology",
-    "id": "10.1038/s41467-026-70065-3",
-    "title": "Local lateral connectivity is sufficient for replicating cortex-like topographical organization in deep neural networks",
-    "projectPage": "https://www.nature.com/articles/s41467-026-70065-3",
+    "uid": "nature:10.1038/s41467-026-69830-1",
+    "source": "cell-biology",
+    "id": "10.1038/s41467-026-69830-1",
+    "title": "Polar chromosomes are rescued from missegregation by spindle elongation-driven microtubule pivoting",
+    "projectPage": "https://www.nature.com/articles/s41467-026-69830-1",
     "journal": "Nature Communications",
     "publishedAt": "2026-03-17",
-    "category": "Structural Prediction",
-    "task": "Determine mechanisms of topographic map formation in visual cortex",
-    "model": "Deep neural networks with local lateral connections",
-    "inputs": "Visual stimuli; standard backpropagation training",
-    "outputs": "Emergent topographic maps resembling primary, intermediate, and high-level visual cortex",
-    "key_results": "Local lateral connections alone drive cortical-like modular organization without explicit topography-inducing objectives; improved adversarial robustness",
-    "comments": "Elegant demonstration that local recurrent structure can self-organize feature maps, though it remains unclear how closely artificial maps capture biological constraints.",
-    "hypotheses": [
-      "Local lateral connections are sufficient for cortical topographic organization",
-      "Topographic maps improve robustness to adversarial perturbations"
+    "category": "Cell Division/Cycle",
+    "task": "Elucidate mechanism of polar chromosome rescue from missegregation",
+    "key_results": "Spindle elongation drives astral microtubule pivoting around centrosome repositioning polar chromosomes; Eg5/KIF11 activity determines pivoting direction and extent; polar chromosomes form mono-lateral attachments lacking Astrin",
+    "comments": "The pivoting mechanism provides an elegant solution to chromosome congression errors, though the energetic cost and timing constraints of this rescue process warrant further investigation.",
+    "model_io": [
+      {
+        "model": "mammalian cell mitosis with polar chromosome positioning",
+        "inputs": [
+          "Eg5/KIF11 activity modulation",
+          "spindle elongation rate",
+          "astral microtubule dynamics"
+        ],
+        "outputs": [
+          "chromosome position",
+          "kinetochore-microtubule attachment geometry",
+          "Mad2 recruitment",
+          "missegregation frequency"
+        ]
+      }
     ],
-    "results": [
-      "Maps resembling visual cortex emerged without explicit topography constraints",
-      "Models with lateral connections showed improved adversarial robustness"
+    "hypotheses": [
+      {
+        "hypothesis": "Spindle elongation rescues polar chromosomes from behind the pole via microtubule pivoting",
+        "result": "Confirmed; enhanced Eg5 activity accelerates polar chromosome resolution"
+      },
+      {
+        "hypothesis": "Mono-lateral attachments on polar chromosomes differ from bi-lateral attachments",
+        "result": "Confirmed; reduced Astrin recruitment and partial Mad2 localization observed"
+      }
     ]
   },
   {
-    "uid": "nature:10.1038/s41598-026-44499-0",
-    "source": "computational-biology",
-    "id": "10.1038/s41598-026-44499-0",
-    "title": "An attention-based multimodal deep learning framework integrating EEG and ECG for enhanced stress detection",
-    "projectPage": "https://www.nature.com/articles/s41598-026-44499-0",
-    "journal": "Scientific Reports",
-    "publishedAt": "2026-03-17",
-    "category": "Statistical Methods",
-    "task": "Detect psychological stress from multimodal physiological signals",
-    "model": "Attention-based deep learning with multi-stream fusion (VGG16, EfficientNetB0, ResNeXt50)",
-    "inputs": "EEG (wavelet time-frequency maps) and ECG (beat variability and raw data)",
-    "outputs": "Stress state classification (neutral, tense, positive)",
-    "key_results": "95.7% accuracy in 3-way stress classification; 13.4\u201310.1 percentage points improvement over EEG-only (82.3%) and ECG-only (85.6%)",
-    "comments": "Strong multimodal fusion results, but generalization to other datasets and populations requires further validation before clinical deployment.",
-    "hypotheses": [
-      "Multimodal fusion improves stress detection over single modalities",
-      "Attention-based weighting optimally combines EEG and ECG signals"
-    ],
-    "results": [
-      "95.7% accuracy achieved with multimodal approach vs. 82.3% (EEG) and 85.6% (ECG)",
-      "System generalizes across WESAD and CASE datasets"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41598-026-43638-x",
-    "source": "computational-biology",
-    "id": "10.1038/s41598-026-43638-x",
-    "title": "In silico discovery of thioglycoside analogues as donor-site inhibitors of glycosyltransferase LgtC",
-    "projectPage": "https://www.nature.com/articles/s41598-026-43638-x",
-    "journal": "Scientific Reports",
-    "publishedAt": "2026-03-17",
-    "category": "Other",
-    "task": "Identify glycosyltransferase LgtC inhibitors for antivirulence therapy",
-    "model": "Molecular docking (AutoDock-GPU) and molecular dynamics (AMBER14)",
-    "inputs": "Thioglycoside analog library from PubChem; crystal structure of LgtC UDP-galactose donor site",
-    "outputs": "Ranked candidate inhibitors with binding scores and stability metrics",
-    "key_results": "C-5 (\u22128.36 kcal/mol) and C-18 (\u22128.13 kcal/mol) show favorable binding superior to natural substrate UDP-\u03b1-D-galactose (\u22126.74 kcal/mol); stable RMSD 2.0\u20133.0 \u00c5 over 100 ns MD",
-    "comments": "Rigorous computational pipeline with consistency between docking and MD, but biochemical validation of the three prioritized candidates remains essential.",
-    "hypotheses": [
-      "Thioglycoside analogs competitively inhibit LgtC's donor site",
-      "Binding stability correlates between docking and molecular dynamics"
-    ],
-    "results": [
-      "C-5, C-14, C-18 identified as computationally prioritized candidates",
-      "Top candidates maintained stable poses with hydrogen-bond and \u03c0-stacking networks"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41598-026-44209-w",
-    "source": "computational-biology",
-    "id": "10.1038/s41598-026-44209-w",
-    "title": "Zero-shot English\u2013Assamese neural machine translation via pivot-based cross-lingual embedding alignment and transfer learning",
-    "projectPage": "https://www.nature.com/articles/s41598-026-44209-w",
-    "journal": "Scientific Reports",
-    "publishedAt": "2026-03-17",
-    "category": "Statistical Methods",
-    "task": "Enable zero-shot neural machine translation for low-resource language pair",
-    "model": "Multilingual mBART with cross-lingual embedding alignment (Procrustes optimization)",
-    "inputs": "English-Bengali parallel data; English-Assamese test corpus; subword tokenization and language tagging",
-    "outputs": "English-to-Assamese translations without direct parallel training data",
-    "key_results": "BLEU 28.65 (7.53 points above baseline); human adequacy/fluency 4.5/5 and 4.6/5; 8.4% error reduction; 26.9% inference speedup",
-    "comments": "Strong empirical results leveraging linguistic proximity, though the approach is inherently limited to language families with available bridge languages.",
-    "hypotheses": [
-      "Pivot-based transfer learning bridges resource gaps for linguistically proximate languages",
-      "Embedding alignment and language tagging reduce off-target errors"
-    ],
-    "results": [
-      "BLEU 28.65 achieved; 7.53 point improvement over direct baselines",
-      "Ablation confirmed criticality of embedding alignment and language-aware tagging"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41598-026-42273-w",
-    "source": "computational-biology",
-    "id": "10.1038/s41598-026-42273-w",
-    "title": "A GWAS\u2013machine learning framework reveals protein-synthesis pathway signals for yield in Theobroma cacao after population-structure correction",
-    "projectPage": "https://www.nature.com/articles/s41598-026-42273-w",
-    "journal": "Scientific Reports",
-    "publishedAt": "2026-03-17",
-    "category": "Genomics",
-    "task": "Identify genetic variants and phenotypic predictors of cacao yield",
-    "model": "Bootstrap Forest GWAS with neural networks for phenotype-only prediction",
-    "inputs": "346 diverse cacao accessions; SNP genotypes; phenotypes (yield components, seed traits)",
-    "outputs": "SNP importance rankings; functional enrichment; phenotype-based yield prediction",
-    "key_results": "Population-structure-corrected GWAS enriched for ribosome/translation pathways; cotyledon mass and length are top predictors of wet bean mass; SNP signals consistent across pod index and seed number",
-    "comments": "Pragmatic ML workflow with explicit acknowledgment of limitations (marker density, phenotype provenance), though low-density genotyping may miss rare variants.",
-    "hypotheses": [
-      "Population structure correction reveals true genetic associations with yield",
-      "Phenotypic predictors (cotyledon traits) forecast total bean mass"
-    ],
-    "results": [
-      "Protein-synthesis pathway enrichment after population-structure adjustment",
-      "Cotyledon morphology identified as strongest yield predictor"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41598-026-42822-3",
-    "source": "computational-biology",
-    "id": "10.1038/s41598-026-42822-3",
-    "title": "From chain length to cell death: mechanistic basis for ROS-mediated apoptosis induced by saturated fatty acids",
-    "projectPage": "https://www.nature.com/articles/s41598-026-42822-3",
-    "journal": "Scientific Reports",
-    "publishedAt": "2026-03-17",
-    "category": "Other",
-    "task": "Characterize structure\u2013function relationships for saturated fatty acid ethanolamides and apoptosis",
-    "model": "Experimental and molecular docking (physicochemical and biochemical assays; receptor docking PDB 5TGZ, 6PT0)",
-    "inputs": "Fatty acid ethanolamide series (C8:0\u2013C18:0); cell lines; molecular docking to cannabinoid receptors",
-    "outputs": "ROS generation, mitochondrial membrane potential, apoptosis rates, and receptor binding profiles",
-    "key_results": "C12:0-MEA exhibits distinct profile with enhanced ROS and apoptosis; chain length is dominant determinant (PCA); C12:0\u2013C18:0 interact favorably with cannabinoid receptors",
-    "comments": "Comprehensive structure\u2013activity analysis, but the mechanistic contribution of cannabinoid receptor binding versus other targets warrants functional validation.",
-    "hypotheses": [
-      "Acyl chain length modulates ROS generation and apoptotic activity",
-      "C12:0-MEA represents an optimal prodrug balance between bioactivity and toxicity"
-    ],
-    "results": [
-      "Chain length identified as dominant determinant of physicochemical and biological behavior",
-      "C12:0-MEA showed distinct enhanced ROS and apoptosis profile"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41598-026-44593-3",
-    "source": "computational-biology",
-    "id": "10.1038/s41598-026-44593-3",
-    "title": "Automated detection and segmentation of Weiss ring in fundus photography images using deep learning",
-    "projectPage": "https://www.nature.com/articles/s41598-026-44593-3",
-    "journal": "Scientific Reports",
-    "publishedAt": "2026-03-17",
-    "category": "Structural Prediction",
-    "task": "Automated detection and localization of Weiss rings in fundus photographs",
-    "model": "U-Net segmentation + EfficientNet-B0 dual classifiers with meta-classifier fusion",
-    "inputs": "Fundus photograph images",
-    "outputs": "Weiss-ring presence classification and spatial segmentation",
-    "key_results": "U-Net Dice 0.578, IoU 0.421 for segmentation; meta-classifier AUC 0.903, accuracy 0.812, sensitivity 0.692, specificity 0.872; Grad-CAM highlights peripapillary regions",
-    "comments": "Integrated segmentation\u2013classification approach with interpretability, but moderate segmentation performance reflects the challenge of low-contrast peripapillary anatomy on fundus photos.",
-    "hypotheses": [
-      "Meta-classifier fusion outperforms individual CNN classifiers",
-      "Segmentation plus classification improves discrimination over classification alone"
-    ],
-    "results": [
-      "Meta-classifier achieved AUC 0.903, outperforming individual CNNs",
-      "Integrated approach improved discrimination relative to classification alone"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41467-026-70589-8",
-    "source": "physics",
-    "id": "10.1038/s41467-026-70589-8",
-    "title": "Exploring electron spin dynamics in spin chains using defects as a quantum probe",
-    "projectPage": "https://www.nature.com/articles/s41467-026-70589-8",
+    "uid": "nature:10.1038/s41467-026-70631-9",
+    "source": "cell-biology",
+    "id": "10.1038/s41467-026-70631-9",
+    "title": "Phosphoregulation of the novel hemi-arrestin MAPK scaffold Sms1 prevents untimely mating",
+    "projectPage": "https://www.nature.com/articles/s41467-026-70631-9",
     "journal": "Nature Communications",
     "publishedAt": "2026-03-17",
-    "category": "Condensed Matter",
-    "task": "Characterizing spin relaxation and coherence in topological defects of dimerized spin chains",
-    "model": "(theory) dimerized spin chain with edge states",
-    "inputs": "Topological defect (edge state) in dimerized chain; temperature, phonon interactions",
-    "outputs": "Electron spin resonance relaxation time, coherence time, homogeneous broadening",
-    "key_results": "Low-temperature relaxation governed by phonon-bottlenecking; coherence time enhanced relative to isolated ions due to reduced inter-edge dipolar field",
-    "comments": "Provides design principles for quantum device implementation, though experimental validation on realistic materials would strengthen claims.",
-    "hypotheses": [
-      "Phonon-bottlenecked process dominates relaxation at low temperatures",
-      "Chain dimerization gap governs high-temperature relaxation",
-      "Intrachain exchange coupling reduces effective dipolar field between edge states"
+    "category": "Cell Signaling",
+    "task": "Identify and characterize MAPK scaffold regulation in yeast sexual differentiation",
+    "key_results": "Sms1 hemi-arrestin protein scaffolds MAPK cascade at PIP2-rich plasma membrane patches; phosphorylation by MAPK creates negative feedback suppressing membrane translocation; polarized growth and signal localization require Sms1-kinase interactions",
+    "comments": "The convergent evolution of MAPK scaffolds across structural folds suggests functional constraints that transcend protein architecture, implying robust signaling design principles.",
+    "model_io": [
+      {
+        "model": "fission yeast sexual differentiation pathway",
+        "inputs": [
+          "pheromone signal",
+          "G\u03b1-coupled receptor activation",
+          "PIP2 availability",
+          "MAPK activity"
+        ],
+        "outputs": [
+          "Sms1 membrane localization",
+          "MAPK cascade activation",
+          "polarized growth",
+          "mating response"
+        ]
+      }
     ],
-    "results": [
-      "Confirmed phonon-bottlenecking regime at lowest T",
-      "Confirmed dimerization-gap dependence at high T",
-      "Confirmed enhanced coherence from reduced dipolar interactions"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s42005-026-02586-8",
-    "source": "physics",
-    "id": "10.1038/s42005-026-02586-8",
-    "title": "Real-time simulation of jet energy loss and entropy production in high-energy scattering with matter",
-    "projectPage": "https://www.nature.com/articles/s42005-026-02586-8",
-    "journal": "Communications Physics",
-    "publishedAt": "2026-03-17",
-    "category": "High Energy/Particle",
-    "task": "Simulating real-time jet energy loss in high-energy nuclear scattering",
-    "model": "(simulation) 1+1d massive QED with tensor networks",
-    "inputs": "Propagating probe state, dense dynamical target medium; probe energy, medium density",
-    "outputs": "Energy loss rate, entanglement entropy, probe-medium mixing dynamics",
-    "key_results": "Energy loss scales linearly with path length in medium; three regimes identified (ballistic, local excitation, black-disk limit); entanglement entropy tracks mixing",
-    "comments": "Tensor network approach is promising for quantum simulators, but translation to experimental quantum devices remains conceptually sketched rather than fully developed.",
     "hypotheses": [
-      "Energy loss rate scales linearly with path length",
-      "Three distinct dynamical regimes exist across density ranges",
-      "Entanglement entropy reveals probe-medium quantum mixing"
-    ],
-    "results": [
-      "Confirmed linear energy loss scaling",
-      "Confirmed three regimes with distinct evolution signatures",
-      "Confirmed entanglement as probe of mixing dynamics"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41567-026-03213-7",
-    "source": "physics",
-    "id": "10.1038/s41567-026-03213-7",
-    "title": "Bose\u2013Hubbard simulator with long-range hopping",
-    "projectPage": "https://www.nature.com/articles/s41567-026-03213-7",
-    "journal": "Nature Physics",
-    "publishedAt": "2026-03-17",
-    "category": "Condensed Matter",
-    "task": "Engineering strongly correlated lattice models via dipolar exciton arrays",
-    "model": "(experiment) Bose\u2013Hubbard with long-range hopping and dipolar repulsions",
-    "inputs": "Nanoscopic exciton lattice; dipole density, confinement geometry",
-    "outputs": "Many-body sub-radiance buildup, temporal coherence, Mott-like phase signatures",
-    "key_results": "Long-range hopping evidenced by algebraic slowdown of radiative dissipation; threshold coherence increase for dipolar quantum solids indicating exciton condensation in sub-radiant state",
-    "comments": "Elegant experimental platform combining quantum optics with condensed-matter simulation, though scalability to larger arrays with tunable interactions remains unclear.",
-    "hypotheses": [
-      "Long-range hopping produces sub-radiant many-body states",
-      "Coherence threshold emergence signals condensation in Mott phase",
-      "Excitons condense into single sub-radiant state for ordered phases"
-    ],
-    "results": [
-      "Confirmed long-range hopping via sub-radiance buildup",
-      "Confirmed coherence threshold for dipolar solids",
-      "Confirmed single-state condensation in Mott phases"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41567-026-03216-4",
-    "source": "physics",
-    "id": "10.1038/s41567-026-03216-4",
-    "title": "Origin of strange metallicity in a d-orbital kagome metal",
-    "projectPage": "https://www.nature.com/articles/s41567-026-03216-4",
-    "journal": "Nature Physics",
-    "publishedAt": "2026-03-17",
-    "category": "Condensed Matter",
-    "task": "Identifying microscopic origin of strange metallicity in kagome metal",
-    "model": "(experiment) Ni\u2083In kagome metal with flat band near Fermi level",
-    "inputs": "Magnetic field, temperature; scanning tunneling spectroscopy",
-    "outputs": "Zero-bias peak\u2013dip structure, quasiparticle collapse, orbital-driven localization signature",
-    "key_results": "Zero-bias peak arises from compact molecular orbitals via destructive quantum interference; emergent f-shell-like moments in d-electron kagome metal; quasiparticle collapse across Brillouin zone",
-    "comments": "Provides concrete spectroscopic evidence linking kagome geometry to strange metallicity through orbital physics, though microscopic mechanism explanation is somewhat qualitative.",
-    "hypotheses": [
-      "Destructive quantum interference creates compact molecular orbitals",
-      "Orbital-driven localization produces emergent f-shell-like moments",
-      "Quasiparticle collapse is correlated with strange-metal behavior"
-    ],
-    "results": [
-      "Confirmed orbital origin of zero-bias peak",
-      "Confirmed emergence of f-like moments in d-electron system",
-      "Confirmed tracking of quasiparticle dynamics with temperature/field"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41467-026-70371-w",
-    "source": "physics",
-    "id": "10.1038/s41467-026-70371-w",
-    "title": "Vertical substitution strategy to enable cooperation between spin\u2013orbit coupling and transition dipoles for organic phosphorescence",
-    "projectPage": "https://www.nature.com/articles/s41467-026-70371-w",
-    "journal": "Nature Communications",
-    "publishedAt": "2026-03-17",
-    "category": "Optics/Photonics",
-    "task": "Enhancing organic phosphorescence efficiency via cooperative spin-orbit coupling",
-    "model": "(molecular design) conjugated chromophore with vertical through-space substitution",
-    "inputs": "Main-group element vertical substituents perpendicular to conjugation plane",
-    "outputs": "Phosphorescence quantum yield across visible wavelengths",
-    "key_results": "Vertical substitution strategy enhances organic phosphorescence to fluorescence-level efficiency (visible range); cooperative effect of spin-orbit and transition dipoles achieved",
-    "comments": "Novel design strategy differs fundamentally from horizontal-substitution fluorescence approaches, but quantitative efficiency benchmarks and structural examples would strengthen the work.",
-    "hypotheses": [
-      "Vertical substitution cooperatively enhances spin-orbit coupling strength",
-      "Through-space interaction with conjugated dipoles amplifies phosphorescence",
-      "Efficiency parity with fluorescence is achievable across visible spectrum"
-    ],
-    "results": [
-      "Confirmed cooperative enhancement of spin-orbit and dipole effects",
-      "Confirmed phosphorescence efficiency improvement to fluorescence levels",
-      "Confirmed wavelength-independent enhancement across visible range"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41598-026-44218-9",
-    "source": "physics",
-    "id": "10.1038/s41598-026-44218-9",
-    "title": "A new free surface identification method for 3D MPS method",
-    "projectPage": "https://www.nature.com/articles/s41598-026-44218-9",
-    "journal": "Scientific Reports",
-    "publishedAt": "2026-03-17",
-    "category": "Applied Physics",
-    "task": "Improving free-surface identification in 3D Moving Particle Semi-Implicit method",
-    "model": "(computational) MPS method with improved relative position divergence formulation",
-    "inputs": "Particle positions, number density; surface normal vector estimation",
-    "outputs": "Surface particle detection accuracy, pressure field predictions",
-    "key_results": "RPD + NV method reduces false negatives/positives in surface identification; smoother pressure fields without computational overhead; validated on hydrostatic, dam-break, damped oscillation cases",
-    "comments": "Practical improvement to standard MPS addressing real implementation issues; results are incremental but solid engineering contribution for 3D fluid simulations.",
-    "hypotheses": [
-      "Improved RPD formulation better matches theoretical divergence values",
-      "Surface normal vector estimation improves detection on curved boundaries",
-      "Combined RPD + NV method reduces pressure oscillations"
-    ],
-    "results": [
-      "Confirmed improved RPD consistency with theory",
-      "Confirmed detection accuracy on convex, concave, and cavity boundaries",
-      "Confirmed pressure field smoothing and low false-positive/negative rates"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41598-026-43327-9",
-    "source": "physics",
-    "id": "10.1038/s41598-026-43327-9",
-    "title": "Deep learning analysis for enhanced prediction of heat transfer in Maxwell hybrid nanofluids with non-Fourier law and radiation effects",
-    "projectPage": "https://www.nature.com/articles/s41598-026-43327-9",
-    "journal": "Scientific Reports",
-    "publishedAt": "2026-03-17",
-    "category": "Applied Physics",
-    "task": "Predicting heat transfer in Maxwell hybrid nanofluids using deep learning",
-    "model": "(simulation + neural network) Cattaneo\u2013Christov heat flux, Maxwell fluid, CNT hybrid nanofluid",
-    "inputs": "Magnetic field strength, radiation parameter, Biot number, velocity slip, boundary conditions",
-    "outputs": "Velocity and temperature distributions; heat transfer rates",
-    "key_results": "ANN achieves MSE of 6.92\u00d710\u207b\u00b9\u00b2 (velocity) and 1.47\u00d710\u207b\u00b9\u00b9 (temperature) with R\u22481; thermal radiation and Biot number enhance heat transfer; magnetic field suppresses velocity",
-    "comments": "Strong ANN performance (R\u22481) suggests effective surrogate modeling, though generalization to untrained parameter regimes and comparison with other ML methods would be valuable.",
-    "hypotheses": [
-      "Thermal radiation and Biot number enhance heat transfer rates",
-      "Magnetic effects suppress velocity field",
-      "Hybrid nanofluid outperforms single nanofluid thermally",
-      "ANN can accurately reproduce nonlinear boundary-layer solutions"
-    ],
-    "results": [
-      "Confirmed thermal radiation and Biot number enhancement",
-      "Confirmed magnetic suppression of velocity",
-      "Confirmed hybrid nanofluid superiority",
-      "Confirmed ANN surrogacy with near-perfect correlation"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41598-026-44737-5",
-    "source": "physics",
-    "id": "10.1038/s41598-026-44737-5",
-    "title": "Temperature control performance change of EPS foam box with ice packing in aircraft cargo hold",
-    "projectPage": "https://www.nature.com/articles/s41598-026-44737-5",
-    "journal": "Scientific Reports",
-    "publishedAt": "2026-03-17",
-    "category": "Applied Physics",
-    "task": "Modeling foam box refrigeration performance in aircraft cargo hold low-pressure environment",
-    "model": "(simulation) finite element thermal model of foam box with ice; aircraft cabin conditions",
-    "inputs": "Cabin pressure, convective heat transfer coefficient, foam insulation properties, ice mass",
-    "outputs": "Temperature field inside foam box, refrigeration effect, required ice adjustment",
-    "key_results": "Refrigeration performance degrades in aircraft cabin vs. ground; degradation increases with convective heat transfer coefficient; ice mass can be moderately reduced for air transport",
-    "comments": "Practical engineering study addressing real-world logistics, though results are qualitative and specific adjustment factors for different cabin configurations would improve utility.",
-    "hypotheses": [
-      "Low-pressure aircraft cabin environment reduces refrigeration effectiveness",
-      "Convective heat transfer coefficient correlates with performance degradation",
-      "Ice mass can be optimized based on flight conditions"
-    ],
-    "results": [
-      "Confirmed performance degradation in cabin vs. ground conditions",
-      "Confirmed correlation with convective heat transfer",
-      "Confirmed feasibility of moderate ice reduction"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41598-026-44091-6",
-    "source": "physics",
-    "id": "10.1038/s41598-026-44091-6",
-    "title": "Deterministic statistical patterns preceding ice shocks revealed by ice deformation measurements",
-    "projectPage": "https://www.nature.com/articles/s41598-026-44091-6",
-    "journal": "Scientific Reports",
-    "publishedAt": "2026-03-17",
-    "category": "Other",
-    "task": "Identifying precursor patterns to ice-shock fracture events",
-    "model": "(observational analysis) ice deformation measurements with statistical and topological analysis",
-    "inputs": "Ice deformation time series during springtime thermal expansion",
-    "outputs": "Statistical precursor signatures, temporal evolution, topological pattern similarity",
-    "key_results": "Three distinct precursor groups: ~1 hour before, tens of minutes before, and final minutes before ice shock; deterministic patterns emerge preceding failure; increasing topological synchronization observed",
-    "comments": "Novel statistical framework for fracture precursors in complex media; applicability to other explosive-like processes is promising but requires validation on independent datasets.",
-    "hypotheses": [
-      "Ordered linear features constrain deformation statistics preceding shock",
-      "Transition from stochastic to deterministic behavior precedes failure",
-      "Multiple groups of short-term precursors exist at different timescales",
-      "Topological synchronization of deformation indicates imminent fracture"
-    ],
-    "results": [
-      "Confirmed emergence of ordered features constraining statistics",
-      "Confirmed stochastic-to-deterministic transition",
-      "Confirmed three groups of precursors at hour, tens-of-minutes, and minute timescales",
-      "Confirmed progressive topological synchronization"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41598-026-42509-9",
-    "source": "physics",
-    "id": "10.1038/s41598-026-42509-9",
-    "title": "\u00c9tendue and radiance conservation in transformation optics establish strict analytical bounds on field enhancement",
-    "projectPage": "https://www.nature.com/articles/s41598-026-42509-9",
-    "journal": "Scientific Reports",
-    "publishedAt": "2026-03-17",
-    "category": "Optics/Photonics",
-    "task": "Establishing fundamental bounds on field enhancement in transformation optics",
-    "model": "(theory) transformation optics with optical-metric formulation; passive impedance-matched media",
-    "inputs": "Coordinate transformation; optical phase space, Hamiltonian ray dynamics",
-    "outputs": "Achievable field enhancement, radiance conservation, phase-space constraints",
-    "key_results": "Maximum intensity in passive TO concentrator limited solely by geometric area-compression ratio; Liouville's theorem constrains radiance preservation; bounds hold for zero-index, optical-null, and illusion devices",
-    "comments": "Elegant connection to canonical mechanics and phase-space geometry provides rigorous fundamental bounds, though experimental validation of predicted limits on real metamaterials would be instructive.",
-    "hypotheses": [
-      "Smooth passive impedance-matched TO performs canonical phase-space mapping",
-      "Liouville's theorem applies to transformation-optical media",
-      "Maximum field enhancement is limited by geometric compression ratio alone",
-      "TO redistributes intensity without increasing radiance"
-    ],
-    "results": [
-      "Confirmed canonical mapping properties of TO",
-      "Confirmed Liouville-type phase-space constraint",
-      "Confirmed geometric-ratio limitation independent of material",
-      "Confirmed intensity redistribution without radiance increase"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41524-026-02023-y",
-    "source": "physics",
-    "id": "10.1038/s41524-026-02023-y",
-    "title": "Constructing machine learning interatomic potentials with minimum amount of ab initio data",
-    "projectPage": "https://www.nature.com/articles/s41524-026-02023-y",
-    "journal": "npj Computational Materials",
-    "publishedAt": "2026-03-17",
-    "category": "Applied Physics",
-    "task": "Accelerating machine learning interatomic potential development via model distillation",
-    "model": "(ML workflow) MACE fine-tuning + NEP distillation with active sampling",
-    "inputs": "Few hundred additional DFT calculations for target system; pretrained MACE model",
-    "outputs": "System-specific NEP model with competitive accuracy for large-scale MD",
-    "key_results": "Single-shot workflow eliminates multiple active-learning loops; fine-tuned MACE inherits pretrained stability; final NEP achieves accuracy competitive with conventional training using ~100\u00d7 fewer DFT data",
-    "comments": "Pragmatic reduction in DFT cost for MLIP development is valuable for practical materials discovery, though generalization to diverse material classes and systematic accuracy benchmarking across chemistries would strengthen claims.",
-    "hypotheses": [
-      "Pretrained MACE fine-tuning is more DFT-efficient than start-from-scratch training",
-      "Fine-tuned MACE can distill knowledge to smaller NEP model without accuracy loss",
-      "MACE-driven sampling strategy eliminates need for iterative active learning"
-    ],
-    "results": [
-      "Confirmed DFT efficiency of fine-tuning over cold-start",
-      "Confirmed successful knowledge distillation from MACE to NEP",
-      "Confirmed single-shot workflow feasibility with hundreds of DFT calculations"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41598-026-43994-8",
-    "source": "physics",
-    "id": "10.1038/s41598-026-43994-8",
-    "title": "Thermal and dielectric performance of transformer oil-based nanofluid with fullerene C60 nanoparticles",
-    "projectPage": "https://www.nature.com/articles/s41598-026-43994-8",
-    "journal": "Scientific Reports",
-    "publishedAt": "2026-03-17",
-    "category": "Applied Physics",
-    "task": "Evaluating fullerene C60 nanofluid for transformer oil replacement",
-    "model": "(experimental + analytical) C60 nanofluid in 250 kVA distribution transformer; natural convection model",
-    "inputs": "C60 nanoparticle concentration (0.004% w/V); temperature, voltage, oil circulation",
-    "outputs": "Thermal conductivity, AC breakdown voltage, dissipation factor, temperature rise, flow velocity",
-    "key_results": "C60 increases AC breakdown voltage by 65% with minimal viscosity/density/conductivity change; slight temperature decrease from enhanced winding-cooling coupling; meets EN 60076-2:2011 standard",
-    "comments": "Comprehensive industrial validation of nanofluid in real transformer; practical benefit of enhanced breakdown voltage is significant, though flash-point decrease requires monitoring in operational deployment.",
-    "hypotheses": [
-      "C60 nanoparticles enhance dielectric breakdown strength",
-      "C60 concentration has minimal impact on viscosity and density",
-      "Improved oil circulation enhances cooling efficiency",
-      "C60 nanofluid meets industrial transformer standards"
-    ],
-    "results": [
-      "Confirmed 65% AC breakdown enhancement",
-      "Confirmed negligible viscosity/density impacts",
-      "Confirmed slight temperature decrease from circulation improvement",
-      "Confirmed standard compliance"
+      {
+        "hypothesis": "Sms1 functions as essential MAPK cascade scaffold despite hemi-arrestin fold",
+        "result": "Confirmed; Sms1 recruits and activates each MAP kinase in cascade"
+      },
+      {
+        "hypothesis": "MAPK-mediated phosphorylation of Sms1 creates negative feedback",
+        "result": "Confirmed; phosphorylation antagonizes membrane translocation preventing untimely mating"
+      }
     ]
   },
   {
@@ -1563,66 +1654,32 @@
     "publishedAt": "2026-03-17",
     "category": "Cell Signaling",
     "task": "Characterize IRE1\u03b1 activity dynamics during chronic ER stress",
-    "model": "(experiment) pharmacologically induced ER stress in cultured cells and mouse liver",
-    "inputs": "Long-term ER stress induction; calcium concentration changes",
-    "outputs": "IRE1\u03b1 phosphorylation levels; calreticulin-IRE1\u03b1 interaction intensity; ER luminal calcium fluctuation",
-    "key_results": "IRE1\u03b1 shows 'up-down-up' fluctuation pattern; calreticulin-IRE1\u03b1 interaction negatively correlates with calcium concentration; circadian rhythmic oscillation observed in mouse liver",
-    "comments": "Well-designed study revealing temporal dynamics of a key UPR sensor, though the functional significance of oscillations for cellular outcomes remains partially unclear.",
-    "hypotheses": [
-      "Calcium-mediated calreticulin binding regulates IRE1\u03b1 activity",
-      "Chronic ER stress induces oscillatory rather than sustained IRE1\u03b1 activation"
+    "key_results": "IRE1\u03b1 exhibits \"up-down-up\" fluctuation pattern; calreticulin-IRE1\u03b1 interaction inversely correlates with Ca\u00b2\u207a concentration showing \"down-up-down\" pattern; circadian oscillation of IRE1\u03b1 phosphorylation observed in mouse liver",
+    "comments": "The calcium-mediated mechanism elegantly explains how cells sustain intermediate UPR signaling during prolonged stress, though the functional consequences of these oscillations on cell fate remain to be fully elucidated.",
+    "model_io": [
+      {
+        "model": "pharmacologically-induced chronic ER stress in cultured cells and mouse liver",
+        "inputs": [
+          "ER stressor (tunicamycin or thapsigargin)",
+          "Ca\u00b2\u207a levels"
+        ],
+        "outputs": [
+          "IRE1\u03b1 phosphorylation",
+          "calreticulin-IRE1\u03b1 interaction intensity",
+          "BIP-IRE1\u03b1 interaction",
+          "UPR gene expression"
+        ]
+      }
     ],
-    "results": [
-      "Confirmed: calcium-calreticulin-IRE1\u03b1 axis controls activity fluctuation",
-      "Confirmed: circadian and stress-induced oscillation patterns identified"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41467-026-69830-1",
-    "source": "cell-biology",
-    "id": "10.1038/s41467-026-69830-1",
-    "title": "Polar chromosomes are rescued from missegregation by spindle elongation-driven microtubule pivoting",
-    "projectPage": "https://www.nature.com/articles/s41467-026-69830-1",
-    "journal": "Nature Communications",
-    "publishedAt": "2026-03-17",
-    "category": "Cell Division/Cycle",
-    "task": "Elucidate mechanism rescuing polar chromosomes from missegregation",
-    "model": "(experiment) live-cell imaging of mitotic spindle dynamics; perturbation of Eg5/KIF11",
-    "inputs": "Polar chromosome positioning; spindle elongation signals",
-    "outputs": "Chromosome positioning relative to spindle poles; microtubule pivoting angle and extent; kinetochore attachment status",
-    "key_results": "Spindle elongation drives microtubule pivoting around centrosome to reposition polar chromosomes; Eg5 activity modulates pivoting direction and extent",
-    "comments": "Mechanistic insight into a cancer-relevant chromosome segregation error; the contribution of astral vs. kinetochore microtubules is well dissected.",
     "hypotheses": [
-      "Spindle elongation repositions polar chromosomes via microtubule pivoting",
-      "Eg5 activity determines pivoting efficacy"
-    ],
-    "results": [
-      "Confirmed: spindle elongation necessary for polar chromosome rescue",
-      "Confirmed: Eg5 modulates pivoting parameters"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41467-026-70631-9",
-    "source": "cell-biology",
-    "id": "10.1038/s41467-026-70631-9",
-    "title": "Phosphoregulation of the novel hemi-arrestin MAPK scaffold Sms1 prevents untimely mating",
-    "projectPage": "https://www.nature.com/articles/s41467-026-70631-9",
-    "journal": "Nature Communications",
-    "publishedAt": "2026-03-17",
-    "category": "Cell Signaling",
-    "task": "Identify and characterize MAPK scaffold regulating mating pathway in fission yeast",
-    "model": "(experiment) yeast genetics and cell biology; signal transduction analysis in Schizosaccharomyces pombe",
-    "inputs": "Pheromone receptor activation; G\u03b1 subunit coupling; PIP2 availability",
-    "outputs": "MAPK cascade assembly; polarized growth; mating response kinetics",
-    "key_results": "Sms1 hemi-arrestin acts as MAPK scaffold via PIP2 and G\u03b1 interactions; phosphorylation-mediated negative feedback prevents untimely mating",
-    "comments": "Elegant identification of a convergently evolved MAPK scaffold with clear biological output; demonstrates how post-translational modification regulates scaffold function.",
-    "hypotheses": [
-      "Hemi-arrestins function as MAPK scaffolds",
-      "Phosphorylation provides negative feedback control of mating signaling"
-    ],
-    "results": [
-      "Confirmed: Sms1 recruits and organizes MAPK cascade",
-      "Confirmed: phosphorylation antagonizes membrane localization and prevents premature mating"
+      {
+        "hypothesis": "Calcium depletion reduces calreticulin-IRE1\u03b1 binding, allowing IRE1\u03b1 activation",
+        "result": "Confirmed; Ca\u00b2\u207a concentration negatively correlates with interaction intensity"
+      },
+      {
+        "hypothesis": "Circadian regulation modulates ER stress responses",
+        "result": "Confirmed; rhythmic oscillation of calreticulin-IRE1\u03b1 interaction in mouse liver"
+      }
     ]
   },
   {
@@ -1634,283 +1691,229 @@
     "journal": "Communications Biology",
     "publishedAt": "2026-03-17",
     "category": "Cell Division/Cycle",
-    "task": "Determine role of Chk1-mediated \u03b2-tubulin phosphorylation in spindle formation",
-    "model": "(experiment) vertebrate cell culture; in vitro kinase assays; centrosome isolation",
-    "inputs": "Unperturbed mitosis; ATR-ATRIP-TopBP1 pathway activation",
-    "outputs": "\u03b2-tubulin-T285 phosphorylation level; spindle microtubule density and nucleation; chromosome alignment and segregation fidelity",
-    "key_results": "Chk1 phosphorylates \u03b2-tubulin at T285; impaired phosphorylation causes improper spindles, delayed anaphase, and erroneous segregation; ATR-ATRIP-TopBP1 pathway required for Chk1 activation",
-    "comments": "Unexpected link between DNA damage checkpoint kinase and mitotic spindle assembly in unperturbed mitosis; suggests broader role for checkpoint machinery in normal cell division.",
-    "hypotheses": [
-      "Chk1 phosphorylates \u03b2-tubulin at T285",
-      "This phosphorylation is necessary for optimal spindle assembly and function"
+    "task": "Determine role of Chk1-mediated \u03b2-tubulin phosphorylation in spindle assembly",
+    "key_results": "Chk1 phosphorylates \u03b2-tubulin-T285 at mitotic centrosomes; impaired phosphorylation causes reduced spindle density, delayed anaphase, chromosome misalignment, and unequal cell division; ATR-ATRIP-TopBP1 pathway recruits Chk1 to centrosomes",
+    "comments": "The coupling of DNA damage checkpoint kinases to normal mitotic spindle assembly suggests evolutionary conservation of checkpoint mechanisms even under unperturbed conditions.",
+    "model_io": [
+      {
+        "model": "vertebrate cells during unperturbed mitosis",
+        "inputs": [
+          "Chk1 kinase activity",
+          "ATR-ATRIP-TopBP1 complex",
+          "\u03b2-tubulin"
+        ],
+        "outputs": [
+          "\u03b2-tubulin-T285 phosphorylation",
+          "spindle microtubule density",
+          "microtubule nucleation rate",
+          "chromosome segregation fidelity",
+          "cell proliferation"
+        ]
+      }
     ],
-    "results": [
-      "Confirmed: \u03b2-tubulin T285 phosphorylation by Chk1 identified",
-      "Confirmed: phosphorylation required for normal spindle maturation and chromosome segregation"
+    "hypotheses": [
+      {
+        "hypothesis": "Chk1 is required for optimal spindle assembly during normal mitosis",
+        "result": "Confirmed; Chk1 knockout and \u03b2-tubulin-T285 mutations impair spindle function"
+      },
+      {
+        "hypothesis": "ATR pathway promotes Chk1 centrosomal localization during mitosis",
+        "result": "Confirmed; ATRIP-ATR-TopBP1 interaction essential for Chk1 activation at centrosomes"
+      }
     ]
   },
   {
-    "uid": "nature:10.1038/s41598-026-44659-2",
-    "source": "cell-biology",
-    "id": "10.1038/s41598-026-44659-2",
-    "title": "Next-generation platelet concentrate: Alb-PRF outperformed PRP and H-PRF in promoting endothelial function and wound healing",
-    "projectPage": "https://www.nature.com/articles/s41598-026-44659-2",
-    "journal": "Scientific Reports",
-    "publishedAt": "2026-03-17",
-    "category": "Cell Signaling",
-    "task": "Compare autologous platelet concentrates for enhancement of endothelial cell function and wound healing",
-    "model": "(experiment) co-culture of APCs with HUVECs; LPS-induced inflammation model; in vitro assays",
-    "inputs": "Platelet concentrate type (Alb-PRF, PRP, H-PRF); pro-inflammatory stimulus (LPS)",
-    "outputs": "Endothelial cell viability, proliferation, migration; CD31 expression; apoptosis resistance",
-    "key_results": "Alb-PRF superior to PRP and H-PRF in promoting HUVEC proliferation and migration; Alb-PRF rescued LPS-induced apoptosis and enhanced CD31 expression",
-    "comments": "Practical translational work comparing APC formulations; lacks mechanism of improved Alb-PRF function and requires in vivo wound healing validation.",
-    "hypotheses": [
-      "Alb-PRF formulation enhances endothelial cell function vs. traditional concentrates",
-      "Alb-PRF provides cytoprotection under inflammatory stress"
-    ],
-    "results": [
-      "Confirmed: Alb-PRF outperforms PRP and H-PRF in proliferation and migration assays",
-      "Confirmed: Alb-PRF protects against LPS-induced endothelial damage"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s42003-026-09830-5",
-    "source": "cell-biology",
-    "id": "10.1038/s42003-026-09830-5",
-    "title": "A selective and augmentable butyrate-FFAR2 signal circuitry programs the cellular identity of enteroendocrine L-cells",
-    "projectPage": "https://www.nature.com/articles/s42003-026-09830-5",
-    "journal": "Communications Biology",
-    "publishedAt": "2026-03-17",
-    "category": "Cell Signaling",
-    "task": "Delineate FFAR2 signaling selectivity in programming enteroendocrine L-cell identity toward PYY secretion",
-    "model": "(experiment) human L-cell model; mouse intestinal organoids; transcriptomics and secretion assays",
-    "inputs": "Butyrate (FFAR2 agonist); Notch cascade modulation; biased allosteric FFAR2 agonist (AZ-1729)",
-    "outputs": "GLP-1 vs. PYY transcript and secretion levels; Notch target expression (Hes1); maturation markers (NeuroD1, Pax6)",
-    "key_results": "Butyrate drives PYY-biased profile via FFAR2-G\u03b1i signaling without receptor internalization; modulates Notch cascades and late-stage maturation markers; AZ-1729 augments effects",
-    "comments": "Mechanistically clear demonstration of biased FFAR2 signaling in L-cell programming; translational relevance to metabolic disease control is evident.",
-    "hypotheses": [
-      "Butyrate-FFAR2 signaling preferentially activates PYY over GLP-1 secretion",
-      "Biased FFAR2 agonists can pharmacologically amplify this selectivity"
-    ],
-    "results": [
-      "Confirmed: butyrate induces PYY-biased profile via G\u03b1i axis",
-      "Confirmed: AZ-1729 further enhances butyrate-dependent PYY upregulation and Pax6 expression"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41598-026-41141-x",
-    "source": "cell-biology",
-    "id": "10.1038/s41598-026-41141-x",
-    "title": "Kynurenine promotes angiogenesis through mTOR signaling in head and neck squamous cell carcinoma",
-    "projectPage": "https://www.nature.com/articles/s41598-026-41141-x",
-    "journal": "Scientific Reports",
-    "publishedAt": "2026-03-17",
-    "category": "Cell Signaling",
-    "task": "Establish kynurenine-mTOR axis in promoting angiogenesis in head and neck squamous cell carcinoma",
-    "model": "(experiment) TCGA bioinformatic analysis; patient immunohistochemistry; HUVEC culture; CAM and CDX mouse models",
-    "inputs": "Kynurenine concentration; IDO1 expression level; endothelial cell stimulation",
-    "outputs": "Endothelial migration rate; tube formation capacity; neovascularization area; mTOR phosphorylation; angiogenesis-related gene expression",
-    "key_results": "IDO1-driven kynurenine elevated in HNSCC correlates with angiogenesis genes and vascular markers; kynurenine activates mTOR in endothelial cells to upregulate pro-angiogenic factors",
-    "comments": "Comprehensive multi-level validation from bioinformatics to in vivo models; identifies tryptophan metabolism as targetable pro-angiogenic pathway in HNSCC.",
-    "hypotheses": [
-      "Kynurenine promotes angiogenesis in HNSCC",
-      "IDO1-kynurenine-mTOR axis mediates this effect"
-    ],
-    "results": [
-      "Confirmed: kynurenine enhances endothelial migration, tube formation, and neovascularization",
-      "Confirmed: mTOR pathway activation is mechanistic link between kynurenine and angiogenic gene upregulation"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41523-026-00924-1",
-    "source": "cell-biology",
-    "id": "10.1038/s41523-026-00924-1",
-    "title": "Androgen receptor localisation and protein interactions provide insight into steroid mediated metabolic shifts in endocrine resistant breast cancer",
-    "projectPage": "https://www.nature.com/articles/s41523-026-00924-1",
-    "journal": "Nature Portfolio",
-    "publishedAt": "2026-03-17",
-    "category": "Cell Signaling",
-    "task": "Characterize cytoplasmic androgen receptor localization and protein interactions driving AI-resistant metabolic reprogramming",
-    "model": "(experiment) breast cancer microarray analysis; LC-MS/MS proteomics; co-immunoprecipitation and confocal imaging; metabolic profiling",
-    "inputs": "Androgen exposure; aromatase inhibitor resistance status; cellular localization",
-    "outputs": "Cytoplasmic AR abundance; interacting protein partners; mitochondrial mass and membrane potential; oxidative phosphorylation and glycolysis rates",
-    "key_results": "High cytoplasmic AR predicts poor survival in luminal B breast cancer; AI-resistant cells show diffuse cytoplasmic AR with elevated mitochondrial function; G3BP1, SLIRP, IGFBP5 identified as metabolic adaptor proteins",
-    "comments": "Novel link between AR subcellular localization and metabolic rewiring in endocrine resistance; identifies prognostic biomarker and candidate therapeutic targets.",
-    "hypotheses": [
-      "Cytoplasmic AR localizes and interacts with metabolic proteins in AI-resistant cells",
-      "These interactions drive oxidative metabolism adaptation"
-    ],
-    "results": [
-      "Confirmed: cytoplasmic AR abundance correlates with poor prognosis",
-      "Confirmed: AR interacts with stress response and metabolic adaptation proteins including G3BP1, SLIRP, IGFBP5"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41420-026-02997-0",
-    "source": "cell-biology",
-    "id": "10.1038/s41420-026-02997-0",
-    "title": "Glutamate decarboxylase 1 (GAD1) suppresses the progression of glioblastoma through GSK3\u03b2/\u03b2-catenin pathway",
-    "projectPage": "https://www.nature.com/articles/s41420-026-02997-0",
-    "journal": "Nature Portfolio",
-    "publishedAt": "2026-03-17",
-    "category": "Apoptosis/Cell Death",
-    "task": "Elucidate GSK3\u03b2/\u03b2-catenin pathway suppression by GAD1 in glioblastoma progression",
-    "model": "(experiment) glioblastoma cell lines; expression modulation; pathway inhibition; zebrafish xenotransplantation",
-    "inputs": "GAD1 expression level; GSK3\u03b2 phosphorylation status; \u03b2-catenin abundance",
-    "outputs": "Cell proliferation, colony formation, cell cycle phase distribution, migration, invasion rates; Cyclin D1 and MMP9 expression; tumor growth in vivo",
-    "key_results": "GAD1 downregulation correlates with poor prognosis; GAD1 overexpression suppresses proliferation and invasion via reduced p-GSK3\u03b2/\u03b2-catenin signaling; GSK3\u03b2 inhibitor phenocopies GAD1 knockdown effects",
-    "comments": "Clear mechanistic pathway with in vivo validation; GAD1-GABA link to glioma suppression is novel and potentially exploitable therapeutically.",
-    "hypotheses": [
-      "GAD1 suppresses glioblastoma via GSK3\u03b2/\u03b2-catenin pathway inhibition",
-      "p-GSK3\u03b2 inactivation controls Cyclin D1 and MMP9 expression"
-    ],
-    "results": [
-      "Confirmed: GAD1 overexpression reduces p-GSK3\u03b2, \u03b2-catenin, Cyclin D1, MMP9",
-      "Confirmed: GSK3\u03b2 inhibition phenocopies GAD1 knockdown effects on proliferation and invasion"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41598-026-44355-1",
-    "source": "cell-biology",
-    "id": "10.1038/s41598-026-44355-1",
-    "title": "SIRT1 induces FOXO1/autophagy/NCOA4-induced ferroptosis and accelerates the progression of cerebral infarction by inhibiting the E2F1/NOTCH-1/YAP signaling pathway",
-    "projectPage": "https://www.nature.com/articles/s41598-026-44355-1",
-    "journal": "Scientific Reports",
-    "publishedAt": "2026-03-17",
-    "category": "Apoptosis/Cell Death",
-    "task": "Define SIRT1-mediated ferroptosis pathway in cerebral infarction progression",
-    "model": "(experiment) rat transient middle cerebral artery occlusion/reperfusion model; astrocyte culture under ischemic stress; Western blotting and flow cytometry",
-    "inputs": "SIRT1 activation; E2F1/NOTCH-1/YAP signaling status; FOXO1 and autophagy levels",
-    "outputs": "Infarction area; ferroptosis marker expression (MDA, Fe2+, SOD); autophagy and apoptosis rates; NCOA4-mediated ferroptotic flux",
-    "key_results": "SIRT1 upregulated in cerebral infarction; SIRT1 activation increases infarction by suppressing E2F1/NOTCH-1/YAP and inducing FOXO1/autophagy/NCOA4-mediated ferroptosis; NOTCH-1 overexpression protective",
-    "comments": "Complex multi-pathway model linking sirtuins to ferroptosis in stroke; clinical translation requires validation that SIRT1 inhibition reduces infarction.",
-    "hypotheses": [
-      "SIRT1 activation promotes ferroptosis during cerebral infarction",
-      "E2F1/NOTCH-1/YAP suppression mediates FOXO1/autophagy/NCOA4-driven ferroptosis"
-    ],
-    "results": [
-      "Confirmed: SIRT1 activation increases infarction area and ferroptosis markers",
-      "Confirmed: SIRT1 suppresses nuclear E2F1/NOTCH-1/YAP while promoting FOXO1, Beclin-2, P62, NCOA4 expression"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41598-026-44270-5",
-    "source": "cell-biology",
-    "id": "10.1038/s41598-026-44270-5",
-    "title": "The MIME-seq technique allows to monitor the interaction of small non-coding RNAs with Argonaute proteins and their transfer to other cells",
-    "projectPage": "https://www.nature.com/articles/s41598-026-44270-5",
-    "journal": "Scientific Reports",
-    "publishedAt": "2026-03-17",
-    "category": "Cell Signaling",
-    "task": "Develop MIME-seq2.0 for tracking small RNA-Argonaute interactions and intercellular transfer",
-    "model": "(experiment) engineered methyltransferase-Argonaute binding chimera; MIN6B1 insulin-secreting cells, Jurkat T cells, C2C12 myotubes; RNA-seq and qPCR",
-    "inputs": "Small non-coding RNAs; Argonaute protein binding; extracellular vesicle release",
-    "outputs": "Oxidation-protected sncRNA profile; miRNA-Ago2 binding status; transferred miRNA detection in recipient cells",
-    "key_results": "MIME-seq2.0 efficiently distinguishes oxidized and non-oxidized sncRNAs; protects miRNAs, Y-RNAs, and tRNA fragments; enables sensitive detection of EV-transferred miRNAs between cell types",
-    "comments": "Methodological advance with clear technical merit; enables previously inaccessible measurements of RNA oxidation status and intercellular RNA transfer dynamics.",
-    "hypotheses": [
-      "MIME enzyme protects sncRNAs from oxidation to enable cloning",
-      "Protected miRNAs can be tracked across cell boundaries via EVs"
-    ],
-    "results": [
-      "Confirmed: MIME enzyme protects miRNAs, Y-RNAs, and tRNA fragments from oxidation",
-      "Confirmed: transferred miRNAs in EVs protected and detectably accumulated in recipient cells"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41514-026-00359-9",
-    "source": "cell-biology",
-    "id": "10.1038/s41514-026-00359-9",
-    "title": "Hydroxychloroquine alleviates cyclophosphamide-induced premature ovarian failure by attenuating granulosa cell senescence and modulating the mtDNA-cGAS pathway",
-    "projectPage": "https://www.nature.com/articles/s41514-026-00359-9",
-    "journal": "Nature Portfolio",
-    "publishedAt": "2026-03-17",
-    "category": "Apoptosis/Cell Death",
-    "task": "Determine hydroxychloroquine protection against cyclophosphamide-induced premature ovarian failure",
-    "model": "(experiment) CTX-induced POF mouse model; human granulosa cell line (KGN); phosphoramide mustard (PM) exposure; mitochondrial and STING pathway analysis",
-    "inputs": "Cyclophosphamide or PM exposure; hydroxychloroquine treatment; mtDNA leakage status",
-    "outputs": "Ovarian function markers; follicle count; hormone levels; granulosa cell senescence; ROS and mtDNA levels; cGAS-STING pathway activation",
-    "key_results": "HCQ reverses CTX-induced ovarian dysfunction and reduces granulosa cell senescence; decreases mtDNA leakage and ROS; inhibits cGAS-STING pathway and SASP expression",
-    "comments": "Mechanistically sound preclinical study with clear translational path for fertility preservation in cancer patients; demonstrates mtDNA-cGAS axis as druggable target.",
-    "hypotheses": [
-      "HCQ protects against CTX-induced premature ovarian failure",
-      "mtDNA leakage triggers cGAS-STING-dependent senescence and SASP"
-    ],
-    "results": [
-      "Confirmed: HCQ improves ovarian function and reduces follicular depletion",
-      "Confirmed: HCQ suppresses mtDNA leakage, ROS production, and cGAS-STING pathway activation"
-    ]
-  },
-  {
-    "uid": "nature:10.1038/s41467-026-70652-4",
-    "source": "cell-biology",
-    "id": "10.1038/s41467-026-70652-4",
-    "title": "Systematic background selection with BasCoD enhances contrastive dimension reduction in single cell genomics",
-    "projectPage": "https://www.nature.com/articles/s41467-026-70652-4",
+    "uid": "nature:10.1038/s41467-026-70065-3",
+    "source": "computational-biology",
+    "id": "10.1038/s41467-026-70065-3",
+    "title": "Local lateral connectivity is sufficient for replicating cortex-like topographical organization in deep neural networks",
+    "projectPage": "https://www.nature.com/articles/s41467-026-70065-3",
     "journal": "Nature Communications",
     "publishedAt": "2026-03-17",
-    "category": "Other",
-    "task": "Develop BasCoD framework for systematic background selection in contrastive dimension reduction",
-    "model": "(theory) spectral subspace inclusion theory; contrastive learning; statistical hypothesis testing",
-    "inputs": "Target and background single-cell datasets; heterogeneous experimental conditions",
-    "outputs": "Background suitability scores; recommended background selections; improved target representation contrast",
-    "key_results": "BasCoD identifies suitable backgrounds that enhance contrast and interpretability of target representations; guides design of contrastive analyses in large-scale single-cell experiments",
-    "comments": "Valuable methodological framework addressing practical challenge in single-cell genomics; enables principled background selection rather than ad hoc choices.",
-    "hypotheses": [
-      "Spectral subspace inclusion theory enables rigorous background selection evaluation",
-      "Appropriate background selection substantially improves contrastive dimension reduction"
+    "category": "Structural Prediction",
+    "task": "Learning topographic organization in visual cortex models via lateral connectivity",
+    "key_results": "Deep neural networks with local lateral connections spontaneously develop cortex-like topographic maps across visual hierarchy without explicit topography objectives; improved adversarial robustness",
+    "comments": "Emergent organization without inductive bias is compelling, but the relationship between lateral connectivity strength and map robustness remains underexplored.",
+    "model_io": [
+      {
+        "model": "Deep neural networks with local lateral connections",
+        "inputs": [
+          "visual stimuli"
+        ],
+        "outputs": [
+          "topographic feature maps",
+          "modular organization",
+          "robustness metrics"
+        ]
+      }
     ],
-    "results": [
-      "Confirmed: BasCoD identifies suitable backgrounds across diverse datasets",
-      "Confirmed: appropriate backgrounds enhance contrast and biological interpretability of representations"
+    "hypotheses": [
+      {
+        "hypothesis": "Local lateral connections alone drive cortex-like topographic map formation",
+        "result": "Confirmed: modular organization emerges without explicit topography-inducing objectives"
+      },
+      {
+        "hypothesis": "Lateral connectivity improves adversarial robustness",
+        "result": "Confirmed: networks with lateral connections show improved robustness to adversarial perturbations"
+      }
     ]
   },
   {
-    "uid": "nature:10.1038/s41586-026-10360-7",
-    "source": "cell-biology",
-    "id": "10.1038/s41586-026-10360-7",
-    "title": "Molecular basis of oocyte cytoplasmic lattice assembly",
-    "projectPage": "https://www.nature.com/articles/s41586-026-10360-7",
-    "journal": "Nature",
+    "uid": "nature:10.1038/s41597-026-07069-7",
+    "source": "computational-biology",
+    "id": "10.1038/s41597-026-07069-7",
+    "title": "VISDB 2.0: A manually curated resource of viral integration sites and their regulatory maps in human diseases",
+    "projectPage": "https://www.nature.com/articles/s41597-026-07069-7",
+    "journal": "Scientific Data",
     "publishedAt": "2026-03-17",
-    "category": "Development",
-    "task": "Determine molecular architecture and assembly mechanism of oocyte cytoplasmic lattice",
-    "model": "(experiment) cryo-electron microscopy of isolated mouse oocyte cytoplasmic lattice; structural analysis and modeling",
-    "inputs": "Cytoplasmic lattice protein components; assembly forces and interactions",
-    "outputs": "CPL three-dimensional structure; constituent protein identification; repeating unit architecture; interaction network topology",
-    "key_results": "CPL comprises 14 protein subunits assembled into repeating 'U-shaped basket' (UB) and 'adapter ring' (AR) units; PADI6 didecamer forms UB core; AR connects adjacent UBs via SCMC dimers; multiple interaction clusters maintain filamentous architecture",
-    "comments": "Exceptional structural biology work providing atomic-level understanding of an essential embryonic matrix; reveals principles of large periodic protein lattice assembly.",
-    "hypotheses": [
-      "CPL forms repeating modular units",
-      "Multiple interaction clusters maintain structural periodicity"
+    "category": "Genomics",
+    "task": "Curating and annotating human viral integration sites",
+    "key_results": "270,000+ manually curated VISs from 209 publications covering 11 viruses; 3.5-fold increase over previous version with standardized genomic coordinates and regulatory annotations",
+    "comments": "Comprehensive resource but relies on manual curation which may introduce inconsistencies; limited to published data and subject to publication bias.",
+    "model_io": [
+      {
+        "model": "VISDB 2.0 database",
+        "inputs": [
+          "peer-reviewed publications",
+          "genomic coordinates"
+        ],
+        "outputs": [
+          "annotated VIS records",
+          "regulatory element maps",
+          "epigenomic features"
+        ]
+      }
     ],
-    "results": [
-      "Confirmed: CPL consists of UB-AR repeating units with specific protein composition",
-      "Confirmed: PADI6 pentamers and SCMC dimer networks form structural core"
-    ]
+    "hypotheses": []
   },
   {
-    "uid": "nature:10.1038/s41598-026-37518-7",
-    "source": "cell-biology",
-    "id": "10.1038/s41598-026-37518-7",
-    "title": "BTG3 suppresses oral squamous cell carcinoma progression by inhibiting PI3K/AKT signaling and EMT",
-    "projectPage": "https://www.nature.com/articles/s41598-026-37518-7",
+    "uid": "nature:10.1038/s41598-026-44499-0",
+    "source": "computational-biology",
+    "id": "10.1038/s41598-026-44499-0",
+    "title": "An attention-based multimodal deep learning framework integrating EEG and ECG for enhanced stress detection",
+    "projectPage": "https://www.nature.com/articles/s41598-026-44499-0",
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-17",
-    "category": "Cell Signaling",
-    "task": "Characterize BTG3 tumor suppressor function in oral squamous cell carcinoma via PI3K/AKT pathway",
-    "model": "(experiment) OSCC cell lines (CAL27, SCC15) and tissues; expression modulation; pathway analysis; cell cycle and migration assays",
-    "inputs": "BTG3 expression level; PI3K/AKT phosphorylation status; EMT marker expression",
-    "outputs": "Cell proliferation rate; migration and invasion capacity; cell cycle phase distribution; PI3K/AKT signaling output; E-cadherin and mesenchymal marker levels",
-    "key_results": "BTG3 downregulated in OSCC correlates with poor prognosis; BTG3 overexpression suppresses proliferation, migration, invasion, and G1 cell cycle arrest via PI3K/AKT inhibition and EMT suppression",
-    "comments": "Establishes BTG3 as tumor suppressor in OSCC with clear mechanistic pathway; pathway inhibition appears to be primary mode of action.",
-    "hypotheses": [
-      "BTG3 suppresses OSCC via PI3K/AKT pathway inhibition",
-      "BTG3-mediated AKT inhibition blocks EMT progression"
+    "category": "Statistical Methods",
+    "task": "Multimodal stress detection integrating EEG and ECG via attention fusion",
+    "key_results": "95.7% accuracy in stress classification (3-way: neutral/tense/positive) using EEG+ECG fusion vs 82.3% EEG-only and 85.6% ECG-only; validated on WESAD and CASE datasets",
+    "comments": "Strong improvement from multimodal fusion and attention mechanisms, but limited to two datasets and modest sample size (35 subjects per dataset); generalization to diverse populations unclear.",
+    "model_io": [
+      {
+        "model": "Attention-based multimodal fusion framework",
+        "inputs": [
+          "EEG time-frequency maps (wavelet-transformed)",
+          "ECG time-series variability",
+          "raw ECG"
+        ],
+        "outputs": [
+          "stress level classification",
+          "attention weights"
+        ]
+      },
+      {
+        "model": "Pre-trained backbones (VGG16, EfficientNetB0, ResNeXt50)",
+        "inputs": [
+          "EEG spectrograms",
+          "ECG signals"
+        ],
+        "outputs": [
+          "learned feature embeddings"
+        ]
+      }
     ],
-    "results": [
-      "Confirmed: BTG3 overexpression inhibits proliferation, migration, invasion",
-      "Confirmed: BTG3 overexpression suppresses PI3K/AKT signaling and EMT markers"
+    "hypotheses": [
+      {
+        "hypothesis": "Multimodal EEG+ECG fusion improves stress classification over unimodal approaches",
+        "result": "Confirmed: 95.7% accuracy vs 82.3% (EEG) and 85.6% (ECG)"
+      },
+      {
+        "hypothesis": "Attention-weighted fusion effectively combines complementary EEG and ECG signals",
+        "result": "Confirmed: EEG and ECG signals enhance each other's stress assessment capability"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41467-026-70512-1",
+    "source": "systems-biology",
+    "id": "10.1038/s41467-026-70512-1",
+    "title": "Biosynthesis of pyomelanin from methanol with engineered Komagataella phaffii and its characterizations",
+    "projectPage": "https://www.nature.com/articles/s41467-026-70512-1",
+    "journal": "Nature Communications",
+    "publishedAt": "2026-03-17",
+    "category": "Synthetic Circuits",
+    "task": "Engineering high-yield pyomelanin biosynthesis from methanol",
+    "key_results": "66-fold increase in homogentisic acid yield through balancing three biosynthetic modules; final strain Pyo29 achieved 70.5 \u00b1 0.7 g/L pyomelanin titer after 204 h fermentation in 5-L fermenter",
+    "comments": "The engineering strategy elegantly combines directed evolution and rational design with a clever color-screening system, though the mechanism for comparing oxidative polymerization versus laccase-catalyzed synthesis could be more mechanistically detailed.",
+    "model_io": [
+      {
+        "model": "Engineered K. phaffii metabolic pathway for pyomelanin production",
+        "inputs": [
+          "Methanol",
+          "Engineered 3-deoxy-D-arabinoheptulosonate 7-phosphate synthase",
+          "Modified hydroxyphenylpyruvate dioxygenase"
+        ],
+        "outputs": [
+          "Homogentisic acid",
+          "Pyomelanin (70.5 g/L at optimal conditions)"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Balancing three biosynthetic modules increases precursor yield",
+        "result": "66-fold increase in homogentisic acid titer achieved through module optimization"
+      },
+      {
+        "hypothesis": "Directed evolution and semirational design improve pathway enzyme activity",
+        "result": "Enhanced 3-deoxy-D-arabinoheptulosonate 7-phosphate synthase and hydroxyphenylpyruvate dioxygenase variants improved flux"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41467-026-70627-5",
+    "source": "systems-biology",
+    "id": "10.1038/s41467-026-70627-5",
+    "title": "Origins and breadth of pairwise epistasis in an \u03b1-helix of \u03b2-lactamase TEM-1",
+    "projectPage": "https://www.nature.com/articles/s41467-026-70627-5",
+    "journal": "Nature Communications",
+    "publishedAt": "2026-03-17",
+    "category": "Evolutionary Dynamics",
+    "task": "Characterizing mechanistic basis of epistasis in protein evolution",
+    "key_results": "Comprehensive analysis of 14,000+ double mutants in TEM-1 \u03b2-lactamase \u03b1-helix; two-state stability model predicts ~80% of epistatic effects; systematic deviations occur only when residues directly interact in 3D structure",
+    "comments": "The finding that most epistasis is predictable from additive single-mutation effects is encouraging for evolution modeling, but the structural exceptions suggest context-dependent effects remain difficult to generalize across proteins.",
+    "model_io": [
+      {
+        "model": "Two-state protein stability model with additive contributions",
+        "inputs": [
+          "Single mutation effects (fitness, MIC)",
+          "3D structural contact information"
+        ],
+        "outputs": [
+          "Predicted epistatic interactions",
+          "Fitness phenotypes",
+          "MIC values"
+        ]
+      },
+      {
+        "model": "Statistical models trained on homologous sequences",
+        "inputs": [
+          "Sequence alignments from distant TEM-1 homologs"
+        ],
+        "outputs": [
+          "Partially recovered epistatic interactions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Destabilizing/neutral/stabilizing mutations contribute additively to stability phenotype",
+        "result": "Model explains most epistatic effects consistently across fitness and MIC measures"
+      },
+      {
+        "hypothesis": "Direct 3D structural interactions cause deviations from additive model",
+        "result": "Systematic deviations occur specifically at residue pairs with direct contacts in folded structure"
+      }
     ]
   }
 ]

@@ -126,14 +126,13 @@
   /* ---- Card Grid ---- */
   .grid-wrap { padding: 24px; max-width: 1400px; margin: 0 auto; }
   .card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
-    gap: 16px;
+    columns: 2 480px;
+    column-gap: 16px;
   }
 
   /* ---- Card ---- */
   .paper-card {
-    background: var(--surface);
+    background: #fafafa;
     border: 1px solid var(--border);
     border-radius: var(--radius-card);
     box-shadow: var(--shadow-card);
@@ -141,6 +140,8 @@
     flex-direction: column;
     overflow: hidden;
     transition: box-shadow 0.15s, transform 0.15s;
+    break-inside: avoid;
+    margin-bottom: 16px;
   }
   .paper-card:hover {
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -211,10 +212,11 @@
     gap: 0;
     border-top: 1px solid var(--border);
     margin-top: 12px;
+    background: var(--surface);
   }
   .field-row {
     display: grid;
-    grid-template-columns: 90px 1fr;
+    grid-template-columns: 130px 1fr;
     gap: 0 10px;
     padding: 7px 0;
     border-bottom: 1px solid #f3f4f6;
@@ -229,13 +231,19 @@
   }
   .field-value { color: var(--text-secondary); }
 
-  /* Hypotheses/results: numbered list layout */
-  .field-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
-  .field-list li { display: flex; gap: 6px; }
-  .field-list li::before {
-    content: attr(data-n); font-size: 10px; font-weight: 700;
-    color: var(--text-muted); min-width: 14px; padding-top: 2px;
+  /* model_io / hypotheses field rendering */
+  .model-io-toggle { border-bottom: 1px solid #f3f4f6; padding: 4px 0; }
+  .model-io-toggle > summary::-webkit-details-marker { display: none; }
+  .model-io-toggle > summary::marker { content: ''; }
+  .model-io-toggle > summary {
+    cursor: pointer; list-style: none;
+    font-size: 11px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.05em; color: var(--text-muted);
+    padding: 3px 0; user-select: none;
   }
+  .model-io-toggle > summary::before { content: '+ '; }
+  .model-io-toggle[open] > summary::before { content: '- '; }
+  .model-io-toggle .field-row:last-child { border-bottom: none; }
 
   .card-footer {
     padding: 10px 16px;
@@ -244,7 +252,7 @@
     align-items: center;
     gap: 8px;
     background: #fafafa;
-    margin-top: 12px;
+    margin-top: auto;
   }
   .date-chip { font-size: 11px; color: var(--text-muted); margin-right: auto; }
   .link-pill {
@@ -260,7 +268,7 @@
   .empty-state { text-align: center; padding: 80px 20px; color: var(--text-muted); font-size: 15px; }
 
   @media (max-width: 600px) {
-    .card-grid { grid-template-columns: 1fr; }
+    .card-grid { columns: 1; }
     .site-header { flex-wrap: wrap; }
     #paper-count { display: none; }
   }
@@ -512,33 +520,40 @@ function renderCards() {
       ? `<span class="upvote-badge"><svg viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M5 1l4 8H1z"/></svg>${p.upvotes ?? 0}</span>`
       : (p.journal ? `<span class="journal-badge">${esc(p.journal)}</span>` : '');
 
-    // Core fields
-    const fields = [
-      ['Task',        p.task],
-      ['Model',       p.model],
-      ['Inputs',      p.inputs],
-      ['Outputs',     p.outputs],
-      ['Key Results', p.key_results],
-      ['Notes',       p.comments],
-    ];
-    let fieldRows = fields.map(([label, val]) =>
-      `<div class="field-row">
-        <span class="field-label">${label}</span>
-        <span class="field-value">${esc(val)}</span>
-      </div>`
-    ).join('');
+    // model_io rows helper: one Model/Inputs/Outputs triplet per entry
+    const modelIoRows = (entries) => (entries || []).map((e, i) => {
+      const n = ` ${i + 1}`;
+      let rows = `<div class="field-row"><span class="field-label">Model${n}</span><span class="field-value">${esc(e.model)}</span></div>`;
+      if (e.inputs && e.inputs.length) rows += `<div class="field-row"><span class="field-label">Inputs${n}</span><span class="field-value">${esc(e.inputs.join(', '))}</span></div>`;
+      if (e.outputs && e.outputs.length) rows += `<div class="field-row"><span class="field-label">Outputs${n}</span><span class="field-value">${esc(e.outputs.join(', '))}</span></div>`;
+      return rows;
+    }).join('');
 
-    // Hypotheses / Results (only when non-empty; each entry is {hypothesis, result})
+    // Task (always first)
+    let fieldRows = `<div class="field-row"><span class="field-label">Task</span><span class="field-value">${esc(p.task)}</span></div>`;
+
+    // model_io: prominent for HF (after task), collapsed at bottom for Nature
+    if (isHF && Array.isArray(p.model_io) && p.model_io.length) {
+      fieldRows += modelIoRows(p.model_io);
+    }
+
+    // Hypotheses / Results: stacked Hyp N / Result N pairs
     if (Array.isArray(p.hypotheses) && p.hypotheses.length) {
-      const items = p.hypotheses.map((h, i) => {
+      fieldRows += p.hypotheses.map((h, i) => {
         const hyp = typeof h === 'object' ? h.hypothesis : h;
         const res = typeof h === 'object' ? h.result : null;
-        return `<li data-n="${i+1}">${esc(hyp)}${res ? `<br><em>${esc(res)}</em>` : ''}</li>`;
+        return `<div class="field-row"><span class="field-label">Hypothesis ${i+1}</span><span class="field-value">${esc(hyp)}</span></div>`
+          + (res ? `<div class="field-row"><span class="field-label">Result ${i+1}</span><span class="field-value"><em>${esc(res)}</em></span></div>` : '');
       }).join('');
-      fieldRows += `<div class="field-row">
-        <span class="field-label">Hypotheses</span>
-        <ul class="field-list field-value">${items}</ul>
-      </div>`;
+    }
+
+    // Key results and comments at bottom
+    if (p.key_results) fieldRows += `<div class="field-row"><span class="field-label">Key Results</span><span class="field-value">${esc(p.key_results)}</span></div>`;
+    if (p.comments) fieldRows += `<div class="field-row"><span class="field-label">Notes</span><span class="field-value">${esc(p.comments)}</span></div>`;
+
+    // Nature: model_io collapsed at the very bottom
+    if (!isHF && Array.isArray(p.model_io) && p.model_io.length) {
+      fieldRows += `<details class="model-io-toggle"><summary>Model / Inputs / Outputs</summary>${modelIoRows(p.model_io)}</details>`;
     }
 
     const show = matchesFilter(p) ? '' : 'display:none;';

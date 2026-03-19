@@ -105,9 +105,13 @@ Nature schema TBD.
   objects, models as morphisms. Requires unified-schema (model_io tuples) first.
   Needs controlled vocabulary or normalization pass to canonicalize type names.
 
-- `read-unread-markers` -- Client-side read/unread state stored in
-  `localStorage`. Each paper card gets a checkbox or click-to-mark.
-  Persists across page loads. No server needed.
+- `read-unread-markers` -- Client-side read/unread state via a `Set` of uids in
+  `localStorage`. Click card to toggle read; card dims with `.read` CSS class.
+  Source selector shows a dot/strikethrough when all papers in that source+date
+  are read (derived: `visiblePapers().every(p => readSet.has(p.uid))`). Date
+  selector gets a similar indicator when all sources for that day are done.
+  Bulk "mark all visible as read" action. localStorage entries for pruned dates
+  accumulate but are harmless.
 
 - `digest-search` -- Add client-side full-text search across loaded JSON.
 

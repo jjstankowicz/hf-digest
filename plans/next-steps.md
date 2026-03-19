@@ -30,17 +30,16 @@ scripts/
 `nature:10.1038/s41586-026-12345-6`). Cache keyed on this.
 
 **HF papers** (`fetch_hf.py`): fetches `https://huggingface.co/api/daily_papers?date=DATE`,
-sorts by `paper.upvotes` descending. LLM extraction: category, task, model,
-inputs, outputs, key_results, comments.
+sorts by `paper.upvotes` descending.
 
-**Nature papers** (`fetch_nature.py`): fetches RSS feed(s), parses items by
-publication date. LLM extraction schema TBD -- likely hypothesis, methods,
-finding, significance (different decomposition from HF/ML papers).
+**Nature papers** (`fetch_nature.py`): fetches 8 RSS feeds (physics, biophysics,
+biotechnology, cell-biology, computational-biology, mathematics-and-computing,
+neuroscience, systems-biology), scrapes abstracts from article HTML.
 
 **Site** (`docs/index.html`): date selector (prev/next) + source selector
-(prev/next or tabs). Fetches selected day's JSON, filters by source client-side.
+(prev/next). Fetches selected day's JSON, filters by source client-side.
 
-**JSON schema** (per paper, HF):
+**JSON schema** (all papers, post unified-schema):
 
 ```json
 {
@@ -49,20 +48,18 @@ finding, significance (different decomposition from HF/ML papers).
   "id": "2603.12345",
   "title": "...",
   "publishedAt": "2026-03-16T17:52:04.000Z",
-  "submittedOnDailyAt": "2026-03-17T02:51:00.207Z",
-  "upvotes": 42,
   "projectPage": "https://...",
   "category": "LLM/Reasoning",
   "task": "...",
-  "model": "(transformer) ModelName",
-  "inputs": "...",
-  "outputs": "...",
   "key_results": "...",
-  "comments": "..."
+  "comments": "...",
+  "model_io": [{"model": "...", "inputs": "...", "outputs": "..."}],
+  "hypotheses": [{"hypothesis": "...", "result": "..."}]
 }
 ```
 
-Nature schema TBD.
+`model_io` and `hypotheses` are always extracted for all papers (both may be
+non-empty). Rendering decides what to surface per source.
 
 # Completed
 
@@ -85,28 +82,56 @@ Nature schema TBD.
 
 - `unified-schema`
 - `card-rendering`
+- `nav-style`
 - `read-unread-markers`
+- `refactor-simplify`
+- `model-io-normalize`
+- `graph-viz`
 - `digest-search`
+- `nature-historical`
 
 # Backlog (Unsorted)
 
 - `unified-schema` -- Redesign extraction schema: replace flat model/inputs/outputs
   scalars and parallel hypotheses[]/results[] arrays with two array-of-object fields:
   `model_io: [{model, inputs, outputs}]` and `hypotheses: [{hypothesis, result}]`.
-  LLM decides which (or both) apply per paper; empty arrays are skipped in render.
+  Both fields always extracted for all papers; rendering decides what to surface.
   Re-ingest all existing dates (no cache migration -- just re-extract cleanly).
 
 - `card-rendering` -- Update card UI to match new schema: render model_io as
-  triplets (model | inputs -> outputs), hypotheses as side-by-side pairs,
-  move key_results and comments to bottom of card.
+  triplets (model | inputs -> outputs); render hypotheses/results stacked
+  (Hypothesis N: ... / Result N: ... per pair); move key_results and comments
+  to bottom of card. Preserve existing left|right label/value layout.
+  For Nature cards, suppress model_io by default with a "show model/inputs/outputs"
+  toggle; hypotheses/results are the primary display. HF cards show model_io
+  prominently. model_io is always extracted for graph-viz regardless.
+
+- `model-io-normalize` -- Canonicalize model_io vocabulary across papers so the
+  same concept gets the same label (e.g. "image" vs "RGB image" vs "image patch").
+  Options: second LLM pass to map extracted terms to a controlled vocabulary, or
+  prompt-time vocabulary list per category. Prerequisite for graph-viz.
 
 - `graph-viz` -- Category theory graph across ML/DL papers: inputs/outputs as
-  objects, models as morphisms. Requires unified-schema (model_io tuples) first.
-  Needs controlled vocabulary or normalization pass to canonicalize type names.
+  objects, models as morphisms. Requires model-io-normalize first. Design TBD:
+  static SVG, interactive D3, or separate page.
 
-- `read-unread-markers` -- Client-side read/unread state stored in
-  `localStorage`. Each paper card gets a checkbox or click-to-mark.
-  Persists across page loads. No server needed.
+- `read-unread-markers` -- Client-side read/unread state via a `Set` of uids in
+  `localStorage`. Click card to toggle read; card dims with `.read` CSS class.
+  Source selector shows a dot/strikethrough when all papers in that source+date
+  are read (derived: `visiblePapers().every(p => readSet.has(p.uid))`). Date
+  selector gets a similar indicator when all sources for that day are done.
+  Bulk "mark all visible as read" action. localStorage entries for pruned dates
+  accumulate but are harmless.
+
+- `nav-style` -- Consolidate clickable nav elements (date, source/journal, category
+  filter chips) so they're not split across opposite sides of the screen. Style
+  improvement to date and source selectors. Design should accommodate future
+  "all read" indicators on date and source without a rework.
+
+- `refactor-simplify` -- After unified-schema and card-rendering land, do a
+  simplification pass on index.html. Consider splitting CSS/JS into separate
+  files (needs cache-busting strategy, e.g. query param versioning). Clean up
+  any dead code left by schema and rendering changes.
 
 - `digest-search` -- Add client-side full-text search across loaded JSON.
 

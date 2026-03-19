@@ -523,7 +523,7 @@ function formatDisplayDate(dateStr) {
 }
 
 function safeUrl(href) {
-  try { const u = new URL(href); return (u.protocol === 'https:' || u.protocol === 'http:') ? href : null; }
+  try { const u = new URL(href); return (u.protocol === 'https:' || u.protocol === 'http:') ? u.href : null; }
   catch (_) { return null; }
 }
 
@@ -588,17 +588,19 @@ function renderCards() {
     const [stripe, badgeBg, badgeText] = catColors(p.category);
     const isHF = p.source === 'hf';
 
+    const safeProject = safeUrl(p.projectPage);
+
     // Primary link
     let primaryLink = '';
     if (isHF) {
       primaryLink = `<a class="link-pill link-arxiv" href="https://arxiv.org/abs/${esc(p.id)}" target="_blank" rel="noopener noreferrer">arXiv</a>`;
-    } else if (safeUrl(p.projectPage)) {
-      primaryLink = `<a class="link-pill link-article" href="${esc(p.projectPage)}" target="_blank" rel="noopener noreferrer">Article</a>`;
+    } else if (safeProject) {
+      primaryLink = `<a class="link-pill link-article" href="${esc(safeProject)}" target="_blank" rel="noopener noreferrer">Article</a>`;
     }
 
     // Project link (HF only)
-    const projectLink = (isHF && safeUrl(p.projectPage))
-      ? `<a class="link-pill link-project" href="${esc(p.projectPage)}" target="_blank" rel="noopener noreferrer">Project</a>`
+    const projectLink = (isHF && safeProject)
+      ? `<a class="link-pill link-project" href="${esc(safeProject)}" target="_blank" rel="noopener noreferrer">Project</a>`
       : '';
 
     // Header badge: upvotes for HF, journal for Nature

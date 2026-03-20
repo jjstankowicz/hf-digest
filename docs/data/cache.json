@@ -13676,5 +13676,604 @@
         "result": "Confirmed: integrated photosensing, memory, and processing demonstrated in single device"
       }
     ]
+  },
+  "hf:2603.15083": {
+    "category": "Generative",
+    "task": "Generate reactive listener body motions from speaker utterances",
+    "key_results": "ReactMotion outperforms retrieval baselines and LLM pipelines on naturalness, diversity, and appropriateness metrics; dataset ReactMotionNet contains speaker-listener motion pairs with multi-level appropriateness annotations",
+    "comments": "The preference-based training approach is well-motivated for modeling the inherent non-determinism of human reactions, though generalization beyond the dataset domain remains unclear.",
+    "model_io": [
+      {
+        "model": "ReactMotion (multimodal generative framework)",
+        "inputs": [
+          "speaker utterance text",
+          "speaker audio",
+          "emotion"
+        ],
+        "outputs": [
+          "listener body motion sequence"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Preference-based training enables more appropriate and diverse listener motion generation than single-ground-truth supervision",
+        "result": "Confirmed; ReactMotion outperforms baselines in appropriateness and diversity"
+      }
+    ]
+  },
+  "hf:2603.18429": {
+    "category": "Agents/RL",
+    "task": "Long-horizon GUI interaction with effective memory mechanisms for Android tasks",
+    "key_results": "Anchored State Memory (ASM) improves Task Complete Rate by 5%-30.16% over full-sequence and summary baselines on 1,069 tasks; identifies within-task memory failures as primary performance bottleneck",
+    "comments": "The diagnostic framework effectively isolates memory as the limiting factor in long-horizon GUI agents, though ASM's reliance on identifying critical intermediate states may require task-specific tuning.",
+    "model_io": [
+      {
+        "model": "GUI agents (open/closed-source, 12 variants)",
+        "inputs": [
+          "GUI observation sequences",
+          "task specification"
+        ],
+        "outputs": [
+          "action sequence",
+          "task completion decision"
+        ]
+      },
+      {
+        "model": "Anchored State Memory (ASM)",
+        "inputs": [
+          "interaction trajectory"
+        ],
+        "outputs": [
+          "compact causally-linked state anchors"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Performance degradation in long-horizon tasks is primarily due to memory failures rather than perception or action errors",
+        "result": "Confirmed across 12 GUI agents; ASM addresses this bottleneck"
+      }
+    ]
+  },
+  "hf:2603.16924": {
+    "category": "LLM/Reasoning",
+    "task": "Training-free policy for long-form simultaneous speech-to-speech translation",
+    "key_results": "SimulU achieves comparable quality-latency trade-off to cascaded baselines without training on MuST-C across 8 languages; first training-free approach for long-form SimulS2S",
+    "comments": "Leveraging cross-attention in pre-trained models for policy derivation is elegant but the approach's robustness to model architecture variations and truly long-form scenarios (>30 minutes) requires further validation.",
+    "model_io": [
+      {
+        "model": "SimulU (training-free policy)",
+        "inputs": [
+          "continuous speech stream"
+        ],
+        "outputs": [
+          "translated speech stream with controlled latency"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Cross-attention patterns in pre-trained end-to-end models can be exploited to formulate effective simultaneous translation policies without additional training",
+        "result": "Confirmed; SimulU matches cascaded baselines on quality-latency tradeoffs"
+      }
+    ]
+  },
+  "hf:2603.19203": {
+    "category": "Vision",
+    "task": "Improve visual grounding in Vision-Language Models through prompt tuning",
+    "key_results": "Constrained question framing (yes/no, multiple choice) reduces visual attention by substantial margins; learnable token prompts restore visually grounded attention patterns and improve cross-framing consistency",
+    "comments": "The mechanistic finding that VLMs modulate attention based on linguistic framing is insightful, but the lightweight tuning method's effectiveness on more complex vision-reasoning tasks beyond the tested scope remains open.",
+    "model_io": [
+      {
+        "model": "Vision-Language Model (VLM) with attention probing",
+        "inputs": [
+          "image",
+          "question (varied framings)"
+        ],
+        "outputs": [
+          "answer",
+          "visual attention map"
+        ]
+      },
+      {
+        "model": "Prompt-tuning module",
+        "inputs": [
+          "learnable tokens",
+          "image",
+          "question"
+        ],
+        "outputs": [
+          "adjusted visual attention",
+          "improved answer"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Question framing causes selective attention blindness in VLMs, with constrained framings inducing lower image attention",
+        "result": "Confirmed via attention quantification; learnable tokens mitigate this effect"
+      }
+    ]
+  },
+  "hf:2603.14456": {
+    "category": "Benchmark",
+    "task": "Evaluate audio-language models on Persian language and cultural understanding",
+    "key_results": "PARSA-Bench comprises 16 tasks with 8,000+ samples; text-only baselines outperform audio models; all models achieve near-random performance on prosodic vazn detection",
+    "comments": "The benchmark effectively exposes a critical gap in prosodic perception across model scales, highlighting a fundamental limitation of current audio-language models rather than a training or dataset issue.",
+    "model_io": [
+      {
+        "model": "Audio-language models (tested on Persian tasks)",
+        "inputs": [
+          "Persian audio",
+          "task-specific context"
+        ],
+        "outputs": [
+          "task-specific prediction"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Current audio-language models do not effectively leverage audio-specific information beyond what transcription provides",
+        "result": "Confirmed; text-only baselines consistently outperform audio counterparts"
+      },
+      {
+        "hypothesis": "Prosodic understanding (vazn detection) is beyond reach of current models",
+        "result": "Confirmed; all models perform near random on culturally-grounded prosodic tasks"
+      }
+    ]
+  },
+  "hf:2603.13964": {
+    "category": "Vision",
+    "task": "Image-level logical anomaly detection under visual distraction in manufacturing",
+    "key_results": "VID-AD dataset contains 10,395 images across 50 one-class tasks with controlled visual distraction; language-based framework with contrastive learning outperforms baselines by capturing logical attributes over low-level features",
+    "comments": "Using text descriptions of normal images to synthesize negative examples via contradiction is a clever data augmentation approach, but the framework's transferability to novel manufacturing scenarios beyond the 10 included remains untested.",
+    "model_io": [
+      {
+        "model": "Language-based anomaly detector",
+        "inputs": [
+          "product image",
+          "text description from normal examples"
+        ],
+        "outputs": [
+          "anomaly score",
+          "anomaly classification"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Contrastive learning on logical attributes (vs. low-level visual features) improves robustness to vision-induced distraction",
+        "result": "Confirmed; text-based embeddings improve performance across distraction conditions"
+      }
+    ]
+  },
+  "nature:10.1038/s41467-026-70613-x": {
+    "category": "Genomics",
+    "task": "Phage-host assignment via protein language models and key protein features",
+    "key_results": "VirHost Hunter doubles phage-host predictions vs baselines; identifies previously uncharacterized phages targeting Akkermansia and Prevotella; synthesized anti-obesity bacterial lysin",
+    "comments": "Protein language models overcome sequence dissimilarity effectively; gut phage lysin therapeutic has proof-of-concept but clinical development untested.",
+    "model_io": [
+      {
+        "model": "VirHost Hunter (protein language models + vision transformers)",
+        "inputs": [
+          "phage tail proteins",
+          "phage lysins",
+          "host reference genome"
+        ],
+        "outputs": [
+          "host assignment predictions",
+          "confidence scores",
+          "phage-bacteria pairs"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Protein language models capture functional homology despite sequence dissimilarity for phage-host assignment",
+        "result": "Confirmed; achieves 2-fold improvement over existing methods"
+      }
+    ]
+  },
+  "nature:10.1038/s41467-026-70745-0": {
+    "category": "Algorithms",
+    "task": "Design robust networks via reinforcement learning",
+    "key_results": "Framework surpasses existing methods for robust network design under multidimensional attacks; discovers emergent multi-backbone topologies during optimization",
+    "comments": "Novel RL-based approach reveals interesting higher-order network structures, though scalability to very large networks remains unclear.",
+    "model_io": [
+      {
+        "model": "Reinforcement Learning Framework",
+        "inputs": [
+          "network topology",
+          "attack strategies"
+        ],
+        "outputs": [
+          "robust network design",
+          "multi-backbone structures"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "RL-based design can discover robust network topologies better than Monte Carlo and manual approaches",
+        "result": "Confirmed; framework surpasses existing methods"
+      },
+      {
+        "hypothesis": "Network optimization induces multi-backbone emergence as a robustness strategy",
+        "result": "Confirmed; multi-backbones develop during design process"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-40979-5": {
+    "category": "ML Theory",
+    "task": "Proactive fault prediction in marine diesel engines",
+    "key_results": "ConvLSTM model reduces RMSE by 15.45% vs. decision trees; RF classifier achieves 82.168% accuracy for fault classification",
+    "comments": "Multivariate time series ML for maritime maintenance is practical and valuable; however, generalization to different engine types and failure modes requires larger datasets.",
+    "model_io": [
+      {
+        "model": "ConvLSTM (Time Series Regression)",
+        "inputs": [
+          "cylinder temperatures",
+          "vibrations",
+          "cooling water temperature"
+        ],
+        "outputs": [
+          "predicted engine metrics"
+        ]
+      },
+      {
+        "model": "Random Forest Classifier",
+        "inputs": [
+          "engineered features from sensor data"
+        ],
+        "outputs": [
+          "fault/normal prediction"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "ConvLSTM captures spatiotemporal patterns in multivariate engine sensor data better than decision trees",
+        "result": "Confirmed; 15.45% RMSE improvement"
+      },
+      {
+        "hypothesis": "RF classification reliably predicts engine faults from sensor features",
+        "result": "Confirmed; 82.168% accuracy achieved"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-41855-y": {
+    "category": "Algorithms",
+    "task": "Real-time defect detection in wood-based 3D printing",
+    "key_results": "YOLOv11 highest precision (0.632); RT-DETR highest mAP@0.5 (0.563); YOLOv8 best speed-accuracy tradeoff (3.2 ms inference) on 599-image dataset",
+    "comments": "Systematic comparison of five YOLO variants and RT-DETR highlights practical inference speed-accuracy tradeoffs; dataset size (599 images) is modest for deep learning validation.",
+    "model_io": [
+      {
+        "model": "YOLOv5/v8/v10/v11 and RT-DETR Object Detectors",
+        "inputs": [
+          "high-resolution wood-based printing images"
+        ],
+        "outputs": [
+          "defect bounding boxes",
+          "class predictions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "YOLOv11 achieves highest precision for defect detection in wood binder jetting",
+        "result": "Confirmed; 0.632 precision on test set"
+      },
+      {
+        "hypothesis": "RT-DETR achieves higher mAP but slower inference than YOLO variants",
+        "result": "Confirmed; mAP@0.5=0.563 vs. 3.2\u201317.9 ms inference times"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-43271-8": {
+    "category": "ML Theory",
+    "task": "Symmetric variable-depth hybrid learning automaton with adaptive exploration-exploitation",
+    "key_results": "SVDHLA self-adaptively adjusts depth parameter; outperforms state-of-the-art LA in stationary/non-stationary environments; LA-based dropout improves neural network regularization",
+    "comments": "Novel hybrid combining L_KN,K with variable action set automaton addresses depth parameter tuning; limited experimental domains and unclear sensitivity to environment stationarity assumptions.",
+    "model_io": [
+      {
+        "model": "SVDHLA (Symmetric Variable Depth Hybrid Learning Automaton)",
+        "inputs": [
+          "environment rewards",
+          "action outcomes"
+        ],
+        "outputs": [
+          "adaptive depth parameter",
+          "action selection"
+        ]
+      },
+      {
+        "model": "LA-Based Dropout for Neural Networks",
+        "inputs": [
+          "neural network activations"
+        ],
+        "outputs": [
+          "regularized network predictions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Self-adaptive depth adjustment balances exploration-exploitation better than fixed depth",
+        "result": "Confirmed; superior cumulative reward and regret in simulations"
+      },
+      {
+        "hypothesis": "LA-based dropout prevents overfitting better than previous LA methods",
+        "result": "Confirmed; improved neural network performance demonstrated"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44371-1": {
+    "category": "Analysis",
+    "task": "Information theory and thermal properties of extended cosine hyperbolic potential",
+    "key_results": "Fisher information and Shannon entropy derived analytically; Cram\u00e9r-Rao bound and BBM inequality confirmed; molar thermodynamic properties (H, S, G, C_p) match NIST data with \u226426% discrepancy",
+    "comments": "Rigorous information-theoretic treatment with good thermochemical validation on diatomic molecules; however, generalization to polyatomic systems and potential functional form limitations unclear.",
+    "model_io": [
+      {
+        "model": "Extended Cosine Hyperbolic Potential Model",
+        "inputs": [
+          "molecular parameters (P\u2082, K\u2082, KBr, SiO)"
+        ],
+        "outputs": [
+          "Fisher information",
+          "Shannon entropy",
+          "thermodynamic properties"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Extended cosine hyperbolic potential satisfies information-theoretic inequalities",
+        "result": "Confirmed; Cram\u00e9r-Rao bound and BBM inequality verified"
+      },
+      {
+        "hypothesis": "Model predicts molar thermodynamic properties consistent with NIST data",
+        "result": "Confirmed; excellent agreement across 0\u20136000 K temperature range"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44597-z": {
+    "category": "Statistics/Probability",
+    "task": "Multi-criteria decision-making for EV battery end-of-life strategies",
+    "key_results": "Cipher fuzzy set model identifies circular value-add and energy efficiency as top criteria; component reuse and cathode-to-cathode recycling as optimal strategies; eliminates defuzzification information loss",
+    "comments": "Novel cipher fuzzy set framework for EV battery circularity decisions is methodologically sound; however, empirical data availability for sensitivity analysis and real-world stakeholder validation limited.",
+    "model_io": [
+      {
+        "model": "CFS-Based Hybrid Decision Model",
+        "inputs": [
+          "investment criteria",
+          "end-of-life strategy alternatives",
+          "expert judgments"
+        ],
+        "outputs": [
+          "weighted criteria ranking",
+          "strategy prioritization"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Cipher fuzzy sets reduce information loss vs. traditional defuzzification methods",
+        "result": "Confirmed; framework eliminates defuzzification step"
+      },
+      {
+        "hypothesis": "Circular value-add and energy efficiency emerge as critical investment criteria",
+        "result": "Confirmed; identified as top priorities via aggregation"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44789-7": {
+    "category": "Algorithms",
+    "task": "Dynamic intrusion detection for Internet of Drones using bio-inspired optimization",
+    "key_results": "DIGS-RTD framework reduces false positives and processing time vs. STFA baseline; superior computational cost-detection accuracy tradeoff",
+    "comments": "Glowworm Swarm Optimization for feature selection is creative, though the paper lacks detailed comparison metrics and scalability testing on large drone networks.",
+    "model_io": [
+      {
+        "model": "Glowworm Swarm Optimization (GSO) Feature Selection",
+        "inputs": [
+          "raw network traffic features"
+        ],
+        "outputs": [
+          "selected feature subset"
+        ]
+      },
+      {
+        "model": "Classification Model (integrated with GSO)",
+        "inputs": [
+          "selected features"
+        ],
+        "outputs": [
+          "intrusion/benign label"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "GSO multimodal optimization locates diverse intrusion patterns effectively",
+        "result": "Confirmed; superior detection performance vs. baseline methods"
+      },
+      {
+        "hypothesis": "Active feature selection reduces computational load without accuracy loss",
+        "result": "Confirmed; reduced processing time with maintained detection accuracy"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44807-8": {
+    "category": "Algorithms",
+    "task": "Edge coverage enhancement via IRS and cell-free MIMO",
+    "key_results": "SINR gain of 4 dB for cell-center users, 2.4 dB for cell-edge users with AP selection algorithm",
+    "comments": "Integrated framework combining IRSs, massive MIMO, and NOMA addresses dense user coverage, though practical IRS deployment constraints need further validation.",
+    "model_io": [
+      {
+        "model": "IRS Phase Shift Optimization (AO and SDR methods)",
+        "inputs": [
+          "channel state information",
+          "user locations"
+        ],
+        "outputs": [
+          "optimal phase shifts",
+          "achievable rate"
+        ]
+      },
+      {
+        "model": "AP Selection Algorithm (APSA)",
+        "inputs": [
+          "user distribution",
+          "AP locations"
+        ],
+        "outputs": [
+          "AP assignment",
+          "resource overhead reduction"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "SDR and AO achieve similar convergence but differ in complexity",
+        "result": "Confirmed; comparative analysis shows tradeoff between methods"
+      },
+      {
+        "hypothesis": "Dynamic AP selection reduces overhead without sacrificing SINR",
+        "result": "Confirmed; 2.4\u20134 dB SINR gains achieved with reduced resources"
+      }
+    ]
+  },
+  "nature:10.1038/s41467-026-70726-3": {
+    "category": "Condensed Matter",
+    "task": "Discover giant magneto-cubic in-plane Hall effect in nonmagnetic half-Heusler compound",
+    "key_results": "Giant in-plane Hall effect in LuAuSn exceeding all prior reports; 2\u03c0/3-periodic cubic field dependence; dominated by extrinsic side jump and skew scattering",
+    "comments": "Unexpected discovery of giant nonlinear Hall effect in nonmagnetic material opens new materials platform for applications.",
+    "model_io": [
+      {
+        "model": "First-principles calculations + side jump and skew scattering analysis for LuAuSn",
+        "inputs": [
+          "In-plane magnetic field under threefold rotational symmetry"
+        ],
+        "outputs": [
+          "In-plane Hall resistivity",
+          "Scattering contributions",
+          "Cubic field scaling"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Giant magneto-cubic in-plane Hall effect arises in nonmagnetic material with threefold symmetry via extrinsic scattering",
+        "result": "Confirmed; magnitude exceeds prior reports; scaling and symmetry verified"
+      }
+    ]
+  },
+  "nature:10.1038/s41529-026-00766-z": {
+    "category": "Applied Physics",
+    "task": "Understand grain boundary effects on radiation damage and tritium transport in LiAlO2 ceramics",
+    "key_results": "Grain boundaries suppress damage via interstitial emission (especially Li defects) but promote tritium diffusion by 2\u201310\u00d7 due to higher free volume; trade-off identified for TPBAR design",
+    "comments": "Molecular dynamics reveals competing microstructural effects that must be balanced in tritium breeding blanket optimization.",
+    "model_io": [
+      {
+        "model": "Molecular dynamics simulations of LiAlO2 and LiAl5O8 single crystals and bicrystals at 600 K",
+        "inputs": [
+          "Displacement cascades",
+          "Temperature",
+          "Grain boundary structures (\u03a35, \u03a317, \u03a325)"
+        ],
+        "outputs": [
+          "Defect evolution and distribution",
+          "Tritium diffusion coefficients",
+          "Free volume analysis"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Grain boundaries reduce radiation damage accumulation in LiAlO2 but accelerate tritium migration",
+        "result": "Confirmed; GBs suppress Li defects but increase tritium diffusivity 2\u201310-fold"
+      }
+    ]
+  },
+  "nature:10.1038/s41535-026-00871-x": {
+    "category": "Condensed Matter",
+    "task": "Compare Hund-driven versus hybridization-driven superconductivity mechanisms in bilayer nickelates",
+    "key_results": "Hund scenario yields isotropic s\u00b1-wave gap, lower Tc, Fermi liquid normal state; differs fundamentally from hybridization mechanism; Hund alone insufficient for bulk and thin-film data",
+    "comments": "Systematic theoretical comparison using same method clarifies competing pairing mechanisms but suggests multi-mechanism origin.",
+    "model_io": [
+      {
+        "model": "Dynamic Schwinger boson mean-field theory for bilayer nickelate Hund and hybridization scenarios",
+        "inputs": [
+          "Orbital structure",
+          "Coupling parameters"
+        ],
+        "outputs": [
+          "Superconducting gap symmetry and magnitude",
+          "Tc",
+          "Normal-state Fermi liquid properties"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Hund coupling alone drives isotropic s\u00b1-wave superconductivity with lower Tc and Fermi liquid normal state",
+        "result": "Partially confirmed; mechanism differs from hybridization but experimental Tc values suggest mixed mechanism"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44869-8": {
+    "category": "Optics/Photonics",
+    "task": "Enhance MIMO antenna performance using double defected ground structures and parasitic patches",
+    "key_results": "Impedance bandwidth 1.05 GHz (S11 < \u221210 dB) at 5.5\u20136.5 GHz; mutual coupling \u221232 to \u221252 dB; envelope correlation coefficient < 0.0035; diversity gain > 9.992 dB",
+    "comments": "Standard antenna engineering achieving good diversity metrics through systematic defect and parasitic element placement.",
+    "model_io": [
+      {
+        "model": "Four-element MIMO antenna array on FR4 substrate with DGS and parasitic patches",
+        "inputs": [
+          "Geometric parameters",
+          "FR4 substrate properties",
+          "Operating frequency"
+        ],
+        "outputs": [
+          "S-parameters (S11, S12, etc.)",
+          "Impedance bandwidth",
+          "Mutual coupling",
+          "ECC, DG, MEG metrics"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "DGS 1 and 2 with parasitic patches improve reflection/transmission coefficients and diversity",
+        "result": "Confirmed; measured S-parameters and diversity metrics meet C-band specifications"
+      }
+    ]
+  },
+  "nature:10.1038/s43246-026-01132-x": {
+    "category": "Condensed Matter",
+    "task": "Explain pressure-induced insulator-to-metal transition and magnetic anomalies in nodal-line ferrimagnet",
+    "key_results": "DFT and Monte Carlo simulations reproduce experimental ordering temperatures and magnetic patterns; anomalous Hall conductivity requires extrinsic contributions or electron doping to explain",
+    "comments": "The theoretical model successfully captures magnetic evolution but incompletely explains Hall response, suggesting missing physics or sample complexity.",
+    "model_io": [
+      {
+        "model": "DFT calculations + Heisenberg Hamiltonians extraction + Classical Monte Carlo",
+        "inputs": [
+          "Crystal structure at various pressures"
+        ],
+        "outputs": [
+          "Electronic band structure",
+          "Magnetic ordering temperature",
+          "Magnetic ordering patterns",
+          "Anomalous Hall conductivity estimates"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Pressure-induced IMT drives magnetic anomalies via changes in electronic structure",
+        "result": "Supported for ordering temperature but not for anomalous Hall conductivity magnitude"
+      }
+    ]
   }
 }

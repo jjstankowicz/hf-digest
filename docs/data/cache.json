@@ -14275,5 +14275,263 @@
         "result": "Supported for ordering temperature but not for anomalous Hall conductivity magnitude"
       }
     ]
+  },
+  "hf:2603.19017": {
+    "category": "LLM/Reasoning",
+    "task": "Temporal reasoning across languages and calendar systems",
+    "key_results": "Tokenisation fragmentation is the bottleneck in low-resource languages; temporal linearity predicts reasoning in high-resource settings; accuracy collapses in rare calendar formats due to Year/Month/Day separation disruption",
+    "comments": "Well-designed benchmark isolating tokenisation vs. representation effects, though the causal claims about 'what controls' reasoning rest on correlational mixed-effects analysis.",
+    "model_io": [
+      {
+        "model": "20 LLMs (unspecified)",
+        "inputs": [
+          "multilingual temporal questions (date arithmetic, timezone conversion, relation extraction)"
+        ],
+        "outputs": [
+          "temporal reasoning accuracy scores"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Tokenisation quality of temporal artefacts is a resource-dependent bottleneck",
+        "result": "Confirmed; fragmentation disrupts accuracy in low-resource languages and rarer calendar formats"
+      },
+      {
+        "hypothesis": "Temporal linearity is the strongest predictor of reasoning in high-resource languages",
+        "result": "Confirmed via crossed mixed-effects regression"
+      },
+      {
+        "hypothesis": "Fragmentation is the stronger predictor in low-resource languages",
+        "result": "Confirmed"
+      }
+    ]
+  },
+  "hf:2603.19216": {
+    "category": "Generative",
+    "task": "Semantically grounded part-level 3D object generation from text",
+    "key_results": "State-of-the-art geometric fidelity and text-shape alignment; framework enables coherent, interpretable synthesis with explicit part semantics and inter-part relations",
+    "comments": "Novel approach combining geometry and semantics via latent co-denoising is conceptually sound, but abstract lacks concrete quantitative benchmarks or ablation details.",
+    "model_io": [
+      {
+        "model": "DreamPartGen (diffusion-based with Duplex Part Latents and Relational Semantic Latents)",
+        "inputs": [
+          "text descriptions"
+        ],
+        "outputs": [
+          "semantically grounded 3D objects with part decomposition"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Joint modeling of part geometry and appearance with inter-part semantic relations improves 3D generation fidelity",
+        "result": "Achieved state-of-the-art performance, though specific improvements not quantified in abstract"
+      }
+    ]
+  },
+  "nature:10.1038/s41419-026-08570-y": {
+    "category": "Apoptosis/Cell Death",
+    "task": "Identify signaling axis regulating ferroptosis and test therapeutic potential",
+    "key_results": "FAK/SRC-JNK pathway upregulates ACSL4 to promote ferroptosis; defactinib (FAK inhibitor) suppresses ferroptosis and protects against acute pancreatitis",
+    "comments": "Interesting dual therapeutic application (sensitizing cancer cells vs. protecting from pancreatitis), though the opposing effects of different JNK transcription factors suggest complex regulation requiring further mechanistic clarity.",
+    "model_io": [
+      {
+        "model": "cancer cells and acute pancreatitis models",
+        "inputs": [
+          "FAK inhibitor defactinib",
+          "ferroptosis inducers"
+        ],
+        "outputs": [
+          "ACSL4 expression",
+          "ferroptosis markers",
+          "cell death",
+          "disease severity"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "FAK/SRC-JNK signaling promotes ferroptosis through ACSL4 upregulation",
+        "result": "Confirmed; JNK transcription factors (ATF2, NFATC1/3, SMAD4) activate ACSL4 while others (c-Jun, STAT3, ELK1, HSF1) repress it"
+      }
+    ]
+  },
+  "nature:10.1038/s41467-026-71042-6": {
+    "category": "Network Biology",
+    "task": "Slice alignment and 3D reconstruction of spatial-omics data",
+    "key_results": "GEASO outperforms baselines across multiple platforms and modalities for alignment and 3D reconstruction of tissue slices",
+    "comments": "Graph neural networks effectively capture topological structure for elastic registration, though scalability to very large datasets remains to be demonstrated in practice.",
+    "model_io": [
+      {
+        "model": "GEASO (Graph-based Elastic Alignment)",
+        "inputs": [
+          "spatial transcriptomics slices",
+          "spot coordinate data",
+          "gene expression matrices"
+        ],
+        "outputs": [
+          "aligned slices",
+          "stitched tissue volume",
+          "3D reconstructed tissue"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Graph neural networks can learn consistent spot features to enable elastic registration across slices",
+        "result": "GEASO successfully aligned and reconstructed slices across various platforms and modalities"
+      }
+    ]
+  },
+  "nature:10.1038/s41591-026-04247-3": {
+    "category": "Statistical Methods",
+    "task": "Predict heart failure exacerbations from smartwatch-derived daily peak oxygen uptake",
+    "key_results": "Wearable-derived pVO2 strongly correlated with CPET-measured pVO2 (r=0.85); 10% drop in pVO2 associated with 3.62-fold HR for unplanned healthcare events (median 7.4 d lead time); external validation confirmed findings",
+    "comments": "7.4-day lead time is clinically actionable; external validation on All of Us data is valuable, though reduced-sensor model showed weaker association (HR 1.32) with 21-day lag.",
+    "model_io": [
+      {
+        "model": "Deep learning (smartwatch-derived pVO2)",
+        "inputs": [
+          "Apple Watch sensor data (heart rate, movement, etc.)",
+          "CPET measurements (training)"
+        ],
+        "outputs": [
+          "daily pVO2 estimates",
+          "healthcare event risk prediction",
+          "exacerbation warning"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Smartwatch-derived daily pVO2 predicts heart failure exacerbations earlier than static clinical measures",
+        "result": "10% pVO2 drop preceded unplanned healthcare events by median 7.4 days (internal) and 21 days (external)"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44588-0": {
+    "category": "Network Biology",
+    "task": "Simulation and visualization of full-scale point-neuron circuits in hippocampal CA1",
+    "key_results": "Neural Circuit Visualizer integrates anatomical reconstruction, region-specific connectivity, and HPC resources; enables public simulation and visualization of full-scale neural models",
+    "comments": "Web-based platform increases accessibility; open-source design encourages community contribution, though computational scalability limits are not detailed.",
+    "model_io": [
+      {
+        "model": "Neural Circuit Visualizer (NCV) web platform",
+        "inputs": [
+          "point-neuron models",
+          "anatomical connectivity (mouse CA1)",
+          "neural parameters"
+        ],
+        "outputs": [
+          "neural dynamics simulations",
+          "circuit visualizations",
+          "physiological/pathological predictions"
+        ]
+      }
+    ],
+    "hypotheses": []
+  },
+  "nature:10.1038/s43587-026-01086-2": {
+    "category": "Single Cell",
+    "task": "Characterize aging-associated inflammation and genome instability in turquoise killifish immune system",
+    "key_results": "Old killifish display increased inflammation markers and DNA damage in immune progenitors vs young; age-related immune changes occur within <10 weeks, validating killifish as aging model",
+    "comments": "Rapid aging model is advantageous for mechanistic studies; single-cell data provides cell-state resolution, though link between immune aging and systemic aging requires further investigation.",
+    "model_io": [
+      {
+        "model": "Killifish (Nothobranchius furzeri) immune system",
+        "inputs": [
+          "kidney marrow cells (young vs old)",
+          "age"
+        ],
+        "outputs": [
+          "scRNA-seq profiles",
+          "inflammation markers",
+          "DNA damage levels",
+          "proteomic signatures"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Killifish undergo rapid age-dependent immune system changes paralleling human immune aging",
+        "result": "Old killifish displayed increased inflammation and DNA damage in immune progenitors within <10 weeks"
+      }
+    ]
+  },
+  "nature:10.1038/s41524-026-02041-w": {
+    "category": "ML Theory",
+    "task": "High-entropy solid electrolyte discovery via dual-stage ML: MLIPs + feature-property mapping",
+    "key_results": "Framework identifies promising HE-LZSP composition with 4.53 mS/cm ionic conductivity from 4575 candidates; fine-tuned CHGNet + SF-MSD model",
+    "comments": "Novel dual-stage accelerated discovery approach but MLIP fine-tuning procedure unclear; validation on other SE families not demonstrated despite claimed extensibility.",
+    "model_io": [
+      {
+        "model": "Fine-tuned CHGNet (MLIP) + SF-MSD feature-property model",
+        "inputs": [
+          "Li3Zr2Si2PO12 composition space (4575 configs)",
+          "atomic structure"
+        ],
+        "outputs": [
+          "ionic conductivity predictions",
+          "critical descriptors for transport"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Fine-tuned MLIP + interpretable feature-property mapping identifies high-conductivity HE-SEs more efficiently than trial-and-error in high-dimensional composition space",
+        "result": "Confirmed; 4.53 mS/cm composition identified with computational efficiency"
+      }
+    ]
+  },
+  "nature:10.1038/s41612-026-01374-z": {
+    "category": "Algorithms",
+    "task": "Hybrid physics-AI weather forecasting via dynamical core and neural operator",
+    "key_results": "Performance comparable to state-of-the-art medium-range models with lower training cost; enhanced physical consistency",
+    "comments": "Effective hybrid approach but evaluation limited to specific dynamical core; scalability claims need empirical validation.",
+    "model_io": [
+      {
+        "model": "Hybrid framework: low-resolution dynamical core + multigrid neural operator",
+        "inputs": [
+          "atmospheric state variables",
+          "initial conditions"
+        ],
+        "outputs": [
+          "global weather predictions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Multigrid neural operator can augment low-resolution dynamical core without gradient propagation through dynamics",
+        "result": "Confirmed; enables flexibility in dynamical core choice"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-41097-y": {
+    "category": "Condensed Matter",
+    "task": "First-principles investigation of electronic and optical properties of hexagonal chalcogenide perovskites CsXS\u2083",
+    "key_results": "Narrow indirect band gaps; isotropic optical absorption in visible-NIR from S-p to transition-metal d transitions; HSE06 reveals band-edge renormalization but internal PBE consistency maintained",
+    "comments": "Thorough methodological treatment clarifies role of functional choice; optical properties promising but device predictions withheld pending experimental validation.",
+    "model_io": [
+      {
+        "model": "DFT with PBE-GGA and HSE06 hybrid functional",
+        "inputs": [
+          "CsNbS\u2083 and CsVS\u2083 crystal geometries"
+        ],
+        "outputs": [
+          "band structures",
+          "density of states",
+          "dielectric function",
+          "optical absorption spectra"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Hybrid functional (HSE06) significantly renormalizes band edges compared to PBE-GGA",
+        "result": "Confirmed: pronounced band-edge shifts near Fermi level"
+      }
+    ]
   }
 }

@@ -1,0 +1,1098 @@
+[
+  {
+    "uid": "nature:10.1038/s41419-026-08589-1",
+    "source": "cell-biology",
+    "id": "10.1038/s41419-026-08589-1",
+    "title": "Lactylation stabilizes PD-L1 to promote tumor immune evasion and cell growth",
+    "projectPage": "https://www.nature.com/articles/s41419-026-08589-1",
+    "journal": "Nature Portfolio",
+    "publishedAt": "2026-03-21",
+    "category": "Cell Signaling",
+    "task": "Elucidate lactate-mediated PD-L1 stabilization and immune evasion mechanism",
+    "key_results": "Lactate lactylates PD-L1 at K280 via AARS1, stabilizing it by blocking HUWE1-mediated degradation; lactylation correlates with advanced NSCLC and poor survival",
+    "comments": "Novel metabolic regulation of immune checkpoint protein; therapeutic targeting of lactylation could enhance immunotherapy efficacy.",
+    "model_io": [
+      {
+        "model": "tumor cell and T cell co-culture",
+        "inputs": [
+          "lactate",
+          "PD-L1 K280"
+        ],
+        "outputs": [
+          "CD8+ T cell cytotoxicity",
+          "tumor growth"
+        ]
+      },
+      {
+        "model": "mouse tumor model with sodium lactate",
+        "inputs": [
+          "sodium lactate",
+          "anti-PD-L1 antibody"
+        ],
+        "outputs": [
+          "tumor size",
+          "survival"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Lactate upregulates PD-L1 expression via lysine lactylation",
+        "result": "Confirmed; K280 lactylation stabilizes PD-L1 by inhibiting HUWE1 binding and ubiquitination"
+      },
+      {
+        "hypothesis": "Lactylation promotes immune evasion",
+        "result": "Confirmed; lactylated PD-L1 impairs CD8+ T cell-mediated cytotoxicity and accelerates tumor growth"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41419-026-08600-9",
+    "source": "cell-biology",
+    "id": "10.1038/s41419-026-08600-9",
+    "title": "TSP-1 interaction with RANK and OPG: implications for bone remodeling and osteolytic bone metastasis",
+    "projectPage": "https://www.nature.com/articles/s41419-026-08600-9",
+    "journal": "Nature Portfolio",
+    "publishedAt": "2026-03-21",
+    "category": "Cell Division/Cycle",
+    "task": "Characterize TSP-1 C-terminal fragment in regulating osteoclast differentiation and bone metastasis",
+    "key_results": "E123CaG fragment inhibits RANKL-induced osteoclastogenesis by blocking RANK signaling and potentiating OPG; in vivo expression reduces osteolytic lesions and extends survival",
+    "comments": "Dual mechanism of action (RANK inhibition + OPG stabilization) is elegant; physiological cleavage by HTRA1 suggests endogenous feedback control.",
+    "model_io": [
+      {
+        "model": "osteoclast precursor differentiation assay",
+        "inputs": [
+          "RANKL",
+          "E123CaG fragment",
+          "RANK",
+          "OPG"
+        ],
+        "outputs": [
+          "osteoclast differentiation",
+          "p38/JNK/NFATc1 signaling"
+        ]
+      },
+      {
+        "model": "mouse osteolytic bone metastasis model",
+        "inputs": [
+          "breast cancer cells expressing E123CaG"
+        ],
+        "outputs": [
+          "osteolytic lesion area",
+          "survival",
+          "bone resorption markers"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "TSP-1 C-terminal fragment inhibits RANKL-induced osteoclastogenesis",
+        "result": "Confirmed; E123CaG binds RANK and blocks downstream MAPK and NFATc1 signaling"
+      },
+      {
+        "hypothesis": "E123CaG protects bone in osteolytic metastasis by dual RANK/OPG modulation",
+        "result": "Confirmed; in vivo expression reduces osteolytic lesions and prolongs survival"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41467-026-70938-7",
+    "source": "cell-biology",
+    "id": "10.1038/s41467-026-70938-7",
+    "title": "An epithelial morphogenetic program for maximal urine concentration",
+    "projectPage": "https://www.nature.com/articles/s41467-026-70938-7",
+    "journal": "Nature Communications",
+    "publishedAt": "2026-03-21",
+    "category": "Development",
+    "task": "Elucidate epithelial morphogenetic mechanisms enabling maximal urine concentration in ascending thin limb",
+    "key_results": "Claudin-10b drives apical-junctional interdigitations that increase cell-cell contact area; claudin-10b deletion abolishes interdigitations and markedly reduces urine-concentrating ability",
+    "comments": "Novel non-canonical morphogenetic role for claudin tight junction protein; elegant link between subcellular architecture and organ-level physiology.",
+    "model_io": [
+      {
+        "model": "ascending thin limb epithelium with single-nucleus transcriptomics and high-resolution imaging",
+        "inputs": [
+          "claudin-10b expression",
+          "tight junction proteins",
+          "morphological features"
+        ],
+        "outputs": [
+          "interdigitation density",
+          "cell-cell contact area",
+          "claudin-10b localization"
+        ]
+      },
+      {
+        "model": "inducible claudin-10b knockout mice",
+        "inputs": [
+          "claudin-10b deletion in aTL"
+        ],
+        "outputs": [
+          "interdigitation morphology",
+          "urine osmolality",
+          "salt reabsorption"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Claudin-10b is necessary for apical-junctional interdigitation formation",
+        "result": "Confirmed; claudin-10b deletion abolishes membrane interdigitations"
+      },
+      {
+        "hypothesis": "Interdigitations are essential for maximal urine concentration",
+        "result": "Confirmed; claudin-10b knockout markedly reduces urine-concentrating ability"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-43493-w",
+    "source": "cell-biology",
+    "id": "10.1038/s41598-026-43493-w",
+    "title": "Validation of ferroptosis in zebrafish as a reliable model for phenotypic studies",
+    "projectPage": "https://www.nature.com/articles/s41598-026-43493-w",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-21",
+    "category": "Apoptosis/Cell Death",
+    "task": "Validate ferroptosis as a distinct cell death pathway in zebrafish and characterize its effects on vascular development",
+    "key_results": "Ferroptosis successfully induced in zebrafish embryos by Erastin, FIN56, and FAC; ferroptosis significantly inhibits angiogenesis in transgenic zebrafish; differentiated from apoptosis and autophagy",
+    "comments": "Zebrafish provides efficient, transparent vertebrate model for ferroptosis research with high genetic homology to humans; vascular phenotype is particularly notable.",
+    "model_io": [
+      {
+        "model": "zebrafish embryo treatment with ferroptosis inducers",
+        "inputs": [
+          "Erastin",
+          "FIN56",
+          "ammonium ferric citrate (FAC)"
+        ],
+        "outputs": [
+          "ROS levels",
+          "GSH/GSSG ratio",
+          "somatic cell death",
+          "ferroptosis-related gene expression"
+        ]
+      },
+      {
+        "model": "transgenic zebrafish with vascular-specific fluorescence",
+        "inputs": [
+          "ferroptosis inducers"
+        ],
+        "outputs": [
+          "vascular development",
+          "angiogenesis markers",
+          "vascular morphology"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Ferroptosis can be reliably induced and measured in zebrafish embryos",
+        "result": "Confirmed; ferroptosis markers (ROS, GSH/GSSG, gene expression) detected and distinguished from apoptosis/autophagy"
+      },
+      {
+        "hypothesis": "Ferroptosis impairs angiogenesis",
+        "result": "Confirmed; ferroptosis significantly inhibits vascular development in transgenic zebrafish"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-43536-2",
+    "source": "cell-biology",
+    "id": "10.1038/s41598-026-43536-2",
+    "title": "SHP2 improves ovarian morphology and steroidogenic function in a rat PCOS model by modulating IRE1\u03b1/XBP1/NLRP3-mediated granulosa cell pyroptosis",
+    "projectPage": "https://www.nature.com/articles/s41598-026-43536-2",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-21",
+    "category": "Cell Division/Cycle",
+    "task": "Elucidate SHP2-mediated regulation of granulosa cell pyroptosis and steroidogenic function in PCOS",
+    "key_results": "SHP2 overexpression ameliorates PCOS ovarian damage (reduced cystic follicles, increased corpora lutea, normalized hormone levels); SHP2 inhibits IRE1\u03b1/XBP1/NLRP3 and ZEB1 pathways to suppress granulosa cell pyroptosis and apoptosis",
+    "comments": "Multi-pathway targeting (IRE1\u03b1/XBP1/NLRP3 and ZEB1/PKP3) provides mechanistic depth; links endoplasmic reticulum stress to PCOS pathology.",
+    "model_io": [
+      {
+        "model": "rat PCOS model with lentiviral SHP2 overexpression",
+        "inputs": [
+          "letrozole",
+          "SHP2 overexpression"
+        ],
+        "outputs": [
+          "ovarian histology",
+          "follicle morphology",
+          "corpora lutea count",
+          "serum hormones (estradiol, testosterone, LH, FSH)"
+        ]
+      },
+      {
+        "model": "granulosa cells isolated from PCOS rats with testosterone stimulation",
+        "inputs": [
+          "testosterone",
+          "SHP2 activity modulation"
+        ],
+        "outputs": [
+          "phospho-SHP2",
+          "p-IRE1\u03b1",
+          "XBP-1s",
+          "ZEB1",
+          "NLRP3",
+          "GSDMD",
+          "cell apoptosis",
+          "cell pyroptosis"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "SHP2 overexpression ameliorates PCOS-induced ovarian pathology",
+        "result": "Confirmed; SHP2-OE reduced cystic follicles, increased corpora lutea, and normalized hormone levels in vivo"
+      },
+      {
+        "hypothesis": "SHP2 suppresses granulosa cell pyroptosis through IRE1\u03b1/XBP1/NLRP3 pathway inhibition",
+        "result": "Confirmed; testosterone activated this pathway; SHP2 activity antagonized pathway activation and reduced pyroptosis markers"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-43734-y",
+    "source": "cell-biology",
+    "id": "10.1038/s41598-026-43734-y",
+    "title": "Hibernating bear serum triggers an anti-fibrotic signature in human fibroblasts, involving ECM remodeling and MAPK signaling activation",
+    "projectPage": "https://www.nature.com/articles/s41598-026-43734-y",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-21",
+    "category": "Cell Signaling",
+    "task": "Identify anti-fibrotic mechanisms triggered by hibernating bear serum in human fibroblasts via ECM remodeling and MAPK signaling",
+    "key_results": "Hibernating bear serum reduces fibrotic markers (COL2A1, COL11A1, COL9A1, TGFBI) and inflammatory mediators (IFI16, HMGB2), while activating MAPK cascade in human fibroblasts; active bear serum lacks this effect",
+    "comments": "Untargeted proteomics reveals hibernation-specific circulating factors protective against fibrosis; potential model for tissue preservation and anti-fibrotic drug discovery.",
+    "model_io": [
+      {
+        "model": "human fibroblast cell culture treated with serum",
+        "inputs": [
+          "hibernating bear serum",
+          "active bear serum",
+          "fetal bovine serum control"
+        ],
+        "outputs": [
+          "ECM protein composition (collagens, TGFBI)",
+          "inflammatory marker levels (IFI16, HMGB2, HMGB)",
+          "MAPK phosphorylation"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Hibernating bear serum triggers an anti-fibrotic signature in human fibroblasts",
+        "result": "Confirmed; hibernating bear serum reduced fibrotic and inflammatory markers while active and control sera did not"
+      },
+      {
+        "hypothesis": "MAPK cascade activation is associated with anti-fibrotic phenotype",
+        "result": "Confirmed; hibernating bear serum activated MAPK pathway concurrent with reduced collagen and TGF-\u03b2-associated signaling"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-44353-3",
+    "source": "cell-biology",
+    "id": "10.1038/s41598-026-44353-3",
+    "title": "A computational rule-based model of MAPK/ERK system regulation",
+    "projectPage": "https://www.nature.com/articles/s41598-026-44353-3",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-21",
+    "category": "Cell Signaling",
+    "task": "Construct rule-based computational model of MAPK/ERK pathway regulation by isoforms and 14-3-3 proteins",
+    "key_results": "Model reconciles graded RAS/RAF responses with switch-like ERK output; demonstrates functional specificity of RAF isoforms through 14-3-3 interactions and selective dimer stabilization",
+    "comments": "Computational approach elegantly handles combinatorial complexity; predictions about isoform-specific 14-3-3 preferences could guide experimental validation.",
+    "model_io": [
+      {
+        "model": "rule-based computational MAPK/ERK pathway model",
+        "inputs": [
+          "growth factor concentration",
+          "RAS activation",
+          "RAF isoforms (ARAF/BRAF/CRAF)",
+          "14-3-3 proteins"
+        ],
+        "outputs": [
+          "RAF activation",
+          "MEK phosphorylation",
+          "ERK phosphorylation",
+          "signaling output"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Low growth factor concentration activates RAS only in membrane subregions",
+        "result": "Confirmed; model reconciles graded upper-tier with switch-like lower-tier responses"
+      },
+      {
+        "hypothesis": "14-3-3 dimers confer functional differences between RAF isoforms",
+        "result": "Confirmed; 14-3-3 inhibits RAF monomers but selectively stabilizes BRAF-containing dimers"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-45051-w",
+    "source": "cell-biology",
+    "id": "10.1038/s41598-026-45051-w",
+    "title": "Targeting STAT3 pathway attenuates macrophages inflammation and cardiovascular injury in a model of Kawasaki disease",
+    "projectPage": "https://www.nature.com/articles/s41598-026-45051-w",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-21",
+    "category": "Cell Signaling",
+    "task": "Investigate STAT3 pathway in macrophage-mediated inflammation and cardiovascular injury in Kawasaki disease",
+    "key_results": "STAT3 phosphorylation elevated in LCWE-treated macrophages; AG490-mediated STAT3 inhibition reduces inflammatory response and cardiac injury in vivo; STAT3 blockade attenuates endothelial cell damage",
+    "comments": "Clear mechanistic link between macrophage STAT3 signaling and organ injury; AG490 inhibition is pharmacologically validated target.",
+    "model_io": [
+      {
+        "model": "RAW264.7 macrophage and primary peritoneal macrophage cell culture",
+        "inputs": [
+          "LCWE",
+          "AG490",
+          "STAT3 inhibitor"
+        ],
+        "outputs": [
+          "phospho-STAT3",
+          "inflammatory cytokines",
+          "macrophage activation markers"
+        ]
+      },
+      {
+        "model": "mouse coronary endothelial cell culture with macrophage-conditioned medium",
+        "inputs": [
+          "RAW264.7 cell-conditioned medium",
+          "AG490"
+        ],
+        "outputs": [
+          "endothelial cell damage",
+          "barrier integrity"
+        ]
+      },
+      {
+        "model": "LCWE-induced KD mouse model",
+        "inputs": [
+          "LCWE injection",
+          "AG490 treatment"
+        ],
+        "outputs": [
+          "cardiac inflammation",
+          "vascular injury",
+          "phospho-STAT3 levels"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "STAT3 activation in macrophages drives KD-associated inflammation",
+        "result": "Confirmed; STAT3 blockade with AG490 reduces LCWE-mediated inflammatory response in vitro and cardiac injury in vivo"
+      },
+      {
+        "hypothesis": "Macrophage-derived factors mediate endothelial damage through STAT3-dependent mechanisms",
+        "result": "Confirmed; conditioned medium from STAT3-inhibited macrophages reduces endothelial cell damage"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s42003-026-09905-3",
+    "source": "cell-biology",
+    "id": "10.1038/s42003-026-09905-3",
+    "title": "\u03b2-arrestin1 orchestrates endosomal signaling to regulate translational control of circadian light entrainment",
+    "projectPage": "https://www.nature.com/articles/s42003-026-09905-3",
+    "journal": "Communications Biology",
+    "publishedAt": "2026-03-21",
+    "category": "Cell Signaling",
+    "task": "Identify \u03b2-arrestin1-dependent endosomal signaling mechanism in circadian light entrainment",
+    "key_results": "ARRB1 required for PAC1 receptor internalization and endosomal ERK1/2-RSK1-S6 cascade activation; ERK1/2-RSK1-S6 signaling enhances PER protein translation independent of transcription; endosomes identified as critical circadian signal transduction hubs",
+    "comments": "Spatial specificity of endosomal signaling in circadian biology is conceptually novel; non-canonical GPCR paradigm emphasizing translational control over transcription.",
+    "model_io": [
+      {
+        "model": "SCN tissue and cultured neurons from ARRB1-deficient mice",
+        "inputs": [
+          "light stimulation",
+          "PACAP",
+          "PAC1 receptor"
+        ],
+        "outputs": [
+          "PAC1 internalization",
+          "endosomal ERK1/2 activation",
+          "RSK1 and S6 phosphorylation",
+          "PER protein levels"
+        ]
+      },
+      {
+        "model": "behavioral circadian assay in ARRB1-deficient mice",
+        "inputs": [
+          "light entrainment stimulus"
+        ],
+        "outputs": [
+          "circadian phase shift",
+          "clock resetting"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "ARRB1 is required for PAC1 internalization and endosomal signaling",
+        "result": "Confirmed; ARRB1-deficient neurons show impaired PAC1 internalization and reduced endosomal ERK1/2 activation"
+      },
+      {
+        "hypothesis": "Endosomal ERK1/2-RSK1-S6 signaling enhances PER translation for circadian entrainment",
+        "result": "Confirmed; cascade activates translation-dependent PER induction with intact transcriptional responses"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41467-026-70397-0",
+    "source": "computational-biology",
+    "id": "10.1038/s41467-026-70397-0",
+    "title": "Multi-omic identification of key transcriptional regulatory programs during endurance exercise training in rats",
+    "projectPage": "https://www.nature.com/articles/s41467-026-70397-0",
+    "journal": "Nature Communications",
+    "publishedAt": "2026-03-21",
+    "category": "Genomics",
+    "task": "Identifying transcriptional regulatory programs during endurance exercise via multi-omic integration",
+    "key_results": "Integrated analysis of chromatin accessibility, DNA methylation, mRNA, protein abundance and phosphorylation across 8 tissues (50 rats); identified tissue-specific training responses and transcription factor motifs driving coordinated epigenomic-transcriptomic changes",
+    "comments": "Comprehensive multi-omics integration elegantly deconvolutes epigenomic vs. transcriptional regulation routes; sex-stratified analysis adds value for understanding sex-biased training adaptation.",
+    "model_io": [
+      {
+        "model": "Multi-omic integration pipeline",
+        "inputs": [
+          "chromatin accessibility",
+          "DNA methylation",
+          "mRNA expression",
+          "protein abundance",
+          "phosphorylation",
+          "8 tissues from 50 rats (equal sex representation)"
+        ],
+        "outputs": [
+          "transcription factor motif enrichment",
+          "training-responsive genes",
+          "epigenomic alterations enabling TF binding",
+          "TF activity changes"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Endurance training induces tissue-specific transcriptional changes via distinct epigenomic and TF activity routes",
+        "result": "Identified coordinated epigenomic-transcriptomic signatures and enriched TF motifs driving training adaptation"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-025-20169-5",
+    "source": "computational-biology",
+    "id": "10.1038/s41598-025-20169-5",
+    "title": "Investigating the mechanistic link between pesticide DDT and breast cancer through network toxicology, molecular docking, and molecular dynamics simulation",
+    "projectPage": "https://www.nature.com/articles/s41598-025-20169-5",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-21",
+    "category": "Network Biology",
+    "task": "Elucidating DDT-breast cancer mechanistic links via network toxicology",
+    "key_results": "Identified 12 DDT-associated breast cancer targets; core targets (AR, ESR1, ESR2, ERBB2) primarily involved in hormone and growth factor signaling",
+    "comments": "Network analysis provides plausible mechanisms, but conclusions depend on database quality and require epidemiological validation.",
+    "model_io": [
+      {
+        "model": "Network toxicology pipeline",
+        "inputs": [
+          "DDT target genes",
+          "breast cancer genes",
+          "online databases"
+        ],
+        "outputs": [
+          "protein-protein interaction networks",
+          "core targets",
+          "pathway involvement"
+        ]
+      },
+      {
+        "model": "Molecular docking",
+        "inputs": [
+          "DDT ligand",
+          "key cancer-related proteins"
+        ],
+        "outputs": [
+          "binding interactions",
+          "structural insights"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "DDT interacts with hormone and growth factor signaling pathways to promote breast cancer",
+        "result": "Network analysis identified AR, ESR1, ESR2, ERBB2 as key mediators of DDT-associated breast cancer pathogenesis"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-35984-7",
+    "source": "computational-biology",
+    "id": "10.1038/s41598-026-35984-7",
+    "title": "Feature reduction using swarm optimization and random forest classifiers for early diabetes risk prediction",
+    "projectPage": "https://www.nature.com/articles/s41598-026-35984-7",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-21",
+    "category": "Statistical Methods",
+    "task": "Early diabetes risk prediction with swarm-optimized feature reduction",
+    "key_results": "TSO_RF (Tuna Swarm Optimization + Random Forest) achieved 100% accuracy and 98.14% mean 10-fold CV accuracy using only 14/16 features; HBA_RF reduced to 10 features with moderate performance; SHAP identified Polyuria, Polydipsia, Gender as top drivers",
+    "comments": "Demonstrates effective feature reduction via metaheuristic wrapping; 100% accuracy without CV likely reflects dataset size (520) and feature redundancy, requiring external validation.",
+    "model_io": [
+      {
+        "model": "Swarm optimization + Random Forest ensemble",
+        "inputs": [
+          "Early Stage Diabetes Risk dataset (520 individuals, 16 features)"
+        ],
+        "outputs": [
+          "feature-reduced diabetes risk predictions",
+          "selected feature subsets"
+        ]
+      },
+      {
+        "model": "SHAP explainability",
+        "inputs": [
+          "TSO_RF model",
+          "test predictions"
+        ],
+        "outputs": [
+          "feature importance",
+          "individual prediction explanations"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Swarm-optimized feature selection maintains high accuracy with reduced feature burden",
+        "result": "TSO_RF achieved 100% accuracy (no CV) and 98.14% (10-fold CV) using 87.5% of features"
+      },
+      {
+        "hypothesis": "Polyuria, Polydipsia, and Gender are key diabetes predictors",
+        "result": "SHAP confirmed these features have highest impact; even small changes influence predictions"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-41153-7",
+    "source": "computational-biology",
+    "id": "10.1038/s41598-026-41153-7",
+    "title": "A multi-scale adaptive filtering and AtRes_SRU\u2013transformer synergy for breast cancer histopathology classification",
+    "projectPage": "https://www.nature.com/articles/s41598-026-41153-7",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-21",
+    "category": "Structural Prediction",
+    "task": "Breast cancer histopathology classification from biomedical images",
+    "key_results": "ImTranNet-TriCore achieved 95.92% accuracy, 97.83% precision (Brain MRI), 97.67% precision (Chest X-ray), outperforming CNNs, RNNs, and standalone transformers",
+    "comments": "Combines learnable adaptive filtering, SRU modules, and transformers effectively, but lacks direct comparison with recent vision foundation models on same datasets.",
+    "model_io": [
+      {
+        "model": "ImTranNet-TriCore",
+        "inputs": [
+          "histopathology images",
+          "Brain MRI",
+          "Chest X-ray"
+        ],
+        "outputs": [
+          "cancer classification",
+          "noise-reduced features",
+          "spatial-temporal relationships",
+          "global contextual reasoning"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Multi-scale adaptive filtering plus dual-path SRU plus multi-head hybrid transformer improves classification of complex noisy biomedical data",
+        "result": "Achieved high accuracy and precision across multiple imaging modalities with reduced false positives"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-41176-0",
+    "source": "computational-biology",
+    "id": "10.1038/s41598-026-41176-0",
+    "title": "A novel bioenergetic model outlines the metabolism of a deep-sea clam and that of its sulfur-oxidizing symbionts",
+    "projectPage": "https://www.nature.com/articles/s41598-026-41176-0",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-21",
+    "category": "Evolutionary Biology",
+    "task": "Bioenergetic modeling of chemosymbiotic deep-sea clam and sulfur-oxidizing symbionts",
+    "key_results": "Novel 'farming' DEB model reveals host maintains stable lower ingestion rather than maximal intake; most oxygen consumed by symbionts in adult clams; high host energy maintenance flux for ion homeostasis",
+    "comments": "Innovative mechanistic approach to symbiosis energetics with unexpected homeostatic behavior; parameterization depends on limited published data for deep-sea organisms.",
+    "model_io": [
+      {
+        "model": "Classical Dynamic Energy Budget (DEB) model",
+        "inputs": [
+          "host and symbiont physiological data"
+        ],
+        "outputs": [
+          "energy allocation dynamics"
+        ]
+      },
+      {
+        "model": "Farming DEB model",
+        "inputs": [
+          "host digestion of bacterial symbionts",
+          "symbiont growth kinetics",
+          "oxygen consumption"
+        ],
+        "outputs": [
+          "host-symbiont homeostasis",
+          "metabolic flux",
+          "maintenance energy requirements"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Explicit modeling of symbiont digestion reveals novel host homeostatic strategies",
+        "result": "Host foregoes maximal ingestion for stable lower intake; adults allocate most oxygen to symbionts"
+      },
+      {
+        "hypothesis": "High host energy maintenance flux reflects ion homeostasis burden from symbiont metabolite release",
+        "result": "Confirmed via model prediction of substantial proton and sulfate handling energy costs"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-43594-6",
+    "source": "computational-biology",
+    "id": "10.1038/s41598-026-43594-6",
+    "title": "Development and validation of an interpretable prediction model for the risk of unplanned reoperation in patients underwent intracranial tumor surgery",
+    "projectPage": "https://www.nature.com/articles/s41598-026-43594-6",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-21",
+    "category": "Statistical Methods",
+    "task": "Predicting unplanned reoperation risk after intracranial tumor surgery using interpretable ML",
+    "key_results": "Logistic regression model achieved AUC 0.836 (training) and 0.769 (internal validation); identified surgery duration, tumor location, modified Frailty Index-5, and tumor type as top predictors",
+    "comments": "Well-validated single-center model with SHAP interpretability and clinical web tool; external validation on multi-center cohorts necessary.",
+    "model_io": [
+      {
+        "model": "LASSO regression + 5 ML classifiers",
+        "inputs": [
+          "clinical data from intracranial tumor surgery patients",
+          "surgical parameters"
+        ],
+        "outputs": [
+          "reoperation risk scores",
+          "feature importance rankings"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Machine learning can predict unplanned reoperation risk using clinical and surgical variables",
+        "result": "Logistic regression achieved strong AUC 0.769 on internal validation; SHAP identified 4 key drivers"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-43928-4",
+    "source": "computational-biology",
+    "id": "10.1038/s41598-026-43928-4",
+    "title": "The most important features in generalized additive models might be groups of features",
+    "projectPage": "https://www.nature.com/articles/s41598-026-43928-4",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-21",
+    "category": "Statistical Methods",
+    "task": "Determining importance of feature groups in GAMs",
+    "key_results": "Method enables efficient group importance analysis without retraining; identifies groups of features as primary predictors in multimodal neuroscience and health datasets",
+    "comments": "Addresses a genuine gap in interpretability\u2014joint feature effects are often overlooked\u2014though applicability beyond GAMs remains unclear.",
+    "model_io": [
+      {
+        "model": "Generalized Additive Models (GAMs)",
+        "inputs": [
+          "grouped features",
+          "multimodal data"
+        ],
+        "outputs": [
+          "group importance scores",
+          "feature group contributions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Most significant predictors are combined effects of feature groups rather than isolated features",
+        "result": "Confirmed in multimodal neuroscience data and social determinants of health case studies"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-44368-w",
+    "source": "computational-biology",
+    "id": "10.1038/s41598-026-44368-w",
+    "title": "Classification of fallers and non-fallers in older adults using electrical IMU signal for gait analysis and explainable deep learning",
+    "projectPage": "https://www.nature.com/articles/s41598-026-44368-w",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-21",
+    "category": "Single Cell",
+    "task": "Fall risk classification in older adults using IMU gait signals and explainable deep learning",
+    "key_results": "CNN achieved 92% fall-classification accuracy under subject-wise cross-validation; LIME analysis revealed stance phase irregularities drive 83.8% of faller classifications vs. 61.7% in non-fallers",
+    "comments": "Strong deep learning performance on IMU time-series with biomechanically interpretable explanations; prospective longitudinal validation needed to confirm causality.",
+    "model_io": [
+      {
+        "model": "LSTM and CNN architectures",
+        "inputs": [
+          "6-channel IMU signals (acceleration, angular velocity)",
+          "stride-level gait sequences",
+          "fall history labels",
+          "age groups"
+        ],
+        "outputs": [
+          "fall risk classification",
+          "age-group classification",
+          "subject identification"
+        ]
+      },
+      {
+        "model": "LIME (Local Interpretable Model-agnostic Explanations)",
+        "inputs": [
+          "CNN predictions",
+          "stride signals"
+        ],
+        "outputs": [
+          "stance phase importance scores",
+          "terminal and mid-stance contributions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Deep learning on raw IMU stride time-series outperforms traditional approaches for fall classification",
+        "result": "CNN achieved 92% accuracy (subject-wise CV) vs. 95% (data-level CV), confirming robust generalization"
+      },
+      {
+        "hypothesis": "Stance phase irregularities are primary drivers of fall-risk classification",
+        "result": "LIME analysis identified 83.8% contribution in fallers vs. 61.7% in non-fallers, linked to impaired weight transfer and balance"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-44978-4",
+    "source": "computational-biology",
+    "id": "10.1038/s41598-026-44978-4",
+    "title": "Q-CaDD: accelerating in silico methodologies with quantum computation and machine learning for Epidermal growth factor receptor",
+    "projectPage": "https://www.nature.com/articles/s41598-026-44978-4",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-21",
+    "category": "Structural Prediction",
+    "task": "Quantum-enhanced drug discovery for EGFR targeting using hybrid machine learning",
+    "key_results": "Q-CaDD generated and screened 200,000 ligands; hybrid ensemble achieved AUC-ROC 0.83 for toxicity prediction, outperforming standalone classical models",
+    "comments": "Demonstrates practical value of quantum ML in early-stage discovery despite NISQ hardware constraints; limited to NR-AR endpoint as proof-of-concept.",
+    "model_io": [
+      {
+        "model": "Q-CaDD hybrid quantum-classical framework",
+        "inputs": [
+          "EGFR target structure",
+          "STONED-SELFIES-generated ligands (200,000)",
+          "Tox21 dataset"
+        ],
+        "outputs": [
+          "docking affinities",
+          "toxicity predictions",
+          "candidate molecules"
+        ]
+      },
+      {
+        "model": "Quantum Support Vector Machine (QSVM)",
+        "inputs": [
+          "molecular features",
+          "toxicity labels"
+        ],
+        "outputs": [
+          "toxicity probability"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Quantum-enhanced components provide complementary predictive signals in hybrid drug discovery workflows",
+        "result": "Hybrid ensemble achieved AUC-ROC 0.83 with competitive performance relative to classical benchmarks"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-45388-2",
+    "source": "computational-biology",
+    "id": "10.1038/s41598-026-45388-2",
+    "title": "AI-based detection of Certas Plus shunt valve settings in CT scans",
+    "projectPage": "https://www.nature.com/articles/s41598-026-45388-2",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-21",
+    "category": "Other",
+    "task": "Automated detection of CSF shunt valve settings in CT scans using deep learning",
+    "key_results": "3D U-Net successfully segmented valve components in 97.3% of test cases; correctly predicted exact or adjacent setting in 96% of cases",
+    "comments": "Practical clinical tool with strong segmentation-based interpretability; limited to single valve type (Certas Plus) and single institution.",
+    "model_io": [
+      {
+        "model": "3D U-Net",
+        "inputs": [
+          "head CT scans (n=391)",
+          "CSF shunt valves"
+        ],
+        "outputs": [
+          "valve component segmentation",
+          "valve setting prediction"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "AI-based segmentation of radiopaque valve components enables reliable shunt setting prediction",
+        "result": "Model achieved 96% accuracy in predicting exact or adjacent shunt settings with interpretable segmentations"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41746-026-02535-3",
+    "source": "computational-biology",
+    "id": "10.1038/s41746-026-02535-3",
+    "title": "The regulation of artificial intelligence in intensive care units: from narrow tools to generalist systems",
+    "projectPage": "https://www.nature.com/articles/s41746-026-02535-3",
+    "journal": "Nature Portfolio",
+    "publishedAt": "2026-03-21",
+    "category": "Statistical Methods",
+    "task": "Regulatory framework for AI in intensive care units",
+    "key_results": "Five-paradigm framework demonstrates regulatory complexity increases with AI functionality and scale; agentic oversight proposed for orchestrating multi-system AI",
+    "comments": "Conceptual framework identifying regulatory gaps, but lacks concrete implementation details or case study validation.",
+    "model_io": [],
+    "hypotheses": [
+      {
+        "hypothesis": "Current device-centric regulatory approaches are insufficient for generalist AI systems and large language models in ICU settings",
+        "result": "Framework proposes agentic oversight as necessary evolution for safe orchestration of complex AI systems"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41746-026-02558-w",
+    "source": "computational-biology",
+    "id": "10.1038/s41746-026-02558-w",
+    "title": "Evolutionary digital twin framework for optimal aminoglycoside dosing in neonates with suspected sepsis",
+    "projectPage": "https://www.nature.com/articles/s41746-026-02558-w",
+    "journal": "Nature Portfolio",
+    "publishedAt": "2026-03-21",
+    "category": "Other",
+    "task": "Optimizing aminoglycoside dosing in neonatal sepsis using digital twins",
+    "key_results": "Framework calibrated on 1634 neonates; nonlinear optimal control achieved bacteriostatic exposure across all digital twins; model predictive control reduced bacterial rebound during late therapy",
+    "comments": "Innovative integration of PBPK, LSTM-updated GFR, and eco-evolutionary pharmacodynamics, though clinical validation remains needed.",
+    "model_io": [
+      {
+        "model": "Multiscale digital twin",
+        "inputs": [
+          "physiological parameters",
+          "neonatal cohort data (n=1634)",
+          "bacterial growth kinetics",
+          "kidney injury status"
+        ],
+        "outputs": [
+          "optimized dosing regimens",
+          "safety profiles",
+          "resistance-adapted MIC trajectories"
+        ]
+      },
+      {
+        "model": "LSTM neural network",
+        "inputs": [
+          "real-world renal function data"
+        ],
+        "outputs": [
+          "continuously updated glomerular filtration rate"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "In silico optimization balancing efficacy and safety accounts for resistance-driven MIC changes",
+        "result": "Nonlinear optimal control and model predictive control strategies successfully maintained therapeutic exposure"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41746-026-02564-y",
+    "source": "computational-biology",
+    "id": "10.1038/s41746-026-02564-y",
+    "title": "High-sensitivity pan-cancer AI assessment of lymph node metastasis via uncertainty quantification",
+    "projectPage": "https://www.nature.com/articles/s41746-026-02564-y",
+    "journal": "Nature Portfolio",
+    "publishedAt": "2026-03-21",
+    "category": "Structural Prediction",
+    "task": "Pan-cancer lymph node metastasis assessment with uncertainty quantification",
+    "key_results": "UPATHLN achieved AUC 0.986 on internal validation; uncertainty module achieved 100% conditional sensitivity by flagging all false negatives for review; reduced negative node review burden by 73.2%",
+    "comments": "Exemplary safety-critical AI design integrating foundation models with uncertainty\u2014achieves 100% sensitivity on held-out tumor origins through explicit fail-safe mechanism.",
+    "model_io": [
+      {
+        "model": "UPATHLN",
+        "inputs": [
+          "lymph node histopathology images (26,229 from 14 primary sites)",
+          "pathology foundation model encoder"
+        ],
+        "outputs": [
+          "metastasis probability",
+          "uncertainty estimates",
+          "review flags"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Explicit uncertainty quantification in AI prevents overconfident misclassification on rare tumor variants",
+        "result": "Uncertainty module intercepted all false negatives; achieved 100% conditional sensitivity even on unseen tumor origins"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-44620-3",
+    "source": "mathematics-and-computing",
+    "id": "10.1038/s41598-026-44620-3",
+    "title": "Dynamic channel allocation for secondary users in cognitive radio network",
+    "projectPage": "https://www.nature.com/articles/s41598-026-44620-3",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-21",
+    "category": "Algorithms",
+    "task": "Dynamic spectrum allocation for secondary users in cognitive radio networks via fuzzy logic",
+    "key_results": "27-rule Mamdani fuzzy logic model improves throughput, reduces service delay and drop rate, increases spectrum utilization vs. traditional CRN approaches; distributed SU decision-making enables adaptive responsiveness",
+    "comments": "Fuzzy approach is sensible for uncertain channel conditions, but paper lacks quantitative benchmarks (e.g., % improvements) and comparison against other adaptive allocation schemes.",
+    "model_io": [
+      {
+        "model": "Mamdani fuzzy logic controller (27 rules)",
+        "inputs": [
+          "SINR",
+          "transmission power",
+          "channel capacity",
+          "channel occupancy (energy detection)"
+        ],
+        "outputs": [
+          "channel allocation decisions",
+          "transmission power adjustment"
+        ]
+      },
+      {
+        "model": "Energy detection spectrum sensing",
+        "inputs": [
+          "received signal power"
+        ],
+        "outputs": [
+          "idle channel identification"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Fuzzy-based dynamic allocation outperforms traditional fixed allocation",
+        "result": "Improved throughput, reduced delay/drop rate, increased spectrum utilization in MATLAB simulations"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-44888-5",
+    "source": "mathematics-and-computing",
+    "id": "10.1038/s41598-026-44888-5",
+    "title": "Analytical analysis of the nonlinear fractional order Pochhammer-Chree equation with power-law nonlinearity in elastic materials",
+    "projectPage": "https://www.nature.com/articles/s41598-026-44888-5",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-21",
+    "category": "Analysis",
+    "task": "Solve nonlinear fractional Pochhammer-Chree equation with power-law nonlinearity",
+    "key_results": "Kumar-Malik method yields bright/dark soliton and kink solutions; fractional parameter \u03c7 controls soliton shape, width, and amplitude",
+    "comments": "Analytical treatment of fractional PDEs is well-established; visual validation via Mathematica plots provides limited quantitative verification of solution accuracy.",
+    "model_io": [
+      {
+        "model": "Kumar-Malik method",
+        "inputs": [
+          "nonlinear fractional PDE",
+          "conformable fractional derivative",
+          "power-law nonlinearity parameter \u03c4"
+        ],
+        "outputs": [
+          "soliton solutions",
+          "2D/3D/contour plots"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Kumar-Malik method efficiently solves fractional Pochhammer-Chree equation",
+        "result": "Method generates accurate bright/dark soliton and kink waveforms with \u03c7-dependent dynamics"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-45101-3",
+    "source": "mathematics-and-computing",
+    "id": "10.1038/s41598-026-45101-3",
+    "title": "Effects of AI-assisted review presentation formats on consumer decision-making efficiency from a cognitive load perspective",
+    "projectPage": "https://www.nature.com/articles/s41598-026-45101-3",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-21",
+    "category": "Statistics/Probability",
+    "task": "Quantify impact of AI review presentation format on cognitive load and movie purchase decisions",
+    "key_results": "Bullet-point reviews reduce cognitive load by 11.8% in high-demand narrative contexts; no significant effect in low-demand contexts; cognitive load mediates format-decision link",
+    "comments": "Well-motivated experimental design grounded in cognitive load theory, but effect size (11.8% reduction) is modest and requires replication; lack of behavioral outcome (purchase/watch intention) weakens practical relevance.",
+    "model_io": [
+      {
+        "model": "2\u00d72 factorial experiment + mediation analysis",
+        "inputs": [
+          "review format (bullet vs. paragraph)",
+          "movie cognitive demand (low/high)",
+          "consumer cognitive load measurement"
+        ],
+        "outputs": [
+          "cognitive load scores",
+          "decision quality metrics"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Bullet-point format reduces cognitive load more in high-demand than low-demand contexts",
+        "result": "11.8% reduction in high-demand; no significant difference in low-demand"
+      },
+      {
+        "hypothesis": "Cognitive load mediates the effect of format on decision outcomes",
+        "result": "Moderated mediation by task complexity confirmed"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41599-026-07008-2",
+    "source": "mathematics-and-computing",
+    "id": "10.1038/s41599-026-07008-2",
+    "title": "Skilled personnel risk management under war-induced forced migration: implications for labor market sustainability",
+    "projectPage": "https://www.nature.com/articles/s41599-026-07008-2",
+    "journal": "Nature Portfolio",
+    "publishedAt": "2026-03-21",
+    "category": "Statistics/Probability",
+    "task": "Assess workforce risk from war-induced migration using Human Capital Risk Index and Monte Carlo forecasting",
+    "key_results": "Poland and Czechia face highest labor market risks (HCRI 0.0372, 0.0419); Germany absorbs refugee workforce despite largest inflows; Monte Carlo sims show volatility in smaller economies, resilience in developed markets",
+    "comments": "Methodologically sound integration of risk metrics and stochastic modeling, but HCRI validation and empirical grounding (surveys/interviews noted as missing) limit policy credibility.",
+    "model_io": [
+      {
+        "model": "Human Capital Risk Index (HCRI)",
+        "inputs": [
+          "refugee-to-working-age population ratio",
+          "sectoral employment distribution",
+          "economic indicators"
+        ],
+        "outputs": [
+          "HCRI risk scores by country"
+        ]
+      },
+      {
+        "model": "Monte Carlo simulation",
+        "inputs": [
+          "migration scenarios",
+          "labor market parameters"
+        ],
+        "outputs": [
+          "workforce volatility forecasts",
+          "absorption capacity estimates"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Smaller economies face higher labor market risk from refugee inflows",
+        "result": "Poland, Czechia show HCRI >0.037; Germany resilient despite largest inflows"
+      },
+      {
+        "hypothesis": "Workforce volatility decreases with economic development",
+        "result": "Developed markets (Germany, UK) demonstrate greater absorption capacity in Monte Carlo forecasts"
+      }
+    ]
+  }
+]

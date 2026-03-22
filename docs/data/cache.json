@@ -17117,5 +17117,397 @@
         "result": "31% relative misclassification reduction; 98.56% accuracy achieved; cross-dataset generalization validated"
       }
     ]
+  },
+  "nature:10.1038/s41598-026-45469-2": {
+    "category": "Cell Signaling",
+    "task": "Characterize TRIM29 function in lung adenocarcinoma progression and identify therapeutic targets",
+    "key_results": [
+      "High TRIM29 expression associated with poor overall survival",
+      "TRIM29 inhibition reduced N-cadherin/SNAIL/TWIST, increased E-cadherin; mTOR inhibitors showed highest activity in TRIM29-high cells"
+    ],
+    "comments": "Integrated multi-level validation (transcriptomics, immunohistochemistry, cell lines) strengthens claims, though the therapeutic mechanism of mTOR inhibition relative to TRIM29 remains to be elucidated.",
+    "model_io": [
+      {
+        "model": "GSEA with TME deconvolution (xCell, ESTIMATE, EPIC)",
+        "inputs": [
+          "TRIM29 expression (mRNA)",
+          "Two independent LUAD transcriptomic cohorts"
+        ],
+        "outputs": [
+          "EMT pathway enrichment",
+          "Fibroblast and endothelial cell abundance",
+          "Stromal scores"
+        ]
+      },
+      {
+        "model": "TRIM29-inhibited lung cancer cell lines",
+        "inputs": [
+          "TRIM29 knockdown",
+          "mTOR inhibitor treatment"
+        ],
+        "outputs": [
+          "N-cadherin, SNAIL, TWIST expression (decreased)",
+          "E-cadherin expression (increased)",
+          "Drug sensitivity readouts"
+        ]
+      },
+      {
+        "model": "Immunohistochemistry and histopathology (independent cohort)",
+        "inputs": [
+          "TRIM29 protein expression",
+          "SNAIL expression"
+        ],
+        "outputs": [
+          "Microvessel density",
+          "Stromal proportion",
+          "Overall survival"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "TRIM29 drives EMT, angiogenesis, and stromal remodeling in LUAD",
+        "result": "Confirmed: TRIM29-high tumors show enriched EMT signatures, increased fibroblasts/endothelial cells, and elevated stromal scores across transcriptomic and histopathologic analyses"
+      },
+      {
+        "hypothesis": "TRIM29 inhibition suppresses EMT markers and sensitizes cells to mTOR inhibitors",
+        "result": "Confirmed: TRIM29 knockdown decreased mesenchymal markers (N-cadherin, SNAIL, TWIST) and increased epithelial marker (E-cadherin); mTOR inhibitors most effective in TRIM29-high cells"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44541-1": {
+    "category": "Single Cell",
+    "task": "Identify ER stress-related genes in coronary artery disease and validate therapeutic targets",
+    "key_results": "833 DEGs, 10 ERSRGs identified; Ginkgo biloba extract (GBE) validated as top therapeutic candidate; scRNA-seq confirms cell-type specificity of ERSRGs",
+    "comments": "Comprehensive multi-omics integration (bulk RNA, scRNA, cell validation, qPCR) but lacks mechanistic depth on why GBE specifically regulates ER stress.",
+    "model_io": [
+      {
+        "model": "Integrated transcriptomic + immunological analysis pipeline",
+        "inputs": [
+          "GEO gene expression data (CAD vs. healthy)",
+          "ER stress gene set",
+          "immune cell deconvolution (CIBERSORT)",
+          "single-cell RNA-seq data"
+        ],
+        "outputs": [
+          "DEG list",
+          "ERSG risk scores",
+          "immune infiltration profiles",
+          "drug predictions",
+          "TF-miRNA-mRNA networks"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "ER stress mediates immune dysregulation and angiogenesis in CAD pathogenesis",
+        "result": "Supported by GSEA, GSVA, and immune deconvolution; GBE validated in vitro"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44773-1": {
+    "category": "Statistical Methods",
+    "task": "Review and rank supervised ML intrusion detection algorithms via multi-criteria decision-making",
+    "key_results": "Tree-based methods (Random Forest, C4.5, Random Tree) rank highest; Na\u00efve Bayes consistently poorest across KDD, NSL-KDD, CICIDS2017 datasets",
+    "comments": "Standard benchmark study with transparent TOPSIS ranking; findings align with known tree-algorithm advantages in high-dimensional, feature-dependent data.",
+    "model_io": [
+      {
+        "model": "TOPSIS multi-criteria evaluation framework",
+        "inputs": [
+          "classification algorithm performances",
+          "evaluation criteria weights",
+          "evaluator preference specifications"
+        ],
+        "outputs": [
+          "ranked algorithm list",
+          "distance-to-ideal scores",
+          "preference-stratified rankings"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Tree-based classifiers outperform linear/probabilistic methods on intrusion detection benchmarks under multiple evaluator preferences",
+        "result": "Confirmed: Random Forest, C4.5 top-ranked; Na\u00efve Bayes consistently poor"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44835-4": {
+    "category": "Network Biology",
+    "task": "Assess temporal network resilience via persistent cycle detection in hypernetworks",
+    "key_results": "Temporal Cycle Number (TCN) and Temporal Cycle Ratio (TCR) metrics show stronger rank-association with disruption impact than static/temporal baselines across 6 domains",
+    "comments": "Novel framework elegantly captures higher-order temporal redundancy; empirical validation is comprehensive but effect sizes and statistical significance testing not detailed.",
+    "model_io": [
+      {
+        "model": "Persistence-aware temporal hypernetwork construction and resilience evaluation",
+        "inputs": [
+          "time-stamped interaction events",
+          "sliding window parameter",
+          "persistence threshold"
+        ],
+        "outputs": [
+          "temporal hypernetwork (persistent cycles as hyperedges)",
+          "TCN/TCR node-level metrics",
+          "rank-based association scores",
+          "efficiency degradation under node removal"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Persistent cycle closure (not motif persistence alone) predicts temporal network resilience better than degree-based metrics",
+        "result": "Confirmed: TCN/TCR outperform baselines; targeted removal of high-TCN nodes causes greater efficiency loss than degree-based attacks"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44887-6": {
+    "category": "Structural Prediction",
+    "task": "Classify brain tumors from MRI via contrastive learning with adaptive feature fusion",
+    "key_results": "Achieves state-of-the-art performance on figshare dataset; dynamic label queue with multiple positive pairs reduces intra-class distance; adaptive feature fusion integrates multi-scale features",
+    "comments": "Architecture is well-motivated; superior performance reported but limited to single dataset; cross-dataset generalization and clinical utility remain unaddressed.",
+    "model_io": [
+      {
+        "model": "Contrastive learning framework with adaptive feature fusion (AFF-CL)",
+        "inputs": [
+          "MRI brain scans",
+          "tumor class labels",
+          "multi-scale image patches"
+        ],
+        "outputs": [
+          "tumor class predictions",
+          "discriminative feature embeddings",
+          "classification confidence scores"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Multiple positive pairs from same-class images + adaptive feature fusion improve intra-class compactness and inter-class separation vs. standard contrastive learning",
+        "result": "Confirmed on figshare dataset; outperforms existing methods; generalization to other datasets not tested"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-42181-z": {
+    "category": "ML Theory",
+    "task": "Real-time in-pipe inspection robotic system with YOLOv8-LSTM for navigation and defect detection",
+    "key_results": "YOLOv8 achieves mAP(0.5)=97.9% and F1=0.95 for object detection; LSTM achieves MSE=0.00037, MAE=0.00581 for motor voltage prediction; system autonomously navigates pipes 100\u2013150 mm diameter using ROS, Gazebo, Rviz",
+    "comments": "Strong detection and prediction accuracy with practical edge-deployment via ROS, but generalization to diverse pipe materials, occlusions, and real-world wear is not addressed.",
+    "model_io": [
+      {
+        "model": "YOLOv8 object detector",
+        "inputs": [
+          "In-pipe camera frames"
+        ],
+        "outputs": [
+          "Defect class and bounding box detections"
+        ]
+      },
+      {
+        "model": "LSTM temporal predictor",
+        "inputs": [
+          "IMU data (spatial scanning and group-action sequences)"
+        ],
+        "outputs": [
+          "Motor voltage predictions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "YOLOv8-LSTM integration enables accurate real-time detection and navigation in curved pipes",
+        "result": "Confirmed; mAP(0.5)=97.9%, F1=0.95, MSE=0.00037, MAE=0.00581"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44815-8": {
+    "category": "ML Theory",
+    "task": "Lightweight FMCW radar-based human activity recognition under limited data conditions",
+    "key_results": "Modified ResNet-18 with depthwise separable convolutions and bi-LSTM achieves 91.98% accuracy and 89.82% F1-score on 7 daily activities; framework processes Range-Doppler, Range-Azimuth, Range-Elevation as structured vectors; data augmentation (spatial shifting, intensity scaling, Doppler flipping, noise) improves generalization",
+    "comments": "Practical lightweight architecture with strong cross-scene and leave-one-person-out results; however, limited to 60 GHz radar and 7 activities\u2014transferability to other frequency bands and broader activity sets unclear.",
+    "model_io": [
+      {
+        "model": "Modified ResNet-18 + bidirectional LSTM",
+        "inputs": [
+          "Range-Doppler, Range-Azimuth, Range-Elevation feature maps from 60 GHz FMCW radar"
+        ],
+        "outputs": [
+          "Activity classification (7 daily activities)"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Lightweight deep learning with spatial-temporal feature extraction enables accurate HAR under limited data with edge-device efficiency",
+        "result": "Confirmed; 91.98% accuracy, 89.82% F1; superior cross-scene and leave-one-person-out performance"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44833-6": {
+    "category": "Algorithms",
+    "task": "Demand-responsive transport optimization with electric vehicles and special requests",
+    "key_results": "Three model variants (General, Sections, Routes) tested on Rzeszow public transport system dataset (64 bus stops, 200 passengers); framework confirmed useful with and without extensions (EV charging, dedicated spaces, Wi-Fi availability)",
+    "comments": "Practical relevance demonstrated but performance metrics (optimality gap, computational time, cost savings) are not quantitatively reported, limiting assessment of effectiveness.",
+    "model_io": [
+      {
+        "model": "Two-level DRT optimization framework",
+        "inputs": [
+          "Passenger demands",
+          "Bus stop locations",
+          "Vehicle capacity and energy constraints",
+          "Special passenger requests"
+        ],
+        "outputs": [
+          "Optimized vehicle routes and schedules"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Generalized DRT framework with extensions (EV charging, dedicated spaces, Wi-Fi) is effective on realistic public transport data",
+        "result": "Confirmed; model tested and confirmed useful"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44839-0": {
+    "category": "ML Theory",
+    "task": "Deep maximum margin matrix factorization for collaborative filtering with ordinal feedback",
+    "key_results": "Deep MMMF variant outperforms state-of-the-art CF methods on three benchmark datasets; improvement measured by Normalized Mean Absolute Error (NMAE); non-linear user-feature modeling supersedes linear hyperplane restriction",
+    "comments": "Conceptually sound extension of MMMF to deep architectures, but specific NMAE improvements and benchmark datasets are not quantitatively stated in abstract.",
+    "model_io": [
+      {
+        "model": "Deep Maximum Margin Matrix Factorization",
+        "inputs": [
+          "Partially observed user-item interaction matrix (ordinal ratings)"
+        ],
+        "outputs": [
+          "Predicted user-item interaction scores"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Non-linear user feature representations in deep MMMF outperform linear hyperplane-based MMMF",
+        "result": "Confirmed; superior performance on benchmark datasets vs. state-of-the-art"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45243-4": {
+    "category": "Statistics/Probability",
+    "task": "Explaining user enjoyment in virtual cultural heritage museums through psychological constructs",
+    "key_results": "Immersion has strongest effect on enjoyment; basic psychological needs moderate perceived usefulness-enjoyment link; PLS-SEM analysis of 630 Virtual Palace Museum users",
+    "comments": "Well-grounded in established theories (HMSAM, SDT) but the moderate effect sizes and non-significance of control suggest the model may underspecify other contributing factors.",
+    "model_io": [],
+    "hypotheses": [
+      {
+        "hypothesis": "System usability enhances psychological responses (perceived usefulness, curiosity, joy, control, immersion)",
+        "result": "Confirmed; significant direct effects observed"
+      },
+      {
+        "hypothesis": "Immersion is strongest predictor of enjoyment",
+        "result": "Confirmed"
+      },
+      {
+        "hypothesis": "Control significantly impacts enjoyment",
+        "result": "Rejected; no significant effect"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45329-z": {
+    "category": "Other",
+    "task": "Ionospheric disturbance estimation for RTK positioning reliability using GNSS observables",
+    "key_results": "Quantile-based composite disturbance estimator integrates rolling-median ROTI and VTEC gradient information; validated on dense GNSS network (Latvia); method is GNSS-independent, requires only ionospheric observables, and provides physically interpretable risk scores",
+    "comments": "Methodologically sound and reproducible, but validation limited to mid-latitude region (Latvia); extension to sparse networks and other ionospheric regimes acknowledged as requiring further investigation.",
+    "model_io": [
+      {
+        "model": "Quantile-based composite disturbance estimator",
+        "inputs": [
+          "GNSS-derived Rate of TEC Index (ROTI)",
+          "GNSS-derived Vertical TEC (VTEC) field and gradients"
+        ],
+        "outputs": [
+          "Composite ionospheric disturbance risk score"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Composite estimator combining temporal and spatial ionospheric disturbance measures outperforms single-parameter indicators",
+        "result": "Confirmed; captures patterns not resolved by global ionospheric models"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44283-0": {
+    "category": "Applied Physics",
+    "task": "Gamma-ray shielding performance of polyester/ZrO2 composites",
+    "key_results": "Good agreement between Monte Carlo simulations (GEANT4, MCNPX) and experimental data at 662 keV; lead equivalent thickness increases monotonically with ZrO2 filler content",
+    "comments": "Multi-code validation strengthens confidence, but evaluation limited to single isotope source; broader energy coverage would better establish applicability range.",
+    "model_io": [
+      {
+        "model": "Monte Carlo radiation transport (GEANT4, MCNPX)",
+        "inputs": [
+          "composite material composition",
+          "photon energy (0.01\u201310 MeV)"
+        ],
+        "outputs": [
+          "linear attenuation coefficient",
+          "mass attenuation coefficient",
+          "half-value layer",
+          "mean free path"
+        ]
+      },
+      {
+        "model": "Experimental gamma-ray shielding measurement",
+        "inputs": [
+          "137Cs source (662 keV, 100 mCi)",
+          "PE/ZrO2 composite samples"
+        ],
+        "outputs": [
+          "attenuation data",
+          "shielding thickness equivalence"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Increasing ZrO2 filler content improves gamma-ray shielding performance",
+        "result": "Confirmed; systematic improvement in LAC, MAC, HVL, and lead equivalent thickness with ZrO2 loading"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44469-6": {
+    "category": "Optics/Photonics",
+    "task": "Self-interference decoupling in joint communication and sensing systems via metasurface",
+    "key_results": "2\u00d72 patch antenna array with modified split-ring resonator metasurface at 9\u201310 GHz; hardware\u2013algorithm co-optimization combining metasurface suppression and null-space projection beamforming",
+    "comments": "Proof-of-concept demonstrates promise but scalability to larger MIMO arrays and broader frequency ranges not addressed.",
+    "model_io": [
+      {
+        "model": "Metasurface-assisted JCAS system",
+        "inputs": [
+          "transmitted waveforms from TX antenna array",
+          "received signals at RX antenna array"
+        ],
+        "outputs": [
+          "isolated communication and sensing signals",
+          "reduced self-interference"
+        ]
+      },
+      {
+        "model": "Multi-frequency null-space projection beamforming",
+        "inputs": [
+          "channel state information",
+          "array geometry"
+        ],
+        "outputs": [
+          "beamforming weights",
+          "enhanced TX-RX isolation"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Modified split-ring resonator metasurface reduces coupling between TX and RX arrays in compact MIMO",
+        "result": "Confirmed through fabrication and measurement at 9\u201310 GHz"
+      }
+    ]
   }
 }

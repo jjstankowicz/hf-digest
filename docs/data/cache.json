@@ -16828,5 +16828,294 @@
         "result": "TSLT-Net achieves 99.99% multiclass and 100% binary accuracy with minimal parameters"
       }
     ]
+  },
+  "nature:10.1038/s41598-026-43072-z": {
+    "category": "Proteomics",
+    "task": "Survival risk prediction from high-dimensional protein biomarker data with missing values",
+    "key_results": "Integrated random forest imputation, LASSO-penalized Cox regression, and random survival forests to identify stable prognostic biomarkers; demonstrated stability assessment and reduced overfitting risk in small-sample, high-dimensional settings",
+    "comments": "The pipeline is transparent and reproducible but explicitly disclaims novelty in statistical methods\u2014value lies in thoughtful workflow design for biomarker stability rather than algorithmic innovation.",
+    "model_io": [
+      {
+        "model": "Sequential survival prediction pipeline",
+        "inputs": [
+          "high-dimensional proteomic data",
+          "time-to-event outcomes",
+          "missing values"
+        ],
+        "outputs": [
+          "selected biomarkers",
+          "risk stratification scores",
+          "Cox proportional hazards models"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Unsupervised imputation followed by LASSO-penalized Cox regression and random survival forest refinement reduces overfitting in small-sample biomarker studies",
+        "result": "Demonstrated via publicly available proteomic cancer dataset"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-43166-8": {
+    "category": "Other",
+    "task": "Design and synthesis of novel antiepileptic quinazolinone-phthalimide compounds",
+    "key_results": "Compounds 8j and 8k showed antiepileptic efficacy comparable to diazepam in pentylenetetrazole and lithium-pilocarpine seizure models with no mortality; docking and molecular dynamics confirmed GABAA receptor binding stability",
+    "comments": "Traditional medicinal chemistry work with in vivo validation; molecular dynamics provides mechanistic support but clinical translation remains distant.",
+    "model_io": [
+      {
+        "model": "Structure-based drug design and evaluation",
+        "inputs": [
+          "quinazolinone-phthalimide scaffolds",
+          "GABAA receptor structure"
+        ],
+        "outputs": [
+          "synthetic compounds (8j, 8k)",
+          "seizure latency/count data",
+          "docking poses",
+          "MD trajectories"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Quinazolinone-phthalimide derivatives bind GABAA receptor benzodiazepine pocket and produce antiepileptic effects",
+        "result": "Confirmed; compounds 8j and 8k comparable to diazepam with favorable safety in animal seizure models"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44114-2": {
+    "category": "Network Biology",
+    "task": "Network pharmacology analysis of gut microbiota metabolite involvement in hypertension-insomnia comorbidity",
+    "key_results": "Identified 408 common targets between hypertension and insomnia; IL6 and PPARG as key hub proteins (12 connections each); IL-17 signaling pathway and lipid metabolism pinpointed; 3-indolepropionic acid and butyrate identified as promising metabolites with drug-like properties",
+    "comments": "The integrative approach (target prediction, PPI, pathway enrichment, docking, MD simulations) is comprehensive but remains network-level mechanistic\u2014empirical validation of metabolite supplementation effects is absent.",
+    "model_io": [
+      {
+        "model": "Integrated network pharmacology pipeline",
+        "inputs": [
+          "gut microbial metabolites (n=278)",
+          "disease targets (hypertension n=13,700; insomnia n=502)",
+          "protein structure database"
+        ],
+        "outputs": [
+          "common target set (408)",
+          "PPI network",
+          "pathway enrichment (IL-17 signaling)",
+          "docking scores",
+          "MD trajectories",
+          "drug-likeness profiles"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Gut microbiota metabolites regulate IL-17 signaling to mediate hypertension-insomnia comorbidity",
+        "result": "Supported by network analysis, pathway enrichment, and molecular docking; butyrate and 3-indolepropionic acid identified as key candidates with favorable pharmacokinetics"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44126-y": {
+    "category": "Statistical Methods",
+    "task": "Confidence interval estimation for small-sample neuroscience data",
+    "key_results": "CIB-VC achieved near-nominal 95% coverage across Gaussian, heavy-tailed, and lognormal distributions; produced ~23% narrower confidence intervals than hierarchical bootstrapping on weakly electric fish behavioral data (N=5)",
+    "comments": "The method addresses a genuine reproducibility bottleneck in neuroscience, though validation on N=5 fish warrants cautious generalization to other small-sample contexts.",
+    "model_io": [
+      {
+        "model": "Variance-Calibrated Cross-Individual Bootstrapping (CIB-VC)",
+        "inputs": [
+          "few-subject datasets",
+          "within-subject trial replicates"
+        ],
+        "outputs": [
+          "confidence intervals",
+          "coverage statistics"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "CIB-VC balances coverage and precision better than stratified or hierarchical bootstrapping under distributional skew",
+        "result": "Confirmed via Monte Carlo simulations and empirical validation"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44850-5": {
+    "category": "Statistical Methods",
+    "task": "Validation of conformal prediction for cervical cancer cell classification with uncertainty quantification",
+    "key_results": "Expert annotation-based validation revealed conventional coverage metrics overestimate conformal prediction performance; current methods often produce prediction sets misaligned with human labels; identified capabilities for ambiguous and out-of-distribution detection",
+    "comments": "The paper makes an important distinction between statistical coverage and practical utility\u2014prediction sets may technically contain the true class while including implausible alternatives that confuse end users.",
+    "model_io": [
+      {
+        "model": "Conformal prediction framework applied to deep-learning classifiers",
+        "inputs": [
+          "cervical atypia images",
+          "deep-learning model predictions",
+          "expert annotations (multiple annotators)"
+        ],
+        "outputs": [
+          "prediction sets",
+          "uncertainty estimates",
+          "coverage metrics",
+          "alignment with human labels"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Conformal prediction sets should align with human expert expectations, not merely achieve statistical coverage",
+        "result": "Confirmed; conventional coverage-based validation overestimates performance; sets often include false positives misaligned with human judgment"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45018-x": {
+    "category": "Evolutionary Biology",
+    "task": "Characterization of T-cell receptor loci and diversity in Atlantic cod",
+    "key_results": "Comprehensive annotation revealed all four TCR chains on chromosomes 5 and 8; expressed repertoire showed surprisingly high diversity (TRA, TRB, TRD) with mostly private sequences and differential gene usage despite modest germline diversity",
+    "comments": "The finding of robust expressed diversity despite loss of MHCII/CD4 genes challenges assumptions about immunocompetence requirements and provides a baseline for understanding alternative immune strategies in fish.",
+    "model_io": [
+      {
+        "model": "Genome annotation and TCR repertoire sequencing",
+        "inputs": [
+          "Atlantic cod genome (gadmor3.0)",
+          "expressed TCR sequences"
+        ],
+        "outputs": [
+          "TCR locus positions",
+          "germline diversity metrics",
+          "expressed repertoire diversity",
+          "public/private sequence fractions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Atlantic cod maintains diverse, mostly private TCR repertoires despite modest genomic diversity and absence of MHCII/CD4",
+        "result": "Confirmed; high TRA, TRB, TRD diversity observed with untapped potential through differential gene usage"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45385-5": {
+    "category": "Statistical Methods",
+    "task": "Human-AI collaborative screening for systematic reviews",
+    "key_results": "Screened 5,842 papers in 2 days across 11 disease topics with 27 expert partners; 487 relevant and 6,463 irrelevant records identified; post-screening survey showed increased user trust in AI-assisted reviewing",
+    "comments": "While demonstrating scalability, the study emphasizes that crowdsourced human-AI collaboration requires substantial post-processing (reallocation, verification, noisy-label filtering) rather than being a plug-and-play approach.",
+    "model_io": [
+      {
+        "model": "Crowd-based human-AI screening pipeline",
+        "inputs": [
+          "paper abstracts/titles",
+          "expert annotators",
+          "adaptive ML models"
+        ],
+        "outputs": [
+          "relevance labels",
+          "usability/trust metrics"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Crowdsourced human-AI collaboration can accelerate systematic review screening while maintaining quality through post-processing",
+        "result": "Confirmed; 5,842 papers screened in 2 days with thoughtful calibration and safeguards"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-41881-w": {
+    "category": "Algorithms",
+    "task": "Decentralized MPC for multi-robot cooperative object transport",
+    "key_results": "Real-time constrained optimization with accurate trajectory tracking; validated across point-to-point, curvilinear, and obstacle-rich scenarios with strict constraint satisfaction",
+    "comments": "Solid experimental validation on physical testbed, but evaluation metrics (accuracy, constraint satisfaction) lack quantitative bounds; scalability to >2 robots unstated.",
+    "model_io": [
+      {
+        "model": "Decentralized Model Predictive Control with adaptive weighting",
+        "inputs": [
+          "robot poses (vision + Kalman filter fusion)",
+          "reference paths",
+          "obstacle positions"
+        ],
+        "outputs": [
+          "differential-drive motor commands",
+          "cooperative transport actions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Decentralized MPC with joint-space coupling ensures global coordination while enabling local real-time optimization",
+        "result": "Experiments show accurate trajectory tracking and constraint satisfaction; robustness to environmental uncertainties confirmed"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-42230-7": {
+    "category": "Algorithms",
+    "task": "Real-time volcanic ash nowcasting from satellite imagery",
+    "key_results": "Structural similarity index of 0.88 for 15-minute forecasts; end-to-end latency <5 seconds on edge hardware (NVIDIA Jetson AGX Orin)",
+    "comments": "Strong practical deployment story with sub-5-second latency, but scenario injection framework is illustrative rather than validated against actual nuclear/volcanic data.",
+    "model_io": [
+      {
+        "model": "Deep learning (architecture unspecified)",
+        "inputs": [
+          "EUMETSAT SEVIRI Ash RGB composite imagery"
+        ],
+        "outputs": [
+          "15-minute nowcast frames",
+          "synthetic plume overlays"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Deep learning can predict volcanic ash dispersion at near-real-time latency suitable for emergency response",
+        "result": "Achieved 0.88 SSIM and <5s end-to-end latency on edge device"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-43046-1": {
+    "category": "Statistics/Probability",
+    "task": "Fermatean Fuzzy MCDM for institutional physical fitness assessment",
+    "key_results": "Framework produces consistent fitness competency rankings from incomplete/uncertain expert data; integrates high-expressiveness uncertainty (FF sets) with transparent weight elicitation (DoC method)",
+    "comments": "Methodologically sound application of advanced fuzzy logic, but case study is purely hypothetical with no institutional validation or comparative benchmarking against simpler methods.",
+    "model_io": [
+      {
+        "model": "Fermatean Fuzzy Deck-of-Cards MCDM",
+        "inputs": [
+          "expert assessments (endurance, strength, flexibility, body composition, mental well-being)"
+        ],
+        "outputs": [
+          "institutional fitness competency rankings",
+          "criterion weights"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Fermatean Fuzzy sets enable more expressive expert hesitation representation than standard/intuitionistic fuzzy sets",
+        "result": "Demonstrated theoretically; practical advantage over FS/IFS/PFS not empirically quantified"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44874-x": {
+    "category": "ML Theory",
+    "task": "Explainable hybrid CNN-ViT for radiographic weld defect classification",
+    "key_results": "98.56% accuracy (vs 97.90% CNN baseline); 31% relative reduction in misclassification rate; validated on external GDXray dataset; fivefold cross-validation confirms generalization",
+    "comments": "Strong empirical results with good explainability analysis (Grad-CAM, attention maps), but comparison limited to single lightweight CNN baseline; clinically relevant for manufacturing but not truly safety-critical validation.",
+    "model_io": [
+      {
+        "model": "Hybrid CNN-Vision Transformer architecture",
+        "inputs": [
+          "radiographic weld images (RIAWELC + GDXray datasets)"
+        ],
+        "outputs": [
+          "defect class predictions",
+          "Grad-CAM activation maps",
+          "transformer attention maps"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Hybrid CNN-ViT with global contextual modeling reduces misclassification of similar defects vs CNN-only",
+        "result": "31% relative misclassification reduction; 98.56% accuracy achieved; cross-dataset generalization validated"
+      }
+    ]
   }
 }

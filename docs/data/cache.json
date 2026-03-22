@@ -17509,5 +17509,243 @@
         "result": "Confirmed through fabrication and measurement at 9\u201310 GHz"
       }
     ]
+  },
+  "nature:10.1038/s41598-026-44963-x": {
+    "category": "Structural Prediction",
+    "task": "Explainability of radiomic ML models for brain glioma grading on APTw MRI",
+    "key_results": "Random forest, SVM, na\u00efve Bayes, and logistic regression models trained on APTw radiomic features; explainability analysis via Shapley values, permutation importance, and anchors revealed feature heterogeneity dependence",
+    "comments": "Applies established explainability methods to radiomics but lacks explicit performance metrics (accuracy, AUC); clinical utility of heterogeneity insights unclear.",
+    "model_io": [
+      {
+        "model": "Radiomic ML pipeline with explainability: feature extraction \u2192 classification \u2192 interpretation",
+        "inputs": [
+          "APTw MRI images (contrast-enhanced and peritumoral regions), tumor grade labels"
+        ],
+        "outputs": [
+          "grade predictions (grade 4 vs. non-grade 4), Shapley values, feature importance rankings"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Radiomic features capturing tumor heterogeneity are primary drivers of glioma grading models",
+        "result": "Supported: explainability analysis highlighted heterogeneity-related features"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45143-7": {
+    "category": "Structural Prediction",
+    "task": "Deep learning segmentation of kidney stones from flexible ureteroscopy video",
+    "key_results": "U-Net with DenseNet-121 encoder achieves 92-94% pixel accuracy and 73-76% Dice coefficient on test set; 30 fps inference speed; degraded performance under bleeding, dust, motion blur",
+    "comments": "Feasibility study with small dataset (12 videos, ~11h) and single-center origin; clinical integration and multi-center validation essential before deployment.",
+    "model_io": [
+      {
+        "model": "2D U-Net with DenseNet-121 encoder for kidney stone segmentation",
+        "inputs": [
+          "ureteroscopy video frames (annotated kidney stone regions)"
+        ],
+        "outputs": [
+          "pixel-level stone segmentation masks, inference time per frame"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Deep learning can accurately segment kidney stones from ureteroscopic video under real-world conditions",
+        "result": "Partially supported: high accuracy on clear visibility; degraded under challenging visual conditions"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45495-0": {
+    "category": "Genomics",
+    "task": "Identification of key genes in hepatic ischemia-reperfusion injury and therapeutic targets",
+    "key_results": "115 candidate genes identified; three key genes (Adh4, Akr1c14, Cxcl1) prioritized via PPI and ML; enriched in aerobic respiration and mitochondrial pathways; ladarixin (CXCR1/2 antagonist) showed protective effect",
+    "comments": "Integrative bioinformatics approach with experimental verification; mechanistic understanding of identified genes incomplete; therapeutic claim based on single agent test.",
+    "model_io": [
+      {
+        "model": "Gene discovery pipeline: whole-transcriptome sequencing \u2192 differential expression \u2192 PPI network \u2192 ML prioritization \u2192 immune deconvolution \u2192 molecular networks \u2192 target validation",
+        "inputs": [
+          "mouse HIRI model RNA-seq data, protein interaction databases, immune profiling databases"
+        ],
+        "outputs": [
+          "key genes (Adh4, Akr1c14, Cxcl1), regulatory networks, immune infiltration patterns, drug candidate predictions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Key genes identified via integrated genomics analysis are functional drivers of HIRI pathogenesis",
+        "result": "Partially supported: transcriptional and translational verification provided; functional validation incomplete"
+      },
+      {
+        "hypothesis": "CXCR1/2 inhibition via ladarixin protects against HIRI",
+        "result": "Supported: ladarixin protective effect demonstrated; mechanism requires deeper investigation"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-38853-5": {
+    "category": "ML Theory",
+    "task": "Hybrid recommendation framework with domain-adaptive RoBERTa and attention-fused embeddings for e-commerce",
+    "key_results": "HyReC achieves RMSE 0.15, MAE 0.10, MSE 0.023, R\u00b2 0.98, Pearson correlation 0.99, MAPE 1.5%, F1 0.98 on Amazon Baby dataset; outperforms LSTM, RBM+KNN, GNN, GAT baselines",
+    "comments": "Comprehensive hybrid approach with semantic + behavioral + statistical signals; strong experimental metrics; evaluation on single e-commerce domain; hyperparameter sensitivity not discussed.",
+    "model_io": [
+      {
+        "model": "HyReC hybrid recommendation system",
+        "inputs": [
+          "product descriptions/reviews",
+          "user-item interaction history",
+          "behavioral features (mean rating, variance, frequency, skewness)"
+        ],
+        "outputs": [
+          "personalized item ranking via Learning-to-Rank"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Heterogeneous embedding fusion with Bahdanau attention outperforms single-signal recommendation approaches",
+        "result": "Confirmed; superior performance on Amazon Baby dataset vs. state-of-the-art baselines"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44164-6": {
+    "category": "Algorithms",
+    "task": "Bearing fault diagnosis via Fourier-Bessel empirical wavelet transform and enhanced incremental RVM",
+    "key_results": "FBEWT with amplitude-modulation-based frequency boundary setting outperforms conventional empirical wavelet decomposition; EIRVM surpasses standard RVM; integrated FBEWT-EIRVM demonstrates strong diagnostic capability",
+    "comments": "Incremental improvement via signal processing and classifier enhancement; limited quantitative benchmarking (no reported accuracy/F1 metrics provided in abstract).",
+    "model_io": [
+      {
+        "model": "FBEWT-EIRVM pipeline",
+        "inputs": [
+          "vibration signals from rolling-element bearings"
+        ],
+        "outputs": [
+          "bearing health state classification"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Amplitude-modulation-based frequency boundaries improve FBEWT robustness across sampling rates and observation windows",
+        "result": "Supported; yields stable results under parameter variations"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44360-4": {
+    "category": "ML Theory",
+    "task": "Dynamic multi-scale spatio-temporal graph neural network for SDN intrusion detection",
+    "key_results": "DMSTG-AD achieves 99.34% multi-class accuracy on CIC-IDS2017 and 99.88% on InSDN; GRU-driven dynamic embeddings, adaptive adjacency, multi-scale dilated convolution, and cross-attention mechanism all validated via ablation",
+    "comments": "Comprehensive architecture with well-ablated components; very high reported accuracies typical of IDS benchmarks; limited discussion of false-positive rates or deployment constraints.",
+    "model_io": [
+      {
+        "model": "DMSTG-AD (Dynamic Multi-Scale Spatio-Temporal Graph Neural Network)",
+        "inputs": [
+          "network traffic flow data as dynamic graph"
+        ],
+        "outputs": [
+          "attack class predictions per flow/packet"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Dynamic graph modeling with multi-scale temporal convolution and cross-attention improves SDN anomaly detection",
+        "result": "Confirmed; ablation validates critical importance of each component"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45087-y": {
+    "category": "ML Theory",
+    "task": "TV genre classification using vision transformers",
+    "key_results": "PvT achieves 97% accuracy on static image dataset; MAiVAR-T achieves 98% accuracy on multimodal audio-video dataset",
+    "comments": "Solid application of transformer architectures to media analysis, though claims of 'state-of-the-art' lack comparison with recent multimodal baselines.",
+    "model_io": [
+      {
+        "model": "Pyramid Vision Transformer (PvT)",
+        "inputs": [
+          "TV scene images"
+        ],
+        "outputs": [
+          "genre class predictions"
+        ]
+      },
+      {
+        "model": "MAiVAR-T (Multimodal Attention Vision-Audio Representation Transformer)",
+        "inputs": [
+          "video frames",
+          "mel-spectrogram",
+          "chroma",
+          "waveform",
+          "energy patterns"
+        ],
+        "outputs": [
+          "genre class predictions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Transformer-based models capture spatio-temporal and acoustic relationships better than traditional deep learning",
+        "result": "Empirically confirmed; PvT and MAiVAR-T outperform baseline deep learning models"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45673-0": {
+    "category": "ML Theory",
+    "task": "Personalized music teaching activity recommendation via CNN-Transformer under STEAM education",
+    "key_results": "CNN-Transformer achieves accuracy 95.76%, recall 90.28%, F1 0.92; outperforms references by >4%; user engagement (clicks, browsing time, comments) increased >10%",
+    "comments": "Decent performance uplift; STEAM context is motivational but not technically novel; user engagement metrics are suggestive rather than rigorous learning outcome measures.",
+    "model_io": [
+      {
+        "model": "CNN-Transformer personalized recommendation system",
+        "inputs": [
+          "student learning history",
+          "teaching activity metadata"
+        ],
+        "outputs": [
+          "ranked activity recommendations"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "CNN-Transformer outperforms reference models in prediction accuracy and user engagement",
+        "result": "Confirmed; 95.76% accuracy and >10% engagement lift observed"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-43447-2": {
+    "category": "Optics/Photonics",
+    "task": "DFT design and characterization of phosphole-based organic semiconductors with tunable push-pull architecture",
+    "key_results": "\u03c0-extended heteroacene derivatives exhibit tunable emission (367\u2013515 nm), high oscillator strengths (f up to 0.793), enhanced nonlinear optical response (\u03b2 up to 2621 a.u.), and favorable hole transport (\u03bbh = 0.20\u20130.28 eV); compounds 6, 7, 8 identified as priority candidates with cyan, blue, and orange emission respectively",
+    "comments": "Fragment orbital analysis rigorously connects structure to electronic reconfiguration, but predictions remain computational; experimental validation of photophysical and transport properties is essential.",
+    "model_io": [
+      {
+        "model": "DFT photophysical modeling (2-substituted benzo-[d][1,3]-azaphosphole P-oxides)",
+        "inputs": [
+          "molecular structure",
+          "substituent variation"
+        ],
+        "outputs": [
+          "HOMO/LUMO density distributions",
+          "emission wavelength (\u03bbem)",
+          "oscillator strength (f)",
+          "hyperpolarizability (\u03b2)",
+          "reorganization energy",
+          "singlet\u2013triplet gap (\u0394EST)",
+          "thermal stability (BDE)"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Pyridin-2-yl substitution inverts intramolecular charge-transfer pathway relative to phenyl analogs",
+        "result": "Pyridine ring contributes 52\u201375% HOMO, aryl substituent contributes 33\u201359% LUMO, establishing push-pull framework"
+      },
+      {
+        "hypothesis": "Greater HOMO-LUMO spatial separation systematically modulates optoelectronic properties",
+        "result": "Orbital separation correlates with red-shifted emission, lowered reorganization energy, narrowed \u0394EST, and increased hyperpolarizability across the series"
+      }
+    ]
   }
 }

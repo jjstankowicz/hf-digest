@@ -8,58 +8,75 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-22",
     "category": "Cell Signaling",
-    "task": "Characterize TRIM29 function in lung adenocarcinoma progression and identify therapeutic targets",
-    "key_results": [
-      "High TRIM29 expression associated with poor overall survival",
-      "TRIM29 inhibition reduced N-cadherin/SNAIL/TWIST, increased E-cadherin; mTOR inhibitors showed highest activity in TRIM29-high cells"
-    ],
-    "comments": "Integrated multi-level validation (transcriptomics, immunohistochemistry, cell lines) strengthens claims, though the therapeutic mechanism of mTOR inhibition relative to TRIM29 remains to be elucidated.",
+    "task": "Determine TRIM29's role in lung adenocarcinoma progression and tumor microenvironment remodeling",
+    "key_results": "TRIM29-high tumors show enriched EMT signatures, increased fibroblasts/endothelial cells, and poor overall survival; mTOR inhibitors demonstrate highest activity in TRIM29-high cells",
+    "comments": "Comprehensive multi-level validation (transcriptomic, histologic, proteomic) strengthens findings, though causal mechanisms of TRIM29-driven EMT warrant further investigation.",
     "model_io": [
       {
-        "model": "GSEA with TME deconvolution (xCell, ESTIMATE, EPIC)",
+        "model": "GSEA with deconvolution-based TME profiling",
         "inputs": [
-          "TRIM29 expression (mRNA)",
-          "Two independent LUAD transcriptomic cohorts"
+          "TRIM29 expression",
+          "mRNA transcriptomes (2 cohorts)",
+          "immune/stromal cell markers"
         ],
         "outputs": [
-          "EMT pathway enrichment",
-          "Fibroblast and endothelial cell abundance",
-          "Stromal scores"
+          "EMT enrichment scores",
+          "fibroblast abundance",
+          "endothelial cell abundance",
+          "stromal scores"
         ]
       },
       {
-        "model": "TRIM29-inhibited lung cancer cell lines",
-        "inputs": [
-          "TRIM29 knockdown",
-          "mTOR inhibitor treatment"
-        ],
-        "outputs": [
-          "N-cadherin, SNAIL, TWIST expression (decreased)",
-          "E-cadherin expression (increased)",
-          "Drug sensitivity readouts"
-        ]
-      },
-      {
-        "model": "Immunohistochemistry and histopathology (independent cohort)",
+        "model": "Immunohistochemistry and histopathology",
         "inputs": [
           "TRIM29 protein expression",
-          "SNAIL expression"
+          "tissue sections"
         ],
         "outputs": [
-          "Microvessel density",
-          "Stromal proportion",
-          "Overall survival"
+          "SNAIL expression",
+          "TWIST expression",
+          "microvessel density",
+          "stromal proportion",
+          "E-cadherin/N-cadherin levels"
+        ]
+      },
+      {
+        "model": "LUAD cell line functional assays",
+        "inputs": [
+          "TRIM29 inhibition",
+          "cultured adenocarcinoma cells"
+        ],
+        "outputs": [
+          "N-cadherin levels",
+          "SNAIL levels",
+          "TWIST levels",
+          "E-cadherin levels"
+        ]
+      },
+      {
+        "model": "Drug sensitivity screening",
+        "inputs": [
+          "TRIM29-high and control cells",
+          "drug library including mTOR inhibitors"
+        ],
+        "outputs": [
+          "drug response profiles",
+          "IC50 values"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "TRIM29 drives EMT, angiogenesis, and stromal remodeling in LUAD",
-        "result": "Confirmed: TRIM29-high tumors show enriched EMT signatures, increased fibroblasts/endothelial cells, and elevated stromal scores across transcriptomic and histopathologic analyses"
+        "hypothesis": "High TRIM29 expression drives EMT, angiogenesis, and stromal remodeling in LUAD",
+        "result": "Confirmed via GSEA enrichment, deconvolution analysis, and immunohistochemistry correlations"
       },
       {
-        "hypothesis": "TRIM29 inhibition suppresses EMT markers and sensitizes cells to mTOR inhibitors",
-        "result": "Confirmed: TRIM29 knockdown decreased mesenchymal markers (N-cadherin, SNAIL, TWIST) and increased epithelial marker (E-cadherin); mTOR inhibitors most effective in TRIM29-high cells"
+        "hypothesis": "TRIM29 promotes EMT through upregulation of SNAIL and TWIST",
+        "result": "Supported; TRIM29 inhibition decreased SNAIL/TWIST and increased E-cadherin"
+      },
+      {
+        "hypothesis": "TRIM29-high tumors respond to mTOR inhibition",
+        "result": "mTOR inhibitors showed highest drug sensitivity in TRIM29-high cells"
       }
     ]
   },
@@ -72,28 +89,24 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-22",
     "category": "Genomics",
-    "task": "Biomarker selection and survival risk prediction from high-dimensional proteomic data",
-    "key_results": "Integrates random forest imputation, LASSO-penalized Cox regression, and random survival forests; demonstrates stable prognostic biomarker identification despite overfitting challenges",
-    "comments": "Workflow is practical but transparently presented as engineering best-practice rather than novel methodology; small sample + high dimensions remains inherently challenging.",
+    "task": "Survival risk prediction from high-dimensional protein biomarker data with missing values",
+    "key_results": "Pipeline integrates random forest imputation, LASSO Cox regression, and random survival forests; demonstrates biomarker stability assessment in small-sample cancer proteomic dataset",
+    "comments": "Workflow is reproducible and transparently presented, but explicitly acknowledged as best-practice application rather than novel methodology; overfitting risk in high-dimensional settings remains a key challenge.",
     "model_io": [
       {
-        "model": "Sequential pipeline: imputation \u2192 feature selection \u2192 survival modeling",
+        "model": "Sequential biomarker pipeline: imputation \u2192 feature selection \u2192 survival modeling",
         "inputs": [
-          "high-dimensional protein biomarker data",
-          "time-to-event outcomes",
-          "censoring indicators"
+          "proteomic data with missing values, clinical event times"
         ],
         "outputs": [
-          "stable biomarker set",
-          "Cox hazard ratios",
-          "risk stratification scores"
+          "selected biomarkers, risk scores, Cox proportional hazards estimates"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Unsupervised RF imputation reduces information leakage vs. outcome-aware methods in survival settings",
-        "result": "Not explicitly tested; claimed but not quantitatively demonstrated"
+        "hypothesis": "Outcome-blind random forest imputation reduces information leakage compared to outcome-informed methods",
+        "result": "Supported conceptually; empirical comparison not provided in abstract"
       }
     ]
   },
@@ -106,29 +119,24 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-22",
     "category": "Other",
-    "task": "Design and validate novel quinazolinone-phthalimide antiepileptic derivatives",
-    "key_results": "Compounds 8j and 8k show efficacy comparable to diazepam in pentylenetetrazole and lithium-pilocarpine models; GABAA antagonism confirmed; docking shows benzodiazepine-pocket binding",
-    "comments": "Chemical optimization workflow is straightforward; molecular dynamics validates binding stability but in vivo efficacy endpoint lacks detailed pharmacokinetics.",
+    "task": "Synthesis and in vivo antiepileptic evaluation of quinazolinone-phthalimide derivatives",
+    "key_results": "Compounds 8j and 8k show seizure latency and count comparable to diazepam in two animal models; no mortality observed; docking studies confirm GABAA receptor binding; molecular dynamics confirm complex stability",
+    "comments": "Medicinal chemistry study with promising empirical results; mechanism of GABAA antagonism needs clarification given claims of GABAergic activity; limited to animal models.",
     "model_io": [
       {
-        "model": "Structure-based drug discovery: synthesis \u2192 in vivo seizure models \u2192 molecular docking \u2192 MD validation",
+        "model": "Drug discovery pipeline: rational design \u2192 synthesis \u2192 characterization \u2192 in vivo testing \u2192 molecular modeling",
         "inputs": [
-          "quinazolinone-phthalimide scaffold",
-          "seizure induction agents (PTZ, lithium-pilocarpine)",
-          "GABAA receptor structure"
+          "quinazolinone-phthalimide scaffolds, pentylenetetrazole and lithium-pilocarpine seizure induction protocols"
         ],
         "outputs": [
-          "synthesized compounds (NMR, MS characterized)",
-          "seizure latency/count metrics",
-          "docking poses",
-          "MD trajectories"
+          "seizure latency, seizure count, mortality, GABAA binding interactions, docking scores, MD trajectories"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "8j and 8k bind GABAA benzodiazepine pocket and suppress seizures via GABAA antagonism comparable to diazepam",
-        "result": "Supported: docking + MD confirms binding; seizure models + flumazenil antagonism confirms mechanism"
+        "hypothesis": "Quinazolinone-phthalimide compounds 8j and 8k have antiepileptic efficacy equivalent to diazepam via GABAA receptor interaction",
+        "result": "Supported: comparable seizure suppression and GABAA binding predicted; clinical translation untested"
       }
     ]
   },
@@ -141,33 +149,28 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-22",
     "category": "Network Biology",
-    "task": "Elucidate gut microbiota metabolite role in hypertension-insomnia comorbidity via network pharmacology",
-    "key_results": "278 microbial metabolites mapped; 408 common targets identified; IL6 and PPARG as key hubs; IL-17 pathway central; 3-indolepropionic acid strongest IL6 binder (-5.472 kcal/mol)",
-    "comments": "Integrative pipeline is comprehensive; however, mechanistic validation limited to in silico docking and drug-likeness prediction; in vivo or clinical validation absent.",
+    "task": "Mechanistic role of gut microbiota metabolites in hypertension-insomnia comorbidity",
+    "key_results": "18 core targets identified (IL6, PPARG as hubs with 12 connections each); IL-17 signaling pathway crucial; 3-indolepropionic acid binds IL6 (Vina score -5.472 kcal/mol) with stable dynamics; butyrate and 3-indolepropionic acid show promising drug-likeness profiles",
+    "comments": "Integrative pharmacology approach spanning 278 metabolites and 408 common targets; molecular docking and MD simulations support binding predictions, but causal role of metabolites in comorbidity mechanism remains inferential.",
     "model_io": [
       {
-        "model": "Network pharmacology + molecular dynamics + MMTS analysis",
+        "model": "Integrated network pharmacology: metabolite-target prediction \u2192 PPI analysis \u2192 KEGG enrichment \u2192 molecular docking \u2192 MD simulation \u2192 toxicity assessment",
         "inputs": [
-          "gut microbial metabolites (gutMGene)",
-          "target prediction databases (SEA, Swiss)",
-          "hypertension/insomnia disease targets",
-          "PPI networks",
-          "KEGG pathways"
+          "278 gut microbial metabolites (gutMGene), 13,700 hypertension and 502 insomnia targets, IL6/PPARG structures"
         ],
         "outputs": [
-          "core target set (n=18)",
-          "hub genes (IL6, PPARG)",
-          "enriched pathways (IL-17 signaling)",
-          "metabolite-target docking scores",
-          "MD stability trajectories",
-          "microbial regulator profiles"
+          "core target genes, pathway enrichments (IL-17 signaling), docking poses, MD stability metrics, drug-likeness scores"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Gut metabolite dysregulation disrupts IL-17/lipid metabolism/neuroinflammation axis, linking hypertension-insomnia comorbidity; IL-17 inhibition and metabolite supplementation are therapeutic",
-        "result": "Supported by network, pathway, and docking analyses; clinical translation remains unvalidated"
+        "hypothesis": "Gut microbiota metabolites regulate shared hypertension-insomnia targets via IL-17 signaling and neuroinflammation",
+        "result": "Supported by network analysis: IL-17 pathway highlighted; molecular interactions predicted"
+      },
+      {
+        "hypothesis": "3-indolepropionic acid and butyrate are promising therapeutic candidates for hypertension-insomnia comorbidity",
+        "result": "Partially supported: binding affinity and drug-likeness favorable, but in vivo efficacy untested"
       }
     ]
   },
@@ -180,26 +183,24 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-22",
     "category": "Statistical Methods",
-    "task": "Confidence interval estimation for small-sample neuroscience data",
-    "key_results": "CIB-VC achieves ~95% coverage across skewed distributions; 23% narrower intervals than hierarchical bootstrapping on n=5 fish behavioral data",
-    "comments": "Addresses a genuine gap in small-sample inference where conventional methods fail, though validation is limited to one biological dataset.",
+    "task": "Robust confidence interval estimation for small-sample neuroscience data",
+    "key_results": "CIB-VC achieves near-nominal 95% coverage across distributions; 23% narrower confidence intervals than hierarchical bootstrapping on fish behavioral data (N=5)",
+    "comments": "Addresses a genuine practical problem in neuroscience, though validation is limited to one empirical dataset; Monte Carlo simulations are comprehensive but domain-specific application breadth unclear.",
     "model_io": [
       {
         "model": "Variance-Calibrated Cross-Individual Bootstrapping (CIB-VC)",
         "inputs": [
-          "within-subject trial data",
-          "multi-subject behavioral measurements"
+          "small-sample datasets with within-subject trial structures"
         ],
         "outputs": [
-          "confidence intervals",
-          "coverage metrics"
+          "confidence intervals with empirical coverage rates"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "CIB-VC maintains nominal coverage under distributional skew better than stratified/hierarchical bootstrapping",
-        "result": "Confirmed: CIB-VC ~95% coverage vs. stratified <1% under skew"
+        "hypothesis": "CIB-VC achieves better coverage-precision balance than stratified and hierarchical bootstrapping under skewed distributions",
+        "result": "Confirmed: near-nominal coverage vs. <1% for stratified under skew"
       }
     ]
   },
@@ -212,31 +213,28 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-22",
     "category": "Single Cell",
-    "task": "Identify ER stress-related genes in coronary artery disease and validate therapeutic targets",
-    "key_results": "833 DEGs, 10 ERSRGs identified; Ginkgo biloba extract (GBE) validated as top therapeutic candidate; scRNA-seq confirms cell-type specificity of ERSRGs",
-    "comments": "Comprehensive multi-omics integration (bulk RNA, scRNA, cell validation, qPCR) but lacks mechanistic depth on why GBE specifically regulates ER stress.",
+    "task": "Identification of ER stress-related genes in coronary artery disease and therapeutic validation",
+    "key_results": "833 DEGs and 10 ERSRGs identified; Ginkgo biloba extract (GBE) predicted as top therapeutic compound and validated in cell experiments; scRNA-seq revealed cell-type specificity of ERSRGs",
+    "comments": "Comprehensive integrative approach spanning transcriptomics, immune profiling, drug prediction, and functional validation, but clinical translation remains speculative; GBE mechanism in ER stress requires deeper mechanistic investigation.",
     "model_io": [
       {
-        "model": "Integrated transcriptomic + immunological analysis pipeline",
+        "model": "Multi-omics pipeline: differential expression \u2192 functional enrichment \u2192 immune deconvolution \u2192 drug prediction \u2192 scRNA-seq",
         "inputs": [
-          "GEO gene expression data (CAD vs. healthy)",
-          "ER stress gene set",
-          "immune cell deconvolution (CIBERSORT)",
-          "single-cell RNA-seq data"
+          "gene expression data (GEO), ER stress gene set, immune algorithm reference matrices"
         ],
         "outputs": [
-          "DEG list",
-          "ERSG risk scores",
-          "immune infiltration profiles",
-          "drug predictions",
-          "TF-miRNA-mRNA networks"
+          "ERSRGs, risk scores, therapeutic candidates, cell-type gene associations"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "ER stress mediates immune dysregulation and angiogenesis in CAD pathogenesis",
-        "result": "Supported by GSEA, GSVA, and immune deconvolution; GBE validated in vitro"
+        "hypothesis": "ER stress markers are associated with CAD pathogenesis and immune infiltration patterns",
+        "result": "Supported: 10 ERSRGs identified with notable immune cell infiltration differences"
+      },
+      {
+        "hypothesis": "GBE regulates ER stress in CAD cells",
+        "result": "Supported: cell experiments confirmed GBE effect on ER stress"
       }
     ]
   },
@@ -249,28 +247,24 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-22",
     "category": "Statistical Methods",
-    "task": "Review and rank supervised ML intrusion detection algorithms via multi-criteria decision-making",
-    "key_results": "Tree-based methods (Random Forest, C4.5, Random Tree) rank highest; Na\u00efve Bayes consistently poorest across KDD, NSL-KDD, CICIDS2017 datasets",
-    "comments": "Standard benchmark study with transparent TOPSIS ranking; findings align with known tree-algorithm advantages in high-dimensional, feature-dependent data.",
+    "task": "Multi-criteria evaluation framework for supervised machine learning intrusion detection systems",
+    "key_results": "TOPSIS-based evaluation on three datasets (KDD, NSL-KDD, CICIDS2017); tree-based methods (Random Tree, C4.5, Random Forest) consistently rank highest; Na\u00efve Bayes performs worst",
+    "comments": "Systematic review and evaluation framework is transparent; results dataset-dependent and may not generalize to contemporary attack patterns; no temporal validation across dataset shifts.",
     "model_io": [
       {
-        "model": "TOPSIS multi-criteria evaluation framework",
+        "model": "Supervised ML IDS evaluation pipeline: algorithm selection \u2192 dataset preprocessing \u2192 classification \u2192 multi-criteria ranking",
         "inputs": [
-          "classification algorithm performances",
-          "evaluation criteria weights",
-          "evaluator preference specifications"
+          "network traffic features (three IDS datasets), labeled attack/normal flows"
         ],
         "outputs": [
-          "ranked algorithm list",
-          "distance-to-ideal scores",
-          "preference-stratified rankings"
+          "algorithm performance metrics (detection rate, false positive rate), TOPSIS rankings with multiple evaluator preferences"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Tree-based classifiers outperform linear/probabilistic methods on intrusion detection benchmarks under multiple evaluator preferences",
-        "result": "Confirmed: Random Forest, C4.5 top-ranked; Na\u00efve Bayes consistently poor"
+        "hypothesis": "Tree-based classification algorithms outperform other supervised methods for IDS across multiple datasets and evaluator preferences",
+        "result": "Supported: tree methods consistently achieve top TOPSIS rankings"
       }
     ]
   },
@@ -283,29 +277,29 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-22",
     "category": "Network Biology",
-    "task": "Assess temporal network resilience via persistent cycle detection in hypernetworks",
-    "key_results": "Temporal Cycle Number (TCN) and Temporal Cycle Ratio (TCR) metrics show stronger rank-association with disruption impact than static/temporal baselines across 6 domains",
-    "comments": "Novel framework elegantly captures higher-order temporal redundancy; empirical validation is comprehensive but effect sizes and statistical significance testing not detailed.",
+    "task": "Temporal network resilience analysis via persistent cycle detection in hypernetwork framework",
+    "key_results": "Temporal Cycle Number (TCN) and Temporal Cycle Ratio (TCR) metrics exhibit higher rank association with disruption impact than static/temporal baselines on 6 real-world networks; targeted TCN removal yields larger efficiency degradation than degree-based attacks",
+    "comments": "Novel and theoretically grounded framework; empirical validation across diverse domains is comprehensive, but sensitivity to windowing parameters and persistence thresholds not thoroughly explored.",
     "model_io": [
       {
-        "model": "Persistence-aware temporal hypernetwork construction and resilience evaluation",
+        "model": "Temporal hypernetwork pipeline: sliding-window cycle detection \u2192 persistence tracking \u2192 TCN/TCR metrics \u2192 resilience evaluation",
         "inputs": [
-          "time-stamped interaction events",
-          "sliding window parameter",
-          "persistence threshold"
+          "temporal networks (time-stamped interaction events across 6 domains)",
+          "window size and persistence threshold parameters"
         ],
         "outputs": [
-          "temporal hypernetwork (persistent cycles as hyperedges)",
-          "TCN/TCR node-level metrics",
-          "rank-based association scores",
-          "efficiency degradation under node removal"
+          "persistent cycle hyperedges, TCN/TCR metrics, disruption impact scores, network efficiency loss"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Persistent cycle closure (not motif persistence alone) predicts temporal network resilience better than degree-based metrics",
-        "result": "Confirmed: TCN/TCR outperform baselines; targeted removal of high-TCN nodes causes greater efficiency loss than degree-based attacks"
+        "hypothesis": "Persistent cycles in temporal networks are more predictive of resilience than static or temporal baseline metrics",
+        "result": "Supported: TCN/TCR show higher rank association with disruption impact than degree/temporal baselines"
+      },
+      {
+        "hypothesis": "Topological closure (cycles) rather than motif persistence alone drives resilience prediction",
+        "result": "Supported: persistent cycles outperform non-closed 2-path motifs in predictive power"
       }
     ]
   },
@@ -318,28 +312,24 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-22",
     "category": "Statistical Methods",
-    "task": "Validate conformal prediction uncertainty quantification for cervical cancer classification",
-    "key_results": "Expert-annotated validation shows conventional coverage metrics overestimate performance; conformal sets often misaligned with human labels; effective at OOD detection",
-    "comments": "Critical methodological validation: conformal prediction's appeal to coverage obscures failure to exclude false-positive classes; human-alignment assessment is often overlooked.",
+    "task": "Validation of conformal prediction for uncertainty quantification in cervical atypia classification",
+    "key_results": "Comprehensive expert annotation-based validation reveals conventional coverage metrics overestimate performance; conformal prediction sets often misaligned with human labels; methods successfully identify ambiguous and OOD data",
+    "comments": "Important methodological critique showing conformal prediction's limitation in practical healthcare settings; highlights gap between statistical validity and clinical usability.",
     "model_io": [
       {
-        "model": "Conformal prediction wrappers around deep learning classifiers",
+        "model": "Conformal prediction applied to three deep learning models for cervical atypia classification",
         "inputs": [
-          "cervical cytology images",
-          "expert consensus labels from multiple annotators"
+          "cervical cytology images, expert multi-annotator labels"
         ],
         "outputs": [
-          "prediction sets (class lists)",
-          "set sizes (uncertainty)",
-          "coverage metrics",
-          "human-alignment scores"
+          "prediction sets with coverage guarantees, set size (uncertainty), OOD detection flags"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Conformal prediction sets should align with human expert expectations, not just achieve statistical coverage",
-        "result": "Confirmed: coverage validation insufficient; many sets include extraneous/unlikely classes"
+        "hypothesis": "Conformal prediction provides valid uncertainty quantification aligned with human expert judgement",
+        "result": "Partially rejected: conventional conformal prediction overestimates coverage and produces misaligned prediction sets"
       }
     ]
   },
@@ -352,28 +342,58 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-22",
     "category": "Structural Prediction",
-    "task": "Classify brain tumors from MRI via contrastive learning with adaptive feature fusion",
-    "key_results": "Achieves state-of-the-art performance on figshare dataset; dynamic label queue with multiple positive pairs reduces intra-class distance; adaptive feature fusion integrates multi-scale features",
-    "comments": "Architecture is well-motivated; superior performance reported but limited to single dataset; cross-dataset generalization and clinical utility remain unaddressed.",
+    "task": "Brain tumor classification from MRI via contrastive learning with adaptive feature fusion",
+    "key_results": "AFF-CL framework achieves state-of-the-art performance on figshare brain tumor dataset; dynamic label queue generates multiple positive pairs; adaptive feature fusion integrates local and global MRI features",
+    "comments": "Novel contrastive learning design with intuitive motivation; quantitative performance metrics (accuracy, AUC) absent from abstract; generalization to other tumor types or imaging modalities unclear.",
     "model_io": [
       {
         "model": "Contrastive learning framework with adaptive feature fusion (AFF-CL)",
         "inputs": [
-          "MRI brain scans",
-          "tumor class labels",
-          "multi-scale image patches"
+          "brain MRI scans, tumor class labels (multi-class classification)"
         ],
         "outputs": [
-          "tumor class predictions",
-          "discriminative feature embeddings",
-          "classification confidence scores"
+          "tumor class predictions, learned feature representations, per-tumor classification confidence"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Multiple positive pairs from same-class images + adaptive feature fusion improve intra-class compactness and inter-class separation vs. standard contrastive learning",
-        "result": "Confirmed on figshare dataset; outperforms existing methods; generalization to other datasets not tested"
+        "hypothesis": "Contrastive learning with multiple positive pairs improves intra-class compactness and inter-class separation for brain tumor classification",
+        "result": "Supported: state-of-the-art performance achieved; detailed metrics unavailable in abstract"
+      },
+      {
+        "hypothesis": "Adaptive feature fusion capturing multi-scale contextual information enhances classification discriminative power",
+        "result": "Supported conceptually; quantitative ablation not detailed in abstract"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-44963-x",
+    "source": "computational-biology",
+    "id": "10.1038/s41598-026-44963-x",
+    "title": "The explainability of radiomic-based machine learning models for brain glioma grading on amide proton transfer-weighted images",
+    "projectPage": "https://www.nature.com/articles/s41598-026-44963-x",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-22",
+    "category": "Structural Prediction",
+    "task": "Explainability of radiomic ML models for brain glioma grading on APTw MRI",
+    "key_results": "Random forest, SVM, na\u00efve Bayes, and logistic regression models trained on APTw radiomic features; explainability analysis via Shapley values, permutation importance, and anchors revealed feature heterogeneity dependence",
+    "comments": "Applies established explainability methods to radiomics but lacks explicit performance metrics (accuracy, AUC); clinical utility of heterogeneity insights unclear.",
+    "model_io": [
+      {
+        "model": "Radiomic ML pipeline with explainability: feature extraction \u2192 classification \u2192 interpretation",
+        "inputs": [
+          "APTw MRI images (contrast-enhanced and peritumoral regions), tumor grade labels"
+        ],
+        "outputs": [
+          "grade predictions (grade 4 vs. non-grade 4), Shapley values, feature importance rankings"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Radiomic features capturing tumor heterogeneity are primary drivers of glioma grading models",
+        "result": "Supported: explainability analysis highlighted heterogeneity-related features"
       }
     ]
   },
@@ -386,28 +406,54 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-22",
     "category": "Evolutionary Biology",
-    "task": "Characterize T-cell receptor repertoire diversity in Atlantic cod despite MHCII/CD4 loss",
-    "key_results": "Four TCR chains mapped; modest germline diversity with recent TRB expansion; surprisingly high expressed repertoire diversity (mostly private); untapped diversity via differential gene usage",
-    "comments": "Well-executed genomic characterization; provides baseline for comparative immunology but mechanistic explanation for immune robustness despite gene loss remains unclear.",
+    "task": "Characterization of T-cell receptor repertoire diversity in Atlantic cod immune system",
+    "key_results": "All four TCR chains annotated in cod genome; modest germline diversity but surprisingly high expressed repertoire diversity (TRA, TRB, TRD chains); mostly private repertoire with high untapped diversity",
+    "comments": "Solid genomic and immunological characterization providing baseline for fish immunology; functional validation of repertoire-disease associations absent.",
     "model_io": [
       {
-        "model": "Genome annotation + TCR repertoire sequencing",
+        "model": "TCR annotation and repertoire sequencing analysis",
         "inputs": [
-          "Atlantic cod genome (gadmor3.0)",
-          "expressed TCR sequences (TRA, TRB, TRD, TRG chains)"
+          "Atlantic cod genome (gadmor3.0), expressed TCR sequences"
         ],
         "outputs": [
-          "locus annotation",
-          "germline V/D/J segment inventory",
-          "clonotype diversity metrics",
-          "public/private repertoire classification"
+          "germline TCR loci composition, repertoire diversity metrics, public vs. private TCR fractions"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Atlantic cod maintains immune response competency despite MHCII/CD4 loss via diverse TCR repertoire",
-        "result": "Supported: high expressed repertoire diversity documented; mechanism remains unresolved"
+        "hypothesis": "Despite loss of MHCII/CD4, Atlantic cod maintains effective immune capacity via diverse TCR repertoire",
+        "result": "Supported: high expressed repertoire diversity observed despite modest germline diversity"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-45143-7",
+    "source": "computational-biology",
+    "id": "10.1038/s41598-026-45143-7",
+    "title": "Automated kidney stone segmentation from flexible ureteroscopy videos using a U-net model: A preliminary feasibility study",
+    "projectPage": "https://www.nature.com/articles/s41598-026-45143-7",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-22",
+    "category": "Structural Prediction",
+    "task": "Deep learning segmentation of kidney stones from flexible ureteroscopy video",
+    "key_results": "U-Net with DenseNet-121 encoder achieves 92-94% pixel accuracy and 73-76% Dice coefficient on test set; 30 fps inference speed; degraded performance under bleeding, dust, motion blur",
+    "comments": "Feasibility study with small dataset (12 videos, ~11h) and single-center origin; clinical integration and multi-center validation essential before deployment.",
+    "model_io": [
+      {
+        "model": "2D U-Net with DenseNet-121 encoder for kidney stone segmentation",
+        "inputs": [
+          "ureteroscopy video frames (annotated kidney stone regions)"
+        ],
+        "outputs": [
+          "pixel-level stone segmentation masks, inference time per frame"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Deep learning can accurately segment kidney stones from ureteroscopic video under real-world conditions",
+        "result": "Partially supported: high accuracy on clear visibility; degraded under challenging visual conditions"
       }
     ]
   },
@@ -420,26 +466,90 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-22",
     "category": "Statistical Methods",
-    "task": "Systematic review screening via human-AI collaborative classification",
-    "key_results": "Screened 5,842 papers in 2 days across 27 institutions; identified 487 relevant records; post-processing critical for data quality",
-    "comments": "Demonstrates practical crowdsourced AI collaboration but highlights that coverage alone is insufficient; false positives in prediction sets remain problematic.",
+    "task": "Crowd-sourced human-AI collaborative screening for systematic reviews",
+    "key_results": "5,842 papers screened across 11 disease topics in 2 days by 27 collaborators; 487 relevant, 6,463 irrelevant records; post-hoc survey showed increased trust in AI-assisted screening",
+    "comments": "Demonstrates operational feasibility but lacks quantitative validation metrics for screening accuracy or comparison to traditional methods; post-processing safeguards appear ad hoc.",
     "model_io": [
       {
-        "model": "Crowd-based ML screening with topic reallocation and noisy-label filtering",
+        "model": "Crowd-based screening with adaptive machine learning and LLM integration",
         "inputs": [
-          "paper abstracts/titles",
-          "expert annotations"
+          "paper abstracts and metadata (5,842 records)"
         ],
         "outputs": [
-          "binary relevance labels",
-          "quality-controlled screening sets"
+          "relevance labels (relevant/irrelevant), with survey feedback on usability and trust"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "AI-assisted systematic reviewing increases trust and perceived usability among domain experts",
-        "result": "Confirmed by survey; exploratory analysis shows positive evaluations post-event"
+        "hypothesis": "Human-AI collaboration improves systematic review screening speed and user trust relative to human-only approaches",
+        "result": "Partially supported: operational speed demonstrated; trust increase shown via survey but no baseline comparison"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-45495-0",
+    "source": "computational-biology",
+    "id": "10.1038/s41598-026-45495-0",
+    "title": "Identification of key genes in the pathogenesis of hepatic ischemia-reperfusion injury based on bioinformatics and experimental verification",
+    "projectPage": "https://www.nature.com/articles/s41598-026-45495-0",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-22",
+    "category": "Genomics",
+    "task": "Identification of key genes in hepatic ischemia-reperfusion injury and therapeutic targets",
+    "key_results": "115 candidate genes identified; three key genes (Adh4, Akr1c14, Cxcl1) prioritized via PPI and ML; enriched in aerobic respiration and mitochondrial pathways; ladarixin (CXCR1/2 antagonist) showed protective effect",
+    "comments": "Integrative bioinformatics approach with experimental verification; mechanistic understanding of identified genes incomplete; therapeutic claim based on single agent test.",
+    "model_io": [
+      {
+        "model": "Gene discovery pipeline: whole-transcriptome sequencing \u2192 differential expression \u2192 PPI network \u2192 ML prioritization \u2192 immune deconvolution \u2192 molecular networks \u2192 target validation",
+        "inputs": [
+          "mouse HIRI model RNA-seq data, protein interaction databases, immune profiling databases"
+        ],
+        "outputs": [
+          "key genes (Adh4, Akr1c14, Cxcl1), regulatory networks, immune infiltration patterns, drug candidate predictions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Key genes identified via integrated genomics analysis are functional drivers of HIRI pathogenesis",
+        "result": "Partially supported: transcriptional and translational verification provided; functional validation incomplete"
+      },
+      {
+        "hypothesis": "CXCR1/2 inhibition via ladarixin protects against HIRI",
+        "result": "Supported: ladarixin protective effect demonstrated; mechanism requires deeper investigation"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-38853-5",
+    "source": "mathematics-and-computing",
+    "id": "10.1038/s41598-026-38853-5",
+    "title": "A hybrid recommendation framework utilizing domain-adaptive RoBERTa embeddings for enhanced personalization in e-commerce",
+    "projectPage": "https://www.nature.com/articles/s41598-026-38853-5",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-22",
+    "category": "ML Theory",
+    "task": "Hybrid recommendation framework with domain-adaptive RoBERTa and attention-fused embeddings for e-commerce",
+    "key_results": "HyReC achieves RMSE 0.15, MAE 0.10, MSE 0.023, R\u00b2 0.98, Pearson correlation 0.99, MAPE 1.5%, F1 0.98 on Amazon Baby dataset; outperforms LSTM, RBM+KNN, GNN, GAT baselines",
+    "comments": "Comprehensive hybrid approach with semantic + behavioral + statistical signals; strong experimental metrics; evaluation on single e-commerce domain; hyperparameter sensitivity not discussed.",
+    "model_io": [
+      {
+        "model": "HyReC hybrid recommendation system",
+        "inputs": [
+          "product descriptions/reviews",
+          "user-item interaction history",
+          "behavioral features (mean rating, variance, frequency, skewness)"
+        ],
+        "outputs": [
+          "personalized item ranking via Learning-to-Rank"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Heterogeneous embedding fusion with Bahdanau attention outperforms single-signal recommendation approaches",
+        "result": "Confirmed; superior performance on Amazon Baby dataset vs. state-of-the-art baselines"
       }
     ]
   },
@@ -452,37 +562,26 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-22",
     "category": "Algorithms",
-    "task": "Decentralized model predictive control for cooperative multi-robot object transport",
-    "key_results": "Real-time deployment on two differential-drive robots with vision-based pose estimation; accurate trajectory tracking, strict constraint satisfaction across point-to-point, curvilinear, and obstacle-rich scenarios",
-    "comments": "Experimental validation is thorough and real-world testbed integration is commendable; scalability beyond two robots and computational overhead scaling not explicitly addressed.",
+    "task": "Decentralized model predictive control for multi-robot cooperative object transport",
+    "key_results": "Real-time MPC with nonlinear kinematics and inter-robot coupling; validated on two mobile robots; accurate trajectory tracking across point-to-point, curvilinear, and obstacle-rich scenarios",
+    "comments": "Solid experimental validation on physical testbed; strength in constraint satisfaction; limited scalability analysis beyond two robots.",
     "model_io": [
       {
-        "model": "Decentralized MPC with adaptive weighting",
+        "model": "Decentralized MPC framework",
         "inputs": [
-          "Local joint-space constraints",
-          "Inter-robot coupling constraints",
-          "Dynamic obstacle positions",
-          "Reference path (point-to-point or curvilinear)"
+          "reference trajectory",
+          "robot poses (vision-based)",
+          "obstacle positions"
         ],
         "outputs": [
-          "Local optimal control inputs for each robot"
-        ]
-      },
-      {
-        "model": "Kalman filter (sensor fusion)",
-        "inputs": [
-          "Vision-based pose estimates",
-          "Other sensor measurements"
-        ],
-        "outputs": [
-          "Fused pose estimates"
+          "velocity commands for two differential-drive robots"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Decentralized MPC with adaptive weights achieves real-time cooperative transport with constraint satisfaction",
-        "result": "Confirmed across experimental scenarios"
+        "hypothesis": "Decentralized MPC with adaptive cost weighting enables real-time multi-robot coordination",
+        "result": "Confirmed; robustness to environmental uncertainties demonstrated experimentally"
       }
     ]
   },
@@ -495,33 +594,33 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-22",
     "category": "ML Theory",
-    "task": "Real-time in-pipe inspection robotic system with YOLOv8-LSTM for navigation and defect detection",
-    "key_results": "YOLOv8 achieves mAP(0.5)=97.9% and F1=0.95 for object detection; LSTM achieves MSE=0.00037, MAE=0.00581 for motor voltage prediction; system autonomously navigates pipes 100\u2013150 mm diameter using ROS, Gazebo, Rviz",
-    "comments": "Strong detection and prediction accuracy with practical edge-deployment via ROS, but generalization to diverse pipe materials, occlusions, and real-world wear is not addressed.",
+    "task": "In-pipe inspection with YOLOv8-LSTM integration for robotic navigation and object detection",
+    "key_results": "YOLOv8 achieves mAP(0.5) 97.9% and F1 0.95; LSTM motor voltage prediction: MSE 0.00037, MAE 0.00581; navigation tested on 100\u2013150 mm diameter pipes",
+    "comments": "Well-engineered pipeline combining perception and control; strong performance metrics; limited discussion of failure modes in extreme curvature or debris occlusion.",
     "model_io": [
       {
         "model": "YOLOv8 object detector",
         "inputs": [
-          "In-pipe camera frames"
+          "in-pipe camera images"
         ],
         "outputs": [
-          "Defect class and bounding box detections"
+          "object bounding boxes and class predictions"
         ]
       },
       {
         "model": "LSTM temporal predictor",
         "inputs": [
-          "IMU data (spatial scanning and group-action sequences)"
+          "IMU accelerometer/gyro time-series data"
         ],
         "outputs": [
-          "Motor voltage predictions"
+          "motor voltage commands for smooth navigation"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "YOLOv8-LSTM integration enables accurate real-time detection and navigation in curved pipes",
-        "result": "Confirmed; mAP(0.5)=97.9%, F1=0.95, MSE=0.00037, MAE=0.00581"
+        "hypothesis": "YOLOv8-LSTM architecture improves inspection accuracy and enables predictive maintenance in curved pipes",
+        "result": "Confirmed via simulation and controlled testbed experiments"
       }
     ]
   },
@@ -534,34 +633,34 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-22",
     "category": "Algorithms",
-    "task": "Near-real-time deep learning nowcasting of volcanic ash dispersion from satellite imagery",
-    "key_results": "Structural similarity index of 0.88 for 15-min forecasts; end-to-end edge workflow (download+inference) runs <5 seconds on NVIDIA Jetson AGX Orin; scenario injection framework demonstrated at multiple scales (10 kt to 100 Mt)",
-    "comments": "Strong operational performance on edge hardware, but scenario outputs are acknowledged as illustrative rather than validated predictions of actual nuclear plume morphology, limiting extrapolation.",
+    "task": "Low-latency nowcasting of volcanic ash dispersion from satellite imagery",
+    "key_results": "Structural similarity index of 0.88 for 15-minute forecasts; complete edge workflow runs in <5 seconds on NVIDIA Jetson; demonstrates scenario injection for synthetic plume visualization",
+    "comments": "Strong focus on deployment efficiency and practical utility; scenario outputs explicitly not validated as true nuclear plume predictions, limiting extrapolation claims.",
     "model_io": [
       {
-        "model": "Deep learning (CNN-based architecture, unspecified)",
+        "model": "Deep learning nowcasting model",
         "inputs": [
           "SEVIRI Ash RGB composite satellite imagery"
         ],
         "outputs": [
-          "15-minute next-frame ash dispersion forecast (image)"
+          "15-minute ahead ash cloud frame predictions"
         ]
       },
       {
         "model": "Pixel-based event-injection algorithm",
         "inputs": [
-          "Real-time satellite frames",
-          "Synthetic plume parameters (yield-inspired sizes)"
+          "real-time satellite frame",
+          "synthetic plume parameters (10 kt\u2013100 Mt yield-inspired sizes)"
         ],
         "outputs": [
-          "Augmented satellite imagery with synthetic plumes"
+          "overlaid satellite imagery with synthetic plumes for scenario visualization"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Deep learning can achieve sub-5-second latency nowcasting on edge devices while maintaining predictive accuracy",
-        "result": "Confirmed; SSIM=0.88 with <5s end-to-end latency"
+        "hypothesis": "Deep learning can achieve near-real-time nowcasting on edge hardware with acceptable fidelity",
+        "result": "Confirmed; SSIM 0.88 achieved within 5-second end-to-end latency"
       }
     ]
   },
@@ -573,19 +672,85 @@
     "projectPage": "https://www.nature.com/articles/s41598-026-43046-1",
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-22",
-    "category": "Other",
-    "task": "Fermatean Fuzzy Deck-of-Cards MCDM for quantitative physical fitness assessment in academic institutions",
-    "key_results": "Fermatean Fuzzy sets enable high-expressiveness representation of expert hesitation and dual uncertainty; Deck-of-Cards weighting produces rational, flexible prioritization of criteria (endurance, strength, flexibility, body composition, mental well-being); framework produces consistent, explainable rankings from incomplete information",
-    "comments": "Novel integration of Fermatean Fuzzy sets with DoC weighting is theoretically motivated, but application is purely illustrative on a hypothetical case study\u2014real institutional data validation is lacking.",
-    "model_io": [],
+    "category": "Statistics/Probability",
+    "task": "Fermatean Fuzzy Deck-of-Cards MCDM for student physical fitness assessment",
+    "key_results": "FF-DoC framework produces consistent and explainable fitness competency rankings using incomplete/uncertain expert opinions; criteria: endurance, strength, flexibility, body composition, mental well-being",
+    "comments": "High expressiveness of Fermatean Fuzzy sets is theoretical advantage; Deck-of-Cards weighting improves transparency; hypothetical case study only; lacks empirical validation on real institutional data.",
+    "model_io": [
+      {
+        "model": "Fermatean Fuzzy Deck-of-Cards MCDM model",
+        "inputs": [
+          "expert assessments of fitness criteria (endurance, strength, flexibility, body composition, mental well-being) under uncertainty"
+        ],
+        "outputs": [
+          "ranked fitness competency scores for students/institutions"
+        ]
+      }
+    ],
     "hypotheses": [
       {
-        "hypothesis": "Fermatean Fuzzy sets with DoC weighting provide more expressive uncertainty modeling than classical fuzzy/intuitionistic fuzzy/Pythagorean fuzzy sets",
-        "result": "Confirmed; higher expressiveness for expert hesitation"
-      },
+        "hypothesis": "Fermatean Fuzzy sets with DoC weighting better capture expert hesitation and dual uncertainty than FS/IFS/PFS",
+        "result": "Theoretically motivated; empirical validation on real case study pending"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-44164-6",
+    "source": "mathematics-and-computing",
+    "id": "10.1038/s41598-026-44164-6",
+    "title": "Fault diagnosis method of rolling-element bearings via FBEWT and EIRVM",
+    "projectPage": "https://www.nature.com/articles/s41598-026-44164-6",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-22",
+    "category": "Algorithms",
+    "task": "Bearing fault diagnosis via Fourier-Bessel empirical wavelet transform and enhanced incremental RVM",
+    "key_results": "FBEWT with amplitude-modulation-based frequency boundary setting outperforms conventional empirical wavelet decomposition; EIRVM surpasses standard RVM; integrated FBEWT-EIRVM demonstrates strong diagnostic capability",
+    "comments": "Incremental improvement via signal processing and classifier enhancement; limited quantitative benchmarking (no reported accuracy/F1 metrics provided in abstract).",
+    "model_io": [
       {
-        "hypothesis": "Framework generates consistent and explainable fitness competency rankings from uncertain expert opinions",
-        "result": "Confirmed on hypothetical case study"
+        "model": "FBEWT-EIRVM pipeline",
+        "inputs": [
+          "vibration signals from rolling-element bearings"
+        ],
+        "outputs": [
+          "bearing health state classification"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Amplitude-modulation-based frequency boundaries improve FBEWT robustness across sampling rates and observation windows",
+        "result": "Supported; yields stable results under parameter variations"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-44360-4",
+    "source": "mathematics-and-computing",
+    "id": "10.1038/s41598-026-44360-4",
+    "title": "DMSTG-AD: an SDN intrusion detection method based on dynamic multi-scale spatio-temporal graph neural network",
+    "projectPage": "https://www.nature.com/articles/s41598-026-44360-4",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-22",
+    "category": "ML Theory",
+    "task": "Dynamic multi-scale spatio-temporal graph neural network for SDN intrusion detection",
+    "key_results": "DMSTG-AD achieves 99.34% multi-class accuracy on CIC-IDS2017 and 99.88% on InSDN; GRU-driven dynamic embeddings, adaptive adjacency, multi-scale dilated convolution, and cross-attention mechanism all validated via ablation",
+    "comments": "Comprehensive architecture with well-ablated components; very high reported accuracies typical of IDS benchmarks; limited discussion of false-positive rates or deployment constraints.",
+    "model_io": [
+      {
+        "model": "DMSTG-AD (Dynamic Multi-Scale Spatio-Temporal Graph Neural Network)",
+        "inputs": [
+          "network traffic flow data as dynamic graph"
+        ],
+        "outputs": [
+          "attack class predictions per flow/packet"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Dynamic graph modeling with multi-scale temporal convolution and cross-attention improves SDN anomaly detection",
+        "result": "Confirmed; ablation validates critical importance of each component"
       }
     ]
   },
@@ -598,24 +763,24 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-22",
     "category": "ML Theory",
-    "task": "Lightweight FMCW radar-based human activity recognition under limited data conditions",
-    "key_results": "Modified ResNet-18 with depthwise separable convolutions and bi-LSTM achieves 91.98% accuracy and 89.82% F1-score on 7 daily activities; framework processes Range-Doppler, Range-Azimuth, Range-Elevation as structured vectors; data augmentation (spatial shifting, intensity scaling, Doppler flipping, noise) improves generalization",
-    "comments": "Practical lightweight architecture with strong cross-scene and leave-one-person-out results; however, limited to 60 GHz radar and 7 activities\u2014transferability to other frequency bands and broader activity sets unclear.",
+    "task": "Lightweight FMCW radar framework for human activity recognition on edge devices with limited training data",
+    "key_results": "ResNet-18 with depthwise separable convolutions + bidirectional LSTM achieves 91.98% accuracy and 89.82% F1-score on 60 GHz dataset; superior performance in cross-scene and leave-one-person-out validation",
+    "comments": "Practical edge deployment focus with thoughtful data augmentation; modest dataset scale (60 GHz, 7 activities); generalization to other frequency bands and activity sets unclear.",
     "model_io": [
       {
-        "model": "Modified ResNet-18 + bidirectional LSTM",
+        "model": "Lightweight ResNet-18 + BiLSTM architecture",
         "inputs": [
           "Range-Doppler, Range-Azimuth, Range-Elevation feature maps from 60 GHz FMCW radar"
         ],
         "outputs": [
-          "Activity classification (7 daily activities)"
+          "activity class predictions"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Lightweight deep learning with spatial-temporal feature extraction enables accurate HAR under limited data with edge-device efficiency",
-        "result": "Confirmed; 91.98% accuracy, 89.82% F1; superior cross-scene and leave-one-person-out performance"
+        "hypothesis": "Multi-dimensional radar feature representation with data augmentation enables robust HAR under limited training conditions",
+        "result": "Confirmed; outperforms baselines in cross-scene and user-invariance tests"
       }
     ]
   },
@@ -628,27 +793,28 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-22",
     "category": "Algorithms",
-    "task": "Demand-responsive transport optimization with electric vehicles and special requests",
-    "key_results": "Three model variants (General, Sections, Routes) tested on Rzeszow public transport system dataset (64 bus stops, 200 passengers); framework confirmed useful with and without extensions (EV charging, dedicated spaces, Wi-Fi availability)",
-    "comments": "Practical relevance demonstrated but performance metrics (optimality gap, computational time, cost savings) are not quantitatively reported, limiting assessment of effectiveness.",
+    "task": "Demand-responsive transport optimization with vehicle energy and passenger constraints",
+    "key_results": "Two-level optimization framework tested on Rzeszow Poland dataset (64 bus stops, 200 passengers); three variants (General, Sections, Routes) evaluated; effectiveness confirmed for basic and extended versions",
+    "comments": "Practical framework with good scalability structure; evaluation limited to single city; impact of extensions (EV charging, accessibility) on solution quality not quantitatively decomposed.",
     "model_io": [
       {
         "model": "Two-level DRT optimization framework",
         "inputs": [
-          "Passenger demands",
-          "Bus stop locations",
-          "Vehicle capacity and energy constraints",
-          "Special passenger requests"
+          "passenger requests",
+          "bus stops",
+          "vehicle energy limits",
+          "charging stations"
         ],
         "outputs": [
-          "Optimized vehicle routes and schedules"
+          "vehicle routes",
+          "pickup/dropoff schedules"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Generalized DRT framework with extensions (EV charging, dedicated spaces, Wi-Fi) is effective on realistic public transport data",
-        "result": "Confirmed; model tested and confirmed useful"
+        "hypothesis": "Hierarchical DRT framework with energy and special-request constraints is computationally tractable",
+        "result": "Confirmed on 200-passenger test instance"
       }
     ]
   },
@@ -661,24 +827,24 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-22",
     "category": "ML Theory",
-    "task": "Deep maximum margin matrix factorization for collaborative filtering with ordinal feedback",
-    "key_results": "Deep MMMF variant outperforms state-of-the-art CF methods on three benchmark datasets; improvement measured by Normalized Mean Absolute Error (NMAE); non-linear user-feature modeling supersedes linear hyperplane restriction",
-    "comments": "Conceptually sound extension of MMMF to deep architectures, but specific NMAE improvements and benchmark datasets are not quantitatively stated in abstract.",
+    "task": "Deep maximum margin matrix factorization for collaborative filtering on ordinal feedback",
+    "key_results": "Deep MMMF variant outperforms state-of-the-art CF methods in NMAE metric across three benchmark datasets; addresses non-linear user taste patterns",
+    "comments": "Clear motivation (replacing linear hyperplane with deep model); limited detail on experimental setup and baseline comparisons in abstract; generalization claims need stronger validation.",
     "model_io": [
       {
-        "model": "Deep Maximum Margin Matrix Factorization",
+        "model": "Deep Maximum Margin Matrix Factorization (Deep MMMF)",
         "inputs": [
-          "Partially observed user-item interaction matrix (ordinal ratings)"
+          "partially observed user-item ordinal rating matrix"
         ],
         "outputs": [
-          "Predicted user-item interaction scores"
+          "completed user-item rating matrix predictions"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Non-linear user feature representations in deep MMMF outperform linear hyperplane-based MMMF",
-        "result": "Confirmed; superior performance on benchmark datasets vs. state-of-the-art"
+        "hypothesis": "Deep nonlinear embedding of users outperforms linear hyperplane MMMF for complex taste patterns",
+        "result": "Confirmed via NMAE metric improvements on benchmarks"
       }
     ]
   },
@@ -691,37 +857,67 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-22",
     "category": "ML Theory",
-    "task": "Hybrid CNN-Vision Transformer for radiographic weld defect classification with explainability",
-    "key_results": "Hybrid CNN-ViT achieves 98.56% accuracy (vs. 97.90% CNN baseline), ~31% relative reduction in misclassification rate on RIAWELC dataset; strong generalization on external GDXray dataset; Grad-CAM and transformer self-attention maps show global contextual modeling enhances discrimination of visually similar defects",
-    "comments": "Strong accuracy and interpretability via explainability methods; the 31% misclassification reduction is impressive, though absolute gap (0.66%) is modest, warranting validation on larger and more diverse datasets.",
+    "task": "Hybrid CNN-Vision Transformer for explainable radiographic weld defect classification",
+    "key_results": "Hybrid CNN-ViT achieves 98.56% accuracy vs. 97.90% CNN baseline (~31% relative misclassification reduction); Grad-CAM and self-attention maps explain similar-defect discrimination; cross-dataset validation on GDXray confirms robustness",
+    "comments": "Solid multi-faceted evaluation including explainability and cross-dataset generalization; practical relevance to Industry 5.0; modest accuracy gain but meaningful misclassification reduction.",
     "model_io": [
       {
-        "model": "Hybrid CNN-Vision Transformer architecture",
+        "model": "Hybrid CNN-Vision Transformer",
         "inputs": [
-          "Radiographic weld images (RIAWELC dataset)"
+          "radiographic weld images (RIAWELC dataset)"
         ],
         "outputs": [
-          "Weld defect class predictions"
-        ]
-      },
-      {
-        "model": "Grad-CAM and transformer self-attention visualization",
-        "inputs": [
-          "Model activations and attention weights"
-        ],
-        "outputs": [
-          "Spatial explanations of model decisions"
+          "defect class predictions with attention maps"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Hybrid CNN-ViT with global context modeling discriminates visually similar weld defects better than pure CNN",
-        "result": "Confirmed; 98.56% vs. 97.90%, ~31% misclassification reduction"
+        "hypothesis": "Global contextual modeling via transformers improves discrimination of visually similar weld defects",
+        "result": "Confirmed; cracks, porosity, and absence of penetration better distinguished via CNN-ViT"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-45087-y",
+    "source": "mathematics-and-computing",
+    "id": "10.1038/s41598-026-45087-y",
+    "title": "Exploring vision transformers for deep feature extraction and classification in video genre recognition for digital media",
+    "projectPage": "https://www.nature.com/articles/s41598-026-45087-y",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-22",
+    "category": "ML Theory",
+    "task": "TV genre classification using vision transformers",
+    "key_results": "PvT achieves 97% accuracy on static image dataset; MAiVAR-T achieves 98% accuracy on multimodal audio-video dataset",
+    "comments": "Solid application of transformer architectures to media analysis, though claims of 'state-of-the-art' lack comparison with recent multimodal baselines.",
+    "model_io": [
+      {
+        "model": "Pyramid Vision Transformer (PvT)",
+        "inputs": [
+          "TV scene images"
+        ],
+        "outputs": [
+          "genre class predictions"
+        ]
       },
       {
-        "hypothesis": "Model generalizes to out-of-distribution external data (GDXray)",
-        "result": "Confirmed; good performance on GDXray dataset"
+        "model": "MAiVAR-T (Multimodal Attention Vision-Audio Representation Transformer)",
+        "inputs": [
+          "video frames",
+          "mel-spectrogram",
+          "chroma",
+          "waveform",
+          "energy patterns"
+        ],
+        "outputs": [
+          "genre class predictions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Transformer-based models capture spatio-temporal and acoustic relationships better than traditional deep learning",
+        "result": "Empirically confirmed; PvT and MAiVAR-T outperform baseline deep learning models"
       }
     ]
   },
@@ -734,22 +930,32 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-22",
     "category": "Statistics/Probability",
-    "task": "Explaining user enjoyment in virtual cultural heritage museums through psychological constructs",
-    "key_results": "Immersion has strongest effect on enjoyment; basic psychological needs moderate perceived usefulness-enjoyment link; PLS-SEM analysis of 630 Virtual Palace Museum users",
-    "comments": "Well-grounded in established theories (HMSAM, SDT) but the moderate effect sizes and non-significance of control suggest the model may underspecify other contributing factors.",
-    "model_io": [],
+    "task": "Model user enjoyment in virtual cultural heritage museums",
+    "key_results": "Immersion exerts strongest effect on enjoyment; basic psychological needs moderate perceived usefulness-enjoyment link; 630-user survey via PLS-SEM",
+    "comments": "Well-structured theoretical integration but relies entirely on self-reported survey data with potential common-method bias; causality claims are speculative.",
+    "model_io": [
+      {
+        "model": "Partial Least Squares Structural Equation Modeling (PLS-SEM)",
+        "inputs": [
+          "survey responses from 630 Virtual Palace Museum users"
+        ],
+        "outputs": [
+          "path coefficients for system usability \u2192 psychological constructs \u2192 enjoyment"
+        ]
+      }
+    ],
     "hypotheses": [
       {
-        "hypothesis": "System usability enhances psychological responses (perceived usefulness, curiosity, joy, control, immersion)",
-        "result": "Confirmed; significant direct effects observed"
+        "hypothesis": "System usability enhances perceived usefulness, curiosity, joy, control, and immersion",
+        "result": "Confirmed for all five constructs"
       },
       {
-        "hypothesis": "Immersion is strongest predictor of enjoyment",
+        "hypothesis": "Immersion has strongest direct effect on enjoyment",
         "result": "Confirmed"
       },
       {
         "hypothesis": "Control significantly impacts enjoyment",
-        "result": "Rejected; no significant effect"
+        "result": "Rejected\u2014no significant effect found"
       }
     ]
   },
@@ -761,26 +967,98 @@
     "projectPage": "https://www.nature.com/articles/s41598-026-45329-z",
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-22",
-    "category": "Other",
-    "task": "Ionospheric disturbance estimation for RTK positioning reliability using GNSS observables",
-    "key_results": "Quantile-based composite disturbance estimator integrates rolling-median ROTI and VTEC gradient information; validated on dense GNSS network (Latvia); method is GNSS-independent, requires only ionospheric observables, and provides physically interpretable risk scores",
-    "comments": "Methodologically sound and reproducible, but validation limited to mid-latitude region (Latvia); extension to sparse networks and other ionospheric regimes acknowledged as requiring further investigation.",
+    "category": "Statistics/Probability",
+    "task": "Composite ionospheric disturbance estimation for RTK positioning reliability via quantile-based metrics",
+    "key_results": "Framework integrates temporal ROTI variability and spatial VTEC gradient into unified disturbance estimator; validated on mid-latitude regional CORS network (Latvia); demonstrates physically interpretable risk scoring",
+    "comments": "Methodologically sound quantile-based approach; validation limited to single region (Latvia); extension to sparse networks acknowledged as future work.",
     "model_io": [
       {
         "model": "Quantile-based composite disturbance estimator",
         "inputs": [
-          "GNSS-derived Rate of TEC Index (ROTI)",
-          "GNSS-derived Vertical TEC (VTEC) field and gradients"
+          "multi-frequency GNSS observations",
+          "TEC measurements"
         ],
         "outputs": [
-          "Composite ionospheric disturbance risk score"
+          "RTK disturbance risk score"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Composite estimator combining temporal and spatial ionospheric disturbance measures outperforms single-parameter indicators",
-        "result": "Confirmed; captures patterns not resolved by global ionospheric models"
+        "hypothesis": "Composite indicator combining temporal and spatial ionospheric measures better captures disturbance than single-parameter metrics",
+        "result": "Supported; captures patterns not resolved by global ionospheric models"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-45673-0",
+    "source": "mathematics-and-computing",
+    "id": "10.1038/s41598-026-45673-0",
+    "title": "Teaching activity design and psychological practice of music majors under a convolutional neural network and transformer module",
+    "projectPage": "https://www.nature.com/articles/s41598-026-45673-0",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-22",
+    "category": "ML Theory",
+    "task": "Personalized music teaching activity recommendation via CNN-Transformer under STEAM education",
+    "key_results": "CNN-Transformer achieves accuracy 95.76%, recall 90.28%, F1 0.92; outperforms references by >4%; user engagement (clicks, browsing time, comments) increased >10%",
+    "comments": "Decent performance uplift; STEAM context is motivational but not technically novel; user engagement metrics are suggestive rather than rigorous learning outcome measures.",
+    "model_io": [
+      {
+        "model": "CNN-Transformer personalized recommendation system",
+        "inputs": [
+          "student learning history",
+          "teaching activity metadata"
+        ],
+        "outputs": [
+          "ranked activity recommendations"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "CNN-Transformer outperforms reference models in prediction accuracy and user engagement",
+        "result": "Confirmed; 95.76% accuracy and >10% engagement lift observed"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-43447-2",
+    "source": "physics",
+    "id": "10.1038/s41598-026-43447-2",
+    "title": "DFT based photophysical assessment of 2-substituted-3-(pyridin-2-yl)-benzo-[d][1,3]-azaphosphole P-oxide for organic optoelectronic applications",
+    "projectPage": "https://www.nature.com/articles/s41598-026-43447-2",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-22",
+    "category": "Optics/Photonics",
+    "task": "DFT design and characterization of phosphole-based organic semiconductors with tunable push-pull architecture",
+    "key_results": "\u03c0-extended heteroacene derivatives exhibit tunable emission (367\u2013515 nm), high oscillator strengths (f up to 0.793), enhanced nonlinear optical response (\u03b2 up to 2621 a.u.), and favorable hole transport (\u03bbh = 0.20\u20130.28 eV); compounds 6, 7, 8 identified as priority candidates with cyan, blue, and orange emission respectively",
+    "comments": "Fragment orbital analysis rigorously connects structure to electronic reconfiguration, but predictions remain computational; experimental validation of photophysical and transport properties is essential.",
+    "model_io": [
+      {
+        "model": "DFT photophysical modeling (2-substituted benzo-[d][1,3]-azaphosphole P-oxides)",
+        "inputs": [
+          "molecular structure",
+          "substituent variation"
+        ],
+        "outputs": [
+          "HOMO/LUMO density distributions",
+          "emission wavelength (\u03bbem)",
+          "oscillator strength (f)",
+          "hyperpolarizability (\u03b2)",
+          "reorganization energy",
+          "singlet\u2013triplet gap (\u0394EST)",
+          "thermal stability (BDE)"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Pyridin-2-yl substitution inverts intramolecular charge-transfer pathway relative to phenyl analogs",
+        "result": "Pyridine ring contributes 52\u201375% HOMO, aryl substituent contributes 33\u201359% LUMO, establishing push-pull framework"
+      },
+      {
+        "hypothesis": "Greater HOMO-LUMO spatial separation systematically modulates optoelectronic properties",
+        "result": "Orbital separation correlates with red-shifted emission, lowered reorganization energy, narrowed \u0394EST, and increased hyperpolarizability across the series"
       }
     ]
   },
@@ -793,39 +1071,40 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-22",
     "category": "Applied Physics",
-    "task": "Gamma-ray shielding performance of polyester/ZrO2 composites",
-    "key_results": "Good agreement between Monte Carlo simulations (GEANT4, MCNPX) and experimental data at 662 keV; lead equivalent thickness increases monotonically with ZrO2 filler content",
-    "comments": "Multi-code validation strengthens confidence, but evaluation limited to single isotope source; broader energy coverage would better establish applicability range.",
+    "task": "Gamma-ray shielding properties of ZrO\u2082-reinforced polyester composites",
+    "key_results": "Good agreement between GEANT4/MCNPX Monte Carlo simulations and experimental data at 662 keV (137Cs); lead equivalent thickness increases monotonically with ZrO\u2082 filler content",
+    "comments": "Multi-code validation (GEANT4, MCNPX, XCOM, Phy-X, EpiXS, NGCal) strengthens credibility, but the study lacks quantitative shielding performance thresholds or cost-benefit analysis versus traditional materials.",
     "model_io": [
       {
         "model": "Monte Carlo radiation transport (GEANT4, MCNPX)",
         "inputs": [
-          "composite material composition",
-          "photon energy (0.01\u201310 MeV)"
+          "gamma-ray energy (0.01\u201310 MeV)",
+          "material composition",
+          "geometry"
         ],
         "outputs": [
-          "linear attenuation coefficient",
-          "mass attenuation coefficient",
-          "half-value layer",
-          "mean free path"
+          "linear attenuation coefficient (LAC)",
+          "mass attenuation coefficient (MAC)",
+          "half-value layer (HVL)",
+          "lead equivalent thickness (LET)"
         ]
       },
       {
-        "model": "Experimental gamma-ray shielding measurement",
+        "model": "Computational packages (XCOM, Phy-X, EpiXS, NGCal)",
         "inputs": [
-          "137Cs source (662 keV, 100 mCi)",
-          "PE/ZrO2 composite samples"
+          "material and energy parameters"
         ],
         "outputs": [
-          "attenuation data",
-          "shielding thickness equivalence"
+          "attenuation coefficients",
+          "effective atomic number (Zeff)",
+          "effective electron density (Neff)"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Increasing ZrO2 filler content improves gamma-ray shielding performance",
-        "result": "Confirmed; systematic improvement in LAC, MAC, HVL, and lead equivalent thickness with ZrO2 loading"
+        "hypothesis": "Increasing ZrO\u2082 filler content improves gamma-ray shielding performance",
+        "result": "Shielding performance of PE/ZrO\u2082 composites improves with increasing ZrO\u2082 content; lead equivalent thickness increases with filler content"
       }
     ]
   },
@@ -838,37 +1117,35 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-22",
     "category": "Optics/Photonics",
-    "task": "Self-interference decoupling in joint communication and sensing systems via metasurface",
-    "key_results": "2\u00d72 patch antenna array with modified split-ring resonator metasurface at 9\u201310 GHz; hardware\u2013algorithm co-optimization combining metasurface suppression and null-space projection beamforming",
-    "comments": "Proof-of-concept demonstrates promise but scalability to larger MIMO arrays and broader frequency ranges not addressed.",
+    "task": "Decoupling self-interference in joint communication and sensing via metasurface",
+    "key_results": "Metasurface-assisted decoupling using modified split-ring resonators (MSRRs) with null-space projection beamforming demonstrated in 2\u00d72 patch antenna array at 9\u201310 GHz",
+    "comments": "Hardware\u2013algorithm co-optimization is pragmatic, but the paper lacks quantitative isolation/SI reduction metrics and validation on larger or more realistic MIMO geometries.",
     "model_io": [
       {
-        "model": "Metasurface-assisted JCAS system",
+        "model": "Metasurface-assisted JCAS decoupling structure",
         "inputs": [
-          "transmitted waveforms from TX antenna array",
-          "received signals at RX antenna array"
+          "TX/RX antenna signals",
+          "surface current suppression via MSRR"
         ],
         "outputs": [
-          "isolated communication and sensing signals",
-          "reduced self-interference"
+          "reduced self-interference",
+          "enhanced electromagnetic isolation"
         ]
       },
       {
         "model": "Multi-frequency null-space projection beamforming",
         "inputs": [
-          "channel state information",
-          "array geometry"
+          "antenna array measurements"
         ],
         "outputs": [
-          "beamforming weights",
-          "enhanced TX-RX isolation"
+          "beamformed signals with enhanced decoupling"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Modified split-ring resonator metasurface reduces coupling between TX and RX arrays in compact MIMO",
-        "result": "Confirmed through fabrication and measurement at 9\u201310 GHz"
+        "hypothesis": "Metasurface suppresses surface currents to reduce TX-RX coupling in compact MIMO arrays",
+        "result": "Measurement results validate effectiveness of proposed decoupling approach"
       }
     ]
   }

@@ -20692,5 +20692,908 @@
         "result": "Substantial execution time reduction and improved memory efficiency on benchmark datasets"
       }
     ]
+  },
+  "hf:2603.19987": {
+    "category": "LLM/Reasoning",
+    "task": "Breaking the capability ceiling of LLM post-training via Markov states",
+    "key_results": "Markov state formulation reduces sample complexity and consistently improves performance on complex logic puzzles beyond standard RL post-training baselines",
+    "comments": "Addresses a fundamental bottleneck in LLM RL by revisiting classical RL principles; the theoretical guarantees and empirical validation on structured reasoning tasks are compelling.",
+    "model_io": [
+      {
+        "model": "LLM with RL post-training (standard history-as-state vs. Markov state variant)",
+        "inputs": [
+          "task trajectories",
+          "logic puzzle instances"
+        ],
+        "outputs": [
+          "policy updates",
+          "reasoning solutions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Explicit Markov states reduce sample complexity compared to history-as-state formulations",
+        "result": "Theoretical guarantees provided; empirically validated on logic puzzles"
+      },
+      {
+        "hypothesis": "Markov states enable novel reasoning discovery beyond pre-trained patterns",
+        "result": "Consistent performance improvements across multiple complex tasks"
+      }
+    ]
+  },
+  "hf:2603.20193": {
+    "category": "Vision",
+    "task": "Pixel-level image tampering detection and semantic classification",
+    "key_results": "Per-pixel tampering maps with semantic supervision reveal substantial scoring differences in mask-only baselines; new benchmark and metrics quantify localization confidence and tamper meaning understanding",
+    "comments": "Shifts evaluation from coarse region masks to fine-grained pixel-level semantics, exposing significant limitations of prior work and establishing rigorous standards.",
+    "model_io": [
+      {
+        "model": "Vision-Language Model (VLM) for tampering detection",
+        "inputs": [
+          "images",
+          "edit primitive categories",
+          "semantic object classes"
+        ],
+        "outputs": [
+          "per-pixel tamper maps",
+          "semantic classifications",
+          "natural language descriptions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Mask-only metrics substantially over- and under-score tampering detection",
+        "result": "Re-evaluation of segmentation baselines reveals significant discrepancies and failure modes on micro-edits"
+      },
+      {
+        "hypothesis": "Pixel-grounded, meaning-aware evaluation improves detection quality assessment",
+        "result": "New benchmark with paired supervision enables unified detection and classification protocol"
+      }
+    ]
+  },
+  "hf:2603.19470": {
+    "category": "Agents/RL",
+    "task": "Off-policy correction for stable LLM RL via adaptive layerwise perturbation",
+    "key_results": "ALP prevents importance ratio blow-up and KL spikes during training; improves performance on math and multi-turn tool-integrated reasoning with boosted exploration",
+    "comments": "Elegant solution to off-policy instability by injecting learnable perturbations at intermediate representations; representation-level perturbations outperform logits-only variants.",
+    "model_io": [
+      {
+        "model": "LLM with Adaptive Layerwise Perturbation (ALP) in RL training",
+        "inputs": [
+          "task prompts",
+          "inference policy",
+          "hidden state representations"
+        ],
+        "outputs": [
+          "perturbed policy gradients",
+          "updated parameters",
+          "importance ratios"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Layerwise perturbations reduce importance ratio tail and flatten policy distribution",
+        "result": "Empirically validated: importance ratio tail reduction and eliminated KL spikes"
+      },
+      {
+        "hypothesis": "Representation-level perturbations are more effective than logits-only perturbations",
+        "result": "Ablations confirm all-layer variants substantially outperform partial-layer and logits-only baselines"
+      }
+    ]
+  },
+  "hf:2603.18750": {
+    "category": "Benchmark",
+    "task": "Comparative evaluation of neural detectors for AI-generated text",
+    "key_results": "Supervised neural detectors (MLP, CNN, MobileNet, Transformer) achieve more stable and robust performance than commercial tools (ZeroGPT, GPTZero, etc.) across languages and domains",
+    "comments": "Systematic comparison across diverse architectures and commercial detectors reveals superiority of supervised approaches; evaluation spans multiple languages and thematic domains.",
+    "model_io": [
+      {
+        "model": "Four neural architectures: MLP, 1D-CNN, MobileNet-CNN, Transformer",
+        "inputs": [
+          "text documents (human-written and AI-generated)"
+        ],
+        "outputs": [
+          "binary classification (human vs. AI-generated)"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Supervised neural detectors outperform commercial tools on consistency and robustness",
+        "result": "Superior performance validated on COLING Multilingual Dataset (English, Italian) and custom Art/Mental Health datasets"
+      },
+      {
+        "hypothesis": "Different architectures exhibit varying effectiveness across domains",
+        "result": "Comparative analysis reveals architecture-dependent strengths and limitations"
+      }
+    ]
+  },
+  "hf:2603.18655": {
+    "category": "Medical",
+    "task": "Semi-supervised ultrasound image segmentation with multiscale and frequency-domain learning",
+    "key_results": "At 5% labeling ratio: 80.04% Dice on LN-INT, 85.52% Dice on DDTI, 83.48% Dice on Prostate; semi-supervised approach exceeds fully supervised baselines with 1.8M parameters",
+    "comments": "Clever dual innovation (spatial multiscale mixing and frequency-domain contrastive learning) effectively addresses data scarcity and ultrasound imaging artifacts; parameter efficiency is notable.",
+    "model_io": [
+      {
+        "model": "Teacher-student SSL framework with Multiscale Switch (MSS) and Frequency Domain Switch (FDS)",
+        "inputs": [
+          "labeled ultrasound images",
+          "unlabeled ultrasound images",
+          "image patches"
+        ],
+        "outputs": [
+          "segmentation masks",
+          "contrastive feature representations"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Hierarchical patch mixing (MSS) achieves uniform spatial coverage for SSL",
+        "result": "Consistent improvements across six diverse ultrasound datasets"
+      },
+      {
+        "hypothesis": "Frequency-domain contrastive learning provides robust feature representations under speckle noise",
+        "result": "Semi-supervised approach exceeds fully supervised baselines despite limited labeled data"
+      }
+    ]
+  },
+  "nature:10.1038/s41419-026-08634-z": {
+    "category": "Cell Signaling",
+    "task": "Identify ferroptosis mechanism in age-related heart failure",
+    "key_results": "SIRT1 deficiency promotes cardiac ferroptosis via GATA4-HADHA-GPX4 axis; GPX4 overexpression and ferroptosis inhibition restore cardiac function in aged mice",
+    "comments": "Strong mechanistic chain from aging regulator to ferroptosis executors, though therapeutic translation requires addressing SIRT1's pleiotropic effects.",
+    "model_io": [
+      {
+        "model": "Aged rats and D-galactose-induced aging mice",
+        "inputs": [
+          "iron overload",
+          "SIRT1 expression",
+          "GATA4",
+          "HADHA",
+          "ferroptosis inhibitors"
+        ],
+        "outputs": [
+          "GPX4 expression",
+          "lipid peroxidation",
+          "cardiac function",
+          "ferroptosis markers"
+        ]
+      },
+      {
+        "model": "Cardiomyocyte-specific transgenic mice",
+        "inputs": [
+          "GPX4 knockout",
+          "GPX4 overexpression",
+          "HADHA knockdown"
+        ],
+        "outputs": [
+          "cardiac dysfunction",
+          "ferroptosis suppression",
+          "oxidative stress"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "SIRT1 regulates HADHA transcription via GATA4 to suppress ferroptosis",
+        "result": "Confirmed; SIRT1 overexpression restores HADHA and protects cardiac function"
+      },
+      {
+        "hypothesis": "HADHA loss causes mitochondrial dysfunction and glutathione depletion",
+        "result": "Confirmed; HADHA knockdown recapitulates ferroptotic cardiac remodeling"
+      }
+    ]
+  },
+  "nature:10.1038/s41467-026-70934-x": {
+    "category": "Cell Signaling",
+    "task": "Establish pentose phosphate pathway as metabolic checkpoint for cDC antitumor immunity",
+    "key_results": "PPP augmentation in intratumoral cDCs boosts antitumor responses; PPP drives purine metabolism increasing ATP/GTP for cGAS-STING signaling; combination with PD-L1 blockade synergistic; PPP enrichment correlates with STING activity in patient breast tumors",
+    "comments": "Identifies metabolic lever for immune checkpoint therapy; elegant mechanistic link through nucleotide biosynthesis; clinical translation potential via small-molecule PPP activators.",
+    "model_io": [
+      {
+        "model": "Tumor-bearing mice and patient breast cancer samples",
+        "inputs": [
+          "PPP enzymes",
+          "purine metabolism",
+          "ATP",
+          "GTP",
+          "cGAS",
+          "STING"
+        ],
+        "outputs": [
+          "cDC antitumor function",
+          "cGAS-STING signaling",
+          "2'3'-cGAMP levels",
+          "tumor growth",
+          "survival"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "PPP augmentation enhances purine availability for cGAMP synthesis",
+        "result": "Confirmed; PPP inhibition reduces ATP/GTP and cGAMP"
+      },
+      {
+        "hypothesis": "PPP potentiation + PD-L1 blockade synergistically enhance immunotherapy",
+        "result": "Confirmed in combination studies"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44120-4": {
+    "category": "Other",
+    "task": "Characterize disease-stage-specific GAG sulfation changes in COPD lung tissue",
+    "key_results": "Total GAG increased in GOLD II-IV; CS/DS 4-O-sulfation enhanced across stages; HS 2-O-sulfation elevated in GOLD IV; CHST11 upregulated via TGF-\u03b2 signaling; TGF-\u03b2 stimulation of fibroblasts recapitulates changes",
+    "comments": "Comprehensive glycomic characterization; mechanistic link to TGF-\u03b2 provides therapeutic angle, though contribution to pathophysiology remains to be established.",
+    "model_io": [
+      {
+        "model": "Human COPD lung tissue (GOLD II-IV vs controls) and lung fibroblasts",
+        "inputs": [
+          "disease stage",
+          "TGF-\u03b2",
+          "CHST11",
+          "CS/DS and HS sulfotransferases"
+        ],
+        "outputs": [
+          "GAG composition",
+          "sulfation patterns",
+          "CHST11 expression",
+          "extracellular matrix remodeling"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "TGF-\u03b2 signaling drives disease-stage-specific GAG sulfation changes",
+        "result": "Confirmed; TGF-\u03b2 stimulation increases CHST11 and CS/DS sulfation"
+      },
+      {
+        "hypothesis": "CHST11 is primary mediator of enhanced 4-O-sulfation",
+        "result": "Confirmed; CHST11 upregulation correlates with sulfation changes"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44595-1": {
+    "category": "Cell Signaling",
+    "task": "Characterize L-type VGCC role in F11 neuronal cell differentiation and oxidative stress",
+    "key_results": "L-type VGCC upregulation during differentiation; CaV1.3 overexpression enhances neurite outgrowth but increases oxidative stress and impairs differentiation; CaV1.3 more deleterious than CaV1.2 due to lower activation threshold",
+    "comments": "Reveals context-dependent function of calcium channels in neuronal development; dual role in promoting differentiation yet generating oxidative stress highlights need for precise modulation.",
+    "model_io": [
+      {
+        "model": "F11 neuronal cell line",
+        "inputs": [
+          "KCl (depolarization)",
+          "L-type VGCC inhibitors",
+          "CaV1.3 overexpression",
+          "CaV1.2 overexpression"
+        ],
+        "outputs": [
+          "intracellular Ca2+",
+          "neurite outgrowth",
+          "oxidative stress",
+          "differentiation markers"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "L-type VGCCs promote F11 differentiation through calcium influx",
+        "result": "Confirmed; CaV1.3 overexpression enhances differentiation features"
+      },
+      {
+        "hypothesis": "CaV1.3 overexpression simultaneously increases oxidative stress",
+        "result": "Confirmed; ROS accumulation impairs differentiation"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45586-y": {
+    "category": "Cell Signaling",
+    "task": "Characterize transcriptional programs underlying dual BRAF/MEK inhibitor resistance in melanoma",
+    "key_results": "Both resistant lines upregulate EMT markers and extracellular matrix components; Hs294T shows stromal remodeling focus, WM9 exhibits broader immune pathway reprogramming; line-specific kinase rewiring identified",
+    "comments": "Comprehensive transcriptomics reveals context-specific resistance mechanisms; limited validation of identified pathways in functional studies.",
+    "model_io": [
+      {
+        "model": "Metastatic melanoma cell lines (Hs294T, WM9) under dual inhibition",
+        "inputs": [
+          "vemurafenib",
+          "cobimetinib",
+          "stepwise drug exposure"
+        ],
+        "outputs": [
+          "transcriptomic profiles",
+          "EMT markers",
+          "kinase/TF activity",
+          "immune signatures"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Dual-resistant melanoma cells activate EMT and stromal remodeling programs",
+        "result": "Confirmed; both lines upregulate EMT and ECM genes"
+      },
+      {
+        "hypothesis": "Line-specific regulatory rewiring drives divergent resistance strategies",
+        "result": "Confirmed; distinct TF/kinase activation patterns between cell lines"
+      }
+    ]
+  },
+  "nature:10.1038/s41564-026-02274-x": {
+    "category": "Evolutionary Biology",
+    "task": "Climate-driven increase in soil antibiotic resistance",
+    "key_results": "Drought correlates with elevated antibiotic-producing bacteria metagenomic signatures across diverse soil types; drought concentrates natural antibiotics, selecting for resistance; hospital antibiotic resistance correlated with aridity index across 116 countries (controlling for income)",
+    "comments": "Establishes previously underrecognized link between environmental stress (drought) and antibiotic resistance at global scale; suggests climate-mediated resistance selection as overlooked public health threat.",
+    "model_io": [
+      {
+        "model": "Metagenomic analysis",
+        "inputs": [
+          "soil microbiome samples (drought vs. control)"
+        ],
+        "outputs": [
+          "antibiotic producer enrichment signatures"
+        ]
+      },
+      {
+        "model": "Experimental water-content manipulation",
+        "inputs": [
+          "soil microcosms; varying water content"
+        ],
+        "outputs": [
+          "antibiotic concentration; resistant vs. sensitive strain abundance"
+        ]
+      },
+      {
+        "model": "Epidemiological correlation",
+        "inputs": [
+          "hospital antibiotic resistance data (116 countries); aridity index; regional income"
+        ],
+        "outputs": [
+          "correlation strength; confidence intervals"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Drought concentrates soil antibiotics, selecting for resistance in microbial populations",
+        "result": "Metagenomic signatures of antibiotic producers enriched; experimental evidence of concentration-driven selection"
+      },
+      {
+        "hypothesis": "Local aridity predicts hospital antibiotic resistance at global scale",
+        "result": "Significant correlation between aridity index and antibiotic resistance frequency (controlling for income)"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44872-z": {
+    "category": "Proteomics",
+    "task": "Normalization and curation of pan-cancer protein expression data across 10 CPTAC cohorts",
+    "key_results": "Cohort hybrid imputation + global quantile normalization superior to alternatives (higher rank correlation with TCGA); normalized dataset enables robust cross-cohort protein expression analysis; systematic filtering identifies robustly expressed proteins",
+    "comments": "Critical data harmonization effort for pan-cancer proteomics; global quantile normalization empirically outperforms smooth quantile normalization, addressing practical bottleneck in multi-cohort studies.",
+    "model_io": [
+      {
+        "model": "Data harmonization pipeline",
+        "inputs": [
+          "raw protein abundance values (FragPipe) from 10 CPTAC cohorts"
+        ],
+        "outputs": [
+          "normalized, imputed protein expression matrix"
+        ]
+      },
+      {
+        "model": "Robust protein selection algorithm",
+        "inputs": [
+          "protein expression distributions per cohort"
+        ],
+        "outputs": [
+          "robustly expressed protein list"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Cohort hybrid imputation + global quantile normalization improves cross-cohort protein expression comparability",
+        "result": "Higher rank correlation between CPTAC and TCGA for selected proteins vs. smooth quantile or no normalization"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44979-3": {
+    "category": "Structural Prediction",
+    "task": "Diagnosis and recurrence prediction of odontogenic keratocyst (OKC)",
+    "key_results": "Multimodal Diagnosis Model (MFDM): spatial fusion of pathology slides + clinical parameters; Interpretable Recurrence Prediction Model (IRPM): attention-weighted demographics + medical history; higher accuracy than SOTA models; integrated platform deployed",
+    "comments": "Dual-model architecture (diagnosis + recurrence) with attention mechanisms for interpretability; clinical deployment feasibility demonstrated via integrated platform.",
+    "model_io": [
+      {
+        "model": "MFDM (Multimodal Diagnosis Model)",
+        "inputs": [
+          "oral pathology slides; clinical parameters"
+        ],
+        "outputs": [
+          "OKC diagnosis (presence/absence)"
+        ]
+      },
+      {
+        "model": "IRPM (Interpretable Recurrence Prediction Model)",
+        "inputs": [
+          "patient demographics; medical history"
+        ],
+        "outputs": [
+          "OKC recurrence risk score; attention-weighted feature importance"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Multimodal fusion of pathology + clinical data improves OKC diagnosis; attention mechanism enables interpretable recurrence prediction",
+        "result": "Higher diagnosis and recurrence prediction accuracy vs. SOTA; visualization clarifies model decision-making"
+      }
+    ]
+  },
+  "nature:10.1038/s44303-026-00149-8": {
+    "category": "Structural Prediction",
+    "task": "Correlative microscale spatial mapping of collagen architecture and gene activity",
+    "key_results": "RNAscope + Second Harmonic Generation microscopy integration enables aligned transcript localization + quantitative collagen metrics; dystrophin transcripts (exons 37\u201342, 63\u201375) associate with localized collagen fiber length/density increases in Duchenne Muscular Dystrophy",
+    "comments": "Novel multimodal microscopy integration; proof-of-concept in muscle disease suggests broader applicability to fibrosis and regeneration studies; causality between transcript distribution and collagen changes requires further investigation.",
+    "model_io": [
+      {
+        "model": "Correlative multimodal imaging",
+        "inputs": [
+          "human skeletal muscle biopsies (healthy + DMD)"
+        ],
+        "outputs": [
+          "aligned RNAscope (transcripts) + SHG (collagen) spatial maps"
+        ]
+      },
+      {
+        "model": "Spatial correlation analysis",
+        "inputs": [
+          "transcript locations; collagen fiber metrics"
+        ],
+        "outputs": [
+          "spatial associations; collagen architecture changes"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Dystrophin transcript distribution spatially correlates with collagen organization in DMD muscle",
+        "result": "Dystrophin-enriched regions exhibit localized collagen fiber length/density increases"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-37402-4": {
+    "category": "Other",
+    "task": "Blockchain-based vaccine supply chain management with privacy preservation",
+    "key_results": "Comparative analysis of existing frameworks; identifies scalability, interoperability, and privacy as critical challenges",
+    "comments": "Comprehensive review-based study; empirical results on proposed framework not quantitatively detailed.",
+    "model_io": [],
+    "hypotheses": [
+      {
+        "hypothesis": "Self-sovereign identity and blockchain together address traceability and counterfeit prevention in vaccine distribution",
+        "result": "Framework efficacy demonstrated empirically; challenges in scalability and interoperability remain"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-40772-4": {
+    "category": "ML Theory",
+    "task": "Crop selection recommendation via ensemble learning and IoT sensors for sustainable agriculture",
+    "key_results": "12-weak-classifier compound ensemble with distance-based similarity index achieves 99.8% accuracy; integrates rainfall forecasts, drought predictions, soil parameters",
+    "comments": "Ensemble approach enhances adaptability to regional variations; demonstrates precision agriculture framework for semi-arid zones.",
+    "model_io": [
+      {
+        "model": "Compound ensemble (12 weak classifiers: logistic regression, ANNs, etc.) + similarity index",
+        "inputs": [
+          "IoT sensor data (rainfall, soil parameters)",
+          "drought forecasts"
+        ],
+        "outputs": [
+          "crop recommendation",
+          "suitability scores"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Ensemble of weak learners with similarity-based aggregation improves crop recommendation accuracy and regional adaptability",
+        "result": "99.8% accuracy on crop selection task"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-40882-z": {
+    "category": "ML Theory",
+    "task": "GI lesion detection and targeted drug delivery supervision via IoBNT and explainable AI",
+    "key_results": "91.4% classification accuracy on HyperKvasir (25 GI disease classes); weighted F1=0.91; integrated with pharmacokinetic drug release modeling",
+    "comments": "Stronger neoplastic performance; lower accuracy on rare disease categories highlights class-imbalance challenge.",
+    "model_io": [
+      {
+        "model": "Wireless Ingestible Imaging Device (WIID) + CNN with supervised contrastive learning + GradCAM explainability",
+        "inputs": [
+          "GI images from 25 disease classes"
+        ],
+        "outputs": [
+          "disease classification",
+          "GradCAM attention maps",
+          "drug dosing commands"
+        ]
+      },
+      {
+        "model": "Multi-compartment pharmacokinetic framework",
+        "inputs": [
+          "drug transport parameters",
+          "nanodevice release kinetics"
+        ],
+        "outputs": [
+          "drug concentration profiles",
+          "dosing safety verification"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Supervised contrastive learning with cost-sensitive fine-tuning improves minority disease detection",
+        "result": "91.4% accuracy on balanced 25-class dataset with explainable attention maps"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-41390-w": {
+    "category": "Algorithms",
+    "task": "Automated differential meet-in-the-middle attacks on AndRX ciphers",
+    "key_results": "Constraint-based framework extends attack coverage on SIMON and Simeck families beyond classical MITM and Demirci\u2013Sel\u00e7uk attacks; equivalent subkey and selective key guessing techniques enhance efficiency",
+    "comments": "Automated bit-level design enables application to diverse bit-oriented ciphers; practical attacks validated on well-known cipher families.",
+    "model_io": [
+      {
+        "model": "Constraint Programming model for differential MITM attack construction with optimization strategies",
+        "inputs": [
+          "AndRX cipher specification"
+        ],
+        "outputs": [
+          "optimal attack configuration",
+          "key recovery complexity",
+          "round coverage"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Automated constraint-based framework identifies optimal differential MITM attacks on AndRX ciphers with enhanced round coverage",
+        "result": "Improved results on SIMON/Simeck families vs. previously reported classical MITM attacks"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44917-3": {
+    "category": "Other",
+    "task": "Spherical fuzzy hypergraphs for multi-arity relational decision making",
+    "key_results": "SFHG framework extends spherical fuzzy graphs to multi-arity relations; application to e-marketing decision-making shows improvements over existing fuzzy graph methodologies",
+    "comments": "Theoretical advancement enabling partition, clustering, and covering tasks; particularly relevant for circuit design and complex system simulation.",
+    "model_io": [],
+    "hypotheses": [
+      {
+        "hypothesis": "Spherical Fuzzy Hypergraphs enable representation of multi-arity relations with improved decision-making capability",
+        "result": "Outperformed existing fuzzy graph methods in e-marketing application"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44935-1": {
+    "category": "ML Theory",
+    "task": "Enhancing visual grounding in multimodal LLMs for VQA",
+    "key_results": "Plug-and-play attention re-alignment (ARA) module improves visual detail sensitivity across multiple VQA benchmarks via layer-wise confidence-aware aggregation",
+    "comments": "Addresses fundamental issue that attention to visual details dilutes in deeper layers; solution is modular and integrable into existing MLLMs.",
+    "model_io": [
+      {
+        "model": "Attention Re-Alignment (ARA) module for MLLMs",
+        "inputs": [
+          "intermediate attention maps from multiple layers"
+        ],
+        "outputs": [
+          "semantic masks",
+          "enhanced visual grounding for generation"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Language priors dominate visual attention in deeper MLLM layers, suppressing fine-grained details",
+        "result": "Layer-wise analysis reveals attention dilution; ARA aggregates informative layers dynamically"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44990-8": {
+    "category": "Statistics/Probability",
+    "task": "Privacy-preserving synthetic dataset for learning analytics in higher education",
+    "key_results": "SynEdu-HEDL dataset addresses privacy constraints on student data sharing; enables collaborative research while maintaining confidentiality",
+    "comments": "Synthetic data generation resolves fundamental tension between privacy regulations and open research; specific quantitative validation metrics not detailed in abstract.",
+    "model_io": [
+      {
+        "model": "Privacy-preserving synthetic data generation method (unspecified mechanism in abstract)",
+        "inputs": [
+          "real student learning analytics data"
+        ],
+        "outputs": [
+          "SynEdu-HEDL synthetic dataset"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Synthetic learning analytics datasets can support collaborative research while respecting privacy regulations",
+        "result": "SynEdu-HEDL dataset enables privacy-compliant sharing for higher education learning analytics"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45181-1": {
+    "category": "ML Theory",
+    "task": "Cross-modality medical imaging synthesis (CT-to-MRI)",
+    "key_results": "Outperforms CycleGAN, Pix2Pix, MedSynthesisV1, Diffusion on brain and pelvic datasets despite 6% unpaired slices",
+    "comments": "Diffusion-based approach handles incomplete pairing well, but hyperparameter tuning remains critical.",
+    "model_io": [
+      {
+        "model": "Enhanced Diffusion Model with post-processing",
+        "inputs": [
+          "volumetric CT images"
+        ],
+        "outputs": [
+          "synthetic volumetric MRI"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Diffusion models with post-processing can translate CT to MRI despite unpaired training data",
+        "result": "Achieved good qualitative and quantitative results on clinical datasets"
+      }
+    ]
+  },
+  "nature:10.1038/s42949-026-00377-2": {
+    "category": "Other",
+    "task": "Bridging urban theory and AI for sustainable city development via LLM multi-agent system",
+    "key_results": "Framework reorients technology-focused AI research toward theory-grounded interventions addressing urban sustainability challenges; demonstrates shift from 'what can algorithms do?' to 'what does the city need?'",
+    "comments": "Systems approach integrates classical urban theories with modern AI; identifies theory-practice disconnect in technology-driven urban AI research.",
+    "model_io": [
+      {
+        "model": "LLM-based multi-agent recommendation system",
+        "inputs": [
+          "urban sustainability challenge description"
+        ],
+        "outputs": [
+          "theoretical frameworks",
+          "appropriate AI methods",
+          "relevant data sources"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "LLM-based multi-agent systems can recommend contextually appropriate AI methods grounded in urban theory",
+        "result": "Framework transforms case studies from technology-focused to theory-grounded interventions"
+      }
+    ]
+  },
+  "nature:10.1038/s41467-026-70882-6": {
+    "category": "Condensed Matter",
+    "task": "Elucidate coupling between octahedral tilting and B-site off-centering in halide perovskites",
+    "key_results": "Group theory and AIMD show lone pair-induced off-centering and octahedral tilting are symmetry-decoupled in CsPbBr\u2083/SnBr\u2083/GeBr\u2083; off-centering correlates with transient partial covalent B-X bonding that stiffens tilting modes",
+    "comments": "Rigorous symmetry analysis clarifies structure-electronic structure relationships; insight into dynamic B-site behavior refines understanding of perovskite functionality.",
+    "model_io": [
+      {
+        "model": "Ab initio molecular dynamics with group theory analysis",
+        "inputs": [
+          "CsPbBr\u2083 (or SnBr\u2083, GeBr\u2083) structure",
+          "temperature"
+        ],
+        "outputs": [
+          "B-site off-centering amplitude",
+          "octahedral tilting angle",
+          "lone pair expression",
+          "B-X bond strength"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Lone pair and octahedral tilting are symmetry-decoupled",
+        "result": "Off-centering and tilting show independent symmetry characteristics; not directly coupled"
+      },
+      {
+        "hypothesis": "Transient covalent B-X bonding mediates off-centering to tilting correlation",
+        "result": "B-site lone pair expression correlates with tilting propensity through bond stiffening"
+      }
+    ]
+  },
+  "nature:10.1038/s41467-026-70950-x": {
+    "category": "Optics/Photonics",
+    "task": "Achieve ultrasensitive photodetection via pressure-induced atomic-level optimization of graphene-GO heterojunctions",
+    "key_results": "CuPc-GO composite membranes under moderate pressure (~1 atm) achieve photoresponsivity ~10\u2077 A/W under 3 nW visible light; flexible for electronic skin with contact and non-contact sensing down to moonlight levels",
+    "comments": "Pressure tuning of charge transport at heterojunctions is elegant; the mechanism likely generalizes to other organic-2D material systems.",
+    "model_io": [
+      {
+        "model": "CuPc-GO heterojunction photodetector with applied pressure",
+        "inputs": [
+          "visible light illumination (down to 3 nW)",
+          "applied pressure (~1 atm)",
+          "device geometry"
+        ],
+        "outputs": [
+          "photoresponsivity",
+          "photocurrent",
+          "detectivity"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Pressure optimizes atomic-level electronic coupling at CuPc-GO heterojunctions",
+        "result": "Photoresponsivity enhanced to ~10\u2077 A/W; simultaneous contact and non-contact sensing capability"
+      }
+    ]
+  },
+  "nature:10.1038/s41467-026-70963-6": {
+    "category": "Applied Physics",
+    "task": "Design cryogenic neuromorphic circuits using gate-controlled negative differential resistance in SiC",
+    "key_results": "SiC MOSFETs exhibit gate-controlled NDR with on/off ratio >10\u2077 via electron-donor impact ionization; programmable spiking neurons (sensory, logic, integrate-and-fire) demonstrated; scalable for cryogenic quantum control",
+    "comments": "Clever exploitation of SiC physics for ultra-low-power cryogenic operation; manufacturability advantage is significant for practical quantum computing integration.",
+    "model_io": [
+      {
+        "model": "SiC MOSFET with gate-controlled NDR",
+        "inputs": [
+          "gate voltage",
+          "drain voltage",
+          "cryogenic temperature"
+        ],
+        "outputs": [
+          "negative differential resistance characteristic",
+          "spiking neuron behavior"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "EDII in SiC MOSFETs enables gate-controlled negative differential resistance",
+        "result": "Gate voltage fully controls NDR behavior with on/off ratio exceeding 10\u2077"
+      },
+      {
+        "hypothesis": "NDR enables programmable neuromorphic circuits at cryogenic temperatures",
+        "result": "Sensory, logic, and integrate-and-fire neurons demonstrated with voltage-tunable functionality"
+      }
+    ]
+  },
+  "nature:10.1038/s41467-026-70967-2": {
+    "category": "Optics/Photonics",
+    "task": "Design biologically-inspired microlens array camera for high-resolution wide field-of-view imaging",
+    "key_results": "140\u00b0 field-of-view with 0.94 mm track length; 1-megapixel reconstruction with 1.1-pixel error using digital calibration and stitching; imaged microfluidic channels, dental phantoms, human faces",
+    "comments": "Elegant biomimetic design with practical demonstration; limited to planar sensor but demonstrates promise for ultrathin imaging systems.",
+    "model_io": [
+      {
+        "model": "Spatially offset ellipsoidal microlens array camera",
+        "inputs": [
+          "target scene (planar sensor array)",
+          "multiple optical units with offset apertures"
+        ],
+        "outputs": [
+          "captured sub-images",
+          "reconstructed 1-megapixel high-resolution image"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Spatially offset ellipsoidal microlenses reduce aberrations across 140\u00b0 FoV",
+        "result": "High-resolution wide FoV imaging achieved with 1.1-pixel reconstruction error"
+      }
+    ]
+  },
+  "nature:10.1038/s41534-026-01220-3": {
+    "category": "Optics/Photonics",
+    "task": "Achieve robust photon blockade in hybrid molecular cavity optomechanical systems",
+    "key_results": "Near-perfect room-temperature photon blockade with arbitrary detuning via degenerate parametric amplification; robust against temperature and optical dissipation; strong photon antibunching demonstrated",
+    "comments": "Hybrid molecular optomechanics offers compelling advantages, though practical implementation and tuning of the degenerate parametric amplification requires careful engineering.",
+    "model_io": [
+      {
+        "model": "Hybrid molecular cavity optomechanical system with parametric amplification",
+        "inputs": [
+          "molecular cavity parameters",
+          "degenerate parametric amplifier strength",
+          "temperature"
+        ],
+        "outputs": [
+          "photon blockade strength (g\u00b2)",
+          "photon antibunching",
+          "room-temperature quantum states"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Parametric amplification enables robust photon blockade at arbitrary detuning",
+        "result": "Near-perfect antibunching achieved with arbitrary detuning conditions"
+      },
+      {
+        "hypothesis": "Hybrid system maintains photon blockade robustness against thermal noise",
+        "result": "Room-temperature operation with robust performance against temperature and dissipation"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-42808-1": {
+    "category": "Applied Physics",
+    "task": "Reduce noise in eddy current measurements for substrate conductivity under coatings",
+    "key_results": "Taguchi optimization of self-differential probe parameters reduces noise; rectangular coil design achieves maximum SNR; variance analysis ranks parameter influences; Monte Carlo validation confirms advantages",
+    "comments": "Practical optimization study with solid experimental validation, though the novelty is primarily in parameter tuning rather than fundamental methodology.",
+    "model_io": [
+      {
+        "model": "Self-differential eddy current probe (UECP)",
+        "inputs": [
+          "coil geometry parameters",
+          "substrate conductivity",
+          "coating thickness"
+        ],
+        "outputs": [
+          "signal-to-noise ratio (SNR)",
+          "substrate conductivity measurements"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Optimized rectangular coil geometry maximizes SNR for substrate conductivity measurement",
+        "result": "Rectangular coil design selected as optimal among investigated alternatives"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44713-z": {
+    "category": "Astrophysics/Cosmology",
+    "task": "Explain Hubble tension via fractal information growth in black holes",
+    "key_results": "Two fractal growth processes yield H\u2080 = 62.79 \u00b1 4.56 km/s/Mpc (early universe) and 70.07 \u00b1 0.39 km/s/Mpc (late universe), matching observed tension",
+    "comments": "While the numerical coincidence is striking, the physical mechanism linking black hole entropy to cosmological expansion requires further justification and independent verification.",
+    "model_io": [
+      {
+        "model": "Fractal growth cosmological model",
+        "inputs": [
+          "black hole information evolution",
+          "early/late universe epochs"
+        ],
+        "outputs": [
+          "Hubble constant estimates (early and late universe)",
+          "space expansion rates"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Hubble tension arises from intrinsic fractal dynamics in early versus late universe",
+        "result": "Computed H\u2080 values match observational discrepancy without invoking large-scale structure anomalies"
+      }
+    ]
+  },
+  "nature:10.1038/s41467-026-70539-4": {
+    "category": "Gene Regulation",
+    "task": "Identify transcriptional network rewiring driving lineage-specific virulence differences in M. tuberculosis",
+    "key_results": "LysG induction promotes bedaquiline tolerance in L2 strains; DosR regulon shows 2-3\u00d7 higher basal expression and stronger nitric oxide response in hyper-virulent L2 versus low-virulence L1",
+    "comments": "The linking of a single master regulator (LysG) to a clinically relevant drug phenotype is elegant, though causality relies on induction experiments rather than genetic knockout in clinical strains.",
+    "model_io": [
+      {
+        "model": "Comparative genomic-transcriptomic-proteomic analysis",
+        "inputs": [
+          "L1 and L2 clinical isolates",
+          "hypoxia and reaeration conditions"
+        ],
+        "outputs": [
+          "SNP-to-expression mapping",
+          "master transcription factor targets",
+          "DosR and LysG regulon expression levels",
+          "bedaquiline tolerance phenotype"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Limited genetic variation in MTBC yields major phenotypic differences through differential transcriptional regulation",
+        "result": "Confirmed: one in three SNPs affected gene expression; transcript-protein correlations were lineage and condition-specific"
+      },
+      {
+        "hypothesis": "LysG promotes reduced metabolic activity and bedaquiline tolerance in L2",
+        "result": "Confirmed by time-course induction experiments under hypoxia and reaeration"
+      }
+    ]
   }
 }

@@ -20091,5 +20091,606 @@
         "result": "Confirmed: 10-fold lower ligand concentration needed for equivalent CRISPR-Cas9 editing efficiency"
       }
     ]
+  },
+  "hf:2603.08462": {
+    "category": "LLM/Reasoning",
+    "task": "Efficient chain-of-thought reasoning with computational budget constraints",
+    "key_results": "Preserves accuracy at moderate compression while enabling aggressive compression with minimal accuracy drop; identifies theoretical gap in applying Information Bottleneck to transformers",
+    "comments": "The Conditional Information Bottleneck framing elegantly unifies existing heuristic approaches while introducing semantic cost via surprisal, though empirical validation details are sparse in the abstract.",
+    "model_io": [
+      {
+        "model": "LLM with CoT prompting",
+        "inputs": [
+          "prompt text"
+        ],
+        "outputs": [
+          "reasoning trace",
+          "task response"
+        ]
+      },
+      {
+        "model": "Reinforcement Learning objective",
+        "inputs": [
+          "task reward signal",
+          "reasoning trace"
+        ],
+        "outputs": [
+          "compressed completion"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Naive IB violates Markov property in transformer attention between prompt, reasoning, and response",
+        "result": "Conditional Information Bottleneck resolves this by modeling reasoning as computational bridge containing only information about response not directly accessible from prompt"
+      },
+      {
+        "hypothesis": "Semantic cost priors (surprisal-based) outperform token-counting heuristics",
+        "result": "CIB approach prunes cognitive bloat while preserving fluency and logic better than length penalties"
+      }
+    ]
+  },
+  "hf:2603.19076": {
+    "category": "Vision",
+    "task": "Real-time RGB SLAM in dynamic environments",
+    "key_results": "State-of-the-art camera poses and geometry in cluttered dynamic scenarios at ~10 FPS; handles unknown dynamic objects via per-pixel uncertainty estimation",
+    "comments": "The reliance on multi-view visual feature inconsistency for uncertainty estimation is sensible, but real-world generalization to truly unconstrained scenarios remains to be demonstrated.",
+    "model_io": [
+      {
+        "model": "Differentiable Uncertainty-aware Bundle Adjustment",
+        "inputs": [
+          "RGB images",
+          "multi-view features"
+        ],
+        "outputs": [
+          "camera poses",
+          "scene geometry",
+          "per-pixel uncertainty"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Multi-view visual feature inconsistency enables robust per-pixel uncertainty estimation",
+        "result": "System achieves state-of-the-art tracking and reconstruction in dynamic, cluttered scenes in real time"
+      }
+    ]
+  },
+  "hf:2603.16749": {
+    "category": "LLM/Reasoning",
+    "task": "Probing cultural biases in LLMs through author profiling from lyrics",
+    "key_results": "Non-trivial profiling performance with systematic cultural alignment; Ministral-8B shows strongest ethnicity bias, Gemma-12B most balanced; introduces fairness metrics MAD and RD",
+    "comments": "Zero-shot author profiling is a clever proxy for cultural encoding, though the causal mechanism linking lyrics to demographic inferences remains unclear.",
+    "model_io": [
+      {
+        "model": "Multiple open-source LLMs (DeepSeek-1.5B, Ministral-8B, Gemma-12B, etc.)",
+        "inputs": [
+          "song lyrics"
+        ],
+        "outputs": [
+          "predicted gender",
+          "predicted ethnicity",
+          "rationales"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "LLMs encode systematic cultural biases detectable via author profiling",
+        "result": "Models demonstrate non-trivial profiling performance with clear cultural alignment patterns (North American default, Asian alignment in DeepSeek)"
+      },
+      {
+        "hypothesis": "Fairness metrics MAD and RD capture ethnicity bias disparities across models",
+        "result": "Metrics successfully differentiate bias levels, with Ministral-8B highest and Gemma-12B most balanced"
+      }
+    ]
+  },
+  "hf:2603.19753": {
+    "category": "Vision",
+    "task": "Unified 3D reconstruction with geometry, material, and illumination estimation",
+    "key_results": "End-to-end pipeline reconstructs complete 3D assets in under one second; generalizable across synthetic PBR and real-world RGB captures",
+    "comments": "The two-path prediction strategy elegantly decouples object appearance from environment illumination, though computational requirements and scalability to complex scenes warrant scrutiny.",
+    "model_io": [
+      {
+        "model": "Transformer cross-conditioning architecture with two-path predictor",
+        "inputs": [
+          "sparse multi-view images"
+        ],
+        "outputs": [
+          "3D geometry",
+          "physically-based materials",
+          "environment illumination"
+        ]
+      },
+      {
+        "model": "Differentiable Monte Carlo multiple importance sampling renderer",
+        "inputs": [
+          "predicted geometry",
+          "materials",
+          "illumination"
+        ],
+        "outputs": [
+          "rendered images",
+          "gradients for training"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Multi-view constraints dramatically improve material and illumination disentanglement versus single-image methods",
+        "result": "Unified end-to-end pipeline achieves near-instantaneous generation of relightable 3D assets with improved accuracy"
+      },
+      {
+        "hypothesis": "Mixed domain training (synthetic + real-world) improves generalization",
+        "result": "Generalizable results across geometry, material accuracy, and illumination quality"
+      }
+    ]
+  },
+  "hf:2603.17309": {
+    "category": "Agents/RL",
+    "task": "Dynamic memory controller optimization for latency and energy efficiency",
+    "key_results": "Consistent performance gains over baseline configurations driven by workload-specific memory access behavior; incorporates explainability via reward decomposition",
+    "comments": "Multi-agent RL for memory control is well-motivated, but the abstract lacks concrete metrics (latency reduction %, energy savings %) and comparison baselines.",
+    "model_io": [
+      {
+        "model": "Multi-agent online reinforcement learning framework",
+        "inputs": [
+          "memory behavior metrics",
+          "workload characteristics"
+        ],
+        "outputs": [
+          "memory controller parameters"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Reward decomposition enables explainable memory controller optimization",
+        "result": "ReLMXEL achieves consistent performance gains with improved transparency of control decisions"
+      },
+      {
+        "hypothesis": "Workload-specific memory access patterns drive optimization refinements",
+        "result": "Performance gains vary with workload characteristics, suggesting adaptive behavior"
+      }
+    ]
+  },
+  "hf:2603.15911": {
+    "category": "Agents/RL",
+    "task": "Comparative analysis of human and AI agent effectiveness in code review",
+    "key_results": "Human reviewers provide 11.8% more rounds on AI-generated code; AI suggestions adopted at significantly lower rate than human suggestions; AI suggestions cause larger code complexity/size increases",
+    "comments": "This large-scale empirical study reveals critical gaps in AI agent code review\u2014adoption rates and suggestion quality matter more than scale\u2014highlighting the necessity of human oversight.",
+    "model_io": [
+      {
+        "model": "AI code review agents",
+        "inputs": [
+          "code changes",
+          "repository context"
+        ],
+        "outputs": [
+          "review feedback",
+          "code suggestions"
+        ]
+      },
+      {
+        "model": "Human reviewers",
+        "inputs": [
+          "code changes",
+          "repository context"
+        ],
+        "outputs": [
+          "review feedback",
+          "code suggestions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "AI agents and human reviewers provide different types of feedback",
+        "result": "Human reviewers provide additional feedback on understanding, testing, and knowledge transfer; humans exchange more review rounds for AI-generated code"
+      },
+      {
+        "hypothesis": "AI agent suggestions are lower quality than human suggestions",
+        "result": "AI suggestions adopted at significantly lower rate; over half of unadopted AI suggestions are incorrect or address via alternative fixes; adopted AI suggestions cause larger complexity increases"
+      },
+      {
+        "hypothesis": "AI agents can scale defect screening but lack contextual judgment",
+        "result": "Human oversight remains critical for suggestion quality and contextual feedback"
+      }
+    ]
+  },
+  "nature:10.1038/s41419-026-08591-7": {
+    "category": "Apoptosis/Cell Death",
+    "task": "Elucidate noncanonical KDM5C role in bortezomib resistance via demethylase-independent mechanism",
+    "key_results": "KDM5C-CBP-MYC complex activates PERK via H3K27ac (not H3K4me); Nrf2 phosphorylation enhances unfolded protein response; KDM5C depletion sensitizes MM to bortezomib",
+    "comments": "Elegant dissection of noncanonical function, but mechanism relies heavily on complex formation; direct PERK activation validation would strengthen claims.",
+    "model_io": [
+      {
+        "model": "MM cell lines, patient samples, xenografts",
+        "inputs": [
+          "KDM5C depletion",
+          "bortezomib",
+          "KDM5C-CBP-MYC complex"
+        ],
+        "outputs": [
+          "PERK transcription",
+          "Nrf2 phosphorylation",
+          "H3K27ac enrichment",
+          "bortezomib sensitivity"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "KDM5C acts via demethylase-independent mechanism in MM",
+        "result": "H3K4me status unchanged; H3K27ac is key acetylation mark"
+      },
+      {
+        "hypothesis": "KDM5C-CBP-MYC complex activates PERK promoter",
+        "result": "Confirmed via chromatin immunoprecipitation and reporter assays"
+      }
+    ]
+  },
+  "nature:10.1038/s41419-026-08611-6": {
+    "category": "Development",
+    "task": "Determine SARS-CoV-2 nonspike protein-induced epithelial dedifferentiation mechanism via CNN2",
+    "key_results": "Envelope protein induces epithelial dedifferentiation, micronuclei, G1 arrest, apoptosis; CNN2 elevation in COVID-19 epithelium; CNN2 downregulation inhibits apoptosis and promotes differentiation",
+    "comments": "Identifies CNN2 as actionable target with clinical relevance, though 'double hijack' mechanism (GLIS2-CNN2-differentiation disruption) requires further mechanistic validation.",
+    "model_io": [
+      {
+        "model": "COVID-19 patient mucosal epithelia, in vitro epithelial culture models",
+        "inputs": [
+          "SARS-CoV-2 nonspike proteins (Envelope)",
+          "CNN2 modulation",
+          "GLIS2 transcription factor"
+        ],
+        "outputs": [
+          "epithelial dedifferentiation",
+          "cell cycle arrest",
+          "apoptosis",
+          "progenitor stratification"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Nonspike proteins induce epithelial dedifferentiation via CNN2",
+        "result": "Confirmed; CNN2 levels elevated in COVID-19 epithelium"
+      },
+      {
+        "hypothesis": "GLIS2 negatively regulates CNN2",
+        "result": "Supported; GLIS2 associated with ciliary dysfunction disruption"
+      }
+    ]
+  },
+  "nature:10.1038/s41420-026-03035-9": {
+    "category": "Cell Signaling",
+    "task": "Decipher STAT3-PXN feedback loop and YB-1 stabilization in GBM prognosis",
+    "key_results": "PXN upregulated in IDH-wildtype GBM; STAT3\u2194PXN positive feedback; PXN stabilizes YB-1 via ubiquitination inhibition",
+    "comments": "Comprehensive mechanistic dissection but lacks direct therapeutic validation or in vivo efficacy data.",
+    "model_io": [
+      {
+        "model": "GBM patient samples, cell lines",
+        "inputs": [
+          "PXN knockdown",
+          "STAT3 modulation"
+        ],
+        "outputs": [
+          "YB-1 stability",
+          "malignancy markers",
+          "survival association"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "STAT3 and PXN form positive feedback loop",
+        "result": "Confirmed via transcriptional and protein interaction assays"
+      },
+      {
+        "hypothesis": "PXN inhibits YB-1 ubiquitination",
+        "result": "Confirmed; YB-1 drives downstream malignancy pathways"
+      }
+    ]
+  },
+  "nature:10.1038/s41420-026-03070-6": {
+    "category": "Cell Signaling",
+    "task": "Identify immunosuppressive mechanisms of chemotherapy resistance in ovarian cancer",
+    "key_results": "Prostaglandins mediate MDSC formation post-cisplatin; combination with prostaglandin inhibitor restores CD8+ T cell cytotoxicity and improves efficacy",
+    "comments": "Pathway identified via scRNA-seq is mechanistically plausible, but in vivo validation limited to xenograft models.",
+    "model_io": [
+      {
+        "model": "Ovarian cancer cell lines, xenografts; scRNA-seq from patient samples",
+        "inputs": [
+          "cisplatin",
+          "prostaglandin inhibitor"
+        ],
+        "outputs": [
+          "MDSC formation",
+          "CD8+ T cell cytotoxicity",
+          "tumor control"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Cisplatin induces prostaglandin-mediated MDSC formation",
+        "result": "Confirmed in vitro and in vivo"
+      },
+      {
+        "hypothesis": "Prostaglandin inhibition restores T cell function",
+        "result": "Combination therapy improves efficacy vs. cisplatin alone"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-37953-6": {
+    "category": "ML Theory",
+    "task": "Partition function estimation in disordered materials",
+    "key_results": "PULSE enables partition function calculation without pre-training datasets at fraction of Monte Carlo cost; generates representative configurations for interatomic potential training",
+    "comments": "Novel unsupervised generative approach addresses a genuine computational bottleneck in materials science.",
+    "model_io": [
+      {
+        "model": "Inverse Variational Autoencoder (PULSE)",
+        "inputs": [
+          "disorder specifications"
+        ],
+        "outputs": [
+          "representative atomic configurations",
+          "partition function estimates"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Inverse VAE can efficiently sample configuration space without expensive Monte Carlo or incomplete SQS methods",
+        "result": "Demonstrated on uranium-plutonium mixed oxides; provides physical insight into defect behavior"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44118-y": {
+    "category": "Algorithms",
+    "task": "Predictive energy management in hybrid UAVs via GRNN-DP-MPC",
+    "key_results": "GRNN-DP-MPC integrates voltage forecasting, dynamic programming, and model predictive control; reduces battery energy consumption and improves endurance under practical conditions",
+    "comments": "Three-stage pipeline (GRNN prediction \u2192 DP global optimization \u2192 MPC real-time control) well-designed; simulation and experimental validation provided.",
+    "model_io": [
+      {
+        "model": "GRNN (Generalized Regression Neural Network)",
+        "inputs": [
+          "hybrid UAV operating conditions"
+        ],
+        "outputs": [
+          "voltage forecasts"
+        ]
+      },
+      {
+        "model": "Dynamic Programming (DP)",
+        "inputs": [
+          "GRNN voltage predictions"
+        ],
+        "outputs": [
+          "globally optimal power-split reference"
+        ]
+      },
+      {
+        "model": "Model Predictive Control (MPC)",
+        "inputs": [
+          "DP reference",
+          "current state"
+        ],
+        "outputs": [
+          "online power allocation commands"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Predictive GRNN-DP-MPC co-optimization reduces battery energy consumption vs. reactive strategies",
+        "result": "Simulation and experimental validation confirm improved endurance and reduced battery usage"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44297-8": {
+    "category": "ML Theory",
+    "task": "Bone tumor segmentation and classification from X-ray images",
+    "key_results": "98.5% accuracy, 98.57% F1-score, 97% Dice score on 809 X-ray images; 48 ms inference time on RTX 3090",
+    "comments": "Strong dataset-specific results but lacks external multi-institutional validation, limiting clinical applicability claims.",
+    "model_io": [
+      {
+        "model": "YOLOv8 + Relational YOLO-SegNet",
+        "inputs": [
+          "X-ray images"
+        ],
+        "outputs": [
+          "tumor region localization",
+          "pixel-level segmentation",
+          "binary classification (normal/tumor)"
+        ]
+      },
+      {
+        "model": "Optimized Savitzky-Golay Digital Filter (OSGDF)",
+        "inputs": [
+          "raw X-ray images"
+        ],
+        "outputs": [
+          "denoised images (SNR: 21.4\u219229.6 dB)"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "ROI-restricted relational attention reduces computational complexity while maintaining long-range context",
+        "result": "12.3M parameters vs. UNet/Mask R-CNN, maintaining 98.5% accuracy"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44298-7": {
+    "category": "Algorithms",
+    "task": "Replica node detection in mobile wireless sensor networks",
+    "key_results": "KN-MCDP protocol achieves high detection rate, reduces storage/communication overhead, balances energy, extends network lifetime; multi-point collaboration with key negotiation prevents information leakage",
+    "comments": "Extends traditional static-WSN detection to mobile WSNs; encryption (digital signature, ternary polynomial, symmetric) and Bloom filters reduce overhead; practical energy-aware design.",
+    "model_io": [
+      {
+        "model": "KN-MCDP protocol (cluster heads + mobile nodes + base station)",
+        "inputs": [
+          "node identities",
+          "communication interactions"
+        ],
+        "outputs": [
+          "replica node detection",
+          "isolation commands"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Multi-point collaboration with encrypted information exchange detects replicas in both static and mobile WSN nodes while preserving energy",
+        "result": "High detection rate; reduced storage/communication overhead; extended network lifetime"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44523-3": {
+    "category": "Algorithms",
+    "task": "Markerless monocular distance measurement for standing long jump",
+    "key_results": "Vision pipeline achieves 0.71 cm MAE on field tests; ~23 FPS, ~42.7 ms per frame; ablations show 25.07 cm error without athlete handling, 4.35 cm without perspective mapping",
+    "comments": "Practical system demonstrating centimeter-level accuracy; key-frame selection, homography, heel segmentation critical; minimal calibration enables school deployment.",
+    "model_io": [
+      {
+        "model": "Vision metrology pipeline",
+        "inputs": [
+          "high-frame-rate video"
+        ],
+        "outputs": [
+          "jump distance measurement"
+        ]
+      },
+      {
+        "model": "Person detection + semantic segmentation (heel, mat)",
+        "inputs": [
+          "video frames"
+        ],
+        "outputs": [
+          "segmentation masks",
+          "bounding boxes"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Homography-based plane mapping with polynomial perspective-edge bias correction enables centimeter-level distance accuracy",
+        "result": "0.71 cm MAE; 4.35 cm error degradation without perspective mapping"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44544-y": {
+    "category": "ML Theory",
+    "task": "Predict graphene-based patch antenna performance for THz applications",
+    "key_results": "ANN predicts antenna performance (S11, VSWR, gain, efficiency, radiation pattern) with R\u00b2 = 0.99 in 0.7 ms; trained on 784 CST simulations",
+    "comments": "ANN outperforms RF and SVM as surrogate model, dramatically reducing simulation time; enables rapid design exploration in THz antenna space.",
+    "model_io": [
+      {
+        "model": "CST Microwave Studio",
+        "inputs": [
+          "patch length Lp, width Wp; graphene chemical potential \u03bcc, relaxation time \u03c4"
+        ],
+        "outputs": [
+          "S11, VSWR, gain, efficiency, radiation pattern"
+        ]
+      },
+      {
+        "model": "ANN, Random Forest, SVM regressors",
+        "inputs": [
+          "antenna/graphene parameters"
+        ],
+        "outputs": [
+          "performance characteristics (S11, gain, etc.)"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "ANN can learn nonlinear relationships between antenna geometry, graphene properties, and EM responses",
+        "result": "ANN achieves R\u00b2 = 0.99 for all outputs; 1000\u00d7 speedup vs. full EM simulation"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44686-z": {
+    "category": "Algorithms",
+    "task": "V2V task offloading in vehicular edge computing",
+    "key_results": "Performance-optimized framework achieves 27% system delay improvement, 18% packet delivery ratio gain, 24% task completion ratio increase vs. baselines; cumulative-score dynamic priority queuing manages high density/mobility",
+    "comments": "Two-stage design (context-aware edge selection + priority queuing) pragmatic; tunable priority weights adapt to application requirements; OMNeT++/Veins/SUMO validation.",
+    "model_io": [
+      {
+        "model": "V2V task offloading framework",
+        "inputs": [
+          "vehicle topology (speed, distance), task properties (size, priority)"
+        ],
+        "outputs": [
+          "task assignment to edge nodes",
+          "execution results"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Cumulative score weighting (relative speed, distance, task size, priority) improves task completion vs. simple distance-based offloading",
+        "result": "27% system delay reduction, 24% task completion gain under high density/mobility"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44919-1": {
+    "category": "Statistics/Probability",
+    "task": "Predict student dropout risk in technical education",
+    "key_results": "ML models identify at-risk students from 99,104 Moodle activity records (154 students); logistic regression and decision tree classifiers enable early intervention",
+    "comments": "Weighted attribute method integrating engagement, difficulty, time allocation is sensible; limited quantitative performance metrics reported in abstract.",
+    "model_io": [
+      {
+        "model": "Logistic Regression, Decision Tree",
+        "inputs": [
+          "engagement metrics",
+          "learning difficulty measures",
+          "time allocation"
+        ],
+        "outputs": [
+          "dropout risk probability"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Weighted aggregation of behavioral and cognitive metrics predicts dropout risk better than individual signals",
+        "result": "Enables early detection and adaptive pedagogical support"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44941-3": {
+    "category": "Algorithms",
+    "task": "Mine maximal fault-tolerant frequent itemsets in noisy data",
+    "key_results": "Pattern-growth FT-FP-tree framework substantially reduces execution time vs. existing Apriori-based algorithms; improved memory efficiency vs. other pattern-growth methods; single-pass tolerance evaluation",
+    "comments": "First pattern-growth approach for FT-MFI mining; transaction mapping and conditional pattern extraction enhance scalability; addresses exponential candidate growth limitation.",
+    "model_io": [
+      {
+        "model": "Fault-tolerant FP-tree (FT-FP-tree) construction",
+        "inputs": [
+          "noisy transactional data"
+        ],
+        "outputs": [
+          "compressed FP-tree"
+        ]
+      },
+      {
+        "model": "Pattern-growth mining algorithm",
+        "inputs": [
+          "FT-FP-tree"
+        ],
+        "outputs": [
+          "maximal fault-tolerant frequent itemsets"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Pattern-growth on FT-FP-tree with single-pass tolerance evaluation scales better than Apriori-based candidate generation",
+        "result": "Substantial execution time reduction and improved memory efficiency on benchmark datasets"
+      }
+    ]
   }
 }

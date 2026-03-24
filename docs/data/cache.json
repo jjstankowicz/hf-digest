@@ -24338,5 +24338,459 @@
         "result": "Confirmed for choline metabolism and SYNB1618 trials; predicted efficacy for TMAU supported by sensitivity analysis"
       }
     ]
+  },
+  "hf:2603.19415": {
+    "category": "LLM/Reasoning",
+    "task": "Dynamic LLM selection for query routing across model pools",
+    "key_results": "Outperforms baselines on 10 benchmarks with 11 models; achieves strongest model performance at <50% of its cost",
+    "comments": "The two-stage architecture elegantly separates task discovery from quality estimation, though evaluation on frontier models with narrow gaps suggests diminishing returns in practice.",
+    "model_io": [
+      {
+        "model": "Graph-based clustering + task classifier",
+        "inputs": [
+          "prompts"
+        ],
+        "outputs": [
+          "latent task assignments"
+        ]
+      },
+      {
+        "model": "Mixture-of-experts with task-specific heads",
+        "inputs": [
+          "prompts",
+          "task assignments"
+        ],
+        "outputs": [
+          "LLM quality predictions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Fine-grained latent task discovery enables better differentiation than manual taxonomies",
+        "result": "Confirmed via consistent outperformance across 10 benchmarks"
+      },
+      {
+        "hypothesis": "Task-specific prediction heads improve routing accuracy over monolithic routers",
+        "result": "Confirmed; enables cost-performance tradeoff better than individual models"
+      }
+    ]
+  },
+  "hf:2603.14999": {
+    "category": "Benchmark",
+    "task": "Lossless text compression using aperiodic hierarchical structures",
+    "key_results": "Quasicryth achieves 22.59% on enwik9; aperiodic advantage grows to 11.1 MB savings at 1 GB scale versus period-5 baseline",
+    "comments": "Theoretically elegant proof that Fibonacci tilings avoid collapse via Golden Compensation, but practical compression gains depend heavily on dataset size and whether deep hierarchy levels activate.",
+    "model_io": [
+      {
+        "model": "Fibonacci quasicrystal hierarchy compressor (Quasicryth)",
+        "inputs": [
+          "text data"
+        ],
+        "outputs": [
+          "compressed bitstream"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Aperiodic Fibonacci hierarchies avoid finite-depth collapse of periodic tilings",
+        "result": "Confirmed; periodic tilings collapse after O(log p) levels, Fibonacci maintains positions at all scales"
+      },
+      {
+        "hypothesis": "Dictionary reuse efficiency remains scale-invariant in Fibonacci hierarchies",
+        "result": "Confirmed via Golden Compensation property with asymptotic coverage W\u03c6/5"
+      },
+      {
+        "hypothesis": "Deeper hierarchy levels activate more effectively in aperiodic structures at large scales",
+        "result": "Confirmed; 20.7 MB savings attributable to Fibonacci tiling on enwik9"
+      }
+    ]
+  },
+  "nature:10.1038/s41467-026-70426-y": {
+    "category": "Mechanobiology",
+    "task": "Characterize how pore-loop residues of individual ATPase subunits drive proteasome substrate capture and unfolding",
+    "key_results": "Rpt6 and Rpt4 pore-1 loops play distinct roles in substrate capture versus unfolding; pore-loop contributions correlate with spiral-staircase ATPase positioning in substrate-free versus substrate-degrading states",
+    "comments": "Integration of biochemical assays, single-molecule FRET, and cryo-EM provides multi-scale mechanistic insight, though causality between loop mutations and conformational dynamics remains partially inferred.",
+    "model_io": [
+      {
+        "model": "26S proteasome (yeast)",
+        "inputs": [
+          "polyubiquitinated protein substrates",
+          "ATP"
+        ],
+        "outputs": [
+          "substrate unfolding rate",
+          "translocation efficiency",
+          "ATPase conformational state"
+        ]
+      },
+      {
+        "model": "single-molecule FRET",
+        "inputs": [
+          "fluorescently-labeled proteasome-substrate complexes"
+        ],
+        "outputs": [
+          "distance measurements",
+          "conformational dynamics"
+        ]
+      },
+      {
+        "model": "cryo-EM structure",
+        "inputs": [
+          "proteasome complexes (substrate-free and substrate-bound)"
+        ],
+        "outputs": [
+          "3D atomic models",
+          "ATPase spiral-staircase geometry"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Pore-1 loops of Rpt6 and Rpt4 are essential for substrate capture and mechanical unfolding",
+        "result": "Confirmed; distinct contributions to different degradation steps identified"
+      },
+      {
+        "hypothesis": "Pore-loop function correlates with ATPase subunit position in spiral-staircase arrangement",
+        "result": "Confirmed; spatial positioning correlates with substrate-processing roles"
+      }
+    ]
+  },
+  "nature:10.1038/s41467-026-70365-8": {
+    "category": "Genomics",
+    "task": "Functional characterization of ribonuclease 4 in nociceptor biology and myelin integrity",
+    "key_results": "RNase4 selectively expressed in unmyelinated nociceptors; RNase4 deletion alters mechanical sensation in neuropathic pain model; non-cell-autonomous effects on myelin",
+    "comments": "Single-cell transcriptomics and knockout analysis reveal dual roles in nociceptor function and nerve homeostasis; provides molecular target for pain regulation.",
+    "model_io": [
+      {
+        "model": "Single-cell transcriptomics analysis",
+        "inputs": [
+          "RNase4-deficient and wild-type nociceptor and myelin samples"
+        ],
+        "outputs": [
+          "cell-type-specific gene expression, transcriptomic signatures"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "RNase4 regulates nociceptor identity and function in a cell-autonomous manner",
+        "result": "RNase4-deficient mice show altered nociceptor function and mechanical sensation"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-38341-w": {
+    "category": "Structural Prediction",
+    "task": "Deep learning-based cervical cancer detection from histology images",
+    "key_results": "NASNetLarge transfer learning achieves 94% training accuracy, 98.33% validation accuracy with data augmentation",
+    "comments": "Transfer learning from ImageNet-pretrained NASNetLarge effectively generalizes to cervical cancer classification; dataset-specific top-layer tuning critical for task.",
+    "model_io": [
+      {
+        "model": "NASNetLarge (ImageNet pretrained) + task-specific dense layers",
+        "inputs": [
+          "cervical histology images (augmented)"
+        ],
+        "outputs": [
+          "cancer classification (binary: cancer/normal)"
+        ]
+      }
+    ],
+    "hypotheses": []
+  },
+  "nature:10.1038/s41598-026-43387-x": {
+    "category": "Other",
+    "task": "Automated detection and classification of Bithynia snails for liver fluke surveillance",
+    "key_results": "YOLOv10 achieves 98.7% classification accuracy, 31.9 MB model, 4.54 FPS; humans perfect detection (100%), AI superior classification (74.5% vs 48.3%)",
+    "comments": "Hybrid human\u2013AI workflow (human detection + AI classification) achieves higher accuracy than either alone; establishes foundation for scalable O. viverrini surveillance.",
+    "model_io": [
+      {
+        "model": "YOLOv5, YOLOv8, YOLOv10, YOLOv11 (comparative)",
+        "inputs": [
+          "4,204 images with 8,559 annotated Bithynia specimens (three species)"
+        ],
+        "outputs": [
+          "species classification (B. funiculata, B. siamensis goniomphalos, B. s. siamensis)"
+        ]
+      }
+    ],
+    "hypotheses": []
+  },
+  "nature:10.1038/s41598-026-44242-9": {
+    "category": "Statistical Methods",
+    "task": "Mathematical modeling of sequential dengue\u2013zika infections and antibody-dependent effects",
+    "key_results": "Model calibrated to Brazil data (Jan\u2013Sep 2021); global sensitivity analysis identifies ADE threshold: above which antibody-dependent neutralization dominates",
+    "comments": "Sequential infection framework captures both enhancement and neutralization; PRCC and LHS sensitivity analysis clarifies disease drivers for vaccine development.",
+    "model_io": [
+      {
+        "model": "Sequential infection compartmental model (dengue\u2013zika)",
+        "inputs": [
+          "weekly case data (Espirito Santo, Brazil)",
+          "antibody-dependent enhancement and neutralization parameters"
+        ],
+        "outputs": [
+          "disease equilibrium points, infection dynamics forecasts"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Antibody-dependent enhancement has obstructive effect on sequential infections",
+        "result": "ADE can contribute to neutralization above a threshold (ADN effect), modifying transmission"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45289-4": {
+    "category": "Statistical Methods",
+    "task": "Stability and robustness assessment of minimal majority-vote interpretable ensembles",
+    "key_results": "Minimal ensembles exhibit low bootstrap stability and high multiplicity in low-sample regimes; robustness degrades with feature noise",
+    "comments": "Study highlights that minimal solutions prioritize accuracy over stability; explainability in high-stakes settings requires explicit stability reporting.",
+    "model_io": [
+      {
+        "model": "Minimal majority-vote decision stump ensembles",
+        "inputs": [
+          "synthetic benchmarks (d=8\u201310, n=10\u2013500) and UCI datasets"
+        ],
+        "outputs": [
+          "classification predictions; multiplicity rate, bootstrap stability (Jaccard), feature-flip robustness metrics"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Minimal ensemble solutions are stable and robust across perturbations",
+        "result": "Minimal solutions fit data accurately but show low bootstrap stability and high sensitivity to noise"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45531-z": {
+    "category": "Statistical Methods",
+    "task": "Machine learning prediction of liver graft biological age and clinical outcomes",
+    "key_results": "Gradient boosting model biological age predicts biliary complications (AUC 0.80) and graft loss; accelerated aging (BA>CA) is independent risk factor (HR 4.188)",
+    "comments": "Nonlinear ML models capture aging heterogeneity missed by chronological age; biological age demonstrates superior clinical utility than standard metrics.",
+    "model_io": [
+      {
+        "model": "Multiple linear regression and four genetic algorithm-optimized ML models (gradient boosting best)",
+        "inputs": [
+          "donor data (n=247): molecular/physiological markers"
+        ],
+        "outputs": [
+          "biological age (BA); prediction of biliary complications, graft survival"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Biological age derived from nonlinear models better predicts graft outcomes than chronological age",
+        "result": "GB model biological age predicts complications and survival; CA does not"
+      }
+    ]
+  },
+  "nature:10.1038/s41746-026-02520-w": {
+    "category": "Structural Prediction",
+    "task": "Foundation model-based automated musculoskeletal MRI biomarker measurement and clinical decision support",
+    "key_results": "Fine-tuned segmenters (SAM, MedSAM) achieve clinically reliable measurements; 48-month landmark models forecast knee replacement with favorable calibration; three-stage triage reduces workload",
+    "comments": "Model-agnostic framework converts routine MRI into standardized biomarkers; demonstrates path from automated measurement to patient risk stratification.",
+    "model_io": [
+      {
+        "model": "Fine-tuned foundation segmenters (SAM, SAM2, MedSAM) + automated detection",
+        "inputs": [
+          "routine musculoskeletal MRI"
+        ],
+        "outputs": [
+          "cartilage, bone, soft tissue biomarkers; segmentation masks"
+        ]
+      },
+      {
+        "model": "Landmark prediction models",
+        "inputs": [
+          "standardized biomarkers, 48-month follow-up"
+        ],
+        "outputs": [
+          "knee replacement risk, incident osteoarthritis probability"
+        ]
+      }
+    ],
+    "hypotheses": []
+  },
+  "nature:10.1038/s41598-026-38422-w": {
+    "category": "Algorithms",
+    "task": "Content-based image retrieval via hybrid handcrafted and deep features",
+    "key_results": "CTD-Net: Corel-1K 98.85%, Corel-10K 92.40%, Caltech-101 88.94% precision; outperforms existing methods via color, texture, and EfficientNet-B7 fusion",
+    "comments": "Feature fusion (Color Histogram + Moments + LBP + Wavelet + EfficientNet-B7) is well-motivated; high precision across datasets is encouraging, though computational cost vs. real-time CBIR trade-off is not discussed.",
+    "model_io": [
+      {
+        "model": "CTD-Net (Color Histogram/Moments + LBP + Wavelet + EfficientNet-B7)",
+        "inputs": [
+          "query image"
+        ],
+        "outputs": [
+          "ranked similar images"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Hybrid handcrafted + deep feature fusion improves CBIR precision",
+        "result": "Confirmed; 98.85% on Corel-1K, outperforming prior methods"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-41946-w": {
+    "category": "ML Theory",
+    "task": "Reinforcement learning-based adaptive training load optimization for track/field athletes",
+    "key_results": "DQN-based offline policy finder reduces training error; effective injury risk management; maintains performance within optimal range dynamically",
+    "comments": "Digital twin + dual reward function (performance + health) is well-designed; 25 athletes over 1 season is modest for RL validation; offline-to-online deployment risk is not addressed.",
+    "model_io": [
+      {
+        "model": "DQN (Q-value feedforward network + \u03b5-Greedy + Experience Replay)",
+        "inputs": [
+          "HRV, sleep, training loads, ACWR, performance"
+        ],
+        "outputs": [
+          "training prescription (intensity/volume/recovery)"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Dual reward function balances short-term performance and long-term health",
+        "result": "Confirmed; loss converged to near-zero; injury risk reduced with maintained performance"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44628-9": {
+    "category": "Algorithms",
+    "task": "Real-time underwater object detection with frequency-domain dynamics",
+    "key_results": "mAP 72.1% on UTDAC2020 (1.7% above baseline); 27.1% parameter reduction, 24.6% FLOP reduction, 72.6 FPS inference",
+    "comments": "Lightweight and efficient design balances accuracy with latency; frequency-domain modulation is well-motivated for noisy underwater imagery.",
+    "model_io": [
+      {
+        "model": "RT-DETR with FasterFDBlock + AIFI-SEFN",
+        "inputs": [
+          "underwater images"
+        ],
+        "outputs": [
+          "object detections with confidence"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Frequency-domain convolution reduces high-frequency noise while preserving edges",
+        "result": "mAP improved by 1.7% with 24.6% FLOP reduction"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45643-6": {
+    "category": "Other",
+    "task": "Zero-trust hot patching for power equipment with brain-edge co-evolution",
+    "key_results": "12.3 ms decision latency (<<1s real-time requirement); 3.5% entropy increase risk; 99.99% service availability on 1,200 operations",
+    "comments": "Novel brain-EEG + negative entropy + eBPF framework bridges human intuition and real-time constraints; safety-critical validation on RTDS/IED is reassuring, but generalization to other grid topologies is unclear.",
+    "model_io": [
+      {
+        "model": "Brain-edge co-evolution framework (EEG + eBPF atomic patching + entropy model)",
+        "inputs": [
+          "EEG risk signals, system state"
+        ],
+        "outputs": [
+          "hot patch decision + structural order metric"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Human EEG-derived risk intuition accelerates zero-trust decisions for real-time power systems",
+        "result": "Confirmed; 12.3 ms latency << 1s control deadline; 99.99% availability maintained"
+      }
+    ]
+  },
+  "nature:10.1038/s41467-026-70143-6": {
+    "category": "Applied Physics",
+    "task": "Characterize sperm swimming gaits and their migration efficiency",
+    "key_results": "Three gaits identified: wandering (10\u00d7 higher diffusivity than circling), circling, and circling-and-wandering; circling-and-wandering mode optimizes spreading in porous media with increasing geometric complexity",
+    "comments": "Elegant demonstration that stochastic motility switching provides adaptive advantage in complex environments, though biological triggers for transitions remain unclear.",
+    "model_io": [
+      {
+        "model": "Bull sperm in microfluidic chambers and porous media simulations",
+        "inputs": [
+          "hyperactivation state",
+          "surface geometry",
+          "environmental complexity"
+        ],
+        "outputs": [
+          "swimming gait",
+          "diffusivity",
+          "spreading efficiency"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Hyperactivation drives circling-and-wandering behavior",
+        "result": "Confirmed; three distinct gaits observed with hyperactivation-dependent transitions"
+      },
+      {
+        "hypothesis": "Combined gait provides better migration in complex environments",
+        "result": "Confirmed by stochastic transport simulations"
+      }
+    ]
+  },
+  "nature:10.1038/s41535-026-00876-6": {
+    "category": "Condensed Matter",
+    "task": "Identify disorder and strain as suppressors of phonon thermal Hall effect",
+    "key_results": "High-\u03ba SrTiO\u2083 exhibits thermal Hall angle up to 0.3% at 9 T; disordered samples show negligible effect; annealing restores ~0.1% signal with minimal change in \u03ba; metallic/insulating contacts yield identical results",
+    "comments": "Definitively rules out parasitic contact effects and reveals extreme sensitivity to structural disorder, constraining theoretical models of phonon Berry curvature.",
+    "model_io": [
+      {
+        "model": "SrTiO\u2083 crystal with variable disorder and metallic/insulating contacts",
+        "inputs": [
+          "annealing treatment",
+          "contact type",
+          "magnetic field"
+        ],
+        "outputs": [
+          "thermal Hall angle",
+          "longitudinal thermal conductivity",
+          "phonon mean free path"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Thermal Hall effect is intrinsic and decouples from longitudinal \u03ba",
+        "result": "Confirmed by annealing restoring THE while leaving \u03ba unchanged"
+      },
+      {
+        "hypothesis": "Contact effects are negligible for THE measurement",
+        "result": "Confirmed by identical results with metallic and insulating contacts"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44862-1": {
+    "category": "Condensed Matter",
+    "task": "Predict spintronic and energy-harvesting properties of double perovskite K\u2082OsCl\u2086",
+    "key_results": "Ferromagnetic ground state with ~1.99 \u00b5B/f.u.; half-metallic with 100% spin polarization; Seebeck ~180 \u00b5V/K at 900 K; low thermal conductivity 2.8 W m\u207b\u00b9 K\u207b\u00b9",
+    "comments": "DFT predicts promising spintronic material but experimental validation and stability analysis against oxidation required.",
+    "model_io": [
+      {
+        "model": "DFT/GGA calculation of K\u2082OsCl\u2086",
+        "inputs": [
+          "crystal structure"
+        ],
+        "outputs": [
+          "magnetic moment",
+          "spin-resolved bands",
+          "optical properties",
+          "thermoelectric coefficients"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "K\u2082OsCl\u2086 exhibits half-metallicity with Os-dominated magnetism",
+        "result": "Confirmed by spin-resolved band structure showing ~100% spin polarization"
+      }
+    ]
   }
 }

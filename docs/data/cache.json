@@ -27648,5 +27648,723 @@
         "result": "Reviewed with multiple experimental examples across condensed matter platforms"
       }
     ]
+  },
+  "hf:2603.17198": {
+    "category": "Agents/RL",
+    "task": "Continual learning without catastrophic forgetting in online data streams",
+    "key_results": "AAT achieves performance comparable to experience replay baselines while using zero additional memory; eliminates need for replay buffers in strictly online settings",
+    "comments": "The claim of memory efficiency is valuable, though the evaluation on only two specialized benchmarks (relational masking and proverbs) limits confidence in generalizability to diverse domains.",
+    "model_io": [
+      {
+        "model": "Neural network with abstraction-augmented loss",
+        "inputs": [
+          "concrete instances",
+          "abstract representations"
+        ],
+        "outputs": [
+          "learned representations",
+          "predictions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Structural abstraction can replace experience replay as an inductive bias for continual learning",
+        "result": "Confirmed: AAT matches or exceeds ER baselines without replay buffer"
+      },
+      {
+        "hypothesis": "Abstraction helps mitigate catastrophic forgetting in online streams",
+        "result": "Confirmed: improved stability and generalization without replay"
+      }
+    ]
+  },
+  "hf:2603.13669": {
+    "category": "Vision",
+    "task": "Self-supervised no-reference image quality assessment without human labels",
+    "key_results": "Strong performance on synthetic, authentic, and cross-dataset NR-IQA benchmarks with improved generalization; outperforms contrastive and supervised baselines despite zero human annotations",
+    "comments": "The compositional distortion engine and dual-source relation graphs are technically novel, but the paper lacks explicit numerical comparisons to recent baselines making performance claims difficult to verify.",
+    "model_io": [
+      {
+        "model": "Convolutional encoder with self-supervised learning",
+        "inputs": [
+          "unlabeled distorted images",
+          "synthetic metadata",
+          "relation graphs"
+        ],
+        "outputs": [
+          "frozen feature representations"
+        ]
+      },
+      {
+        "model": "Linear regressor",
+        "inputs": [
+          "encoder features"
+        ],
+        "outputs": [
+          "quality predictions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Implicit structured relations improve self-supervised quality assessment compared to binary contrastive constraints",
+        "result": "Confirmed: SHAMISA achieves strong performance without contrastive losses"
+      },
+      {
+        "hypothesis": "Compositional distortion engine enables fine-grained representational control",
+        "result": "Confirmed: structured similarity shifts correlate with distortion severity variations"
+      }
+    ]
+  },
+  "hf:2603.20576": {
+    "category": "Benchmark",
+    "task": "Evaluating AI agents on multi-database natural language data queries",
+    "key_results": "Best frontier model (Gemini-3-Pro) achieves only 38% pass@1 accuracy; benchmark spans 54 queries across 12 datasets, 9 domains, 4 database systems",
+    "comments": "This fills an important gap in evaluating end-to-end data agent pipelines, though 38% accuracy suggests the benchmark may be challenging to the point of limited utility for iterative model development.",
+    "model_io": [
+      {
+        "model": "LLM-based data agent (tested: Gemini-3-Pro, GPT-4, Claude, etc.)",
+        "inputs": [
+          "natural language questions",
+          "multi-database schemas",
+          "unstructured text"
+        ],
+        "outputs": [
+          "SQL queries or data transformations",
+          "analytical results"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Frontier LLMs can reliably handle multi-database data queries at enterprise scale",
+        "result": "Rejected: best model achieves only 38% accuracy, revealing significant capability gaps"
+      },
+      {
+        "hypothesis": "Failure modes differ systematically across database systems and domains",
+        "result": "Implicitly confirmed via benchmark design capturing heterogeneous failure scenarios"
+      }
+    ]
+  },
+  "nature:10.1038/s41586-026-10255-7": {
+    "category": "Structural Biology",
+    "task": "Determine molecular basis of supercoiling-induced off-target activity in CRISPR\u2013Cas9",
+    "key_results": "Negative supercoiling creates DNA structural defects resolved by Cas9 binding; HNH domain adopts more catalytically competent conformation in off-target configuration; topology-dependent structural plasticity in protospacer-adjacent-motif region accommodates DNA\u2013RNA mismatches",
+    "comments": "Cryo-EM structures clarify how topological context influences targeting fidelity, but quantitative comparison of on/off-target catalytic rates remains absent.",
+    "model_io": [
+      {
+        "model": "CRISPR\u2013Cas9 nuclease complex",
+        "inputs": [
+          "negatively supercoiled DNA",
+          "guide RNA",
+          "on-target and off-target DNA sequences"
+        ],
+        "outputs": [
+          "Cas9\u2013DNA complex structures",
+          "HNH domain conformation",
+          "DNA\u2013RNA mismatch geometries",
+          "cleavage activity"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Negative supercoiling enhances Cas9 off-target activity by inducing DNA structural defects",
+        "result": "Confirmed; supercoiling-driven defects are relieved upon Cas9 binding"
+      },
+      {
+        "hypothesis": "Topology-dependent structural plasticity accommodates mismatches in off-target sites",
+        "result": "Supported by cryo-EM showing differential protospacer-adjacent-motif plasticity based on DNA topology"
+      }
+    ]
+  },
+  "nature:10.1038/s41586-026-10276-2": {
+    "category": "Structural Biology",
+    "task": "Elucidate structural and thermodynamic mechanisms of cold-evoked activation in TRPM8 channels",
+    "key_results": "Identified semi-swapped architecture with S6 helix repositioning; cold-evoked stabilization of outer pore region and regulatory lipid binding drives channel opening; pore and TRP helices show greatest stimulus-evoked energetic changes",
+    "comments": "Combining cryo-EM with HDX-MS elegantly bridges structural visualization and energetic landscape analysis, though in-cell membrane context validation is limited to two orthologs.",
+    "model_io": [
+      {
+        "model": "TRPM8 ion channel",
+        "inputs": [
+          "cold temperature (<26\u00b0C)",
+          "menthol",
+          "cellular membrane environment"
+        ],
+        "outputs": [
+          "open channel conformation",
+          "semi-swapped architecture",
+          "S6 helix repositioning",
+          "regulatory lipid binding"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Cold-evoked stabilization of the pore region drives gating via S6 helix repositioning and lipid binding",
+        "result": "Confirmed through cryo-EM structures and HDX-MS energetic mapping"
+      },
+      {
+        "hypothesis": "Avian TRPM8 orthologue exhibits cold-insensitivity due to structural differences",
+        "result": "Supported by structural comparison validating human-specific cold activation mechanism"
+      }
+    ]
+  },
+  "nature:10.1038/s41419-026-08621-4": {
+    "category": "Cell Division/Cycle",
+    "task": "Define PKM2 dimerization role in osteoarthritis pathogenesis and mitochondrial homeostasis",
+    "key_results": "PKM2 dimers upregulated in OA cartilage; PKM2 deficiency or tetramer stabilization reduced OA progression via MFN1-dependent mitochondrial fusion; TEPP-46 promoted chondroprotection",
+    "comments": "Identifies metabolic-mitochondrial axis linking PKM2 oligomerization state to organellar function and cartilage preservation.",
+    "model_io": [
+      {
+        "model": "mouse DMM OA model; primary chondrocytes",
+        "inputs": [
+          "PKM2 dimer/tetramer",
+          "ERK signaling",
+          "MFN1/MFN2"
+        ],
+        "outputs": [
+          "mitochondrial fusion",
+          "OA progression",
+          "cartilage matrix homeostasis"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "PKM2 dimers activate ERK\u2192MFN1 upregulation",
+        "result": "Confirmed\u2014PKM2-ERK interaction disruption promotes MFN1"
+      },
+      {
+        "hypothesis": "MFN1 mediates chondroprotective effects of PKM2 deficiency",
+        "result": "Confirmed\u2014MFN1 knockdown abrogates protection"
+      }
+    ]
+  },
+  "nature:10.1038/s41419-026-08651-y": {
+    "category": "Cell Division/Cycle",
+    "task": "Define LRRK2-cGAS-STING-HMGB1 axis in chondrocyte senescence and osteoarthritis progression",
+    "key_results": "LRRK2 overexpression accelerated chondrocyte senescence and cartilage degeneration in DMM-OA; LRRK2 activated cGAS\u2013STING pathway, increased HMGB1, exacerbated mitochondrial dysfunction; STING inhibitor H-151 partially mitigated senescence",
+    "comments": "Identifies innate immune-senescence axis linking mitochondrial dysfunction signaling to OA pathogenesis through cGAS-STING.",
+    "model_io": [
+      {
+        "model": "DMM rat OA model; rAAV-LRRK2; primary chondrocytes",
+        "inputs": [
+          "LRRK2",
+          "cGAS-STING",
+          "HMGB1",
+          "mitochondrial dysfunction"
+        ],
+        "outputs": [
+          "senescence markers",
+          "cartilage degeneration",
+          "mitochondrial function"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "LRRK2 modulates GTPase activity to upregulate HMGB1",
+        "result": "Confirmed\u2014LRRK2 promotes HMGB1 upregulation"
+      },
+      {
+        "hypothesis": "LRRK2 drives senescence via cGAS-STING-HMGB1 axis",
+        "result": "Confirmed\u2014STING inhibition partially rescues senescence"
+      }
+    ]
+  },
+  "nature:10.1038/s41536-026-00461-2": {
+    "category": "Development",
+    "task": "Characterize molecular and morphological features of axolotl digit regeneration and hedgehog signaling requirement",
+    "key_results": "Digit blastemas nerve-dependent with canonical morphogens but minimal A\u2013P patterning gene expression (Shh, Fgf8, Grem1); Hedgehog signaling essential for interphalangeal joint regeneration; activation insufficient alone for fidelity improvement",
+    "comments": "Reveals distal outgrowth independent of classical patterning signals; joint regenerative variation not explained by nerve, proliferation, or patterning gene differences\u2014ideal platform for identifying regenerative determinants.",
+    "model_io": [
+      {
+        "model": "axolotl digit regeneration; blastemas",
+        "inputs": [
+          "morphogens (Shh, Fgf8, Grem1)",
+          "Hedgehog signaling"
+        ],
+        "outputs": [
+          "digit outgrowth",
+          "joint regenerative fidelity",
+          "morphological patterning"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Digit regeneration requires A\u2013P patterning genes (Shh, Fgf8, Grem1)",
+        "result": "Refuted\u2014minimal patterning gene expression; distal outgrowth independent of signals"
+      },
+      {
+        "hypothesis": "Hedgehog signaling sufficient for joint regenerative fidelity",
+        "result": "Refuted\u2014activation alone insufficient to improve fidelity in robust digits"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45579-x": {
+    "category": "Epigenetics",
+    "task": "Define c-MYC-mediated BATF3 transcriptional regulation in type 1 diabetes pathogenesis",
+    "key_results": "c-MYC identified as central regulator of BATF3; c-MYC and BATF3 significantly elevated in T1DM patients (p<0.05); c-MYC binds BATF3 promoter (\u22121,214 to \u22121,203 bp); promotes CD8+ T-cell expansion and apoptosis inhibition",
+    "comments": "Establishes c-MYC\u2013BATF3 axis as mechanistic pathway in pediatric T1DM with biomarker potential.",
+    "model_io": [
+      {
+        "model": "human PBMCs (T1DM patients n=30, controls n=24); CD8+ T cells",
+        "inputs": [
+          "c-MYC",
+          "BATF3 promoter",
+          "transcription"
+        ],
+        "outputs": [
+          "CD8+ T-cell proliferation",
+          "apoptosis inhibition",
+          "T1DM association"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "c-MYC is differentially expressed in T1DM and regulates BATF3",
+        "result": "Confirmed\u2014c-MYC elevated and binds BATF3 promoter"
+      },
+      {
+        "hypothesis": "c-MYC-driven BATF3 expression enhances CD8+ T-cell survival",
+        "result": "Confirmed\u2014promotes proliferation and inhibits apoptosis"
+      }
+    ]
+  },
+  "nature:10.1038/s42003-026-09878-3": {
+    "category": "Cell Signaling",
+    "task": "Map regulators of FPR1 surface expression and endocytosis in immune cells",
+    "key_results": "GRK2/3/6 trigger internalization via parallel \u03b2-arrestin-dependent and -independent pathways; mDia1 and ARF6 specifically regulate FPR1 internalization",
+    "comments": "Genome-scale CRISPR screens reveal functional redundancy in GRK signaling and identify formin/ARF6 as unexpected endocytosis effectors.",
+    "model_io": [
+      {
+        "model": "CRISPR/Cas9 screens in cultured cells and primary human neutrophils",
+        "inputs": [
+          "FPR1 ligand",
+          "GRK2/3/6",
+          "\u03b2-arrestin1/2",
+          "mDia1",
+          "ARF6"
+        ],
+        "outputs": [
+          "FPR1 internalization",
+          "surface expression",
+          "receptor recycling"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "GRK6 functions redundantly with GRK2/3 in FPR1 phosphorylation",
+        "result": "Confirmed\u2014parallel GRK activities trigger internalization"
+      },
+      {
+        "hypothesis": "mDia1 and ARF6 regulate \u03b2-arrestin-independent FPR1 endocytosis",
+        "result": "Confirmed\u2014both promote non-canonical internalization pathway"
+      }
+    ]
+  },
+  "nature:10.1038/s41467-026-70274-w": {
+    "category": "Other",
+    "task": "Fine-tune LLMs for complex iterative clinical diagnostic procedures with evaluation framework",
+    "key_results": "ClinDiag-GPT outperforms GPT-4o, Claude-3-Haiku, Qwen variants in diagnostic accuracy and procedural performance on 4,421 real-world cases; physician-AI collaboration increases accuracy",
+    "comments": "Large benchmark dataset (4,421 cases) and multiple baseline comparisons strengthen evaluation; clinical error types warrant detailed analysis.",
+    "model_io": [
+      {
+        "model": "Fine-tuned LLM (ClinDiag-GPT) trained on clinical diagnostic cases",
+        "inputs": [
+          "Patient history",
+          "Symptoms",
+          "Lab/imaging results",
+          "Diagnostic rules"
+        ],
+        "outputs": [
+          "Diagnostic hypothesis",
+          "Next diagnostic steps",
+          "Final diagnosis"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Fine-tuned LLMs trained on clinical cases outperform general LLMs and baseline models in complex diagnostic workflows",
+        "result": "Confirmed; ClinDiag-GPT outperforms all baseline models; physician-AI collaboration superior to either alone"
+      }
+    ]
+  },
+  "nature:10.1038/s41467-026-70889-z": {
+    "category": "Genomics",
+    "task": "Identify molecular signatures linking CMV infection to immune dysregulation in people living with HIV",
+    "key_results": "FCRL6 emerges as key biomarker in CMV-seropositive PLHIV; FCRL6 demethylation and upregulation linked to immune activation; Mendelian randomization shows causal relationship",
+    "comments": "Multi-omics integration (5 layers) is comprehensive; large cohort (1,887) strengthens findings; causality inference strengthens mechanistic understanding.",
+    "model_io": [
+      {
+        "model": "Multi-omics analysis: immune profiling, transcriptomics, methylomics, proteomics, metabolomics + Mendelian randomization",
+        "inputs": [
+          "Whole blood immune profiles",
+          "PBMC cytokine responses",
+          "Genomics, methylomics, transcriptomics, proteomics, metabolite data from CMV-seropositive/negative PLHIV"
+        ],
+        "outputs": [
+          "CMV-associated immune signatures",
+          "FCRL6 as key biomarker",
+          "Causal relationship estimates"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "CMV seropositivity drives distinct immune activation patterns in PLHIV mediated by FCRL6 upregulation",
+        "result": "Confirmed; FCRL6 high expression associated with pro-inflammatory cytokine production and CMV seropositivity; Mendelian randomization supports causality"
+      }
+    ]
+  },
+  "nature:10.1038/s41540-026-00689-0": {
+    "category": "Genomics",
+    "task": "Stratify HNSCC by metabolic gene expression and develop prognostic risk model",
+    "key_results": "Four metabolic subtypes identified; 13-gene model predicts survival better than 47-gene metabolic model; quiescent subtype has longest survival, mixed subtype worst",
+    "comments": "Metabolic heterogeneity is well-established; the clinical utility of this specific 13-gene signature requires prospective validation.",
+    "model_io": [
+      {
+        "model": "Gene expression clustering and Cox regression",
+        "inputs": [
+          "OXPHOS genes",
+          "PPP genes",
+          "RNA-seq data from HNSCC samples"
+        ],
+        "outputs": [
+          "Four metabolic subtypes",
+          "Risk score",
+          "Survival prediction"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "OXPHOS and PPP gene expression patterns stratify HNSCC into distinct metabolic subtypes with different clinical outcomes",
+        "result": "Confirmed; mixed metabolic subtype showed worst survival with highest proliferation scores"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-38238-8": {
+    "category": "Statistical Methods",
+    "task": "Machine learning-based primer design and quality assessment for PCR applications",
+    "key_results": "SVM and gradient boosting achieve AUC 0.96-0.99 across 10-fold cross-validation; captures complex primer feature interactions; available online tool",
+    "comments": "Dataset relatively small (N=316); validation on independent experimental PCR runs would strengthen claims of practical utility.",
+    "model_io": [
+      {
+        "model": "SVM and gradient boosting classifiers with 16 engineered primer features",
+        "inputs": [
+          "Primer sequences",
+          "Thermodynamic properties",
+          "Secondary structure predictions",
+          "Verified and synthetic primer pairs"
+        ],
+        "outputs": [
+          "Primer functionality prediction (pass/fail)",
+          "Quality score"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Machine learning models capture complex interactions between primer features to predict PCR efficiency better than rule-based methods",
+        "result": "Confirmed; SVM and gradient boosting AUC 0.96-0.99 demonstrate superior performance"
+      }
+    ]
+  },
+  "nature:10.1038/s41467-026-70586-x": {
+    "category": "ML Theory",
+    "task": "Multi-core neuromorphic architecture for training spiking neural networks",
+    "key_results": "190\u2013330% performance of Jetson Orin; 1.05 TFLOPS/W @ FP16 @ 28nm; 55\u201385% memory access reduction vs. A100 GPU; successful 20-core training and 5-worker federated learning on FPGA",
+    "comments": "Hardware-software co-design achieving exceptional energy efficiency; demonstrates scalability from single-core to distributed federated learning, though real-world applicability remains nascent.",
+    "model_io": [
+      {
+        "model": "Multi-core neuromorphic processor with FP, BP, WG engines",
+        "inputs": [
+          "Spiking neural network weights, spike inputs, backpropagation gradients"
+        ],
+        "outputs": [
+          "Updated weights, training loss, inference activations"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Specialized neuromorphic hardware can train SNNs with dramatically higher energy efficiency than GPUs",
+        "result": "Confirmed\u20141.05 TFLOPS/W and >50% memory reduction achieved"
+      }
+    ]
+  },
+  "nature:10.1038/s41586-026-10265-5": {
+    "category": "ML Theory",
+    "task": "End-to-end automation of the scientific research lifecycle",
+    "key_results": "The AI Scientist generates research ideas, code, experiments, analysis, manuscripts, and peer review; manuscript passed first-round review at top-tier conference workshop (70% acceptance rate)",
+    "comments": "Demonstrates remarkable capability but raises concerns about review system burden and scientific literature quality; acceptance at workshop level rather than main conference suggests limitations.",
+    "model_io": [
+      {
+        "model": "The AI Scientist (multi-agent foundation model system)",
+        "inputs": [
+          "Research topic/problem statement; (optional) code templates"
+        ],
+        "outputs": [
+          "Research ideas, executable code, experimental results, plots, manuscript, peer reviews"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Large foundation models can autonomously navigate the entire scientific process from conception to publication",
+        "result": "Partially confirmed\u2014achieved workshop-level publication but full journal/main-conference viability unclear"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-43310-4": {
+    "category": "ML Theory",
+    "task": "Trust propagation and certificate revocation in large-scale IoT networks",
+    "key_results": "GNN-based framework achieves 89% trust propagation accuracy, 0.904 F1 on revocation decisions; median response latency <5s on networks up to 102,400 devices",
+    "comments": "Well-motivated combination of GAT for relational dynamics and Bayesian uncertainty; demonstrates scalability, though evaluation is simulation-based rather than on real IoT deployments.",
+    "model_io": [
+      {
+        "model": "Graph Attention Network + adaptive revocation algorithm",
+        "inputs": [
+          "IoT device topology, trust relationships, behavioral anomaly indicators, device interactions"
+        ],
+        "outputs": [
+          "Trust embeddings, risk scores for certificate revocation decisions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Graph neural networks can efficiently propagate trust and detect revocation-worthy devices in large IoT networks",
+        "result": "Confirmed\u201489% accuracy and sub-5s latency achieved at scale"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45002-5": {
+    "category": "ML Theory",
+    "task": "Mini-batch size sensitivity analysis in deep residual networks for load forecasting",
+    "key_results": "Mini-batch size 64 consistently yields best STLF performance; batch size 32 provides robust alternative; medium-scale batches outperform large/small across climates",
+    "comments": "Empirical sensitivity analysis with strict experimental controls provides practical guidance; bootstrap significance testing strengthens claims, but mechanistic explanation for why 64 is optimal remains open.",
+    "model_io": [
+      {
+        "model": "DRN and PCA-DRN with varying mini-batch sizes {8, 16, 32, 64, 128, 256, ...}",
+        "inputs": [
+          "Electricity load time series, temperature, weather variables"
+        ],
+        "outputs": [
+          "MAPE, MAE forecasts; training dynamics"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "DRN-based STLF performance exhibits pronounced sensitivity to mini-batch size with an optimal medium-range value",
+        "result": "Confirmed\u2014batch size 64 optimal; 32 robust alternative; performance degrades at extremes"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45718-4": {
+    "category": "Algorithms",
+    "task": "Spatial resource allocation for waste management via subtractive clustering",
+    "key_results": "Proposed road-network geodesic distance-based subtractive clustering solves urban and large-scale allocation; textile waste container optimization case study shows consistency with spatially distributed needs",
+    "comments": "Practical heuristic-based approach grounded in clustering methodology; geodesic distance incorporation reflects real-world constraints, though quantitative performance metrics are limited.",
+    "model_io": [
+      {
+        "model": "Modified subtractive clustering with geodesic distances",
+        "inputs": [
+          "Spatial demand distributions, resource capacity constraints, road network topology"
+        ],
+        "outputs": [
+          "Optimal resource locations and cluster assignments"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Road-network-aware subtractive clustering achieves spatial resource distribution matching demand",
+        "result": "Confirmed\u2014textile waste container placement aligns with spatially distributed needs"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45739-z": {
+    "category": "ML Theory",
+    "task": "AI-driven image generation for artistic creation with style control and super-resolution",
+    "key_results": "StyleDiffusion-HD outperforms baselines on FID, CLIP Score, Style Loss; achieves high subjective aesthetic ratings from experts and public; improves upon FID and style consistency",
+    "comments": "Well-motivated integration of latent diffusion + style injection + flow-matching SR; evaluation includes both objective metrics and human assessment, strengthening credibility.",
+    "model_io": [
+      {
+        "model": "StyleDiffusion-HD (LDM + Style Injection Attention + Flow Matching SR)",
+        "inputs": [
+          "Text descriptions, visual style references, artistic concept parameters"
+        ],
+        "outputs": [
+          "High-resolution generated images with controlled style"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Style injection attention and flow-matching SR enable precise bimodal text-visual style control with high fidelity",
+        "result": "Confirmed\u2014superior FID, CLIP Score, style consistency vs. mainstream models"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45920-4": {
+    "category": "ML Theory",
+    "task": "Monitoring psychological state from multimodal physiological signals",
+    "key_results": "GABT-Net achieves 96.2% accuracy, 0.9431 macro-F1, 0.021 ECE, 99.10% accuracy on highest-confidence samples; outperforms baselines on WESAD dataset",
+    "comments": "Clever integration of graph attention for instantaneous feature relationships + Bayesian uncertainty quantification; the explicit modeling of collaborative physiological dynamics is well-motivated.",
+    "model_io": [
+      {
+        "model": "Graph Attention-Bayesian Temporal Network (GABT-Net)",
+        "inputs": [
+          "Multimodal physiological signals (heart rate, EEG, skin conductance, etc.) sampled over time"
+        ],
+        "outputs": [
+          "Probabilistic predictions of psychological state; uncertainty estimates (ECE)"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Explicit graph modeling of physiological collaboration + Bayesian uncertainty improves psychological state prediction reliability",
+        "result": "Confirmed\u201496.2% accuracy and 0.021 ECE demonstrate high reliability"
+      }
+    ]
+  },
+  "nature:10.1038/s41746-026-02559-9": {
+    "category": "ML Theory",
+    "task": "Multi-agent framework for psychiatric diagnosis with clinical reasoning and empathy",
+    "key_results": "WiseMind achieves 85.6% top-1 diagnostic accuracy on 1206 simulated conversations + 180 real sessions; outperforms single-agent baselines by 15\u201354 percentage points; expert review validates clinical soundness and psychological support",
+    "comments": "Thoughtful integration of DSM-5 knowledge graph with dual-agent architecture (Reasonable + Emotional Mind); real-world validation (180 human sessions) strengthens claims over pure simulation.",
+    "model_io": [
+      {
+        "model": "WiseMind (multi-agent with DSM-5 knowledge graph, Reasonable Mind Agent, Emotional Mind Agent)",
+        "inputs": [
+          "Patient symptom reports, demographic data, conversation history"
+        ],
+        "outputs": [
+          "Diagnostic hypotheses, differential diagnoses, empathetic follow-up questions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Integrating structured clinical reasoning (DSM-5 knowledge) with empathetic communication (dual agents) improves psychiatric diagnostic accuracy and patient trust",
+        "result": "Confirmed\u201485.6% accuracy, 15\u201354% improvement over single-agent LLM baselines; expert validation of clinical soundness"
+      }
+    ]
+  },
+  "nature:10.1038/s41467-026-69258-7": {
+    "category": "Condensed Matter",
+    "task": "Characterizing unconventional bipartite entanglement in quantum dimer magnet Yb\u2082Be\u2082SiO\u2087 under strong spin-orbit coupling",
+    "key_results": "Effective spin-1/2 model describes Yb\u00b3\u207a ions; no magnetic order down to 50 mK; anisotropic exchange stabilizes singlet ground state with wavefunction (|\u2191\u2191\u27e9\u2212|\u2193\u2193\u27e9)/\u221a2 or (|\u2191\u2191\u27e9+|\u2193\u2193\u27e9)/\u221a2; magnetization, heat capacity, neutron spectroscopy consistent with isolated dimer model; spin-orbit coupling induces unusual entangled state",
+    "comments": "Demonstrates how spin-orbit coupling modifies entanglement structure in dimer systems; direct comparison with standard (|\u2191\u2193\u27e9\u2212|\u2193\u2191\u27e9)/\u221a2 singlet regarding magnetic susceptibility and response functions would clarify physical implications.",
+    "model_io": [
+      {
+        "model": "Yb\u2082Be\u2082SiO\u2087 quantum dimer magnet",
+        "inputs": [
+          "temperature",
+          "magnetic field",
+          "neutron energy"
+        ],
+        "outputs": [
+          "magnetization",
+          "heat capacity",
+          "neutron scattering intensity",
+          "ground state wavefunction"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Strong spin-orbit coupling in Yb\u00b3\u207a dimer magnets stabilizes unconventional singlet entanglement with same-spin character",
+        "result": "Confirmed via bulk and spectroscopic evidence of anisotropic-exchange-stabilized singlet"
+      }
+    ]
+  },
+  "nature:10.1038/s41524-026-02048-3": {
+    "category": "Quantum",
+    "task": "Incorporating multipole expansion into equivariant ML potentials for ground and excited-state molecular dynamics",
+    "key_results": "Multipole-expanded equivariant potentials accurately capture QM/MM long-range interactions; nonadiabatic excited-state dynamics of ring-opening reaction simulated successfully; transfer learning from environment-free models improves data efficiency; superior prediction of energies/forces vs baseline models",
+    "comments": "Elegant integration of physical multipole structure into ML; validated on limited system set (Ni complexes)\u2014generalization to diverse chemical spaces and transferability across chemical families unclear.",
+    "model_io": [
+      {
+        "model": "QM/MM molecular system with multipole expansion",
+        "inputs": [
+          "atomic coordinates",
+          "environment multipole moments",
+          "electronic state"
+        ],
+        "outputs": [
+          "energies",
+          "forces",
+          "nonadiabatic coupling"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Multipole expansion enables accurate long-range interaction modeling in ML potentials across electronic states",
+        "result": "Confirmed via excellent prediction accuracy and nonadiabatic dynamics simulations"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45038-7": {
+    "category": "Quantum",
+    "task": "Training parametric interactions in analog bosonic quantum neural networks via Fock-basis measurement",
+    "key_results": "Hybrid training scheme combining efficient classical Heisenberg-picture simulation with experimental quantum device implementation; nonlinear features extracted via Fock-basis measurements from linear Gaussian dynamics; compatible with circuit QED and integrated photonic platforms; gradient-based optimization enabled without on-device measurement",
+    "comments": "Clever exploitation of linear-dynamics nonlinear-measurement duality enables practical training; scalability to deep networks and learning capacity bounds relative to classical NNs remain underexplored.",
+    "model_io": [
+      {
+        "model": "Parametrically-coupled bosonic modes (Gaussian evolution)",
+        "inputs": [
+          "parametric coupling strengths",
+          "mode quadratures"
+        ],
+        "outputs": [
+          "Fock photon numbers",
+          "measurement outcomes"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Linear bosonic networks with nonlinear Fock measurement enable trainable quantum neural networks via classical gradient simulation",
+        "result": "Confirmed via demonstration of hybrid training framework"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45446-9": {
+    "category": "Optics/Photonics",
+    "task": "Designing multiband THz MIMO antenna with metamaterial integration for biomedical/security applications",
+    "key_results": "Operating frequencies 3.8 and 6.4 THz; simulated gain 9.2/8.9 dBi; isolation \u221243/\u221237 dB; MIMO diversity gain 9.2/9.5 dB; compact 38\u00d738\u00d7100 \u03bcm\u00b3 design",
+    "comments": "Strong antenna metrics achieved but simulation-only validation; practical fabrication at submicron scale and experimental verification of gain/isolation needed.",
+    "model_io": [
+      {
+        "model": "Symmetric stub-loaded microstrip MIMO antenna with butterfly metamaterial",
+        "inputs": [
+          "frequency",
+          "substrate parameters (Si: \u03b5r=11.7, tan\u03b4=0.046)"
+        ],
+        "outputs": [
+          "return loss",
+          "gain",
+          "isolation",
+          "S-parameters"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Metamaterial integration enhances gain and bandwidth simultaneously",
+        "result": "Confirmed via simulations showing 9+ dBi gain at dual frequency bands"
+      }
+    ]
   }
 }

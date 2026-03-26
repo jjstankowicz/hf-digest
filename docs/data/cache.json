@@ -30388,5 +30388,937 @@
         "result": "Confirmed; wideband beam steering and focusing demonstrated numerically and experimentally"
       }
     ]
+  },
+  "hf:2603.23522": {
+    "category": "Benchmark",
+    "task": "Generate question-specific evaluation criteria for LLM responses",
+    "key_results": "Qworld covers 89% of expert-authored criteria, generates 79% novel criteria validated by experts; reveals capability differences in 11 frontier LLMs across dimensions like long-term impact and equity",
+    "comments": "The recursive expansion tree approach is elegant, though validation relies heavily on expert agreement; scalability to diverse question domains remains unclear.",
+    "model_io": [
+      {
+        "model": "LLM (unspecified frontier models)",
+        "inputs": [
+          "open-ended question"
+        ],
+        "outputs": [
+          "hierarchical evaluation criteria tree",
+          "binary criteria"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Question-specific criteria better capture response quality than static rubrics",
+        "result": "Confirmed: experts rated Qworld criteria higher in insight and granularity"
+      },
+      {
+        "hypothesis": "Structured decomposition reveals LLM capability differences missed by coarse rubrics",
+        "result": "Confirmed: revealed differences in long-term impact, equity, error handling, and interdisciplinary reasoning"
+      }
+    ]
+  },
+  "nature:10.1038/s41467-026-70757-w": {
+    "category": "Single Molecule",
+    "task": "Control condensate phase separation and fusion dynamics via photochemical crosslinking",
+    "key_results": "UV-induced thymine dimerization drives liquid-to-solid transitions and arrests droplet fusion; inter- versus intrachain crosslink balance determines mechanical state",
+    "comments": "Novel optochemical control mechanism for condensates is elegant but functional relevance in cellular contexts remains speculative.",
+    "model_io": [
+      {
+        "model": "Biomolecular condensates with thymine-containing polymers",
+        "inputs": [
+          "UV irradiation (frequency and topology-dependent)",
+          "scanning probe microscopy",
+          "optical imaging"
+        ],
+        "outputs": [
+          "nucleation rates",
+          "coalescence kinetics",
+          "mechanical state transitions (liquid/solid)",
+          "fusion dynamics"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Photochemical crosslinking alters condensate nucleation and coalescence in a topology-dependent manner",
+        "result": "UV-induced thymine dimers drive phase transitions and arrest fusion with state determined by inter/intrachain crosslink balance"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44926-2": {
+    "category": "Structural Biology",
+    "task": "Characterize guttae morphology and posterior fibrillar layer formation in FECD corneal tissue",
+    "key_results": "Two guttae types identified (peripheral knob-like and central flat); PFL presence correlated with anterior scatter and postoperative corneal edema resolution",
+    "comments": "Multi-modal microscopy approach (DIC, autofluorescence, polarized light) provides complementary structural information but lacks quantitative metrics for guttae progression rates.",
+    "model_io": [
+      {
+        "model": "DMEK corneal endothelial tissue from FECD patients (n=43)",
+        "inputs": [
+          "immunostaining (ZO1, COL1)",
+          "differential interference contrast imaging",
+          "autofluorescence (480 nm excitation)",
+          "polarized light microscopy"
+        ],
+        "outputs": [
+          "guttae morphology classification",
+          "PFL fibrous structure visualization",
+          "correlation with clinical parameters (scatter, edema)"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "PFL presence reflects FECD severity and predicts postoperative outcomes",
+        "result": "PFL correlated with anterior scatter and corneal edema resolution, supporting prognostic utility"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45224-7": {
+    "category": "Computational Biophysics",
+    "task": "Establish signal-to-noise ratio characterization methodology for 2-photon microscopy",
+    "key_results": "SNR benchmarking protocol developed and compared across custom and commercial 2-photon microscopes",
+    "comments": "Methodological contribution is valuable for microscopy standardization but abstract lacks specific SNR values or comparative performance data.",
+    "model_io": [
+      {
+        "model": "Custom 2-photon microscope and selected commercial systems",
+        "inputs": [
+          "point-scanning laser configuration",
+          "detector settings",
+          "sample preparation protocols"
+        ],
+        "outputs": [
+          "signal-to-noise ratio metrics",
+          "performance benchmarks",
+          "comparative analysis"
+        ]
+      }
+    ],
+    "hypotheses": []
+  },
+  "nature:10.1038/s41419-026-08632-1": {
+    "category": "Organelles",
+    "task": "Characterize DCTPP1 function in mitochondrial dNTP pool dynamics and mtDNA stability during quiescence",
+    "key_results": "DCTPP1 depletes dCTP/dGTP pools; predominantly mitochondrial during quiescence; DCTPP1 knockdown restores dCTP and mtDNA in thymidine-overloaded cells (MNGIE model)",
+    "comments": "Identifies DCTPP1 as potential therapeutic target for mtDNA depletion syndromes; context-dependent (quiescence vs. replication) regulation suggests precision medicine approach.",
+    "model_io": [
+      {
+        "model": "Quiescent cells + thymidine overloading (MNGIE model)",
+        "inputs": [
+          "DCTPP1",
+          "thymidine",
+          "de novo pyrimidine synthesis"
+        ],
+        "outputs": [
+          "dCTP pool",
+          "dGTP pool",
+          "mtDNA copy number"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "DCTPP1 knockdown restores dCTP availability and mtDNA in MNGIE-like conditions",
+        "result": "Confirmed; DCTPP1 depletion compensates for secondary dCTP depletion"
+      }
+    ]
+  },
+  "nature:10.1038/s41420-026-03065-3": {
+    "category": "Cell Division/Cycle",
+    "task": "Elucidate c-Myc transactivation of CFL1 in senescence-associated secretory phenotype (SASP) to promote bystander cell migration/proliferation",
+    "key_results": "c-Myc induces cofilin-1 via E-box binding; binds middle and distal E-boxes in CFL1 promoter; conditioned medium from cMIS cells enhances NSCLC proliferation/migration; high c-Myc/CFL1 correlates with worse NSCLC survival",
+    "comments": "Identifies c-Myc-cofilin-1 axis as OIS-to-tumor progression mechanism; actin dynamics link may explain SASP function beyond canonical cytokines.",
+    "model_io": [
+      {
+        "model": "Human diploid lung fibroblasts, NSCLC cells \u00b1 c-Myc/cofilin-1 modulation",
+        "inputs": [
+          "c-Myc",
+          "CFL1",
+          "H2O2"
+        ],
+        "outputs": [
+          "cofilin-1 expression",
+          "F-actin/G-actin",
+          "senescence markers",
+          "conditioned medium migratory/proliferative capacity"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "c-Myc transactivates CFL1 to induce senescence and SASP-mediated bystander effects",
+        "result": "Confirmed; c-Myc binds CFL1 E-boxes; cofilin-1-KD suppresses cMIS and CM effects"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44454-z": {
+    "category": "Cell Signaling",
+    "task": "Elucidate RAR\u03b2-mediated mechanism of adapalene anti-inflammatory effects in macrophages",
+    "key_results": "Adapalene inhibits LPS-induced MAPK/PI3K-Akt phosphorylation and NF-\u03baB nuclear translocation; upregulates M2 macrophage markers; protects against LPS-induced septic shock in mice",
+    "comments": "RAR\u03b2 selectivity is critical; in vivo validation in HFD obesity model strengthens therapeutic potential for metabolic inflammation.",
+    "model_io": [
+      {
+        "model": "RAW264.7 macrophages + LPS; C57BL/6J mice",
+        "inputs": [
+          "adapalene",
+          "LPS",
+          "siRNA-RAR\u03b2",
+          "HFD"
+        ],
+        "outputs": [
+          "MAPK/PI3K phosphorylation",
+          "NF-\u03baB translocation",
+          "M2 markers",
+          "liver inflammation",
+          "septic shock mortality"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Adapalene exerts anti-inflammatory effects via RAR\u03b2-mediated suppression of MAPK/PI3K/NF-\u03baB",
+        "result": "Confirmed; RAR\u03b2 antagonist or siRNA attenuates adapalene effects"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45280-z": {
+    "category": "Apoptosis/Cell Death",
+    "task": "Determine TRIM31-mediated ferroptosis suppression in lung adenocarcinoma via P53 degradation",
+    "key_results": "TRIM31 high expression correlates with poor LUAD prognosis; E3 ligase activity promotes P53 ubiquitination/degradation; TRIM31-KD increases ROS/MDA and decreases GSH; BATF transcription factor promotes TRIM31",
+    "comments": "Identifies TRIM31/P53/SLC7A11 axis as ferroptosis brake; BATF-TRIM31-P53 hierarchy suggests multi-level intervention points for ferroptosis-based LUAD therapy.",
+    "model_io": [
+      {
+        "model": "LUAD cells, TCGA LUAD patient data",
+        "inputs": [
+          "TRIM31",
+          "P53",
+          "BATF"
+        ],
+        "outputs": [
+          "P53 ubiquitination/degradation",
+          "SLC7A11 expression",
+          "ferroptosis markers (ROS/MDA/GSH/iron)",
+          "cell viability/proliferation/metastasis"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "TRIM31 promotes LUAD progression by suppressing P53-mediated ferroptosis",
+        "result": "Confirmed; TRIM31-KD activates ferroptosis via P53 stabilization"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-37772-9": {
+    "category": "Genomics",
+    "task": "Blood donor biobank pipeline for multi-omics and longitudinal genetic studies",
+    "key_results": "PBMC quality maintained post-thaw; genetic variants for FinnGen found via random sampling; PFAS association discovered (PFHxS \u03b2=-0.40, p=1.1\u00d710\u207b\u00b9\u2078)",
+    "comments": "Practical biobank pipeline validated; healthy donor cohort ideal for functional studies; PFAS finding suggests novel environmental exposure insights.",
+    "model_io": [
+      {
+        "model": "Biobank sample collection, processing, cryopreservation, and multi-omics profiling",
+        "inputs": [
+          "Blood donor samples (plasma, serum, PBMCs), genotype data, phenotype data"
+        ],
+        "outputs": [
+          "Multi-omics datasets, genotype-phenotype associations, sample quality metrics"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Frequent blood donation associates with lower PFAS levels",
+        "result": "Significant inverse association observed (PFHxS \u03b2=-0.40, p=1.1\u00d710\u207b\u00b9\u2078)"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-40896-7": {
+    "category": "Other",
+    "task": "Automated disease detection in citrus fruits and leaves",
+    "key_results": "ICNN achieves 99.69% accuracy, outperforming CNN and KNN baselines",
+    "comments": "High accuracy reported but limited dataset scope and lack of cross-cultivar validation; practical deployment feasibility not discussed.",
+    "model_io": [
+      {
+        "model": "Improved CNN (ICNN) for disease classification",
+        "inputs": [
+          "Leaf and fruit images"
+        ],
+        "outputs": [
+          "Disease class predictions, severity assessments"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Enhanced deep learning models outperform traditional ML and standard CNNs for automated disease prediction",
+        "result": "ICNN achieved 99.69% accuracy vs. lower performance for CNN and KNN"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-42523-x": {
+    "category": "Statistical Methods",
+    "task": "Non-invasive nomogram for predicting advanced liver fibrosis in autoimmune hepatitis",
+    "key_results": "Training AUC = 0.851, validation AUC = 0.922; outperforms APRI and FIB-4 indices",
+    "comments": "Rigorous development and validation on clinical cohort; small sample size (n=141) limits generalizability.",
+    "model_io": [
+      {
+        "model": "LASSO + multivariable logistic regression nomogram",
+        "inputs": [
+          "LSM, platelet count, prothrombin time"
+        ],
+        "outputs": [
+          "Probability of advanced liver fibrosis"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Combination of LSM, PLT, and PT improves fibrosis prediction vs. single indicators",
+        "result": "Nomogram AUC 0.922 in validation set, superior to APRI/FIB-4"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-42829-w": {
+    "category": "Other",
+    "task": "Zero-shot evaluation of LLMs and multimodal LLMs on Brazilian Portuguese medical residency exam",
+    "key_results": "Claude-3.5-Sonnet achieves 70.27% on text-only, median human performance; image-based accuracy drops substantially across models",
+    "comments": "Practical benchmark; image reasoning limitations unclear (intrinsic vs. question difficulty); expert-verified hallucinations noted with poor inter-rater agreement.",
+    "model_io": [
+      {
+        "model": "LLMs (GPT-4, LLaMA-3, Mixtral, Titan, Command R+) and multimodal LLMs (Claude-3.x variants)",
+        "inputs": [
+          "Brazilian Portuguese medical exam questions (text and images)"
+        ],
+        "outputs": [
+          "Answer predictions, accuracy scores, expert-assessed explanations"
+        ]
+      }
+    ],
+    "hypotheses": []
+  },
+  "nature:10.1038/s41598-026-45225-6": {
+    "category": "Statistical Methods",
+    "task": "Machine learning prediction of drug solubility in supercritical CO\u2082",
+    "key_results": "MLP achieves R\u00b2 = 0.99093 for solubility, R\u00b2 = 0.99911 for SC-CO\u2082 density prediction",
+    "comments": "Strong regression performance on experimental dataset; generalization to unseen conditions and broader drug classes unclear.",
+    "model_io": [
+      {
+        "model": "CNN, MLP, DNN with Dragonfly Algorithm hyperparameter optimization",
+        "inputs": [
+          "Temperature, pressure, solvent density values"
+        ],
+        "outputs": [
+          "Predicted drug solubility and SC-CO\u2082 density"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "ML models can capture coupled effects of temperature, pressure, and solvent density on drug solubility",
+        "result": "MLP outperformed other architectures with R\u00b2 > 0.99"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45601-2": {
+    "category": "Other",
+    "task": "Multimodal action recognition with adaptive graph convolution and cross-modal attention",
+    "key_results": "95.2% (XSub) and 98.8% (XView) accuracy on NTU RGB+D; robust to missing/noisy modalities; state-of-the-art performance",
+    "comments": "Well-motivated architectural innovations for multimodal fusion; limited evaluation on other action datasets.",
+    "model_io": [
+      {
+        "model": "MAGNet: adaptive graph convolution + cross-modal self-attention + VQ-VAE for missing data",
+        "inputs": [
+          "RGB video, skeleton joints, depth maps"
+        ],
+        "outputs": [
+          "Human action class predictions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Adaptive graph convolution and cross-modal attention improve action recognition under incomplete/noisy multimodal data",
+        "result": "95.2-98.8% accuracy with robust handling of missing modalities"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45928-w": {
+    "category": "Other",
+    "task": "Multimodal Transformer for student engagement prediction in physical education",
+    "key_results": "22.3% reduction in MAE vs. single-modal baseline, F1-score 0.81, >90% accuracy, real-time 0.2 s inference per 10-min session",
+    "comments": "Well-designed multimodal fusion pipeline with ablation studies; limited to single institutional dataset.",
+    "model_io": [
+      {
+        "model": "Hierarchical cross-modal Transformer: 1D CNN+LSTM (sensor), BERT (text), ViT (video), cross-modal attention",
+        "inputs": [
+          "Heart rate/sensor data, text descriptions, video frames"
+        ],
+        "outputs": [
+          "Student engagement predictions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Multimodal fusion improves engagement prediction vs. single modality",
+        "result": "Multimodal model achieved >90% accuracy; single modality dropped 17-35%"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-37667-9": {
+    "category": "ML Theory",
+    "task": "Anomaly detection via feature mimicking and attention",
+    "key_results": "SOTA on MVTec AD, CUHK Avenue, ShanghaiTech; improved reconstruction-based anomaly detection through feature inconsistency guided attention",
+    "comments": "Novel proxy task of feature mimicking integrates well across frameworks; attention mechanism is interpretable and effective.",
+    "model_io": [
+      {
+        "model": "Feature-mimicking attention module + reconstruction-based anomaly detection",
+        "inputs": [
+          "images",
+          "videos"
+        ],
+        "outputs": [
+          "anomaly scores",
+          "spatial attention maps"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Feature mimicking combined with attention can improve reconstruction-based anomaly detection",
+        "result": "Achieved SOTA on three benchmarks with improved generalization"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-41140-y": {
+    "category": "ML Theory",
+    "task": "Real-time cognitive-aware basketball strategy optimization via multimodal AI",
+    "key_results": "NeuroPlayNet: 12.6% improvement shot success, 18.9% injury risk reduction, 9.4% win probability enhancement vs. baselines; integrates biomechanics, vision, playstyle graphs, EEG cognition",
+    "comments": "Neuro-symbolic RL balances short-term tactics with long-term objectives; EEG-based fatigue is novel cognitive input for sports.",
+    "model_io": [
+      {
+        "model": "NeuroPlayNet (IMU + vision transformers + knowledge graphs + EEG)",
+        "inputs": [
+          "wearable kinematics",
+          "multi-camera video",
+          "playstyle history",
+          "EEG fatigue/stress"
+        ],
+        "outputs": [
+          "strategy recommendations",
+          "shot success probability",
+          "fatigue-aware substitution timing"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Multimodal integration of biomechanics, vision, and cognition enables superior basketball strategy optimization",
+        "result": "12.6% shot improvement, 18.9% injury reduction, 9.4% win probability enhancement in simulated NBA environments"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-42132-8": {
+    "category": "Other",
+    "task": "Tribological optimization of rolled copper via RSM and Spherical Fuzzy WASPAS",
+    "key_results": "Optimal parameters: 800 N load, 6 rpm, 20 m distance, 1.69 draw ratio; prediction errors <5%; transitioned from mild oxidative-adhesive to severe adhesive-abrasive wear in worst condition",
+    "comments": "Hybrid RSM\u2013MCDM framework addresses multi-response trade-offs; wear mechanism maps provide mechanistic insights.",
+    "model_io": [
+      {
+        "model": "Response Surface Methodology + Spherical Fuzzy WASPAS multi-criteria decision-making",
+        "inputs": [
+          "applied load",
+          "sliding speed",
+          "sliding distance",
+          "draw ratio"
+        ],
+        "outputs": [
+          "wear rate",
+          "coefficient of friction",
+          "material loss",
+          "wear scar diameter",
+          "temperature rise"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Spherical Fuzzy WASPAS-based MCDM identifies optimal operating conditions balancing conflicting tribological responses",
+        "result": "Optimal conditions achieved <5% prediction error with superior tribological performance"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-42214-7": {
+    "category": "ML Theory",
+    "task": "Clinically significant prostate cancer detection from MRI",
+    "key_results": "Ensemble of EfficientNet-B7 3D models with transfer learning: AUC=0.816 on hold-out set vs. 0.71 baseline; ADC synthesis as data augmentation prevents loss without domain shift",
+    "comments": "Multi-center dataset (9000+ MRI sessions, 16 centers); interpretability via occlusion sensitivity; strong evidence of transfer learning effectiveness.",
+    "model_io": [
+      {
+        "model": "3D EfficientNet-B7 ensemble (5 models) with stacked meta-learner",
+        "inputs": [
+          "prostate MRI volumes",
+          "synthesized ADC maps"
+        ],
+        "outputs": [
+          "csPCa probability",
+          "feature importance maps"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Transfer learning from PI-CAI and ensemble fusion improves csPCa detection robustness",
+        "result": "AUC increased from 0.71 to 0.816 on multi-center BIMCV dataset"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-43989-5": {
+    "category": "Algorithms",
+    "task": "Error transfer modeling in synchronous cam-linkage mechanisms",
+    "key_results": "Dual-measurement-point approach reduces synchronization error to 57.2% of original scheme; integrates MDH method with least-squares curve fitting",
+    "comments": "Practical reverse-engineering application for industrial cam maintenance; experimental validation confirms 43% error reduction.",
+    "model_io": [
+      {
+        "model": "MDH-based error model + constrained least-squares curve fitting",
+        "inputs": [
+          "cam inner contour measurements",
+          "roller center measurements",
+          "linkage geometry"
+        ],
+        "outputs": [
+          "optimized cam curves",
+          "error profiles",
+          "sensitivity analysis"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Measuring roller centers instead of inner contour reduces error accumulation in cam synchronization",
+        "result": "New scheme achieved 57.2% error reduction at maximum rotational speed"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44351-5": {
+    "category": "Algorithms",
+    "task": "Lightweight super-resolution via scattering processing and feature interaction",
+    "key_results": "SPFI method outperforms state-of-the-art while maintaining lower computational complexity; dual-tree complex wavelet decomposition enhances fine detail; cross-token integration enables multi-scale fusion",
+    "comments": "Efficient Transformer alternative for super-resolution; frequency-domain analysis via DTCWT improves detail extraction.",
+    "model_io": [
+      {
+        "model": "SPFI (Scatter Pre-process Module + Cross-token Integration block)",
+        "inputs": [
+          "low-resolution images"
+        ],
+        "outputs": [
+          "super-resolved high-resolution images"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Scattering preprocessing and cross-token feature fusion improve super-resolution while reducing computational cost",
+        "result": "Outperformed SOTA in reconstruction quality with lower computational complexity; validated noise robustness"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44473-w": {
+    "category": "ML Theory",
+    "task": "Piano fingering correction and expressiveness modeling via multimodal GANs",
+    "key_results": "89.7% frame-level fingering accuracy; expressiveness correlation coefficients >0.85; 180ms processing latency per second of audio",
+    "comments": "Novel cross-modal approach to music performance analysis; hierarchical attention fusion is well-motivated.",
+    "model_io": [
+      {
+        "model": "Dual-stream GAN with hierarchical attention-based audio-visual fusion",
+        "inputs": [
+          "piano audio",
+          "hand movement video"
+        ],
+        "outputs": [
+          "fingering correction",
+          "expressiveness features"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Audio-visual multimodal fusion via attention-based GANs improves fingering accuracy and expressiveness modeling",
+        "result": "89.7% frame-level accuracy and >0.85 correlation for expressiveness; near-real-time performance (180ms latency)"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44885-8": {
+    "category": "Statistics/Probability",
+    "task": "Global water consumption forecasting via Bi-GRU",
+    "key_results": "Bi-GRU outperforms LSTM, Deep-AR, Mega-CRN, TFT; MAPE=0.2257, RMSE<0.0049, MSE=0.0049, MAE=0.0587 on Global Water Consumption Dataset (2000\u20132024)",
+    "comments": "Bidirectional temporal learning captures long-term and multivariate dependencies; clear superiority in water management forecasting.",
+    "model_io": [
+      {
+        "model": "Bidirectional Gated Recurrent Unit (Bi-GRU)",
+        "inputs": [
+          "historical global water consumption time-series (2000-2024)"
+        ],
+        "outputs": [
+          "total water consumption forecast",
+          "agricultural water usage forecast"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Bi-GRU with bidirectional temporal learning outperforms unidirectional and alternative deep learning models",
+        "result": "Superior MAPE, RMSE, MSE, MAE metrics vs. LSTM, Deep-AR, Mega-CRN, TFT"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45011-4": {
+    "category": "Algorithms",
+    "task": "Multistage micro deep drawing optimization via FEA and neural networks",
+    "key_results": "BR-ANN\u2013GA framework: optimal C=0.57, PNR=2, \u00b5=0.10; FEM-trained errors 0.35% (RTF), 0.41% (SB); experimental validation 1.7%, 2.68%",
+    "comments": "FEM-trained (not experimentally trained) ANN models ensure robust generalization; Bayesian regularization prevents overfitting.",
+    "model_io": [
+      {
+        "model": "Finite Element Model (FEM) training + Bayesian Regularized ANN + Genetic Algorithm optimization",
+        "inputs": [
+          "clearance",
+          "punch nose radius",
+          "coefficient of friction"
+        ],
+        "outputs": [
+          "resultant tool force (RTF)",
+          "spring-back (SB)"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "FEM-trained BR-ANN with GA optimization provides robust prediction of RTF and SB in micro deep drawing",
+        "result": "FEM errors 0.35%, 0.41%; experimental validation errors 1.7%, 2.68%; outperformed RSM and LM-ANN"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45207-8": {
+    "category": "ML Theory",
+    "task": "Adversarial transferability enhancement via attentional semantic attack",
+    "key_results": "ASA method captures similar attentional semantic properties across diverse DNNs; improves adversarial transferability vs. state-of-the-art on ImageNet",
+    "comments": "Insight that models share attentional semantics despite structural differences enables cross-model attacks.",
+    "model_io": [
+      {
+        "model": "Attentional Semantic Attack (ASA) with attention-based perturbations",
+        "inputs": [
+          "original images"
+        ],
+        "outputs": [
+          "adversarial samples with high transferability"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Attentional perturbations that degrade shared semantic properties across models improve adversarial transferability",
+        "result": "ASA outperforms state-of-the-art adversarial attacks on ImageNet in cross-model transferability"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45287-6": {
+    "category": "Statistics/Probability",
+    "task": "Aquifer water level prediction in mining via VMD-LSTM",
+    "key_results": "VMD-LSTM: MAE=0.028, RMSE=0.035 m/d, MAPE=0.007%, R\u00b2=0.96; 28.2%, 41.7%, 30%, 7.9% improvements vs. other models",
+    "comments": "Variational Mode Decomposition effectively handles non-stationary signals; decomposition improves all downstream models.",
+    "model_io": [
+      {
+        "model": "VMD-LSTM (Variational Mode Decomposition + Long Short-Term Memory)",
+        "inputs": [
+          "historical aquifer water level time-series"
+        ],
+        "outputs": [
+          "water level forecast"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "VMD preprocessing combined with LSTM improves water level prediction in mining due to better handling of non-stationary signals",
+        "result": "VMD-LSTM outperformed LSTM, GRU, RNN baselines with significant metric improvements"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45310-w": {
+    "category": "Algorithms",
+    "task": "Object detection enhancement via pseudo-depth features",
+    "key_results": "Monocular depth estimation as virtual sensor: mAP\u2085\u2080 improvement +3.8 points (M\u00b3FD), +8.0 points (COCO); fused Depth-RGB features without additional hardware",
+    "comments": "Practical method to exploit 3D spatial structure without hardware cost; works across different detection architectures.",
+    "model_io": [
+      {
+        "model": "Object detection model with monocular depth estimation",
+        "inputs": [
+          "RGB images"
+        ],
+        "outputs": [
+          "object detections with pseudo-depth",
+          "bounding boxes",
+          "class labels"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Pseudo-depth features from monocular estimation enhance spatial feature extraction for object detection",
+        "result": "mAP\u2085\u2080 improvements of 3.8% (M\u00b3FD) and 8.0% (COCO) without additional hardware"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45325-3": {
+    "category": "ML Theory",
+    "task": "Cooling load prediction under data scarcity via knowledge-data hybrid framework",
+    "key_results": "Physics-embedded CNN-LSTM reduces prediction errors 39\u201369% vs. baseline; decreases error variance ~1 order of magnitude; mitigation of overfitting in small samples",
+    "comments": "Practical framework embedding heat-transfer theory as auxiliary inputs; effective early-stage deployment strategy.",
+    "model_io": [
+      {
+        "model": "Knowledge-data hybrid CNN-LSTM (physics-based + data-driven)",
+        "inputs": [
+          "fresh-air load",
+          "envelope heat-transfer load",
+          "ambient conditions"
+        ],
+        "outputs": [
+          "day-ahead cooling load forecast"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Embedding physics-based load calculations improves data-driven prediction under data scarcity",
+        "result": "39\u201369% error reduction; ~order-of-magnitude variance reduction; effective overfitting mitigation in small-sample regimes"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45556-4": {
+    "category": "Algorithms",
+    "task": "Lightweight metallographic defect detection via structured priors and attention",
+    "key_results": "RSS-YOLOv10: mAP 80.1% (self-constructed), 78.9% (NEU-DET); RepHMA module captures scale variations; SimAM attention suppresses grain boundary noise; 77.5% GFLOPs reduction",
+    "comments": "Addresses feature dilution from high-frequency grain boundary texture; energy-based attention is parameter-free and interpretable.",
+    "model_io": [
+      {
+        "model": "RSS-YOLOv10 (RepHMA + SimAM + SlimNeck)",
+        "inputs": [
+          "metallographic microscopy images"
+        ],
+        "outputs": [
+          "defect detections",
+          "bounding boxes",
+          "defect class"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Structured priors and energy-aware attention improve weak defect detection against strong texture backgrounds",
+        "result": "mAP 80.1%, 78.9%; effective noise suppression; 77.5% GFLOPs reduction while maintaining accuracy"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45560-8": {
+    "category": "Algorithms",
+    "task": "Mobility-aware TSCH optimization for IIoT networks via multi-objective MILP",
+    "key_results": "MoC-TSCH: coverage 40%\u219288%, join time 3.7s\u21922.4s, reliability 92%, latency 128ms\u219289ms, energy 0.43J\u21920.25J; tested on custom testbed with OpenMote B, Nano33BLE, TurtleBot 4",
+    "comments": "Addresses mobility challenges in TSCH; multi-objective optimization balances coverage, latency, energy, reliability.",
+    "model_io": [
+      {
+        "model": "Multi-objective MILP-based TSCH framework (MoC-TSCH)",
+        "inputs": [
+          "static node placement",
+          "mobile node trajectories",
+          "network topology changes"
+        ],
+        "outputs": [
+          "timeslot allocations",
+          "channel assignments",
+          "network coverage map"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Multi-objective MILP jointly optimizing static placement and mobile trajectories improves IIoT coverage and connectivity",
+        "result": "Coverage 40%\u219288%, join time reduced 35%, reliability 92%, latency reduced 30%, energy reduced 42%"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45591-1": {
+    "category": "Algorithms",
+    "task": "Underwater object detection for shoreline engineering via YOLO-MFD",
+    "key_results": "YOLO-MFD with CUMANet, AFM, and DPNDyHead; improved mAP and recall on underwater benchmark datasets; robustness in degraded visual features and scale variation",
+    "comments": "Addresses underwater-specific challenges (noise, low contrast, small objects); multi-scale attention network preserves shallow features.",
+    "model_io": [
+      {
+        "model": "YOLO-MFD (Cross-scale Unified Multi-scale Attention Network + Adaptive Feature Modulation + Dual-Pooling Dynamic Head)",
+        "inputs": [
+          "underwater images",
+          "sonar-augmented imagery"
+        ],
+        "outputs": [
+          "underwater object detections",
+          "bounding boxes"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Multi-scale attention and adaptive feature modulation improve underwater object detection robustness",
+        "result": "Superior mAP and recall vs. state-of-the-art on underwater benchmarks; effective in complex shoreline environments"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45595-x": {
+    "category": "Algorithms",
+    "task": "Lightweight UAV-based sewage outfall detection",
+    "key_results": "SODNet: AP@50=89.9%, precision=91.1% (1.2% and 2.7% improvements); 77.5% parameter reduction, 73.6% GFLOPs reduction; 40.3 FPS on edge device",
+    "comments": "Excellent efficiency-accuracy trade-off via ECFPN and channel pruning; practical for resource-constrained deployment.",
+    "model_io": [
+      {
+        "model": "Scale-Oriented Detection Network (SODNet)",
+        "inputs": [
+          "UAV aerial images"
+        ],
+        "outputs": [
+          "sewage outfall locations",
+          "bounding boxes",
+          "confidence scores"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Efficient context feature pyramid with multi-scale grouped fusion reduces computation while maintaining accuracy",
+        "result": "Achieved 40.3 FPS deployment with minimal accuracy loss"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-42360-y": {
+    "category": "Applied Physics",
+    "task": "Assess cyclic response of RC coupling beams with web openings via finite element analysis",
+    "key_results": "Mid-span opening with dimensions lo/l=0.125, ho/t=0.25 reduced shear capacity by 14.5-31.6% and max chord rotation by 48.8-65.6% depending on reinforcement; diagonal confinement least affected by openings",
+    "comments": "Comprehensive parametric FE study but limited to single geometry; findings important for practical design but lack novel theoretical insights.",
+    "model_io": [
+      {
+        "model": "RC coupling beam (ABAQUS nonlinear FE)",
+        "inputs": [
+          "reinforcement detail (conventional/diagonal/rhombic)",
+          "opening location (none/37.5mm/mid-span)",
+          "opening dimensions"
+        ],
+        "outputs": [
+          "shear capacity",
+          "max chord rotation",
+          "failure mode"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Opening presence and location significantly alter cyclic behavior",
+        "result": "Confirmed; mid-span location most detrimental"
+      },
+      {
+        "hypothesis": "Diagonal confinement reinforcement is more robust to openings",
+        "result": "Confirmed; diagonal confinement shows smallest capacity/rotation reductions"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-43272-7": {
+    "category": "Mathematical Physics",
+    "task": "Solve fractional quadratic-cubic NLSE with conformable derivative via analytical and numerical methods",
+    "key_results": "Modified Sardar sub-equation and alternative methods yield new kink, bright, dark-bright, and singular wave solutions; differential transform method validates analytical solutions with high precision",
+    "comments": "Comprehensive analytical-numerical study with good solution diversity, but limited novelty in methods applied; validation via DTM adds credibility.",
+    "model_io": [
+      {
+        "model": "fractional quadratic-cubic NLSE with conformable derivative",
+        "inputs": [
+          "fractional parameter \u03b1",
+          "nonlinearity coefficients",
+          "initial conditions"
+        ],
+        "outputs": [
+          "soliton wave solutions",
+          "intensity profiles",
+          "energy densities"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Modified Sardar and alternative methods yield new solutions for fractional NLSE",
+        "result": "Confirmed; new kink, bright, periodic, dark-bright, singular solutions identified"
+      },
+      {
+        "hypothesis": "Fractional parameter variation significantly affects solution behavior",
+        "result": "Confirmed; detailed effect analysis via 3D and 2D graphs"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44962-y": {
+    "category": "Applied Physics",
+    "task": "Design miniaturized filtering Butler matrix using novel T-shaped transmission line",
+    "key_results": "T-shaped structure behaves as \u03bb/4 line with tunable frequency rejection; 4\u00d74 Butler matrix reduced 65% in size with integrated low-pass filtering; measured results agree with theory and simulation",
+    "comments": "Clever structural innovation combining size reduction with filtering; practical design with excellent agreement between theory, simulation, and measurement.",
+    "model_io": [
+      {
+        "model": "T-shaped transmission line and Butler matrix",
+        "inputs": [
+          "operation frequency",
+          "open-ended tuning stub length",
+          "matrix port excitation"
+        ],
+        "outputs": [
+          "return loss",
+          "insertion loss",
+          "phase difference",
+          "filtering response"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "T-shaped structure functions as \u03bb/4 line at specific frequency while providing frequency rejection",
+        "result": "Confirmed; filtering behavior integrated into structure"
+      },
+      {
+        "hypothesis": "Butler matrix miniaturization does not significantly degrade beamforming performance",
+        "result": "Confirmed; \u00b140\u00b0 steering angle and 10 dBi gain achieved"
+      }
+    ]
+  },
+  "nature:10.1038/s41699-026-00686-1": {
+    "category": "Applied Physics",
+    "task": "Suppress electrical hysteresis in ultrathin tellurium transistors via dielectric encapsulation and dual-gate architecture",
+    "key_results": "Al2O3 encapsulation reduces gas-induced hysteresis and improves mobility to ~80 cm\u00b2 V\u207b\u00b9 s\u207b\u00b9 with ION/IOFF>10\u2075; dual-gate achieves hysteresis <1 V across wide sweep rates",
+    "comments": "Elegant systematic approach identifying and mitigating multiple hysteresis sources; dual-gate solution is practical and BEOL-compatible.",
+    "model_io": [
+      {
+        "model": "Te FET with variable encapsulation",
+        "inputs": [
+          "gate voltage sweep range and rate",
+          "dielectric type (none/Al2O3 single/dual)",
+          "bias stress duration"
+        ],
+        "outputs": [
+          "hysteresis width",
+          "mobility",
+          "ION/IOFF ratio",
+          "current degradation"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Gas molecule reorientation causes large hysteresis in exposed devices",
+        "result": "Confirmed; encapsulation suppresses gas-induced hysteresis"
+      },
+      {
+        "hypothesis": "Dual-gate architecture stabilizes channel electrostatics against charge trapping",
+        "result": "Confirmed; residual hysteresis reduced below 1 V"
+      }
+    ]
   }
 }

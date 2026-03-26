@@ -31320,5 +31320,663 @@
         "result": "Confirmed; residual hysteresis reduced below 1 V"
       }
     ]
+  },
+  "hf:2603.23994": {
+    "category": "LLM/Reasoning",
+    "task": "Identifying design choices for iterative generative optimization with LLMs",
+    "key_results": "Only 9% of surveyed agents use automated optimization; three critical factors (starting artifact, credit horizon, batching) determine success across MLAgentBench, Atari, and BigBench Extra Hard",
+    "comments": "The paper identifies a practical gap between research and deployment, but lacks quantitative metrics on how much each factor contributes to success/failure.",
+    "model_io": [
+      {
+        "model": "LLM-based optimizer (unspecified)",
+        "inputs": [
+          "artifact (code/workflow/prompt)",
+          "execution feedback/traces"
+        ],
+        "outputs": [
+          "improved artifact"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Different starting artifacts determine solution reachability in MLAgentBench",
+        "result": "Confirmed via case studies"
+      },
+      {
+        "hypothesis": "Truncated credit horizons can still improve Atari agent performance",
+        "result": "Confirmed"
+      },
+      {
+        "hypothesis": "Larger minibatches monotonically improve generalization on BBEH",
+        "result": "Rejected; larger minibatches do not monotonically improve"
+      }
+    ]
+  },
+  "hf:2603.24036": {
+    "category": "Vision",
+    "task": "Robust 3D video tracking via differentiable rendering",
+    "key_results": "SpectralSplats recovers complex deformations from severely misaligned initializations where standard appearance-based tracking fails; operates in frequency domain to maintain global gradients",
+    "comments": "Shifting to frequency domain (Spectral Moments) is elegant, but evaluation is primarily qualitative; quantitative tracking accuracy metrics on standard benchmarks would strengthen claims.",
+    "model_io": [
+      {
+        "model": "3D Gaussian Splatting (3DGS) renderer with spectral moment supervision",
+        "inputs": [
+          "video frame",
+          "deformation parameters (MLPs or control points)"
+        ],
+        "outputs": [
+          "rendered image",
+          "spectral moment features"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Spectral moment supervision provides global basin of attraction avoiding vanishing gradients from spatial misalignment",
+        "result": "Confirmed; successful tracking from severe misalignments"
+      },
+      {
+        "hypothesis": "Frequency annealing schedule prevents periodic local minima from high frequencies",
+        "result": "Confirmed via graceful transition to spatial alignment"
+      }
+    ]
+  },
+  "hf:2603.14375": {
+    "category": "Generative",
+    "task": "Recovering physical frame rate from video dynamics to ground generative models in real-world time",
+    "key_results": "Visual Chronometer predicts Physical FPS from visual dynamics; state-of-the-art generators exhibit severe PhyFPS misalignment; PhyFPS correction improves perceived naturalness of AI-generated video",
+    "comments": "The concept of 'chronometric hallucination' is novel and addresses a real limitation of video generators, but human evaluation of naturalness improvement lacks quantitative rigor (sample size, inter-rater agreement).",
+    "model_io": [
+      {
+        "model": "Visual Chronometer (predictor trained via temporal resampling)",
+        "inputs": [
+          "video frames",
+          "visual dynamics"
+        ],
+        "outputs": [
+          "Physical Frames Per Second (PhyFPS) estimate"
+        ]
+      },
+      {
+        "model": "Video generator (state-of-the-art, unspecified)",
+        "inputs": [
+          "prompt/conditioning"
+        ],
+        "outputs": [
+          "video sequence"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Video generators trained on mixed real-world speeds suffer from unstable physical motion speeds",
+        "result": "Confirmed; PhyFPS-Bench-Real and PhyFPS-Bench-Gen reveal severe misalignment"
+      },
+      {
+        "hypothesis": "PhyFPS correction from Visual Chronometer improves human-perceived naturalness",
+        "result": "Confirmed via human evaluation (qualitative)"
+      }
+    ]
+  },
+  "nature:10.1038/s41419-026-08624-1": {
+    "category": "Cell Division/Cycle",
+    "task": "Define CHK1's role in normal DNA replication and replication fork stability",
+    "key_results": "CHK1 degradation causes rapid cell death (16 h loss of viability, 48 h lethality); triggers \u03b3H2AX/RPA2 phosphorylation, S-phase arrest, fork collapse; required even in G1/S-arrested cells",
+    "comments": "Elegant dTAG-based acute depletion clarifies CHK1's essential role independent of damage response; catalytic activity requirement emphasizes kinase function importance.",
+    "model_io": [
+      {
+        "model": "dTAG-mediated CHK1 degradation in mammalian cells",
+        "inputs": [
+          "doxycycline-inducible degron tag",
+          "CHK1 variants (WT, catalytic mutant)"
+        ],
+        "outputs": [
+          "cell viability",
+          "\u03b3H2AX/RPA2 phosphorylation",
+          "cell cycle phase",
+          "replication fork integrity"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "CHK1 is essential for replication fork stability independent of DNA damage",
+        "result": "CHK1 depletion causes fork collapse, S-phase arrest, and mitotic failure even without exogenous damage"
+      }
+    ]
+  },
+  "nature:10.1038/s41420-026-03064-4": {
+    "category": "Apoptosis/Cell Death",
+    "task": "Integrate NINJ1 structure-function model for membrane rupture and cell adhesion roles",
+    "key_results": "NINJ1 exists as full-length monomer, soluble fragment, and membrane-rupturing oligomer; distinct forms dictate adhesion/chemotaxis vs lytic functions; context-dependent roles in inflammation, cancer, tissue injury",
+    "comments": "Structure-function framework reconciles contradictory prior observations but therapeutic targeting complicated by opposing roles in different disease contexts.",
+    "model_io": [],
+    "hypotheses": [
+      {
+        "hypothesis": "NINJ1 oligomerization is required for plasma membrane rupture in pyroptosis/ferroptosis",
+        "result": "Monomer/fragment forms mediate adhesion and chemotaxis; oligomerized form executes membrane lysis"
+      }
+    ]
+  },
+  "nature:10.1038/s41467-026-70773-w": {
+    "category": "Cytoskeleton",
+    "task": "Resolve structural basis of \u03b3TuRC closure during CM1-activated microtubule nucleation",
+    "key_results": "CM1 facilitates complete \u03b3TuRC closure matching microtubule geometry; 3.7 \u00c5 cryo-EM identifies \u03b3TuRC latch and closure interactions; same subunits mediate both open and closed conformations",
+    "comments": "High-resolution cryo-EM structure elegant but functional requirement of complete vs partial closure for nucleation initiation remains unclear.",
+    "model_io": [
+      {
+        "model": "In vitro \u03b3TuRC nucleation assay with CM1",
+        "inputs": [
+          "human \u03b3TuRC",
+          "CM1",
+          "nascent microtubule"
+        ],
+        "outputs": [
+          "nucleation efficiency",
+          "\u03b3TuRC conformational state"
+        ]
+      },
+      {
+        "model": "Cryo-EM structure determination",
+        "inputs": [
+          "\u03b3TuRC-CM1 complex"
+        ],
+        "outputs": [
+          "3.7 \u00c5 structure",
+          "\u03b3TuRC latch identification",
+          "closure interaction map"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "CM1 potently activates \u03b3TuRC by facilitating complete conformational closure matching microtubule geometry",
+        "result": "CM1-mediated complete closure accelerates microtubule nucleation more than partial closure alone"
+      }
+    ]
+  },
+  "nature:10.1038/s41467-026-70932-z": {
+    "category": "Epigenetics",
+    "task": "Elucidate nucleolar component-mediated transcriptional silencing in meiotic sex chromosome inactivation",
+    "key_results": "NPM1, SENP3, rRNA migrate to XY body during MSCI; SENP3-deSUMOylation of NPM1 enables phase separation; phase-separated condensates exclude Pol II from XY body",
+    "comments": "Novel phase-separation mechanism provides elegant molecular explanation for MSCI; NPM1/SENP3 validated as downstream DDR effectors but functional significance of transient vs stable XY body coverage unclear.",
+    "model_io": [
+      {
+        "model": "Spermatocyte pachytene staging in WT vs Npm1-KO and Senp3-KO mice",
+        "inputs": [
+          "meiotic progression",
+          "XY chromosome unsynapsis"
+        ],
+        "outputs": [
+          "MSCI establishment",
+          "nuclear beta-catenin staining",
+          "XY body morphology",
+          "Pol II localization"
+        ]
+      },
+      {
+        "model": "In vitro phase separation assay",
+        "inputs": [
+          "NPM1",
+          "SENP3",
+          "rRNA",
+          "deSUMOylation"
+        ],
+        "outputs": [
+          "condensate formation",
+          "Pol II exclusion"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Nucleolar component phase separation drives transcriptional silencing of unsynapsed sex chromosomes",
+        "result": "SENP3-mediated NPM1 deSUMOylation promotes liquid-liquid phase separation that excludes Pol II from XY body"
+      }
+    ]
+  },
+  "nature:10.1038/s41467-026-70379-2": {
+    "category": "Genomics",
+    "task": "Integrating germline and somatic genomic factors for coronary artery disease risk prediction",
+    "key_results": "Integrated model identifies 13% high-risk individuals missed by polygenic risk score alone; 10-year risk ranges 1.1\u201315.5% in UK Biobank and 3.8\u201333.0% in TOPMed",
+    "comments": "Multivariate integration of germline and somatic factors shows modest incremental value beyond PRS at population level but clinical utility for personalized risk stratification.",
+    "model_io": [
+      {
+        "model": "Integrated genomic risk model",
+        "inputs": [
+          "Polygenic risk score",
+          "Genetically-proxied proteomic/metabolomic scores",
+          "Clonal hematopoiesis status",
+          "Genotypes"
+        ],
+        "outputs": [
+          "10-year CAD risk probability",
+          "Risk stratification"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Integration of multiple germline and somatic genomic drivers improves CAD risk prediction beyond PRS alone",
+        "result": "Partially confirmed; identifies ~13% additional high-risk individuals but modest incremental population-level gain"
+      }
+    ]
+  },
+  "nature:10.1038/s41522-026-00970-4": {
+    "category": "Evolutionary Biology",
+    "task": "Global metagenomic atlas of aging gut microbiota identifying phase transition in disease risk",
+    "key_results": "Microbiota age clock from 8115 samples; critical perturbation at 56\u201360 years (validated in 2263 samples); reduced ecological stability and species abundance changes; phylogenetic divergence in seven species (e.g., E. coli); disease association altered before/after transition",
+    "comments": "Large-scale, multi-continent validation identifying age-associated microbiota threshold; mechanistic links to specific diseases require causal studies but offers microbiota-targeting intervention opportunities.",
+    "model_io": [
+      {
+        "model": "Machine learning microbiota age clock with metagenomic features",
+        "inputs": [
+          "Fecal metagenomic data across five continents"
+        ],
+        "outputs": [
+          "Microbiota age",
+          "Phase transition point (56\u201360 years)",
+          "Species composition changes"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "A distinct microbiota phase transition occurs at 56\u201360 years associated with altered disease risk",
+        "result": "Confirmed; significant perturbation validated in independent cohort with ecosystem stability decline"
+      }
+    ]
+  },
+  "nature:10.1038/s41533-026-00498-2": {
+    "category": "Network Biology",
+    "task": "Scoping review of asthma clinical decision support systems in primary care",
+    "key_results": "18 trials reviewed (2012\u20132024); heterogeneous interventions show modest improvements in prescribing adherence but inconsistent effects on asthma control; declining system use over time",
+    "comments": "Important critical synthesis revealing implementation challenges; lack of behavioral theory integration and workflow compatibility cited as key barriers to sustainability.",
+    "model_io": [],
+    "hypotheses": [
+      {
+        "hypothesis": "CDSS interventions improve asthma control in primary care when integrated into clinical workflow",
+        "result": "Partially confirmed; prescribing improvements seen but inconsistent control outcomes and poor sustained adoption"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-36530-1": {
+    "category": "Genomics",
+    "task": "Identifying transcriptional markers of early carcinogenesis in high-grade bladder cancer",
+    "key_results": "12 significantly upregulated genes (CCNA2, CDC20, MMP1/3/9/10, STAT1/2, TNFRSF1A, TNFSF10, TUBB3); collagen degradation and ECM pathways most significant; inflammation and cytokine signaling implicated",
+    "comments": "Pathway-level findings align with known biology but limited to n=12 cases; larger cohorts and functional validation needed to establish clinical utility.",
+    "model_io": [
+      {
+        "model": "Genome-wide expression profiling (Illumina HT-12) with IPA, Cytoscape network analysis",
+        "inputs": [
+          "High-grade bladder tumor samples (n=12)",
+          "Paired normal tissue (n=12)"
+        ],
+        "outputs": [
+          "Differentially expressed genes",
+          "Enriched pathways",
+          "Gene networks"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Specific transcriptional signatures distinguish high-grade bladder cancer from normal tissue and predict metastatic potential",
+        "result": "Partially confirmed; identified dysregulated genes and pathways, but predictive power for metastasis unclear"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45174-0": {
+    "category": "Genomics",
+    "task": "Identifying alternative splicing and RBP dysregulation in myocardial ischemia-reperfusion injury",
+    "key_results": "1262 DEGs identified (232 RBPs); 42 RASE-related genes overlapping; mTOR and MAPK pathways enriched; LMNA-regulated AS of Atp6v1h linked to hypoxic response",
+    "comments": "Comprehensive integration of transcriptomics, pathway analysis, and validation, identifying LMNA-Atp6v1h axis as novel therapeutic target, though mechanistic causality remains to be established.",
+    "model_io": [
+      {
+        "model": "RNA-seq analysis with LASSO and multivariate regression",
+        "inputs": [
+          "RNA sequencing data from MIRI model (GSE214122)"
+        ],
+        "outputs": [
+          "DEGs",
+          "Alternative splicing events",
+          "Pathway enrichment"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Alternative splicing and RBP dysregulation contribute to MIRI pathogenesis through mTOR and MAPK pathway modulation",
+        "result": "Supported; LMNA-AS Atp6v1h identified; mTOR/MAPK pathway genes enriched among RASE"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45947-7": {
+    "category": "Other",
+    "task": "Lightweight deep learning for multi-disease severity detection in pome fruit leaves",
+    "key_results": "Dual-model framework (Lite-U-Net + Lite-YOLACT) achieves 95% accuracy in disease severity estimation; handles multiple coexisting infections; improved Grad-CAM enables interpretability",
+    "comments": "Addresses practical agricultural problem with interpretability, though validation limited to annotated laboratory images; field robustness and generalization to diverse lighting/angles requires testing.",
+    "model_io": [
+      {
+        "model": "Lite-U-Net (semantic segmentation) + Lite-YOLACT (instance segmentation) with improved Grad-CAM",
+        "inputs": [
+          "Pome leaf images with multiple disease types and severity levels"
+        ],
+        "outputs": [
+          "Disease region segmentation",
+          "Disease type classification",
+          "Severity scores",
+          "Attention heatmaps"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Lightweight deep learning enables multi-disease severity detection in agricultural leaves with high accuracy",
+        "result": "Confirmed; achieved 95% accuracy in disease severity estimation with interpretability"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45981-5": {
+    "category": "Network Biology",
+    "task": "Identifying mechanisms of Chinese yam in treating osteoporosis via network pharmacology",
+    "key_results": "PI3K/Akt and MAPK pathways enriched; Dihydroquercetin and Garcinone D show superior binding affinities; zebrafish model showed increased ALP activity and bone mineralization",
+    "comments": "Multi-level approach combining network pharmacology and experimental validation, though causal mechanisms linking in vitro effects to clinical outcomes remain incompletely established.",
+    "model_io": [
+      {
+        "model": "Network pharmacology analysis with molecular docking",
+        "inputs": [
+          "Active compounds from Chinese yam",
+          "Target proteins (EGFR, SRC, IL-6, AKT1, CTNNB1)"
+        ],
+        "outputs": [
+          "Binding affinities",
+          "Pathway enrichment"
+        ]
+      },
+      {
+        "model": "Zebrafish and MC3T3-E1 cell models",
+        "inputs": [
+          "Chinese yam extract",
+          "Dexamethasone",
+          "PI3K inhibitor"
+        ],
+        "outputs": [
+          "Bone mineralization",
+          "ALP activity",
+          "RUNX2/OCN expression"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Chinese yam compounds modulate PI3K/Akt and MAPK pathways to promote bone formation",
+        "result": "Partially confirmed; PI3K pathway activation observed, pathway inhibitor reversed effects"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-46011-0": {
+    "category": "Other",
+    "task": "Explainable hybrid deep learning for automated skin lesion classification",
+    "key_results": "DermaScanAI achieves 94.8% accuracy, 91.9% macro F1-score, 0.957 AUC on HAM10000; Grad-CAM enables interpretability; robust across seven lesion categories",
+    "comments": "Strong performance with interpretability mechanism, though single-institution validation on HAM10000 and prospective multi-institutional validation needed for clinical deployment.",
+    "model_io": [
+      {
+        "model": "Multi-scale CNN + Transformer encoders with SE blocks + Grad-CAM",
+        "inputs": [
+          "Dermoscopic images"
+        ],
+        "outputs": [
+          "Lesion classification (7 categories)",
+          "Confidence scores",
+          "Attention heatmaps"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Hybrid CNN-Transformer architecture with attention mechanisms improves skin lesion classification and interpretability",
+        "result": "Confirmed; achieved 94.8% accuracy with robust class-wise performance"
+      }
+    ]
+  },
+  "nature:10.1038/s42003-026-09898-z": {
+    "category": "Genomics",
+    "task": "Efficient inference and integration of spatial co-expression networks from spatial transcriptomics data",
+    "key_results": "Smoothie pipeline with Gaussian smoothing and implicit/explicit parallelization scales to >100 million spatially resolved spots; enables precise gene module detection, uncharacterized gene annotation, and multi-sample comparisons",
+    "comments": "Scalable framework addressing real computational challenges in spatial transcriptomics; computational efficiency validated but biological insights demonstrated on limited case studies.",
+    "model_io": [
+      {
+        "model": "Smoothie: Gaussian smoothing + co-expression network construction with parallelization",
+        "inputs": [
+          "Spatial transcriptomics data (gene counts with spatial coordinates)"
+        ],
+        "outputs": [
+          "Denoised expression profiles",
+          "Co-expression networks",
+          "Gene modules",
+          "Functional annotations"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Gaussian smoothing and efficient network algorithms enable scalable co-expression analysis in spatial transcriptomics",
+        "result": "Confirmed; achieved scalability to >100M spots with demonstrated module detection and gene annotation"
+      }
+    ]
+  },
+  "nature:10.1038/s42003-026-09921-3": {
+    "category": "Structural Prediction",
+    "task": "Learning RNA base-pairing rules from sequences using probabilistic models",
+    "key_results": "21-parameter SCFG trained on 50 sequences rediscovered Watson-Crick-Franklin and wobble base pairs; tested on 1094 sequences across 22 RNA families",
+    "comments": "Elegant demonstration that canonical base-pairing emerges from sequence-level signals alone without labeled structures, though biological relevance beyond known rules unclear.",
+    "model_io": [
+      {
+        "model": "Stochastic Context-Free Grammar (SCFG)",
+        "inputs": [
+          "RNA sequences"
+        ],
+        "outputs": [
+          "Base-pairing probabilities",
+          "Helical structures"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "RNA base-pairing rules emerge from sequence signals without structural labels",
+        "result": "Confirmed; 21-parameter SCFG recovered canonical rules from 50 sequences"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-38787-y": {
+    "category": "ML Theory",
+    "task": "Dynamic driving style classification from behavior primitives",
+    "key_results": "Framework achieves fine-grained classification of cautious, average, and aggressive driving styles using unsupervised primitive extraction and particle swarm optimization thresholds",
+    "comments": "Practical approach but lacks quantitative performance metrics on standard benchmarks.",
+    "model_io": [
+      {
+        "model": "Unsupervised behavior primitive extraction + Linear weighting model + PSO",
+        "inputs": [
+          "time-series driving data"
+        ],
+        "outputs": [
+          "driving style classification (cautious/average/aggressive)"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Temporal feature preservation improves dynamic driving style classification",
+        "result": "Framework provides fine-grained classification by preserving temporal characteristics"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44994-4": {
+    "category": "ML Theory",
+    "task": "Driver fatigue detection via pose estimation and LSTM temporal modeling",
+    "key_results": "AlphaPose* + LSTM with multi-view (frontal, lateral, hand) achieves superior fatigue detection vs state-of-the-art on DMD dataset",
+    "comments": "Multi-view strategy is practical; YOLOv11n detector improvement over original AlphaPose is marginal; lacks quantitative metrics (accuracy/F1).",
+    "model_io": [
+      {
+        "model": "YOLOv11n-enhanced AlphaPose + LSTM on Driving Monitoring Dataset",
+        "inputs": [
+          "video from frontal, lateral, hand views"
+        ],
+        "outputs": [
+          "fatigue state predictions (temporal sequences)"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "LSTM temporal modeling of multi-view pose data improves fatigue detection over static approaches",
+        "result": "AlphaPose*-LSTM system outperforms existing methods; captures temporal dynamics of driver behavior"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45060-9": {
+    "category": "ML Theory",
+    "task": "Digital restoration of cultural relics via 3D modeling and GANs",
+    "key_results": "PSNR 31.20 dB, SSIM 0.94, Frechet distance 16.84, pattern continuity 0.93, subjective completeness score 9.30",
+    "comments": "Solid engineering application of GAN-based inpainting; metrics are comprehensive; limited to surface decoration patterns.",
+    "model_io": [
+      {
+        "model": "GAN with conditional variables, gated convolutions, contextual attention + 3D structural model",
+        "inputs": [
+          "damaged cultural relic images",
+          "3D structural models"
+        ],
+        "outputs": [
+          "restored decorative patterns",
+          "integrated 3D + surface model"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "GAN-based image restoration combined with 3D modeling improves accuracy of cultural relic restoration",
+        "result": "Conditional GAN achieves PSNR 31.2 dB, SSIM 0.94; subjective score 9.3/10 for pattern completeness"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45131-x": {
+    "category": "Algorithms",
+    "task": "Numerical optimization via River Erosion and Deposition Algorithm",
+    "key_results": "REDA outperforms 13 comparators on 29 CEC2017 benchmarks and 19 constrained engineering problems; Friedman/Wilcoxon statistical significance",
+    "comments": "Solid metaheuristic contribution with rigorous validation; low-dimensional advantage is noted; solar parameter estimation application is practical.",
+    "model_io": [
+      {
+        "model": "REDA: adaptive search weight cycling + stochastic recombination + elite memory",
+        "inputs": [
+          "black-box optimization problems (29 CEC2017 + 19 constrained engineering)"
+        ],
+        "outputs": [
+          "optimal parameter values; convergence trajectories"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Adaptive cyclic search weight balances exploration-exploitation better than fixed strategies",
+        "result": "REDA significantly outperforms 13 state-of-the-art algorithms; especially strong in low-dimensional spaces"
+      }
+    ]
+  },
+  "nature:10.1038/s42005-026-02592-w": {
+    "category": "Combinatorics/Graph Theory",
+    "task": "Distance measure for weighted hypergraphs",
+    "key_results": "General distance measure for weighted hypergraphs reduces to classic graph distance; applied to arXiv preprint network with cognitive distance weighting",
+    "comments": "Theoretical contribution addressing a genuine gap; cognitive distance weighting is well-motivated; real-world applicability demonstrated but limited.",
+    "model_io": [],
+    "hypotheses": [
+      {
+        "hypothesis": "Hypergraph distance measure avoids information loss from clique projection",
+        "result": "Full hypergraph measure necessary for real-world datasets; clique projection loses significant structural information"
+      }
+    ]
+  },
+  "nature:10.1038/s41467-026-70948-5": {
+    "category": "Applied Physics",
+    "task": "Enable damage-free transfer of soft electronics onto curved and fragile biological surfaces",
+    "key_results": "Yield-stress fluid at 0.0253 kPa (orders below tissue rupture ~0.2 kPa); demonstrated thermal sensing on moving joints without device or tissue damage",
+    "comments": "Innovative fluid mechanics solution with elegant biological application; biocompatibility and long-term stability remain to be established.",
+    "model_io": [
+      {
+        "model": "Deformation-decoupling adhesion-switchable yield-stress fluid (DAYS-fluid)",
+        "inputs": [
+          "soft electronic device",
+          "curved biological surface",
+          "water trigger"
+        ],
+        "outputs": [
+          "device integrity",
+          "tissue integrity",
+          "thermal sensing fidelity"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Ultra-low yield stress and adhesion-switching enable non-invasive transfer without deformation",
+        "result": "Confirmed; successful thermal sensing on moving joints with preserved device and tissue integrity"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45779-5": {
+    "category": "Optics/Photonics",
+    "task": "Demonstrate poling-induced second-order optical nonlinearity in amorphous sodium niobate waveguides",
+    "key_results": "Sustained second-order nonlinearity after waveguide processing (UV lithography, dry-etch); precise spatial control of SONL via micrometer-scale poling",
+    "comments": "Attractive alternative to lithium niobate with isotropic design advantages, but efficiency and scalability for practical devices require further optimization.",
+    "model_io": [
+      {
+        "model": "Amorphous sodium niobate thin-film waveguides with thermal poling",
+        "inputs": [
+          "poling field",
+          "temperature",
+          "lithography mask"
+        ],
+        "outputs": [
+          "second-harmonic generation intensity",
+          "spatial SONL pattern"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Thermal poling induces persistent SONL in amorphous Na-niobate, retained through fabrication",
+        "result": "Confirmed; strong SHG signals persist after UV lithography and dry-etching"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45929-9": {
+    "category": "Applied Physics",
+    "task": "Characterize electron temperature and density in RF-DBD Ar/CH\u2084 plasma across operational parameter ranges",
+    "key_results": "Electron temperature 0.98\u20131.08 eV (Ar, 0.5\u20131.0 Torr), ~1.2 eV (Ar/CH\u2084) at 4 W; electron density 10\u00b9\u2074\u201310\u00b9\u2075 m\u207b\u00b3; H\u03b1 intensity correlates with hydrogen species; deposited carbon films amorphous structure",
+    "comments": "Systematic parametric characterization useful for plasma process control; connection to hydrogen production efficiency and carbon material quality could be strengthened.",
+    "model_io": [
+      {
+        "model": "RF-DBD Ar/CH\u2084 plasma with optical diagnostics",
+        "inputs": [
+          "pressure",
+          "applied power",
+          "gas flow rate"
+        ],
+        "outputs": [
+          "electron temperature",
+          "electron density",
+          "H\u03b1 emission",
+          "carbon material morphology"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Plasma operational parameters systematically control electron temperature, density, and gas conversion efficiency",
+        "result": "Confirmed; pressure, power, and flow rate relationships quantified for controlled H\u2082 production"
+      }
+    ]
   }
 }

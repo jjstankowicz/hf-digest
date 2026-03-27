@@ -34548,5 +34548,806 @@
         "result": "Confirmed: differentiation assays demonstrated intratumoral nILC conversion to ILC1/trNK-like phenotype"
       }
     ]
+  },
+  "hf:2603.24961": {
+    "category": "Benchmark",
+    "task": "Error analysis and classification in handwritten mathematics scratchwork",
+    "key_results": "16 MLLMs evaluated; significant performance gaps vs. human experts; proprietary models outperform open-source; reasoning models show promise for error explanation",
+    "comments": "Addresses the important but understudied problem of multimodal error diagnosis rather than just answer generation, which is more educationally relevant than typical MLLM benchmarks.",
+    "model_io": [
+      {
+        "model": "16 MLLMs (proprietary and open-source)",
+        "inputs": [
+          "handwritten mathematics images",
+          "task prompts"
+        ],
+        "outputs": [
+          "error cause explanations",
+          "error classifications"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "MLLMs can match human expert performance on handwritten math error diagnosis",
+        "result": "False; significant performance gaps remain, especially in visual recognition and logical reasoning"
+      }
+    ]
+  },
+  "hf:2603.24844": {
+    "category": "LLM/Reasoning",
+    "task": "Distributional reasoning over multiple answers with confidence estimates",
+    "key_results": "Improved diversity, coverage, and calibration compared to single-answer baselines; 1.8x faster than best-of-k sampling; substantially higher accuracy on coding tasks",
+    "comments": "The key insight that post-training collapses answer distributions is valuable; multi-answer generation in a single forward pass is computationally elegant and practical.",
+    "model_io": [
+      {
+        "model": "Language models with multi-answer RL training",
+        "inputs": [
+          "questions",
+          "task context"
+        ],
+        "outputs": [
+          "multiple candidate answers with confidence estimates"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Multi-answer RL can generate diverse, well-calibrated answers more efficiently than inference-time scaling",
+        "result": "True; observed improved diversity, coverage, calibration, and token efficiency across QA, medical, and coding benchmarks"
+      }
+    ]
+  },
+  "hf:2603.24836": {
+    "category": "Vision",
+    "task": "Stereo depth matching without cost volumes",
+    "key_results": "Ranks first on ETH3D, KITTI, Middlebury; 81% zero-shot error reduction on ETH3D; 1.8-6.7x faster than competitors",
+    "comments": "Elegant simplification showing that warping-based approaches can outperform complex cost volume designs, with significant efficiency gains.",
+    "model_io": [
+      {
+        "model": "WAFT-Stereo (warping-based)",
+        "inputs": [
+          "stereo image pairs"
+        ],
+        "outputs": [
+          "depth maps",
+          "disparity estimates"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Cost volumes are necessary for strong stereo matching performance",
+        "result": "False; warping-based approach without cost volumes achieves superior accuracy and efficiency"
+      }
+    ]
+  },
+  "hf:2603.24575": {
+    "category": "Generative",
+    "task": "Figure-to-SVG conversion from rasterized images",
+    "key_results": "VLM-Judge score of 0.829 on VFIG-BENCH; matches GPT-5.2 performance; 66K training pairs in VFIG-DATA",
+    "comments": "Combines curriculum learning (SFT\u2192RL) with domain understanding of SVG structure; the coarse-to-fine approach is well-motivated for hierarchical geometric reconstruction.",
+    "model_io": [
+      {
+        "model": "VFIG (Vision-Language Model with SFT+RL)",
+        "inputs": [
+          "rasterized figure images (PNG/JPEG)"
+        ],
+        "outputs": [
+          "SVG code with geometric primitives"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Coarse-to-fine curriculum (SFT then RL) improves SVG reconstruction quality",
+        "result": "True; achieves state-of-the-art among open-source models and parity with GPT-5.2"
+      }
+    ]
+  },
+  "hf:2603.24517": {
+    "category": "Agents/RL",
+    "task": "Autonomous optimization of GPU attention kernels",
+    "key_results": "3.5% faster than cuDNN, 10.5% faster than FlashAttention-4; transfers to grouped-query attention with 7-9.3% gains; 7 days continuous autonomous search",
+    "comments": "Elevates LLM agents from mere code generators to full variation operators with execution feedback and self-critique; impressive practical impact on production-critical kernels.",
+    "model_io": [
+      {
+        "model": "Agentic Variation Operators (LLM-based autonomous agents)",
+        "inputs": [
+          "kernel lineage",
+          "domain knowledge base",
+          "execution feedback",
+          "performance metrics"
+        ],
+        "outputs": [
+          "optimized kernel implementations",
+          "performance-verified code edits"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Autonomous agentic operators can discover micro-architectural optimizations surpassing expert-engineered implementations",
+        "result": "True; discovered kernels beat cuDNN and FlashAttention-4 on Blackwell GPUs with consistent transferability"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-46071-2": {
+    "category": "Mechanobiology",
+    "task": "Characterize integrin selectivity of PTHTRWA-functionalized extracellular vesicles via structural and biophysical analysis",
+    "key_results": "PTHTRWA-EV binding stabilizes open-like integrin geometry; SPR and MD simulations reveal residue-level interaction patterns differentiating \u03b12\u03b21 and \u03b15\u03b21 recognition",
+    "comments": "Integrative biophysical approach, but quantitative binding selectivity ratios and in vivo targeting efficacy not provided.",
+    "model_io": [
+      {
+        "model": "PTHTRWA-functionalized extracellular vesicles",
+        "inputs": [
+          "\u03b12\u03b21 and \u03b15\u03b21 integrins"
+        ],
+        "outputs": [
+          "SPR binding kinetics",
+          "MD-derived conformational states",
+          "Open-like geometry stabilization"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "PTHTRWA induces selective conformational changes stabilizing open-like geometry at integrin interface",
+        "result": "Confirmed: MD simulations show local rearrangements consistent with selective integrin recognition"
+      }
+    ]
+  },
+  "nature:10.1038/s42003-026-09740-6": {
+    "category": "Structural Biology",
+    "task": "Engineer dimeric single-domain antibody with improved A\u03b2 oligomer specificity and neutralization",
+    "key_results": "DiDesAb-O dimer shows significantly higher binding affinity for A\u03b242 oligomers than monomer; selectively detects oligomers in patient CSF and neutralizes neurotoxicity at lower concentrations than DesAb-O",
+    "comments": "Practical therapeutic advance, but no quantitative binding constants or IC50 values provided; selectivity vs monomers/fibrils not numerically characterized.",
+    "model_io": [
+      {
+        "model": "DiDesAb-O single-domain antibody dimer",
+        "inputs": [
+          "A\u03b2 oligomers",
+          "Patient cerebrospinal fluid"
+        ],
+        "outputs": [
+          "Binding detection",
+          "Neurotoxicity neutralization",
+          "Membrane binding inhibition"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Rational dimerization increases A\u03b2 oligomer binding affinity and functional efficacy",
+        "result": "Confirmed: DiDesAb-O shows higher affinity and improved neutralization vs monomeric DesAb-O"
+      }
+    ]
+  },
+  "nature:10.1038/s41419-026-08533-3": {
+    "category": "Cell Signaling",
+    "task": "Determine synergistic effects of dual mTOR and HSP90 inhibition in overcoming platinum resistance in ovarian cancer",
+    "key_results": "Pt-resistant cells show elevated phospho-PDK1, AKT, mTOR, RPS6 and HSP90/HSP70/HSF1 activity; triple combination (ganetespib + temsirolimus + cisplatin) synergistically reduces colony/microtissue growth in vitro and enhances survival in vivo; effect replicated in Pt-resistant NSCLC",
+    "comments": "Quantitative phosphoproteomics identifies actionable resistance mechanisms; in vivo synergy is impressive but mechanism of mTOR-HSP90 crosstalk in chaperone remodeling deserves deeper investigation.",
+    "model_io": [
+      {
+        "model": "Pt-resistant ovarian cancer cells",
+        "inputs": [
+          "ganetespib (HSP90 inhibitor)",
+          "temsirolimus (mTOR inhibitor)",
+          "cisplatin"
+        ],
+        "outputs": [
+          "reduced colony formation",
+          "reduced microtissue growth",
+          "increased DNA damage",
+          "increased apoptosis",
+          "impaired mTOR signaling and HSF1 transactivation"
+        ]
+      },
+      {
+        "model": "Pt-resistant mouse xenograft",
+        "inputs": [
+          "triple combination therapy"
+        ],
+        "outputs": [
+          "enhanced mouse survival"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "mTOR and HSP90 pathways synergize in Pt-resistant cells",
+        "result": "confirmed; dual inhibition potentiates cisplatin efficacy better than single agents"
+      },
+      {
+        "hypothesis": "Mechanism applicable across cancer types",
+        "result": "confirmed; efficacy replicated in Pt-resistant NSCLC models"
+      }
+    ]
+  },
+  "nature:10.1038/s41419-026-08559-7": {
+    "category": "Apoptosis/Cell Death",
+    "task": "Identify synergistic apoptosis induction in chemoresistant ovarian cancer via UPR/ATF4/Noxa pathway and calcium signaling",
+    "key_results": "SERCA2 inhibition + ABT-737 rebalances anti-apoptotic to pro-apoptotic BCL-2 ratio; combination overactivates UPR/ATF4/Noxa axis and triggers massive mitochondrial apoptosis; ONC201 + ABT-737 achieves similar effect; efficacy confirmed in patient-derived organoids",
+    "comments": "Mechanistically sound combination targeting both calcium signaling and BCL-2 balance; PDO validation strengthens clinical relevance, though limited to single resistant line.",
+    "model_io": [
+      {
+        "model": "platinum-resistant OAW42-R cells",
+        "inputs": [
+          "SERCA2 inhibitors or ONC201",
+          "ABT-737"
+        ],
+        "outputs": [
+          "ER stress induction",
+          "UPR/ATF4/Noxa overactivation",
+          "BCL-2 family rebalancing",
+          "massive apoptosis"
+        ]
+      },
+      {
+        "model": "patient-derived tumor organoids (PDTO)",
+        "inputs": [
+          "SERCA2 inhibitors + ABT-737 or ONC201 + ABT-737"
+        ],
+        "outputs": [
+          "structural disintegration",
+          "reduced viability"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Calcium-targeted strategies sensitize chemoresistant ovarian cancer to apoptosis",
+        "result": "confirmed; SERCA2 inhibition + ABT-737 triggers massive apoptosis"
+      },
+      {
+        "hypothesis": "ER stress-driven Noxa upregulation synergizes with BCL-xL inhibition",
+        "result": "confirmed; dual effect fully suppresses anti-apoptotic capacity"
+      }
+    ]
+  },
+  "nature:10.1038/s41467-026-71200-w": {
+    "category": "Cytoskeleton",
+    "task": "Determine KATANIN p60 role in maize cell elongation and division for proper organ development",
+    "key_results": "KATANIN p60 (encoded by Dcd3a and Dcd3b) is essential for microtubule severing and cell elongation; loss-of-function reduces microtubule severing, fertility, and cell elongation; defects include preprophase band misorientation and nuclear positioning errors; combined defects reduce cell numbers and plant stature",
+    "comments": "Clear link between microtubule dynamics and cell cycle progression (G1 delay); demonstrates tissue-level consequences (fertility, stature) from subcellular defects, though detailed cell division mechanism still incomplete.",
+    "model_io": [
+      {
+        "model": "maize (Zea mays) mutant lines",
+        "inputs": [
+          "Clumped tassel1 (Clt1) mutation in Dcd3b",
+          "dcd3a loss-of-function alleles"
+        ],
+        "outputs": [
+          "reduced microtubule severing",
+          "decreased cell elongation",
+          "G1 delay",
+          "preprophase band misorientation",
+          "nuclear positioning defects",
+          "reduced fertility and stature"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "KATANIN p60 is essential for proper cell elongation",
+        "result": "confirmed; loss-of-function reduces cell elongation"
+      },
+      {
+        "hypothesis": "KATANIN p60 regulates preprophase band formation and positioning",
+        "result": "confirmed; mutants show PPB misorientation and symmetric division defects"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-44793-x": {
+    "category": "Cell Division/Cycle",
+    "task": "Investigate Numb-mediated protection against radiation-induced intestinal epithelial cell senescence",
+    "key_results": "Numb inhibition increases mucosal barrier permeability and senescence markers (\u03b3H2AX, p21, SA-\u03b2-gal); PLK1 overexpression reverses senescence phenotype from Numb knockdown",
+    "comments": "Identifies PLK1 as a key downstream effector; therapeutic relevance for radiation enteritis is clear, though in vivo validation in whole animals would strengthen claims.",
+    "model_io": [
+      {
+        "model": "C57BL/6J mice with Numb knockdown",
+        "inputs": [
+          "Numb antisense oligodeoxynucleotides",
+          "radiation exposure"
+        ],
+        "outputs": [
+          "increased intestinal permeability (FD40 assay)",
+          "elevated serum DAO",
+          "increased \u03b3H2AX, p21, SA-\u03b2-gal"
+        ]
+      },
+      {
+        "model": "colonic cells in vitro",
+        "inputs": [
+          "Numb knockdown",
+          "radiation exposure"
+        ],
+        "outputs": [
+          "G2 phase accumulation",
+          "increased senescence markers",
+          "upregulated inflammatory factors"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Numb protects intestinal epithelial cells from radiation-induced senescence",
+        "result": "confirmed; Numb inhibition increases senescence burden"
+      },
+      {
+        "hypothesis": "PLK1 mediates Numb-dependent protection",
+        "result": "confirmed; PLK1 overexpression rescues senescence phenotype"
+      }
+    ]
+  },
+  "nature:10.1038/s41467-026-71224-2": {
+    "category": "Structural Prediction",
+    "task": "Elucidating processive catalytic mechanism of \u03b2(1,3)-glucan breakdown",
+    "key_results": "Conformational gating mechanism revealed: tunnel-like active site upon substrate binding, non-canonical sugar conformation, salt-bridge disruption for product release; molecular simulations validate processive translocation model",
+    "comments": "Detailed mechanistic insights into enzymatic processivity with potential biotechnological applications; in vitro kinetic validation and structural determination would strengthen conclusions.",
+    "model_io": [
+      {
+        "model": "Molecular dynamics simulations + structural modeling",
+        "inputs": [
+          "\u03b2(1,3)-glucan substrate",
+          "enzyme structure"
+        ],
+        "outputs": [
+          "conformational states",
+          "catalytic intermediates",
+          "product release mechanism"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Dynamic active-site conformations enable processive sugar chain translocation",
+        "result": "Salt bridge disruption triggers open conformation facilitating product release and processivity"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-41469-4": {
+    "category": "Statistical Methods",
+    "task": "Privacy-preserving federated learning for medical X-ray diagnosis",
+    "key_results": "ResNet-50 with stochastic noise and homomorphic encryption achieves 99.6% accuracy, 98.8% precision, 99.2% recall, 99% F1-score; 5% improvement over conventional FL",
+    "comments": "Claims of 5% improvement over conventional FL are vague and lack rigorous comparison; convergence speed and communication costs not quantitatively compared.",
+    "model_io": [
+      {
+        "model": "ResNet-50 + FL with privacy mechanisms",
+        "inputs": [
+          "distributed X-ray images",
+          "local patient data"
+        ],
+        "outputs": [
+          "diagnosis predictions",
+          "privacy-preserved model updates"
+        ]
+      }
+    ],
+    "hypotheses": []
+  },
+  "nature:10.1038/s41598-026-42029-6": {
+    "category": "Structural Prediction",
+    "task": "Pulmonary nodule detection in CT images using YOLOv11",
+    "key_results": "WTAM-YOLO improves YOLOv11 mAP@50 by 3.4% (Roboflow) and 2.5% (LUNA16); mAP@75 by 9.5% and 7.0%; precision +4.4% and +0.7%; recall +2.3% and +4.6%",
+    "comments": "Incremental improvements achieved through component additions (wavelet convolution, CBAM, HRAMi, iEMA); clinical validation on prospective patient cohorts absent.",
+    "model_io": [
+      {
+        "model": "WTAM-YOLO (YOLOv11-based)",
+        "inputs": [
+          "lung CT images"
+        ],
+        "outputs": [
+          "nodule detections",
+          "bounding boxes",
+          "confidence scores"
+        ]
+      }
+    ],
+    "hypotheses": []
+  },
+  "nature:10.1038/s41598-026-42686-7": {
+    "category": "Statistical Methods",
+    "task": "Developing 5-year retinal arteriosclerosis risk prediction models",
+    "key_results": "10,323 diagnoses over 288,525 person-years (incidence 35.8/1000 person-years); Cox models achieve C-index ~0.8 in validation; males >40 and females >45 identified as high-risk; online calculator provided",
+    "comments": "Robust epidemiological study with good discrimination; calibration accuracy and external validation on independent cohorts needed; retinal imaging quantification method not detailed.",
+    "model_io": [
+      {
+        "model": "Cox proportional hazards",
+        "inputs": [
+          "age, BMI, waist/hip circumference, BP, smoking, comorbidities, lipids, creatinine"
+        ],
+        "outputs": [
+          "5-year retinal arteriosclerosis risk probability"
+        ]
+      }
+    ],
+    "hypotheses": []
+  },
+  "nature:10.1038/s41598-026-44977-5": {
+    "category": "Proteomics",
+    "task": "Identifying proteomic biomarkers for papillary thyroid carcinoma in Hashimoto's thyroiditis",
+    "key_results": "72 upregulated and 21 downregulated proteins identified; COL12A1 validated as promising candidate tumor marker; differential expression verified in 35 additional samples",
+    "comments": "Functional validation of COL12A1 in thyroid cancer pathogenesis is missing; clinical utility as diagnostic/prognostic marker needs prospective evaluation.",
+    "model_io": [
+      {
+        "model": "Mass spectrometry + LC-HPLC",
+        "inputs": [
+          "thyroid tissue samples"
+        ],
+        "outputs": [
+          "differential protein abundance",
+          "protein interaction networks"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "COL12A1 is specifically upregulated in PTC but not benign nodules",
+        "result": "Immunohistochemistry confirms COL12A1 as candidate diagnostic marker"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45255-0": {
+    "category": "Statistical Methods",
+    "task": "Identifying early metabolic biomarkers of sepsis-associated acute kidney injury",
+    "key_results": "634 metabolites detected; 5 key biomarkers identified (Sebacic acid, 1-RDN, Threonic acid, Methyl acetate, Acylcarnitine 10:2) via LASSO+Boruta; SVM achieves AUC 0.89 with LOOCV (50 iterations); 1-RDN\u2013phenylalanine hydroxylase interaction predicted (binding energy \u22127.9 kcal/mol)",
+    "comments": "Integrated metabolomics-ML-docking approach is thorough; small sample (n=50) and single-center design limit generalizability; 48h prediction window clinically relevant but needs validation.",
+    "model_io": [
+      {
+        "model": "Non-targeted metabolomics + SVM + molecular docking",
+        "inputs": [
+          "serum samples",
+          "metabolite peaks"
+        ],
+        "outputs": [
+          "SA-AKI risk prediction",
+          "candidate biomarkers",
+          "protein-metabolite interactions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "1-RDN dysregulation links fatty acid and phenylalanine metabolism disruption to renal injury",
+        "result": "Molecular docking predicts stable binding to phenylalanine hydroxylase"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45500-6": {
+    "category": "Statistical Methods",
+    "task": "Predicting long-term kidney function decline in type 2 diabetes",
+    "key_results": "SVM model achieves R\u00b2 0.67 (95% CI 0.62\u20130.72) for eGFR prediction up to 6 years; outperforms multiple linear regression beyond 4 years; trained on 974 patients over median 5.3 years",
+    "comments": "Strong performance on long-term prediction, but external validation on independent cohorts and comparison with clinical risk scores (e.g., KDIGO) would be important.",
+    "model_io": [
+      {
+        "model": "SVM, LightGBM, Random Forest",
+        "inputs": [
+          "54 baseline clinical features",
+          "time-point variable"
+        ],
+        "outputs": [
+          "predicted eGFR at annual timepoints"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Machine learning models capture nonlinear relationships in kidney disease progression",
+        "result": "SVM superior to linear models for long-term eGFR prediction"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45622-x": {
+    "category": "Network Biology",
+    "task": "Grammar error diagnosis using graph neural networks and knowledge graphs",
+    "key_results": "GCN+knowledge graph achieves F1 0.6484 (CoNLL-2014), 0.6719 (JFLEG), 0.6367 (BEA-2019); ~8.8% improvement over BERT+BiLSTM on CoNLL-2014; 4.4% over GECToR; statistical significance confirmed by bootstrap resampling",
+    "comments": "Strong NLP performance with interpretability gain from knowledge graph integration; pedagogical effectiveness for language education requires user studies.",
+    "model_io": [
+      {
+        "model": "Graph Convolutional Network + grammar knowledge graph",
+        "inputs": [
+          "sentence dependency graphs",
+          "grammatical error taxonomies"
+        ],
+        "outputs": [
+          "error detections",
+          "corrections",
+          "diagnostic explanations"
+        ]
+      }
+    ],
+    "hypotheses": []
+  },
+  "nature:10.1038/s42003-026-09809-2": {
+    "category": "Structural Prediction",
+    "task": "Predicting protein-protein interactions via physics-informed geometric learning",
+    "key_results": "ProTact (SE(3)-invariant GNN) achieves 31.63% relative improvement in Precision@10 for CASP13/14 targets and 31.94% for DIPS-Plus; outperforms sequence/structure-based methods; combines AlphaFold3 re-scoring with 30.48% improvement in low-MSA contexts",
+    "comments": "Substantial improvements over baselines; physics-informed geometric constraints are principled; performance degrades on unbound complexes due to conformational changes\u2014major limitation for real applications.",
+    "model_io": [
+      {
+        "model": "ProTact (SE(3)-invariant GNN)",
+        "inputs": [
+          "experimental or predicted protein monomer structures"
+        ],
+        "outputs": [
+          "protein-protein contact predictions",
+          "docking poses",
+          "confidence scores"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Geometric complementarity and trigonometric constraints as inductive biases improve contact prediction",
+        "result": "ProTact outperforms seq/structure baselines on benchmark datasets"
+      }
+    ]
+  },
+  "nature:10.1038/s41467-026-70973-4": {
+    "category": "ML Theory",
+    "task": "Deep active learning with knowledge transfer for lithium metal battery electrolyte discovery",
+    "key_results": "Three learning iterations discovered electrolytes increasing average lifetime by 3\u00d7; rapid identification of improved Li||LiNi\u2080.\u2088Co\u2080.\u2081Mn\u2080.\u2081O\u2082 full-cell formulations in expanded chemical spaces via target statistic coding",
+    "comments": "Sample-efficient framework combining deep kernel learning, discontinuous relationship modeling, and knowledge transfer; demonstrates practical high-cost experimental optimization.",
+    "model_io": [
+      {
+        "model": "Deep active learning with deep kernel learning",
+        "inputs": [
+          "Electrolyte formulations",
+          "performance measurements (limited budget)"
+        ],
+        "outputs": [
+          "Informative experiment selections",
+          "surrogate models"
+        ]
+      },
+      {
+        "model": "Target statistic coding for knowledge transfer",
+        "inputs": [
+          "Stage-1 learned representations",
+          "new formulation space specifications"
+        ],
+        "outputs": [
+          "Transferred knowledge for new design settings"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Deep active learning + knowledge transfer rapidly identifies improved electrolytes with sample efficiency",
+        "result": "Confirmed; 3\u00d7 lifetime improvement after three iterations; rapid adaptation to expanded chemical spaces"
+      }
+    ]
+  },
+  "nature:10.1038/s41534-026-01217-y": {
+    "category": "ML Theory",
+    "task": "Quantum machine learning: conditions to avoid classical approximation via Random Feature approximation",
+    "key_results": "Identified necessary conditions on weight vector norms for quantum advantage; framework compatible with proven advantages on discrete inputs; extended to continuous-input advantages via high-dimensional feature maps",
+    "comments": "Theoretical analysis separating dequantizable from inherently quantum models; demonstrates concentration phenomena; establishes foundations for near-term quantum ML design avoiding classical emulation.",
+    "model_io": [
+      {
+        "model": "Variational Quantum Circuit (VQC)",
+        "inputs": [
+          "Classical/quantum feature maps"
+        ],
+        "outputs": [
+          "Quantum predictions",
+          "weight vectors"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "VQCs with large weight vector norms resist classical approximation via Random Feature methods",
+        "result": "Confirmed; necessary condition identified; connection to high-dimensional feature maps established"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-36546-7": {
+    "category": "Algorithms",
+    "task": "AI-driven optimal EV charging with integrated power quality enhancement via deep reinforcement learning",
+    "key_results": "59.7% reduction in energy losses, 75.4% decrease in load-shedding, power factor improved from 0.910 to 0.969, THD reduced from 6.8% to 4.6% (IEEE-519 compliant), voltage deviation 7.2% to 4.1%",
+    "comments": "Integration of TFT demand forecasting with PPO-based RL and D-STATCOM for reactive power control demonstrates practical scalability, though simulation-only validation limits real-world applicability.",
+    "model_io": [
+      {
+        "model": "Temporal Fusion Transformer (TFT)",
+        "inputs": [
+          "Multi-horizon charging demand data"
+        ],
+        "outputs": [
+          "Demand forecasts"
+        ]
+      },
+      {
+        "model": "PPO-based deep RL agent",
+        "inputs": [
+          "Grid state",
+          "forecasted demand",
+          "power quality metrics"
+        ],
+        "outputs": [
+          "Smart charging schedules"
+        ]
+      },
+      {
+        "model": "D-STATCOM optimizer",
+        "inputs": [
+          "Grid voltage, current, harmonic levels"
+        ],
+        "outputs": [
+          "Reactive power compensation",
+          "harmonic filtering"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "AI-coordinated charging with reactive power compensation improves grid stability and power quality",
+        "result": "Confirmed; achieved 59.7% loss reduction, THD within IEEE-519 limits, improved PQ metrics"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45501-5": {
+    "category": "Analysis",
+    "task": "Coupled fractional Whitham-Broer-Kaup equations via Sumudu Transform and Decomposition Method",
+    "key_results": "Analytical framework integrating ST with DM using Caputo, ABC, and CF fractional derivatives; exact and approximate solutions derived with convergence validation; comparable to existing methods",
+    "comments": "Novel integration of integral transforms with fractional calculus; methodology applies to complex nonlinear fractional PDEs, though limited to WBK equations in this study.",
+    "model_io": [
+      {
+        "model": "Sumudu Transform Decomposition Method (ST-DM)",
+        "inputs": [
+          "Coupled fractional WBK equations",
+          "initial/boundary conditions",
+          "fractional order \u03b1"
+        ],
+        "outputs": [
+          "Exact/approximate analytical solutions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "ST-DM with fractional derivatives accurately solves WBK equations across varying fractional orders",
+        "result": "Confirmed; precise, robust, and adaptable across Caputo, ABC, and CF formulations"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45749-x": {
+    "category": "Other",
+    "task": "Intelligent manufacturing evaluation under uncertainty via CSFS, MAIRCA, and CRITIC",
+    "key_results": "Hybrid model combining Circular Spherical Fuzzy Sets, MAIRCA, and CRITIC weighting overcome rank instability; robust performance in Industry 5.0 decision-making with human-machine integration assessment",
+    "comments": "Integration of fuzzy sets with multi-attribute analysis balances ambiguity and objectivity; superior to AHP/TOPSIS in uncertain environments, though practical applicability requires domain expertise.",
+    "model_io": [
+      {
+        "model": "CSFS-MAIRCA-CRITIC hybrid evaluation",
+        "inputs": [
+          "Manufacturing system attributes",
+          "expert judgments",
+          "automation strategy options"
+        ],
+        "outputs": [
+          "Ranked intelligent manufacturing configurations",
+          "uncertainty quantification"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Integration of CSFS, MAIRCA, and CRITIC improves decision stability under uncertainty vs AHP/TOPSIS",
+        "result": "Confirmed; model addresses rank instability and provides robust assessment for Industry 5.0 systems"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-46453-6": {
+    "category": "Algorithms",
+    "task": "Energy-efficient edge deployment of large YOLOv8 and RT-DETR object detectors",
+    "key_results": "Neither large-model variant achieves strict 25 FPS real-time on tested edge platforms; deployment efficiency determined jointly by nominal compute, memory behavior, runtime overhead, and quantization sensitivity",
+    "comments": "Comprehensive benchmarking reveals that FLOPs alone do not predict edge efficiency; further optimization or smaller models required for true real-time performance.",
+    "model_io": [
+      {
+        "model": "YOLOv8l and RT-DETR-l with various runtimes",
+        "inputs": [
+          "COCO val2017 images",
+          "video frames (end-to-end pipeline)"
+        ],
+        "outputs": [
+          "Object detection predictions",
+          "throughput (FPS)",
+          "energy efficiency (FPS/W)"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Model-specific runtime optimization (TensorRT) provides better deployment efficiency than nominal FLOPs prediction",
+        "result": "Confirmed; TensorRT strongest for Jetson Orin NX; relative ranking depends on runtime realization"
+      }
+    ]
+  },
+  "nature:10.1038/s41534-026-01223-0": {
+    "category": "Quantum",
+    "task": "Optimizing fermionic excitation circuits for ion trap quantum computers with M\u00f8lmer-S\u00f8rensen gates",
+    "key_results": "2\u00d7 and 4\u00d7 reductions in MS gates for single and double excitations respectively compared to previous schemes; improved parallelism and reduced circuit depth",
+    "comments": "The approach elegantly exploits MS gate structure for fermionic operations; practical error reduction gains require characterization on real hardware.",
+    "model_io": [
+      {
+        "model": "Ion trap quantum computer with MS interactions",
+        "inputs": [
+          "fermionic excitation operators",
+          "Jordan-Wigner mapping",
+          "circuit ansatz"
+        ],
+        "outputs": [
+          "MS gate sequence",
+          "circuit depth",
+          "gate count",
+          "error rates"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "MS gates naturally suit non-local fermionic excitation operators",
+        "result": "Confirmed; 2-4\u00d7 gate reductions achieved"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-38663-9": {
+    "category": "Condensed Matter",
+    "task": "Investigating CuO doping effects on optical, dielectric, and radiation-shielding properties of fluorobarioborate glasses",
+    "key_results": "Enhanced UV absorption with increased CuO; optical band gap 3.48\u20133.60 eV (direct \u2248 indirect); improved \u03b3-ray attenuation with higher CuO; dielectric behavior shows hopping mechanisms",
+    "comments": "Comprehensive multifunctional material characterization; the simultaneous optical clarity and shielding properties are promising for applications, though sample stability at high CuO concentrations requires attention.",
+    "model_io": [
+      {
+        "model": "Copper fluorobarioborate glass samples (melt-quench synthesis)",
+        "inputs": [
+          "CuO concentration (0\u20130.5 mol%)",
+          "B2O\u2083, BaO, MgF\u2082"
+        ],
+        "outputs": [
+          "XRD patterns",
+          "FTIR spectra",
+          "optical band gap",
+          "dielectric function",
+          "\u03b3-ray attenuation coefficient"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "CuO doping enhances optical absorption and radiation shielding while maintaining dielectric stability",
+        "result": "Confirmed; multifunctional properties demonstrated"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45258-x": {
+    "category": "Condensed Matter",
+    "task": "Linking drying-induced microstructure evolution to gel-glass transition and rheology",
+    "key_results": "Continuous transition from percolated gel to dynamically arrested glass driven by drying; scaling law for diffusion coefficient identifies percolation threshold",
+    "comments": "The SALR interaction framework is well-motivated and the microstructure-rheology linkage is insightful, though experimental validation of the predicted scaling law would be valuable.",
+    "model_io": [
+      {
+        "model": "Molecular dynamics simulations of silica nanoparticle colloids",
+        "inputs": [
+          "drying rate",
+          "effective pair potential",
+          "particle concentration",
+          "electrostatic interactions"
+        ],
+        "outputs": [
+          "particle architecture",
+          "diffusion coefficient",
+          "mechanical properties",
+          "rheological behavior"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Drying-induced pair potential and concentration variations drive gel-to-glass transition",
+        "result": "Confirmed; continuous transition observed with distinct mechanical responses"
+      }
+    ]
   }
 }

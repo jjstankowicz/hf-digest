@@ -1,0 +1,3261 @@
+[
+  {
+    "uid": "hf:2603.25728",
+    "source": "hf",
+    "id": "2603.25728",
+    "title": "PixelSmile: Toward Fine-Grained Facial Expression Editing",
+    "publishedAt": "2026-03-26T17:59:04.000Z",
+    "submittedOnDailyAt": "2026-03-27T03:55:47.489Z",
+    "upvotes": 94,
+    "projectPage": "https://ammmob.github.io/PixelSmile/",
+    "category": "Vision",
+    "task": "Fine-grained facial expression editing",
+    "key_results": "Superior disentanglement of expression semantics; robust identity preservation with continuous, controllable expression editing and smooth blending",
+    "comments": "The FFE dataset and benchmark are valuable contributions, though the practical applications beyond portrait editing are unclear.",
+    "model_io": [
+      {
+        "model": "PixelSmile (diffusion framework)",
+        "inputs": [
+          "facial images",
+          "expression intensity labels"
+        ],
+        "outputs": [
+          "edited facial images with target expressions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Symmetric joint training with contrastive learning produces more distinguishable expressions",
+        "result": "Confirmed; achieved precise and stable linear expression control"
+      }
+    ]
+  },
+  {
+    "uid": "hf:2603.25040",
+    "source": "hf",
+    "id": "2603.25040",
+    "title": "Intern-S1-Pro: Scientific Multimodal Foundation Model at Trillion Scale",
+    "publishedAt": "2026-03-26T05:21:45.000Z",
+    "submittedOnDailyAt": "2026-03-27T01:22:21.804Z",
+    "upvotes": 79,
+    "projectPage": null,
+    "category": "LLM/Reasoning",
+    "task": "Scientific multimodal reasoning at trillion-scale",
+    "key_results": "1-trillion-parameter model; mastery of 100+ specialized tasks across chemistry, materials, life sciences, earth sciences; outperforms proprietary models in specialized depth",
+    "comments": "Scale is impressive but claims of outperforming proprietary models lack quantitative evidence in the abstract.",
+    "model_io": [
+      {
+        "model": "Intern-S1-Pro (multimodal transformer)",
+        "inputs": [
+          "text",
+          "images",
+          "scientific domain queries"
+        ],
+        "outputs": [
+          "reasoning outputs",
+          "scientific predictions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Trillion-scale multimodal models can achieve both general and specialized expertise",
+        "result": "Confirmed; demonstrated across general benchmarks and 100+ scientific tasks"
+      }
+    ]
+  },
+  {
+    "uid": "hf:2603.25502",
+    "source": "hf",
+    "id": "2603.25502",
+    "title": "RealRestorer: Towards Generalizable Real-World Image Restoration with Large-Scale Image Editing Models",
+    "publishedAt": "2026-03-26T14:39:39.000Z",
+    "submittedOnDailyAt": "2026-03-27T03:53:47.576Z",
+    "upvotes": 35,
+    "projectPage": "https://yfyang007.github.io/RealRestorer/",
+    "category": "Vision",
+    "task": "Real-world image restoration with large-scale editing models",
+    "key_results": "State-of-the-art open-source performance matching closed-source alternatives; covers 9 degradation types; achieves first-rank on RealIR-Bench",
+    "comments": "The reliance on large-scale pre-trained models may limit generalizability to truly novel degradation types unseen during training.",
+    "model_io": [
+      {
+        "model": "RealRestorer (image editing model)",
+        "inputs": [
+          "degraded images"
+        ],
+        "outputs": [
+          "restored images"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Large-scale image editing models generalize better to real-world degradations than task-specific restoration models",
+        "result": "Confirmed; achieves state-of-the-art performance across multiple degradation types"
+      }
+    ]
+  },
+  {
+    "uid": "hf:2603.24800",
+    "source": "hf",
+    "id": "2603.24800",
+    "title": "Calibri: Enhancing Diffusion Transformers via Parameter-Efficient Calibration",
+    "publishedAt": "2026-03-25T20:19:50.000Z",
+    "submittedOnDailyAt": "2026-03-27T09:24:49.640Z",
+    "upvotes": 32,
+    "projectPage": "https://v-gen-ai.github.io/Calibri-page/",
+    "category": "Generative",
+    "task": "Parameter-efficient calibration of Diffusion Transformers",
+    "key_results": "~100 parameter modifications improve DiT performance; reduces inference steps required; maintains high-quality outputs",
+    "comments": "The evolutionary algorithm approach for optimization is computationally expensive despite claiming efficiency; generalization across different DiT architectures is not fully explored.",
+    "model_io": [
+      {
+        "model": "Calibri (parameter-efficient modifier for DiTs)",
+        "inputs": [
+          "DiT model",
+          "text prompts"
+        ],
+        "outputs": [
+          "improved generated images"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Introducing learned scaling parameters in DiT blocks significantly improves generative quality",
+        "result": "Confirmed; consistent improvements across text-to-image models with minimal parameters"
+      }
+    ]
+  },
+  {
+    "uid": "hf:2603.25319",
+    "source": "hf",
+    "id": "2603.25319",
+    "title": "MACRO: Advancing Multi-Reference Image Generation with Structured Long-Context Data",
+    "publishedAt": "2026-03-26T11:09:14.000Z",
+    "submittedOnDailyAt": "2026-03-27T00:44:11.946Z",
+    "upvotes": 24,
+    "projectPage": "https://macro400k.github.io/",
+    "category": "Generative",
+    "task": "Multi-reference image generation with structured long-context data",
+    "key_results": "400K-sample MacroData dataset with up to 10 references; MacroBench with 4K samples; substantial improvements in multi-reference generation",
+    "comments": "The structured dataset organization across 4 dimensions is thoughtful, but scalability to handling even more references (15+) remains unaddressed.",
+    "model_io": [
+      {
+        "model": "Multi-reference image generator",
+        "inputs": [
+          "multiple reference images (1-10)"
+        ],
+        "outputs": [
+          "composed generated images"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Structured long-context data with cross-task co-training improves multi-reference generation",
+        "result": "Confirmed; demonstrated synergistic benefits of cross-task training"
+      }
+    ]
+  },
+  {
+    "uid": "hf:2603.25551",
+    "source": "hf",
+    "id": "2603.25551",
+    "title": "Voxtral TTS",
+    "publishedAt": "2026-03-26T15:23:34.000Z",
+    "submittedOnDailyAt": "2026-03-27T00:39:39.072Z",
+    "upvotes": 18,
+    "projectPage": "https://mistral.ai/news/voxtral-tts",
+    "category": "Vision",
+    "task": "Expressive multilingual text-to-speech with voice cloning",
+    "key_results": "68.4% win rate over ElevenLabs Flash v2.5 in human evaluation; generates natural speech from 3 seconds of reference audio",
+    "comments": "The hybrid VQ-FSQ quantization scheme is technically sound, but the 3-second minimum reference requirement may be impractical for very brief voice samples.",
+    "model_io": [
+      {
+        "model": "Voxtral TTS (hybrid auto-regressive + flow-matching)",
+        "inputs": [
+          "text",
+          "3s reference audio"
+        ],
+        "outputs": [
+          "synthesized speech"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Hybrid architecture combining semantic tokens (AR) and acoustic tokens (flow-matching) enables expressive multilingual TTS",
+        "result": "Confirmed; preferred for naturalness and expressivity in human evaluation"
+      }
+    ]
+  },
+  {
+    "uid": "hf:2603.24755",
+    "source": "hf",
+    "id": "2603.24755",
+    "title": "SlopCodeBench: Benchmarking How Coding Agents Degrade Over Long-Horizon Iterative Tasks",
+    "publishedAt": "2026-03-25T19:26:44.000Z",
+    "submittedOnDailyAt": "2026-03-27T00:48:16.650Z",
+    "upvotes": 15,
+    "projectPage": "https://www.scbench.ai",
+    "category": "Agents/RL",
+    "task": "Benchmarking code quality degradation in iterative agentic tasks",
+    "key_results": "No agent solves any problem end-to-end; highest checkpoint solve rate 17.2%; agent code 2.2x more verbose than human; erosion rises in 80% of trajectories",
+    "comments": "This benchmark exposes a critical gap in current agentic reasoning\u2014code maintenance and refactoring are severely underperforming, indicating fundamental architectural limitations.",
+    "model_io": [
+      {
+        "model": "Coding agents (11 models tested)",
+        "inputs": [
+          "evolving code specifications"
+        ],
+        "outputs": [
+          "extended code implementations"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Current coding agents degrade code quality over iterative extensions",
+        "result": "Confirmed; verbosity increases in 89.8% of trajectories; erosion worsens across iterations"
+      }
+    ]
+  },
+  {
+    "uid": "hf:2603.23516",
+    "source": "hf",
+    "id": "2603.23516",
+    "title": "MSA: Memory Sparse Attention for Efficient End-to-End Memory Model Scaling to 100M Tokens",
+    "publishedAt": "2026-03-06T02:29:54.000Z",
+    "submittedOnDailyAt": "2026-03-27T00:38:48.071Z",
+    "upvotes": 15,
+    "projectPage": "https://evermind.ai/blogs/breaking-the-100m-token-limit-msa-architecture-achieves-efficient-end-to-end-long-term-memory-for-llms",
+    "category": "LLM/Reasoning",
+    "task": "Efficient long-context memory for LLMs at 100M token scale",
+    "key_results": "Scales to 100M tokens with <9% degradation from 16K; linear complexity in training/inference; 100M-token inference on 2xA800 GPUs",
+    "comments": "MSA's approach is sound, but the comparison with RAG systems may not be entirely fair given different architectural paradigms; real-world applicability to domain-specific tasks unclear.",
+    "model_io": [
+      {
+        "model": "Memory Sparse Attention (MSA)",
+        "inputs": [
+          "long context (up to 100M tokens)"
+        ],
+        "outputs": [
+          "LLM completions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Sparse attention with document-wise RoPE and KV cache compression enables stable 100M-token scaling",
+        "result": "Confirmed; achieves <9% degradation at 100M tokens"
+      }
+    ]
+  },
+  {
+    "uid": "hf:2603.24793",
+    "source": "hf",
+    "id": "2603.24793",
+    "title": "AVControl: Efficient Framework for Training Audio-Visual Controls",
+    "publishedAt": "2026-03-25T20:06:43.000Z",
+    "submittedOnDailyAt": "2026-03-27T09:44:15.376Z",
+    "upvotes": 8,
+    "projectPage": "https://matanby.github.io/AVControl/",
+    "category": "Generative",
+    "task": "Efficient audio-visual control for joint generation models",
+    "key_results": "State-of-the-art on depth/pose-guided generation; each modality trains in hundreds to thousands of steps; supports diverse modalities with no architectural changes",
+    "comments": "The parallel canvas design is elegant, but the framework's scalability to even more control modalities (>7) and cross-modal interference remains unexplored.",
+    "model_io": [
+      {
+        "model": "AVControl (LoRA-based modular framework on LTX-2)",
+        "inputs": [
+          "video",
+          "audio",
+          "control signals (depth, pose, camera, etc.)"
+        ],
+        "outputs": [
+          "controlled video and audio generation"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Parallel canvas approach resolves structural control failures in extended video generation",
+        "result": "Confirmed; outperforms baselines on depth, pose, and camera control"
+      }
+    ]
+  },
+  {
+    "uid": "hf:2603.25745",
+    "source": "hf",
+    "id": "2603.25745",
+    "title": "Less Gaussians, Texture More: 4K Feed-Forward Textured Splatting",
+    "publishedAt": "2026-03-26T17:59:59.000Z",
+    "submittedOnDailyAt": "2026-03-27T00:38:54.963Z",
+    "upvotes": 4,
+    "projectPage": "https://yxlao.github.io/lgtm/",
+    "category": "Vision",
+    "task": "High-resolution 4K feed-forward 3D view synthesis",
+    "key_results": "High-fidelity 4K novel view synthesis without per-scene optimization; decouples geometric complexity from resolution; uses fewer Gaussian primitives",
+    "comments": "The texture prediction approach is practical, but the paper lacks comparison with recent NeRF variants and multi-resolution rendering baselines.",
+    "model_io": [
+      {
+        "model": "LGTM (feed-forward Gaussian splatting with textures)",
+        "inputs": [
+          "source images"
+        ],
+        "outputs": [
+          "4K novel view images"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Per-primitive textures decouple resolution scaling from primitive count",
+        "result": "Confirmed; enables 4K synthesis without quadratic primitive growth"
+      }
+    ]
+  },
+  {
+    "uid": "hf:2603.25744",
+    "source": "hf",
+    "id": "2603.25744",
+    "title": "MuRF: Unlocking the Multi-Scale Potential of Vision Foundation Models",
+    "publishedAt": "2026-03-26T17:59:58.000Z",
+    "submittedOnDailyAt": "2026-03-27T02:16:51.054Z",
+    "upvotes": 4,
+    "projectPage": "https://MuRF-VFM.github.io",
+    "category": "Vision",
+    "task": "Multi-resolution fusion for Vision Foundation Models",
+    "key_results": "Universal, training-free enhancement working across multiple VFM families (DINOv2, SigLIP2); improves performance on diverse vision tasks",
+    "comments": "While the approach is elegantly simple, the computational cost of multi-resolution processing is only briefly mentioned; efficiency gains/losses unclear.",
+    "model_io": [
+      {
+        "model": "Multi-Resolution Fusion (MuRF) strategy",
+        "inputs": [
+          "images at multiple resolutions"
+        ],
+        "outputs": [
+          "fused visual representations"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Multi-resolution inference fuses complementary global and fine-grained inductive biases",
+        "result": "Confirmed; improves performance across diverse vision tasks in multiple VFM families"
+      }
+    ]
+  },
+  {
+    "uid": "hf:2603.14366",
+    "source": "hf",
+    "id": "2603.14366",
+    "title": "Representation Alignment for Just Image Transformers is not Easier than You Think",
+    "publishedAt": "2026-03-15T13:08:31.000Z",
+    "submittedOnDailyAt": "2026-03-27T04:28:45.213Z",
+    "upvotes": 4,
+    "projectPage": null,
+    "category": "Generative",
+    "task": "Representation alignment for pixel-space Diffusion Transformers",
+    "key_results": "FID improved from 3.66 to 3.17 for JiT-B/16; IS improved from 275.1 to 284.6; >2x faster convergence; FID=1.81 for JiT-H/16",
+    "comments": "PixelREPA addresses a real failure mode of REPA for pixel-space diffusion, but the proposed masking strategy seems empirically-driven without theoretical justification.",
+    "model_io": [
+      {
+        "model": "PixelREPA (alignment target transformation + Masked Transformer Adapter)",
+        "inputs": [
+          "image tokens from JiT"
+        ],
+        "outputs": [
+          "refined image representations"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Information asymmetry between high-dim image space and compressed semantic target causes REPA failure in JiT",
+        "result": "Confirmed; PixelREPA mitigates through masked transformer adaptation"
+      }
+    ]
+  },
+  {
+    "uid": "hf:2603.25702",
+    "source": "hf",
+    "id": "2603.25702",
+    "title": "S2D2: Fast Decoding for Diffusion LLMs via Training-Free Self-Speculation",
+    "publishedAt": "2026-03-26T17:48:50.000Z",
+    "submittedOnDailyAt": "2026-03-27T04:45:21.224Z",
+    "upvotes": 3,
+    "projectPage": null,
+    "category": "LLM/Reasoning",
+    "task": "Fast decoding for block-diffusion language models",
+    "key_results": "Up to 4.7x speedup over autoregressive decoding on SDAR; 1.57x speedup over tuned baseline with +4.5 accuracy points",
+    "comments": "The self-speculative approach is clever, but overhead of routing policies and verification steps may dominate in latency-critical scenarios.",
+    "model_io": [
+      {
+        "model": "S2D2 (speculative verification for block-diffusion LMs)",
+        "inputs": [
+          "prompts"
+        ],
+        "outputs": [
+          "decoded text completions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Same pretrained model can act as both drafter (block-diffusion) and verifier (autoregressive) for efficient decoding",
+        "result": "Confirmed; achieves consistent speedup with improved accuracy across families"
+      }
+    ]
+  },
+  {
+    "uid": "hf:2603.24943",
+    "source": "hf",
+    "id": "2603.24943",
+    "title": "FinMCP-Bench: Benchmarking LLM Agents for Real-World Financial Tool Use under the Model Context Protocol",
+    "publishedAt": "2026-03-26T02:20:04.000Z",
+    "submittedOnDailyAt": "2026-03-27T02:24:41.294Z",
+    "upvotes": 2,
+    "projectPage": "https://github.com/aliyun/qwen-dianjin",
+    "category": "Benchmark",
+    "task": "Benchmarking LLM agents for financial tool use",
+    "key_results": "613 samples across 10 scenarios; 65 real financial MCPs; evaluates single-tool, multi-tool, and multi-turn complexity",
+    "comments": "The benchmark is comprehensive but lacks qualitative error analysis; unclear which failure modes dominate in financial reasoning tasks.",
+    "model_io": [
+      {
+        "model": "LLM agents (multiple models tested)",
+        "inputs": [
+          "financial queries",
+          "financial MCP tool specifications"
+        ],
+        "outputs": [
+          "tool invocations",
+          "financial analysis"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "LLMs can effectively invoke financial tools for real-world problem solving",
+        "result": "Partially tested; FinMCP-Bench establishes standardized evaluation"
+      }
+    ]
+  },
+  {
+    "uid": "hf:2603.23883",
+    "source": "hf",
+    "id": "2603.23883",
+    "title": "BioVITA: Biological Dataset, Model, and Benchmark for Visual-Textual-Acoustic Alignment",
+    "publishedAt": "2026-03-25T03:15:04.000Z",
+    "submittedOnDailyAt": "2026-03-27T02:08:37.224Z",
+    "upvotes": 2,
+    "projectPage": "https://dahlian00.github.io/BioVITA_Page/",
+    "category": "Benchmark",
+    "task": "Visual-textual-acoustic alignment for species identification",
+    "key_results": "1.3M audio clips, 2.3M images covering 14,133 species; unified representation captures species-level semantics beyond taxonomy",
+    "comments": "The integration of audio is novel for biodiversity tasks, but ecological trait prediction from audio alone may be inherently noisy without companion visual context.",
+    "model_io": [
+      {
+        "model": "BioVITA (visual-textual-acoustic alignment on BioCLIP2)",
+        "inputs": [
+          "images",
+          "audio",
+          "text descriptions"
+        ],
+        "outputs": [
+          "unified species representations"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Audio modality provides complementary information for species identification beyond vision and text",
+        "result": "Confirmed; unified representation captures cross-modal species semantics"
+      }
+    ]
+  },
+  {
+    "uid": "hf:2603.25562",
+    "source": "hf",
+    "id": "2603.25562",
+    "title": "Revisiting On-Policy Distillation: Empirical Failure Modes and Simple Fixes",
+    "publishedAt": "2026-03-26T15:35:59.000Z",
+    "submittedOnDailyAt": "2026-03-27T07:41:30.832Z",
+    "upvotes": 1,
+    "projectPage": "https://www.notion.so/yuqianfu/Revisiting-On-Policy-Distillation-Empirical-Failure-Modes-and-Simple-Fixes-31dd5cc40dd181f89eead3de7181df1d",
+    "category": "LLM/Reasoning",
+    "task": "Improving on-policy distillation for long-horizon LLM training",
+    "key_results": "Addresses imbalanced signals, unreliable teacher guidance, and tokenizer mismatches; more stable optimization and better downstream performance",
+    "comments": "The theoretical analysis of variance-bias tradeoffs is insightful, but empirical improvements are incremental; scalability to very long horizons (100+ steps) unclear.",
+    "model_io": [
+      {
+        "model": "On-policy distillation with truncated reverse-KL",
+        "inputs": [
+          "student-generated rollouts"
+        ],
+        "outputs": [
+          "distilled student models"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Token-level OPD suffers from information asymmetry; truncated reverse-KL with top-p sampling mitigates this",
+        "result": "Confirmed; improves stability and downstream performance in math and agentic tasks"
+      }
+    ]
+  },
+  {
+    "uid": "hf:2603.25398",
+    "source": "hf",
+    "id": "2603.25398",
+    "title": "PMT: Plain Mask Transformer for Image and Video Segmentation with Frozen Vision Encoders",
+    "publishedAt": "2026-03-26T12:44:30.000Z",
+    "submittedOnDailyAt": "2026-03-27T11:28:38.621Z",
+    "upvotes": 1,
+    "projectPage": null,
+    "category": "Vision",
+    "task": "Efficient image and video segmentation with frozen Vision Foundation Models",
+    "key_results": "Matches frozen-encoder SOTA on images; ~3x faster; matches fully finetuned performance on video; 8x faster than frozen-encoder baselines",
+    "comments": "PMT successfully decouples decoder design from encoder training, enabling practical VFM deployment; trade-off between speed and accuracy is well-balanced.",
+    "model_io": [
+      {
+        "model": "PMT (Plain Mask Decoder on frozen VFM encoders)",
+        "inputs": [
+          "images or video frames"
+        ],
+        "outputs": [
+          "segmentation masks"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Transformer-based decoder can match finetuned performance while keeping encoder frozen for multi-task sharing",
+        "result": "Confirmed; achieves parity with finetuned methods on video while maintaining encoder frozen"
+      }
+    ]
+  },
+  {
+    "uid": "hf:2603.18718",
+    "source": "hf",
+    "id": "2603.18718",
+    "title": "MemMA: Coordinating the Memory Cycle through Multi-Agent Reasoning and In-Situ Self-Evolution",
+    "publishedAt": "2026-03-19T10:15:59.000Z",
+    "submittedOnDailyAt": "2026-03-27T08:15:15.764Z",
+    "upvotes": 1,
+    "projectPage": null,
+    "category": "Agents/RL",
+    "task": "Coordinating memory construction and retrieval in LLM agents",
+    "key_results": "Consistent improvements over baselines across LLM backbones; works as plug-and-play enhancement for multiple storage backends",
+    "comments": "MemMA's multi-agent framework is well-motivated, but the in-situ self-evolution mechanism introduces additional computational overhead during inference.",
+    "model_io": [
+      {
+        "model": "MemMA (multi-agent memory coordination framework)",
+        "inputs": [
+          "agent interactions",
+          "memory queries"
+        ],
+        "outputs": [
+          "constructed/retrieved memory",
+          "refined memories"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Coordinating forward (construction/retrieval) and backward (repair) memory paths improves agent performance",
+        "result": "Confirmed; outperforms baselines across multiple LLM backbones and storage backends"
+      }
+    ]
+  },
+  {
+    "uid": "hf:2603.13904",
+    "source": "hf",
+    "id": "2603.13904",
+    "title": "Pixel-level Scene Understanding in One Token: Visual States Need What-is-Where Composition",
+    "publishedAt": "2026-03-14T11:32:02.000Z",
+    "submittedOnDailyAt": "2026-03-27T12:57:11.950Z",
+    "upvotes": 1,
+    "projectPage": "https://seokminlee-chris.github.io/CroBo-ProjectPage/",
+    "category": "Vision",
+    "task": "Pixel-level scene understanding for robotic decision-making",
+    "key_results": "State-of-the-art on vision-based robot policy learning; preserves pixel-level scene composition; encodes what-moves-where dynamics",
+    "comments": "CroBo's global-to-local reconstruction is effective, but applicability to high-dimensional state spaces (100+ objects) is unclear.",
+    "model_io": [
+      {
+        "model": "CroBo (visual state representation learning)",
+        "inputs": [
+          "video observations"
+        ],
+        "outputs": [
+          "compact bottleneck tokens encoding what-is-where"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Global-to-local reconstruction objective produces visual states encoding semantic identity and spatial configuration",
+        "result": "Confirmed; achieves SOTA on robot policy benchmarks; encodes what-moves-where"
+      }
+    ]
+  },
+  {
+    "uid": "hf:2603.25741",
+    "source": "hf",
+    "id": "2603.25741",
+    "title": "Vega: Learning to Drive with Natural Language Instructions",
+    "publishedAt": "2026-03-26T17:59:56.000Z",
+    "submittedOnDailyAt": "2026-03-27T00:43:17.570Z",
+    "upvotes": 0,
+    "projectPage": "https://zuosc19.github.io/Vega/",
+    "category": "Vision",
+    "task": "Language-instructed autonomous driving with world models",
+    "key_results": "100K-scene InstructScene dataset; superior planning performance; strong instruction-following abilities",
+    "comments": "Vega combines vision, language, and world models well, but generalization to out-of-distribution instructions and edge cases remains unvalidated.",
+    "model_io": [
+      {
+        "model": "Vega (Vision-Language-World-Action model)",
+        "inputs": [
+          "images",
+          "language instructions"
+        ],
+        "outputs": [
+          "future frame predictions",
+          "trajectories"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Unified vision-language-world-action model enables instruction-following autonomous driving",
+        "result": "Confirmed; demonstrates superior planning and instruction-following abilities"
+      }
+    ]
+  },
+  {
+    "uid": "hf:2603.25718",
+    "source": "hf",
+    "id": "2603.25718",
+    "title": "Electrostatic Photoluminescence Tuning in All-Solid-State Perovskite Transistors",
+    "publishedAt": "2026-03-26T17:57:34.000Z",
+    "submittedOnDailyAt": "2026-03-27T05:47:31.055Z",
+    "upvotes": 0,
+    "projectPage": "https://kj-chen666.github.io/Hybrid-Memory-in-Video-World-Models/",
+    "category": "Medical",
+    "task": "Electrostatic tuning of photoluminescence in perovskite transistors",
+    "key_results": "65-98% modulation of photoluminescence; nearly complete elimination of non-radiative losses possible; high external quantum efficiencies in large-area devices",
+    "comments": "This materials science work demonstrates impressive optoelectronic control, but practical device stability and long-term performance under continuous operation are not addressed.",
+    "model_io": [],
+    "hypotheses": [
+      {
+        "hypothesis": "Gate electric field modulates interfacial charge density, controlling radiative vs. non-radiative recombination",
+        "result": "Confirmed; achieves 65-98% photoluminescence modulation via electrostatic tuning"
+      }
+    ]
+  },
+  {
+    "uid": "hf:2603.21768",
+    "source": "hf",
+    "id": "2603.21768",
+    "title": "Extending Precipitation Nowcasting Horizons via Spectral Fusion of Radar Observations and Foundation Model Priors",
+    "publishedAt": "2026-03-23T10:05:51.000Z",
+    "submittedOnDailyAt": "2026-03-27T03:18:00.483Z",
+    "upvotes": 0,
+    "projectPage": null,
+    "category": "Benchmark",
+    "task": "Precipitation nowcasting with spectral fusion of radar and weather model priors",
+    "key_results": "State-of-the-art performance on SEVIR and MeteoNet; extends reliable forecast horizon; maintains structural fidelity",
+    "comments": "PW-FouCast's frequency-domain fusion is mathematically elegant, but the dependence on external weather foundation model predictions introduces potential error propagation.",
+    "model_io": [
+      {
+        "model": "PW-FouCast (frequency-domain fusion backbone)",
+        "inputs": [
+          "radar imagery",
+          "Pangu-Weather forecasts"
+        ],
+        "outputs": [
+          "precipitation nowcasts"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Pangu-Weather spectral priors aligned via frequency modulation improve long-horizon nowcasting",
+        "result": "Confirmed; extends reliable forecast horizon while maintaining structural fidelity"
+      }
+    ]
+  },
+  {
+    "uid": "hf:2603.16733",
+    "source": "hf",
+    "id": "2603.16733",
+    "title": "IQuest-Coder-V1 Technical Report",
+    "publishedAt": "2026-03-17T16:15:31.000Z",
+    "submittedOnDailyAt": "2026-03-27T10:42:20.435Z",
+    "upvotes": 0,
+    "projectPage": "https://iquestlab.github.io/release-1.0-2603/index.html",
+    "category": "LLM/Reasoning",
+    "task": "Code intelligence with multi-stage training and reasoning",
+    "key_results": "SOTA performance on agentic software engineering, competitive programming, tool use; recurrent mechanism enables efficient deployment",
+    "comments": "The code-flow multi-stage training paradigm is comprehensive, but the 'thinking path' utilizing reasoning RL details are vague; comparison with GPT-4 code performance unclear.",
+    "model_io": [
+      {
+        "model": "IQuest-Coder-V1 (code LLM with reasoning-RL and instruction paths)",
+        "inputs": [
+          "code problems",
+          "repository context"
+        ],
+        "outputs": [
+          "code solutions",
+          "reasoning traces"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Code-flow multi-stage training captures dynamic software logic evolution",
+        "result": "Confirmed; achieves SOTA on agentic, competitive, and tool-use benchmarks"
+      }
+    ]
+  },
+  {
+    "uid": "hf:2603.14636",
+    "source": "hf",
+    "id": "2603.14636",
+    "title": "Nudging Hidden States: Training-Free Model Steering for Chain-of-Thought Reasoning in Large Audio-Language Models",
+    "publishedAt": "2026-03-15T22:12:36.000Z",
+    "submittedOnDailyAt": "2026-03-27T11:08:55.473Z",
+    "upvotes": 0,
+    "projectPage": null,
+    "category": "LLM/Reasoning",
+    "task": "Training-free model steering for audio-language reasoning",
+    "key_results": "Up to 4.4% accuracy improvement over CoT prompting; cross-modal transfer from text to speech effective; high data efficiency",
+    "comments": "Model steering is a clever inference-time technique, but the cross-modal transfer result is surprising and deserves deeper investigation into why text steering generalizes to speech.",
+    "model_io": [
+      {
+        "model": "Steering vector application on LALMs",
+        "inputs": [
+          "audio or text",
+          "steering vectors"
+        ],
+        "outputs": [
+          "reasoning-enhanced outputs"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Steering vectors derived from text can guide speech-based reasoning in LALMs",
+        "result": "Confirmed; achieves cross-modal transfer with high data efficiency"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41467-026-71044-4",
+    "source": "biophysics",
+    "id": "10.1038/s41467-026-71044-4",
+    "title": "NorQD AAA+ complex drives metal insertion by a twisting mechanism",
+    "projectPage": "https://www.nature.com/articles/s41467-026-71044-4",
+    "journal": "Nature Communications",
+    "publishedAt": "2026-03-27",
+    "category": "Structural Biology",
+    "task": "Elucidate mechanism of metal insertion by AAA+ ATPase NorQ-NorD complex",
+    "key_results": "Cryo-EM structures reveal two key interfaces between NorQ hexamer and NorD VWA domain; NorQ exerts twisting and stretching force on NorD linker enabling metal insertion into nitric oxide reductase",
+    "comments": "Elegant structural insight into force generation by AAA+ ATPases, though in vivo validation of metal insertion dynamics would strengthen mechanistic claims.",
+    "model_io": [
+      {
+        "model": "NorQ-NorD complex",
+        "inputs": [
+          "ATP",
+          "NorD VWA domain",
+          "metal ion"
+        ],
+        "outputs": [
+          "remodeled NorD linker",
+          "inserted metal in NOR target"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "NorQ hexamer applies mechanical force to NorD linker via two distinct interfaces",
+        "result": "Confirmed by cryo-EM structures and biochemical analyses showing finger-like VWA extension penetrates central pore and C-terminal contacts post-sensor 1 loop"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41467-026-71061-3",
+    "source": "biophysics",
+    "id": "10.1038/s41467-026-71061-3",
+    "title": "A molecular switch in NAC prevents mitochondrial protein mistargeting by SRP",
+    "projectPage": "https://www.nature.com/articles/s41467-026-71061-3",
+    "journal": "Nature Communications",
+    "publishedAt": "2026-03-27",
+    "category": "Protein Dynamics",
+    "task": "Determine mechanism by which NAC detects mitochondrial targeting sequences and prevents SRP mistargeting",
+    "key_results": "NAC barrel domain adopts stabilized conformation upon MTS exposure; MTS mutations or NAC switch mutations increase barrel dynamics and reduce ribosomal binding; impaired NAC function causes ER stress in human cells",
+    "comments": "Identifies a novel conformational switch mechanism for protein targeting discrimination, though the structural details of the stabilized barrel state remain to be resolved.",
+    "model_io": [
+      {
+        "model": "NAC-ribosome-nascent chain system",
+        "inputs": [
+          "nascent protein with MTS",
+          "SRP",
+          "NAC with functional or mutant switch"
+        ],
+        "outputs": [
+          "NAC binding to ribosome",
+          "SRP access prevention",
+          "ER localization fidelity"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "NAC switch region enables MTS-dependent barrel stabilization on ribosomes",
+        "result": "Confirmed; switch mutations increase dynamics and reduce ribosomal binding capacity"
+      },
+      {
+        "hypothesis": "NAC-mediated prevention of SRP access maintains protein targeting fidelity",
+        "result": "Confirmed; impaired NAC function increases mistargeting and triggers ER stress"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41567-026-03189-4",
+    "source": "biophysics",
+    "id": "10.1038/s41567-026-03189-4",
+    "title": "The hydrodynamic torque dipole from rotary bacterial flagella powers symmetric discs",
+    "projectPage": "https://www.nature.com/articles/s41567-026-03189-4",
+    "journal": "Nature Physics",
+    "publishedAt": "2026-03-27",
+    "category": "Mechanobiology",
+    "task": "Demonstrate hydrodynamic torque dipole generation by bacterial flagella and force transmission to external objects",
+    "key_results": "Confined swimming E. coli generate persistent rotation of symmetric discs via torque dipole-mediated traction force; mechanism is contactless and orientation-independent",
+    "comments": "Novel contactless force transmission mechanism with implications for bacterial transport in confined environments, though the scaling to physiologically relevant pore sizes and biofilm contexts requires further study.",
+    "model_io": [
+      {
+        "model": "Swimming E. coli with rotary flagella in confined geometry",
+        "inputs": [
+          "bacterial rotary motor torque",
+          "symmetric disc",
+          "confinement"
+        ],
+        "outputs": [
+          "disc rotation",
+          "traction force on disc",
+          "hydrodynamic torque dipole field"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Torque dipole of confined swimming bacteria can power external disc rotation",
+        "result": "Confirmed; persistent disc rotation observed in confined geometries"
+      },
+      {
+        "hypothesis": "Torque dipole force generation is contactless and independent of bacterial orientation",
+        "result": "Confirmed; additive mechanism observed regardless of bacterial orientation"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41419-026-08540-4",
+    "source": "cell-biology",
+    "id": "10.1038/s41419-026-08540-4",
+    "title": "14-3-3\u03b3 Knockdown promotes matrix mineralization in human mesenchymal stromal cells",
+    "projectPage": "https://www.nature.com/articles/s41419-026-08540-4",
+    "journal": "Nature Portfolio",
+    "publishedAt": "2026-03-27",
+    "category": "Development",
+    "task": "Examine 14-3-3\u03b3 role in osteoblast differentiation and bone mineralization",
+    "key_results": "14-3-3\u03b3 knockdown promotes matrix mineralization in human mesenchymal stromal cells",
+    "comments": "The abstract is incomplete; full mechanistic details, quantitative results, and downstream target confirmation are needed for comprehensive assessment.",
+    "model_io": [
+      {
+        "model": "human mesenchymal stromal cells",
+        "inputs": [
+          "14-3-3\u03b3 knockdown"
+        ],
+        "outputs": [
+          "promoted matrix mineralization"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "14-3-3\u03b3 suppression enhances osteogenic differentiation",
+        "result": "supported by mineralization phenotype"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41419-026-08584-6",
+    "source": "cell-biology",
+    "id": "10.1038/s41419-026-08584-6",
+    "title": "Huntingtin and its allies at the cortico-striatal synapse",
+    "projectPage": "https://www.nature.com/articles/s41419-026-08584-6",
+    "journal": "Nature Portfolio",
+    "publishedAt": "2026-03-27",
+    "category": "Development",
+    "task": "Review huntingtin pre- and postsynaptic roles in cortico-striatal synapse integrity",
+    "key_results": "HTT regulates synaptic vesicle cycle at presynaptic terminals and modulates receptor dynamics at postsynaptic density; expanding network of HTT-interacting proteins essential for synaptic structure",
+    "comments": "This is a comprehensive review synthesizing 30 years of research; the reliance on cell and tissue culture models may not fully capture in vivo disease complexity in HD.",
+    "model_io": [],
+    "hypotheses": []
+  },
+  {
+    "uid": "nature:10.1038/s41419-026-08629-w",
+    "source": "cell-biology",
+    "id": "10.1038/s41419-026-08629-w",
+    "title": "Liver kinase B1 maintains natural killer cell survival by regulating redox homeostasis",
+    "projectPage": "https://www.nature.com/articles/s41419-026-08629-w",
+    "journal": "Nature Portfolio",
+    "publishedAt": "2026-03-27",
+    "category": "Cell Division/Cycle",
+    "task": "Elucidate LKB1-mediated NK cell survival via redox and iron homeostasis",
+    "key_results": "Lkb1 ablation impairs autophagy and mitochondrial function, causing ROS-dependent cell death; iron overload exacerbates cytotoxic lipid ROS; ROS/iron inhibition rescues survival; Lkb1 deficiency increases PD-1/TIGIT expression",
+    "comments": "The coupling of metabolic, oxidative, and iron homeostasis checkpoints is novel, though the AMPK-independent mechanisms remain partially undefined.",
+    "model_io": [
+      {
+        "model": "Lkb1-deficient NK cells",
+        "inputs": [
+          "Lkb1 genetic ablation"
+        ],
+        "outputs": [
+          "mitochondrial dysfunction",
+          "impaired autophagy",
+          "ROS accumulation",
+          "iron overload",
+          "increased PD-1/TIGIT"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Lkb1 maintains NK cell survival through metabolic checkpoint regulation independent of AMPK",
+        "result": "confirmed; AMPK activation or mTORC1 inhibition does not rescue defects"
+      },
+      {
+        "hypothesis": "ROS and iron homeostasis coordinately regulate NK cell quiescence",
+        "result": "confirmed; targeted interventions on ROS or iron rescue survival defects"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41420-026-03028-8",
+    "source": "cell-biology",
+    "id": "10.1038/s41420-026-03028-8",
+    "title": "NRIP1 co-activates nuclear translocated FOXO3 to upregulate TFAM expression and promote radioresistance in non-small cell lung cancer",
+    "projectPage": "https://www.nature.com/articles/s41420-026-03028-8",
+    "journal": "Nature Portfolio",
+    "publishedAt": "2026-03-27",
+    "category": "Cell Signaling",
+    "task": "Delineate FOXO3/NRIP1-mediated TFAM regulation in NSCLC radioresistance",
+    "key_results": "TFAM knockdown restores radiosensitivity; FOXO3 directly binds TFAM promoter and NRIP1 acts as coactivator; FOXO3 knockdown suppresses A549-RR tumor growth and improves radiotherapy response in vivo",
+    "comments": "The FOXO3\u2013NRIP1 coactivator complex is well-characterized, but tissue-specific or context-dependent nuances in this axis may limit generalizability to other NSCLC subtypes.",
+    "model_io": [
+      {
+        "model": "radioresistant NSCLC cells (A549-RR, H157-RR)",
+        "inputs": [
+          "FOXO3 knockdown",
+          "NRIP1 silencing",
+          "LOM612 (FOXO nuclear relocator)"
+        ],
+        "outputs": [
+          "altered TFAM expression",
+          "modulated radiosensitivity"
+        ]
+      },
+      {
+        "model": "A549-RR xenograft mice",
+        "inputs": [
+          "FOXO3 knockdown",
+          "radiation"
+        ],
+        "outputs": [
+          "suppressed tumor growth",
+          "improved radiotherapy response"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "FOXO3 transcriptionally activates TFAM to confer radioresistance",
+        "result": "confirmed via ChIP-qPCR and functional knockdown"
+      },
+      {
+        "hypothesis": "NRIP1 enhances FOXO3-dependent TFAM regulation as a coactivator",
+        "result": "confirmed; NRIP1 co-immunoprecipitates with FOXO3 and regulates TFAM without affecting FOXO3 levels"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41420-026-03062-6",
+    "source": "cell-biology",
+    "id": "10.1038/s41420-026-03062-6",
+    "title": "MEKK3 bridges gut-brain communication and cerebral cavernous malformation pathogenesis",
+    "projectPage": "https://www.nature.com/articles/s41420-026-03062-6",
+    "journal": "Nature Portfolio",
+    "publishedAt": "2026-03-27",
+    "category": "Development",
+    "task": "Review gut-brain axis contributions to cerebral cavernous malformation pathogenesis",
+    "key_results": "Dysbiosis triggers systemic inflammation via LPS-TLR4, SCFAs, and TMAO pathways, affecting cerebrovascular function and blood-brain barrier integrity; gut microbiota may influence endothelial cell proliferation, migration, and apoptosis",
+    "comments": "This is a conceptual review proposing gut-brain axis mechanisms in CCM; the evidence linking dysbiosis to specific CCM phenotypes remains largely correlative and requires experimental validation.",
+    "model_io": [],
+    "hypotheses": []
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-43119-1",
+    "source": "cell-biology",
+    "id": "10.1038/s41598-026-43119-1",
+    "title": "Berberine-entrapped albumin nanoparticles ameliorate chemically induced liver injury by restoring oxidative balance and autophagic-apoptotic crosstalk",
+    "projectPage": "https://www.nature.com/articles/s41598-026-43119-1",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-27",
+    "category": "Apoptosis/Cell Death",
+    "task": "Evaluate berberine-nanoparticle hepatoprotection via oxidative balance and autophagy-apoptosis crosstalk",
+    "key_results": "BRB-BSA NPs reduce serum uric acid (0.20\u00b10.07 vs 1.35\u00b10.1 mg/dL in DEN/CCl\u2084), restore SOD activity, normalize autophagic signaling via PI3K/mTOR/p62/LC3 downregulation/upregulation, and promote apoptosis (elevated Bax, reduced Bcl-2) with near-complete hepatic recovery",
+    "comments": "The post-injury treatment superiority over prophylaxis is noteworthy, and the multi-pathway restoration is comprehensive, though in vivo translational efficacy and long-term safety require further assessment.",
+    "model_io": [
+      {
+        "model": "DEN/CCl\u2084-induced liver injury rats",
+        "inputs": [
+          "BRB-BSA nanoparticles"
+        ],
+        "outputs": [
+          "reduced serum uric acid",
+          "increased SOD activity",
+          "decreased NO/XO",
+          "normalized PI3K/mTOR/p62/LC3",
+          "altered Bax/Bcl-2 ratio",
+          "hepatic architecture recovery"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "BRB-BSA NPs restore oxidative-autophagic-apoptotic homeostasis in DEN/CCl\u2084 injury",
+        "result": "confirmed; post-injury treatment more effective than prophylaxis"
+      },
+      {
+        "hypothesis": "PI3K inhibition underlies BRB-mediated autophagy normalization",
+        "result": "supported by molecular docking and pathway analysis"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-45230-9",
+    "source": "cell-biology",
+    "id": "10.1038/s41598-026-45230-9",
+    "title": "Chromatin dynamics of the Klf4 locus in mouse pluripotent cells",
+    "projectPage": "https://www.nature.com/articles/s41598-026-45230-9",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-27",
+    "category": "Epigenetics",
+    "task": "Investigate chromatin dynamics of Klf4 locus in relation to transcriptional activity",
+    "key_results": "ANCHOR3 tracking reveals homogeneous chromatin motion of cis-regulatory elements and non-regulatory regions in both transcribing mESCs and non-transcribing EpiLCs",
+    "comments": "The finding challenges the transcription-driven locus dynamics model, suggesting that other mechanisms or larger-scale chromatin organization may dominate over local transcriptional activity.",
+    "model_io": [
+      {
+        "model": "mouse pluripotent cells (mESCs and EpiLCs)",
+        "inputs": [
+          "ANCHOR3 DNA labeling at multiple Klf4 locus positions"
+        ],
+        "outputs": [
+          "measured chromatin motion dynamics"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Active transcription drives differential chromatin dynamics across regulatory regions",
+        "result": "not supported; homogeneous motion observed in both transcribing and non-transcribing cells"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-45537-7",
+    "source": "cell-biology",
+    "id": "10.1038/s41598-026-45537-7",
+    "title": "Differential miRNA expression during replicative senescence of dental pulp stem cells with potential for forensic age assessment",
+    "projectPage": "https://www.nature.com/articles/s41598-026-45537-7",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-27",
+    "category": "Cell Division/Cycle",
+    "task": "Identify miRNA biomarkers of replicative senescence in dental pulp stem cells",
+    "key_results": "Senescence induction increased miR-433-5p, miR-331-5p, miR-221-5p, miR-328-5p and decreased miR-205-5p, miR-455-5p, miR-21-5p; combined miRNA panels significantly improved discrimination of senescence states",
+    "comments": "The proof-of-concept for miRNA panels is solid, but forensic applicability requires validation across broader donor cohorts and post-mortem conditions.",
+    "model_io": [
+      {
+        "model": "human dental pulp stem cells (hDPSCs)",
+        "inputs": [
+          "replicative exhaustion",
+          "stress-induced senescence"
+        ],
+        "outputs": [
+          "morphological changes",
+          "SA-\u03b2-Gal activity",
+          "p16INK4a expression",
+          "miRNA expression profiles"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Individual miRNAs serve as predictive biomarkers of senescence",
+        "result": "partially supported; individual miRNAs show moderate predictive ability"
+      },
+      {
+        "hypothesis": "miRNA panels improve senescence discrimination",
+        "result": "confirmed; multivariable models combining miRNAs greatly enhance predictive power"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-45597-9",
+    "source": "cell-biology",
+    "id": "10.1038/s41598-026-45597-9",
+    "title": "The fluoroquinoline compound exerts anti-erythroleukemic effects by dual-targeting GLUT1 and the PI3K/AKT signaling pathway",
+    "projectPage": "https://www.nature.com/articles/s41598-026-45597-9",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-27",
+    "category": "Cell Signaling",
+    "task": "Inhibit erythroleukemia proliferation via dual GLUT1 and PI3K/AKT targeting",
+    "key_results": "FKL-137 significantly inhibits cell proliferation and induces apoptosis in vitro; prevents Friend virus-induced erythroleukemia and splenomegaly in mice",
+    "comments": "Dual targeting of glucose metabolism and signaling is therapeutically promising but whether GLUT1 inhibition is the primary driver versus PI3K/AKT remains unclear.",
+    "model_io": [
+      {
+        "model": "erythroleukemia cells (in vitro)",
+        "inputs": [
+          "FKL-137"
+        ],
+        "outputs": [
+          "reduced glucose uptake",
+          "reduced lactate secretion",
+          "decreased PKM2/HK2/LDH",
+          "apoptosis induction"
+        ]
+      },
+      {
+        "model": "Friend virus-induced mouse erythroleukemia (in vivo)",
+        "inputs": [
+          "FKL-137"
+        ],
+        "outputs": [
+          "prevented erythroleukemia development",
+          "reduced splenomegaly"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "GLUT1 inhibition coupled with PI3K/AKT suppression drives anti-tumor effects",
+        "result": "confirmed via mechanistic studies showing reduced glucose metabolism and altered signaling"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-45676-x",
+    "source": "cell-biology",
+    "id": "10.1038/s41598-026-45676-x",
+    "title": "Multi-omics and network pharmacology reveal the mechanisms of Scutellaria barbata D.Don and Scleromitrion diffusum (Willd.) R.J.Wang against pancreatic cancer",
+    "projectPage": "https://www.nature.com/articles/s41598-026-45676-x",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-27",
+    "category": "Cell Signaling",
+    "task": "Dissect multi-omics mechanisms of SB-SD herbal formula against pancreatic cancer",
+    "key_results": "SB-SD inhibits PC cell proliferation, promotes apoptosis, and induces S/G2 arrest via HSP90AA1/MAPK3; suppresses PANC-1 xenograft growth; multi-omics reveal microbiota-metabolite-protein network involving Bacteroides caccae, Lactobacillus, choline metabolism, and BCKDK/GATM",
+    "comments": "The integration of multi-omics with gut microbiota is comprehensive, but causality between microbiota changes and tumor suppression remains correlative rather than mechanistically proven.",
+    "model_io": [
+      {
+        "model": "pancreatic cancer cells",
+        "inputs": [
+          "SB-SD"
+        ],
+        "outputs": [
+          "reduced viability",
+          "promoted apoptosis",
+          "S/G2 arrest",
+          "altered HSP90AA1/MAPK3/p53/CDK1/p21"
+        ]
+      },
+      {
+        "model": "PANC-1 nude mouse xenograft",
+        "inputs": [
+          "SB-SD"
+        ],
+        "outputs": [
+          "reduced tumor volume/weight",
+          "histological recovery"
+        ]
+      },
+      {
+        "model": "gut microbiota and serum metabolites",
+        "inputs": [
+          "SB-SD treatment"
+        ],
+        "outputs": [
+          "altered microbiota composition",
+          "modulated metabolite profiles",
+          "changed proteome"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "SB-SD suppresses PC through HSP90AA1/MAPK3 pathway modulation",
+        "result": "confirmed via Western blotting in cell and xenograft models"
+      },
+      {
+        "hypothesis": "Gut microbiota and metabolite shifts contribute to antitumor effects",
+        "result": "supported by metagenomic and metabolomic profiling; mechanistic link requires validation"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-46028-5",
+    "source": "cell-biology",
+    "id": "10.1038/s41598-026-46028-5",
+    "title": "Endogenous and environmental factors that induce DNA replication defects and genomic instability in ER-negative heterozygous BRCA1 cells",
+    "projectPage": "https://www.nature.com/articles/s41598-026-46028-5",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-27",
+    "category": "Apoptosis/Cell Death",
+    "task": "Investigate estrogen-induced DNA replication defects and genomic instability in BRCA1-mutant cells",
+    "key_results": "Estrogen and estrogen metabolites inhibit replication fork progression and trigger DNA breaks, deletions, and LOH in BRCA1mut/+ cells; atrazine herbicide similarly induces instability; indole-3-carbinol (I3C) prevents estrogen-induced DNA damage",
+    "comments": "The identification of dietary compound I3C as a protective agent is promising but requires clinical validation; the mechanism by which estrogen metabolites specifically target BRCA1-deficient cells needs deeper mechanistic investigation.",
+    "model_io": [
+      {
+        "model": "ER-negative BRCA1mut/+ mammary cells",
+        "inputs": [
+          "estrogen",
+          "estrogen metabolites",
+          "atrazine"
+        ],
+        "outputs": [
+          "impaired replication fork progression",
+          "DNA breaks",
+          "large deletions",
+          "LOH",
+          "genomic instability"
+        ]
+      },
+      {
+        "model": "ER-negative BRCA1mut/+ mammary cells + I3C",
+        "inputs": [
+          "I3C",
+          "estrogen"
+        ],
+        "outputs": [
+          "prevented replication stress",
+          "reduced genomic instability"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Estrogen and metabolites are genotoxic for ER-negative BRCA1-mutant cells",
+        "result": "confirmed; estrogen triggers DNA breaks and cancer-initiating mutations"
+      },
+      {
+        "hypothesis": "I3C prevents estrogen-induced DNA damage in BRCA1-mutant cells",
+        "result": "confirmed; I3C mitigates replication stress and genomic instability"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s42003-026-09924-0",
+    "source": "cell-biology",
+    "id": "10.1038/s42003-026-09924-0",
+    "title": "PACS1 syndrome mutation disrupts dynein-mediated cargo transport via HDAC6 and BICD2",
+    "projectPage": "https://www.nature.com/articles/s42003-026-09924-0",
+    "journal": "Communications Biology",
+    "publishedAt": "2026-03-27",
+    "category": "Cytoskeleton",
+    "task": "Characterize PACS1R203W-induced dynein dysfunction via HDAC6 and BICD2",
+    "key_results": "PACS1R203W induces dynein loss-of-function via HDAC6-BICD2 complex formation; reduces dynein initiation frequency and velocity; defects rescued by HDAC6 inhibition or Lis1 expression; impairs furin trafficking and Golgi organization",
+    "comments": "The identification of PACS1\u2013HDAC6\u2013BICD2 as a pathogenic complex provides a mechanistic link between PACS1 syndrome and microtubule trafficking disorders, though broader implications for similar neurodevelopmental syndromes remain to be explored.",
+    "model_io": [
+      {
+        "model": "PACS1R203W-expressing cells",
+        "inputs": [
+          "PACS1R203W mutation",
+          "HDAC6",
+          "BICD2"
+        ],
+        "outputs": [
+          "disrupted dynein-mediated cargo transport",
+          "impaired furin localization",
+          "Golgi fragmentation"
+        ]
+      },
+      {
+        "model": "PACS1R203W cells + HDAC6 inhibitor or Lis1",
+        "inputs": [
+          "HDAC6 inhibition",
+          "Lis1 expression"
+        ],
+        "outputs": [
+          "restored dynein initiation frequency and velocity",
+          "improved cargo motility"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "PACS1R203W\u2013HDAC6\u2013BICD2 complex disrupts dynein function",
+        "result": "confirmed; cargo motility assays show reduced initiation frequency and velocity"
+      },
+      {
+        "hypothesis": "Dynein dysfunction underlies Golgi fragmentation in PACS1 syndrome",
+        "result": "supported; HDAC6 inhibition and Lis1 expression rescue dynein and Golgi phenotypes"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s42003-026-09934-y",
+    "source": "cell-biology",
+    "id": "10.1038/s42003-026-09934-y",
+    "title": "ALDOB K87 lactylation drives mitochondrial fission and metabolic reprogramming in pulmonary hypertension",
+    "projectPage": "https://www.nature.com/articles/s42003-026-09934-y",
+    "journal": "Communications Biology",
+    "publishedAt": "2026-03-27",
+    "category": "Cell Signaling",
+    "task": "Characterize lactate-driven mitochondrial fission and metabolic reprogramming in pulmonary hypertension",
+    "key_results": "ALDOB-K87 lactylation amplifies glycolytic flux and recruits DRP1 to mitochondria via SENP3-mediated deSUMOylation; pharmacological suppression of lactylation attenuates PH progression in vivo",
+    "comments": "The lactate\u2013ALDOB\u2013DRP1 axis represents a novel metabolic-mitochondrial feedback loop, though the physiological relevance of lactylation versus phosphorylation needs clarification.",
+    "model_io": [
+      {
+        "model": "hypoxic PASMCs and rodent PH models",
+        "inputs": [
+          "hypoxia",
+          "ALDOB-K87 lactylation",
+          "DRP1"
+        ],
+        "outputs": [
+          "increased glycolytic flux",
+          "lactate accumulation",
+          "mitochondrial fragmentation",
+          "PASMC proliferation/migration"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "ALDOB lactylation drives DRP1 recruitment and mitochondrial fission",
+        "result": "confirmed; DRP1 deSUMOylation by SENP3 is mechanistically required"
+      },
+      {
+        "hypothesis": "SIRT1 downregulation sustains pathological lactylation",
+        "result": "confirmed; SIRT1 acts as delactylase for ALDOB"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41467-026-70821-5",
+    "source": "computational-biology",
+    "id": "10.1038/s41467-026-70821-5",
+    "title": "SMART: spatial multi-omic aggregation using graph neural networks and metric learning",
+    "projectPage": "https://www.nature.com/articles/s41467-026-70821-5",
+    "journal": "Nature Communications",
+    "publishedAt": "2026-03-27",
+    "category": "Network Biology",
+    "task": "Spatial multi-omics data integration across tissue domains",
+    "key_results": "SMART accurately identifies spatial regions of anatomical structures; SMART-MS extends integration across multiple tissue sections with exceptional computational efficiency",
+    "comments": "Framework demonstrates modularity and scalability but validation on diverse tissue types and modality combinations would strengthen claims.",
+    "model_io": [
+      {
+        "model": "SMART (Spatial Multi-omic Aggregation with GNN and metric learning)",
+        "inputs": [
+          "spatial coordinates",
+          "multi-omics data from multiple layers"
+        ],
+        "outputs": [
+          "unified integrated space",
+          "spatial region annotations"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Graph neural networks with triplet metric learning can effectively integrate spatial multi-omics data",
+        "result": "SMART accurately identifies anatomical structures and scales to large datasets"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41522-026-00941-9",
+    "source": "computational-biology",
+    "id": "10.1038/s41522-026-00941-9",
+    "title": "Mining of food metagenomes reveals an unexplored diversity of dsDNA bacteriophages",
+    "projectPage": "https://www.nature.com/articles/s41522-026-00941-9",
+    "journal": "Nature Portfolio",
+    "publishedAt": "2026-03-27",
+    "category": "Evolutionary Biology",
+    "task": "Characterization of bacteriophage diversity in food metagenomes and virus-host interactions",
+    "key_results": "FVGC comprises ~3400 metagenome-assembled viruses (MAVs) from >3000 food metagenomes with 91 novel Caudoviricetes lineages; linked MAVs to ESKAPE pathogens; minimal phage-mediated AMR dissemination (<10% of MAVs)",
+    "comments": "Valuable resource for viral ecology, though functional validation of predicted host interactions and cross-domain transferability remain open.",
+    "model_io": [
+      {
+        "model": "Metagenomic viral assembly and taxonomic classification",
+        "inputs": [
+          "3000+ food metagenomes (>100M sequences)"
+        ],
+        "outputs": [
+          "Food Viral Genome Catalog (~3400 MAVs)",
+          "host predictions",
+          "antiviral defense system annotations"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Extensive uncharacterized viral diversity exists in food systems with predictable host-pathogen associations",
+        "result": "FVGC identified 91 novel lineages; linked MAVs to clinically relevant pathogens; minimal phage-mediated AMR"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41540-026-00651-0",
+    "source": "computational-biology",
+    "id": "10.1038/s41540-026-00651-0",
+    "title": "From FAIR to CURE: guidelines for computational models of biological systems",
+    "projectPage": "https://www.nature.com/articles/s41540-026-00651-0",
+    "journal": "Nature Portfolio",
+    "publishedAt": "2026-03-27",
+    "category": "Statistical Methods",
+    "task": "Framework for ensuring credibility, reproducibility and extensibility of computational biological models",
+    "key_results": "CURE principles proposed: Credible (verification/validation/uncertainty quantification), Understandable (model clarity/annotation), Reproducible (standards/open science), Extensible (modular code/open standards)",
+    "comments": "Timely and necessary framework, though implementation automation challenges and discipline-specific nuances merit further discussion.",
+    "model_io": [],
+    "hypotheses": [
+      {
+        "hypothesis": "Computational models require complementary guidelines beyond FAIR data principles for biomedical trust",
+        "result": "CURE framework proposed with baseline and recommended requirements for model management and reuse"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41587-026-03053-z",
+    "source": "computational-biology",
+    "id": "10.1038/s41587-026-03053-z",
+    "title": "High-resolution metagenome assembly for modern long reads with myloasm",
+    "projectPage": "https://www.nature.com/articles/s41587-026-03053-z",
+    "journal": "Nature Biotechnology",
+    "publishedAt": "2026-03-27",
+    "category": "Genomics",
+    "task": "High-resolution metagenome assembly for modern long reads enabling recovery of within-species diversity",
+    "key_results": "Myloasm assembled 3\u00d7 more complete circular contigs than next-best assembler on ONT metagenomes; recovered six complete Prevotella copri and eight complete TM7 (Saccharibacteria) single-contig genomes; ONT assemblies comparable to HiFi",
+    "comments": "Significant algorithmic advance leveraging polymorphic k-mers and differential abundance; within-species diversity recovery opens new ecological insights.",
+    "model_io": [
+      {
+        "model": "myloasm (metagenome assembler with polymorphic k-mers and abundance-guided graph simplification)",
+        "inputs": [
+          "long-read sequencing data (PacBio HiFi, ONT R10.4)"
+        ],
+        "outputs": [
+          "assembled contigs",
+          "complete circular genomes",
+          "within-species variants"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Polymorphic k-mers and differential abundance enable high-resolution metagenome assembly comparable to HiFi on ONT data",
+        "result": "Myloasm assembled 3\u00d7 more complete circular contigs; recovered previously inaccessible within-species diversity (6 complete P. copri, 8 complete TM7 contigs)"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41592-026-03034-9",
+    "source": "computational-biology",
+    "id": "10.1038/s41592-026-03034-9",
+    "title": "3d-OT: a deep geometry-aware framework for heterogeneous slices alignment of spatial multi-omics",
+    "projectPage": "https://www.nature.com/articles/s41592-026-03034-9",
+    "journal": "Nature Methods",
+    "publishedAt": "2026-03-27",
+    "category": "Network Biology",
+    "task": "3D alignment of heterogeneous spatial multi-omics slices with nonrigid deformations",
+    "key_results": "3d-OT captures anatomical details of mouse brain cortex layers and constructs 3D spatiotemporal trajectories of embryonic development; outperforms existing methods in nonrigid deformation tracking",
+    "comments": "Novel use of optimal transport for alignment is elegant, but chamfer distance evaluation may benefit from biological validation metrics.",
+    "model_io": [
+      {
+        "model": "3d-OT (deep geometry-aware framework with soft correspondence optimal transport)",
+        "inputs": [
+          "spatial coordinates",
+          "multi-omics data",
+          "heterogeneous tissue slices"
+        ],
+        "outputs": [
+          "aligned spatial domains",
+          "3D spatiotemporal trajectories",
+          "nonrigid deformation mappings"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Soft correspondence optimal transport can resolve nonrigid deformations in spatial multi-omics alignment",
+        "result": "Successfully aligns mouse brain, heart, and neural crest tissues and reconstructs 3D embryonic development trajectory"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41597-026-07107-4",
+    "source": "computational-biology",
+    "id": "10.1038/s41597-026-07107-4",
+    "title": "A digital biomarker dataset from hematopoietic cell transplant caregivers and patients",
+    "projectPage": "https://www.nature.com/articles/s41597-026-07107-4",
+    "journal": "Scientific Data",
+    "publishedAt": "2026-03-27",
+    "category": "Single Cell",
+    "task": "Physiological and psychological biomarker dataset from hematopoietic cell transplant caregiver-patient dyads",
+    "key_results": "Comprehensive dataset of 166 HCT dyads over 120 days post-transplant including minute-level heart rate, daily sleep/steps, mood scores, PROMIS\u00ae questionnaires, and clinical outcomes",
+    "comments": "Rich paired dataset enabling investigation of interdependencies, though analysis of caregiver-patient physiological synchrony and predictive modeling of complications would add analytical value.",
+    "model_io": [
+      {
+        "model": "Integrated wearable and clinical data capture system",
+        "inputs": [
+          "Fitbit Charge 3 wearable signals",
+          "Roadmap mobile app mood reports",
+          "PROMIS health questionnaires",
+          "electronic health records"
+        ],
+        "outputs": [
+          "heart rate time series",
+          "sleep patterns",
+          "step counts",
+          "mood trajectories",
+          "clinical events"
+        ]
+      }
+    ],
+    "hypotheses": []
+  },
+  {
+    "uid": "nature:10.1038/s41597-026-07123-4",
+    "source": "computational-biology",
+    "id": "10.1038/s41597-026-07123-4",
+    "title": "A dataset of insect sounds from 459 species for bioacoustic machine learning",
+    "projectPage": "https://www.nature.com/articles/s41597-026-07123-4",
+    "journal": "Scientific Data",
+    "publishedAt": "2026-03-27",
+    "category": "Other",
+    "task": "Large-scale insect sound dataset for acoustic biodiversity monitoring via deep learning",
+    "key_results": "InsectSet459 comprises 26,298 audio files (226.6 hours) from 459 species (310 Orthoptera, 149 Cicadidae); benchmark deep learning classifiers show good performance with room for improvement on broad-frequency acoustic signals",
+    "comments": "Valuable dataset addressing data scarcity in insect bioacoustics, though classifier performance gaps (likely due to variable sample rates) suggest methodological advances needed.",
+    "model_io": [
+      {
+        "model": "Deep learning acoustic classifiers (state-of-the-art benchmarks)",
+        "inputs": [
+          "insect sound audio (variable sample rates, broad frequency ranges)"
+        ],
+        "outputs": [
+          "species classification predictions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Large-scale labeled insect sound dataset enables development of robust deep learning classifiers for biodiversity monitoring",
+        "result": "InsectSet459 benchmarked; good baseline performance achieved with identified potential for improvement in handling variable frequencies/sample rates"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-39730-x",
+    "source": "computational-biology",
+    "id": "10.1038/s41598-026-39730-x",
+    "title": "A novel superpixel based Vision Transformer for improving interpretability in glaucoma screening",
+    "projectPage": "https://www.nature.com/articles/s41598-026-39730-x",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-27",
+    "category": "Structural Prediction",
+    "task": "Superpixel-based Vision Transformer for interpretable glaucoma screening",
+    "key_results": "SpxViT achieves 91.9% accuracy (vs ViT-B/16 92.5%) with improved interpretability; attention maps focus on clinically relevant optic disc/cup regions",
+    "comments": "Addresses important interpretability challenge in medical imaging, though quantitative comparison of attention map clinical relevance versus standard ViTs would strengthen claims.",
+    "model_io": [
+      {
+        "model": "SpxViT (Superpixel-based Vision Transformer)",
+        "inputs": [
+          "retinal fundus images"
+        ],
+        "outputs": [
+          "glaucoma classification",
+          "interpretable attention maps"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Superpixel-based tokenization preserves semantic boundaries for improved interpretability over grid-based tokenization",
+        "result": "SpxViT achieves comparable accuracy (91.9%) with more clinically consistent attention maps focused on optic disc/cup"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-40062-z",
+    "source": "computational-biology",
+    "id": "10.1038/s41598-026-40062-z",
+    "title": "KM-DBSCAN: an enhanced density and centroid based border detection framework for data reduction towards green AI",
+    "projectPage": "https://www.nature.com/articles/s41598-026-40062-z",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-27",
+    "category": "Statistical Methods",
+    "task": "Data reduction via hybrid K-Means/DBSCAN clustering for green AI model training",
+    "key_results": "KM-DBSCAN achieves up to 90% data reduction, training speedups 3.6\u00d7 to 6900\u00d7, carbon emissions 0.0219-5.374g, while preserving competitive accuracy (90.39% melanoma with 28.7% data, 0.0061% loss, 71.65% emission reduction)",
+    "comments": "Practical green AI approach combining clustering benefits, though computational cost of clustering itself and real-world carbon accounting methodology warrant clarification.",
+    "model_io": [
+      {
+        "model": "KM-DBSCAN (hybrid density and centroid-based clustering)",
+        "inputs": [
+          "training datasets (Banana, USPS, Adult9a, Collision, Dry Bean, Melanoma)"
+        ],
+        "outputs": [
+          "reduced dataset with intelligent sample selection"
+        ]
+      },
+      {
+        "model": "Downstream ML classifiers (SVM, MLP, CNN)",
+        "inputs": [
+          "reduced datasets"
+        ],
+        "outputs": [
+          "predictions on test sets"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Hybrid K-Means/DBSCAN clustering enables significant data reduction while preserving model accuracy and reducing training carbon emissions",
+        "result": "Up to 90% data reduction with 3.6\u00d7 to 6900\u00d7 speedups and 71.65% carbon emission reduction on melanoma with minimal accuracy loss"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-44282-1",
+    "source": "computational-biology",
+    "id": "10.1038/s41598-026-44282-1",
+    "title": "Graph attention network-based multimodal approach for lung diseases classification",
+    "projectPage": "https://www.nature.com/articles/s41598-026-44282-1",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-27",
+    "category": "Network Biology",
+    "task": "Multimodal lung disease classification from clinical text and chest X-rays",
+    "key_results": "Graph Attention Network-based approach achieves 95.73% accuracy, 95.75% precision, 95.72% recall, 95.70% F1-score with ECE 0.0124 on multiclass lung disease classification",
+    "comments": "Strong performance metrics, though generalization to external datasets and attention map clinical validation would strengthen clinical applicability claims.",
+    "model_io": [
+      {
+        "model": "Graph Attention Network with Clinical ModernBERT and RAD-DINO",
+        "inputs": [
+          "chest X-ray images",
+          "clinical notes/text"
+        ],
+        "outputs": [
+          "lung disease classification",
+          "attention maps"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Token-level cross-modal interactions via GAT can integrate imaging and textual information for lung disease classification",
+        "result": "95.73% accuracy on multiclass lung disease classification with robust attention maps focused on optic disc/cup"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-44576-4",
+    "source": "computational-biology",
+    "id": "10.1038/s41598-026-44576-4",
+    "title": "Structural error asymmetry and harm-weighted analysis of ChatGPT versus ICU Physicians in acid\u2013base interpretation: a prospective observational study",
+    "projectPage": "https://www.nature.com/articles/s41598-026-44576-4",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-27",
+    "category": "Statistical Methods",
+    "task": "Harm-weighted error analysis of ChatGPT versus ICU physicians in acid-base interpretation",
+    "key_results": "Overall accuracy 82% (physicians) vs 72% (ChatGPT); mixed disorder sensitivity 0.96 vs 0.63; ChatGPT produced 16.7% false-normal classifications (false reassurance); harm-weighted error significantly higher for ChatGPT (p=0.026)",
+    "comments": "Rigorous complexity-stratified and harm-weighted evaluation reveals critical safety gaps masked by aggregate metrics, setting exemplar for clinical AI assessment.",
+    "model_io": [
+      {
+        "model": "ChatGPT (prompted acid-base interpretation)",
+        "inputs": [
+          "arterial blood gas (ABG) data from 50 ICU patients"
+        ],
+        "outputs": [
+          "diagnostic classification into 6 categories"
+        ]
+      },
+      {
+        "model": "ICU physician interpretation (baseline)",
+        "inputs": [
+          "same ABG data"
+        ],
+        "outputs": [
+          "diagnostic classification"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "ChatGPT and ICU physicians show equivalent overall diagnostic accuracy in acid-base interpretation",
+        "result": "Aggregate agreement comparable (\u03ba=0.63 vs 0.73) but structural differences in mixed disorder sensitivity and false-reassurance rate reveal safety concerns"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-45026-x",
+    "source": "computational-biology",
+    "id": "10.1038/s41598-026-45026-x",
+    "title": "Differential microRNA expression profiles and predicted miRNA\u2013mRNA regulatory networks in human macrophage-like cells infected with Leishmania infantum",
+    "projectPage": "https://www.nature.com/articles/s41598-026-45026-x",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-27",
+    "category": "Network Biology",
+    "task": "miRNA-mRNA regulatory network analysis in Leishmania infantum-infected macrophages",
+    "key_results": "24 and 10 dysregulated miRNAs at 24h; 25 and 12 at 48h post-infection; high fraction of dysregulated transcription factors (TFs) predicted as miRNA targets in cholesterol/lipid, VEGF, and NF2EL2 pathways",
+    "comments": "Comprehensive small RNA-seq study with targeted pathway focus, though functional validation of predicted miRNA-mRNA interactions remains needed.",
+    "model_io": [
+      {
+        "model": "Small RNA-seq and differential expression analysis",
+        "inputs": [
+          "U937 cells infected with L. infantum at 24h and 48h"
+        ],
+        "outputs": [
+          "dysregulated miRNAs (24 up, 10 down at 24h; 25 up, 12 down at 48h)"
+        ]
+      },
+      {
+        "model": "miRNA-mRNA interaction prediction (mirDIP database)",
+        "inputs": [
+          "dysregulated miRNAs",
+          "mRNA expression changes"
+        ],
+        "outputs": [
+          "predicted regulatory networks",
+          "pathway associations"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Dysregulated miRNAs in L. infantum infection target transcription factors and metabolic pathway genes",
+        "result": "High fraction of TFs predicted as miRNA targets; dysregulation impacts cholesterol, lipid, VEGF, and NF2EL2 pathways"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-45351-1",
+    "source": "computational-biology",
+    "id": "10.1038/s41598-026-45351-1",
+    "title": "Nonlinear dynamics of Nosema ceranae and the fragile resilience of honeybee colonies under environmental strain",
+    "projectPage": "https://www.nature.com/articles/s41598-026-45351-1",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-27",
+    "category": "Evolutionary Biology",
+    "task": "Nonlinear dynamics modeling of Nosema ceranae persistence and outbreak cycles in honeybee colonies",
+    "key_results": "SIRS model identifies transcritical bifurcation (disease eradication\u2192endemic) and Hopf bifurcation (sustained oscillations from resource limitation); bistability indicates small perturbations can trigger large-amplitude outbreaks",
+    "comments": "Rigorous mathematical framework explaining cyclical disease prevalence, though empirical validation of predicted bifurcation thresholds in field colonies would enhance applicability.",
+    "model_io": [
+      {
+        "model": "Nonlinear SIRS model with susceptibility renewal and resource saturation",
+        "inputs": [
+          "infection dynamics parameters",
+          "colony resource availability"
+        ],
+        "outputs": [
+          "disease equilibrium points",
+          "bifurcation thresholds",
+          "periodic oscillations"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Partial recovery and resource limitation drive complex epidemic patterns in Nosema ceranae",
+        "result": "Model identifies transcritical and Hopf bifurcations explaining endemic persistence and cyclical outbreaks; bistability demonstrates sensitivity to interventions"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-46006-x",
+    "source": "computational-biology",
+    "id": "10.1038/s41598-026-46006-x",
+    "title": "Towards a more reliable assessment of aortic diameters using a Bayesian Z-score",
+    "projectPage": "https://www.nature.com/articles/s41598-026-46006-x",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-27",
+    "category": "Statistical Methods",
+    "task": "Bayesian Z-score framework for reliable aortic diameter assessment accounting for epistemic uncertainty",
+    "key_results": "Bayesian approach detects more dilatations in at-risk patients; identifies uncertain cases via epistemic uncertainty quantification; trained on 1,947 healthy subjects",
+    "comments": "Methodological advance addressing overlooked epistemic uncertainty in clinical metrics, though validation on larger prospective cohorts is needed.",
+    "model_io": [
+      {
+        "model": "Bayesian heteroscedastic Gaussian process regression for aortic diameter",
+        "inputs": [
+          "aortic diameter measurements",
+          "patient demographic variables"
+        ],
+        "outputs": [
+          "Z-score posterior distribution",
+          "aleatoric uncertainty",
+          "epistemic uncertainty interval"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Bayesian reformulation of Z-score captures aleatoric and epistemic uncertainty in aortic diameter assessment",
+        "result": "Enhanced detection of dilatations and identification of uncertain cases for more reliable clinical decision-making"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41698-026-01382-5",
+    "source": "computational-biology",
+    "id": "10.1038/s41698-026-01382-5",
+    "title": "AI-driven body composition atlas reveals its association with NSCLC immunotherapy outcome and molecular background: a multicenter study",
+    "projectPage": "https://www.nature.com/articles/s41698-026-01382-5",
+    "journal": "Nature Portfolio",
+    "publishedAt": "2026-03-27",
+    "category": "Network Biology",
+    "task": "AI-driven body composition analysis and association with immunotherapy outcomes in NSCLC",
+    "key_results": "92 body composition parameters extracted from CT with ICC >0.87; intermuscular fat volume (males) and T12 subcutaneous fat density (females) predict survival; sex-specific associations with interferon/macrophage pathways in 2,132 patients (8 cohorts)",
+    "comments": "Comprehensive multicenter study with gender-stratified mechanistic insights, though causal pathway validation via intervention studies would strengthen recommendations.",
+    "model_io": [
+      {
+        "model": "Deep learning CT image segmentation and parameter extraction",
+        "inputs": [
+          "computed tomography images from NSCLC patients (n=2,132)"
+        ],
+        "outputs": [
+          "92 body composition parameters"
+        ]
+      },
+      {
+        "model": "Survival prediction and pathway analysis",
+        "inputs": [
+          "body composition parameters",
+          "clinical outcomes"
+        ],
+        "outputs": [
+          "survival associations",
+          "immune pathway enrichment"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Body composition parameters predict immunotherapy outcomes through sex-specific immune mechanisms",
+        "result": "High IMFV (males) correlates with upregulated interferon pathways and lower CD8+ T cell exhaustion; high T12 fat density (females) with M1 macrophage polarization"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41746-026-02518-4",
+    "source": "computational-biology",
+    "id": "10.1038/s41746-026-02518-4",
+    "title": "Overcoming Data Loss in Wearable Disease Detection with GAN-Based Imputation",
+    "projectPage": "https://www.nature.com/articles/s41746-026-02518-4",
+    "journal": "Nature Portfolio",
+    "publishedAt": "2026-03-27",
+    "category": "Single Cell",
+    "task": "GAN-based imputation of missing wearable sensor data for disease detection",
+    "key_results": "System detects 100 early infection alerts (42 solely from imputation) with 11.9-day lead time matching parasitemia window; 35% improvement in early detection despite 50% data coverage; cross-pathogen generalization with 58% error reduction",
+    "comments": "Pragmatic approach for low-resource settings, though clinical validation on larger cohorts and comparison with other imputation methods would strengthen evidence.",
+    "model_io": [
+      {
+        "model": "Lightweight GAN framework for heart rate imputation",
+        "inputs": [
+          "partial wearable heart rate time series (50% coverage)"
+        ],
+        "outputs": [
+          "imputed heart rate data"
+        ]
+      },
+      {
+        "model": "Rule-based anomaly detection algorithm",
+        "inputs": [
+          "imputed and observed heart rate"
+        ],
+        "outputs": [
+          "early infection alerts"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "GAN trained on external COVID-19 data can generalize to malaria detection in rural populations",
+        "result": "Alerts triggered 11.9 days before symptom onset, with 35% improved early detection sensitivity"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s43588-026-00972-4",
+    "source": "computational-biology",
+    "id": "10.1038/s43588-026-00972-4",
+    "title": "Scaling and quantization of large-scale foundation model enables resource-efficient predictions in network biology",
+    "projectPage": "https://www.nature.com/articles/s43588-026-00972-4",
+    "journal": "Nature Portfolio",
+    "publishedAt": "2026-03-27",
+    "category": "Statistical Methods",
+    "task": "Resource-efficient foundation model scaling for transcriptional analysis",
+    "key_results": "Model quantization reduces fine-tuning time to 15% and memory to 34% of full-precision model while preserving performance on ~10^4 million single-cell transcriptomes",
+    "comments": "Demonstrates practical utility of quantization for biomedical foundation models, though biological knowledge preservation claims require deeper mechanistic validation.",
+    "model_io": [
+      {
+        "model": "Scaled and quantized foundation model for network biology",
+        "inputs": [
+          "~104 million human single-cell transcriptomes from diverse tissues/diseases"
+        ],
+        "outputs": [
+          "gene embeddings",
+          "cell embeddings",
+          "fine-tuning/inference predictions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Quantization preserves contextual embedding spaces of full-precision models",
+        "result": "Zero-shot and fine-tuning performance matches full model with 15% time and 34% memory overhead"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s43588-026-00973-3",
+    "source": "computational-biology",
+    "id": "10.1038/s43588-026-00973-3",
+    "title": "HorusEye: a self-supervised foundation model for generalizable X-ray tomography restoration",
+    "projectPage": "https://www.nature.com/articles/s43588-026-00973-3",
+    "journal": "Nature Portfolio",
+    "publishedAt": "2026-03-27",
+    "category": "Structural Prediction",
+    "task": "Self-supervised X-ray tomography image restoration across modalities",
+    "key_results": "HorusEye trained on 100+ million images generalizes across modalities and degradation types, improving photon efficiency and high-frequency recovery; clinical studies show enhanced lesion detectability",
+    "comments": "Foundation model approach is promising for image restoration, though cross-modality generalization claims would benefit from explicit domain shift quantification.",
+    "model_io": [
+      {
+        "model": "HorusEye (self-supervised foundation model with interslice contrastive pretraining)",
+        "inputs": [
+          "X-ray tomography images (100+ million)"
+        ],
+        "outputs": [
+          "restored images",
+          "structural priors",
+          "degradation parameters"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Contrastive pretraining on raw data enables learning of realistic degradation processes without paired supervision",
+        "result": "HorusEye generalizes to diverse modalities and unseen imaging modes, outperforming task-specific restoration methods"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41467-026-71038-2",
+    "source": "mathematics-and-computing",
+    "id": "10.1038/s41467-026-71038-2",
+    "title": "Generative AI for misalignment-resistant virtual staining to accelerate histopathology workflows",
+    "projectPage": "https://www.nature.com/articles/s41467-026-71038-2",
+    "journal": "Nature Communications",
+    "publishedAt": "2026-03-27",
+    "category": "ML Theory",
+    "task": "Virtual staining for histopathology via cascaded registration",
+    "key_results": "23.8% improvement in image quality for highly misaligned samples; pathologists achieve 52% accuracy distinguishing virtual from chemical stains",
+    "comments": "Elegant decoupling of generation and registration enables real-world imperfectly-aligned data; 52% indistinguishability is impressive for clinical adoption.",
+    "model_io": [
+      {
+        "model": "Generative AI with cascaded registration mechanism",
+        "inputs": [
+          "Unstained tissue image (misaligned)",
+          "Target stain reference"
+        ],
+        "outputs": [
+          "Virtual stained image",
+          "Registration transformation"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Cascaded registration mechanism enables virtual staining from imperfectly paired data",
+        "result": "23.8% quality improvement for misaligned samples; pathologist indistinguishability at 52%"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41467-026-71071-1",
+    "source": "mathematics-and-computing",
+    "id": "10.1038/s41467-026-71071-1",
+    "title": "Supernetwork-based efficient mapping of deep learning applications to mixed-precision hardware using model adaptation",
+    "projectPage": "https://www.nature.com/articles/s41467-026-71071-1",
+    "journal": "Nature Communications",
+    "publishedAt": "2026-03-27",
+    "category": "Algorithms",
+    "task": "Mapping deep learning models to mixed-precision hardware",
+    "key_results": "~2.2\u00d7 faster mappings, ~3.4% accuracy improvement over fully analog approach, 80% of model weights mapped to analog hardware",
+    "comments": "The approach elegantly combines hardware-aware architecture search with mixed-precision quantization but evaluation is limited to standard benchmarks.",
+    "model_io": [
+      {
+        "model": "Mixed-Precision Supernetwork",
+        "inputs": [
+          "Neural network architecture",
+          "Hardware specifications"
+        ],
+        "outputs": [
+          "Optimized layer assignments",
+          "Quantized and analog layer mappings"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Mapping-aware adaptation enables efficient deployment on heterogeneous accelerators",
+        "result": "Achieved 2.2\u00d7 speedup and maintained accuracy with 80% analog weight mapping"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41597-026-07053-1",
+    "source": "mathematics-and-computing",
+    "id": "10.1038/s41597-026-07053-1",
+    "title": "Multimodal and Hyperspectral Dataset for Segmentation of Bulky Waste using VIS, IR, NIR, and Terahertz Imaging",
+    "projectPage": "https://www.nature.com/articles/s41597-026-07053-1",
+    "journal": "Scientific Data",
+    "publishedAt": "2026-03-27",
+    "category": "Other",
+    "task": "Multimodal waste segmentation dataset creation",
+    "key_results": "WoodVIT: 56 multi-sensor scenes, 22,659 annotated patches, binary wood/non-wood classification with 16 subclass labels",
+    "comments": "Comprehensive multimodal dataset with practical waste-sorting applications, but baseline CNN results not explicitly reported.",
+    "model_io": [
+      {
+        "model": "Multimodal sensor fusion (VIS, NIR, IR, THz)",
+        "inputs": [
+          "RGB images",
+          "Hyperspectral NIR",
+          "Thermal IR",
+          "Terahertz depth"
+        ],
+        "outputs": [
+          "Pixel-wise segmentation masks",
+          "Patch-level class labels"
+        ]
+      }
+    ],
+    "hypotheses": []
+  },
+  {
+    "uid": "nature:10.1038/s41598-025-23638-z",
+    "source": "mathematics-and-computing",
+    "id": "10.1038/s41598-025-23638-z",
+    "title": "Ensemble-based detection of distributed denial-of-service attacks in IoT networks using majority decision mechanisms",
+    "projectPage": "https://www.nature.com/articles/s41598-025-23638-z",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-27",
+    "category": "ML Theory",
+    "task": "Ensemble DDoS attack detection in IoT networks",
+    "key_results": "Majority voting achieves 99.87-100% accuracy on DNS, NetBIOS, LDAP, UDP, SNMP attacks; significantly reduces false positives",
+    "comments": "Pragmatic ensemble approach with practical applicability to resource-constrained IoT; preprocessing and feature selection are well-designed.",
+    "model_io": [
+      {
+        "model": "Majority Voting ensemble (5 ML algorithms)",
+        "inputs": [
+          "IoT network traffic features (preprocessed, balanced)"
+        ],
+        "outputs": [
+          "DDoS/legitimate classification",
+          "Attack type"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Ensemble majority voting reduces false positives while maintaining detection accuracy",
+        "result": "99.87-100% accuracy with minimal false positives on CICDDOS2019"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-37258-8",
+    "source": "mathematics-and-computing",
+    "id": "10.1038/s41598-026-37258-8",
+    "title": "ScaleMamba-YOLO: a multi-scale MambaYOLO for medical object detection",
+    "projectPage": "https://www.nature.com/articles/s41598-026-37258-8",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-27",
+    "category": "Algorithms",
+    "task": "Multi-scale lesion detection in medical images",
+    "key_results": "AP scores: Br35H 72.7%, BCCD 65.0%, PLoPy 85.7%, VOC0712 64.6%; consistent 1.7-2.3% improvement over MambaYOLO",
+    "comments": "ScaleMamba-YOLO effectively addresses variable lesion scales with selective state-space modeling, though improvements are incremental.",
+    "model_io": [
+      {
+        "model": "ScaleMamba-YOLO",
+        "inputs": [
+          "Medical images (chest X-rays, blood cell, tumor)"
+        ],
+        "outputs": [
+          "Lesion bounding boxes",
+          "Class predictions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "MMLFE-Block with multi-kernel convolution improves multi-scale lesion detection",
+        "result": "Consistent 1.7-2.3% AP improvement over baseline MambaYOLO"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-39823-7",
+    "source": "mathematics-and-computing",
+    "id": "10.1038/s41598-026-39823-7",
+    "title": "Low-data cross-modal adaptation for remote sensing with proxy-enhanced multi-granularity feature caching",
+    "projectPage": "https://www.nature.com/articles/s41598-026-39823-7",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-27",
+    "category": "ML Theory",
+    "task": "Cross-modal adaptation for remote sensing with vision-language models",
+    "key_results": "Stable few-shot performance where fine-tuning fails; outperforms existing cross-modal adaptation methods on multiple benchmarks",
+    "comments": "Well-designed framework combining LLM-augmented prompts, proxy calibration, and feature caching; particularly strong in low-data regimes.",
+    "model_io": [
+      {
+        "model": "Proxy-enhanced multi-granularity feature caching with CLIP",
+        "inputs": [
+          "Remote sensing imagery (VIS/multispectral)",
+          "Class labels"
+        ],
+        "outputs": [
+          "Semantic segmentation predictions",
+          "Cached features"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "LLM-augmented prompts and proxy-based support sets improve semantic alignment",
+        "result": "Stable few-shot performance and outperformed existing methods"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-42209-4",
+    "source": "mathematics-and-computing",
+    "id": "10.1038/s41598-026-42209-4",
+    "title": "A physics-informed machine learning framework for predicting and mitigating doxorubicin nanocarrier toxicity in normal cells",
+    "projectPage": "https://www.nature.com/articles/s41598-026-42209-4",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-27",
+    "category": "ML Theory",
+    "task": "Physics-informed machine learning for nanocarrier toxicity prediction",
+    "key_results": "PINN achieves R\u00b2 0.89, RMSE 0.14; identifies optimal design space (120-150 nm size, -25 to -35 mV zeta potential); validation errors <3%",
+    "comments": "Hybrid PIML approach effectively incorporates domain constraints; experimental validation on independent studies demonstrates practical utility.",
+    "model_io": [
+      {
+        "model": "Physics-Informed Neural Network (PINN)",
+        "inputs": [
+          "Nanocarrier physicochemical properties (77 systems)"
+        ],
+        "outputs": [
+          "Cytotoxicity predictions",
+          "Optimal design parameters"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "PINN incorporating drug release kinetics and diffusion constraints improves predictions",
+        "result": "R\u00b2 0.89; experimental validation errors <3%"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-42891-4",
+    "source": "mathematics-and-computing",
+    "id": "10.1038/s41598-026-42891-4",
+    "title": "Enhancing credit card fraud detection with a hybrid approach using machine and deep learning",
+    "projectPage": "https://www.nature.com/articles/s41598-026-42891-4",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-27",
+    "category": "ML Theory",
+    "task": "Credit card fraud detection with hybrid ensemble methods",
+    "key_results": "Proposed stacking ensemble achieves accuracy/precision/recall/F1/AUC all reaching 1.0 or near-perfect; 37 models evaluated",
+    "comments": "Comprehensive evaluation with multiple sampling techniques and interpretability methods; perfect metrics suggest potential data leakage or overfitting risk.",
+    "model_io": [
+      {
+        "model": "Stacking ensemble (ET, CNN, LSTM, XGBoost) or (ET, AdaBoost, XGBoost)",
+        "inputs": [
+          "Credit card transactions (imbalanced)",
+          "SMOTE-ENN sampling"
+        ],
+        "outputs": [
+          "Fraud/legitimate classification",
+          "Probability scores"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Ensemble methods with data balancing improve fraud detection",
+        "result": "Stacking ensembles achieve near-perfect performance (AUC 1.0)"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-43242-z",
+    "source": "mathematics-and-computing",
+    "id": "10.1038/s41598-026-43242-z",
+    "title": "Comparative optimization of overcurrent relay coordination in DG-integrated distribution networks: water cycle algorithm versus genetic algorithm and big bang\u2013big crunch",
+    "projectPage": "https://www.nature.com/articles/s41598-026-43242-z",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-27",
+    "category": "Algorithms",
+    "task": "Overcurrent relay coordination in DG-integrated distribution networks",
+    "key_results": "Comparative evaluation of WCA, GA, and BB-BC algorithms for OCR coordination; all algorithms achieve coordinated settings under multiple operating modes",
+    "comments": "Thorough comparative study but lacks explicit performance rankings; unclear which algorithm is superior for practical deployment.",
+    "model_io": [
+      {
+        "model": "Metaheuristic optimization (GA, WCA, BB-BC)",
+        "inputs": [
+          "Distribution network topology",
+          "DG parameters",
+          "Fault conditions",
+          "CTI constraints"
+        ],
+        "outputs": [
+          "Optimal relay settings",
+          "Operating times"
+        ]
+      }
+    ],
+    "hypotheses": []
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-43318-w",
+    "source": "mathematics-and-computing",
+    "id": "10.1038/s41598-026-43318-w",
+    "title": "Enhancing IELTS writing automated scoring with M-LoRA fine-tuned LLAMA-3 and human feedback-driven PPO reinforcement learning",
+    "projectPage": "https://www.nature.com/articles/s41598-026-43318-w",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-27",
+    "category": "ML Theory",
+    "task": "Automated IELTS essay scoring and feedback generation",
+    "key_results": "Significant improvements in essay scoring accuracy and feedback quality using M-LoRA fine-tuning and PPO reinforcement learning on 5,088 expert-annotated essays",
+    "comments": "The paper demonstrates practical application of LLMs to educational assessment but lacks specific quantitative metrics (e.g., correlation with human raters).",
+    "model_io": [
+      {
+        "model": "LLaMA-3 with M-LoRA",
+        "inputs": [
+          "IELTS essays"
+        ],
+        "outputs": [
+          "Scores on Task Response, Coherence/Cohesion, Lexical Resource, Grammatical Range/Accuracy",
+          "Personalized feedback"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Multi-task supervised fine-tuning prevents catastrophic forgetting in scoring tasks",
+        "result": "Successfully captured features across four IELTS scoring dimensions"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-44778-w",
+    "source": "mathematics-and-computing",
+    "id": "10.1038/s41598-026-44778-w",
+    "title": "Enhanced control of continuous stirred tank reactor with two-degree-of-freedom PID driven by Kirchhoff\u2019s law algorithm",
+    "projectPage": "https://www.nature.com/articles/s41598-026-44778-w",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-27",
+    "category": "Algorithms",
+    "task": "Temperature control in continuous stirred tank reactor",
+    "key_results": "KLA-tuned 2DOF-PID achieves faster rise/settling times and minimal steady-state error vs. other optimizers; demonstrates robust control of nonlinear thermal system",
+    "comments": "Physics-based optimization (KLA) is well-motivated for nonlinear CSTR; comparative evaluation limited to standard optimizers.",
+    "model_io": [
+      {
+        "model": "2DOF-PID controller optimized by Kirchhoff's Law Algorithm",
+        "inputs": [
+          "CSTR inlet temperature",
+          "Reaction temperature setpoint"
+        ],
+        "outputs": [
+          "Coolant flow rate",
+          "Temperature control signal"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "KLA-optimized 2DOF-PID improves robustness and accuracy for nonlinear thermal systems",
+        "result": "Faster response and minimal steady-state error vs. other optimizers"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-44991-7",
+    "source": "mathematics-and-computing",
+    "id": "10.1038/s41598-026-44991-7",
+    "title": "Prototype-oriented contrastive mean-teacher for unsupervised domain adaptive object detection",
+    "projectPage": "https://www.nature.com/articles/s41598-026-44991-7",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-27",
+    "category": "ML Theory",
+    "task": "Unsupervised domain adaptation for object detection",
+    "key_results": "PoCoMT achieves state-of-the-art performance through prototype-contrastive learning; improves discriminative abilities beyond cross-domain transferability",
+    "comments": "Novel integration of contrastive learning, prototype learning, and mean-teacher self-training is well-motivated; extensive validation across benchmarks.",
+    "model_io": [
+      {
+        "model": "Prototype-oriented Contrastive Mean Teacher (PoCoMT)",
+        "inputs": [
+          "Source domain labeled images",
+          "Target domain unlabeled images"
+        ],
+        "outputs": [
+          "Object detection boxes",
+          "Class predictions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Prototype Alignment Network reduces intra- and inter-domain contrastive losses",
+        "result": "Achieves state-of-the-art UDA-OD performance"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-45140-w",
+    "source": "mathematics-and-computing",
+    "id": "10.1038/s41598-026-45140-w",
+    "title": "A novel quantum convolutional neural network framework for quantum-enhanced classification of pixelated colour images",
+    "projectPage": "https://www.nature.com/articles/s41598-026-45140-w",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-27",
+    "category": "ML Theory",
+    "task": "Quantum convolutional neural networks for image classification",
+    "key_results": "Six-class validation accuracy 82.05% vs. classical CNN 40.00%; binary classification: No-QCNN 89.7% vs. classical CNN 100%",
+    "comments": "Demonstrates QCNN advantage in low-data multiclass settings but performance degrades with dataset size due to NISQ limitations; complementary, not superior, paradigm.",
+    "model_io": [
+      {
+        "model": "Novel Quantum CNN (No-QCNN) with Variational Quantum Classifier",
+        "inputs": [
+          "Pixelated color images (low-resolution)",
+          "RGB channels + spatial position"
+        ],
+        "outputs": [
+          "Class predictions",
+          "Confidence probabilities"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "QCNN with ZZFeatureMap encoding improves generalization in low-data multiclass settings",
+        "result": "82.05% validation accuracy vs. 40% classical CNN on 50-image dataset"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-45189-7",
+    "source": "mathematics-and-computing",
+    "id": "10.1038/s41598-026-45189-7",
+    "title": "Domain knowledge-integrated reinforcement learning control of nonlinear tunable vibration absorber under nonstationary excitation",
+    "projectPage": "https://www.nature.com/articles/s41598-026-45189-7",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-27",
+    "category": "Algorithms",
+    "task": "Reinforcement learning control of tunable vibration absorber",
+    "key_results": "Modified Q-learning achieves R\u00b2 0.994 vs. optimal baseline; up to 58% vibration energy reduction under nonstationary multi-frequency excitation",
+    "comments": "Effective integration of vibration-domain knowledge (Parseval's theorem) reduces RL complexity; real-time experimental validation is strong.",
+    "model_io": [
+      {
+        "model": "Model-free Q-learning with vibration-domain knowledge",
+        "inputs": [
+          "Tunable vibration absorber state",
+          "Nonstationary multi-frequency excitation"
+        ],
+        "outputs": [
+          "Stiffness-damping control commands",
+          "Vibration energy estimate"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Domain knowledge integration improves RL convergence and reduces computational complexity",
+        "result": "R\u00b2 0.994; 58% vibration energy reduction under nonstationary excitation"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-45382-8",
+    "source": "mathematics-and-computing",
+    "id": "10.1038/s41598-026-45382-8",
+    "title": "Keeping up with the regions: a hybrid machine learning framework for estimating regional input-output tables",
+    "projectPage": "https://www.nature.com/articles/s41598-026-45382-8",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-27",
+    "category": "ML Theory",
+    "task": "Regional input-output table estimation",
+    "key_results": "GAN+Boost achieves R\u00b2 improvements of 8.9 pp (NIOT) and 1.2 pp (WIOT); diagonal correlation improves 160% on NIOT; Gini metrics show 73-82% better preservation",
+    "comments": "Novel integration of IPF constraints within GAN generator is creative, though the modest WIOT improvement suggests dataset-dependent performance.",
+    "model_io": [
+      {
+        "model": "GAN with IPF layer + residual boosting",
+        "inputs": [
+          "National/World Input-Output Tables",
+          "Marginal constraints"
+        ],
+        "outputs": [
+          "Regional IO table estimates"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Hard marginal constraints via IPF layer improve GAN-based IO table generation",
+        "result": "Significantly outperformed improved RAS baseline on both NIOT and WIOT"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-45449-6",
+    "source": "mathematics-and-computing",
+    "id": "10.1038/s41598-026-45449-6",
+    "title": "Comparative behavior of steam turbine model for dynamical power system analyses by means of multiple fractional and artificial neural network techniques",
+    "projectPage": "https://www.nature.com/articles/s41598-026-45449-6",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-27",
+    "category": "Other",
+    "task": "Steam turbine dynamic modeling and neural network prediction",
+    "key_results": "ANN-based predictive model with comparison of fractional differential techniques; validation via transfer function analysis",
+    "comments": "Combines fractional calculus and ANN for turbine modeling but lacks explicit quantitative performance metrics or accuracy comparisons.",
+    "model_io": [
+      {
+        "model": "Artificial Neural Network with Laplace/Sumudu transforms",
+        "inputs": [
+          "Pressure, temperature, steam flow"
+        ],
+        "outputs": [
+          "Turbine output power",
+          "Dynamic response"
+        ]
+      }
+    ],
+    "hypotheses": []
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-45805-6",
+    "source": "mathematics-and-computing",
+    "id": "10.1038/s41598-026-45805-6",
+    "title": "Network topology and recovery delay thresholds determine cascading failure vulnerability in sports systems",
+    "projectPage": "https://www.nature.com/articles/s41598-026-45805-6",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-27",
+    "category": "Other",
+    "task": "Network topology effects on cascading failure in sports systems",
+    "key_results": "Scale-free networks 57% more vulnerable than regular (NVI 1.24 vs. 0.79); immediate recovery (r_t=1) prevents cascading; delayed recovery (r_t\u22652) triggers exponential propagation",
+    "comments": "Rigorous network-agent modeling with empirical validation; phase space analysis reveals bistability important for management.",
+    "model_io": [
+      {
+        "model": "Network-agent cascading failure model",
+        "inputs": [
+          "Network topology (random/regular/small-world/scale-free)",
+          "Recovery delay",
+          "Failure thresholds"
+        ],
+        "outputs": [
+          "Failure propagation dynamics",
+          "Network Vulnerability Index"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Scale-free topology increases cascading failure vulnerability due to star-player dependence",
+        "result": "57% higher vulnerability (NVI 1.24) vs. regular networks"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-45844-z",
+    "source": "mathematics-and-computing",
+    "id": "10.1038/s41598-026-45844-z",
+    "title": "Gender shapes the relationship between productivity and journal prestige in science",
+    "projectPage": "https://www.nature.com/articles/s41598-026-45844-z",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-27",
+    "category": "Statistics/Probability",
+    "task": "Gender disparities in productivity-prestige trajectories in academia",
+    "key_results": "Male researchers overrepresented in hyperprolific region; female peers achieve comparable or higher journal prestige; gender-discipline interactions observed",
+    "comments": "Sophisticated Bayesian hierarchical modeling on 6000+ elite Brazilian researchers; findings suggest structural barriers rather than merit differences.",
+    "model_io": [
+      {
+        "model": "Bayesian hierarchical modeling of career trajectories",
+        "inputs": [
+          "Annual publication counts",
+          "Journal prestige metrics (6000+ researchers)"
+        ],
+        "outputs": [
+          "Productivity-prestige plane projections",
+          "Gender-discipline interactions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Gender shapes the relationship between productivity and journal prestige",
+        "result": "Male researchers follow productivity-oriented paths; female peers prioritize prestige; discipline-specific patterns observed"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-45885-4",
+    "source": "mathematics-and-computing",
+    "id": "10.1038/s41598-026-45885-4",
+    "title": "Design optimization and stiffness-equivalent method for an integrated starter generator in aerospace applications",
+    "projectPage": "https://www.nature.com/articles/s41598-026-45885-4",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-27",
+    "category": "Other",
+    "task": "Integrated starter generator optimization and vibration analysis",
+    "key_results": "Stiffness-equivalent method validated via 3D FEA; optimization achieves lightweight design meeting operational constraints",
+    "comments": "Solid engineering methodology combining finite element analysis with optimization, but limited to aerospace starter generators; generalization potential unclear.",
+    "model_io": [
+      {
+        "model": "Stiffness-equivalent method with PyAnsys optimization",
+        "inputs": [
+          "Structural geometry",
+          "Material properties",
+          "Operational constraints"
+        ],
+        "outputs": [
+          "Optimized design",
+          "Weight reduction",
+          "Vibrational properties"
+        ]
+      }
+    ],
+    "hypotheses": []
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-45927-x",
+    "source": "mathematics-and-computing",
+    "id": "10.1038/s41598-026-45927-x",
+    "title": "A unified deep learning framework integrating OpenStreetMap for multi-domain urban planning tasks",
+    "projectPage": "https://www.nature.com/articles/s41598-026-45927-x",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-27",
+    "category": "Algorithms",
+    "task": "Multi-domain urban planning with satellite and OSM data",
+    "key_results": "Land-use: 91.6% accuracy; building footprints: 94.0% accuracy; traffic: RMSE 3.6 veh/h; air quality: RMSE 2.3 \u00b5g/m\u00b3",
+    "comments": "Well-executed multi-task framework but evaluation limited to single city (Krasnodar); generalization potential unclear.",
+    "model_io": [
+      {
+        "model": "CNN for land-use classification",
+        "inputs": [
+          "Multispectral satellite imagery",
+          "OSM data"
+        ],
+        "outputs": [
+          "Land-use classification"
+        ]
+      },
+      {
+        "model": "U-Net segmentation",
+        "inputs": [
+          "Satellite imagery"
+        ],
+        "outputs": [
+          "Building footprint masks"
+        ]
+      },
+      {
+        "model": "LSTM traffic prediction",
+        "inputs": [
+          "Historical traffic data"
+        ],
+        "outputs": [
+          "Traffic flow forecasts"
+        ]
+      },
+      {
+        "model": "CNN-RNN hybrid air-quality model",
+        "inputs": [
+          "Environmental data",
+          "temporal sequences"
+        ],
+        "outputs": [
+          "Air quality predictions"
+        ]
+      }
+    ],
+    "hypotheses": []
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-46089-6",
+    "source": "mathematics-and-computing",
+    "id": "10.1038/s41598-026-46089-6",
+    "title": "PCB-YOLOV8X: a network for detecting micro-sized defects on PCB surfaces based on enhanced feature information",
+    "projectPage": "https://www.nature.com/articles/s41598-026-46089-6",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-27",
+    "category": "Algorithms",
+    "task": "PCB surface micro-defect detection",
+    "key_results": "mAP@0.5 98.44%, Precision 97.67%, Recall 96.34%; improvements of 2.76%, 2.33%, 2.59% over YOLOv8",
+    "comments": "Effective use of adaptive feature extraction and loss function optimization for micro-defect detection; incremental but solid improvements.",
+    "model_io": [
+      {
+        "model": "PCB-YOLOV8X with C2f-DCNV2 and SPPF-LSKA",
+        "inputs": [
+          "PCB surface images"
+        ],
+        "outputs": [
+          "Defect bounding boxes",
+          "Defect class labels"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "IWD-CIoU loss improves matching between predictions and ground truth",
+        "result": "98.44% mAP@0.5 with 2.76% improvement over YOLOv8"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-46253-y",
+    "source": "mathematics-and-computing",
+    "id": "10.1038/s41598-026-46253-y",
+    "title": "Advanced channel estimation in OTFS and NOMA using deep bayesian gaussian processes and compressive sensing",
+    "projectPage": "https://www.nature.com/articles/s41598-026-46253-y",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-27",
+    "category": "ML Theory",
+    "task": "Channel estimation in OTFS-NOMA systems",
+    "key_results": "NMSE 0.01447 at 12 dB (90% lower than MMSE); BER 0.021159 at 12 dB; 50% reduction in pilot overhead",
+    "comments": "Strong performance in high-mobility scenarios; combines deep learning with uncertainty quantification effectively.",
+    "model_io": [
+      {
+        "model": "Deep Bayesian Gaussian Process-Compressive Sensing (DBGP-CS)",
+        "inputs": [
+          "OTFS-NOMA received signals",
+          "Pilot symbols"
+        ],
+        "outputs": [
+          "Channel delay-Doppler estimates",
+          "Uncertainty quantification"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "DBGP-CS with compressive sensing reduces pilot overhead by 50%",
+        "result": "NMSE 0.01447 at 12 dB with 100 users at 120 km/h"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s42005-026-02601-y",
+    "source": "mathematics-and-computing",
+    "id": "10.1038/s42005-026-02601-y",
+    "title": "Dismantling complex networks based on higher-order graph neural network",
+    "projectPage": "https://www.nature.com/articles/s42005-026-02601-y",
+    "journal": "Communications Physics",
+    "publishedAt": "2026-03-27",
+    "category": "Graph Theory",
+    "task": "Network dismantling using higher-order graph neural networks",
+    "key_results": "SPR model integrates multi-dimensional higher-order relations; demonstrates superior dismantling efficiency on real-world and synthetic networks",
+    "comments": "Theoretical framework is robust but specific quantitative improvements on benchmark datasets are not detailed.",
+    "model_io": [
+      {
+        "model": "Higher-order Graph Neural Network (HoGNN) with SPR dismantling",
+        "inputs": [
+          "Network topology",
+          "Higher-order relationships"
+        ],
+        "outputs": [
+          "Node importance rankings",
+          "Dismantling sequence"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Integration of macro/micro higher-order relations improves key node identification",
+        "result": "Superior dismantling efficiency with minimal target removals"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41467-026-70931-0",
+    "source": "physics",
+    "id": "10.1038/s41467-026-70931-0",
+    "title": "Room temperature collective blinking and photon bunching from CsPbBr3 quantum dot superlattice",
+    "projectPage": "https://www.nature.com/articles/s41467-026-70931-0",
+    "journal": "Nature Communications",
+    "publishedAt": "2026-03-27",
+    "category": "Optics/Photonics",
+    "task": "Demonstrating room-temperature collective photon bunching in perovskite quantum dot superlattices",
+    "key_results": "Collective blinking and photon bunching (degree ~3.9) at room temperature; long-range exciton migration to nanoscale energy traps; biexciton-exciton cascade emission mechanism confirmed via power-dependent analysis",
+    "comments": "Room-temperature collective effects are notable, but the origin of energy traps (defects vs intentional superlattice design) and their reproducibility across samples warrant deeper investigation.",
+    "model_io": [
+      {
+        "model": "CsPbBr3 quantum dot superlattice",
+        "inputs": [
+          "optical excitation power",
+          "temperature (room)",
+          "detection bandwidth"
+        ],
+        "outputs": [
+          "photon correlation g(2)(\u03c4)",
+          "bunching degree",
+          "PL lifetime components",
+          "emission spatial profile"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Long-range exciton migration in superlattices creates energy traps triggering biexciton-exciton cascade and room-temperature photon bunching",
+        "result": "Confirmed: time-resolved and super-resolution imaging evidence exciton migration; power dependence supports cascade mechanism"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41467-026-71157-w",
+    "source": "physics",
+    "id": "10.1038/s41467-026-71157-w",
+    "title": "Role of fragility of the glass formers in the yielding transition under oscillatory shear",
+    "projectPage": "https://www.nature.com/articles/s41467-026-71157-w",
+    "journal": "Nature Communications",
+    "publishedAt": "2026-03-27",
+    "category": "Condensed Matter",
+    "task": "Understanding yielding transition age dependence across glass formers with varying fragility",
+    "key_results": "Fragile glasses show yield stress increase with annealing below critical threshold; strong glasses show constant yield stress; universal behavior across metallic, molecular, granular, and silica glasses",
+    "comments": "The modified mean-field elastoplastic model successfully unifies diverse glassy systems, though the microscopic mechanisms linking fragility to energy barriers warrant further experimental validation.",
+    "model_io": [
+      {
+        "model": "Molecular dynamics simulations",
+        "inputs": [
+          "glass formers (metallic, molecular, granular, silica)",
+          "annealing time",
+          "oscillatory shear strain"
+        ],
+        "outputs": [
+          "yield strain \u03b3c",
+          "age dependence curves",
+          "energy barriers"
+        ]
+      },
+      {
+        "model": "Modified mean-field elastoplastic model",
+        "inputs": [
+          "energy barrier distributions",
+          "fragility parameter"
+        ],
+        "outputs": [
+          "predicted yield stress",
+          "critical annealing threshold"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Fragility determines how energy barriers change with annealing, controlling yield stress dependence",
+        "result": "Confirmed: fragile glasses show larger yield stress changes with annealing than strong glasses"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41524-026-02056-3",
+    "source": "physics",
+    "id": "10.1038/s41524-026-02056-3",
+    "title": "A general purposed machine learning interatomic potential for Mg-Al-Si-O system suitable for Earth materials at high pressure and temperature conditions",
+    "projectPage": "https://www.nature.com/articles/s41524-026-02056-3",
+    "journal": "npj Computational Materials",
+    "publishedAt": "2026-03-27",
+    "category": "Condensed Matter",
+    "task": "Developing machine learning interatomic potential for Mg-Al-Si-O system at extreme conditions",
+    "key_results": "Pairwise Gaussian correction reduces energy error from 5.2 to 1.2 kJ/mol; predicted isochemical phase diagrams agree with experiments; solid-melt interfacial free energy anisotropy: 6% (periclase), 12% (forsterite); mean stress proxy for \u03b1-\u03b2 quartz transition has ~17% error",
+    "comments": "The r2SCAN functional choice is well-justified, but validation on independent experimental datasets beyond those used in training would strengthen transferability claims.",
+    "model_io": [
+      {
+        "model": "Machine learning interatomic potential (trained on r2SCAN DFT data with Gaussian correction)",
+        "inputs": [
+          "atomic coordinates for Mg, Al, Si, O in >20 minerals and melts",
+          "pressure",
+          "temperature"
+        ],
+        "outputs": [
+          "energy",
+          "forces",
+          "thermodynamic properties",
+          "phase boundaries"
+        ]
+      },
+      {
+        "model": "Molecular dynamics simulation",
+        "inputs": [
+          "ML potential",
+          "T-P conditions"
+        ],
+        "outputs": [
+          "phase diagrams",
+          "interfacial free energies",
+          "stress-dependent transitions"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "ML potentials with Gaussian correction can accurately reproduce experimental phase relations in complex Earth materials",
+        "result": "Confirmed: predicted isochemical phase diagrams show good agreement; error reduction demonstrates improved accuracy"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-38641-1",
+    "source": "physics",
+    "id": "10.1038/s41598-026-38641-1",
+    "title": "Symmetry driven altermagnetic spin splitting in hexagonal CrTe from first principles",
+    "projectPage": "https://www.nature.com/articles/s41598-026-38641-1",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-27",
+    "category": "Condensed Matter",
+    "task": "Identifying altermagnetic spin splitting in hexagonal CrTe without net magnetization",
+    "key_results": "CrTe exhibits collinear magnetic order with significant spin splitting despite zero net magnetization; symmetry-protected spin polarization confirmed; reclassified as altermagnet rather than conventional antiferromagnet",
+    "comments": "The DFT identification is solid, but experimental confirmation via spin-resolved ARPES or transport measurements is essential to validate the altermagnet classification.",
+    "model_io": [
+      {
+        "model": "DFT calculations (no spin-orbit coupling)",
+        "inputs": [
+          "CrTe hexagonal crystal structure",
+          "antiferromagnetic configurations"
+        ],
+        "outputs": [
+          "band structure with spin splitting",
+          "net magnetization (zero)",
+          "symmetry analysis"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "CrTe exhibits altermagnetism: collinear spin-split bands with zero net magnetization due to symmetry protection",
+        "result": "Confirmed: DFT reveals spin splitting in absence of net magnetization; symmetry-protected mechanism identified"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-39215-x",
+    "source": "physics",
+    "id": "10.1038/s41598-026-39215-x",
+    "title": "Expanded Heisenberg Hamiltonians from a Mn/Bi DFT+U study on hexagonal antiferromagnet CaMn2Bi2: excitations and strain-controlled magnetic anisotropy switching",
+    "projectPage": "https://www.nature.com/articles/s41598-026-39215-x",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-27",
+    "category": "Condensed Matter",
+    "task": "Constructing expanded Heisenberg Hamiltonians for antiferromagnetic Mn-pnictide with strain-tunable anisotropy",
+    "key_results": "Standard Heisenberg model insufficient; extended model with local on-site magnetization terms accurately describes magnetic excitations; easy-plane anisotropy with in-plane axis switching via small strain; SOC-driven gap tunable by strain",
+    "comments": "The Hubbard-model-inspired extended Hamiltonian is physically motivated, but quantitative strain thresholds for axis switching and implications for magneto-optical control deserve experimental validation.",
+    "model_io": [
+      {
+        "model": "DFT+U with SOC (Mn-3d and Bi-6p Hubbard corrections)",
+        "inputs": [
+          "CaMn2Bi2 crystal structure",
+          "strain tensor",
+          "spin-orbit coupling"
+        ],
+        "outputs": [
+          "magnetic configurations",
+          "anisotropy energy",
+          "excitation energies"
+        ]
+      },
+      {
+        "model": "Extended Heisenberg Hamiltonian with on-site magnetization terms",
+        "inputs": [
+          "DFT-derived exchange and anisotropy parameters",
+          "strain"
+        ],
+        "outputs": [
+          "magnon dispersion",
+          "excitation spectrum",
+          "anisotropy axis orientation"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Extended Heisenberg model with SOC-driven on-site terms accurately captures magnetic excitations; strain switches easy-axis orientation in Mn-pnictide",
+        "result": "Confirmed: extended model reproduces DFT excitation spectra; strain-tunable anisotropy switching demonstrated via DFT+U"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-42192-w",
+    "source": "physics",
+    "id": "10.1038/s41598-026-42192-w",
+    "title": "Spin polarized first principles study of electro-magnetic and optical properties of K2NaXI6 (X :Cr Fe) double halide perovskites",
+    "projectPage": "https://www.nature.com/articles/s41598-026-42192-w",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-27",
+    "category": "Condensed Matter",
+    "task": "Predicting electromagnetic and optical properties of K2NaXI6 double halide perovskites using spin-polarized DFT",
+    "key_results": "K2NaCrI6: 0.8 eV (spin-up) / 1.8 eV (spin-down) band gaps; K2NaFeI6: 3.2 eV (spin-up) / 0.4 eV (spin-down); ferromagnetic ordering with 3 \u00b5B (Cr) and 5 \u00b5B (Fe) total moments; n-type (Cr) and p-type (Fe) thermoelectric behavior",
+    "comments": "TB-mBJ functional provides accurate gaps, but experimental validation of predicted band gaps and type conductivity across both compounds is crucial for device applications.",
+    "model_io": [
+      {
+        "model": "Spin-polarized DFT (TB-mBJ exchange potential)",
+        "inputs": [
+          "K2NaXI6 crystal structure (X=Cr,Fe)"
+        ],
+        "outputs": [
+          "band structure (spin-up/down)",
+          "band gaps",
+          "magnetic moments",
+          "dielectric function",
+          "optical absorption"
+        ]
+      },
+      {
+        "model": "Ab initio molecular dynamics",
+        "inputs": [
+          "crystal structure",
+          "temperature"
+        ],
+        "outputs": [
+          "thermodynamic stability confirmation"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "K2NaXI6 double perovskites exhibit spin-asymmetric band gaps and type-dependent thermoelectric properties suitable for multifunctional energy applications",
+        "result": "Confirmed: TB-mBJ calculations reveal ferromagnetic ordering with large spin-splitting and contrasting thermoelectric doping"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-44837-2",
+    "source": "physics",
+    "id": "10.1038/s41598-026-44837-2",
+    "title": "Mode localization in chiral periodic approximants of Fibonacci magnonic superlattices",
+    "projectPage": "https://www.nature.com/articles/s41598-026-44837-2",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-27",
+    "category": "Optics/Photonics",
+    "task": "Realizing mode localization and field-tunable flat bands in Fibonacci magnonic superlattices",
+    "key_results": "Dispersionless flat bands at low frequencies with spatial localization in chiral nanomagnets; external magnetic field tunes flat-band frequency window; DMI and anisotropy modulation enable modal selectivity",
+    "comments": "The flat-band tunability is experimentally promising, but micromagnetic simulation scope is limited to linear systems; nonlinear spin-wave interactions and damping effects at higher powers require further study.",
+    "model_io": [
+      {
+        "model": "Fibonacci superlattice approximant (chiral and nonchiral nanomagnets)",
+        "inputs": [
+          "saturation magnetization modulation",
+          "perpendicular anisotropy profile",
+          "DMI strength",
+          "external magnetic field"
+        ],
+        "outputs": [
+          "spin-wave dispersion",
+          "flat band positions",
+          "mode localization patterns"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Aperiodic Fibonacci ordering with DMI modulation produces field-tunable flat bands with spatial mode localization",
+        "result": "Confirmed: flat bands emerge with controllable frequency window via external field; localization tied to material contrast"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s42005-026-02598-4",
+    "source": "physics",
+    "id": "10.1038/s42005-026-02598-4",
+    "title": "Dual-mode superconducting diode effect enabled by in-plane and out-of-plane magnetic field",
+    "projectPage": "https://www.nature.com/articles/s42005-026-02598-4",
+    "journal": "Communications Physics",
+    "publishedAt": "2026-03-27",
+    "category": "Condensed Matter",
+    "task": "Realization of dual-mode superconducting diode effect using orthogonal magnetic fields",
+    "key_results": "Both out-of-plane and in-plane fields independently generate SDE with similar efficiency (~1-2%); two orders difference in operational field strength; independent temperature dependence for each mode",
+    "comments": "The multi-directional symmetry breaking is elegantly demonstrated, though practical integration of fast polarity-switching and high-fidelity operations in a single device remains to be demonstrated.",
+    "model_io": [
+      {
+        "model": "2H-NbS2/2H-NbSe2 heterostructure device",
+        "inputs": [
+          "out-of-plane magnetic field B\u22a5",
+          "in-plane magnetic field B\u2225",
+          "temperature",
+          "applied current"
+        ],
+        "outputs": [
+          "critical current",
+          "diode efficiency",
+          "forward/reverse resistance asymmetry"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Multiple symmetry-breaking orientations enable independent SDE operation modes",
+        "result": "Confirmed: orthogonal field components produce distinct operational regimes with independent temperature dependence"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s43246-026-01142-9",
+    "source": "physics",
+    "id": "10.1038/s43246-026-01142-9",
+    "title": "Magnetic clusters in the paramagnetic phase of a high-temperature ferromagnetic metal\u2013organic framework",
+    "projectPage": "https://www.nature.com/articles/s43246-026-01142-9",
+    "journal": "Nature Portfolio",
+    "publishedAt": "2026-03-27",
+    "category": "Condensed Matter",
+    "task": "Characterizing magnetic cluster dynamics in paramagnetic phase of high-Tc ferrimagnetic metal-organic framework",
+    "key_results": "Mesoscopic magnetic correlated clusters detected in paramagnetic regime above Tc; cluster dynamics tracked via nuclear moments in MHz range; similarity to magnetoelectronic phase segregation in manganites suggests common physics",
+    "comments": "The unconventional magnetic transition and cluster formation mechanism merit closer scrutiny; whether clusters represent true equilibrium or kinetically trapped metastable states deserves clarification.",
+    "model_io": [
+      {
+        "model": "Cr(tri)2(CF3SO3)0.33 ferrimagnetic framework",
+        "inputs": [
+          "temperature (paramagnetic regime)",
+          "magnetic field (SQUID)"
+        ],
+        "outputs": [
+          "magnetization",
+          "nuclear relaxation rates (NMR)",
+          "ferromagnetic resonance spectra"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Paramagnetic phase of high-Tc MOF contains thermally-activated mesoscopic magnetic clusters with slow MHz-range dynamics",
+        "result": "Confirmed: NMR and FMR evidence slow relaxation mechanisms and cluster formation above Tc"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s44306-026-00132-4",
+    "source": "physics",
+    "id": "10.1038/s44306-026-00132-4",
+    "title": "Magnetically programmable surface acoustic wave filters: device concept and predictive modeling",
+    "projectPage": "https://www.nature.com/articles/s44306-026-00132-4",
+    "journal": "Nature Portfolio",
+    "publishedAt": "2026-03-27",
+    "category": "Optics/Photonics",
+    "task": "Engineering magnetically programmable SAW filters via magnetoelastic coupling to spin waves",
+    "key_results": "SAW attenuation of 52.0 dB/mm at 3.8 GHz achievable by programming internal magnetic state; stray-field interaction between Co/Ni islets shifts SW dispersion enabling frequency selectivity; energy conservation argument extended to finite-difference simulations",
+    "comments": "The micromagnetic approach is thorough, but experimental realization of islet arrays and demonstration of programmable frequency tuning remain outstanding.",
+    "model_io": [
+      {
+        "model": "Micromagnetic simulations (magnetoelastic SAW-SW coupling)",
+        "inputs": [
+          "Co/Ni islet array geometry",
+          "magnetic alignment states",
+          "Rayleigh SAW mode profile",
+          "LiTaO3 substrate"
+        ],
+        "outputs": [
+          "SW dispersion",
+          "magnetoelastic interaction efficiency",
+          "SAW transmission/attenuation vs frequency"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Stray-field-induced SW dispersion shifts enable magnetic-state-dependent SAW filtering without external field",
+        "result": "Confirmed: micromagnetic modeling predicts 52 dB/mm attenuation variation with islet magnetic alignment"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s44306-026-00133-3",
+    "source": "physics",
+    "id": "10.1038/s44306-026-00133-3",
+    "title": "Bound states in the continuum and near-exceptional points in a reflection-based cavity-magnonic system",
+    "projectPage": "https://www.nature.com/articles/s44306-026-00133-3",
+    "journal": "Nature Portfolio",
+    "publishedAt": "2026-03-27",
+    "category": "Optics/Photonics",
+    "task": "Realizing bound states in continuum and near-exceptional points in cavity-magnonic systems via reflection-based coupling",
+    "key_results": "BICs with sharply enhanced group delay achieved via Fabry-Perot cavity-magnon interference; direction-selective coherent perfect absorption near PT-symmetric point; reflection-zero state in S-matrix enables non-Hermitian singularity access",
+    "comments": "The reflection-based BIC realization is elegant and geometrically practical, though scalability to multi-mode systems and robustness to material losses at different frequencies warrant investigation.",
+    "model_io": [
+      {
+        "model": "Cavity-magnonic hybrid system (YIG + Fabry-Perot cavity)",
+        "inputs": [
+          "cavity geometry",
+          "magnon frequency",
+          "coherent coupling strength",
+          "external magnetic field"
+        ],
+        "outputs": [
+          "reflection amplitude/phase",
+          "S-matrix",
+          "group delay",
+          "magnon-photon polariton spectrum"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Interference between cavity mode and magnon produces reflection BICs with enhanced group delay; near-PT-symmetry enables direction-selective CPA",
+        "result": "Confirmed: reflection zeros identified as BICs with sharp group delay peaks; directional loading achieves PT-like operating point"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s44306-026-00134-2",
+    "source": "physics",
+    "id": "10.1038/s44306-026-00134-2",
+    "title": "Skyrmion quantum diode prototype: bridging micromagnetic simulations and quantum models",
+    "projectPage": "https://www.nature.com/articles/s44306-026-00134-2",
+    "journal": "Nature Portfolio",
+    "publishedAt": "2026-03-27",
+    "category": "Quantum",
+    "task": "Demonstrating skyrmion-based quantum diode for unidirectional qubit coupling",
+    "key_results": "Unidirectional skyrmion transport via skyrmion Hall effect in 20-3 nm junctions; compatibility with flux-tunable quantum architectures demonstrated; anharmonicity signatures in skyrmion-qubit systems identified",
+    "comments": "Bridging micromagnetics and quantum circuits is conceptually ambitious, but practical implementation challenges (skyrmion stability, qubit coherence in magnetic environment) and scaling to multi-qubit systems remain significant.",
+    "model_io": [
+      {
+        "model": "Micromagnetic simulations with skyrmion dynamics",
+        "inputs": [
+          "magnetic material parameters",
+          "asymmetric junction geometry",
+          "spin current/field"
+        ],
+        "outputs": [
+          "skyrmion trajectory",
+          "Hall angle",
+          "transport velocity (length scales 20-3 nm)"
+        ]
+      },
+      {
+        "model": "Skyrmion qubit circuit model (superconducting qubit-inspired)",
+        "inputs": [
+          "skyrmion state",
+          "flux tuning"
+        ],
+        "outputs": [
+          "qubit energy levels",
+          "transition frequencies",
+          "anharmonicity"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Skyrmion Hall effect enables unidirectional transport suitable for one-way quantum links between different qubit types",
+        "result": "Confirmed: micromagnetic simulations demonstrate controlled unidirectional transport; quantum circuit model shows compatibility with superconducting architectures"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41467-026-70308-3",
+    "source": "systems-biology",
+    "id": "10.1038/s41467-026-70308-3",
+    "title": "Associations of continuous glucose monitor derived time in range and glycaemic variability with diet lifestyle and demographics",
+    "projectPage": "https://www.nature.com/articles/s41467-026-70308-3",
+    "journal": "Nature Communications",
+    "publishedAt": "2026-03-27",
+    "category": "Multi-scale Modeling",
+    "task": "Assess associations between continuous glucose monitoring metrics and cardiometabolic health in non-diabetic individuals",
+    "key_results": "Higher time in range (TIR 3.9\u20135.6 mmol/L) associated with lower HbA1c and OGTT glucose; TIR 3.9\u20135.6 achieved moderate discrimination for ASCVD 10-year risk (AUC = 0.75); sleep duration inversely correlated with mean glucose",
+    "comments": "Large observational study (N=3,634) across three cohorts, but long-term health outcome data lacking; relevance of CGM metrics to actual disease prevention in euglycemic individuals remains uncertain.",
+    "model_io": [
+      {
+        "model": "Observational association analysis (PREDICT 1/2/3 cohorts)",
+        "inputs": [
+          "continuous glucose profiles",
+          "demographics",
+          "diet",
+          "lifestyle",
+          "sleep duration",
+          "cardiometabolic markers"
+        ],
+        "outputs": [
+          "time in range (TIR)",
+          "glycemic variability",
+          "HbA1c",
+          "predicted ASCVD risk"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Higher TIR is associated with better glycemic control markers",
+        "result": "Confirmed: higher TIR 3.9\u20135.6 correlated with lower HbA1c and OGTT glucose"
+      },
+      {
+        "hypothesis": "CGM metrics discriminate cardiovascular risk in non-diabetic individuals",
+        "result": "Partially supported: moderate discrimination (AUC=0.75) but utility for health management unproven"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41467-026-71085-9",
+    "source": "systems-biology",
+    "id": "10.1038/s41467-026-71085-9",
+    "title": "Tumor-infiltrating immature innate lymphoid cells in colorectal cancer are biased toward ILC1/tissue-resident NK cell differentiation",
+    "projectPage": "https://www.nature.com/articles/s41467-026-71085-9",
+    "journal": "Nature Communications",
+    "publishedAt": "2026-03-27",
+    "category": "Gene Regulation",
+    "task": "Characterize innate lymphoid cell differentiation and dysfunction in colorectal cancer and peritoneal metastases",
+    "key_results": "CRC tumors enriched for ILC1 and tissue-resident NK cells but depleted of ILC3; na\u00efve ILCs transcriptionally biased toward ILC1/trNK differentiation; co-culture with OP9-DL1 induces ILC1/trNK-like differentiation",
+    "comments": "Single-cell RNA-seq and functional assays provide mechanistic insight into ILC skewing, but sample size (11 patients scRNA-seq) is modest and generalizability to broader CRC populations unclear.",
+    "model_io": [
+      {
+        "model": "Single-cell RNA-seq analysis (11 CRC/CRC-PM patients)",
+        "inputs": [
+          "tumor tissue samples",
+          "healthy colon controls"
+        ],
+        "outputs": [
+          "ILC subset identification",
+          "transcriptional profiling",
+          "differentiation bias signature"
+        ]
+      },
+      {
+        "model": "In vitro co-culture differentiation assay (24 patients)",
+        "inputs": [
+          "isolated na\u00efve ILCs",
+          "OP9-DL1 stromal cells"
+        ],
+        "outputs": [
+          "ILC1 markers",
+          "tissue-resident NK markers",
+          "differentiation trajectory"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Tumor-infiltrating na\u00efve ILCs are transcriptionally skewed toward ILC1/trNK differentiation",
+        "result": "Confirmed by scRNA-seq analysis showing ILC1/trNK transcriptional bias in nILCs"
+      },
+      {
+        "hypothesis": "Co-culture with OP9-DL1 stromal cells induces nILC differentiation into ILC1/trNK cells",
+        "result": "Confirmed: differentiation assays demonstrated intratumoral nILC conversion to ILC1/trNK-like phenotype"
+      }
+    ]
+  }
+]

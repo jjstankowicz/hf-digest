@@ -37045,5 +37045,342 @@
         "result": "Supported; eye tracking captures symptom severity differences, though specificity for suicidality vs. depression is limited"
       }
     ]
+  },
+  "nature:10.1038/s41388-026-03751-7": {
+    "category": "Cell Division/Cycle",
+    "task": "Review molecular mechanisms and in vitro model systems for studying cell competition in development and cancer",
+    "key_results": "Cell competition functions as quality control mechanism in development and regeneration; dysregulation implicates role in cancer progression; classical 2D co-culture, organoid, and organ-on-chip platforms enable mechanistic investigation",
+    "comments": "Comprehensive review of concepts and model systems but limited new quantitative experimental data or unified mechanistic framework across systems.",
+    "model_io": [],
+    "hypotheses": []
+  },
+  "nature:10.1038/s41419-026-08645-w": {
+    "category": "Epigenetics",
+    "task": "Characterize the Sirt2-Nur77 axis in age-related muscle stem cell dysfunction",
+    "key_results": "Sirt2 increases with age while Nur77 decreases; Sirt2 deacetylates Nur77 at K310 to promote degradation and weaken Myf5 activity; Sirt2 inhibition (AGK2) or Nur77 activation (CSNB) improved muscle function in aged mice",
+    "comments": "K310R mutation phenotype validates the axis but mechanistic link between individual modifications and in vivo outcomes could be more precisely quantified.",
+    "model_io": [
+      {
+        "model": "Aging skeletal muscle",
+        "inputs": [
+          "Sirt2 activity",
+          "Nur77 expression",
+          "P300 acetylation activity"
+        ],
+        "outputs": [
+          "K310 acetylation status",
+          "Myf5 transcriptional activity",
+          "satellite cell metabolism"
+        ]
+      },
+      {
+        "model": "Aged mouse model",
+        "inputs": [
+          "AGK2 (Sirt2 inhibitor)",
+          "CSNB (Nur77 activator)",
+          "K310R mutation"
+        ],
+        "outputs": [
+          "muscle function",
+          "regeneration capacity"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Sirt2-mediated deacetylation of Nur77 K310 promotes age-related muscle decline",
+        "result": "Confirmed; K310R mutation prevents deacetylation and preserves muscle function"
+      }
+    ]
+  },
+  "nature:10.1038/s41420-026-03075-1": {
+    "category": "Organelles",
+    "task": "Characterize TUFM as a mitochondrial quality control coordinator and cellular fate regulator",
+    "key_results": "TUFM orchestrates mitochondrial biogenesis, dynamics, and mitophagy through post-translational modifications; hyperactivation promotes oncogenesis while deficiency exacerbates cell death and neurodegeneration",
+    "comments": "Review synthesizing mechanistic insights but limited to conceptual framework without new quantitative experimental data presented.",
+    "model_io": [],
+    "hypotheses": []
+  },
+  "nature:10.1038/s41467-026-71083-x": {
+    "category": "Development",
+    "task": "Determine role of CBP phosphorylation in intestinal stem cell niche maintenance via versican",
+    "key_results": "Impaired CBP phosphorylation in CBPAA mice alters CBP-p53 binding, reduces versican expression, and impairs IEC proliferation; deleting p53 or providing versican rescues phenotype; ulcerative colitis tissues show impaired CBP phosphorylation",
+    "comments": "Clinical relevance demonstrated but therapeutic versican administration kinetics and dosing not fully characterized.",
+    "model_io": [
+      {
+        "model": "CBPAA mice intestinal epithelium",
+        "inputs": [
+          "CBP phosphorylation status",
+          "p53 binding",
+          "versican expression"
+        ],
+        "outputs": [
+          "IEC proliferation",
+          "organoid formation",
+          "colonic phenotype"
+        ]
+      },
+      {
+        "model": "CBPAA organoids",
+        "inputs": [
+          "versican",
+          "phosphomimetic CBP mutants"
+        ],
+        "outputs": [
+          "versican expression",
+          "IEC stemness"
+        ]
+      },
+      {
+        "model": "Ulcerative colitis patient tissue",
+        "inputs": [],
+        "outputs": [
+          "CBP phosphorylation status",
+          "CBP-p53 binding",
+          "versican expression",
+          "IEC proliferation"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "CBP phosphorylation maintains versican expression to support the intestinal stem cell niche",
+        "result": "Confirmed; phosphorylation impairment reduces versican and stem cell function; p53 deletion or versican replenishment rescues"
+      }
+    ]
+  },
+  "nature:10.1038/s41467-026-71136-1": {
+    "category": "Development",
+    "task": "Investigate IL-22-driven Paneth cell metaplasia and REG3A-mediated wound healing in ulcerative colitis",
+    "key_results": "IL-22 promotes PCM formation by suppressing Notch signaling and inducing REG3A; REG3A enhances proliferation and wound healing in organoids; Reg3a\u0394IEC mice show delayed healing in acute/chronic DSS colitis; REG3A administration accelerates healing in patient-derived organoids",
+    "comments": "Therapeutic relevance to UC well-demonstrated but detailed mechanistic link between PCM formation and specific REG3A-mediated signaling pathways could be expanded.",
+    "model_io": [
+      {
+        "model": "Colonic organoids \u00b1 IL-22",
+        "inputs": [
+          "IL-22",
+          "Notch signaling",
+          "REG3A"
+        ],
+        "outputs": [
+          "Paneth cell metaplasia",
+          "cell proliferation",
+          "wound healing"
+        ]
+      },
+      {
+        "model": "DSS-induced colitis mice",
+        "inputs": [
+          "Reg3a knockout in IECs"
+        ],
+        "outputs": [
+          "wound healing rate",
+          "colonic inflammation"
+        ]
+      },
+      {
+        "model": "Patient-derived colonic organoids",
+        "inputs": [
+          "REG3A"
+        ],
+        "outputs": [
+          "cell proliferation",
+          "wound healing"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "IL-22-induced PCM formation promotes wound healing via REG3A in UC",
+        "result": "Confirmed; IL-22 suppresses Notch, induces REG3A; REG3A enhances proliferation and healing; Reg3a deletion impairs healing"
+      }
+    ]
+  },
+  "nature:10.1038/s41534-026-01226-x": {
+    "category": "Topology/Geometry",
+    "task": "Constant-depth implementation of Pauli exponentials under linear nearest-neighbor connectivity",
+    "key_results": "Z\u2297n exponentials decomposed to constant depth using O(n) ancillae; applies to arbitrary Pauli exponentials and stabilizer circuits",
+    "comments": "Rigorous theoretical construction with applications to fault-tolerant quantum computing; no empirical gate count comparisons provided.",
+    "model_io": [
+      {
+        "model": "Circuit decomposition scheme with qubit recycling",
+        "inputs": [
+          "Pauli exponentials, linear connectivity constraint"
+        ],
+        "outputs": [
+          "constant-depth quantum circuits"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Novel rewrite rules enable constant-depth decomposition with two-body interactions only",
+        "result": "Confirmed via fixed-point correctness proofs"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-025-34320-9": {
+    "category": "Algorithms",
+    "task": "Steel surface defect detection and classification",
+    "key_results": "Fusion YOLO achieves AP 83.8% on NEU-DET; hybrid CNN-ViT classification reaches 99.7% F1-score; generalization F1 94.8% on GC10-DET",
+    "comments": "Two-stage separation of detection and classification is pragmatic; generalization test on different dataset strengthens claims.",
+    "model_io": [
+      {
+        "model": "Fusion YOLO (DCBS-YOLO + YOLOv9c + YOLOv8s)",
+        "inputs": [
+          "steel surface images"
+        ],
+        "outputs": [
+          "defect locations (class-agnostic)"
+        ]
+      },
+      {
+        "model": "Hybrid CNN-ViT ensemble",
+        "inputs": [
+          "defect regions"
+        ],
+        "outputs": [
+          "defect class labels"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Separating localization and classification outperforms single-stage detectors",
+        "result": "Confirmed; state-of-the-art AP and F1-scores achieved"
+      },
+      {
+        "hypothesis": "Ensemble CNN-ViT captures local texture and global dependencies better than individual models",
+        "result": "Confirmed via 99.7% F1-score on classification stage"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-42175-x": {
+    "category": "ML Theory",
+    "task": "5\u2032UTR translation efficiency prediction via multimodal CNN-Transformer",
+    "key_results": "UTR-DynaPro achieves 3.3%, 2.2%, 2.4% improvements over SOTA on translation efficiency and expression prediction; identifies known and novel regulatory motifs",
+    "comments": "Multimodal fusion of sequence embeddings with biophysical features is well-motivated; attention-based motif discovery is interpretable.",
+    "model_io": [
+      {
+        "model": "UTR-DynaPro (CNN-Transformer + MoE + dynamic fusion)",
+        "inputs": [
+          "5\u2032UTR sequences",
+          "minimum free energy",
+          "CDS length",
+          "AT ratio",
+          "G/C content",
+          "uORFs"
+        ],
+        "outputs": [
+          "translation efficiency (mean ribosome loading)",
+          "expression level"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Parallel CNN-Transformer captures both local motifs and long-range dependencies",
+        "result": "Confirmed; 2\u20133% improvements over SOTA"
+      },
+      {
+        "hypothesis": "Dynamic fusion gate effectively integrates multimodal biological features",
+        "result": "Confirmed; consistent performance across cell types"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45202-z": {
+    "category": "Analysis",
+    "task": "Fractional cyber-epidemic modeling in wireless sensor networks",
+    "key_results": "Proportional Hadamard\u2013Caputo operator enables memory-dependent malware spread model; existence, uniqueness, and Ulam\u2013Hyers stability proven; predictor-corrector scheme validated",
+    "comments": "Rigorous mathematical framework with fixed-point theorems; simulations show stronger memory slows decay but quantitative epidemic metrics not discussed.",
+    "model_io": [
+      {
+        "model": "Fractional order SEIQRV malware model (6 device states)",
+        "inputs": [
+          "fractional order \u03b1, memory kernel parameters"
+        ],
+        "outputs": [
+          "device state trajectories over time"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Fractional operators capture memory effects in malware propagation",
+        "result": "Confirmed; lower fractional order extends spread duration"
+      },
+      {
+        "hypothesis": "Ulam\u2013Hyers stability ensures robustness to modeling errors",
+        "result": "Proven mathematically; small perturbations lead to small solution changes"
+      }
+    ]
+  },
+  "nature:10.1038/s41467-026-71319-w": {
+    "category": "Condensed Matter",
+    "task": "Understanding strange metal behavior via spin fluctuations in cuprates",
+    "key_results": "Critical spin fluctuations show dynamical scaling across La\u2082\u208b\u2093Sr\u2093CuO\u2084 phase diagram; Griffiths phase extends over wide doping range consistent with disordered spin density wave quantum critical point",
+    "comments": "Neutron scattering combined with theory provides compelling evidence, though the spatial disorder mechanism remains somewhat phenomenological.",
+    "model_io": [
+      {
+        "model": "Spin density wave in disordered metal (theory)",
+        "inputs": [
+          "doping level",
+          "temperature",
+          "spatial disorder"
+        ],
+        "outputs": [
+          "spin fluctuation spectrum",
+          "scaling exponents",
+          "Griffiths phase properties"
+        ]
+      },
+      {
+        "model": "Neutron scattering experiment",
+        "inputs": [
+          "La\u2082\u208b\u2093Sr\u2093CuO\u2084 samples",
+          "temperature range"
+        ],
+        "outputs": [
+          "spin excitation energies",
+          "correlations",
+          "dynamical scaling data"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Strange metal behavior originates from critical spin fluctuations near a spin density wave quantum phase transition",
+        "result": "Confirmed by temperature-dependent scaling and consistency between neutron data and disordered metal theory"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-46067-y": {
+    "category": "Optics/Photonics",
+    "task": "Quad-band frequency-agile SIW antenna for 5G/6G IoT",
+    "key_results": "Four bands at 3.29, 4.47, 5.85, 7.07 GHz tunable to 3.29\u20138.4 GHz via micro-pockets; isolation >32 dB, FTBR >17.83 dB, gain 7.6 dBi, size 0.09 \u03bbg\u00b2",
+    "comments": "Micro-pocket tuning is novel but requires material substitution; all ports co-polarized single-polarization is claimed as first-in-class.",
+    "model_io": [
+      {
+        "model": "SIW cavity with four resonating patches and micro-pockets",
+        "inputs": [
+          "cavity dimensions",
+          "pocket materials",
+          "patch positions",
+          "feed line impedance"
+        ],
+        "outputs": [
+          "resonant frequencies",
+          "isolation matrix",
+          "radiation patterns",
+          "tuning range"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Micro-pockets enable wide frequency tunability (3.29\u20138.4 GHz) with simultaneous co-polarization",
+        "result": "Confirmed in prototype; maintains >32 dB isolation across tuning range"
+      }
+    ]
   }
 }

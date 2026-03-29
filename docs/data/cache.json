@@ -37954,5 +37954,99 @@
         "result": "Confirmed: superior performance on trust detection, access control, and throughput stability"
       }
     ]
+  },
+  "nature:10.1038/s41598-026-45607-w": {
+    "category": "Single Cell",
+    "task": "Characterize molecular and immune differences between primary breast tumors and brain metastases",
+    "key_results": "Brain metastases show lower B-cell and CD8+ T-cell infiltration, increased M2 macrophages and follicular helper T-cells; receptor status changes detected (ER, HER2); downregulated immune-related genes",
+    "comments": "Descriptive analysis of n=10 paired samples suggests immunosuppressive brain microenvironment but limited by small, potentially heterogeneous cohort.",
+    "model_io": [
+      {
+        "model": "Immunohistochemistry and in-situ hybridization",
+        "inputs": [
+          "primary breast tumor and brain metastasis tissue"
+        ],
+        "outputs": [
+          "receptor status (ER, HER2)",
+          "TIL quantification"
+        ]
+      },
+      {
+        "model": "Bulk RNA sequencing",
+        "inputs": [
+          "tumor tissue samples"
+        ],
+        "outputs": [
+          "differentially expressed genes",
+          "pathway alterations"
+        ]
+      },
+      {
+        "model": "Immune cell profiling",
+        "inputs": [
+          "RNA-seq and histology data"
+        ],
+        "outputs": [
+          "immune cell composition (B-cells, CD8+ T-cells, M2 macrophages, TFH)"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Brain metastases have a more immunosuppressive microenvironment than primary tumors",
+        "result": "Reduced TIL infiltration, lower CD8+ and B-cell populations, increased M2 macrophages and TFH cells observed in BM"
+      },
+      {
+        "hypothesis": "Receptor status is altered during metastatic progression",
+        "result": "Changes in ER and HER2 expression between matched primary and brain lesions detected"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-45955-7": {
+    "category": "Genomics",
+    "task": "Identify microbiome functional signatures associated with metabolic response variability to red raspberry consumption",
+    "key_results": "Responders (n=13) showed distinct CAZyme profiles vs non-responders (n=11); CBM8, CBM49, and GH5 subfamily CAZymes associated with changes in CRP, triglycerides, and cholesterol",
+    "comments": "Functional metagenomics complements transcriptomics but small sample size limits generalizability of identified CAZyme-phenotype associations.",
+    "model_io": [
+      {
+        "model": "Carbohydrate-active enzyme (CAZyme) profiling pipeline",
+        "inputs": [
+          "fecal microbial DNA (baseline and week 8)"
+        ],
+        "outputs": [
+          "CAZyme abundance counts",
+          "differential CAZyme profiles"
+        ]
+      },
+      {
+        "model": "Multiple linear regression",
+        "inputs": [
+          "baseline CAZyme levels",
+          "plasma biomarkers (CRP, triglycerides, total cholesterol)"
+        ],
+        "outputs": [
+          "CAZyme-metabolite associations"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Baseline microbiome CAZyme composition predicts individual metabolic response to raspberry intervention",
+        "result": "Significant associations identified for CBM8, CBM49, GH5 but with contrasting trends between responders and non-responders"
+      }
+    ]
+  },
+  "nature:10.1038/s41598-026-43223-2": {
+    "category": "Algorithms",
+    "task": "Fixed-time formation control for unmanned ground vehicle-manipulators",
+    "key_results": "76% reduction in settling time; effective coordination of formation, obstacle avoidance, and manipulation under disturbances",
+    "comments": "Combines nonholonomic constraints with fixed-time stability nicely, though experimental validation appears simulation-only.",
+    "model_io": [],
+    "hypotheses": [
+      {
+        "hypothesis": "Nonholonomic null-space behavioral control with fixed-time strategy reduces settling time versus conventional methods",
+        "result": "76% reduction in settling time demonstrated in simulation"
+      }
+    ]
   }
 }

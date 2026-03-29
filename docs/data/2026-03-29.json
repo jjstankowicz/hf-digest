@@ -8,31 +8,32 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-29",
     "category": "Single Molecule",
-    "task": "Design of turn-on fluorescent probe for real-time hypochlorite sensing in live cells",
-    "key_results": "Quinoline probe 5 achieves selective fluorescence activation at 523 nm within 10 s in cell-free assays and concentration-dependent activation in live cells; low molecular weight with direct ROS-concentration-dependent signal",
-    "comments": "Excellent temporal resolution and selectivity, but the abstract lacks cell-type specificity, background autofluorescence data, and comparison to existing hypochlorite probes.",
+    "task": "Design of turn-on fluorescent probe for hypochlorite detection in live cells",
+    "key_results": "Quinoline-phenothiazine probe activates within 10 s in vitro with emission at 523 nm; fluorescence scales linearly with ROS concentration; maintains function in live-cell imaging with concentration-dependent activation",
+    "comments": "Low molecular weight and rapid kinetics are genuine advantages, though the claim of being 'first' quinoline-phenothiazine hypochlorite sensor warrants scrutiny of prior literature.",
     "model_io": [
       {
-        "model": "Quinoline-phenothiazine probe 5",
+        "model": "Turn-on fluorescence sensor",
         "inputs": [
-          "hypochlorite (ROS)",
-          "live cells"
+          "Quinoline-derived probe 5",
+          "Hypochlorite (various concentrations)",
+          "Live cells"
         ],
         "outputs": [
-          "fluorescence emission at 523 nm",
-          "activation kinetics (10 s)",
-          "concentration-dependent signal intensity"
+          "Fluorescence intensity at 523 nm",
+          "Temporal activation kinetics",
+          "Concentration-dependent signal"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Low-molecular-weight quinoline probe can achieve rapid, selective hypochlorite sensing without relying on emission shifts",
-        "result": "Confirmed; probe is non-fluorescent at baseline and undergoes selective oxidative transformation to emit robustly at 523 nm"
+        "hypothesis": "Phenothiazine group undergoes selective oxidative transformation upon hypochlorite encounter",
+        "result": "Confirmed; non-fluorescent probe converts to robust 523 nm emitter"
       },
       {
-        "hypothesis": "Probe maintains performance in live-cell studies with concentration-dependent activation",
-        "result": "Confirmed; concentration-dependent fluorescence activation observed in live cells"
+        "hypothesis": "Low molecular weight improves sensitivity and quantitative analysis vs. prior probes",
+        "result": "Supported by rapid response (10 s) and linear dose-response in cells"
       }
     ]
   },
@@ -46,27 +47,26 @@
     "publishedAt": "2026-03-29",
     "category": "Other",
     "task": "Comparative evaluation of biophysical techniques for exosome characterization",
-    "key_results": "DLS suitable for rapid homogeneous sample assessment but limited repeatability; NTA provides better size distribution resolution; NanoCoulter gives absolute concentration within detection range; AUC best for purity assessment via sedimentation and UV absorption",
-    "comments": "Multi-method orthogonal validation approach is pragmatic but the study lacks quantitative performance benchmarks (e.g., coefficient of variation, detection limits) for direct technique comparison.",
+    "key_results": "DLS suitable for rapid homogeneous sample assessment but sensitive to large particles; NTA provides better size distribution resolution; NanoCoulter gives absolute concentration with limited range; AUC best for purity assessment via sedimentation",
+    "comments": "Multi-technique integration recommended but no single unified protocol established; practical guidance on technique selection remains somewhat qualitative.",
     "model_io": [
       {
-        "model": "Exosome samples from milk and human urine",
+        "model": "Exosome characterization pipeline",
         "inputs": [
-          "ultracentrifugation-purified exosomes",
-          "EXODUS system-purified exosomes"
+          "Milk exosomes (ultracentrifugation)",
+          "Urine exosomes (EXODUS)"
         ],
         "outputs": [
-          "size distribution (DLS)",
-          "particle concentration and size (NTA)",
-          "absolute particle number (NanoCoulter)",
-          "sedimentation coefficient and purity (AUC)"
+          "Size distribution (DLS, NTA)",
+          "Particle concentration (NanoCoulter)",
+          "Purity/sedimentation (AUC)"
         ]
       }
     ],
     "hypotheses": [
       {
         "hypothesis": "Single biophysical technique sufficient for comprehensive exosome characterization",
-        "result": "Rejected; each technique has distinct limitations; integration of multiple methods required"
+        "result": "Rejected; each technique has distinct limitations requiring orthogonal validation"
       }
     ]
   },
@@ -78,46 +78,31 @@
     "projectPage": "https://www.nature.com/articles/s41467-026-71232-2",
     "journal": "Nature Communications",
     "publishedAt": "2026-03-29",
-    "category": "Cell Death | Organelles",
+    "category": "Cell Death",
     "task": "Elucidate GPX4's role in ferroptosis-related mitochondrial dysfunction during myocardial ischemia/reperfusion injury",
-    "key_results": "GPX4 reduces myocardial damage by stabilizing BNIP3 through enhanced interaction with USP20, promoting mitophagy and preserving cardiac function",
-    "comments": "The GPX4/BNIP3/USP20 axis provides a mechanistic link between ferroptosis prevention and mitochondrial quality control, though the relative contribution of ferroptosis vs. mitophagy to cardioprotection remains to be fully resolved.",
+    "key_results": "GPX4 is downregulated in ischemic regions; cardiomyocyte-derived GPX4 reduces myocardial damage and alleviates long-term ventricular remodeling; GPX4 stabilizes BNIP3 via U46 active site to promote mitophagy",
+    "comments": "The spatial transcriptomics and proteomics approach elegantly maps GPX4 dynamics, though the mechanism relies heavily on a single deubiquitinase (USP20) interaction that warrants validation in disease models.",
     "model_io": [
       {
-        "model": "MI/RI cardiomyocytes with spatial transcriptomics and proteomics",
+        "model": "Cardiomyocyte system with MI/RI",
         "inputs": [
           "GPX4",
-          "ferroptotic stress"
+          "BNIP3",
+          "USP20",
+          "ferroptosis stimuli"
         ],
         "outputs": [
-          "spatiotemporal GPX4 expression",
-          "mitochondrial dysfunction markers",
-          "ventricular remodeling"
-        ]
-      },
-      {
-        "model": "GPX4/BNIP3/USP20 mechanistic pathway",
-        "inputs": [
-          "GPX4 U46 active site",
-          "BNIP3 K131 ubiquitination",
-          "USP20 deubiquitinase"
-        ],
-        "outputs": [
-          "BNIP3 stabilization",
-          "mitophagy flux",
           "mitochondrial function",
-          "cardiac function"
+          "cardiac function",
+          "ventricular remodeling",
+          "ubiquitination at K131 BNIP3"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "GPX4 reduces MI/RI-induced myocardial damage via ferroptosis inhibition",
-        "result": "GPX4 expression is reduced in ischemic regions; cardiomyocyte-derived GPX4 alleviates damage and long-term remodeling"
-      },
-      {
-        "hypothesis": "GPX4 stabilizes BNIP3 by promoting its interaction with USP20 deubiquitinase",
-        "result": "GPX4 U46 active site enhances BNIP3-USP20 binding, decreasing BNIP3 K131 ubiquitination"
+        "hypothesis": "GPX4 promotes mitophagy by stabilizing BNIP3 through enhanced USP20 interaction at the U46 active site",
+        "result": "Confirmed; GPX4 reduces ubiquitination at K131 of BNIP3 and improves mitochondrial function"
       }
     ]
   },
@@ -129,47 +114,31 @@
     "projectPage": "https://www.nature.com/articles/s41598-026-45897-0",
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-29",
-    "category": "Apoptosis/Cell Death | Cell Signaling",
-    "task": "Characterize circFN1/miR-19b-3p/PTEN regulatory axis in IL-1\u03b2-induced osteoarthritis progression",
-    "key_results": "CircFN1 acts as competing endogenous RNA sponging miR-19b-3p to suppress PTEN, promoting chondrocyte apoptosis, ECM degradation, and inflammation",
-    "comments": "The circRNA mechanism is well-validated through luciferase assays and multiple molecular endpoints, though in vivo validation and potential off-target effects warrant further investigation.",
+    "category": "Apoptosis/Cell Death",
+    "task": "Identify the circFN1/miR-19b-3p/PTEN axis in IL-1\u03b2-induced osteoarthritis pathogenesis",
+    "key_results": "CircFN1 acts as competing endogenous RNA sponging miR-19b-3p to suppress PTEN; circFN1 suppresses chondrocyte proliferation and accelerates ECM degradation; targeting this axis may provide therapeutic intervention for OA",
+    "comments": "The ceRNA mechanism is well-characterized experimentally with dual-luciferase assays, but the clinical translational potential remains largely speculative without in vivo validation or patient cohort data.",
     "model_io": [
       {
-        "model": "IL-1\u03b2-stimulated chondrocytes with circFN1 modulation",
+        "model": "In vitro chondrocyte system with IL-1\u03b2 stimulation",
         "inputs": [
-          "IL-1\u03b2",
           "circFN1",
+          "IL-1\u03b2",
           "miR-19b-3p",
           "PTEN"
         ],
         "outputs": [
-          "chondrocyte proliferation (CCK-8)",
-          "apoptosis (Annexin V)",
-          "inflammatory cytokines (ELISA)",
-          "ECM degradation markers"
-        ]
-      },
-      {
-        "model": "Dual-luciferase reporter assays",
-        "inputs": [
-          "circFN1 binding sites",
-          "miR-19b-3p",
-          "PTEN 3'UTR"
-        ],
-        "outputs": [
-          "luciferase activity",
-          "binding confirmation"
+          "chondrocyte proliferation",
+          "apoptosis rate",
+          "inflammatory markers",
+          "ECM degradation"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "CircFN1 competitively binds miR-19b-3p, liberating PTEN suppression",
-        "result": "circFN1 sponges miR-19b-3p, leading to increased PTEN expression and reduced inflammatory responses"
-      },
-      {
-        "hypothesis": "CircFN1 elevation amplifies IL-1\u03b2-induced osteoarthritis progression",
-        "result": "circFN1 suppresses chondrocyte proliferation, promotes apoptosis, enhances inflammation, and accelerates ECM degradation"
+        "hypothesis": "CircFN1 sponges miR-19b-3p to repress PTEN, promoting chondrocyte apoptosis and inflammation",
+        "result": "Confirmed via dual-luciferase and functional assays; circFN1 exacerbates IL-1\u03b2-induced injury"
       }
     ]
   },
@@ -181,47 +150,32 @@
     "projectPage": "https://www.nature.com/articles/s41598-026-45969-1",
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-29",
-    "category": "Apoptosis/Cell Death | Cell Signaling",
-    "task": "Determine ferroptosis-mediated regulation of immune checkpoint galectin-9 via extracellular acetyl-HMGB1 in glioma",
-    "key_results": "Ferroptosis downregulates galectin-9 transcription via extracellular acetyl-HMGB1 release, inhibiting glioma cell invasion, proliferation, and promoting apoptosis",
-    "comments": "The connection between ferroptosis-induced acetyl-HMGB1 and galectin-9 transcriptional control is demonstrated, but the mechanistic pathway linking acetyl-HMGB1 to transcriptional repression requires further elucidation.",
+    "category": "Cell Death",
+    "task": "Determine ferroptosis-mediated suppression of glioma via extracellular acetyl-HMGB1-dependent galectin-9 downregulation",
+    "key_results": "Ferroptosis promotes acetyl-HMGB1 release in glioma cells; ferroptosis downregulates galectin-9 and CD155 transcription; blocking extracellular acetyl-HMGB1 reverses ferroptosis-induced galectin-9 downregulation and glioma growth inhibition",
+    "comments": "The involvement of autophagy in acetyl-HMGB1 release is mentioned but not mechanistically detailed; the relationship between extracellular acetyl-HMGB1 and galectin-9 transcription regulation requires deeper molecular characterization.",
     "model_io": [
       {
-        "model": "Ferroptosis-induced glioma cells",
+        "model": "Ferroptosis-induced glioma cell system",
         "inputs": [
-          "ferroptotic stimulus",
-          "ROS"
+          "ferroptosis induction",
+          "extracellular acetyl-HMGB1",
+          "autophagy"
         ],
         "outputs": [
-          "intracellular ROS (fluorescence)",
-          "extracellular acetyl-HMGB1 (ELISA)",
-          "apoptosis (Annexin V-FITC)",
-          "proliferation (CCK-8)",
-          "invasion (Transwell)"
-        ]
-      },
-      {
-        "model": "Transcriptional response in ferroptotic glioma",
-        "inputs": [
-          "ferroptosis",
-          "extracellular acetyl-HMGB1"
-        ],
-        "outputs": [
-          "CD80 transcription (RT-PCR)",
-          "CD155 transcription",
-          "HMGB1 transcription",
-          "galectin-9 transcription"
+          "ROS levels",
+          "glioma cell invasion",
+          "glioma cell proliferation",
+          "apoptosis",
+          "galectin-9 transcription",
+          "CD155 transcription"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Ferroptosis promotes release of extracellular acetyl-HMGB1 through autophagy",
-        "result": "Ferroptotic glioma cells show elevated intracellular ROS and extracellular acetyl-HMGB1 content"
-      },
-      {
-        "hypothesis": "Extracellular acetyl-HMGB1 mediates ferroptosis-induced galectin-9 downregulation",
-        "result": "Inhibition of extracellular acetyl-HMGB1 reverses ferroptosis-mediated galectin-9 transcriptional suppression, promoting glioma cell invasion and proliferation"
+        "hypothesis": "Ferroptosis downregulates galectin-9 transcription via extracellular acetyl-HMGB1 to inhibit glioma growth",
+        "result": "Confirmed; acetyl-HMGB1 blockade reverses ferroptosis-mediated galectin-9 downregulation"
       }
     ]
   },
@@ -234,29 +188,25 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-29",
     "category": "Statistical Methods",
-    "task": "Evaluate cross-dataset transfer learning for non-invasive blood pressure estimation from PPG signals",
-    "key_results": "Cross-dataset transfer learning achieves MAE of 3.36 mmHg (systolic) and 1.81 mmHg (diastolic), ~13% improvement over non-transfer baseline, meeting AAMI/BHS standards",
-    "comments": "The finding that cross-dataset and intra-dataset transfer learning perform equivalently (within 1%) is practically significant for real-world deployment with limited subject-specific data.",
+    "task": "Evaluate cross-dataset transfer learning for PPG-based blood pressure estimation with domain shift",
+    "key_results": "Cross-dataset transfer learning achieves MAE of 3.36 mmHg (systolic) and 1.81 mmHg (diastolic), representing ~13% improvement over non-transfer models and satisfying AAMI/BHS standards; intra-dataset gap <1%",
+    "comments": "The ~13% performance gain is clinically meaningful and demonstrates robust transfer despite domain shifts, though the negligible difference between cross-dataset and intra-dataset transfer suggests potential ceiling effects or dataset similarity.",
     "model_io": [
       {
         "model": "Compact BP-CRNN",
         "inputs": [
-          "photoplethysmography (PPG) signals",
-          "invasive BP reference measurements"
+          "PPG signals",
+          "continuous invasive BP measurements (MIMIC-III and VitalDB)"
         ],
         "outputs": [
-          "continuous blood pressure estimates (systolic/diastolic)"
+          "systolic and diastolic BP estimates"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Pre-training on large-scale dataset (MIMIC-III) followed by fine-tuning on target domain improves BP estimation despite domain shift",
-        "result": "Confirmed with 13% improvement and performance meeting clinical standards"
-      },
-      {
-        "hypothesis": "Cross-dataset transfer learning performance is comparable to intra-dataset transfer",
-        "result": "Confirmed with <1% performance gap, not statistically significant"
+        "hypothesis": "Pre-training on large-scale datasets (MIMIC-III) and fine-tuning on small subject-specific data improves BP estimation accuracy relative to training without transfer",
+        "result": "Confirmed: 13% improvement in MAE; performance gap between cross-dataset and intra-dataset transfer <1% and not statistically significant"
       }
     ]
   },
@@ -270,28 +220,25 @@
     "publishedAt": "2026-03-29",
     "category": "Single Cell",
     "task": "Map EXO70 isoform expression patterns across leaf cell types using spatial transcriptomics",
-    "key_results": "Identified cell-type-specific co-occurrence of EXO70A1, EXO70H7, and SEC3A in spongy mesophyll cells; developed coexistence network framework effective for analyzing sparse gene expression (\u22482.5% per cell)",
-    "comments": "The coexistence network approach elegantly addresses the sparse detection problem inherent to single-cell transcriptomics, though validation of functional interaction remains indirect.",
+    "key_results": "Identified cell-type-specific co-occurrence of EXO70A1, EXO70H7, and SEC3A in spongy mesophyll cells; validated coexistence network approach for sparse gene families with \u22482.5% expression detection rate",
+    "comments": "The coexistence network framework elegantly addresses sparsity challenges inherent to single-cell data, though biological validation of predicted isoform partnerships would strengthen functional claims.",
     "model_io": [
       {
         "model": "Coexistence network analysis",
         "inputs": [
-          "single-cell stereo-seq data from StomicsDB",
-          "EXO70 isoform expression",
-          "exocyst components",
-          "VAP members"
+          "single-cell stereo-seq transcriptomics from Arabidopsis leaves"
         ],
         "outputs": [
-          "binary co-expression matrices",
-          "coexistence ratios",
+          "binary coexistence matrices",
+          "permutation test p-values",
           "cell-type-specific interaction networks"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "EXO70 isoforms show functional specialization across different leaf cell types",
-        "result": "Confirmed via identification of cell-type-specific co-occurrence patterns, particularly in mesophyll cells"
+        "hypothesis": "EXO70 isoforms exhibit cell-type-specific functional specialization and co-occur with distinct exocyst and VAP partners",
+        "result": "Confirmed: EXO70A1, EXO70H7, SEC3A significantly co-occur in spongy mesophyll cells with validated coexistence ratios"
       }
     ]
   },
@@ -305,41 +252,41 @@
     "publishedAt": "2026-03-29",
     "category": "Statistical Methods",
     "task": "Develop brain-inspired framework for skin cancer risk prediction from images",
-    "key_results": "Bicom framework with F-ResNeSt and L-CoAtNet achieves competitive performance across multiple metrics; SNN module enhances reliability for ambiguous samples",
-    "comments": "The integration of spiking neural networks for confidence assessment is conceptually interesting, though specific quantitative improvements from the SNN module are not explicitly reported.",
+    "key_results": "Bicom framework achieves competitive performance on multiple metrics; F-ResNeSt and L-CoAtNet components enable multi-scale feature extraction with linear-complexity attention",
+    "comments": "While the integration of SNNs for confidence-aware refinement is conceptually appealing, specific quantitative improvements from the SNN module over baseline confidence approaches are not reported.",
     "model_io": [
       {
-        "model": "F-ResNeSt (multi-scale feature extraction)",
+        "model": "F-ResNeSt",
         "inputs": [
-          "skin lesion images"
+          "dermoscopy images"
         ],
         "outputs": [
           "multi-scale feature representations"
         ]
       },
       {
-        "model": "L-CoAtNet (classification with Linformer attention)",
+        "model": "L-CoAtNet classifier",
         "inputs": [
-          "feature pyramids from F-ResNeSt"
+          "extracted features"
         ],
         "outputs": [
-          "disease risk predictions"
+          "cancer risk predictions"
         ]
       },
       {
-        "model": "Spiking Neural Network (confidence refinement)",
+        "model": "Spiking Neural Network (SNN)",
         "inputs": [
           "ambiguous predictions"
         ],
         "outputs": [
-          "refined risk assessments with confidence scores"
+          "confidence-refined predictions"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Multi-scale feature fusion with linear-complexity attention improves both accuracy and efficiency",
-        "result": "Demonstrated competitive performance, though specific efficiency metrics not quantified"
+        "hypothesis": "Linformer-based linear attention improves computational efficiency while maintaining feature quality for skin cancer detection",
+        "result": "Supported: Framework achieves competitive performance with enhanced scalability across public and subject datasets"
       }
     ]
   },
@@ -352,34 +299,33 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-29",
     "category": "Structural Prediction",
-    "task": "Classify sugarcane leaf diseases using transformer ensemble with LLM explanations",
-    "key_results": "Ensemble of Vision Transformer and Swin Transformer achieves 98.16% validation accuracy and 97.06% test accuracy on sugarcane leaf dataset, outperforming CNN baselines",
-    "comments": "While the model performance is impressive, the LLM explanation component appears to be a post-hoc annotation system rather than integrated into the prediction mechanism.",
+    "task": "Detect sugarcane leaf diseases using transformer ensemble with LLM-based explanations",
+    "key_results": "Vision Transformer + Swin Transformer ensemble achieves 98.16% validation accuracy and 97.06% test accuracy, outperforming CNN baselines; LLM generates disease-specific management recommendations",
+    "comments": "The ensemble demonstrates strong performance on a single dataset; cross-validation across multiple agricultural environments and disease datasets would better assess generalizability for practical deployment.",
     "model_io": [
       {
         "model": "Vision Transformer + Swin Transformer ensemble",
         "inputs": [
-          "sugarcane leaf images"
+          "labeled sugarcane leaf images"
         ],
         "outputs": [
           "disease class predictions"
         ]
       },
       {
-        "model": "LLM-based explanation module",
+        "model": "Large Language Model (LLM)",
         "inputs": [
           "predicted disease class"
         ],
         "outputs": [
-          "disease descriptions",
-          "management suggestions"
+          "disease descriptions and management suggestions"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Combining global self-attention (ViT) with localized window attention (Swin) effectively captures multi-scale disease symptoms",
-        "result": "Confirmed with 97.06% test accuracy exceeding CNN baselines"
+        "hypothesis": "Combining global self-attention (ViT) with localized window-based attention (Swin) effectively captures multi-scale disease symptoms",
+        "result": "Confirmed: Ensemble achieves 98.16% validation and 97.06% test accuracy, exceeding CNN baselines"
       }
     ]
   },
@@ -391,26 +337,25 @@
     "projectPage": "https://www.nature.com/articles/s41467-026-71229-x",
     "journal": "Nature Communications",
     "publishedAt": "2026-03-29",
-    "category": "Analysis",
-    "task": "Explainability of deep learning classification of anomalous diffusion via Grad-CAM",
-    "key_results": "Grad-CAM identifies trajectory portions critical for diffusion mechanism recognition; deep learning captures statistical features at varying spatiotemporal scales across network layers",
-    "comments": "Principled explainability study; results advance understanding of CNN feature hierarchies but focus is interpretive rather than predictive.",
+    "category": "ML Theory",
+    "task": "Interpreting deep learning classification of anomalous diffusion mechanisms via Grad-CAM",
+    "key_results": "Grad-CAM identifies trajectory portions critical for mechanism recognition; deep learning captures multi-scale statistical features across network layers",
+    "comments": "Explainability contribution is novel but lacks quantitative noise-robustness metrics to validate claims of enhanced classifier robustness.",
     "model_io": [
       {
         "model": "ResNet + Grad-CAM",
         "inputs": [
-          "anomalous diffusion trajectory data"
+          "raw anomalous diffusion trajectories"
         ],
         "outputs": [
-          "diffusion mechanism classification",
-          "activation maps"
+          "anomalous diffusion mechanism classification, Grad-CAM activation maps"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Grad-CAM can reveal which portions of trajectories hold crucial information about diffusion mechanisms and improve robustness to noise",
-        "result": "Confirmed; activation maps highlight mechanism-specific features and enable noise-robust classifier enhancement"
+        "hypothesis": "Grad-CAM reveals spatiotemporal scales encoding diffusion mechanism information at different network depths",
+        "result": "Confirmed: larger-scale features prominent in higher layers, smaller-scale in lower layers"
       }
     ]
   },
@@ -423,15 +368,14 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-29",
     "category": "ML Theory",
-    "task": "Thermal error prediction in spindle systems via Bayesian-optimized GRU",
-    "key_results": "MAE reduced to 0.48 \u03bcm (17.9%/82.5%/27.8% vs GRU/LSTM/SSA-GRU); R\u00b2 = 0.9995",
-    "comments": "Solid application of Bayesian optimization to hyperparameter tuning, though the comparison baselines are somewhat dated (GRU/LSTM without modern alternatives).",
+    "task": "Thermal error prediction in spindle with Bayesian hyperparameter optimization",
+    "key_results": "BO-GRU achieves MAE of 0.48 \u03bcm (17.9% better than GRU, 82.5% better than LSTM) and R\u00b2 = 0.9995",
+    "comments": "Strong performance but limited to a specific industrial application; generalizability to other thermal systems unclear.",
     "model_io": [
       {
         "model": "BO-GRU",
         "inputs": [
-          "temperature-sensitive parameters (RF-RFECV selected)",
-          "spatiotemporal thermal distribution"
+          "temperature-rise data (RF-RFECV selected features)"
         ],
         "outputs": [
           "axial thermal error prediction"
@@ -440,8 +384,8 @@
     ],
     "hypotheses": [
       {
-        "hypothesis": "Bayesian optimization can overcome local optima in GRU hyperparameter tuning for thermal error modeling",
-        "result": "Confirmed; BO-GRU achieved superior MAE, MSE, and R\u00b2 vs empirical tuning and other methods"
+        "hypothesis": "Bayesian optimization improves GRU hyperparameters beyond empirical tuning",
+        "result": "Confirmed: BO-GRU outperforms manually-tuned GRU, LSTM, and SSA-GRU"
       }
     ]
   },
@@ -454,27 +398,54 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-29",
     "category": "Algorithms",
-    "task": "DSTATCOM placement optimization for Available Transfer Capability (ATC) enhancement and load growth forecasting",
-    "key_results": "Quadratic regression forecast error <1%, sometimes 0.01%; WOA-optimized DSTATCOM placement improves ATC under 3% and 6% load growth",
-    "comments": "Practical power systems application; WOA is a standard metaheuristic choice; focus on computational optimization rather than novel methodology.",
+    "task": "Optimal DSTATCOM placement and ATC forecasting under load growth via whale optimization",
+    "key_results": "WOA-based DSTATCOM placement improves ATC; quadratic regression achieves <1% forecast error (some <0.01%) under 3-6% load growth",
+    "comments": "Practical power systems application but lacks comparison with other optimization algorithms (PSO, GA) and validation on real network topologies.",
     "model_io": [
       {
-        "model": "WOA + Quadratic Regression",
+        "model": "WOA optimization + quadratic regression",
         "inputs": [
-          "power system topology",
-          "DSTATCOM control parameters",
-          "load growth rates"
+          "power system load flow data, load growth projections"
         ],
         "outputs": [
-          "optimal DSTATCOM placement",
-          "ATC forecasts"
+          "DSTATCOM optimal location/settings, ATC forecasts"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "WOA-optimized DSTATCOM placement and quadratic regression ATC forecasting can reduce prediction error to <1% under load growth scenarios",
-        "result": "Confirmed; errors <1% with quadratic fit; enables operator planning for future transmission needs"
+        "hypothesis": "Quadratic regression better captures ATC-load growth relationship than linear models",
+        "result": "Confirmed: error reduction from >1% (linear) to <1% (quadratic)"
+      }
+    ]
+  },
+  {
+    "uid": "nature:10.1038/s41598-026-44119-x",
+    "source": "mathematics-and-computing",
+    "id": "10.1038/s41598-026-44119-x",
+    "title": "Quantum-resilient cross-trust evaluation for zero trust 5G security",
+    "projectPage": "https://www.nature.com/articles/s41598-026-44119-x",
+    "journal": "Scientific Reports",
+    "publishedAt": "2026-03-29",
+    "category": "Other",
+    "task": "Quantum-resilient trust architecture for 5G zero-trust security",
+    "key_results": "QCT-ZTA achieves 88% trust detection accuracy, three-fold decrease in unauthorized access, 35% better throughput stability vs. baselines",
+    "comments": "Integrates post-quantum cryptography and blockchain but evaluation on single dataset (5G-NIDD) limits generalizability claims.",
+    "model_io": [
+      {
+        "model": "QCT-ZTA (blockchain + post-quantum crypto)",
+        "inputs": [
+          "5G network traffic, domain interactions"
+        ],
+        "outputs": [
+          "trust scores, authentication decisions, unauthorized access flags"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Quantum-resilient proof-of-trust mitigates Sybil, DoS, and poisoning attacks in 5G networks",
+        "result": "Confirmed: superior performance on trust detection, access control, and throughput stability"
       }
     ]
   },
@@ -487,24 +458,24 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-29",
     "category": "Algorithms",
-    "task": "Defect detection in synthetic diamonds via lightweight transformer-based architecture",
-    "key_results": "Diamond-DETR outperforms RT-DETR in parameter efficiency, inference speed, and detection accuracy; competitive cross-dataset performance on external industrial data",
-    "comments": "Practical engineering contribution for resource-constrained inspection; exact quantitative improvements not specified in abstract.",
+    "task": "Lightweight real-time defect detection in synthetic diamonds",
+    "key_results": "Diamond-DETR outperforms RT-DETR in parameter efficiency, inference speed, and detection accuracy; strong cross-dataset performance",
+    "comments": "Specialized detection model but lacks concrete quantitative metrics (MAPs, latency numbers) in abstract.",
     "model_io": [
       {
         "model": "Diamond-DETR",
         "inputs": [
-          "synthetic diamond images"
+          "diamond images with defects"
         ],
         "outputs": [
-          "defect locations and classifications"
+          "defect detection bounding boxes and classifications"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Multi-scale feature extraction with channel attention and dilated convolution improves defect detection in symmetric, complex geometries",
-        "result": "Confirmed; model achieves superior accuracy and generalization across datasets"
+        "hypothesis": "Lightweight multi-scale feature extraction and channel attention improve defect detection under resource constraints",
+        "result": "Confirmed: model achieves better accuracy and speed than original RT-DETR"
       }
     ]
   },
@@ -517,12 +488,12 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-29",
     "category": "Algorithms",
-    "task": "Long-term time series forecasting via hybrid evolutionary-gradient optimization",
-    "key_results": "EGMF-GR improves forecasting accuracy and training stability on eight public benchmarks under controlled optimization budget",
-    "comments": "Architecture-agnostic training framework is elegant; specific accuracy improvements and benchmark names not stated in abstract.",
+    "task": "Hybrid evolutionary-gradient training for long-term time series forecasting",
+    "key_results": "EGMF-GR improves forecasting accuracy and training stability on eight benchmarks with controlled optimization budget",
+    "comments": "Architecture-agnostic training framework is generalizable but abstract lacks specific performance numbers (MASE, MAE, RMSE improvements).",
     "model_io": [
       {
-        "model": "EGMF-GR",
+        "model": "EGMF-GR (population-based + gradient refinement)",
         "inputs": [
           "time series data"
         ],
@@ -533,8 +504,8 @@
     ],
     "hypotheses": [
       {
-        "hypothesis": "Hybrid evolutionary-gradient training with module-state fusion reduces nonstationarity sensitivity and improves optimization stability vs. pure gradient methods",
-        "result": "Confirmed; improved accuracy and stability across eight benchmarks"
+        "hypothesis": "Hybrid evolutionary-gradient optimization improves robustness to nonstationarity and noisy gradients",
+        "result": "Confirmed: improved accuracy and stability on eight public benchmarks"
       }
     ]
   },
@@ -547,26 +518,24 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-29",
     "category": "ML Theory",
-    "task": "Dynamic vocational competency assessment and long-term career path optimization via DRL",
-    "key_results": "MSE 0.0312, MAE 0.1289 for competency assessment; 185.3% cumulative reward improvement, 42.7% target job matching improvement",
-    "comments": "Ambitious integration of BERT, LSTM, and DRL for career planning; results on O*NET are promising but may not generalize to proprietary HR systems.",
+    "task": "Dynamic career competency assessment and long-term career path planning",
+    "key_results": "DV-CAM achieves MSE=0.0312 for competency assessment; 185.3% improvement in cumulative reward and 42.7% improvement in job matching over benchmarks",
+    "comments": "Combines value-added assessment with DRL but evaluation limited to O*NET dataset; real-world applicability and user validation unclear.",
     "model_io": [
       {
         "model": "DV-CAM (BERT+LSTM+DRL)",
         "inputs": [
-          "multi-source time-series competency data",
-          "job requirement profiles"
+          "time-series competency data, job requirements, competency status"
         ],
         "outputs": [
-          "competency profile scores",
-          "optimal career action sequences"
+          "competency profiles, career development action sequences"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Value-added assessment metrics (absolute level, growth slope, curvature, stability) enable better long-term career planning than static competency scores",
-        "result": "Confirmed; DRL-optimized planning achieved 185.3% cumulative reward and 42.7% job matching improvement"
+        "hypothesis": "Value-added metrics (growth slope, curvature, stability) combined with DRL improve career planning outcomes",
+        "result": "Confirmed: outperforms benchmark models on cumulative reward and job matching metrics"
       }
     ]
   },
@@ -580,27 +549,29 @@
     "publishedAt": "2026-03-29",
     "category": "Applied Physics",
     "task": "Solar-driven ammonia borane hydrolysis via plasmonic catalysis",
-    "key_results": "Turnover frequency of 5806 min\u207b\u00b9 with >100 hour stability; plasmonic multi-field coupling enhances hot electron injection and lowers reaction barriers",
-    "comments": "Machine learning optimization aids design but is not detailed; comparison to prior catalysts is qualitative rather than rigorous benchmarking.",
+    "key_results": "Turnover frequency of 5806 min\u207b\u00b9 with >100 hour stability; 4.1% mAP improvement in defect recognition via multi-scale compensation",
+    "comments": "Machine learning aids design but is not the primary innovation; the multi-field coupling mechanism and hot electron pathway are the key technical advances.",
     "model_io": [
       {
-        "model": "Plasmonic Mo\u03b4+ catalyst with polarization-induced multi-field coupling",
+        "model": "Plasmonic Mo-based catalyst with reconstructed Mo\u03b4+ sites",
         "inputs": [
-          "ammonia borane (AB)",
-          "solar photons",
-          "polarized electric field components (Ov, -OH)"
+          "ammonia borane",
+          "photons"
         ],
         "outputs": [
-          "H\u2082 gas",
-          "borate product",
-          "hot electrons channeled to B-H antibonding orbitals"
+          "H\u2082 generation",
+          "catalytic turnover"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Polarized electric field enhances carrier separation and hot electron accumulation at Mo\u03b4+ sites",
-        "result": "Verified; polarization components facilitate electron transfer and lower reaction activation barrier"
+        "hypothesis": "Polarized electric field enhances carrier separation via Ov and -OH components",
+        "result": "Verified through electron accumulation around Mo\u03b4+ sites"
+      },
+      {
+        "hypothesis": "Hot electrons lower reaction barrier via enhanced feedback pathway",
+        "result": "Confirmed by reduced activation energy for B-H bond scission"
       }
     ]
   },
@@ -613,33 +584,31 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-29",
     "category": "Condensed Matter",
-    "task": "Nonlinear optical response of alkali metal-triselenasumanene complexes via DFT",
-    "key_results": "Hyperpolarizability \u03b2\u2080 increases 3.7\u20132.8\u00d7 in solvent vs. gas phase (8246\u201312,032 a.u.); red-shift of absorption from 320 nm to 614\u2013704 nm upon alkali complexation",
-    "comments": "Computational study only; no experimental validation of predicted NLO properties or photonic device demonstration.",
+    "task": "Electronic and nonlinear optical properties of alkali metal-complexed triselenasumanene",
+    "key_results": "Hyperpolarizability \u03b2\u2080 increases from 2242\u20134260 a.u (gas) to 8246\u201312,032 a.u (solvent); bandgap reduction and red-shift in absorption (320\u2192614\u2013704 nm) upon metal coordination",
+    "comments": "Solvent effects significantly enhance NLO response; Li complexes show highest charge transfer and stability, making them candidates for photonic applications.",
     "model_io": [
       {
-        "model": "DFT with TD-DFT (electronic structure and optical response)",
+        "model": "DFT-optimized M/TSSUM complexes (M=Li,Na,K) in gas and solvent phases",
         "inputs": [
-          "triselenasumanene (TSSUM) structure",
-          "alkali metals (Li, Na, K)",
-          "solvent environment (PCM)"
+          "triselenasumanene nanostructure",
+          "alkali metals"
         ],
         "outputs": [
-          "interaction energy (-10.20 to -24.30 kcal/mol)",
-          "hyperpolarizability \u03b2\u2080 (2242\u201312,032 a.u.)",
-          "absorption wavelength (320\u2013704 nm)",
-          "energy gap Eg"
+          "electronic band structure",
+          "hyperpolarizability tensor",
+          "UV-Vis absorption"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Alkali metal complexation reduces energy gap and increases charge transfer, enhancing NLO response",
-        "result": "Confirmed; \u03b2\u2080 and red-shift correlate with metal-induced electronic modification"
+        "hypothesis": "Alkali metal coordination reduces excitation energy and increases charge transfer capability",
+        "result": "Confirmed by bathochromic shift and enhanced UV-Vis absorption"
       },
       {
-        "hypothesis": "Solvent medium stabilizes complexes and amplifies hyperpolarizability",
-        "result": "Confirmed; \u03b2\u2080 in solvent 2.8\u20133.7\u00d7 higher than gas phase"
+        "hypothesis": "Solvent medium increases complex stability and NLO response",
+        "result": "Verified by interaction energies and higher \u03b2\u2080 values in solvent vs. gas phase"
       }
     ]
   },
@@ -652,25 +621,24 @@
     "journal": "Scientific Reports",
     "publishedAt": "2026-03-29",
     "category": "Applied Physics",
-    "task": "Insulator string defect detection in high-voltage transmission lines",
-    "key_results": "mAP improvement of ~4.1 percentage points over best baseline at IoU=0.5; outperforms eight mainstream object detection models",
-    "comments": "Method is engineering-focused with practical utility but lacks novelty in deep learning; RGB analysis and morphological operations are conventional preprocessing steps.",
+    "task": "Defect detection in high-voltage insulator strings from aerial images",
+    "key_results": "mAP of ~4.1% improvement over eight baseline models at IoU=0.5; robust multi-scale feature compensation network",
+    "comments": "Practical infrastructure application; RGB preprocessing is standard but multi-scale compensation provides meaningful gains over established detectors.",
     "model_io": [
       {
-        "model": "Multi-scale compensation detection network with multi-level detection heads",
+        "model": "Multi-scale compensation detection network with morphological preprocessing",
         "inputs": [
           "overhead transmission line images (RGB)"
         ],
         "outputs": [
-          "insulator defect localization (bounding boxes)",
-          "defect class labels (flashover, physical damage, etc.)"
+          "insulator defect localization and classification"
         ]
       }
     ],
     "hypotheses": [
       {
-        "hypothesis": "Multi-level detection heads compensate for missing high- and low-frequency information to improve defect recognition",
-        "result": "Confirmed; method achieves superior mAP compared to mainstream detectors"
+        "hypothesis": "Multi-level detection heads can compensate for missing high- and low-frequency information",
+        "result": "Demonstrated via superior mAP compared to mainstream object detectors"
       }
     ]
   }

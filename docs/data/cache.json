@@ -37931,5 +37931,28 @@
         "result": "Confirmed; method achieves superior mAP compared to mainstream detectors"
       }
     ]
+  },
+  "nature:10.1038/s41598-026-44119-x": {
+    "category": "Other",
+    "task": "Quantum-resilient trust architecture for 5G zero-trust security",
+    "key_results": "QCT-ZTA achieves 88% trust detection accuracy, three-fold decrease in unauthorized access, 35% better throughput stability vs. baselines",
+    "comments": "Integrates post-quantum cryptography and blockchain but evaluation on single dataset (5G-NIDD) limits generalizability claims.",
+    "model_io": [
+      {
+        "model": "QCT-ZTA (blockchain + post-quantum crypto)",
+        "inputs": [
+          "5G network traffic, domain interactions"
+        ],
+        "outputs": [
+          "trust scores, authentication decisions, unauthorized access flags"
+        ]
+      }
+    ],
+    "hypotheses": [
+      {
+        "hypothesis": "Quantum-resilient proof-of-trust mitigates Sybil, DoS, and poisoning attacks in 5G networks",
+        "result": "Confirmed: superior performance on trust detection, access control, and throughput stability"
+      }
+    ]
   }
 }
